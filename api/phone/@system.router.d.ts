@@ -155,5 +155,5 @@ export default class Router {
    * cancel enableAlertBeforeBackPage
    * @param options Options.
    */
-  static enableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;
+  static disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;
 }
