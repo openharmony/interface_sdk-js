@@ -13,5 +13,20 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface GridItem extends CommonMethod<GridItem> {
+  (): GridItem;
+
+  rowStart(value: number): GridItem;
+
+  rowEnd(value: number): GridItem;
+
+  columnStart(value: number): GridItem;
+
+  columnEnd(value: number): GridItem;
+
+  forceRebuild(value: boolean): GridItem;
+}
+
+export declare const GridItemInterface: GridItem;

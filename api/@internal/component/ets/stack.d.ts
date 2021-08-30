@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Alignment} from "./common";
+
+interface Stack extends CommonMethod<Stack> {
+  (value?: { alignContent?: Alignment }): Stack;
+
+  alignContent(value: Alignment): Stack;
+}
+
+export declare const StackInterface: Stack;

@@ -13,5 +13,13 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonShapeMethod} from "./common";
+
+interface Path extends CommonShapeMethod<Path> {
+  new (value?: { width?: number | string, height?: number | string, commands?: string }): Path;
+  (value?: { width?: number | string, height?: number | string, commands?: string }): Path;
+
+  commands(value: string): Path;
+}
+
+export declare const PathInterface: Path;

@@ -13,5 +13,11 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonShapeMethod} from "./common";
+
+interface Circle extends CommonShapeMethod<Circle> {
+  new (value?: { width?: string | number, height?: string | number }): Circle;
+  (value?: { width?: string | number, height?: string | number }): Circle;
+}
+
+export declare const CircleInterface: Circle;

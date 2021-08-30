@@ -13,5 +13,9 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+interface ForEach {
+  (arr: Array<any>, itemGenerator: (item: any, index?: number) => void,
+   keyGenerator?: (item: any, index?: number) => string): ForEach;
+}
+
+export declare const ForEachInterface: ForEach;

@@ -14,11 +14,11 @@
  */
 
 export declare class console {
-  static debug(message: string): void;
-  static log(message: string): void;
-  static info(message: string): void;
-  static warn(message: string): void;
-  static error(message: string): void;
+  static debug(message: string, ...arguments: any[]): void;
+  static log(message: string, ...arguments: any[]): void;
+  static info(message: string, ...arguments: any[]): void;
+  static warn(message: string, ...arguments: any[]): void;
+  static error(message: string, ...arguments: any[]): void;
 }
 export interface Result {
   code: number;

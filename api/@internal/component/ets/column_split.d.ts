@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface ColumnSplit extends CommonMethod<ColumnSplit> {
+  (): ColumnSplit;
+
+  resizeable(value: boolean): ColumnSplit;
+}
+
+export declare const ColumnSplitInterface: ColumnSplit;

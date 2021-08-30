@@ -13,5 +13,19 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Color} from "./common";
+
+export declare enum ToggleType {
+  Checkbox,
+  Switch,
+  Button
+}
+
+interface Toggle extends CommonMethod<Toggle> {
+  (options?: {type?: ToggleType, isOn?: boolean}): Toggle;
+  onChange(callback: (isOn: boolean) => void): Toggle;
+  selectedColor(value: Color): Toggle;
+  swithPointStyle(color: Color): Toggle;
+}
+
+export declare const ToggleInterface: Toggle;

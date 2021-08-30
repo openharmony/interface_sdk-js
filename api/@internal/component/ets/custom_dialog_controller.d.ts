@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+export declare const CustomDialog: ClassDecorator;
+
+export declare class CustomDialogController {
+    constructor(value: { builder: any, cancel?: () => void, autoCancel?: boolean });
+    open();
+    close();
+}

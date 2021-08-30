@@ -13,5 +13,16 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface Counter extends CommonMethod<Counter> {
+  (): Counter;
+
+  onStateChange(event: () => void): Counter;
+
+  onInc(event: () => void): Counter;
+
+  onDec(event: () => void): Counter;
+}
+
+export declare const CounterInterface: Counter;

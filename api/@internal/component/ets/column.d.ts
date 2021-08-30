@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, HorizontalAlignDeclaration, HorizontalAlign} from "./common";
+
+interface Column extends CommonMethod<Column> {
+  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+
+  alignItems(value: HorizontalAlign): Column;
+}
+
+export declare const ColumnInterface: Column;

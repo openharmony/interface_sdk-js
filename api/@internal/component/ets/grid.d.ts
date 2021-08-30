@@ -13,5 +13,27 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, BarState, Color} from "./common";
+import {Scroller} from "./scroll";
+
+interface Grid extends CommonMethod<Grid> {
+  (scroller?: Scroller): Grid;
+
+  columnsTemplate(value: string): Grid;
+
+  rowsTemplate(value: string): Grid;
+
+  columnsGap(value: number | string): Grid;
+
+  rowsGap(value: number | string): Grid;
+
+  scrollBarWidth(value: number | string): Grid;
+
+  scrollBarColor(value: Color | number | string): Grid;
+
+  scrollBar(value: BarState): Grid;
+
+  onScrollIndex(event: (first: number) => void): Grid;
+}
+
+export declare const GridInterface: Grid;

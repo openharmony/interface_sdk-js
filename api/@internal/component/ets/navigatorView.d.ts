@@ -13,5 +13,10 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface NavigationView extends CommonMethod<NavigationView> {
+  (): NavigationView;
+}
+
+export declare const NavigationViewInterface: NavigationView;

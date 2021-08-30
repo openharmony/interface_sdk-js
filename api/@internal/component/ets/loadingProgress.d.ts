@@ -13,5 +13,17 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Color, Resource} from "./common";
+
+export declare enum LoadingProgressStyle{
+  Default,
+  Circular,
+  Orbital,
+}
+
+interface LoadingProgress extends CommonMethod<LoadingProgress> {
+  (): LoadingProgress;
+  color(value: Color | Resource): LoadingProgress;
+}
+
+export declare const LoadingProgressInterface: LoadingProgress;
