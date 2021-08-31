@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2020 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,10 +14,33 @@
  */
 
 export interface LocaleResponse {
+  /**
+   * Current language of the application. Example: zh.
+   * @since 3
+   */
   language: string;
+
+  /**
+   * Country or region. Example: CN.
+   * @since 3
+   */
   countryOrRegion: string;
+
+  /**
+   * Text layout direction. Available values are as follows:
+   * ltr: The text direction is from left to right.
+   * rtl: The text direction is from right to left.
+   * @since 3
+   */
   dir: "ltr" | "rtl";
 }
+
+/**
+ * @Syscap SysCap.ACE.UIEngine
+ */
 export default class Configuration {
+  /**
+   * Obtains the current locale of the application, which is the same as the system locale.
+   */
   static getLocale(): LocaleResponse;
 }
