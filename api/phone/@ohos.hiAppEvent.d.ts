@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './phone/basic';
+import { AsyncCallback } from './basic';
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
