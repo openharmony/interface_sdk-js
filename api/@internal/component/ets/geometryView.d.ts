@@ -13,5 +13,10 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface GeometryView extends CommonMethod<GeometryView> {
+  (callback: (geometry?: any) => void): GeometryView;
+}
+
+export declare const GeometryViewInterface: GeometryView;

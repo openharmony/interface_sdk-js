@@ -13,5 +13,25 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {Column} from "./column";
+
+export declare enum SizeType {
+  Auto,
+  XS,
+  SM,
+  MD,
+  LG
+}
+
+interface GridContainer extends Column {
+  (
+    value?: {
+      columns?: number | 'auto',
+      sizeType?: SizeType,
+      gutter?: number | string,
+      margin?: number | string
+    }
+  ): GridContainer;
+}
+
+export declare const GridContainerInterface: GridContainer;

@@ -13,5 +13,13 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, FlexDirection, FlexWrap, FlexAlign, ItemAlign} from "./common";
+
+interface Flex extends CommonMethod<Flex> {
+  (value?: {
+    direction?: FlexDirection, wrap?: FlexWrap, justifyContent?: FlexAlign,
+    alignItems?: ItemAlign, alignContent?: FlexAlign
+  }): Flex;
+}
+
+export declare const FlexInterface: Flex;

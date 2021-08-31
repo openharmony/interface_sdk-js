@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface TabContent extends CommonMethod<TabContent> {
+  (): TabContent;
+
+  tabBar(value: string | { icon?: string, text?: string }): TabContent;
+}
+
+export declare const TabContentInterface: TabContent;

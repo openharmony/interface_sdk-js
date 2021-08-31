@@ -13,5 +13,17 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+export declare enum DevicePosition {
+  Front,
+  Back
+}
+
+interface Camera extends CommonMethod<Camera> {
+  (value: { id: string, resolutionWidth: number, resolutionHeight: number }): Camera;
+
+  devicePosition(value: DevicePosition): Camera;
+}
+
+export declare const CameraInterface: Camera;

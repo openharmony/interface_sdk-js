@@ -13,5 +13,4 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
 export * from './global';

@@ -13,5 +13,14 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+interface Rating extends CommonMethod<Rating> {
+  (options?: {rating: number, indicator?: boolean}): Rating;
+  stars(value: number): Rating;
+  stepSize(value: number): Rating;
+  starStyle(value: {backgroundUri: string, foregroundUri: string, secondaryUri?: string}): Rating;
+  onChange(callback:(value: number) => void): Rating;
+}
+
+export declare const RatingInterface: Rating;

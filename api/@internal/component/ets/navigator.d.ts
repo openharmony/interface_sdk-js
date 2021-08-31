@@ -13,5 +13,26 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+export declare enum NavigationType {
+  Push,
+  Back,
+  Replace
+}
+
+interface Navigator extends CommonMethod<Navigator> {
+  (value?: { target: string, type?: NavigationType }): Navigator;
+
+  (): Navigator;
+
+  active(value: boolean): Navigator;
+
+  type(value: NavigationType): Navigator;
+
+  target(value: string): Navigator;
+
+  params(value: object): Navigator;
+}
+
+export declare const NavigatorInterface: Navigator;

@@ -13,5 +13,20 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod} from "./common";
+
+export declare enum Sticky {
+  None,
+  Normal,
+  Opacity,
+}
+
+interface ListItem extends CommonMethod<ListItem> {
+  (value?: string): ListItem;
+
+  sticky(value: Sticky): ListItem;
+
+  editable(value: boolean): ListItem;
+}
+
+export declare const ListItemInterface: ListItem;

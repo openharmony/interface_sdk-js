@@ -13,5 +13,18 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Color, LineCapStyle, Resource} from "./common";
+
+interface Divider extends CommonMethod<Divider> {
+  (): Divider;
+
+  vertical(value: boolean): Divider;
+
+  color(value: Color | number | string | Resource): Divider;
+
+  strokeWidth(value: number | string): Divider;
+
+  lineCap(value: LineCapStyle): Divider;
+}
+
+export declare const DividerInterface: Divider;

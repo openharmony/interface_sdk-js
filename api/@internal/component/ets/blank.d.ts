@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Color, Resource} from "./common"
+
+interface Blank extends CommonMethod<Blank> {
+  (min?: number | string): Blank;
+
+  color(value: Color | number | string | Resource): Blank;
+}
+
+export declare const BlankInterface: Blank

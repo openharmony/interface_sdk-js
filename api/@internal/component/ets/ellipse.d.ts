@@ -13,5 +13,11 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonShapeMethod} from "./common";
+
+interface Ellipse extends CommonShapeMethod<Ellipse> {
+  new (value?: { width?: string | number, height?: string | number }): Ellipse;
+  (value?: { width?: string | number, height?: string | number }): Ellipse;
+}
+
+export declare const EllipseInterface: Ellipse;

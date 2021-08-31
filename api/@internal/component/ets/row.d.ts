@@ -13,5 +13,12 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, VerticalAlign, VerticalAlignDeclaration} from "./common";
+
+interface Row extends CommonMethod<Row> {
+  (value?: { space?: string | number, useAlign?: VerticalAlignDeclaration }): Row;
+
+  alignItems(value: VerticalAlign): Row;
+}
+
+export declare const RowInterface: Row;

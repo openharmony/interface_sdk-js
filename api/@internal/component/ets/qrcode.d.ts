@@ -13,5 +13,13 @@
  * limitations under the License.
  */
 
-export * from './globaljs';
-export * from './global';
+import {CommonMethod, Color, Resource} from "./common";
+
+interface QRCode extends CommonMethod<QRCode> {
+  (value: string): QRCode;
+
+  color(value: Color | number | string | Resource): QRCode;
+  backgroundColor(value: Color | number | string | Resource): QRCode;
+}
+
+export declare const QRCodeInterface: QRCode;
