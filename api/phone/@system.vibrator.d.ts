@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2020 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,16 +13,22 @@
  * limitations under the License.
  */
 
-export interface MediaQueryEvent {
-  matches: boolean;
+export interface VibrateOptions {
+  /**
+   * Vibration mode. The value long indicates long vibration, and short indicates short vibration.
+   * The default value is long.
+   * @since 3
+   */
+  mode?: "long" | "short";
 }
-export interface MediaQueryList {
-  media?: string;
-  matches?: boolean;
-  onchange?: (matches: boolean) => void;
-  addListener(callback: (event: MediaQueryEvent) => void): void;
-  removeListener(callback: (event: MediaQueryEvent) => void): void;
-}
-export default class MediaQuery {
-  static matchMedia(condition: string): MediaQueryList;
+
+/**
+ * @Syscap SysCap.ACE.UIEngine
+ */
+export default class Vibrator {
+  /**
+   * Triggers vibration.
+   * @param options Options.
+   */
+  static vibrate(options?: VibrateOptions): void;
 }

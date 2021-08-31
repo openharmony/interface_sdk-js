@@ -120,10 +120,50 @@ ohos_copy("common_api") {
   module_install_name = ""
 }
 
+template("ohos_declaration_template") {
+  forward_variables_from(invoker, "*")
+  action_with_pydeps(target_name) {
+    script = "//interface/sdk-js/remove_internal.py"
+    outputs = [ root_out_dir + "/$target_name/" ]
+    args = [
+      "--input",
+      rebase_path("//interface/sdk-js/api", root_build_dir),
+      "--output",
+      rebase_path(root_out_dir + "/ohos_declaration/$target_name/",
+                  root_build_dir),
+    ]
+  }
+  _module_info_target = "/ohos_declaration/${target_name}_info"
+  _target_name = target_name
+  generate_module_info(_module_info_target) {
+    module_type = "jsdoc"
+    module_install_name = ""
+    module_name = _target_name
+    module_source_dir = root_out_dir + "/ohos_declaration/$_target_name"
+    install_enable = false
+  }
+}
+
+ohos_declaration_template("ohos_declaration_ets") {
+}
+ohos_declaration_template("ohos_declaration_phone") {
+}
+
 ohos_copy("ace_platform") {
   sources = [
     "api/config",
     "api/phone",
+  ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("form_declaration") {
+  sources = [
+    "api/form/action",
+    "api/form/css",
+    "api/form/hml",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"

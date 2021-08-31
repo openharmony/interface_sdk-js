@@ -27,6 +27,12 @@ export interface ShowToastOptions {
    * @since 3
    */
   duration?: number;
+
+  /**
+   * The distance between toast dialog box and the bottom of screen.
+   * @since 5
+   */
+  bottom?: string | number;
 }
 
 export interface Button {

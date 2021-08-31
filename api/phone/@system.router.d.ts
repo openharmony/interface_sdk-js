@@ -33,13 +33,7 @@ export interface RouterOptions {
    */
   params?: Object;
 }
-export interface BackRouterOptions {
-  /**
-   * Returns to the page of the specified path. If the page with the specified path does not exist in the page stack, router.back() is called by default.
-   * @since 6
-   */
-  uri?: string;
-}
+
 export interface RouterState {
   /**
    * Index of the current page in the stack.NOTE:The index starts from 1 from the bottom to the top of the stack.
@@ -125,8 +119,16 @@ export default class Router {
   /**
    * Returns to the previous page or a specified page.
    * @param obj
+   * @since 7
    */
-  static back(obj?: BackRouterOptions): void;
+  static back(options?: RouterOptions): void;
+
+  /**
+   * Obtains information about the current page params.
+   * @returns Page params.
+   * @since 7
+   */
+  static getParams(): Object;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
