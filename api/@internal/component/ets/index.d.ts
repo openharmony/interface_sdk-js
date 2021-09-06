@@ -64,6 +64,7 @@ export * from './swiper';
 export * from './tab_content';
 export * from './tabs';
 export * from './text';
+export * from './textPicker';
 export * from './toggle';
 export * from './video';
 export * from './progress';
