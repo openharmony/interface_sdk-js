@@ -12,24 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Want } from './want';
 
-/**
- * @name InstallResult
- * @since 6
- * @SysCap appexecfwk
- * @import NA
- * @permission NA
- * @devices phone
- * @testapi
- */
-export interface InstallResult {
-    /**
-     * The install result string message.
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap BMS
-     */
-     installResultMsg: string;
+export interface AbilityResult {
+  /**
+   * Indicates the result code returned after the ability is destroyed. You can define the result
+   * code to identify an error.
+   * @default -
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   */
+  resultCode: number;
+
+  /**
+   * Indicates the data returned after the ability is destroyed. You can define the data returned.
+   * This parameter can be null.
+   * @default -
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   */
+  want?: Want;
 }

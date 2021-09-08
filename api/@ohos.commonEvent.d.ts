@@ -13,43 +13,35 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { CommonEventData } from './commonevent/commoneventdata';
-import { CommonEventSubscriber } from './commonevent/commoneventsubscriber';
-import { CommonEventSubscribeInfo } from './commonevent/commoneventsubscribeinfo';
-import { CommonEventPublishData } from './commonevent/commoneventpublishdata';
+import { CommonEventData } from './commonEvent/commonEventData';
+import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber'
+import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
+import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
  * the defination for commonevent
  * @name commonEvent
- * @since 6
- * @sysCap ces
- * @devices phone, tablet
+ * @since 7
  * @permission N/A
  */
 declare namespace commonEvent {
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param data Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param data Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -57,63 +49,48 @@ declare namespace commonEvent {
   /**
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param subscribeInfo Indicate the information of the subscriber.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void;
 
   /**
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param subscribeInfo Indicate the information of the subscriber.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
    * subscribe an ordered, sticky, or standard common event.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
    * unsubscribe an ordered, sticky, or standard common event.
    *
-   * @devices phone
-   * @since 6
-   * @SysCap ces
+   * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
    * @return -
-   * @testapi
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
    * the event type that the commonEvent supported
    * @name Support
-   * @since 6
-   * @sysCap ces
-   * @devices phone
+   * @since 7
    * @permission N/A
-   * @testapi
    */
   export enum Support {
     /**
@@ -966,7 +943,7 @@ declare namespace commonEvent {
     /**
      * Only for test case.
      */
-    COMMON_EVENT_TEST_ACTION2 = "usual.event.test2",
+    COMMON_EVENT_TEST_ACTION2 = "usual.event.test2"
   }
 }
 
