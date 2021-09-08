@@ -16,28 +16,21 @@
 /**
  * the data of the commonEvent
  * @name CommonEventData
- * @since 6
- * @sysCap ces
- * @devices phone
+ * @since 7
  * @permission N/A
- * @testapi
  */
 export interface CommonEventData {
   /**
    * event type
    * @default -
-   * @devices phone, tablet
-   * @since 6
-   * @sysCap AAFwk
+   * @since 7
    */
   event: string
 
   /**
    * bundle name
    * @default -
-   * @devices phone, tablet
-   * @since 6
-   * @sysCap AAFwk
+   * @since 7
    */
   bundleName?: string;
 
@@ -45,9 +38,7 @@ export interface CommonEventData {
    * The custom result code of the common event.
    *
    * @default 0
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   code?: number;
 
@@ -55,9 +46,7 @@ export interface CommonEventData {
    * The custom result data of the common event.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   data?: string;
 }

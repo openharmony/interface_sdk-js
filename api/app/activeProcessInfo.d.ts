@@ -13,46 +13,40 @@
  * limitations under the License.
  */
 
-import { AppProcessState } from "./appprocessstate"
-
 /**
  * @name This class saves process information about an application
- * @since 6
- * @SysCap appexecfwk
- * @import N/A
+ * @since 7
+ * @SysCap SystemCapability.Appexecfwk
+ * @import import app from 'app/activeProcessInfo'
  * @permission N/A
- * @devices phone
- * @testapi
+ * @devices phone, tablet, tv, wearable
  */
-
- export interface ProcessInfo {
+export interface ActiveProcessInfo {
     /**
-     * The name of the current process
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap appexecfwk
+     * @default process id
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
      */
-     processName: string;
+    pid: number;
 
     /**
-     * The id of the current process
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap appexecfwk
+     * @default user id
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
      */
-     pid: number;
+    uid: number;
 
     /**
-     * Obtains the state of the current applicaiton process
-     *
-     * @default -
-     * @devices phone, tablet
-     * @since 6
-     * @SysCap appexecfwk
+     * @default the name of the process
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
      */
-     appProcessState: AppProcessState;
+    processName: string;
+
+    /**
+     * @default an array of the bundleNames running in the process
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    bundleNames: Array<string>;
 }

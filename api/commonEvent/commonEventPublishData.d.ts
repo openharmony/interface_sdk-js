@@ -16,19 +16,14 @@
 /**
  * containing the common event content and attributes
  * @name CommonEventPublishData
- * @since 6
- * @sysCap ces
- * @devices phone
+ * @since 7
  * @permission N/A
- * @testapi
  */
 export interface CommonEventPublishData {
   /**
    * bundle name
    * @default -
-   * @devices phone, tablet
-   * @since 6
-   * @sysCap AAFwk
+   * @since 7
    */
   bundleName?: string;
 
@@ -36,9 +31,7 @@ export interface CommonEventPublishData {
    * The custom result code of the common event.
    *
    * @default 0
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   code?: number;
 
@@ -46,9 +39,7 @@ export interface CommonEventPublishData {
    * The custom result data of the common event.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   data?: string;
 
@@ -56,9 +47,7 @@ export interface CommonEventPublishData {
    * The permissions for subscribers. Only subscribers with required permissions can receive published common events.
    *
    * @default -
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   subscriberPermissions?: Array<string>;
 
@@ -66,9 +55,7 @@ export interface CommonEventPublishData {
    * Whether the type of a common event is ordered or not.
    *
    * @default false
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   isOrdered?: boolean;
 
@@ -76,9 +63,7 @@ export interface CommonEventPublishData {
    * Whether the type of a common event is sticky or not.
    *
    * @default false
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   isSticky?: boolean;
 }
