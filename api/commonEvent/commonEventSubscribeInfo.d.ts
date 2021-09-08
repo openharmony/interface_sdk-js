@@ -16,11 +16,8 @@
 /**
  * the information of the subscriber
  * @name CommonEventSubscribeInfo
- * @since 6
- * @sysCap ces
- * @devices phone
+ * @since 7
  * @permission N/A
- * @testapi
  */
 export interface CommonEventSubscribeInfo {
   /**
@@ -28,9 +25,7 @@ export interface CommonEventSubscribeInfo {
    * This subscriber receives only common events sent by publishers granted with this permission.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   events: Array<string>
 
@@ -39,9 +34,7 @@ export interface CommonEventSubscribeInfo {
    * This subscriber receives only common events sent by publishers granted with this permission.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   publisherPermission?: string;
 
@@ -49,9 +42,7 @@ export interface CommonEventSubscribeInfo {
    * deviceId Indicates the device ID. The value must be an existing device ID on the same ohos network.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   publisherDeviceId?: string;
 
@@ -60,9 +51,7 @@ export interface CommonEventSubscribeInfo {
   * current user. If this parameter is specified, the value must be an existing user ID in the system.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   userId?: number;
 
@@ -70,9 +59,7 @@ export interface CommonEventSubscribeInfo {
    * Indicates the subscriber priority. The value ranges from -100 to 1000.
    *
    * @default ""
-   * @devices phone, tablet
-   * @since 6
-   * @SysCap ces
+   * @since 7
    */
   priority?: number;
 }
