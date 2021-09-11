@@ -37,15 +37,14 @@ declare namespace process {
         /**
         * send a signal to process
         */
-        kill(signo: number): void;
+        kill(signal: number | string): void;
     }
+    type EventListener = (evt: Object) => void;
     /**
     * spawns a new ChildProcess to run the command
     */
-    function runCmd(command: string, options?: RunOptions): ChildProcess;
-
-    function getPid(): number;
-    function getPpid(): number;
+    function runCmd(command: string,
+        options?: { timeout : number, killSignal : number | string, maxBuffer : number }): ChildProcess;
 
     /**
     *abort current process
@@ -54,28 +53,31 @@ declare namespace process {
     function abort(): void;
 
     function on(type: string, listener: EventListener): void;
-    function exit(code:number): void;
-
+    function off(type: string): boolean;
+    function exit(code: number): void;
     /**
     *get current work directory;
     */
     function cwd(): string;
-    
+
     /**
     *change current  directory
     *@param dir
     */
     function chdir(dir: string): void;
 
-    function getEgid(): number;
-    function getEuid(): number;
-
-    function getGid(): number;
-    function getUid(): number;
     function uptime(): number;
-
-    function getGroups(): number[];
+    /**
+     * send some signal to target process
+     */
     function kill(signal: number, pid: number): boolean;
-    function off(type: string): boolean;
+
+    readonly getEgid: number;
+    readonly getEuid: number;
+    readonly getGid: number;
+    readonly getUid: number;
+    readonly getGroups: number[];
+    readonly getPid: number;
+    readonly getPpid: number;
 }
 export default process;
