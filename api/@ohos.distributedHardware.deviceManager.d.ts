@@ -227,6 +227,56 @@ declare namespace deviceManager {
   }
 
   /**
+   * Device Authentication param
+   *
+   * @systemapi this method can be used only by system applications
+   */
+  interface AuthParam {
+    /**
+     * Authentication type, 1 for pin code.
+     */
+    authType: number;
+
+    /**
+     * App application Icon.
+     */
+    appIcon?: Uint8Array;
+
+    /**
+     * App application thumbnail.
+     */
+    appThumbnail?: Uint8Array; 
+
+    /**
+     * Authentication extra infos.
+     */
+    extraInfo: {[key:string] : any};
+
+  }
+
+  /**
+   * Device auth info.
+   *
+   * @systemapi this method can be used only by system applications
+   */
+  interface AuthInfo {
+    /**
+     * Authentication type, 1 for pin code.
+     */
+    authType: number;
+
+    /**
+     * the token used for this authentication.
+     */
+    token: number;
+    
+    /**
+     * Authentication extra infos.
+     */
+    extraInfo: {[key:string] : any};
+  }
+
+  /**
    * Creates a {@code DeviceManager} instance.
    *
    * <p>To manage devices, you must first call this method to obtain a {@code DeviceManager} instance and then
@@ -275,13 +325,24 @@ declare namespace deviceManager {
     stopDeviceDiscovery(subscribeId: number): void;
 
     /**
-     * authenticate the specified device.
+     * Authenticate the specified device.
      *
-     * @param bundleName Indicates the bundle name of the application.
      * @param deviceInfo deviceInfo of device to authenticate
+     * @param authparam authparam of device to authenticate
+     * @param callback Indicates the callback to be invoked upon authenticateDevice
      * @systemapi this method can be used only by system applications.
-     */
-    authenticateDevice(deviceInfo: DeviceInfo): void;
+     */   
+    authenticateDevice(deviceInfo: DeviceInfo, authparam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
+    
+     /**
+     * verify auth info, such as pin code.
+     *
+     * @param authInfo device auth info o verify
+     * @param callback Indicates the callback to be invoked upon verifyAuthInfo
+     * @systemapi this method can be used only by system applications.
+     */   
+    verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
+
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
@@ -331,22 +392,6 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
-
-    /**
-     * Register a device auth result callback so that the application can be notified when the device was found
-     *
-     * @param callback Indicates the device auth result callback to register.
-     * @systemapi this method can be used only by system applications.
-     */
-    on(type: 'authResult', callback: Callback<{ deviceId: string, status: number, reason: number }>): void;
-
-    /**
-     * UnRegister a device auth result callback so that the application can be notified when the device was found
-     *
-     * @param callback Indicates the device auth result callback to register.
-     * @systemapi this method can be used only by system applications.
-     */
-    off(type: 'authResult', callback?: Callback<{ deviceId: string, status: number, reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
