@@ -221,9 +221,14 @@ declare namespace deviceManager {
    */
   enum SubscribeCap {
     /**
-     * ddmpCapability
+     * ddmpCapability, will be discarded later. Currently, it will be converted to OSD capability inner.
      */
-    SUBSCRIBE_CAPABILITY_DDMP = 0
+    SUBSCRIBE_CAPABILITY_DDMP = 0,
+
+    /**
+     * One Super Device Capability
+     */
+    SUBSCRIBE_CAPABILITY_OSD = 1
   }
 
   /**
@@ -245,13 +250,12 @@ declare namespace deviceManager {
     /**
      * App application thumbnail.
      */
-    appThumbnail?: Uint8Array; 
+    appThumbnail?: Uint8Array;
 
     /**
      * Authentication extra infos.
      */
     extraInfo: {[key:string] : any};
-
   }
 
   /**
@@ -309,7 +313,6 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
-     * @param bundleName Indicates the bundle name of the application.
      * @param subscribeInfo subscribe info to discovery device
      * @systemapi this method can be used only by system applications.
      */
@@ -318,7 +321,6 @@ declare namespace deviceManager {
     /**
      * Stop to discover device.
      *
-     * @param bundleName Indicates the bundle name of the application.
      * @param subscribeId Service subscribe ID
      * @systemapi this method can be used only by system applications.
      */
@@ -331,16 +333,16 @@ declare namespace deviceManager {
      * @param authparam authparam of device to authenticate
      * @param callback Indicates the callback to be invoked upon authenticateDevice
      * @systemapi this method can be used only by system applications.
-     */   
-    authenticateDevice(deviceInfo: DeviceInfo, authparam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
-    
+     */
+    authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
+
      /**
      * verify auth info, such as pin code.
      *
      * @param authInfo device auth info o verify
      * @param callback Indicates the callback to be invoked upon verifyAuthInfo
      * @systemapi this method can be used only by system applications.
-     */   
+     */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
 
 
