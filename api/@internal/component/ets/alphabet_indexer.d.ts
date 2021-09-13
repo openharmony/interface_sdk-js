@@ -17,36 +17,41 @@ import {CommonMethod, Color, Resource} from "./common";
 import {FontWeight, FontStyle} from "./text";
 
 export declare enum IndexerAlign {
-    Left,
-    Right
+  Left,
+  Right
 }
 
-interface AlphabetIndexer extends CommonMethod<AlphabetIndexer> {
+export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {
+}
+
+interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
   (value: {ArrayValue : Array<string>, selected : number}): AlphabetIndexer;
+}
 
-  onSelected(event: (index: number) => void): AlphabetIndexer;
+declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
+  onSelected(event: (index: number) => void): T;
 
-  color(value: Color | number | string | Resource): AlphabetIndexer;
+  color(value: Color | number | string | Resource): T;
 
-  selectedColor(value: Color | number | string | Resource): AlphabetIndexer;
+  selectedColor(value: Color | number | string | Resource): T;
 
-  popupColor(value: Color | number | string | Resource): AlphabetIndexer;
+  popupColor(value: Color | number | string | Resource): T;
 
-  selectedBackgroundColor(value: Color | number | string | Resource): AlphabetIndexer;
+  selectedBackgroundColor(value: Color | number | string | Resource): T;
 
-  popupBackground(value: Color | number | string | Resource): AlphabetIndexer;
+  popupBackground(value: Color | number | string | Resource): T;
 
-  usingPopup(value: boolean): AlphabetIndexer;
+  usingPopup(value: boolean): T;
 
-  selectedFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): AlphabetIndexer;
+  selectedFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
 
-  popupFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): AlphabetIndexer;
+  popupFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
 
-  iteamSize(value: string | number): AlphabetIndexer;
+  itemSize(value: string | number): T;
 
-  font(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): AlphabetIndexer;
+  font(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
 
-  alignStyle(value: IndexerAlign): AlphabetIndexer;
+  alignStyle(value: IndexerAlign): T;
 }
 
 export declare const AlphabetIndexerInterface: AlphabetIndexer;

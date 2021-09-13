@@ -25,29 +25,34 @@ declare class VideoController {
   exitFullscreen();
 }
 
-interface Video extends CommonMethod<Video> {
+export declare class VideoExtend<T> extends VideoAttribute<T> {
+}
+
+interface Video extends VideoAttribute<Video> {
   (value: {
     src?: string,
     currentProgressRate?: number | string,
     previewUri?: string,
     controller?: VideoController
   }): Video;
+}
 
-  muted(value: boolean): Video;
-  autoPlay(value: boolean): Video;
-  controls(value: boolean): Video;
-  loop(value: boolean): Video;
-  objectFit(value: ImageFit): Video;
+declare class VideoAttribute<T> extends CommonMethod<T> {
+  muted(value: boolean): T;
+  autoPlay(value: boolean): T;
+  controls(value: boolean): T;
+  loop(value: boolean): T;
+  objectFit(value: ImageFit): T;
 
-  onStart(event: () => void): Video;
-  onPause(event: () => void): Video;
-  onFinish(event: () => void): Video;
-  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): Video;
-  onPrepared(callback: (event?: { duration: number }) => void): Video;
-  onSeeking(callback: (event?: { time: number }) => void): Video;
-  onSeeked(callback: (event?: { time: number }) => void): Video;
-  onUpdate(callback: (event?: { time: number }) => void): Video;
-  onError(event: () => void): Video;
+  onStart(event: () => void): T;
+  onPause(event: () => void): T;
+  onFinish(event: () => void): T;
+  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): T;
+  onPrepared(callback: (event?: { duration: number }) => void): T;
+  onSeeking(callback: (event?: { time: number }) => void): T;
+  onSeeked(callback: (event?: { time: number }) => void): T;
+  onUpdate(callback: (event?: { time: number }) => void): T;
+  onError(event: () => void): T;
 }
 
 export declare const VideoInterface: Video;

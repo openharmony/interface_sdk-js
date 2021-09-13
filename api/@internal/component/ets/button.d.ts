@@ -23,22 +23,27 @@ export declare enum ButtonType {
   Normal
 }
 
-interface Button extends CommonMethod<Button> {
+export declare class ButtonExtend<T> extends ButtonAttribute<T> {
+}
+
+interface Button extends ButtonAttribute<Button> {
   (): Button;
 
   (options: { type?: ButtonType, stateEffect?: boolean }): Button;
 
   (label: string, options?: { type?: ButtonType, stateEffect?: boolean }): Button;
+}
 
-  type(value: ButtonType): Button;
+declare class ButtonAttribute<T> extends CommonMethod<T> {
+  type(value: ButtonType): T;
 
-  stateEffect(value: boolean): Button;
+  stateEffect(value: boolean): T;
 
-  fontColor(value: Color | number | string | Resource): Button;
+  fontColor(value: Color | number | string | Resource): T;
 
-  fontSize(value: number | string | Resource): Button;
+  fontSize(value: number | string | Resource): T;
 
-  fontWeight(value: number | FontWeight | string): Button;
+  fontWeight(value: number | FontWeight | string): T;
 }
 
 export declare const ButtonInterface: Button

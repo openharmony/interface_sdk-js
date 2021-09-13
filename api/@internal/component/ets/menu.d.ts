@@ -13,17 +13,23 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod, Resource } from "./common";
 
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {
+export declare enum MenuType {
+  Click,
+  LongPress
 }
 
-interface TabContent extends TabContentAttribute<TabContent> {
-  (): TabContent;
+export declare class MenuExtend<T> extends MenuAttribute<T> {
 }
 
-declare class TabContentAttribute<T> extends CommonMethod<T> {
-  tabBar(value: string | { icon?: string, text?: string }): T;
+interface Menu extends MenuAttribute<Menu> {
+  (options?: {type?: MenuType, title?: string | Resource}): Menu;
 }
 
-export declare const TabContentInterface: TabContent;
+declare class MenuAttribute<T> extends CommonMethod<T> {
+  show(value: boolean): T;
+  showPosition(options: {x: number, y: number}): T;
+}
+
+export declare const MenuInterface: Menu;

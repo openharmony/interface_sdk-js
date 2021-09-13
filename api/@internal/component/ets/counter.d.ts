@@ -15,14 +15,19 @@
 
 import {CommonMethod} from "./common";
 
-interface Counter extends CommonMethod<Counter> {
+export declare class CounterExtend<T> extends CounterAttribute<T> {
+}
+
+interface Counter extends CounterAttribute<Counter> {
   (): Counter;
+}
 
-  onStateChange(event: () => void): Counter;
+declare class CounterAttribute<T> extends CommonMethod<T> {
+  onStateChange(event: () => void): T;
 
-  onInc(event: () => void): Counter;
+  onInc(event: () => void): T;
 
-  onDec(event: () => void): Counter;
+  onDec(event: () => void): T;
 }
 
 export declare const CounterInterface: Counter;

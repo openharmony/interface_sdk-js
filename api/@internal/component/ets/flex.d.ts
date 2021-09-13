@@ -15,11 +15,17 @@
 
 import {CommonMethod, FlexDirection, FlexWrap, FlexAlign, ItemAlign} from "./common";
 
-interface Flex extends CommonMethod<Flex> {
+export declare class FlexExtend<T> extends FlexAttribute<T> {
+}
+
+interface Flex extends FlexAttribute<Flex> {
   (value?: {
     direction?: FlexDirection, wrap?: FlexWrap, justifyContent?: FlexAlign,
     alignItems?: ItemAlign, alignContent?: FlexAlign
   }): Flex;
+}
+
+declare class FlexAttribute<T> extends CommonMethod<T> {
 }
 
 export declare const FlexInterface: Flex;

@@ -20,9 +20,15 @@ export declare enum IconPosition {
   End
 }
 
-interface Piece extends CommonMethod<Piece> {
+export declare class PieceExtend<T> extends PieceAttribute<T> {
+}
+
+interface Piece extends PieceAttribute<Piece> {
   (options?: {content: string, icon?: string}): Piece;
-  iconPosition(value: IconPosition): Piece;
+}
+
+declare class PieceAttribute<T> extends CommonMethod<T> {
+  iconPosition(value: IconPosition): T;
 }
 
 export declare const PieceInterface: Piece;

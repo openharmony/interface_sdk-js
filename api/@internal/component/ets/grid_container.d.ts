@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {Column} from "./column";
+import {ColumnAttribute} from "./column";
 
 export declare enum SizeType {
   Auto,
@@ -23,7 +23,10 @@ export declare enum SizeType {
   LG
 }
 
-interface GridContainer extends Column {
+export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {
+}
+
+interface GridContainer extends GridContainerAttribute<GridContainer> {
   (
     value?: {
       columns?: number | 'auto',
@@ -32,6 +35,9 @@ interface GridContainer extends Column {
       margin?: number | string
     }
   ): GridContainer;
+}
+
+declare class GridContainerAttribute<T> extends ColumnAttribute<T> {
 }
 
 export declare const GridContainerInterface: GridContainer;

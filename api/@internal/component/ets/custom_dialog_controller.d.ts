@@ -13,12 +13,16 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-
-export declare const CustomDialog: ClassDecorator;
+import { DialogAlignment } from "./alert_dialog";
+import {CommonMethod, Resource} from "./common";
 
 export declare class CustomDialogController {
-    constructor(value: { builder: any, cancel?: () => void, autoCancel?: boolean });
-    open();
-    close();
+  constructor(value: {
+    builder: any, cancel?: () => void,
+    autoCancel?: boolean,
+    alignment?: DialogAlignment,
+    offset?: { dx: number | string | Resource, dy: number | string | Resource }
+  });
+  open();
+  close();
 }

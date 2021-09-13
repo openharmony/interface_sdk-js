@@ -22,24 +22,29 @@ export declare enum FormDimension {
   Dimension_4_4
 }
 
-interface FormComponent extends CommonMethod<FormComponent> {
+export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {
+}
+
+interface FormComponent extends FormComponentAttribute<FormComponent> {
   (value: {id: number, name: string, bundle: string, ability: string, module: string, dimension?: FormDimension}): FormComponent;
+}
 
-  size(value: {width: number, height: number}): FormComponent;
+declare class FormComponentAttribute<T> extends CommonMethod<T> {
+  size(value: {width: number, height: number}): T;
 
-  moduleName(value: string): FormComponent;
+  moduleName(value: string): T;
 
-  dimension(value: FormDimension): FormComponent;
+  dimension(value: FormDimension): T;
 
-  allowUpdate(value: boolean): FormComponent;
+  allowUpdate(value: boolean): T;
 
-  visibility(value: Visibility): FormComponent;
+  visibility(value: Visibility): T;
 
-  onAcquired(callback: (info: {id: number}) => void): FormComponent;
+  onAcquired(callback: (info: {id: number}) => void): T;
 
-  onError(callback: (info: {errcode: number, msg: string}) => void): FormComponent;
+  onError(callback: (info: {errcode: number, msg: string}) => void): T;
 
-  onRouter(callback: (info: any) => void): FormComponent;
+  onRouter(callback: (info: any) => void): T;
 }
 
 export declare const FormComponentInterface: FormComponent;

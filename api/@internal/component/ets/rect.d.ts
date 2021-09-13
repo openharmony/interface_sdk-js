@@ -15,7 +15,10 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Rect extends CommonShapeMethod<Rect> {
+export declare class RectExtend<T> extends RectAttribute<T> {
+}
+
+interface Rect extends RectAttribute<Rect> {
   new (value?: { width?: number | string, height?: number | string, radius?: number | string | Array<any> } |
     {
       width?: number | string, height?: number | string, radiusWidth?: number | string,
@@ -26,12 +29,14 @@ interface Rect extends CommonShapeMethod<Rect> {
       width?: number | string, height?: number | string, radiusWidth?: number | string,
       radiusHeight?: number | string
     }): Rect;
+}
 
-  radiusWidth(value: number | string): Rect;
+declare class RectAttribute<T> extends CommonShapeMethod<T> {
+  radiusWidth(value: number | string): T;
 
-  radiusHeight(value: number | string): Rect;
+  radiusHeight(value: number | string): T;
 
-  radius(value: number | string | Array<any>): Rect;
+  radius(value: number | string | Array<any>): T;
 }
 
 export declare const RectInterface: Rect;

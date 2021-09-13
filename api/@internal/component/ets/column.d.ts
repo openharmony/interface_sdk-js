@@ -15,10 +15,15 @@
 
 import {CommonMethod, HorizontalAlignDeclaration, HorizontalAlign} from "./common";
 
-interface Column extends CommonMethod<Column> {
-  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+export declare class ColumnExtend<T> extends ColumnAttribute<T> {
+}
 
-  alignItems(value: HorizontalAlign): Column;
+interface Column extends ColumnAttribute<Column> {
+  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+}
+
+export declare class ColumnAttribute<T> extends CommonMethod<T> {
+  alignItems(value: HorizontalAlign): T;
 }
 
 export declare const ColumnInterface: Column;

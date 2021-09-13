@@ -13,17 +13,17 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import {CommonMethod, Color, Resource} from "./common";
 
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {
+export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {
 }
 
-interface TabContent extends TabContentAttribute<TabContent> {
-  (): TabContent;
+interface Hyperlink extends HyperlinkAttribute<Hyperlink> {
+  (address: string | Resource, content?: string | Resource): Hyperlink;
 }
 
-declare class TabContentAttribute<T> extends CommonMethod<T> {
-  tabBar(value: string | { icon?: string, text?: string }): T;
+declare class HyperlinkAttribute<T> extends CommonMethod<T> {
+  color(value: Color | number | string | Resource): T;
 }
 
-export declare const TabContentInterface: TabContent;
+export declare const HyperlinkInterface: Hyperlink;

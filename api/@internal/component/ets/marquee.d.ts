@@ -13,18 +13,19 @@
   * limitations under the License.
   */
 
-import {CommonShapeMethod} from "./common";
+import {CommonMethod} from "./common";
 
-export declare class PolygonExtend<T> extends PolygonAttribute<T> {
+export declare class MarqueeExtend<T> extends MarqueeAttribute<T> {
 }
 
-interface Polygon extends PolygonAttribute<Polygon> {
-    (): Polygon;
-    (value?: { width?: string | number, height?: string | number }): Polygon;
+interface Marquee extends MarqueeAttribute<Marquee> {
+  (value?: {start: boolean, step?: number, loop?: number, fromStart?: boolean, src?: string}): Marquee;
 }
 
-declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
-    points(value: Array<any>): T;
+declare class MarqueeAttribute<T> extends CommonMethod<T> {
+  onStart(event: () => void): T;
+  onBounce(event: () => void): T;
+  onFinish(event: () => void): T;
 }
 
-export declare const PolygonInterface: Polygon;
+export declare const MarqueeInterface: Marquee;
