@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { Want } from './want';
+import { TaskSyncAnimationOptions } from './taskSyncAnimator'
 
 export interface StartAbilityParameter {
   /**
@@ -35,4 +36,15 @@ export interface StartAbilityParameter {
    */
   abilityStartSetting?: {[key: string]: any};
 
+  /**
+   * Indicates the special start setting used in starting ability with TaskSyncAnimation.
+   * <p>Requires Permission: {@code ohos.permission.CONTROL_TASK_SYNC_ANIMATOR}
+   *
+   * @default -
+   * @devices phone, tablet
+   * @permission ohos.permission.CONTROL_TASK_SYNC_ANIMATOR
+   * @since 7
+   * @SysCap aafwk
+   */
+  taskSyncAnimationOptions?: TaskSyncAnimationOptions;
 }
