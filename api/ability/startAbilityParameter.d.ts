@@ -12,23 +12,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Want } from './want';
 
-/**
- * @name AppProcessState
- * @since 6
- * @SysCap appexecfwk
- * @import NA
- * @permission NA
- * @devices phone
- * @testapi
- */
-export enum AppProcessState {
-    APP_STATE_BEGIN = 0,
-    APP_STATE_CREATE = APP_STATE_BEGIN,
-    APP_STATE_READY,
-    APP_STATE_FOREGROUND,
-    APP_STATE_BACKGROUND,
-    APP_STATE_SUSPENDED,
-    APP_STATE_TERMINATED,
-    APP_STATE_END,
+export interface StartAbilityParameter {
+  /**
+   * Indicates the Want containing information about the target ability to start.
+   *
+   * @default -
+   * @devices phone, tablet
+   * @since 3
+   * @SysCap aafwk
+   */
+  want: Want;
+
+  /**
+   * Indicates the special start setting used in starting ability.
+   *
+   * @default -
+   * @devices phone, tablet
+   * @since 3
+   * @SysCap aafwk
+   */
+  abilityStartSetting?: {[key: string]: any};
+
 }
