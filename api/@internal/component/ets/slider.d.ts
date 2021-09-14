@@ -26,16 +26,22 @@ export declare enum SliderChangeMode {
   END,
 }
 
-interface Slider extends CommonMethod<Slider> {
+export declare class SliderExtend<T> extends SliderAttribute<T> {
+}
+
+interface Slider extends SliderAttribute<Slider> {
   (options?: {value?: number, min?: number, max?: number, step?: number, style?: SliderStyle}): Slider;
-  blockColor(value: Color): Slider;
-  trackColor(value: Color): Slider;
-  selectedColor(value: Color): Slider;
-  minLabel(value: string): Slider;
-  maxLabel(value: string): Slider;
-  showSteps(value: boolean): Slider;
-  showTips(value: boolean): Slider;
-  onChange(callback:(value: number, mode: SliderChangeMode) => void): Slider;
+}
+
+declare class SliderAttribute<T> extends CommonMethod<T> {
+  blockColor(value: Color): T;
+  trackColor(value: Color): T;
+  selectedColor(value: Color): T;
+  minLabel(value: string): T;
+  maxLabel(value: string): T;
+  showSteps(value: boolean): T;
+  showTips(value: boolean): T;
+  onChange(callback:(value: number, mode: SliderChangeMode) => void): T;
 }
 
 export declare const SliderInterface: Slider;

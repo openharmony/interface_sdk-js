@@ -15,16 +15,21 @@
 
 import {CommonMethod, Color, LineCapStyle, Resource} from "./common";
 
-interface Divider extends CommonMethod<Divider> {
+export declare class DividerExtend<T> extends DividerAttribute<T> {
+}
+
+interface Divider extends DividerAttribute<Divider> {
   (): Divider;
+}
 
-  vertical(value: boolean): Divider;
+declare class DividerAttribute<T> extends CommonMethod<T> {
+  vertical(value: boolean): T;
 
-  color(value: Color | number | string | Resource): Divider;
+  color(value: Color | number | string | Resource): T;
 
-  strokeWidth(value: number | string): Divider;
+  strokeWidth(value: number | string): T;
 
-  lineCap(value: LineCapStyle): Divider;
+  lineCap(value: LineCapStyle): T;
 }
 
 export declare const DividerInterface: Divider;

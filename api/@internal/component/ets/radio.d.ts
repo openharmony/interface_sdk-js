@@ -15,10 +15,16 @@
 
 import {CommonMethod} from "./common";
 
-interface Radio extends CommonMethod<Radio> {
-    (options: {value: string}): Radio;
-    checked(value: boolean): Radio;
-    onChange(callback: (isChecked: boolean) => void): Radio;
+export declare class RadioExtend<T> extends RadioAttribute<T> {
+}
+
+interface Radio extends RadioAttribute<Radio> {
+  (options: {value: string}): Radio;
+}
+
+declare class RadioAttribute<T> extends CommonMethod<T> {
+  checked(value: boolean): T;
+  onChange(callback: (isChecked: boolean) => void): T;
 }
 
 export declare const RadioInterface: Radio;

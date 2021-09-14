@@ -13,18 +13,23 @@
   * limitations under the License.
   */
 
-import {CommonShapeMethod} from "./common";
+import {CommonMethod, Color} from "./common";
 
-export declare class PolygonExtend<T> extends PolygonAttribute<T> {
+export declare class GaugeExtend<T> extends GaugeAttribute<T> {
 }
 
-interface Polygon extends PolygonAttribute<Polygon> {
-    (): Polygon;
-    (value?: { width?: string | number, height?: string | number }): Polygon;
+interface Gauge extends GaugeAttribute<Gauge> {
+  (options: {value: number, min?: number, max?: number}): Gauge;
 }
 
-declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
-    points(value: Array<any>): T;
+declare class GaugeAttribute<T> extends CommonMethod<T> {
+  value(value: number): T;
+  startAngle(angle: number): T;
+  endAngle(angle: number): T;
+  colors(colors: Array<any>): T;
+  strokeWidth(length: number): T;
+  labelTextConfig(markedLabelText: string): T;
+  labelColorConfig(markedLabelColor: Color): T;
 }
 
-export declare const PolygonInterface: Polygon;
+export declare const GaugeInterface: Gauge;

@@ -44,26 +44,28 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T> impl
 }
 
 export declare class AppStorage {
-  static GetOrCreate(): AppStorage;
-  static Get(): AppStorage | undefined;
-  link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
-  setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
-  prop<S>(propName: string): SubscribedAbstractProperty<S> | undefined;
-  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
-  has(propName: string): boolean;
-  get<T>(propName: string): T | undefined;
-  set<T>(propName: string, newValue: T): boolean;
-  setOrCreate<T>(propName: string, newValue: T): void;
-  delete(propName: string): boolean;
-  keys(): IterableIterator<string>;
-  protected clear(): boolean;
-  getOrCreatePersistentStorage(): PersistentStorage;
+  static Link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+  static Prop<S>(propName: string): SubscribedAbstractProperty<S> | undefined;
+  static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+  static Has(propName: string): boolean;
+  static Get<T>(propName: string): T | undefined;
+  static Set<T>(propName: string, newValue: T): boolean;
+  static SetOrCreate<T>(propName: string, newValue: T): void;
+  static Delete(propName: string): boolean;
+  static Keys(): IterableIterator<string>;
+  static staticClear(): boolean;
+  static IsMutable(propName: string): boolean;
+  static Size(): number;
 }
 
 export declare class Environment {
   constructor();
-  static Prop(key:string, defaultValue:any): boolean;
-  static Props(props: Array<{key: string, defaultValue: any}>): void;
+  static EnvProp<S>(key: string, value: S): boolean;
+  static EnvProps(props: {
+    key: string;
+    defaultValue: any;
+  }[]): void;
   static Keys(): Array<string>;
 }
 
@@ -79,10 +81,13 @@ export declare enum LayoutDirection {
 
 export declare class PersistentStorage {
   constructor(appStorage: AppStorage, storage: Storage);
-  link(propName: string): void;
-  links(props: Array<string>): void;
-  unlink(propName: string): void;
-  keys(): IterableIterator<string>;
+  static PersistProp<T>(key: string, defaultValue: T): void;
+  static DeleteProp(key: string): void;
+  static PersistProps(properties: {
+      key: string;
+      defaultValue: any;
+  }[]): void;
+  static Keys(): Array<string>;
 }
 
 export declare class Storage {

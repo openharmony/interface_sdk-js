@@ -21,18 +21,23 @@ export declare enum NavigationType {
   Replace
 }
 
-interface Navigator extends CommonMethod<Navigator> {
+export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {
+}
+
+interface Navigator extends NavigatorAttribute<Navigator> {
   (value?: { target: string, type?: NavigationType }): Navigator;
 
   (): Navigator;
+}
 
-  active(value: boolean): Navigator;
+declare class NavigatorAttribute<T> extends CommonMethod<T> {
+  active(value: boolean): T;
 
-  type(value: NavigationType): Navigator;
+  type(value: NavigationType): T;
 
-  target(value: string): Navigator;
+  target(value: string): T;
 
-  params(value: object): Navigator;
+  params(value: object): T;
 }
 
 export declare const NavigatorInterface: Navigator;

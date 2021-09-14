@@ -15,10 +15,15 @@
 
 import {CommonMethod, Alignment} from "./common";
 
-interface Stack extends CommonMethod<Stack> {
-  (value?: { alignContent?: Alignment }): Stack;
+export declare class StackExtend<T> extends StackAttribute<T> {
+}
 
-  alignContent(value: Alignment): Stack;
+interface Stack extends StackAttribute<Stack> {
+  (value?: { alignContent?: Alignment }): Stack;
+}
+
+declare class StackAttribute<T> extends CommonMethod<T> {
+  alignContent(value: Alignment): T;
 }
 
 export declare const StackInterface: Stack;

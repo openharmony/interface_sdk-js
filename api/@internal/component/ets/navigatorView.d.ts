@@ -15,8 +15,14 @@
 
 import {CommonMethod} from "./common";
 
-interface NavigationView extends CommonMethod<NavigationView> {
+export declare class NavigationViewExtend<T> extends NavigationViewAttribute<T> {
+}
+
+interface NavigationView extends NavigationViewAttribute<NavigationView> {
   (): NavigationView;
+}
+
+declare class NavigationViewAttribute<T> extends CommonMethod<T> {
 }
 
 export declare const NavigationViewInterface: NavigationView;

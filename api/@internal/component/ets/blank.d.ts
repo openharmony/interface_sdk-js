@@ -15,10 +15,15 @@
 
 import {CommonMethod, Color, Resource} from "./common"
 
-interface Blank extends CommonMethod<Blank> {
-  (min?: number | string): Blank;
+export declare class BlankExtend<T> extends BlankAttribute<T> {
+}
 
-  color(value: Color | number | string | Resource): Blank;
+interface Blank extends BlankAttribute<Blank> {
+  (min?: number | string): Blank;
+}
+
+declare class BlankAttribute<T> extends CommonMethod<T> {
+  color(value: Color | number | string | Resource): T;
 }
 
 export declare const BlankInterface: Blank

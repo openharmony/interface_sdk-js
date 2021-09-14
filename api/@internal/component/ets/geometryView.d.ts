@@ -15,8 +15,14 @@
 
 import {CommonMethod} from "./common";
 
-interface GeometryView extends CommonMethod<GeometryView> {
+export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {
+}
+
+interface GeometryView extends GeometryViewAttribute<GeometryView> {
   (callback: (geometry?: any) => void): GeometryView;
+}
+
+declare class GeometryViewAttribute<T> extends CommonMethod<T> {
 }
 
 export declare const GeometryViewInterface: GeometryView;

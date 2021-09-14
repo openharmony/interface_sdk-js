@@ -20,10 +20,15 @@ export declare enum DevicePosition {
   Back
 }
 
-interface Camera extends CommonMethod<Camera> {
-  (value: { id: string, resolutionWidth: number, resolutionHeight: number }): Camera;
+export declare class CameraExtend<T> extends CameraAttribute<T> {
+}
 
-  devicePosition(value: DevicePosition): Camera;
+interface Camera extends CameraAttribute<Camera> {
+  (value: { id: string, resolutionWidth: number, resolutionHeight: number }): Camera;
+}
+
+declare class CameraAttribute<T> extends CommonMethod<T> {
+  devicePosition(value: DevicePosition): T;
 }
 
 export declare const CameraInterface: Camera;

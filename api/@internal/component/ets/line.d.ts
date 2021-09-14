@@ -13,20 +13,19 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import {CommonShapeMethod} from "./common";
 
-export declare class RatingExtend<T> extends RatingAttribute<T> {
+export declare class LineExtend<T> extends LineAttribute<T> {
 }
 
-interface Rating extends RatingAttribute<Rating> {
-  (options?: {rating: number, indicator?: boolean}): Rating;
+interface Line extends LineAttribute<Line> {
+  (): Line;
+  (value?: { width?: string | number, height?: string | number }) :Line;
 }
 
-declare class RatingAttribute<T> extends CommonMethod<T> {
-  stars(value: number): T;
-  stepSize(value: number): T;
-  starStyle(value: {backgroundUri: string, foregroundUri: string, secondaryUri?: string}): T;
-  onChange(callback:(value: number) => void): T;
+declare class LineAttribute<T> extends CommonShapeMethod<T> {
+  startPoint(value: Array<any>): T;
+  endPoint(value: Array<any>): T;
 }
 
-export declare const RatingInterface: Rating;
+export declare const LineInterface: Line;

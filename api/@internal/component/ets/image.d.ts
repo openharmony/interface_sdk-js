@@ -27,34 +27,39 @@ export declare enum ImageInterpolation {
   High
 }
 
-interface Image extends CommonMethod<Image> {
+export declare class ImageExtend<T> extends ImageAttribute<T> {
+}
+
+interface Image extends ImageAttribute<Image> {
   (src: string | PixelMap | Resource): Image;
+}
 
-  alt(value: string | Resource): Image;
+declare class ImageAttribute<T> extends CommonMethod<T> {
+  alt(value: string | Resource): T;
 
-  matchTextDirection(value: boolean): Image;
+  matchTextDirection(value: boolean): T;
 
-  fitOriginalSize(value: boolean): Image;
+  fitOriginalSize(value: boolean): T;
 
-  fillColor(value: Color | number | string | Resource): Image;
+  fillColor(value: Color | number | string | Resource): T;
 
-  objectFit(value: ImageFit): Image;
+  objectFit(value: ImageFit): T;
 
-  objectRepeat(value: ImageRepeat): Image;
+  objectRepeat(value: ImageRepeat): T;
 
-  autoResize(value: boolean): Image;
+  autoResize(value: boolean): T;
 
-  renderMode(value: ImageRenderMode): Image;
+  renderMode(value: ImageRenderMode): T;
 
-  interpolation(value: ImageInterpolation): Image;
+  interpolation(value: ImageInterpolation): T;
 
-  sourceSize(value: { width: number, height: number }): Image;
+  sourceSize(value: { width: number, height: number }): T;
 
-  onComplete(callback: (event?: { width: number, height: number, componentWidth: number, componentHeight: number, loadingStatus: number }) => void): Image;
+  onComplete(callback: (event?: { width: number, height: number, componentWidth: number, componentHeight: number, loadingStatus: number }) => void): T;
 
-  onError(callback: (event?: { componentWidth: number, componentHeight: number }) => void): Image;
+  onError(callback: (event?: { componentWidth: number, componentHeight: number }) => void): T;
 
-  onFinish(event: () => void): Image;
+  onFinish(event: () => void): T;
 }
 
 export declare const ImageInterface: Image;

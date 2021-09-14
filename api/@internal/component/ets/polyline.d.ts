@@ -15,10 +15,16 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Polyline extends CommonShapeMethod<Polyline> {
-    (): Polyline;
-    (value?: { width?: string | number, height?: string | number }): Polyline;
-    points(value: Array<any>): Polyline;
+export declare class PolylineExtend<T> extends PolylineAttribute<T> {
+}
+
+interface Polyline extends PolylineAttribute<Polyline> {
+  (): Polyline;
+  (value?: { width?: string | number, height?: string | number }): Polyline;
+}
+
+declare class PolylineAttribute<T> extends CommonShapeMethod<T> {
+  points(value: Array<any>): T;
 }
 
 export declare const PolylineInterface: Polyline;
