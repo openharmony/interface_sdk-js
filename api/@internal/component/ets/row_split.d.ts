@@ -15,10 +15,15 @@
 
 import {CommonMethod} from "./common";
 
-interface RowSplit extends CommonMethod<RowSplit> {
-  (): RowSplit;
+export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {
+}
 
-  resizeable(value: boolean): RowSplit;
+interface RowSplit extends RowSplitAttribute<RowSplit> {
+  (): RowSplit;
+}
+
+declare class RowSplitAttribute<T> extends CommonMethod<T> {
+  resizeable(value: boolean): T;
 }
 
 export declare const RowSplitInterface: RowSplit;

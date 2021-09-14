@@ -13,27 +13,34 @@
  * limitations under the License.
  */
 
-import {CommonMethod, BarState, Color} from "./common";
+import {CommonMethod, BarState, Color, Resource} from "./common";
 import {Scroller} from "./scroll";
 
-interface Grid extends CommonMethod<Grid> {
+export declare class GridExtend<T> extends GridAttribute<T> {
+}
+
+interface Grid extends GridAttribute<Grid> {
   (scroller?: Scroller): Grid;
+}
 
-  columnsTemplate(value: string): Grid;
+declare class GridAttribute<T> extends CommonMethod<T> {
+  columnsTemplate(value: string): T;
 
-  rowsTemplate(value: string): Grid;
+  rowsTemplate(value: string): T;
 
-  columnsGap(value: number | string): Grid;
+  columnsGap(value: number | string | Resource): T;
 
-  rowsGap(value: number | string): Grid;
+  rowsGap(value: number | string | Resource): T;
 
-  scrollBarWidth(value: number | string): Grid;
+  scrollBarWidth(value: number | string): T;
 
-  scrollBarColor(value: Color | number | string): Grid;
+  scrollBarColor(value: Color | number | string): T;
 
-  scrollBar(value: BarState): Grid;
+  scrollBar(value: BarState): T;
 
-  onScrollIndex(event: (first: number) => void): Grid;
+  onScrollIndex(event: (first: number) => void): T;
+
+  cachedCount(value: number): T;
 }
 
 export declare const GridInterface: Grid;

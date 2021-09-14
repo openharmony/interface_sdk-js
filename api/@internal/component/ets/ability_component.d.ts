@@ -14,7 +14,7 @@
  */
 
 import {CommonMethod} from "./common";
-import {Want} from "../../../ability/want";
+import {Want} from "../api/common/ability/want";
 
 export declare class AbilityController {
     constructor();
@@ -23,14 +23,19 @@ export declare class AbilityController {
     getStackCount();
 }
 
-interface AbilityComponent extends CommonMethod<AbilityComponent> {
-  (value: { want: Want, controller?: AbilityController }): AbilityComponent;
+export declare class AbilityComponentExtend<T> extends AbilityComponentAttribute<T> {
+}
 
-  onReady(event: () => void): AbilityComponent;
-  onDestroy(event: () => void): AbilityComponent;
-  onAbilityCreated(event: (name: string) => void): AbilityComponent;
-  onAbilityMoveToFront(event: () => void): AbilityComponent;
-  onAbilityWillRemove(event: () => void): AbilityComponent;
+interface AbilityComponent extends AbilityComponentAttribute<AbilityComponent> {
+  (value: { want: Want, controller?: AbilityController }): AbilityComponent;
+}
+
+declare class AbilityComponentAttribute<T> extends CommonMethod<T> {
+  onReady(event: () => void): T;
+  onDestroy(event: () => void): T;
+  onAbilityCreated(event: (name: string) => void): T;
+  onAbilityMoveToFront(event: () => void): T;
+  onAbilityWillRemove(event: () => void): T;
 }
 
 export declare const AbilityComponentInterface: AbilityComponent;

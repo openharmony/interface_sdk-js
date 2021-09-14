@@ -21,9 +21,15 @@ export declare enum LoadingProgressStyle{
   Orbital,
 }
 
-interface LoadingProgress extends CommonMethod<LoadingProgress> {
+export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {
+}
+
+interface LoadingProgress extends LoadingProgressAttribute<LoadingProgress> {
   (): LoadingProgress;
-  color(value: Color | Resource): LoadingProgress;
+}
+
+declare class LoadingProgressAttribute<T> extends CommonMethod<T> {
+  color(value: Color | Resource): T;
 }
 
 export declare const LoadingProgressInterface: LoadingProgress;

@@ -27,24 +27,29 @@ export declare enum PanelType {
   Temporary
 }
 
-interface Panel extends CommonMethod<Panel> {
+export declare class PanelExtend<T> extends PanelAttribute<T> {
+}
+
+interface Panel extends PanelAttribute<Panel> {
   (show: boolean): Panel;
+}
 
-  mode(value: PanelMode): Panel;
+declare class PanelAttribute<T> extends CommonMethod<T> {
+  mode(value: PanelMode): T;
 
-  type(value: PanelType): Panel;
+  type(value: PanelType): T;
 
-  dragBar(value: boolean): Panel;
+  dragBar(value: boolean): T;
 
-  fullHeight(value: number | string): Panel;
+  fullHeight(value: number | string): T;
 
-  halfHeight(value: number | string): Panel;
+  halfHeight(value: number | string): T;
 
-  miniHeight(value: number | string): Panel;
+  miniHeight(value: number | string): T;
 
-  show(value: boolean): Panel;
+  show(value: boolean): T;
 
-  onChange(event: (width: number, height: number, mode: PanelMode) => void): Panel;
+  onChange(event: (width: number, height: number, mode: PanelMode) => void): T;
 }
 
 export declare const PanelInterface: Panel;

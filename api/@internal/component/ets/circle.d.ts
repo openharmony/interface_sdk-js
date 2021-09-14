@@ -15,9 +15,15 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Circle extends CommonShapeMethod<Circle> {
+export declare class CircleExtend<T> extends CircleAttribute<T> {
+}
+
+interface Circle extends CircleAttribute<Circle> {
   new (value?: { width?: string | number, height?: string | number }): Circle;
   (value?: { width?: string | number, height?: string | number }): Circle;
+}
+
+declare class CircleAttribute<T> extends CommonShapeMethod<T> {
 }
 
 export declare const CircleInterface: Circle;

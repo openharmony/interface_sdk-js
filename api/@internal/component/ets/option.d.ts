@@ -13,17 +13,16 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod, Resource } from "./common";
 
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {
+export declare class OptionExtend<T> extends OptionAttribute<T> {
 }
 
-interface TabContent extends TabContentAttribute<TabContent> {
-  (): TabContent;
+interface Option extends OptionAttribute<Option> {
+  (content?: string | Resource): Option;
 }
 
-declare class TabContentAttribute<T> extends CommonMethod<T> {
-  tabBar(value: string | { icon?: string, text?: string }): T;
+declare class OptionAttribute<T> extends CommonMethod<T> {
 }
 
-export declare const TabContentInterface: TabContent;
+export declare const OptionInterface: Option;

@@ -21,12 +21,23 @@ export declare enum Sticky {
   Opacity,
 }
 
-interface ListItem extends CommonMethod<ListItem> {
+export declare enum EditMode {
+  None,
+  Deletable,
+  Movable,
+}
+
+export declare class ListItemExtend<T> extends ListItemAttribute<T> {
+}
+
+interface ListItem extends ListItemAttribute<ListItem> {
   (value?: string): ListItem;
+}
 
-  sticky(value: Sticky): ListItem;
+declare class ListItemAttribute<T> extends CommonMethod<T> {
+  sticky(value: Sticky): T;
 
-  editable(value: boolean): ListItem;
+  editable(value: boolean | EditMode): T;
 }
 
 export declare const ListItemInterface: ListItem;

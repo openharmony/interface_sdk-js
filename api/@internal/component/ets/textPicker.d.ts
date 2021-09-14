@@ -21,12 +21,18 @@ export declare enum PickerStyle {
   FADE,
 }
 
-interface TextPicker extends CommonMethod<TextPicker> {
-  (options?: {range: string[], value?: string, selected?: number, loop?: boolean, style?: PickerStyle}): TextPicker;
-  defaultPickerItemHeight(value: number): TextPicker;
-  onAccept(callback: (value: string, index: number) => void): TextPicker;
-  onCancel(callback: () => void): TextPicker;
-  onChange(callback: (value: string, index: number) => void): TextPicker;
+export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {
+}
+
+interface TextPicker extends TextPickerAttribute<TextPicker> {
+  (options?: {range: string[], value?: string, selected?: number, loop?: boolean , style?: PickerStyle}): TextPicker;
+}
+
+declare class TextPickerAttribute<T> extends CommonMethod<T> {
+  defaultPickerItemHeight(value: number): T;
+  onAccept(callback: (value: string, index: number) => void): T;
+  onCancel(callback: () => void): T;
+  onChange(callback: (value: string, index: number) => void): T;
 }
 
 export declare const TextPickerInterface: TextPicker;

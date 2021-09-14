@@ -40,13 +40,13 @@ export declare class CommonTransition<T> {
   opacity(value: number): T;
 }
 
-export interface PageTransitionEnter extends CommonTransition<PageTransitionEnter> {
+interface PageTransitionEnter extends CommonTransition<PageTransitionEnter> {
   (value: { type?: RouteType, duration?: number, curve?: Curve | string, delay?: number }): PageTransitionEnter;
 
   onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnter;
 }
 
-export interface PageTransitionExit extends CommonTransition<PageTransitionExit> {
+interface PageTransitionExit extends CommonTransition<PageTransitionExit> {
   (value: { type?: RouteType, duration?: number, curve?: Curve | string, delay?: number }): PageTransitionExit;
 
   onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExit;

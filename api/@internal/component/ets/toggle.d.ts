@@ -21,11 +21,17 @@ export declare enum ToggleType {
   Button
 }
 
-interface Toggle extends CommonMethod<Toggle> {
-  (options?: {type?: ToggleType, isOn?: boolean}): Toggle;
-  onChange(callback: (isOn: boolean) => void): Toggle;
-  selectedColor(value: Color): Toggle;
-  swithPointStyle(color: Color): Toggle;
+export declare class ToggleExtend<T> extends ToggleAttribute<T> {
+}
+
+interface Toggle extends ToggleAttribute<Toggle> {
+  (options?: {type: ToggleType, isOn?: boolean}): Toggle;
+}
+
+declare class ToggleAttribute<T> extends CommonMethod<T> {
+  onChange(callback: (isOn: boolean) => void): T;
+  selectedColor(value: Color): T;
+  swithPointStyle(color: Color): T;
 }
 
 export declare const ToggleInterface: Toggle;

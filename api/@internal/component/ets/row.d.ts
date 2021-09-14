@@ -15,10 +15,15 @@
 
 import {CommonMethod, VerticalAlign, VerticalAlignDeclaration} from "./common";
 
-interface Row extends CommonMethod<Row> {
-  (value?: { space?: string | number, useAlign?: VerticalAlignDeclaration }): Row;
+export declare class RowExtend<T> extends RowAttribute<T> {
+}
 
-  alignItems(value: VerticalAlign): Row;
+interface Row extends RowAttribute<Row> {
+  (value?: { space?: string | number, useAlign?: VerticalAlignDeclaration }): Row;
+}
+
+declare class RowAttribute<T> extends CommonMethod<T> {
+  alignItems(value: VerticalAlign): T;
 }
 
 export declare const RowInterface: Row;

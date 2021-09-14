@@ -15,11 +15,16 @@
 
 import {CommonMethod, Color, Resource} from "./common";
 
-interface QRCode extends CommonMethod<QRCode> {
-  (value: string): QRCode;
+export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {
+}
 
-  color(value: Color | number | string | Resource): QRCode;
-  backgroundColor(value: Color | number | string | Resource): QRCode;
+interface QRCode extends QRCodeAttribute<QRCode> {
+  (value: string): QRCode;
+}
+
+declare class QRCodeAttribute<T> extends CommonMethod<T> {
+  color(value: Color | number | string | Resource): T;
+  backgroundColor(value: Color | number | string | Resource): T;
 }
 
 export declare const QRCodeInterface: QRCode;

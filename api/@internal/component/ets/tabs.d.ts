@@ -31,22 +31,27 @@ export declare class TabsController {
   changeIndex(value: number): void;
 }
 
-interface Tabs extends CommonMethod<Tabs> {
-  (value?: { barPosition?: BarPosition, initialIndex?: number, controller?: TabsController }): Tabs;
+export declare class TabsExtend<T> extends TabsAttribute<T> {
+}
 
-  vertical(value: boolean): Tabs;
+interface Tabs extends TabsAttribute<Tabs> {
+  (value?: { barPosition?: BarPosition, index?: number, controller?: TabsController }): Tabs;
+}
 
-  scrollable(value: boolean): Tabs;
+declare class TabsAttribute<T> extends CommonMethod<T> {
+  vertical(value: boolean): T;
 
-  barMode(value: BarMode): Tabs;
+  scrollable(value: boolean): T;
 
-  barWidth(value: number): Tabs;
+  barMode(value: BarMode): T;
 
-  barHeight(value: number): Tabs;
+  barWidth(value: number): T;
 
-  animationDuration(value: number): Tabs;
+  barHeight(value: number): T;
 
-  onChange(event: (index: number) => void): Tabs;
+  animationDuration(value: number): T;
+
+  onChange(event: (index: number) => void): T;
 }
 
 export declare const TabsInterface: Tabs;

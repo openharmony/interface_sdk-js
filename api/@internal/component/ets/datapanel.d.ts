@@ -15,9 +15,15 @@
 
 import {CommonMethod} from "./common";
 
-interface DataPanel extends CommonMethod<DataPanel> {
-    (options: {values: number[], max?: number}): DataPanel;
-    closeEffect(value: boolean): DataPanel;
+export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {
+}
+
+interface DataPanel extends DataPanelAttribute<DataPanel> {
+  (options: {values: number[], max?: number}): DataPanel;
+}
+
+declare class DataPanelAttribute<T> extends CommonMethod<T> {
+  closeEffect(value: boolean): T;
 }
 
 export declare const DataPanelInterface: DataPanel;

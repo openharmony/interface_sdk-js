@@ -37,7 +37,8 @@ export declare enum TextAlign {
 
 export declare enum TextOverflow {
   Clip,
-  Ellipsis
+  Ellipsis,
+  None
 }
 
 export declare enum TextDecorationType {
@@ -53,38 +54,43 @@ export declare enum TextCase {
   UpperCase
 }
 
-interface Text extends CommonMethod<Text> {
+export declare class TextExtend<T> extends TextAttribute<T> {
+}
+
+interface Text extends TextAttribute<Text> {
   (content?: string | Resource): Text;
+}
 
-  fontColor(value: Color | number | string | Resource): Text;
+declare class TextAttribute<T> extends CommonMethod<T> {
+  fontColor(value: Color | number | string | Resource): T;
 
-  fontSize(value: number | string | Resource): Text;
+  fontSize(value: number | string | Resource): T;
 
-  minFontSize(value: number | string | Resource): Text;
+  minFontSize(value: number | string | Resource): T;
 
-  maxFontSize(value: number | string | Resource): Text;
+  maxFontSize(value: number | string | Resource): T;
 
-  fontStyle(value: FontStyle): Text;
+  fontStyle(value: FontStyle): T;
 
-  fontWeight(value: number | FontWeight | string): Text;
+  fontWeight(value: number | FontWeight | string): T;
 
-  textAlign(value: TextAlign): Text;
+  textAlign(value: TextAlign): T;
 
-  lineHeight(value: number | string): Text;
+  lineHeight(value: number | string | Resource): T;
 
-  textOverflow(value: { overflow: TextOverflow }): Text;
+  textOverflow(value: { overflow: TextOverflow }): T;
 
-  fontFamily(value: string | Resource): Text;
+  fontFamily(value: string | Resource): T;
 
-  maxLines(value: number): Text;
+  maxLines(value: number): T;
 
-  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource}): Text;
+  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource }): T;
 
-  letterSpacing(value: number | string): Text;
+  letterSpacing(value: number | string): T;
 
-  textCase(value: TextCase): Text;
+  textCase(value: TextCase): T;
 
-  baselineOffset(value: number | string): Text;
+  baselineOffset(value: number | string): T;
 }
 
 export declare const TextInterface: Text;

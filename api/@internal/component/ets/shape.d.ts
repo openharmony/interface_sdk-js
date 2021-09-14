@@ -13,37 +13,42 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, LineCapStyle, LineJoinStyle, Resource} from "./common";
+import {CommonMethod, Color, LineCapStyle, LineJoinStyle, Resource, PixelMap} from "./common";
 
-interface Shape extends CommonMethod<Shape> {
-  (): Shape;
+export declare class ShapeExtend<T> extends ShapeAttribute<T> {
+}
 
+interface Shape extends ShapeAttribute<Shape> {
+  (value?: PixelMap): Shape;
+}
+
+declare class ShapeAttribute<T> extends CommonMethod<T> {
   viewPort(value: {
     x?: number | string, y?: number | string,
     width?: number | string, height?: number | string
-  }): Shape;
+  }): T;
 
-  stroke(value: Color | number | string | Resource): Shape;
+  stroke(value: Color | number | string | Resource): T;
 
-  fill(value: Color | number | string | Resource): Shape;
+  fill(value: Color | number | string | Resource): T;
 
-  strokeDashOffset(value: number | string): Shape;
+  strokeDashOffset(value: number | string): T;
 
-  strokeDashArray(value: Array<any>): Shape;
+  strokeDashArray(value: Array<any>): T;
 
-  strokeLineCap(value: LineCapStyle): Shape;
+  strokeLineCap(value: LineCapStyle): T;
 
-  strokeLineJoin(value: LineJoinStyle): Shape;
+  strokeLineJoin(value: LineJoinStyle): T;
 
-  strokeMiterLimit(value: number | string): Shape;
+  strokeMiterLimit(value: number | string): T;
 
-  strokeOpacity(value: number | string | Resource): Shape;
+  strokeOpacity(value: number | string | Resource): T;
 
-  fillOpacity(value: number | string | Resource): Shape;
+  fillOpacity(value: number | string | Resource): T;
 
-  strokeWidth(value: number | string): Shape;
+  strokeWidth(value: number | string): T;
 
-  antiAlias(value: boolean): Shape;
+  antiAlias(value: boolean): T;
 }
 
 export declare const ShapeInterface: Shape;

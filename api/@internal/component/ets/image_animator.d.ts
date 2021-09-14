@@ -15,37 +15,42 @@
 
 import {CommonMethod, AnimationStatus} from "./common";
 
-interface ImageAnimator extends CommonMethod<ImageAnimator> {
-  (): ImageAnimator;
+export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {
+}
 
+interface ImageAnimator extends ImageAnimatorAttribute<ImageAnimator> {
+  (): ImageAnimator;
+}
+
+declare class ImageAnimatorAttribute<T> extends CommonMethod<T> {
   images(value: Array<{
     src: string, width?: number | string, height?: number | string, top?: number | string, left?:
       number | string, duration?: number
-  }>): ImageAnimator;
+  }>): T;
 
-  state(value: AnimationStatus): ImageAnimator;
+  state(value: AnimationStatus): T;
 
-  duration(value: number): ImageAnimator;
+  duration(value: number): T;
 
-  reverse(value: boolean): ImageAnimator;
+  reverse(value: boolean): T;
 
-  fixedSize(value: boolean): ImageAnimator;
+  fixedSize(value: boolean): T;
 
-  preDecode(value: number): ImageAnimator;
+  preDecode(value: number): T;
 
-  fillMode(value: FillMode): ImageAnimator;
+  fillMode(value: FillMode): T;
 
-  iterations(value: number): ImageAnimator;
+  iterations(value: number): T;
 
-  onStart(event: () => void): ImageAnimator;
+  onStart(event: () => void): T;
 
-  onPause(event: () => void): ImageAnimator;
+  onPause(event: () => void): T;
 
-  onRepeat(event: () => void): ImageAnimator;
+  onRepeat(event: () => void): T;
 
-  onCancel(event: () => void): ImageAnimator;
+  onCancel(event: () => void): T;
 
-  onFinish(event: () => void): ImageAnimator;
+  onFinish(event: () => void): T;
 }
 
 export declare const ImageAnimatorInterface: ImageAnimator;

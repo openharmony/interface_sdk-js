@@ -15,9 +15,15 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Ellipse extends CommonShapeMethod<Ellipse> {
+export declare class EllipseExtend<T> extends EllipseAttribute<T> {
+}
+
+interface Ellipse extends EllipseAttribute<Ellipse> {
   new (value?: { width?: string | number, height?: string | number }): Ellipse;
   (value?: { width?: string | number, height?: string | number }): Ellipse;
+}
+
+declare class EllipseAttribute<T> extends CommonShapeMethod<T> {
 }
 
 export declare const EllipseInterface: Ellipse;

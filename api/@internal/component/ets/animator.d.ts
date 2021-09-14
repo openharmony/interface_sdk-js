@@ -16,51 +16,56 @@
 import {CommonMethod, AnimationStatus, Curve, FillMode, PlayMode} from "./common";
 
 export declare class SpringProp {
-    constructor(mass: number, stiffness: number, damping: number): SpringProp;
+  constructor(mass: number, stiffness: number, damping: number);
 }
 
 export declare class SpringMotion {
-    constructor(start: number, end: number, velocity: number, prop: SpringProp): SpringMotion;
+  constructor(start: number, end: number, velocity: number, prop: SpringProp);
 }
 
 export declare class FrictionMotion {
-    constructor(friction: number, position: number, velocity: number): FrictionMotion;
+  constructor(friction: number, position: number, velocity: number);
 }
 
 export declare class ScrollMotion {
-    constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp): ScrollMotion;
+  constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
 }
 
-interface Animator extends CommonMethod<Animator> {
-    (value: string): Animator;
+export declare class AnimatorExtend<T> extends AnimatorAttribute<T> {
+}
 
-    state(value: AnimationStatus): Animator;
+interface Animator extends AnimatorAttribute<Animator> {
+  (value: string): Animator;
+}
 
-    duration(value: number): Animator;
+declare class AnimatorAttribute<T> extends CommonMethod<T> {
+  state(value: AnimationStatus): T;
 
-    curve(value: Curve): Animator;
+  duration(value: number): T;
 
-    delay(value: number): Animator;
+  curve(value: Curve): T;
 
-    fillMode(value: FillMode): Animator;
+  delay(value: number): T;
 
-    iterations(value: number): Animator;
+  fillMode(value: FillMode): T;
 
-    playMode(value: PlayMode): Animator;
+  iterations(value: number): T;
 
-    motion(value: Motion): Animator;
+  playMode(value: PlayMode): T;
 
-    onStart(event: () => void): Animator;
+  motion(value: SpringMotion | FrictionMotion | ScrollMotion): T;
 
-    onPause(event: () => void): Animator;
+  onStart(event: () => void): T;
 
-    onRepeat(event: () => void): Animator;
+  onPause(event: () => void): T;
 
-    onCancel(event: () => void): Animator;
+  onRepeat(event: () => void): T;
 
-    onFinish(event: () => void): Animator;
+  onCancel(event: () => void): T;
 
-    onFrame(event: (value: number) => void): Animator;
+  onFinish(event: () => void): T;
+
+  onFrame(event: (value: number) => void): T;
 }
 
 export declare const AnimatorInterface: Animator;
