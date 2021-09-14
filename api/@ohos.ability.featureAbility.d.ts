@@ -17,7 +17,7 @@ import { Want } from './ability/want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
 import { Context } from './app/context';
-
+import { DataAbilityHelper } from './ability/dataAbilityHelper';
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
  * @name featureAbility
@@ -29,6 +29,7 @@ import { Context } from './app/context';
 declare namespace featureAbility {
   /**
    * Obtain the want sended from the source ability.
+   *
    * @devices phone, tablet
    * @since 6
    * @sysCap AAFwk
@@ -40,6 +41,7 @@ declare namespace featureAbility {
 
   /**
    * Starts a new ability.
+   *
    * @devices phone, tablet
    * @since 6
    * @sysCap AAFwk
@@ -59,11 +61,12 @@ declare namespace featureAbility {
 
   /**
    * Starts an ability and returns the execution result when the ability is destroyed.
+   *
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
    * @param parameter Indicates the ability to start.
-   * @return -
+   * @return Returns the {@link AbilityResult}.
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
@@ -71,6 +74,7 @@ declare namespace featureAbility {
   /**
    * Sets the result code and data to be returned by this Page ability to the caller
    * and destroys this Page ability.
+   *
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
@@ -82,20 +86,69 @@ declare namespace featureAbility {
 
   /**
    * Destroys this Page ability.
+   *
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
    * @return -
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
+  function terminateSelf(): Promise<void>;
 
-   /**
-   * Checks whether the main window of this ability has window focus.
+  /**
+   * Obtains the dataAbilityHelper.
+   *
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @param uri Indicates the path of the file to open.
+   * @return Returns the dataAbilityHelper.
    */
-   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
-   function hasWindowFocus(): Promise<boolean>;
+  function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
+
+   /**
+   * Checks whether the main window of this ability has window focus.
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+   */
+  function hasWindowFocus(callback: AsyncCallback<boolean>): void;
+  function hasWindowFocus(): Promise<boolean>;
+
+  export enum AbilityWindowConfiguration {
+    WINDOW_MODE_UNDEFINED = 0,
+    WINDOW_MODE_FULLSCREEN = 1,
+    WINDOW_MODE_SPLIT_PRIMARY = 100,
+    WINDOW_MODE_SPLIT_SECONDARY = 101,
+    WINDOW_MODE_FLOATING = 102
+  }
+
+  export enum AbilityStartSetting {
+    BOUNDS_KEY = "abilityBounds",
+    WINDOW_MODE_KEY = "windowMode",
+    DISPLAY_ID_KEY = "displayId"
+  }
+
+  export enum ErrorCode {
+    NO_ERROR = 0,
+    INVALID_PARAMETER = -1,
+    ABILITY_NOT_FOUND = -2,
+    PERMISSION_DENY = -3
+  }
+
+  export enum ContinuationState {
+    LOCAL_RUNNING = 0,
+    REMOTE_RUNNING = 1,
+    REPLICA_RUNNING = 2
+  }
+
+  export enum DataAbilityOperationType {
+    TYPE_INSERT = 1,
+    TYPE_UPDATE = 2,
+    TYPE_DELETE = 3,
+    TYPE_ASSERT = 4,
+  }
 }
 export default featureAbility;
