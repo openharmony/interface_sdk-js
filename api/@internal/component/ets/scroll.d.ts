@@ -37,24 +37,29 @@ export declare class Scroller {
   scrollToIndex(value: number);
 }
 
-interface Scroll extends CommonMethod<Scroll> {
+export declare class ScrollExtend<T> extends ScrollAttribute<T> {
+}
+
+interface Scroll extends ScrollAttribute<Scroll> {
   (scroller?: Scroller): Scroll;
+}
 
-  scrollable(value: ScrollDirection): Scroll;
+declare class ScrollAttribute<T> extends CommonMethod<T> {
+  scrollable(value: ScrollDirection): T;
 
-  onScroll(event: (xOffset: number, yOffset: number) => void): Scroll;
+  onScroll(event: (xOffset: number, yOffset: number) => void): T;
 
-  onScrollEdge(event: (side: Edge) => void): Scroll;
+  onScrollEdge(event: (side: Edge) => void): T;
 
-  onScrollEnd(event: () => void): Scroll;
+  onScrollEnd(event: () => void): T;
 
-  scrollBar(barState: BarState): Scroll;
+  scrollBar(barState: BarState): T;
 
-  scrollBarColor(color: Color | number | string): Scroll;
+  scrollBarColor(color: Color | number | string): T;
 
-  scrollBarWidth(value: number | string): Scroll;
+  scrollBarWidth(value: number | string): T;
 
-  edgeEffect(edgeEffect: EdgeEffect): Scroll;
+  edgeEffect(edgeEffect: EdgeEffect): T;
 }
 
 export declare const ScrollInterface: Scroll;

@@ -23,26 +23,38 @@ export declare class SwiperController {
   showPrevious();
 }
 
-interface Swiper extends CommonMethod<Swiper> {
+export declare enum SwiperDisplayMode {
+  Stretch,
+  AutoLinear
+}
+
+export declare class SwiperExtend<T> extends SwiperAttribute<T> {
+}
+
+interface Swiper extends SwiperAttribute<Swiper> {
   (controller?: SwiperController): Swiper;
+}
 
-  index(value: number): Swiper;
+declare class SwiperAttribute<T> extends CommonMethod<T> {
+  index(value: number): T;
 
-  autoPlay(value: boolean): Swiper;
+  autoPlay(value: boolean): T;
 
-  interval(value: number): Swiper;
+  interval(value: number): T;
 
-  indicator(value: boolean): Swiper;
+  indicator(value: boolean): T;
 
-  loop(value: boolean): Swiper;
+  loop(value: boolean): T;
 
-  duration(value: number): Swiper;
+  duration(value: number): T;
 
-  vertical(value: boolean): Swiper;
+  vertical(value: boolean): T;
 
-  itemSpace(value: number | string): Swiper;
+  itemSpace(value: number | string): T;
 
-  onChange(event: (index: number) => void): Swiper;
+  displayMode(value: SwiperDisplayMode): T;
+
+  onChange(event: (index: number) => void): T;
 }
 
 export declare const SwiperInterface: Swiper;

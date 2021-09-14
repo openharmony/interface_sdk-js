@@ -22,11 +22,17 @@ export declare enum ProgressStyle {
     Circular,
 }
 
-interface Progress extends CommonMethod<Progress> {
-    (object: { value: number, total?: number, style?: ProgressStyle }): Progress;
-    value(value: number): Progress;
-    color(value: Color): Progress;
-    cricularStyle(value: { strokeWidth?: number, scaleCount?: number, scaleWidth?: number }): Progress;
+export declare class ProgressExtend<T> extends ProgressAttribute<T> {
+}
+
+interface Progress extends ProgressAttribute<Progress> {
+  (object: { value: number, total?: number, style?: ProgressStyle }): Progress;
+}
+
+declare class ProgressAttribute<T> extends CommonMethod<T> {
+  value(value: number): T;
+  color(value: Color): T;
+  cricularStyle(value: { strokeWidth?: number, scaleCount?: number, scaleWidth?: number }): T;
 }
 
 export declare const ProgressInterface: Progress;

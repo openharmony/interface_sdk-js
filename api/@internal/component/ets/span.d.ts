@@ -16,24 +16,29 @@
 import {CommonMethod, Color, Resource} from "./common";
 import {FontStyle, FontWeight, TextDecorationType, TextCase} from "./text";
 
-interface Span extends CommonMethod<Span> {
+export declare class SpanExtend<T> extends SpanAttribute<T> {
+}
+
+interface Span extends SpanAttribute<Span> {
   (value: string | Resource): Span;
+}
 
-  fontColor(value: Color | number | string | Resource): Span;
+declare class SpanAttribute<T> extends CommonMethod<T> {
+  fontColor(value: Color | number | string | Resource): T;
 
-  fontSize(value: number | string | Resource): Span;
+  fontSize(value: number | string | Resource): T;
 
-  fontStyle(value: FontStyle): Span;
+  fontStyle(value: FontStyle): T;
 
-  fontWeight(value: number | FontWeight | string): Span;
+  fontWeight(value: number | FontWeight | string): T;
 
-  fontFamily(value: string | Resource): Span;
+  fontFamily(value: string | Resource): T;
 
-  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource}): Span;
+  decoration(value: { type: TextDecorationType, color?: Color | number | string | Resource}): T;
 
-  letterSpacing(value: number | string): Span;
+  letterSpacing(value: number | string): T;
 
-  textCase(value: TextCase): Span;
+  textCase(value: TextCase): T;
 }
 
 export declare const SpanInterface: Span;

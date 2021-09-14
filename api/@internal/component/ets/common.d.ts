@@ -33,6 +33,7 @@ export declare const StorageProp: (value: string) => PropertyDecorator;
 export declare const StorageLink: (value: string) => PropertyDecorator;
 export declare const Watch: (value: string) => PropertyDecorator;
 export declare const Builder: MethodDecorator;
+export declare const CustomDialog: ClassDecorator;
 declare interface NormalResource {
   readonly id: number;
   readonly type: number;
@@ -458,6 +459,8 @@ export declare class CommonMethod<T> {
 
   onTouch(event: (event?: TouchEvent) => void): T;
 
+  onHover(event: (isHover?: boolean) => void): T;
+
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
   onPan(event: (event?: any) => void): T;
@@ -481,6 +484,22 @@ export declare class CommonMethod<T> {
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
   blur(value: number): T;
+
+  brightness(value: number): T;
+
+  contrast(value: number): T;
+
+  grayscale(value: number): T;
+
+  colorBlend(value: Color | string | Resource): T;
+
+  saturate(value: number): T;
+
+  sepia(value: number): T;
+
+  invert(value: number): T;
+
+  hueRotate(value:{deg: string | number}): T;
 
   backdropBlur(value: number): T;
 
@@ -536,11 +555,11 @@ export declare class CommonMethod<T> {
 
   align(value: Alignment): T;
 
-  position(value: { x?: number | string, y?: number | string }): T;
+  position(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
 
-  markAnchor(value: { x?: number | string, y?: number | string }): T;
+  markAnchor(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
 
-  offset(value: { x?: number | string, y?: number | string }): T;
+  offset(value: { x?: number | string | Resource, y?: number | string | Resource }): T;
 
   enabled(value: boolean): T;
 
@@ -573,7 +592,7 @@ export declare class CommonMethod<T> {
 
   motionPath(value: { path: string, from?: number, to?: number, rotatable?: boolean }): T;
 
-  shadow(value: { radius: number | Resource, color?: Color | string | Resource, offsetX?: number, offsetY?: number}): T;
+  shadow(value: { radius: number | Resource, color?: Color | string | Resource, offsetX?: number | Resource, offsetY?: number | Resource }): T;
 
   clip(value: boolean | Circle | Ellipse | Path | Rect): T;
 
@@ -588,6 +607,22 @@ export declare class CommonMethod<T> {
   accessibilityImportance(value: string): T;
 
   onAccessibility(callback: (event?: { eventType: number }) => void): T;
+
+  geometryTransition(id: string): T;
+
+  bindPopup(show: boolean, popup: {
+    message: string,
+    placementOnTop: boolean,
+    primaryButton: {
+      value: string;
+      action: () => void;
+    };
+    secondaryButton: {
+      value: string;
+      action: () => void;
+    };
+    onStateChange?: (callback: (event?: { isVisible: boolean }) => void) => void;
+  }): T;
 }
 
 export declare class CommonShapeMethod<T> extends CommonMethod<T> {
@@ -609,7 +644,7 @@ export declare class CommonShapeMethod<T> extends CommonMethod<T> {
 
   fillOpacity(value: number | string | Resource): T;
 
-  strokeWidth(value: number | string): T;
+  strokeWidth(value: number | string | Resource): T;
 
   antiAlias(value: boolean): T;
 

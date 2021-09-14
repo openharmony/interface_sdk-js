@@ -15,11 +15,16 @@
 
 import {CommonShapeMethod} from "./common";
 
-interface Path extends CommonShapeMethod<Path> {
+export declare class PathExtend<T> extends PathAttribute<T> {
+}
+
+interface Path extends PathAttribute<Path> {
   new (value?: { width?: number | string, height?: number | string, commands?: string }): Path;
   (value?: { width?: number | string, height?: number | string, commands?: string }): Path;
+}
 
-  commands(value: string): Path;
+declare class PathAttribute<T> extends CommonShapeMethod<T> {
+  commands(value: string): T;
 }
 
 export declare const PathInterface: Path;

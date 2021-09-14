@@ -13,43 +13,35 @@
  * limitations under the License.
  */
 
+import { DialogAlignment } from "./alert_dialog";
 import {CommonMethod, Resource} from "./common"
 
-export declare enum DialogAlignment {
-  Top,
-  Center,
-  Bottom,
-  Default
+interface SheetInfo {
+  title: string | Resource;
+  icon?: string | Resource;
+  action: () => void;
 }
 
-interface AlertDialog {
+export declare class ActionSheetExtend<T> extends ActionSheetAttribute<T> {
+}
+
+interface ActionSheet extends ActionSheetAttribute<ActionSheet> {
+}
+
+declare class ActionSheetAttribute<T> extends CommonMethod<T> {
   show(value: {
-    title?: string | Resource;
+    title: string | Resource;
     message: string | Resource;
-    autoCancel?: boolean;
     confirm?: {
       value: string | Resource;
       action: () => void;
     };
     cancel?: () => void;
-    alignment?: DialogAlignment;
-    offset?: { dx: number | string | Resource, dy: number | string | Resource };
-  } | {
-    title?: string | Resource;
-    message: string | Resource;
+    sheets: Array<SheetInfo>;
     autoCancel?: boolean;
-    primaryButton: {
-      value: string | Resource;
-      action: () => void;
-    };
-    secondaryButton: {
-      value: string | Resource;
-      action: () => void;
-    };
-    cancel?: () => void;
     alignment?: DialogAlignment;
     offset?: { dx: number | string | Resource, dy: number | string | Resource };
   });
 }
 
-export declare const AlertDialogInterface: AlertDialog;
+export declare const ActionSheetInterface: ActionSheet;

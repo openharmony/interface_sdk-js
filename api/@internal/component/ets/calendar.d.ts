@@ -96,38 +96,44 @@ export interface WorkStateStyle {
 }
 
 declare class CalendarController {
-    constructor();
-    backToToday();
+  constructor();
+  backToToday();
+  goTo(value: { year: number, month: number, day: number });
 }
 
-interface Calendar {
+export declare class CalendarExtend<T> extends CalendarAttribute<T> {
+}
+
+interface Calendar extends CalendarAttribute<Calendar> {
   (value: { date: { year: number, month: number, day: number }, currentData: MonthData, preData: MonthData, nextData: MonthData, controller?: CalendarController }): Calendar;
+}
 
-  showLunar(value: boolean): Calendar;
+declare class CalendarAttribute<T> {
+  showLunar(value: boolean): T;
 
-  showHoliday(value: boolean): Calendar;
+  showHoliday(value: boolean): T;
 
-  needSlide(value: boolean): Calendar;
+  needSlide(value: boolean): T;
 
-  startOfWeek(value: number): Calendar;
+  startOfWeek(value: number): T;
 
-  offDays(value: number): Calendar;
+  offDays(value: number): T;
 
-  direction(value: Axis): Calendar;
+  direction(value: Axis): T;
 
-  currentDayStyle(value: CurrentDayStyle): Calendar;
+  currentDayStyle(value: CurrentDayStyle): T;
 
-  nonCurrentDayStyle(value: NonCurrentDayStyle): Calendar;
+  nonCurrentDayStyle(value: NonCurrentDayStyle): T;
 
-  todayStyle(value: TodayStyle): Calendar;
+  todayStyle(value: TodayStyle): T;
 
-  weekStyle(value: WeekStyle): Calendar;
+  weekStyle(value: WeekStyle): T;
 
-  workStateStyle(value: WorkStateStyle): Calendar;
+  workStateStyle(value: WorkStateStyle): T;
 
-  onSelectChange(event: (event: { year: number, month: number, day: number }) => void): Calendar;
+  onSelectChange(event: (event: { year: number, month: number, day: number }) => void): T;
 
-  onRequestData(event: (event: { year: number, month: number, currentYear: number, currentMonth: number, monthState: number }) => void): Calendar;
+  onRequestData(event: (event: { year: number, month: number, currentYear: number, currentMonth: number, monthState: number }) => void): T;
 }
 
 export declare const CalendarInterface: Calendar

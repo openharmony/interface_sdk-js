@@ -15,18 +15,23 @@
 
 import {CommonMethod} from "./common";
 
-interface GridItem extends CommonMethod<GridItem> {
+export declare class GridItemExtend<T> extends GridItemAttribute<T> {
+}
+
+interface GridItem extends GridItemAttribute<GridItem> {
   (): GridItem;
+}
 
-  rowStart(value: number): GridItem;
+declare class GridItemAttribute<T> extends CommonMethod<T> {
+  rowStart(value: number): T;
 
-  rowEnd(value: number): GridItem;
+  rowEnd(value: number): T;
 
-  columnStart(value: number): GridItem;
+  columnStart(value: number): T;
 
-  columnEnd(value: number): GridItem;
+  columnEnd(value: number): T;
 
-  forceRebuild(value: boolean): GridItem;
+  forceRebuild(value: boolean): T;
 }
 
 export declare const GridItemInterface: GridItem;

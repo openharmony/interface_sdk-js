@@ -13,20 +13,8 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Axis, Color, Resource} from "./common";
+import {CommonMethod, Axis, Color, Resource, BarState, EdgeEffect} from "./common";
 import {Scroller} from "./scroll";
-
-export declare enum BarState {
-  Off,
-  Auto,
-  On
-}
-
-export declare enum EdgeEffect {
-  Spring,
-  Fade,
-  None
-}
 
 export declare enum ScrollState {
   Idle,
@@ -34,39 +22,44 @@ export declare enum ScrollState {
   Fling
 }
 
-interface List extends CommonMethod<List> {
+export declare class ListExtend<T> extends ListAttribute<T> {
+}
+
+interface List extends ListAttribute<List> {
   (value?: { initialIndex?: number, space?: number | string, scroller?: Scroller }): List;
+}
 
-  listDirection(value: Axis): List;
+declare class ListAttribute<T> extends CommonMethod<T> {
+  listDirection(value: Axis): T;
 
-  scrollBar(value: BarState): List;
+  scrollBar(value: BarState): T;
 
-  edgeEffect(value: EdgeEffect): List;
+  edgeEffect(value: EdgeEffect): T;
 
   divider(value: {
     strokeWidth: number | string | Resource, color?: Color | number | string | Resource,
     startMargin?: number | string | Resource, endMargin?: number | string | Resource
-  } | null): List;
+  } | null): T;
 
-  editMode(value: boolean): List;
+  editMode(value: boolean): T;
 
-  cachedCount(value: number): List;
+  cachedCount(value: number): T;
 
-  chainAnimation(value: boolean): List;
+  chainAnimation(value: boolean): T;
 
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): List;
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
-  onScrollIndex(event: (start: number, end: number) => void): List;
+  onScrollIndex(event: (start: number, end: number) => void): T;
 
-  onReachStart(event: () => void): List;
+  onReachStart(event: () => void): T;
 
-  onReachEnd(event: () => void): List;
+  onReachEnd(event: () => void): T;
 
-  onScrollStop(event: () => void): List;
+  onScrollStop(event: () => void): T;
 
-  onItemDelete(event: (index: number) => boolean): List;
+  onItemDelete(event: (index: number) => boolean): T;
 
-  onItemMove(event: (from: number, to: number) => boolean): List;
+  onItemMove(event: (from: number, to: number) => boolean): T;
 }
 
 export declare const ListInterface: List;
