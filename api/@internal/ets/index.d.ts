@@ -14,3 +14,4 @@
  */
 
 export * from './global';
+export * from './lifecycle';

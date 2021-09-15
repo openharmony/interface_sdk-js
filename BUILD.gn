@@ -18,6 +18,7 @@ import("//build/templates/metadata/module_info.gni")
 ohos_copy("ets_internal_api") {
   sources = [
     "api/@internal/ets/index.d.ts",
+    "api/@internal/ets/lifecycle.d.ts",
     "api/@internal/global.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
