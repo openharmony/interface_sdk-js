@@ -67,8 +67,7 @@ declare namespace wantAgent {
     START_ABILITY,
     START_ABILITIES,
     START_SERVICE,
-    SEND_COMMON_EVENT,
-    START_FOREGROUND_SERVICE
+    SEND_COMMON_EVENT
   }
 }
 
