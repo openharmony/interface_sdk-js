@@ -19,7 +19,6 @@ import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
-import { ElementName } from './bundle/elementName';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 
@@ -335,7 +334,8 @@ declare namespace bundle {
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
-
+  
+  /**
    * Obtains information about the shortcuts of the application.
    *
    * @devices phone, tablet, tv, wearable
