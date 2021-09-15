@@ -27,7 +27,7 @@ export interface CommonEventSubscribeInfo {
    * @default ""
    * @since 7
    */
-  events: Array<string>
+  events: Array<string>;
 
   /**
    * The permission that the publisher must have in order to send a common event to this subscriber.
