@@ -15,12 +15,8 @@
 
 import { AsyncCallback } from '../basic';
 import { ApplicationInfo } from '../bundle/applicationInfo';
-import { HapModuleInfo } from '../bundle/hapModuleInfo';
 import { ProcessInfo } from './processInfo';
-import { AppVersionInfo } from './appVersionInfo';
-import { DisplayOrientation } from '../@ohos.bundle';
 import { ElementName } from '../bundle/elementName';
-import { DisplayOrientation } from '../@ohos.bundle';
 
 /**
  * The context of an ability or an application.  It allows access to

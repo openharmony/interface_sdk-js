@@ -71,21 +71,6 @@ export interface DataAbilityHelper {
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
     /**
-     * Calls the method defined by the Data ability.
-     *
-     * @devices phone, tablet
-     * @since 7
-     * @SysCap AAFwk
-     * @param uri Indicates the Data ability to process.
-     * @param method Indicates the method name.
-     * @param arg Indicates the parameter of the String type.
-     * @param extras Indicates the parameter of the object type.
-     * @return Returns the value returned by the called method.
-     */
-    call(uri: string, method: string, arg: string, extras: object, callback: AsyncCallback<object>): void;
-    call(uri: string, method: string, arg: string, extras: object): Promise<object>;
-
-    /**
      * Obtains the MIME type of the date specified by the given URI.
      *
      * @devices phone, tablet
