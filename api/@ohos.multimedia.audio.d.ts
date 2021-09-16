@@ -38,13 +38,13 @@ declare namespace audio {
      */
     enum AudioVolumeType {
         /**
-         * the media stream
-         */
-        MEDIA = 1,
-        /**
          * the ringtone stream
          */
         RINGTONE = 2,
+        /**
+         * the media stream
+         */
+        MEDIA = 3,
     }
 
     /**
@@ -94,23 +94,23 @@ declare namespace audio {
         /**
          * speaker
          */
-        SPEAKER = 1,
+        SPEAKER = 2,
         /**
          * wired headset
          */
-        WIRED_HEADSET = 2,
+        WIRED_HEADSET = 3,
         /**
          * bluetooth sco
          */
-        BLUETOOTH_SCO = 3,
+        BLUETOOTH_SCO = 7,
         /**
          * bluetooth a2dp
          */
-        BLUETOOTH_A2DP = 4,
+        BLUETOOTH_A2DP = 8,
         /**
          * mic
          */
-        MIC = 5,
+        MIC = 15,
     }
     /**
      * the audiomanager of the audio
