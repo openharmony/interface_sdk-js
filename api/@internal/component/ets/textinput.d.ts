@@ -16,30 +16,19 @@
 import {CommonMethod, Color, Resource} from "./common";
 import {FontWeight, FontStyle} from "./text";
 
-export declare enum TextInputType {
-  BEGIN = 0,
-  TEXT = BEGIN,
-  MULTILINE = 1,
-  NUMBER = 2,
-  PHONE = 3,
-  DATETIME = 4,
-  EMAIL_ADDRESS = 5,
-  URL = 6,
-  VISIBLE_PASSWORD = 7,
-  END
+export declare enum InputType {
+  Normal,
+  Number,
+  Email,
+  Password,
 }
 
-export declare enum TextInputAction {
-  BEGIN = 0,
-  UNSPECIFIED = BEGIN,
-  NONE = 1,
-  GO = 2,
-  SEARCH = 3,
-  SEND = 4,
-  NEXT = 5,
-  DONE = 6,
-  PREVIOUS = 7,
-  END = PREVIOUS
+export declare enum EnterKeyType {
+  Go,
+  Search,
+  Send,
+  Next,
+  Done,
 }
 
 export declare class TextInputExtend<T> extends TextInputAttribute<T> {
@@ -53,15 +42,13 @@ interface TextInput extends TextInputAttribute<TextInput> {
 }
 
 declare class TextInputAttribute<T> extends CommonMethod<T> {
-  textInputType(value: TextInputType): T;
+  type(value: InputType): T;
   placeholderColor(value: Color): T;
-  placeholderFont(value: {size: number, weight: FontWeight, fontFamily: string | Resource, style: FontStyle}): T;
-  textInputAction(value: TextInputAction): T;
-  inputFilter(value: boolean): T;
+  placeholderFont(value: { size?: number | string, weight?: number | FontWeight, family?: string, style?: FontStyle}): T;
+  enterKeyType(value: EnterKeyType): T;
   caretColor(value: Color): T;
-  correction(value: boolean): T;
   onEditChanged(callback: (isEditing: boolean) => void): T;
-  onSubmit(callback: (enterKey: TextInputAction) => void): T;
+  onSubmit(callback: (enterKey: EnterKeyType) => void): T;
   onChange(callback: (value: string) => void): T;
 }
 
