@@ -31,7 +31,6 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
   placeholderFont(value:{ size: number, weight: FontWeight, fontFamily: string | Resource, style: FontStyle }): T;
   textAlign(value: TextAlign): T;
   caretColor(value: Color): T;
-  correction(value: boolean): T;
   onChange(callback: (value: string) => void): T;
 }
 
