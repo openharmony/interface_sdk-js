@@ -22,6 +22,7 @@ import dataAbility from "../@ohos.data.dataAbility";
 import formBindingData from "../@ohos.ability.formBindingData";
 import formManager from "../@ohos.ability.formManager";
 import rdb from "../@ohos.data.rdb";
+import rpc from "../@ohos.rpc";
 import resourceManager from "../@ohos.resourceManager";
 import { PacMap } from "../ability/dataAbilityHelper";
 
@@ -288,6 +289,43 @@ export declare interface LifecycleService {
    * @return -
    */
   onCommand?(want: Want, startId: number): void;
+
+  /**
+   * Called back when a Service ability is first connected to an ability.
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @param want Indicates connection information about the Service ability.
+   * @return Returns the proxy of the Service ability.
+   */
+  onConnect?(want: Want): rpc.RemoteObject;
+
+  /**
+   * Called back when all abilities connected to a Service ability are disconnected.
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @param want Indicates disconnection information about the Service ability.
+   * @return -
+   */
+  onDisconnect?(want: Want): void;
+
+  /**
+   * Called when a new client attempts to connect to a Service ability after all previous client connections to it
+   * are disconnected.
+   *
+   * <p>The Service ability must have been started but not been destroyed, that is, {@link #startAbility} has been
+   * called but {@link #terminateSelf} has not.</p>
+   *
+   * @devices phone, tablet
+   * @since 7
+   * @sysCap AAFwk
+   * @param want Indicates the want of the Service ability being connected.
+   * @return -
+   */
+  onReconnect?(want: Want): void;
 
   /**
    * Called back before an ability is destroyed.
