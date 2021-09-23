@@ -2183,7 +2183,7 @@ export interface CanvasElement extends Element {
    * @param options use this context attributes to creating rendering context.
    * @devices tv, phone, tablet, wearable, smartVision
    */
-  getContext(type: string, options?: ContextAttrOptions): CanvasRenderingContext2D;
+  getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D;
 
   /**
    * Creates a data URI that contains the image display.
