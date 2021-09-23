@@ -128,7 +128,7 @@ declare namespace rpc {
          *
          * @param descriptor Indicates a string of the interface descriptor.
          * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
-         * @since 1
+         * @since 7
          */
         queryLocalInterface(descriptor: string): IRemoteBroker;
 
@@ -147,7 +147,7 @@ declare namespace rpc {
          * @param options Indicates the synchronous or asynchronous mode to send messages.
          * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if the method fails to be called.
-         * @since 1
+         * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -159,7 +159,7 @@ declare namespace rpc {
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
          * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
@@ -169,7 +169,7 @@ declare namespace rpc {
          * @param recipient Indicates the callback to be deregistered.
          * @param flags Indicates the flag of the death notification.
          * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
@@ -179,7 +179,7 @@ declare namespace rpc {
          * <p>The interface descriptor is a character string.
          *
          * @return Returns the interface descriptor.
-         * @since 1
+         * @since 7
          */
         getInterfaceDescriptor(): string;
 
@@ -187,7 +187,7 @@ declare namespace rpc {
          * Checks whether an object is dead.
          *
          * @return Returns {@code true} if the object is dead; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         isObjectDead(): boolean;
     }
@@ -223,7 +223,7 @@ declare namespace rpc {
          * @param descriptor Indicates the interface descriptor used to query the remote object.
          * @return Returns the remote object matching the interface descriptor; returns null
          * if no such remote object is found.
-         * @since 1
+         * @since 7
          */
         queryLocalInterface(interface: string): IRemoteObject;
 
@@ -231,7 +231,7 @@ declare namespace rpc {
          * Queries an interface descriptor.
          *
          * @return Returns the interface descriptor.
-         * @since 1
+         * @since 7
          */
         getInterfaceDescriptor(): string;
 
@@ -248,7 +248,7 @@ declare namespace rpc {
          * @param options Indicates whether the operation is synchronous or asynchronous.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote service error occurs.
-         * @since 1
+         * @since 7
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -263,7 +263,7 @@ declare namespace rpc {
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -271,7 +271,7 @@ declare namespace rpc {
          * Obtains the PID of the {@link RemoteProxy} object.
          *
          * @return Returns the PID of the {@link RemoteProxy} object.
-         * @since 1
+         * @since 7
          */
         getCallingPid(): number;
 
@@ -279,7 +279,7 @@ declare namespace rpc {
          * Obtains the UID of the {@link RemoteProxy} object.
          *
          * @return Returns the UID of the {@link RemoteProxy} object.
-         * @since 1
+         * @since 7
          */
         getCallingUid(): number;
 
@@ -290,7 +290,7 @@ declare namespace rpc {
          *
          * @param localInterface Indicates the {@code RemoteObject} whose descriptor is to be changed.
          * @param descriptor Indicates the new descriptor of the {@code RemoteObject}.
-         * @since 1
+         * @since 7
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
@@ -301,7 +301,7 @@ declare namespace rpc {
          *
          * @param descriptor Indicates the descriptor of the interface to query.
          * @return Returns null by default, indicating a proxy interface.
-         * @since 1
+         * @since 7
          */
         queryLocalInterface(interface: string): IRemoteObject;
 
@@ -311,7 +311,7 @@ declare namespace rpc {
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
@@ -321,7 +321,7 @@ declare namespace rpc {
          * @param recipient Indicates the callback to be deregistered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
@@ -329,7 +329,7 @@ declare namespace rpc {
          * Queries the interface descriptor of remote object.
          *
          * @return Returns the interface descriptor.
-         * @since 1
+         * @since 7
          */
         getInterfaceDescriptor(): string;
 
@@ -345,7 +345,7 @@ declare namespace rpc {
          * @param options Indicates a synchronous (default) or asynchronous request.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote object exception occurs.
-         * @since 1
+         * @since 7
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -353,7 +353,7 @@ declare namespace rpc {
          * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
          *
          * @return Returns {@code true} if the {@code RemoteObject} is dead; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         isObjectDead(): boolean;
     }
@@ -365,7 +365,7 @@ declare namespace rpc {
          * <p>This method is static.
          *
          * @return Returns an {@link IRemoteObject} reference of the registered service.
-         * @since 1
+         * @since 7
          */
         static getContextObject(): IRemoteObject;
 
@@ -379,7 +379,7 @@ declare namespace rpc {
          * the PID of the corresponding {@link RemoteProxy} object is returned.
          *
          * @return Returns the PID of the proxy.
-         * @since 1
+         * @since 7
          */
         static getCallingPid(): number;
 
@@ -393,7 +393,7 @@ declare namespace rpc {
          * the UID of the corresponding {@link RemoteProxy} object is returned.
          *
          * @return Returns the UID of the proxy.
-         * @since 1
+         * @since 7
          */
         static getCallingUid(): number;
 
@@ -403,7 +403,7 @@ declare namespace rpc {
          * <p>This method is static.
          *
          * @return Returns the ID of the device where the peer process resides.
-         * @since 1
+         * @since 7
          */
         static getCallingDeviceID(): string;
 
@@ -413,7 +413,7 @@ declare namespace rpc {
          * <p>This method is static.
          *
          * @return Returns the ID of the local device.
-         * @since 1
+         * @since 7
          */
         static getLocalDeviceID(): string;
 
@@ -423,7 +423,7 @@ declare namespace rpc {
          * <p>This method is static.
          *
          * @return Returns {@code true} if the call is made on the same device; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         static isLocalCalling(): boolean;
 
@@ -435,7 +435,7 @@ declare namespace rpc {
          * @param object Indicates the specified {@link RemoteProxy}.
          * @return Returns {@code 0} if the operation succeeds; returns an error code if the input object is empty
          * or {@link RemoteObject}, or the operation fails.
-         * @since 1
+         * @since 7
          */
         static flushCommands(object: IRemoteObject): number;
 
@@ -445,7 +445,7 @@ declare namespace rpc {
          * <p>This method is static. It can be used in scenarios like authentication.
          *
          * @return Returns a string containing the UID and PID of the remote user.
-         * @since 1
+         * @since 7
          */
         static resetCallingIdentity(): string;
 
@@ -458,7 +458,7 @@ declare namespace rpc {
          * @param identity Indicates the string containing the UID and PID of the remote user,
          * which is returned by {@code resetCallingIdentity}.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @since 1
+         * @since 7
          */
         static setCallingIdentity(identity: string): boolean;
     }
