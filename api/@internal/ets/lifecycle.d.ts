@@ -285,17 +285,6 @@ export declare interface LifecycleData {
   delete?(uri: string, predicates: dataAbility.DataAbilityPredicates): number;
 
   /**
-   * Performs batch operations on the database. This method should be implemented by a Data ability.
-   *
-   * @devices phone, tablet
-   * @since 7
-   * @sysCap AAFwk
-   * @param ops Indicates the data operation list, which can contain multiple operations on the database.
-   * @return Returns the result of each operation, in array.
-   */
-  executeBatch?(ops: Array<DataAbilityOperation>): Array<DataAbilityResult>;
-
-  /**
    * Converts the given {@code uri} that refer to the Data ability into a normalized URI. A normalized URI can be
    * used across devices, persisted, backed up, and restored. It can refer to the same item in the Data ability
    * even if the context has changed.
@@ -376,19 +365,6 @@ export declare interface LifecycleData {
    * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
    */
   getFileTypes?(uri: string, mimeTypeFilter: string): Array<string>;
-
-  /**
-   * Defines a method in this Data ability (implementation depending on child classes).
-   *
-   * @devices phone, tablet
-   * @since 7
-   * @sysCap AAFwk
-   * @param method Indicates the method name.
-   * @param arg Indicates the parameter transferred by the method.
-   * @param extras Indicates the parameter transferred by the method.
-   * @return Returns the result of the method.
-   */
-  call?(method: string, arg: string, extras: PacMap): PacMap;
 
   /**
    * Called to carry {@code AbilityInfo} to this ability after the ability is initialized.
