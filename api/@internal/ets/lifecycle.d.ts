@@ -207,21 +207,6 @@ export declare interface LifecycleService {
   onDisconnect?(want: Want): void;
 
   /**
-   * Called when a new client attempts to connect to a Service ability after all previous client connections to it
-   * are disconnected.
-   *
-   * <p>The Service ability must have been started but not been destroyed, that is, {@link #startAbility} has been
-   * called but {@link #terminateSelf} has not.</p>
-   *
-   * @devices phone, tablet
-   * @since 7
-   * @sysCap AAFwk
-   * @param want Indicates the want of the Service ability being connected.
-   * @return -
-   */
-  onReconnect?(want: Want): void;
-
-  /**
    * Called back before an ability is destroyed.
    *
    * @devices phone, tablet
