@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/**
+ * Provides resource related APIs.
+ *
+ * @since 6
+ * @devices phone, tablet, tv, wearable, car
+ */
 declare namespace resmgr {
 /**
  * Enumerates screen directions.
