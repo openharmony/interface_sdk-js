@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/**
+ * Provides internationalization related APIs.
+ *
+ * @since 6
+ * @devices phone, tablet, tv, wearable, car
+ */
 declare namespace intl {
 /**
  * Provides APIs for obtaining locale information.
