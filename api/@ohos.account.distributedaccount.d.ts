@@ -15,53 +15,60 @@
 
 import {AsyncCallback} from './basic'
 
-/**
- * Defines distributed account functions and interfaces.
- *
- * @name distributedAccount
- * @since 5
- * @syscap SystemCapability.Account.OsAccount
- * @devices phone
- * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
- */
 declare namespace distributedAccount {
     /**
      * Get the ability of the distributed account.
-     *
-     * @syscap SystemCapability.Account.OsAccount
-     * @devices phone
-     * @param NA
+     * @since 7
+     * @sysCap SystemCapability.Account.OsAccount
+     * @devices phone, tablet, tv, wearable, car
+     * @permission N/A
      * @return Ability to manage operations of distributed account.
      */
     function getDistributedAccountAbility(): DistributedAccountAbility;
 
+    /**
+     * Defines distributed account functions and interfaces.
+     *
+     * @name DistributedAccountAbility
+     * @since 7
+     * @sysCap SystemCapability.Account.OsAccount
+     * @devices phone, tablet, tv, wearable, car
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     */
     interface DistributedAccountAbility {
         /**
          * Queries the distributed information of the current OS account.
          *
-         * @syscap SystemCapability.Account.OsAccount
-         * @devices phone
-         * @param NA
+         * @since 7
+         * @devices phone, tablet, tv, wearable, car
          * @return The distributed information of the current OS account.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
         queryOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
-
         queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
         /**
          * Updates the distributed information of the OS account.
          *
-         * @syscap SystemCapability.Account.OsAccount
-         * @devices phone
+         * @since 7
+         * @devices phone, tablet, tv, wearable, car
          * @param accountInfo Indicates the information of the OS account used for a distributed system.
-         * @return Returns {@code true} if the distributed information of the account is updated;
-         *         returns {@code false} otherwise.
+         * @return void
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
-        updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<boolean>): void;
-
-        updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<boolean>;
+        updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
+        updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
     }
 
+    /**
+     * Provides the distributed information of the OS account.
+     *
+     * @name DistributedInfo
+     * @since 7
+     * @sysCap SystemCapability.Account.OsAccount
+     * @devices phone, tablet, tv, wearable, car
+     * @permission N/A
+     */
     interface DistributedInfo {
         /**
          * The name in the distributed information of the OS account.
