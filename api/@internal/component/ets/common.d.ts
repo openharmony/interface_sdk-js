@@ -79,6 +79,8 @@ export declare function lpx2px(value: number): number;
 
 export declare function px2lpx(value: number): number;
 
+export declare function setAppBgColor(params: string): void;
+
 // common enum
 export declare enum Color {
   White,
