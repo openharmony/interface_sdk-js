@@ -17,7 +17,7 @@
  * Provides international settings related APIs.
  *
  * @since 7
- * @devices phone, table, tv, wearable, car
+ * @devices phone, tablet, tv, wearable, car
  */
 declare namespace i18n {
 /**
@@ -43,7 +43,7 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain all regions supported by the system.
+ * Obtain all languages supported by the system.
  *
  * @return Returns all languages supported by the system.
  * @since 7
