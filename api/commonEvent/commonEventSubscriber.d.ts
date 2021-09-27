@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './../basic';
-import { CommonEventSubscribeInfo } from './commoneventsubscribeinfo';
+import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
 
 /**
  * the subscriber of common event
