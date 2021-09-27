@@ -59,9 +59,9 @@ declare class SyncedPropertyOneWay<T> extends SubscribedAbstractProperty<T> impl
 }
 
 export declare class AppStorage {
-  static Link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
+  static Link<T>(propName: string): any;
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
-  static Prop<S>(propName: string): SubscribedAbstractProperty<S> | undefined;
+  static Prop<S>(propName: string): any;
   static SetAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
   static Has(propName: string): boolean;
   static Get<T>(propName: string): T | undefined;
