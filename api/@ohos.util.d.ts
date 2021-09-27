@@ -108,10 +108,6 @@ declare namespace util {
             options?: { fatal?: boolean; ignoreBOM?: boolean },
         );
 
-        constructor(
-            encoding?: string,
-            options?: { fatal?: boolean; ignoreBOM?: boolean },
-        );
         /**
          * Returns the result of running encoding's decoder.
          * @since 7
