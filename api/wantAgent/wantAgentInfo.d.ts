@@ -21,8 +21,7 @@ import wantAgent from '../@ohos.wantAgent'
  *
  * @name WantAgentInfo
  * @since 7
- * @sysCap ans
- * @devices phone, tablet
+ * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  */
 export interface WantAgentInfo {
