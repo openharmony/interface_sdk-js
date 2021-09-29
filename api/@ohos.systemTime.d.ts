@@ -17,13 +17,38 @@ import { AsyncCallback, ErrorCallback } from './basic';
 
 /**
  * System time and timezone.
- *
- * @since 6
+ * @since 7
+ * @sysCap SystemCapability.Miscservices.Time
+ * @devices phone, tablet, tv, wearable, car
+ * @import systemTime from '@ohos.systemTime';
  */
 declare namespace systemTime {
-    //  Sets the system time.
-    function setTime(time : number, callback : AsyncCallback<boolean>) : void;
-    function setTime(time : number) : Promise<boolean>;
+    /**
+     * Sets the system time.
+     * @permission ohos.permission.SET_TIME
+     * @param time Target time stamp (ms)
+     * @since 7
+     */
+    function setTime(time : number, callback : AsyncCallback<void>) : void;
+    function setTime(time : number) : Promise<void>;
+
+    /**
+     * Sets the system time.
+     * @permission ohos.permission.SET_TIME
+     * @param date The target date
+     * @since 7
+     */
+    function setDate(date: Date, callback: AsyncCallback<void>): void;
+    function setDate(date: Date): Promise<void>;
+
+    /**
+     * Sets the system time zone.
+     * @permission ohos.permission.SET_TIME_ZONE
+     * @param timezone The system time zone
+     * @since 7
+     */
+    function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
+    function setTimezone(timezone: string): Promise<void>;
 }
 
 export default systemTime;
