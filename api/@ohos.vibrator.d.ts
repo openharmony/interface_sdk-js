@@ -17,19 +17,18 @@ import { AsyncCallback } from './basic';
 /**
  * This module provides the capability to control motor vibration.
  *
- * @since 7
- * @SysCap SystemCapability.Sensors.Miscdevice
+ * @since 8
+ * @sysCap SystemCapability.Sensors.MiscDevice
  * @devices phone, tablet
- * @import import sensor from '@ohos.sensor'
- * @permission N/A
+ * @import import vibrator from '@ohos.vibrator'
+ * @permission ohos.permission.VIBRATE
  */
 declare namespace vibrator {
     /**
      * The trigger motor vibrates for a specified length of time.
      * @param duration Indicate the duration of the motor vibration.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.VIBRATE
+     * @since 8
      */
     function vibrate(duration: number, callback?: AsyncCallback<void>): void;
     function vibrate(duration: number): Promise<void>;
@@ -37,9 +36,8 @@ declare namespace vibrator {
     /**
      * The trigger motor vibrates for the specified effect of the preset.
      * @param effectId Indicate the specified effect of the preset, {@code EffectId}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.VIBRATE
+     * @since 8
      */
     function vibrate(effectId: EffectId): Promise<void>;
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
@@ -47,19 +45,31 @@ declare namespace vibrator {
     /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.VIBRATE
+     * @since 8
      */
     function stop(stopMode: VibratorStopMode): Promise<void>;
     function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
 
+    /**
+     * Preset vibration effect string.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.MiscDevice
+     */
     enum EffectId {
+        /* Describes the vibration effect of the vibrator when a user adjusts the timer.*/
         EFFECT_CLOCK_TIMER = "haptic.clock.timer",
     }
 
+    /**
+     * Vibrator vibration stop mode.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.MiscDevice
+     */
     enum VibratorStopMode {
+        /* Indicates the mode of stopping a one-shot vibration effect.*/
         VIBRATOR_STOP_MODE_TIME = "time",
+        /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
     }
 }

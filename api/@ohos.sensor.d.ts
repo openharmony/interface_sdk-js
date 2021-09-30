@@ -19,20 +19,20 @@ export interface Response {}
 /**
  * This module provides the capability to subscribe to sensor data.
  *
- * @since 7
- * @SysCap SystemCapability.Sensors.Sensor
+ * @since 8
+ * @sysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet
  * @import import sensor from '@ohos.sensor'
- * @permission N/A
+ * @permission ohos.permission.ACCELEROMETER, ohos.permission.GRYOSCOPE,
+ *             ohos.permission.ACTIVITY_MOTION, ohos.permission.HEALTH_DATA
  */
 declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: AsyncCallback<AccelerometerResponse>,
         options?: Options): void;
@@ -40,10 +40,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: AsyncCallback<AccelerometerUncalibratedResponse>,
         options?: Options): void;
@@ -51,10 +50,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: AsyncCallback<LightResponse>,
         options?: Options): void;
@@ -62,10 +60,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: AsyncCallback<AmbientTemperatureResponse>,
         options?: Options): void;
@@ -73,10 +70,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: AsyncCallback<BarometerResponse>,
         options?: Options): void;
@@ -84,10 +80,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: AsyncCallback<GravityResponse>,
         options?: Options): void;
@@ -95,10 +90,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.GRYOSCOPE
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: AsyncCallback<GyroscopeResponse>,
         options?: Options): void;
@@ -106,10 +100,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.GRYOSCOPE
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: AsyncCallback<GyroscopeUncalibratedResponse>,
         options?: Options): void;
@@ -117,10 +110,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: AsyncCallback<HallResponse>,
         options?: Options): void;
@@ -128,10 +120,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.HEALTH_DATA
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: AsyncCallback<HeartRateResponse>,
         options?: Options): void;
@@ -139,10 +130,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: AsyncCallback<HumidityResponse>,
         options?: Options): void;
@@ -150,10 +140,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: AsyncCallback<LinearAccelerometerResponse>,
         options?: Options): void;
@@ -161,10 +150,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: AsyncCallback<MagneticFieldResponse>,
         options?: Options): void;
@@ -172,10 +160,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: AsyncCallback<MagneticFieldUncalibratedResponse>,
         options?: Options): void;
@@ -183,10 +170,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: AsyncCallback<OrientationResponse>,
         options?: Options): void;
@@ -194,10 +180,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: AsyncCallback<PedometerResponse>,
         options?: Options): void;
@@ -205,10 +190,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: AsyncCallback<PedometerDetectionResponse>,
         options?: Options): void;
@@ -216,10 +200,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: AsyncCallback<ProximityResponse>,
         options?: Options): void;
@@ -227,10 +210,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: AsyncCallback<RotationVectorResponse>,
         options?: Options): void;
@@ -238,10 +220,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: AsyncCallback<SignificantMotionResponse>,
         options?: Options): void;
@@ -249,10 +230,9 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
-     * @param callback Specified callback method.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: AsyncCallback<WearDetectionResponse>,
         options?: Options): void;
@@ -260,198 +240,176 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: AsyncCallback<AccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: AsyncCallback<AccelerometerUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: AsyncCallback<LightResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: AsyncCallback<AmbientTemperatureResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: AsyncCallback<BarometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: AsyncCallback<GravityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.GYROSCOPE
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: AsyncCallback<GyroscopeResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.GYROSCOPE
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: AsyncCallback<GyroscopeUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: AsyncCallback<HallResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.HEART_RATE
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: AsyncCallback<HeartRateResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: AsyncCallback<HumidityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACCELERATION
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: AsyncCallback<LinearAccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: AsyncCallback<MagneticFieldResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: AsyncCallback<MagneticFieldUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: AsyncCallback<OrientationResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: AsyncCallback<PedometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: AsyncCallback<PedometerDetectionResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: AsyncCallback<ProximityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: AsyncCallback<RotationVectorResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: AsyncCallback<SignificantMotionResponse>): void;
 
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: AsyncCallback<WearDetectionResponse>): void;
 
     /**
      * Unsubscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType}.
-     * @param callback Specified callback method.
-     * @return -
-     * @since 7
+     * @permission N/A
+     * @since 8
      */
     function off(type: SensorType, callback: AsyncCallback<void>): void;
 
