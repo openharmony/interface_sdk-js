@@ -122,4 +122,47 @@ export function getSystemLocale(): string;
  * @systemapi Hide this for inner system use.
  */
 export function setSystemLocale(locale: string): boolean;
+
+/**
+ * Provides the options of PhoneNumberFormat.
+ *
+ * @since 8
+ */
+export interface PhoneNumberFormatOptions {
+    /**
+     * Indicates the type to format phone number.
+     */
+    type: string;
+}
+
+/**
+ * Provides the API for formatting phone number strings
+ *
+ * @since 8
+ */
+export class PhoneNumberFormat {
+    /**
+     * A constructor used to create a PhoneNumberFormat object.
+     * @param country Indicates a character string containing the country information for the PhoneNumberFormat object.
+     * @param type Indicates the type used to format the phone number, includes: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
+     * @since 8
+     */
+    constructor(country: string, options?: PhoneNumberFormatOptions);
+
+    /**
+     * Judges whether phone number is valid.
+     * @param number Indicates the input phone number to be judged.
+     * @return Returns a boolean indicates whether the input phone number is valid.
+     * @since 8
+     */
+    isValidNumber(number: string): boolean;
+
+    /**
+     * Obtains the formatted phone number strings of number.
+     * @param number Indicates the input phone number to be formatted.
+     * @return Returns the formatted phone number.
+     * @since 8
+     */
+    format(number: string): string;
+}
 }
