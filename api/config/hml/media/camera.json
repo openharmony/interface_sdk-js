@@ -1,50 +1,61 @@
 {
-  "name": "toggle",
-  "version": [
-    {
-      "name": "v4.0"
-    }
-  ],
-  "supportedDevices": ["phone", "tablet"],
-  "description": [
-    {
-      "name": "The status button is used to select from a set of options and may display the results of the selection in real time on the interface. Typically, this set of options consists of status buttons.",
-      "supportedDevices": ["phone", "tablet"]
-    }
-  ],
-  "attributes": [
-    {
-      "name": "value",
-      "supportedDevices": ["phone", "tablet"],
-      "required": true,
-      "description": [
-        {
-          "name": "Text value of the toggle component.",
-          "supportedDevices": ["phone", "tablet"]
-        }
-      ],
-      "type": "string"
-    },
-    {
-      "name": "checked",
-      "supportedDevices": ["phone", "tablet"],
-      "required": false,
-      "description": [
-        {
-          "name": "Whether the toggle component is selected.",
-          "supportedDevices": ["phone", "tablet"]
-        }
-      ],
-      "type": "enum",
-      "options": [
-        {
-          "name": "true"
-        },
-        {
-          "name": "false"
-        }
-      ]
-    },
+    "name": "camera",
+    "version": [
+      {
+        "name": "v6.0"
+      }
+    ],
+    "supportedDevices": ["phone","smartVision"],
+    "description": [
+      {
+        "name": "Camera component, which provides the preview and photographing functions.",
+        "supportedDevices": ["phone","smartVision"]
+      }
+    ],
+    "attributes": [
+      {
+        "name": "flash",
+        "supportedDevices": ["phone","smartVision"],
+        "required": false,
+        "description": [
+          {
+            "name": "Indicates the flashlight. The value can be on, off, or torch (the flashlight is always on).",
+            "supportedDevices": ["phone","smartVision"]
+          }
+        ],
+        "type": "enum",
+        "options": [
+          {
+            "name": "on"
+          },
+          {
+            "name": "off"
+          },
+          {
+            "name": "torch"
+          }
+        ]
+      },
+      {
+        "name": "deviceposition",
+        "supportedDevices": ["phone","smartVision"],
+        "required": false,
+        "description": [
+          {
+            "name": "Front or back. The value can be front or back.",
+            "supportedDevices": ["phone","smartVision"]
+          }
+        ],
+        "type": "enum",
+        "options": [
+          {
+            "name": "front"
+          },
+          {
+            "name": "back"
+          }
+        ]
+      },
     {
       "name": "shareid",
       "supportedDevices": ["phone", "tablet", "tv", "wearable"],
@@ -793,17 +804,17 @@
       ]
     }
   ],
-  "events": [
-    {
-      "name": "change",
-      "supportedDevices": ["phone", "tablet"],
-      "description": [
-        {
-          "name": "Triggered when the component selection status changes.",
-          "supportedDevices": ["phone", "tablet"]
-        }
-      ]
-    },
+    "events": [
+      {
+        "name": "error",
+        "supportedDevices": ["phone","smartVision"],
+        "description": [
+          {
+            "name": "Triggered when the user is not allowed to use the camera.",
+            "supportedDevices": ["phone","smartVision"]
+          }
+        ]
+      },
     {
       "name": "touchstart",
       "supportedDevices": [
@@ -1490,8 +1501,8 @@
       ]
     }
   ],
-  "supportedSubComponents": false,
-  "supportedSubComponentsRestriction": [],
-  "unSupportSubComponentsRestriction": [],
-  "parentComponentsRestriction": []
-}
+    "supportedSubComponents": false,
+    "supportedSubComponentsRestriction": [],
+    "unSupportSubComponentsRestriction": [],
+    "parentComponentsRestriction": []
+  }

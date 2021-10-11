@@ -43,7 +43,7 @@
           "supportedDevices": ["phone", "tablet", "tv"]
         }
       ],
-      "type": "url"
+      "type": "string"
     },
     {
       "name": "autoplay",
@@ -75,11 +75,16 @@
           "supportedDevices": ["phone", "tablet", "tv"]
         }
       ],
-      "type": "url"
+      "type": "string"
     },
     {
       "name": "loop",
       "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
       "required": false,
       "description": [
         {
@@ -118,6 +123,57 @@
       ]
     },
     {
+      "name": "starttime",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Where the video starts playing.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ],
+      "type": "number"
+    },
+    {
+      "name": "direction",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Controls the layout mode of the Video component in full-screen mode. Set this parameter tovertical. Set this parameter tohorizontal. Set this parameter to auto. In full-screen mode, the video is displayed in landscape or portrait mode based on the width and height. If this parameter is set to adapt, the video is displayed in landscape or portrait mode based on the device direction.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ],
+      "type": "string"
+    },
+    {
+      "name": "speed",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Controls the video playback speed. A larger value indicates a faster video playback speed.The value ranges from 0.1 to 20.0. The precision is float.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ],
+      "type": "number"
+    },
+    {
       "name": "id",
       "supportedDevices": ["phone", "tablet", "tv"],
       "required": false,
@@ -141,18 +197,7 @@
       ],
       "type": "string"
     },
-    {
-      "name": "starttime",
-      "supportedDevices": ["phone", "tablet", "tv"],
-      "required": false,
-      "description": [
-        {
-          "name": "Where the video starts playing.",
-          "supportedDevices": ["phone", "tablet", "tv"]
-        }
-      ],
-      "type": "string"
-    },
+
     {
       "name": "class",
       "supportedDevices": ["phone", "tablet", "tv"],
@@ -218,7 +263,7 @@
       ]
     },
     {
-      "name": "data",
+      "name": "data-*",
       "supportedDevices": ["phone", "tablet", "tv"],
       "required": false,
       "description": [
@@ -450,6 +495,209 @@
   ],
   "events": [
     {
+      "name": "drag",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The duration of drag.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag starts.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragenter",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag enters.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragover",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag overs.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragleave",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag leaves.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drop",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag drops.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
       "name": "prepared",
       "supportedDevices": ["phone", "tablet", "tv"],
       "description": [
@@ -525,6 +773,16 @@
       "description": [
         {
           "name": "Triggered once per 250 ms when the playing progress changes.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "stop",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "This event is triggered when a request is made to stop playing a video. The stop event is not triggered when the finish event is triggered.",
           "supportedDevices": ["phone", "tablet", "tv"]
         }
       ]
@@ -635,6 +893,56 @@
       "description": [
         {
           "name": "Triggered when a component is long pressed.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "doubleclick",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when a component is double clicked.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchstart",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch starts.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchupdate",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch updates.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchend",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch ends.",
+          "supportedDevices": ["phone", "tablet", "tv"]
+        }
+      ]
+    },
+    {
+      "name": "pinchcancel",
+      "supportedDevices": ["phone", "tablet", "tv"],
+      "description": [
+        {
+          "name": "Triggered when the pinch is interrupted.",
           "supportedDevices": ["phone", "tablet", "tv"]
         }
       ]
