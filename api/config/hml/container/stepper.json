@@ -8,7 +8,7 @@
   "supportedDevices": ["phone", "tablet"],
   "description": [
     {
-      "name": "",
+      "name": "Step Navigator. When multiple steps are required to complete a task, you can use the Step Navigator to show the current progress.",
       "supportedDevices": ["phone", "tablet"]
     }
   ],
@@ -19,7 +19,7 @@
       "required": false,
       "description": [
         {
-          "name": "",
+          "name": "Sets the sequence number of the stepper-item subcomponent to be displayed in the step navigator step.",
           "supportedDevices": ["phone", "tablet"]
         }
       ],
@@ -285,7 +285,7 @@
       "supportedDevices": ["phone", "tablet"],
       "description": [
         {
-          "name": "",
+          "name": "Triggers when the last step of the Step Navigator completes.",
           "supportedDevices": ["phone", "tablet"]
         }
       ]
@@ -295,7 +295,7 @@
       "supportedDevices": ["phone", "tablet"],
       "description": [
         {
-          "name": "",
+          "name": "This event is triggered when the setNextButtonStatus method is used to set the current step navigator to skip, and the skip button is clicked on the right.",
           "supportedDevices": ["phone", "tablet"]
         }
       ]
@@ -305,7 +305,7 @@
       "supportedDevices": ["phone", "tablet"],
       "description": [
         {
-          "name": "",
+          "name": "This event is triggered when the step navigator clicks the text button on the left or right to switch steps. prevIndex indicates the sequence number of the old step, and index indicates the sequence number of the new step.",
           "supportedDevices": ["phone", "tablet"]
         }
       ]
@@ -315,7 +315,7 @@
       "supportedDevices": ["phone", "tablet"],
       "description": [
         {
-          "name": "",
+          "name": "This event is triggered when a subscriber clicks the Next button. index indicates the sequence number of the current step, and pendingIndex indicates the sequence number to be redirected to. This event has a return value in the format of {pendingIndex:pendingIndex}. You can specify pendingIndex to modify which stepper-item subcomponent is used in the next step.",
           "supportedDevices": ["phone", "tablet"]
         }
       ]
@@ -325,18 +325,693 @@
       "supportedDevices": ["phone", "tablet"],
       "description": [
         {
-          "name": "",
+          "name": "This event is triggered when a subscriber clicks the previous button. index indicates the sequence number of the current step, and pendingIndex indicates the sequence number of the jump to. This event has a return value in the Object:{pendingIndex:pendingIndex} format. You can specify pendingIndex to modify which stepper-item subcomponent is used in the previous step.",
           "supportedDevices": ["phone", "tablet"]
         }
       ]
     },
     {
+      "name": "touchstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The tapping starts",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "touchmove",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The tapping moves.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "touchcancel",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The tapping is interrupted.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "touchend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The tapping ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component is clicked.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "longpress",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component is long pressed.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doubleclick",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component is double clicked.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch starts.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchupdate",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch updates.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchcancel",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch is interrupted.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drag",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The duration of drag.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag starts.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragenter",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag enters.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragover",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag overs.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragleave",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag leaves.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drop",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag drops.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "focus",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component gains focus. The <span> component cannot gain focus.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "blur",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component loses focus. The <span> component cannot lose focus.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "key",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A user presses a key on the remote control. Available return values are as follows:\ntrue: returned if the page processes the key event.\nfalse: returned if the default logic is used to process the key event.\nIf no value is returned, false is used as the return value.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swipe",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A user quickly swipes on a component.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attached",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The current component is mounted to the render tree.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "detached",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The current component is removed from the render tree.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
       "name": "accessibility",
-      "supportedDevices": ["phone", "tablet"],
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
       "description": [
         {
           "name": "Event dispatched by the accessibility service.",
-          "supportedDevices": ["phone", "tablet"]
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "wearable"
+          ]
         }
       ]
     }
