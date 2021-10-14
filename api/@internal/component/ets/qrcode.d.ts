@@ -15,16 +15,51 @@
 
 import {CommonMethod, Color, Resource} from "./common";
 
+/**
+ * QR code information
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class QRCodeExtend<T> extends QRCodeAttribute<T> {
 }
 
+/**
+ * Provides an interface for generating QR codes.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface QRCode extends QRCodeAttribute<QRCode> {
-  (value: string): QRCode;
+  /**
+   * Called when a QR code is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  (
+    value: string): QRCode;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class QRCodeAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the QR code color is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   color(value: Color | number | string | Resource): T;
+
+  /**
+   * Called when setting the QR code background color.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   backgroundColor(value: Color | number | string | Resource): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const QRCodeInterface: QRCode;

@@ -15,15 +15,42 @@
 
 import {CommonMethod, VerticalAlign, VerticalAlignDeclaration} from "./common";
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class RowExtend<T> extends RowAttribute<T> {
 }
 
+/**
+ * The components are laid out horizontally
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Row extends RowAttribute<Row> {
+  /**
+   * Called when the layout is set in the horizontal direction.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value?: { space?: string | number, useAlign?: VerticalAlignDeclaration }): Row;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class RowAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the vertical alignment is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   alignItems(value: VerticalAlign): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const RowInterface: Row;

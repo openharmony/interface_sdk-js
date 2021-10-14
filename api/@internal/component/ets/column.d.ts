@@ -15,15 +15,44 @@
 
 import {CommonMethod, HorizontalAlignDeclaration, HorizontalAlign} from "./common";
 
+/**
+ * Containers laid out vertically.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ColumnExtend<T> extends ColumnAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Column extends ColumnAttribute<Column> {
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Vertical layout element spacing.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ColumnAttribute<T> extends CommonMethod<T> {
+  /**
+   * Sets the alignment format of the subassembly in the horizontal direction.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   alignItems(value: HorizontalAlign): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ColumnInterface: Column;

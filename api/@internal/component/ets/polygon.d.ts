@@ -15,16 +15,46 @@
 
 import {CommonShapeMethod} from "./common";
 
+/**
+ * Polygon drawing.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class PolygonExtend<T> extends PolygonAttribute<T> {
 }
 
+/**
+ * Provides the polygon drawing interface.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Polygon extends PolygonAttribute<Polygon> {
+     /**
+     * Called when the draw polygon interface is used.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     (): Polygon;
+
+    /**
+     * Called when drawing a polygon.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     (value?: { width?: string | number, height?: string | number }): Polygon;
 }
 
 declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
+    /**
+     * Called when the vertex coordinate list of a polygon is set.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     points(value: Array<any>): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const PolygonInterface: Polygon;

@@ -15,15 +15,45 @@
 
 import {CommonMethod, Color, Resource} from "./common";
 
+/**
+ * Hyperlink component, which gives the scope of subcomponents.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Hyperlink extends HyperlinkAttribute<Hyperlink> {
+  /**
+   * Return to get Hyperlink.
+   * adress: Web page redirected by the hyperlink component.
+   * content: Hyperlinks in the hyperlink component display text.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (address: string | Resource, content?: string | Resource): Hyperlink;
 }
 
+/**
+ * inheritance CommonMethod
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class HyperlinkAttribute<T> extends CommonMethod<T> {
+  /**
+   * Set Color
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   color(value: Color | number | string | Resource): T;
 }
 
+/**
+ * @devices phone, tablet, car
+ * @since 7
+ */
 export declare const HyperlinkInterface: Hyperlink;

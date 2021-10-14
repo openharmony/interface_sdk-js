@@ -15,17 +15,45 @@
 
 import {CommonMethod, FlexDirection, FlexWrap, FlexAlign, ItemAlign} from "./common";
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class FlexExtend<T> extends FlexAttribute<T> {
 }
 
+/**
+ * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Flex extends FlexAttribute<Flex> {
+  /**
+   * Set the value.
+   * direction: Sets the horizontal layout of elements.
+   * wrap: Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * justifyContent: The alignment format of the subassembly on the Flex container spindle.
+   * alignItems: Alignment Format for Subassembly on Flex Container Cross Axis
+   * alignContent:The alignment of multiple lines of content when there is extra space in the cross axis.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value?: {
     direction?: FlexDirection, wrap?: FlexWrap, justifyContent?: FlexAlign,
     alignItems?: ItemAlign, alignContent?: FlexAlign
   }): Flex;
 }
 
+/**
+ * Common Setting
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class FlexAttribute<T> extends CommonMethod<T> {
 }
 
+/**
+ * @devices phone, tablet, car
+ * @since 7
+ */
 export declare const FlexInterface: Flex;

@@ -15,20 +15,65 @@
 
 import {CommonMethod} from "./common";
 
+/**
+ * Camera component, which provides the preview and photographing functions.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare enum DevicePosition {
+  /**
+   * Front camera
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Front,
+
+  /**
+   * Back camera
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Back
 }
 
+/**
+ * Camera component, which provides the preview and photographing functions.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class CameraExtend<T> extends CameraAttribute<T> {
 }
 
+/**
+ * resolution Width, resolution Height
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Camera extends CameraAttribute<Camera> {
+  /**
+   * Set the value.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value: { id: string, resolutionWidth: number, resolutionHeight: number }): Camera;
 }
 
+/**
+ * set CameraAttribute
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class CameraAttribute<T> extends CommonMethod<T> {
+  /**
+   * Set devicePosition value.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   devicePosition(value: DevicePosition): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const CameraInterface: Camera;

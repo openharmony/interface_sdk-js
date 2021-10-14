@@ -15,15 +15,41 @@
 
 import {CommonMethod} from "./common";
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ColumnSplitExtend<T> extends ColumnSplitAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface ColumnSplit extends ColumnSplitAttribute<ColumnSplit> {
+  /**
+   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (): ColumnSplit;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class ColumnSplitAttribute<T> extends CommonMethod<T> {
+  /**
+   * Indicates whether the split line can be dragged. The default value is false.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   resizeable(value: boolean): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ColumnSplitInterface: ColumnSplit;

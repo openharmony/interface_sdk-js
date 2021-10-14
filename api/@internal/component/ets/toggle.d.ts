@@ -15,23 +15,83 @@
 
 import {CommonMethod, Color} from "./common";
 
+/**
+ * Declare the type of status button
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare enum ToggleType {
+  /**
+   * Checkbox
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Checkbox,
+
+  /**
+   * Switch
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Switch,
+
+  /**
+   * Button
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Button
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ToggleExtend<T> extends ToggleAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Toggle extends ToggleAttribute<Toggle> {
+  /**
+   * Set parameters to obtain the toggle.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (options?: {type: ToggleType, isOn?: boolean}): Toggle;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class ToggleAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the selected state of the component changes.
+   * @since 7
+   * @devices phone, tablet, car.
+   */
   onChange(callback: (isOn: boolean) => void): T;
+
+  /**
+   * Called when the color of the selected button is set.
+   * @since 7
+   * @devices phone, tablet, car.
+   */
   selectedColor(value: Color): T;
+
+  /**
+   * Called when the color of the selected button is set.
+   * @since 7
+   * @devices phone, tablet, car.
+   */
   swithPointStyle(color: Color): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ToggleInterface: Toggle;

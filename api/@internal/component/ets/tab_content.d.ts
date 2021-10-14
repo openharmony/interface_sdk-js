@@ -13,17 +13,45 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import {CommonMethod, Resource} from "./common";
 
+/**
+ * Declaration extension.
+ * @devices tv, phone, tablet
+ * @since 7
+ */
 export declare class TabContentExtend<T> extends TabContentAttribute<T> {
 }
 
+/**
+ * Provides an interface for switching the content view on a tab page.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface TabContent extends TabContentAttribute<TabContent> {
+  /**
+   * Called when the content view of the switch tab is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (): TabContent;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class TabContentAttribute<T> extends CommonMethod<T> {
-  tabBar(value: string | { icon?: string, text?: string }): T;
+  /**
+   * Called when tabbar is entered.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  tabBar(value: string | Resource | { icon?: string | Resource, text?: string | Resource }): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const TabContentInterface: TabContent;
