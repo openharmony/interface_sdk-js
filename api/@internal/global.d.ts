@@ -59,14 +59,14 @@ export interface SubscribeMessageOptions {
   fail?: (data: string, code: number) => void;
 }
 export declare class FeatureAbility {
-  static callAbility(param: CallAbilityParam): Promise<Result>;
+  static callAbility(param: CallAbilityParam): Promise<string>;
   static subscribeAbilityEvent(
     param: SubscribeAbilityEventParam,
     func: Function
-  ): Promise<Result>;
+  ): Promise<string>;
   static unsubscribeAbilityEvent(
     param: SubscribeAbilityEventParam
-  ): Promise<Result>;
+  ): Promise<string>;
   static sendMsg(options: SendMessageOptions): void;
   static subscribeMsg(options: SubscribeMessageOptions): void;
   static unsubscribeMsg(): void;
@@ -75,3 +75,4 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
+export declare function createLocalParticleAbility(timeoutID?: number): any;

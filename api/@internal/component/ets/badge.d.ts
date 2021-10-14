@@ -13,30 +13,112 @@
   * limitations under the License.
   */
 
-import {CommonMethod, Color} from "./common"
+import {CommonMethod, Color, Resource} from "./common"
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare enum BadgePosition {
-  Right,
+  /**
+   * The dot is displayed vertically centered on the right.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   RightTop,
+
+  /**
+   * Dots are displayed in the upper right corner.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  Right,
+
+  /**
+   * The dot is displayed in the left vertical center.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Left
 }
 
+/**
+ * BadgeStyle object
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface BadgeStyle {
-  color?: Color;
+  /**
+   * Text Color
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  color?: Color | number | string | Resource;
+
+  /**
+   * Text size.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   fontSize?: number | string;
-  badgeSize?: number | string;
-  badgeColor: Color;
+
+  /**
+   * Size of a badge.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  badgeSize: number | string;
+
+  /**
+   * Color of the badge.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  badgeColor: Color | number | string | Resource;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class BadgeExtend<T> extends BadgeAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Badge extends BadgeAttribute<Badge> {
-  (value: {count: number, position?: BadgePosition, maxCount?: number, style?: BadgeStyle}): Badge;
-  (value: {value: string, position?: BadgePosition, maxCount?: number, style?: BadgeStyle}): Badge;
+  /**
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * count: Set the number of reminder messages.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  (value: {count: number, position?: BadgePosition, maxCount?: number, style: BadgeStyle}): Badge;
+
+  /**
+   * value: Text string of the prompt content.
+   * position: Set the display position of the prompt point.
+   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  (value: {value: string, position?: BadgePosition, maxCount?: number, style: BadgeStyle}): Badge;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class BadgeAttribute<T> extends CommonMethod<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const BadgeInterface: Badge

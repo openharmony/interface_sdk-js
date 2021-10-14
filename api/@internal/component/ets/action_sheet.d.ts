@@ -16,19 +16,60 @@
 import { DialogAlignment } from "./alert_dialog";
 import {CommonMethod, Resource} from "./common"
 
+/**
+ * The information of sheet.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface SheetInfo {
+  /**
+   * Title Properties
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   title: string | Resource;
+
+  /**
+   * Icon Properties.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   icon?: string | Resource;
+
+  /**
+   * Callback method after the operation.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   action: () => void;
 }
 
+/**
+ * Callback method after the operation.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ActionSheetExtend<T> extends ActionSheetAttribute<T> {
 }
 
+/**
+ * create ActionSheet.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface ActionSheet extends ActionSheetAttribute<ActionSheet> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class ActionSheetAttribute<T> extends CommonMethod<T> {
+  /**
+   * Invoking method display.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   show(value: {
     title: string | Resource;
     message: string | Resource;
@@ -44,4 +85,9 @@ declare class ActionSheetAttribute<T> extends CommonMethod<T> {
   });
 }
 
+/**
+ * Definitions ActionSheetInterface.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ActionSheetInterface: ActionSheet;

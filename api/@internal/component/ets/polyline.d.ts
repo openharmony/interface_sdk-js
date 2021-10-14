@@ -15,16 +15,50 @@
 
 import {CommonShapeMethod} from "./common";
 
+/**
+ * Discounted drawing.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class PolylineExtend<T> extends PolylineAttribute<T> {
 }
 
+/**
+ * Provides an interface for drawing polylines.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Polyline extends PolylineAttribute<Polyline> {
+  /**
+   * Called when using the draw polyline interface.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (): Polyline;
+
+  /**
+   * Called when using the draw fold.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value?: { width?: string | number, height?: string | number }): Polyline;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class PolylineAttribute<T> extends CommonShapeMethod<T> {
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   points(value: Array<any>): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const PolylineInterface: Polyline;

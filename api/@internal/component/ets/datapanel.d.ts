@@ -15,15 +15,44 @@
 
 import {CommonMethod} from "./common";
 
+/**
+ * The data panel component is used to display multiple data proportions in a circular proportion chart.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface DataPanel extends DataPanelAttribute<DataPanel> {
+  /**
+   * Return a DataPanel.
+   * values: Current data value. A maximum of nine data records are supported.
+   * max: Maximum value of the current data.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (options: {values: number[], max?: number}): DataPanel;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class DataPanelAttribute<T> extends CommonMethod<T> {
+  /**
+   * Disable the special effect of the data ratio chart.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   closeEffect(value: boolean): T;
 }
 
+/**
+ * @devices phone, tablet, car
+ * @since 7
+ */
 export declare const DataPanelInterface: DataPanel;

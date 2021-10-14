@@ -15,14 +15,38 @@
 
 import { CommonMethod, Resource } from "./common";
 
+/**
+ * Display items.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class OptionExtend<T> extends OptionAttribute<T> {
 }
 
+/**
+ * Provides the interface for displaying the content.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Option extends OptionAttribute<Option> {
+  /**
+   * Called when the content needs to be displayed.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (content?: string | Resource): Option;
 }
 
+/**
+ * Declare option properties.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class OptionAttribute<T> extends CommonMethod<T> {
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const OptionInterface: Option;

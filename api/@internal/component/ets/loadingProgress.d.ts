@@ -15,21 +15,72 @@
 
 import {CommonMethod, Color, Resource} from "./common";
 
+/**
+ * Load style of progress bar.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare enum LoadingProgressStyle{
+  /**
+   * Default style.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Default,
+
+  /**
+   * Announcement style.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Circular,
+
+  /**
+   * The style of the track.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Orbital,
 }
 
+/**
+ * Loading Progress Extensions on Declarative Classes
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {
 }
 
+/**
+ * Provides an interface for extending the loading progress.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface LoadingProgress extends LoadingProgressAttribute<LoadingProgress> {
+  /**
+   * Called when the progress bar progress is viewed.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (): LoadingProgress;
 }
 
+/**
+ * Declare the progress bar being loaded
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class LoadingProgressAttribute<T> extends CommonMethod<T> {
+  /**
+   * Load the color of the progress bar.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   color(value: Color | Resource): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const LoadingProgressInterface: LoadingProgress;

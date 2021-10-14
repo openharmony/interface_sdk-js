@@ -28,33 +28,33 @@ import { PacMap } from "../ability/dataAbilityHelper";
 
 /**
  * interface of form lifecycle.
+ *
  * @name LifecycleForm
  * @since 7
  * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
+ * @devices phone, tablet, tv, wearable, car
  */
 export declare interface LifecycleForm {
   /**
    * Called to return a {@link formBindingData.FormBindingData} object.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
-   * @param want Indicates the detailed information for creating a {@link formBindingData.FormBindingData}.
+   * @param want Indicates the detailed information for creating a {@link formBindingData#FormBindingData}.
    *               The {@code Want} object must include the form ID, form name, and grid style of the form,
-   *               which can be obtained from {@link formManager.FormParam#IDENTITY_KEY},
-   *               {@link formManager.FormParam#NAME_KEY}, and {@link formManager.FormParam#DIMENSION_KEY},
+   *               which can be obtained from {@link formManager#FormParam#IDENTITY_KEY},
+   *               {@link formManager#FormParam#NAME_KEY}, and {@link formManager#FormParam#DIMENSION_KEY},
    *               respectively. Such form information must be managed as persistent data for further form
    *               acquisition, update, and deletion.
-   * @return Returns the created {@link formBindingData.FormBindingData} object.
+   * @return Returns the created {@link formBindingData#FormBindingData} object.
    */
   onCreate?(want: Want): formBindingData.FormBindingData;
 
   /**
    * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param formId Indicates the ID of the form.
@@ -65,7 +65,7 @@ export declare interface LifecycleForm {
   /**
    * Called to notify the form provider to update a specified form.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param formId Indicates the ID of the form to update.
@@ -76,13 +76,14 @@ export declare interface LifecycleForm {
   /**
    * Called when the form provider receives form events from the system.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param newStatus Indicates the form events occurred. The key in the {@code Map} object indicates the form ID,
-   *                   and the value indicates the event type, which can be either {@link #FORM_VISIBLE}
-   *                   or {@link #FORM_INVISIBLE}. {@link #FORM_VISIBLE} means that the form becomes visible,
-   *                   and {@link #FORM_INVISIBLE} means that the form becomes invisible.
+   *    and the value indicates the event type, which can be either {@link formManager#VisibilityType#FORM_VISIBLE}
+   *    or {@link formManager#VisibilityType#FORM_INVISIBLE}. {@link formManager#VisibilityType#FORM_VISIBLE}
+   *    means that the form becomes visible, and {@link formManager#VisibilityType#FORM_INVISIBLE}
+   *    means that the form becomes invisible.
    * @return -
    */
   onVisibilityChanged?(newStatus: { [key: string]: number }): void;
@@ -91,7 +92,7 @@ export declare interface LifecycleForm {
    * Called when a specified message event defined by the form provider is triggered. This method is valid only for
    * JS forms.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param formId Indicates the ID of the form on which the message event is triggered, which is provided by
@@ -106,7 +107,7 @@ export declare interface LifecycleForm {
    * Called to notify the form provider that a specified form has been deleted. Override this method if
    * you want your application, as the form provider, to be notified of form deletion.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param formId Indicates the ID of the deleted form.
@@ -120,29 +121,29 @@ export declare interface LifecycleForm {
    * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
    * this method returns {@link FormState#DEFAULT} by default.</p>
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
-   * @param want Indicates the description of the form for which the {@link FormState} is obtained. The description
-   *                        covers the bundle name, ability name, module name, form name, and form dimensions.
-   * @return Returns the {@link formManager.FormState} object.
+   * @param want Indicates the description of the form for which the {@link formManager#FormState} is obtained.
+   *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
+   * @return Returns the {@link formManager#FormState} object.
    */
   onAcquireFormState?(want: Want): formManager.FormState;
 }
 
 /**
  * interface of app lifecycle.
+ *
  * @name LifecycleApp
  * @since 7
  * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
+ * @devices phone, tablet, tv, wearable, car
  */
 export declare interface LifecycleApp {
   /**
    * Called back when the state of an ability changes from <b>BACKGROUND</b> to <b>INACTIVE</b>.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
@@ -152,7 +153,7 @@ export declare interface LifecycleApp {
   /**
    * Called back when an ability enters the <b>BACKGROUND</b> state.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
@@ -162,7 +163,7 @@ export declare interface LifecycleApp {
   /**
    * Called back before an ability is destroyed.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
@@ -172,7 +173,7 @@ export declare interface LifecycleApp {
   /**
    * Called back when an ability is started for initialization.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
@@ -183,20 +184,21 @@ export declare interface LifecycleApp {
    * Called when the window display mode of this ability changes, for example, from fullscreen mode
    *     to multi-window mode or from multi-window mode to fullscreen mode.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param isShownInMultiWindow Specifies whether this ability is currently in multi-window mode.
    *     The value {@code true} indicates the multi-window mode, and {@code false} indicates another mode.
    * @param newConfig Indicates the new configuration information about this Page ability.
    * @return -
+   * @systemapi hide for inner use.
    */
   onWindowDisplayModeChanged?(isShownInMultiWindow: boolean, newConfig: resourceManager.Configuration): void;
 
   /**
    * Asks a user whether to start the migration.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
@@ -208,7 +210,7 @@ export declare interface LifecycleApp {
    * After the migration is triggered and the local ability is ready, this method is called when the Distributed
    * Scheduler Service requests data from the local ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param data Indicates the user data to save.
@@ -222,7 +224,7 @@ export declare interface LifecycleApp {
    * <p>You can define the processing logic after the migration is complete. For example, you can display a prompt to
    * notify the user of the successful migration and then exit the local ability.</p>
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param result Indicates the migration result code. The value {@code 0} indicates that the migration is
@@ -236,7 +238,7 @@ export declare interface LifecycleApp {
    * ability is created on the remote device. Lifecycle scheduling for the ability starts only after the user data
    * is restored.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param data Indicates the user data to restore.
@@ -248,28 +250,100 @@ export declare interface LifecycleApp {
    * Called to notify the local device when a running ability on the remote device is destroyed after a reversible
    * migration is performed for the ability from the local device to the remote device.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
    */
   onRemoteTerminated?(): void;
+
+  /**
+   * This method is called when the system determines that the ability may be destroyed in an unexpected
+   * situation, for example, when the screen orientation changes or the user touches the Home key. Generally,
+   * this method is used only to save temporary states.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param outState Indicates the {@code PacMap} object used for storing user data and states. This
+   * parameter cannot be null.
+   * @return -
+   */
+  onSaveAbilityState?(outState: PacMap): void;
+
+  /**
+   * This method is called if an ability was destroyed at a certain time due to resource reclaim or was
+   * unexpectedly destroyed and the {@link #onSaveAbilityState(PacMap)} method was called to save its user data and
+   * states. Generally, this method is called after the {@link #onStart(Want)} method.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param inState Indicates the {@code PacMap} object used for storing data and states. This
+   * parameter can not be null.
+   * @return -
+   */
+  onRestoreAbilityState?(inState: PacMap): void;
+
+  /**
+   * Called back when an ability enters the <b>INACTIVE</b> state (an ability in this state is not interactive and may
+   * change to the <b>BACKGROUND</b> or <b>ACTIVE</b> state).
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @return -
+   */
+  onInactive?(): void;
+
+  /**
+   * Called back when an ability enters the <b>ACTIVE</b> state.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @return -
+   */
+  onActive?(): void;
+
+  /**
+   * Called when the launch mode of an ability is set to singleton.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param want Indicates the new {@code want} containing information about the ability.
+   * @return -
+   */
+  onNewWant?(want: Want): void;
+
+  /**
+   * Called when the system has determined to trim the memory, for example, when the ability is running in the
+   * background and there is no enough memory for running as many background processes as possible.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param level Indicates the memory trim level, which shows the current memory usage status.
+   * @return -
+   */
+  onMemoryLevel?(level: number): void;
 }
 
 /**
  * interface of service lifecycle.
+ *
  * @name LifecycleService
  * @since 7
  * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
+ * @devices phone, tablet, tv, wearable, car
  */
 export declare interface LifecycleService {
   /**
    * Called back when an ability is started for initialization (it can be called only once in the entire lifecycle of
    * an ability).
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @return -
@@ -279,7 +353,7 @@ export declare interface LifecycleService {
   /**
    * Called back when Service is started.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param want Indicates the want of Service to start.
@@ -291,9 +365,19 @@ export declare interface LifecycleService {
   onCommand?(want: Want, startId: number): void;
 
   /**
+   * Called back before an ability is destroyed.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @return -
+   */
+  onStop?(): void;
+
+  /**
    * Called back when a Service ability is first connected to an ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param want Indicates connection information about the Service ability.
@@ -304,7 +388,7 @@ export declare interface LifecycleService {
   /**
    * Called back when all abilities connected to a Service ability are disconnected.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param want Indicates disconnection information about the Service ability.
@@ -313,29 +397,34 @@ export declare interface LifecycleService {
   onDisconnect?(want: Want): void;
 
   /**
-   * Called back before an ability is destroyed.
+   * Called when a new client attempts to connect to a Service ability after all previous client connections to it
+   * are disconnected.
    *
-   * @devices phone, tablet
+   * <p>The Service ability must have been started but not been destroyed, that is, {@link #startAbility} has been
+   * called but {@link #terminateSelf} has not.</p>
+   *
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
+   * @param want Indicates the want of the Service ability being connected.
    * @return -
    */
-  onStop?(): void;
+  onReconnect?(want: Want): void;
 }
 
 /**
  * interface of data lifecycle.
+ *
  * @name LifecycleData
  * @since 7
  * @sysCap AAFwk
- * @devices phone, tablet
- * @permission N/A
+ * @devices phone, tablet, tv, wearable, car
  */
 export declare interface LifecycleData {
   /**
    * Updates one or more data records in the database. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the database table storing the data to update.
@@ -345,12 +434,12 @@ export declare interface LifecycleData {
    * @return Returns the number of data records updated.
    * @return -
    */
-  update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): number;
+  async update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): number;
 
   /**
    * Queries one or more data records in the database. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the database table storing the data to query.
@@ -360,12 +449,12 @@ export declare interface LifecycleData {
    *                   default.
    * @return Returns the queried data.
    */
-  query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): ResultSet;
+  async query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): ResultSet;
 
   /**
    * Deletes one or more data records. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the database table storing the data to delete.
@@ -373,14 +462,25 @@ export declare interface LifecycleData {
    *     default.
    * @return Returns the number of data records deleted.
    */
-  delete?(uri: string, predicates: dataAbility.DataAbilityPredicates): number;
+  async delete?(uri: string, predicates: dataAbility.DataAbilityPredicates): number;
+
+  /**
+   * Performs batch operations on the database. This method should be implemented by a Data ability.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param ops Indicates the data operation list, which can contain multiple operations on the database.
+   * @return Returns the result of each operation, in array.
+   */
+  async executeBatch?(ops: Array<DataAbilityOperation>): Array<DataAbilityResult>;
 
   /**
    * Converts the given {@code uri} that refer to the Data ability into a normalized URI. A normalized URI can be
    * used across devices, persisted, backed up, and restored. It can refer to the same item in the Data ability
    * even if the context has changed.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the uri to normalize.
@@ -391,20 +491,20 @@ export declare interface LifecycleData {
   /**
    * Inserts multiple data records into the database. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the position where the data is to insert.
    * @param valueBuckets Indicates the data to insert.
    * @return Returns the number of data records inserted.
    */
-  batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>): number;
+  async batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>): number;
 
   /**
    * Converts the given normalized {@code uri} generated by {@link #normalizeUri(uri)} into a denormalized one.
    * The default implementation of this method returns the original uri passed to it.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the uri to denormalize.
@@ -417,19 +517,19 @@ export declare interface LifecycleData {
   /**
    * Inserts a data record into the database. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the position where the data is to insert.
    * @param valueBucket Indicates the data to insert.
    * @return Returns the index of the newly inserted data record.
    */
-  insert?(uri: string, valueBucket: rdb.ValuesBucket): number;
+  async insert?(uri: string, valueBucket: rdb.ValuesBucket): number;
 
   /**
    * Opens a file. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the path of the file to open.
@@ -439,12 +539,12 @@ export declare interface LifecycleData {
    *     existing data, or "rwt" for read and write access that truncates any existing file.
    * @return Returns the file descriptor.
    */
-  openFile?(uri: string, mode: string): number;
+  async openFile?(uri: string, mode: string): number;
 
   /**
    * Obtains the MIME type of files. This method should be implemented by a Data ability.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the path of the files to obtain.
@@ -458,9 +558,22 @@ export declare interface LifecycleData {
   getFileTypes?(uri: string, mimeTypeFilter: string): Array<string>;
 
   /**
+   * Defines a method in this Data ability (implementation depending on child classes).
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 7
+   * @sysCap AAFwk
+   * @param method Indicates the method name.
+   * @param arg Indicates the parameter transferred by the method.
+   * @param extras Indicates the parameter transferred by the method.
+   * @return Returns the result of the method.
+   */
+  async call?(method: string, arg: string, extras: PacMap): PacMap;
+
+  /**
    * Called to carry {@code AbilityInfo} to this ability after the ability is initialized.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param info Indicates the {@code AbilityInfo} object containing information about this ability.
@@ -474,7 +587,7 @@ export declare interface LifecycleData {
    *
    * <p>Data abilities supports general data types, including text, HTML, and JPEG.</p>
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
    * @param uri Indicates the uri of the data.

@@ -15,29 +15,105 @@
 
 import {CommonMethod} from "./common";
 
+/**
+ * Declare item ceiling attribute.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare enum Sticky {
+  /**
+   * No sticky.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   None,
+
+  /**
+   * Normal mode
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Normal,
+
+  /**
+   * Set opacity.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Opacity,
 }
 
+/**
+ * Declare whether the ListItem element is editable.
+ * @devices phone, tablet
+ * @since 7
+ */
 export declare enum EditMode {
+  /**
+   * Unrestricted operations.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   None,
+
+  /**
+   * Deleteable.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Deletable,
+
+  /**
+   * Movable.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   Movable,
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ListItemExtend<T> extends ListItemAttribute<T> {
 }
 
+/**
+ * Values in the list
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface ListItem extends ListItemAttribute<ListItem> {
+  /**
+   * Called when an interface is used.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (value?: string): ListItem;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class ListItemAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when setting whether item is ceiling effect.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   sticky(value: Sticky): T;
 
+  /**
+   * Called when judging whether it is editable.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   editable(value: boolean | EditMode): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ListItemInterface: ListItem;

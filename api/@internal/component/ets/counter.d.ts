@@ -15,19 +15,56 @@
 
 import {CommonMethod} from "./common";
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class CounterExtend<T> extends CounterAttribute<T> {
 }
 
+/**
+ * Counter component, which provides corresponding increment or decrement counting operations.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Counter extends CounterAttribute<Counter> {
+  /**
+   * Return Counter.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   (): Counter;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class CounterAttribute<T> extends CommonMethod<T> {
+  /**
+   * Listens to the value change event.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   onStateChange(event: () => void): T;
 
+  /**
+   * Listen to the event that the value increases.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   onInc(event: () => void): T;
 
+  /**
+   * Listens to the number decrease event.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   onDec(event: () => void): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const CounterInterface: Counter;

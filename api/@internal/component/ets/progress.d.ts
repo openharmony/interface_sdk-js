@@ -13,26 +13,101 @@
   * limitations under the License.
   */
 
-import { CommonMethod, Color } from "./common";
+import {CommonMethod, Color, Resource} from "./common";
 
+/**
+ * Type of progress bar
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare enum ProgressStyle {
+    /**
+     * Linear progress bar style.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     Linear,
+
+    /**
+     * Capsule progress bar style.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     Capsule,
+
+    /**
+     * Circular progress bar.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     Eclipse,
+
+    /**
+     * Ring progress bar.
+     * @devices phone, tablet, car.
+     * @since 7
+     */
     Circular,
 }
 
+/**
+ * Make a statement on the progress bar.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare class ProgressExtend<T> extends ProgressAttribute<T> {
 }
 
+/**
+ * Provides the progress bar interface.
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 interface Progress extends ProgressAttribute<Progress> {
-  (object: { value: number, total?: number, style?: ProgressStyle }): Progress;
+  /**
+   * Called when the progress bar is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  (object: {value: number,total?: number,style?: ProgressStyle }): Progress;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 declare class ProgressAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when the current progress value is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   value(value: number): T;
-  color(value: Color): T;
+
+  /**
+   * Called when the progress bar foreground is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  color(value: Color | number | string | Resource): T;
+
+  /**
+   * Called when the style of the circular progress bar is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
+  circularStyle(value: { strokeWidth?: number, scaleCount?: number, scaleWidth?: number }): T;
+
+    /**
+   * Called when the style of the cricular progress bar is set.
+   * @devices phone, tablet, car.
+   * @since 7
+   */
   cricularStyle(value: { strokeWidth?: number, scaleCount?: number, scaleWidth?: number }): T;
 }
 
+/**
+ * @devices phone, tablet, car.
+ * @since 7
+ */
 export declare const ProgressInterface: Progress;
