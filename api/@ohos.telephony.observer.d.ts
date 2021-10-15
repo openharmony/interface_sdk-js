@@ -15,7 +15,6 @@
 
 import {AsyncCallback} from "./basic";
 import radio from "./@ohos.telephony.radio";
-import data from "./@ohos.telephony.data";
 import call from "./@ohos.telephony.call";
 
 /**
@@ -25,13 +24,9 @@ import call from "./@ohos.telephony.call";
  * @since 6
  */
 declare namespace observer {
-  export import NetworkState = radio.NetworkState;
-  export import SignalInformation = radio.SignalInformation;
-  export import CellInformation = radio.CellInformation;
-  export import DataConnectState = data.DataConnectState;
-  export import RatType = radio.RatType;
-  export import DataFlowType = data.DataFlowType;
-  export import CallState = call.CallState;
+  type NetworkState = radio.NetworkState;
+  type SignalInformation = radio.SignalInformation;
+  type CallState = call.CallState;
 
   /**
    * Called when the network state corresponding to a monitored {@code slotId} updates.
@@ -69,28 +64,6 @@ declare namespace observer {
     callback: AsyncCallback<Array<SignalInformation>>): void;
 
   function off(type: 'signalInfoChange', callback?: AsyncCallback<Array<SignalInformation>>): void;
-
-  /**
-   * Called when the cellular data link connection state updates.
-   *
-   * @param type cellularDataConnectionStateChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including state Indicates the cellular data link connection state,
-   *   and networkType Indicates the radio access technology for cellular data services.
-   */
-  function on(type: 'cellularDataConnectionStateChange',
-    callback: AsyncCallback<{ state: DataConnectState, network: RatType }>): void;
-  function on(type: 'cellularDataConnectionStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: DataConnectState, network: RatType }>): void;
-
-  function once(type: 'cellularDataConnectionStateChange',
-    callback: AsyncCallback<{ state: DataConnectState, network: RatType }>): void;
-  function once(type: 'cellularDataConnectionStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: DataConnectState, network: RatType }>): void;
-
-  function off(type: 'cellularDataConnectionStateChange',
-    callback?: AsyncCallback<{ state: DataConnectState, network: RatType }>): void;
 
   /**
    * Receives a call state change. This callback is invoked when the call state of a specified card updates

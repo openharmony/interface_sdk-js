@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
  * Provides the capabilities and methods for obtaining Short Message Service (SMS) management objects.
  *
  * @since 6
+ * @sysCap SystemCapability.Telephony.Telephony
  */
 declare namespace sms {
   /**
@@ -45,8 +46,133 @@ declare namespace sms {
    * {@code ohos.permission.SEND_MESSAGES}
    *
    * @param options Indicates the parameters and callback for sending the SMS message.
+   * @permission ohos.permission.SEND_MESSAGES
    */
   function sendMessage(options: SendMessageOptions): void;
+
+  /**
+   * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by
+   * using {@code getDefaultSmsSlotId}.
+   *
+   * @param slotId Indicates the default SIM card for sending SMS messages. The value {@code 0} indicates card slot 1,
+   *     and the value {@code 1} indicates card slot 2.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function setDefaultSmsSlotId(slotId: number, callback: AsyncCallback<void>): void;
+  function setDefaultSmsSlotId(slotId: number): Promise<void>;
+
+  /**
+   * Obtains the default SIM card for sending SMS messages.
+   *
+   * @param callback Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
+   *     returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * @since 7
+   */
+  function getDefaultSmsSlotId(callback: AsyncCallback<number>): void;
+  function getDefaultSmsSlotId(): Promise<number>;
+
+  /**
+   * Sets the address for the Short Message Service Center (SMSC) based on a specified slot ID.
+   *
+   * <p><b>Permissions: </b>{@link ohos.security.SystemPermission#SET_TELEPHONY_STATE}
+   *
+   * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @param smscAddr Indicates the SMSC address.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @since 7
+   */
+  function setSmscAddr(slotId: number, smscAddr: string, callback: AsyncCallback<void>): void;
+  function setSmscAddr(slotId: number, smscAddr: string): Promise<void>;
+
+  /**
+   * Obtains the SMSC address based on a specified slot ID.
+   *
+   * <p><b>Permissions: </b>{@link ohos.security.SystemPermission#GET_TELEPHONY_STATE}
+   *
+   * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
+   * @param callback Returns the SMSC address.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @since 7
+   */
+  function getSmscAddr(slotId: number, callback: AsyncCallback<string>): void;
+  function getSmscAddr(slotId: number): Promise<string>;
+
+  /**
+   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function addSimMessage(options: SimMessageOptions, callback: AsyncCallback<void>): void;
+  function addSimMessage(options: SimMessageOptions): Promise<void>;
+
+  /**
+   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function delSimMessage(slotId: number, msgIndex: number, callback: AsyncCallback<void>): void;
+  function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
+
+  /**
+   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
+  function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
+
+  /**
+   * @permission ohos.permission.RECEIVE_SMS
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function getAllSimMessages(slotId: number, callback: AsyncCallback<Array<SimShortMessage>>): void;
+  function getAllSimMessages(slotId: number): Promise<Array<SimShortMessage>>;
+
+  /**
+   * @permission ohos.permission.RECEIVE_SMS
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function setCBConfig(options: CBConfigOptions, callback: AsyncCallback<void>): void;
+  function setCBConfig(options: CBConfigOptions): Promise<void>;
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  export interface CBConfigOptions {
+    slotId: number,
+    enable: boolean,
+    startMessageId: number,
+    endMessageId: number,
+    ranType: number
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  export interface SimMessageOptions {
+    slotId: number,
+    smsc: string,
+    pdu: string,
+    status: SimMessageStatus
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  export interface UpdateSimMessageOptions {
+    slotId: number,
+    msgIndex: number,
+    newStatus: SimMessageStatus,
+    pdu: string,
+    smsc: string
+  }
 
   export interface ShortMessage {
     /** Indicates the SMS message body. */
@@ -74,14 +200,36 @@ declare namespace sms {
     status: number;
     /** Indicates whether the current message is SMS-STATUS-REPORT. */
     isSmsStatusReportMessage: boolean;
-    /** Indicates the email message address. */
-    emailAddress: string;
-    /** Indicates the email message body. */
-    emailMessageBody: string;
-    /** Indicates the user data excluding the data header. */
-    userRawData: Array<number>;
-    /** Indicates whether the received SMS is an email message. */
-    isEmailMessage: boolean;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  export interface SimShortMessage {
+    shortMessage: ShortMessage;
+
+    /** Indicates the storage status of SMS messages in the SIM */
+    simMessageStatus: SimMessageStatus;
+    /** Indicates the index of SMS messages in the SIM */
+    indexOnSim: number;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  export enum SimMessageStatus {
+    /** status free space ON SIM */
+    SIM_MESSAGE_STATUS_FREE = 0,
+    /** REC READ received read message */
+    SIM_MESSAGE_STATUS_READ = 1,
+    /** REC UNREAD received unread message */
+    SIM_MESSAGE_STATUS_UNREAD = 3,
+    /** STO SENT stored sent message (only applicable to SMs) */
+    SIM_MESSAGE_STATUS_SENT = 5,
+    /** STO UNSENT stored unsent message (only applicable to SMs) */
+    SIM_MESSAGE_STATUS_UNSENT = 7,
   }
 
   export enum ShortMessageClass {

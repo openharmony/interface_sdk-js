@@ -16,16 +16,17 @@
 import {AsyncCallback} from "./basic";
 
 /**
- * Provides interfaces for applications to obtain the radio access technology (RAT), network state,
- * and signal information of the wireless cellular network (WCN).
+ * Provides interfaces for applications to obtain the network state, cell information, signal information,
+ * and device ID of the wireless cellular network (WCN), and provides a callback registration mechanism to
+ * listen for changes of the network, cell, and signal status of the WCN.
  *
  * @since 6
+ * @sysCap SystemCapability.Telephony.Telephony
  */
 declare namespace radio {
   /**
-   * Obtains radio access technology (RAT) of the registered network. The system preferentially
-   * returns RAT of the packet service (PS) domain. If the device has not registered with the
-   * PS domain, the system returns RAT of the circuit service (CS) domain.
+   * Obtains radio access technology (RAT) of the registered network. The system
+   * returns RAT of the packet service (PS) and circuit service (CS) domain.
    *
    * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
    *
@@ -47,6 +48,7 @@ declare namespace radio {
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
    * </ul>
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function getRadioTech(slotId: number,
     callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
@@ -60,20 +62,85 @@ declare namespace radio {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns a {@code NetworkState} object.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function getNetworkState(callback: AsyncCallback<NetworkState>): void;
   function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
-  * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
-  *
-  * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
-  * supported by the device.
-  * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
-  */
+   * Obtains the network search mode of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the ID of the SIM card slot.
+   * @param callback Returns the network search mode of the SIM card. Available values are as follows:
+   * <ul>
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
+   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
+   * <ul>
+   */
+  function getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void;
+  function getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   */
+  function setNetworkSelectionMode(options: NetworkSelectionModeOptions, callback: AsyncCallback<void>): void;
+  function setNetworkSelectionMode(options: NetworkSelectionModeOptions): Promise<void>;
+
+  /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   */
+  function getNetworkSearchInformation(slotId: number, callback: AsyncCallback<NetworkSearchResult>): void;
+  function getNetworkSearchInformation(slotId: number): Promise<NetworkSearchResult>;
+
+  /**
+   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the country code defined in ISO 3166-2;
+   * returns an empty string if the device is not registered with any network.
+   * @since 7
+   */
+  function getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void;
+  function getISOCountryCodeForNetwork(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   *
+   * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
+   * supported by the device.
+   * @param callback Returns the instance list of the child classes derived from {@link SignalInformation}.
+   * @since 7
+   */
   function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
   function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
+
+  /**
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 7
+   */
+  function isRadioOn(callback: AsyncCallback<boolean>): void;
+  function isRadioOn(): Promise<boolean>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function turnOnRadio(callback: AsyncCallback<void>): void;
+  function turnOnRadio(): Promise<void>;
+
+  /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   */
+  function turnOffRadio(callback: AsyncCallback<void>): void;
+  function turnOffRadio(): Promise<void>;
 
   /**
    * Describes the radio access technology.
@@ -324,6 +391,62 @@ declare namespace radio {
      * Indicates that a device is idle under or is connected to an NG-RAN cell while being attached to 5GC.
      */
     NSA_STATE_SA_ATTACHED = 6
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   */
+  export interface NetworkSearchResult {
+    isNetworkSearchSuccess: boolean;
+    networkSearchResult: Array<NetworkInformation>;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   */
+  export interface NetworkInformation {
+    operatorName: string;
+    operatorNumeric: string;
+    state: NetworkInformationState;
+    radioTech: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   */
+  export enum NetworkInformationState {
+    /** Indicates that the network state is unknown. */
+    NETWORK_UNKNOWN,
+
+    /** Indicates that the network is available for registration. */
+    NETWORK_AVAILABLE,
+
+    /** Indicates that you have already registered with the network. */
+    NETWORK_CURRENT,
+
+    /** Indicates that the network is unavailable for registration. */
+    NETWORK_FORBIDDEN
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   */
+  export interface NetworkSelectionModeOptions {
+    slotId: number;
+    selectMode: NetworkSelectionMode;
+    networkInformation: NetworkInformation;
+    resumeSelection: boolean;
+  }
+
+  export enum NetworkSelectionMode {
+    /** Unknown network selection modes. */
+    NETWORK_SELECTION_UNKNOWN,
+
+    /** Automatic network selection modes. */
+    NETWORK_SELECTION_AUTOMATIC,
+
+    /** Manual network selection modes. */
+    NETWORK_SELECTION_MANUAL
   }
 }
 
