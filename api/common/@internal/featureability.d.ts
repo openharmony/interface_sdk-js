@@ -299,7 +299,7 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @devices tv, phone, tablet, wearable
    */
-  static callAbility(param: CallAbilityParam): Promise<Result>;
+  static callAbility(param: CallAbilityParam): Promise<string>;
 
   /**
    * Start FA migration.
@@ -318,7 +318,7 @@ export declare class FeatureAbility {
   static subscribeAbilityEvent(
     param: SubscribeAbilityEventParam,
     func: Function
-  ): Promise<Result>;
+  ): Promise<string>;
 
   /**
    * Unsubscribes from events of an AA.
@@ -328,7 +328,7 @@ export declare class FeatureAbility {
    */
   static unsubscribeAbilityEvent(
     param: SubscribeAbilityEventParam
-  ): Promise<Result>;
+  ): Promise<string>;
 
   /**
    * Sends messages to the destination device.

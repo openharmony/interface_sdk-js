@@ -32,6 +32,1299 @@
       ]
     },
     {
+      "name": "fill",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<color>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Use the shorthand property to set the fill color of the element."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fill-opacity",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<number>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The transparency of the fill color ranges from 0 to 1. 1 is opaque and 0 is completely transparent."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fill-rule",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "nonzero | evenodd"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Nonzero: non-zero rule; Evenodd: parity rule"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "nonzero | evenodd"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "opacity",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "number"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The transparency of an element ranges from 0 to 1, where 1 is opaque and 0 is completely transparent."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-dasharray",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<string>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifies the length of the dash and notch. The format is [length length length], the length of dash and notch is separated by the space between them."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-dashoffset",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the offset of the associative dashed array when rendering."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-linejoin",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[bevel | miter | round]"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The shape used at the corner of the path when you stroke."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "bevel | miter | round"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-linecap",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[butt | round | square]"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Shapes used at the end of paths when they are traced"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "butt | round | square"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-miterlimit",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "number"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the limit value for drawing acute angles as bevels."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke-opacity",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "number"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The transparency of contour lines ranges from 0 to 1, where 1 is opaque and 0 is completely transparent."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transform",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<string>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the coordinate transformation parameters of components and subcomponents"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "x",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the x-axis coordinate of the current SVG, and the root SVG node is invalid"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "y",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the y-axis coordinate of the current SVG, and the root SVG node is invalid"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "viewBox",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the current SVG's viewport. The supported format is < number >. The four parameters represent min-x, min-y, width and height respectively. If the width and height of viewbox and SVG are inconsistent, they will be scaled by center alignment."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rx",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the radius of rectangle fillet in X direction. Support attribute animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ry",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the radius of rectangle fillet in Y direction."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cx",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the x-axis coordinate of the center of the circle."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cy",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the y-axis coordinate of the center of the circle."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "r",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the radius of the circle."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "d",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the shape of the path. Contains a set of character instructions, uppercase letters for absolute path, lowercase characters for relative path"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "x1",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the x-axis coordinate of the line start point."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "y1",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the y-axis coordinate of the line start point."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "x2",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the x-axis coordinate of the end of the line."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "y2",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the y-axis coordinate of the end of the line."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "points",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set multiple coordinate points of the polyline"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dx",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set text X axis offset"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dy",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set text Y axis offset"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stroke",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<color>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Draws the font border and specifies the color"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "startOffset",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length>|<percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the starting offset of the text along the path"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attributeName",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the name of the property to be active"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "begin",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<time>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the delay time of the action"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dur",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<time>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "If dur is not set, the result of end begin is used as the duration. If dur is less than or equal to 0, the dynamic effect will not trigger."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "end",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<time>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "How long does the dynamic effect end"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repeatCount",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<number | indefinite>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the number of times the animation should be played. Default is Indefinite (indefinite), which can be set to the value 1 to play only once."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number",
+            "indefinite"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calcMode",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<discrete | linear | paced | spline>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the interpolation mode for the animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "discrete",
+            "linear",
+            "paced",
+            "spline"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keyTimes",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the start time of the keyframe animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "keySplines",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A set of Bezier control points associated with KeyTimes. Define the Bessel curve for each key frame, separated by a semicolon"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "from",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the start value of the property that you want to animate."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "to",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the end value of the property that you want to animate."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "values",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "string"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the variation values of a set of animations."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[translate | scale | rotate | skewX | skewY]"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the type of the Transform animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "translate",
+            "scale",
+            "rotate",
+            "skewX",
+            "skewY"
+          ]
+        }
+      ]
+    },
+    {
       "name": "width",
       "syntax": [
         {
@@ -925,6 +2218,184 @@
       ]
     },
     {
+      "name": "border-image-source",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "border image."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-image-slice",
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The border of the image is shifted inward"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-image-width",
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Width about the border of the image"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-image-outset",
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The border image can exceed the size of the border box"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-image-repeat",
+      "syntax": [
+        {
+          "name": "stretch | repeat | round"
+        }
+      ],
+      "values": [
+        {
+          "name": "stretch",
+          "description": "Stretch the picture to fill the border"
+        },
+        {
+          "name": "repeat",
+          "description": "Tile the picture to fill the border"
+        },
+        {
+          "name": "round",
+          "description": "Tile the picture according to the image size"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "How the picture fills the border"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "border-image",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<line-source> || <line-slice> || <line-width> || <line-outset> || <line-repeat>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The image of border attributes"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string",
+            "length",
+            "length",
+            "length",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
       "name": "border-left",
       "supportedDevices": [
         "tv",
@@ -1568,9 +3039,17 @@
         "tablet",
         "wearable"
       ],
+      "values":[
+        {
+          "name": "url()"
+        },
+        {
+          "name": "linear-gradient()"
+        }
+      ],
       "version": [
         {
-          "name": "v3.0"
+          "name": "v6.0"
         }
       ],
       "description": [
@@ -1581,14 +3060,13 @@
       "restrictions": [
         {
           "name": [
-            "image",
-            "url"
+            "enum"
           ]
         }
       ]
     },
     {
-      "name": "image-size",
+      "name": "mask-size",
       "supportedDevices": [
         "tv",
         "phone",
@@ -1600,14 +3078,25 @@
           "name": "[ contain | cover | auto | <length> | <percentage> ]"
         }
       ],
+     "values": [
+        {
+          "name": "contain"
+        },
+        {
+          "name": "cover"
+        },
+        {
+          "name": "auto"
+        }
+      ],
       "version": [
         {
-          "name": "v3.0"
+          "name": "v6.0"
         }
       ],
       "description": [
         {
-          "name": "Mask image size. The string values are as follows: − contain: Expands the image to the maximum size so that the height and width of the image are applicable to the content area. − cover: Extends the mask image to a large enough size so that the mask image completely covers the mask area. Some parts of the image may not be displayed in the background localization area. − auto: The original image width-height ratio is retained. The two <length> values are as follows: Height and width of the mask image. The first value indicates the width, and the second value indicates the height. If you only set one value, the second value is set to auto by default. 2. The two <percentage> values are as follows: Width and height of the mask image in percentage of the parent element. The first value indicates the width, and the second value indicates the height. If you only set one value, the other value is set to auto by default"
+          "name": "Specifies the display size of a mask image. This parameter is valid only when mask-image is an image resource.\nThe options are as follows:\ncontain: Extends the image to its maximum size so that its height and width are fully appropriate for the content area.\ncover: Expand the image to a large enough size so that the background image completely covers the background area. Some parts of the background image may not be displayed in the background anchor area.\nauto: Keep the original image scale unchanged.\nlength: Set the height and width of the image. The first value sets the width and the second value sets the height. If you set only one value, the second value is set to \"auto\".\nPercentage: Set the width and height of the original image as a percentage of the width and height of the original image. The first value sets the width and the second value sets the height. If you set only one value, the second value is set to \"auto\"."
         }
       ],
       "restrictions": [
@@ -1630,12 +3119,12 @@
       ],
       "syntax": [
         {
-          "name": "<bg-position>#"
+          "name": "[ <bg-position> | <length> | <percentage> ]"
         }
       ],
       "version": [
         {
-          "name": "v3.0"
+          "name": "v6.0"
         }
       ],
       "description": [
@@ -1815,7 +3304,7 @@
       ],
       "syntax": [
         {
-          "name": "<bg-position>#"
+          "name": "[ <bg-position> | <length> | <percentage> ]"
         }
       ],
       "version": [
@@ -2083,6 +3572,56 @@
       ]
     },
     {
+      "name": "align-self",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+     "values": [
+        {
+          "name": "stretch"
+        },
+        {
+          "name": "flex-start"
+        },
+        {
+          "name": "flex-end"
+        },
+        {
+          "name": "center"
+        },
+        {
+          "name": "baseline"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the alignment of itself on the cross axis of the parent element. This style will override the align-items style of the parent element.  It is only supported when the parent container is div or list"
+        },
+        {
+          "syntax": [
+            {
+              "name": "stretch | flex-start | flex-end | center | baseline"
+            }
+          ]
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
       "name": "position",
       "supportedDevices": [
         "tv",
@@ -2236,6 +3775,70 @@
       ]
     },
     {
+      "name": "start",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The start property specifies the starting edge of the element. This attribute defines the offset between the start outer margin boundary of the positioning element and the start boundary of the containing block."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "end",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The end property specifies the end edge of the element. This attribute defines the offset between the end margin boundary of an anchor element and the end boundary of its containing block."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
       "name": "transform-origin",
       "supportedDevices": [
         "tv",
@@ -2273,7 +3876,63 @@
       "name": "transform",
       "values": [
         {
+          "name": "matrix()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "none()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "matrix3d()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
           "name": "translate()",
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "translate3d()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
           "supportedDevices": [
             "tv",
             "phone",
@@ -2288,7 +3947,35 @@
           "name": "translateY()"
         },
         {
+          "name": "translateZ()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
           "name": "scale()",
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "scale3d()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
           "supportedDevices": [
             "tv",
             "phone",
@@ -2315,7 +4002,35 @@
           ]
         },
         {
+          "name": "scaleZ()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
           "name": "rotate()"
+        },
+        {
+          "name": "rotate3d()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
         },
         {
           "name": "rotateX('angle')",
@@ -2328,6 +4043,76 @@
         },
         {
           "name": "rotateY('angle')",
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "rotateZ()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "skew()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "skewX()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "skewY()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "perspective()",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ],
           "supportedDevices": [
             "tv",
             "phone",
@@ -2356,6 +4141,24 @@
           "name": [
             "enum"
           ]
+        }
+      ]
+    },
+    {
+      "name": "animation",
+      "syntax": [
+        {
+          "name": "duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Shorthand property combines six of the animation properties into the 'animation' property."
         }
       ]
     },
@@ -2487,7 +4290,7 @@
       "name": "animation-timing-function",
       "syntax": [
         {
-          "name": "linear | ease-in | ease-out | ease-in-out"
+          "name": "<easing-function>#"
         }
       ],
       "values": [
@@ -2585,7 +4388,16 @@
           ]
         },
         {
-          "name": "cubic-bezier",
+          "name": "cubic-bezier()",
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
+          ]
+        },
+        {
+          "name": "steps()",
           "supportedDevices": [
             "tv",
             "phone",
@@ -2616,7 +4428,7 @@
       "name": "animation-fill-mode",
       "syntax": [
         {
-          "name": "forwards | none"
+          "name": "forwards | none | backwards | both"
         }
       ],
       "values": [
@@ -2625,6 +4437,22 @@
         },
         {
           "name": "none"
+        },
+        {
+          "name": "backwards",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ]
+        },
+        {
+          "name": "both",
+          "version": [
+            {
+              "name": "v6.0"
+            }
+          ]
         }
       ],
       "version": [
@@ -2992,6 +4820,504 @@
       "description": [
         {
           "name": "How items are aligned along the cross axis of the current line in a flex container. Available values are as follows: stretch: Items are stretched to the same height or width as the container in the cross axis direction; flex-start: Items are aligned to the start of the cross axis; flex-end: Items are aligned to the end of the cross axis; center: Items are aligned in the middle of the cross axis"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scrollbar-color",
+      "syntax": [
+        {
+          "name": "color"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the color of the scroll bar."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scrollbar-width",
+      "syntax": [
+        {
+          "name": "length"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the width of the scroll bar."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scrollbar-offset",
+      "syntax": [
+        {
+          "name": "length"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the offset of the scroll bar."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divider-color",
+      "syntax": [
+        {
+          "name": "color"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Color of the item separator. This parameter is valid only when the divider attribute of the list is set to true."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divider-height",
+      "syntax": [
+        {
+          "name": "length"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Height of the item separator. This parameter is valid only when the divider attribute of the list is set to true."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divider-length",
+      "syntax": [
+        {
+          "name": "length"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Length of the item separator. If this parameter is not set, the maximum length is the width of the main axis. The length depends on divider-origin. This parameter is valid only when divider of the list is set to true."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divider-origin",
+      "syntax": [
+        {
+          "name": "length"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Offset of the item separator relative to the start position of the item main axis. This parameter is valid only when the divider attribute of the list is set to true."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "z-index",
+      "syntax": [
+        {
+          "name": "number"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Represents the rendering order of its children for the same parent node.The higher the value, the lower the rendering data."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "number"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "image-fill",
+      "syntax": [
+        {
+          "name": "color"
+        }
+      ],
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Fills colors for svg images. The following components can be used to set image resource attributes: button (icon attribute), piece (icon attribute), search (icon attribute), input (headicon attribute), textarea (headicon attribute), and image (src attribute)., navigation-bar(logo/starticon/endicon), toolbar-item (icon attribute)."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clip-path",
+      "supportedDevices":[
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "[<geometry-box> || <basic-shape> ] | none"
+        }
+      ],
+      "values": [
+          {
+            "name": "border-box"
+          },
+          {
+            "name": "margin-box"
+          },
+          {
+            "name": "padding-box"
+          },
+          {
+            "name": "content-box"
+          },
+          {
+            "name": "inset()"
+          },
+          {
+            "name": "circle()"
+          },
+          {
+            "name": "ellipse()"
+          },
+          {
+            "name": "polygon()"
+          },
+          {
+            "name": "path()"
+          }
+      ],
+      "version":[
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the clip area of the component. Part of the area is displayed, and the area outside is not displayed"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "animation-direction",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "normal | reverse | alternate | alternate-reverse"
+        }
+      ],
+      "values": [
+        {
+          "name": "normal",
+          "description":"The animation is looped forward."
+        },
+        {
+          "name": "reverse",
+          "description":"Animation reverse loop"
+        },
+        {
+          "name": "alternate",
+          "description":"The animation is played alternately and cyclically, with odd times playing forward and even times playing backward."
+        },
+        {
+          "name": "alternate-reverse",
+          "description":"The animation is played alternately in reverse rotation, odd times of reverse playback, even times of forward playback."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifying the Playback Mode of the Animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "animation-play-state",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "paused | running"
+        }
+      ],
+      "values": [
+        {
+          "name": "paused",
+          "description":"The animation status is paused."
+        },
+        {
+          "name": "running",
+          "description":"The animation status is Play."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifies the current state of the animation"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "transition",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "transition-property | transition-duration | transition-timing-function | transition-delay"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Specifies the transition effect of a component state switch"
+        }
+      ]
+    },
+    {
+      "name": "overscroll-effect",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "spring | fade | none"
+        }
+      ],
+      "values": [
+        {
+          "name": "spring",
+          "description":"Elastic physical action, sliding to the edge can continue to slide for a distance based on initial speed or touch events, and spring back when you release the hand"
+        },
+        {
+          "name": "fade",
+          "description":"Fading physical dynamic effect, slide to the edge to show a wave-like fade, according to the speed and sliding distance changes the fade will also send certain changes;"
+        },
+        {
+          "name": "none",
+          "description": "No effect after sliding to the edge"
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the scrolling edge effect"
         }
       ],
       "restrictions": [
@@ -3736,6 +6062,88 @@
       ]
     },
     {
+      "name": "object-position",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet"
+      ],
+      "syntax": [
+        {
+          "name": "<string>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "image position"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "previous-margin",
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The previous margin"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "next-margin",
+      "syntax": [
+        {
+          "name": "<length> || <percentage>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The next margin"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length",
+            "percentage"
+          ]
+        }
+      ]
+    },
+    {
       "name": "word-break",
       "supportedDevices": [
         "tv",
@@ -3770,6 +6178,51 @@
       "description": [
         {
           "name": "Text word-break."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "overflow",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "visible | hidden  | scroll"
+        }
+      ],
+      "values": [
+        {
+          "name": "visible",
+          "description": "If the content of an element exceeds the size of the element, the element is displayed outside the element."
+        },
+        {
+          "name": "hidden ",
+          "description": "When the content of an element exceeds the size of the element, the element is cropped for display."
+        },
+        {
+          "name": "scroll",
+          "description": "When the content of an element exceeds the size of the element, scrolling is performed and the scroll bar is displayed."
+        }
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Sets the representation of the element content area when it exceeds the size of the element itself."
         }
       ],
       "restrictions": [
@@ -4160,7 +6613,7 @@
       ],
       "version": [
         {
-          "name": "v3.0"
+          "name": "v5.0"
         }
       ],
       "description": [
@@ -4241,6 +6694,56 @@
       ]
     },
     {
+      "name": "word-spacing",
+      "syntax": [
+        {
+          "name": "<length>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Text spacing (px)"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "text-indent",
+      "syntax": [
+        {
+          "name": "<length>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the amount of indentation before the first line of text"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
       "name": "font-style",
       "supportedDevices": [
         "tv",
@@ -4299,6 +6802,12 @@
         },
         {
           "name": "bolder"
+        },
+        {
+          "name": "medium"
+        },
+        {
+          "name": "regular"
         },
         {
           "name": "100"
@@ -4537,6 +7046,34 @@
       ]
     },
     {
+      "name": "column-height",
+      "syntax": [
+        {
+          "name": "<length>"
+        }
+      ],
+      "supportedDevices": [
+        "phone"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Height of the selector's selection list."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
       "name": "text-overflow",
       "supportedDevices": [
         "tv",
@@ -4614,6 +7151,92 @@
       ]
     },
     {
+      "name": "text-valign",
+      "syntax": [
+        {
+          "name": "top | middle | bottom"
+        }
+      ],
+      "values": [
+        {
+          "name": "top",
+          "description": "The text is displayed based on the top of the parent container"
+        },
+        {
+          "name": "middle",
+          "description": "The text is displayed based on the middle of the parent container"
+        },
+        {
+          "name": "bottom",
+          "description": "The text is displayed based on the bottom of the parent container"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the vertical alignment of the current text"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "white-space",
+      "syntax": [
+        {
+          "name": "normal | nowrap | pre | pre-wrap | pre-line"
+        }
+      ],
+      "values": [
+        {
+          "name": "normal",
+          "description": "Consecutive whitespace characters will be merged, and newline characters will be treated as whitespace characters"
+        },
+        {
+          "name": "nowrap",
+          "description": "Consecutive whitespace characters will be merged, and newline characters is invalid"
+        },
+        {
+          "name": "pre",
+          "description": "Consecutive whitespace will be preserved"
+        },
+        {
+          "name": "pre-wrap",
+          "description": "Consecutive whitespace will be preserved"
+        },
+        {
+          "name": "pre-line",
+          "description": "Consecutive whitespace characters will be merged"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Set the mode for handling blanks in text"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
       "name": "font-family",
       "syntax": [
         {
@@ -4656,7 +7279,12 @@
       ],
       "syntax": [
         {
-          "name": "<number>"
+          "name": "[<string> | <number>]"
+        }
+      ],
+      "values": [
+        {
+          "name": "auto"
         }
       ],
       "version": [
@@ -4798,6 +7426,43 @@
           "name": [
             "length"
           ]
+        }
+      ]
+    },
+    {
+      "name": "adapt-height",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "true | false"
+        }
+      ],
+      "values": [
+        {
+          "name": "true"
+        },
+        {
+          "name": "false"
+        }
+      ],
+      "version": [
+        {
+          "name": "v3.0"
+        }
+      ],
+      "description": [
+        {
+          "name": ""
+        }
+      ],
+      "restrictions": [
+        {
+          "name": ["enum"]
         }
       ]
     },
@@ -5031,6 +7696,37 @@
       "description": [
         {
           "name": "Text color"
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "text-decoration-color",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "syntax": [
+        {
+          "name": "<color>"
+        }
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "Text decoration color"
         }
       ],
       "restrictions": [
@@ -5342,6 +8038,62 @@
       ]
     },
     {
+      "name": "disappear-color",
+      "syntax": [
+        {
+          "name": "<color>"
+        }
+      ],
+      "supportedDevices": [
+        "phone"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The font color of the faded item. The disappearing item is the top and bottom two options in a scenario with five options in a column."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "color"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "disappear-font-size",
+      "syntax": [
+        {
+          "name": "<length>"
+        }
+      ],
+      "supportedDevices": [
+        "phone"
+      ],
+      "version": [
+        {
+          "name": "v5.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The font size of the gradient disappearing item. The disappearing item is the top and bottom two options in a scenario with five options in a column."
+        }
+      ],
+      "restrictions": [
+        {
+          "name": [
+            "length"
+          ]
+        }
+      ]
+    },
+    {
       "name": "colors",
       "supportedDevices": [
         "tv",
@@ -5449,23 +8201,24 @@
       ],
       "syntax": [
         {
-          "name": "<length>"
+          "name": "<length> | <percentage>"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
         {
-          "name": " "
+          "name": "Sets the minimum width of the element."
         }
       ],
       "restrictions": [
         {
           "name": [
-            "length"
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -5480,23 +8233,24 @@
       ],
       "syntax": [
         {
-          "name": "<length>"
+          "name": "<length> | <percentage>"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
         {
-          "name": " "
+          "name": "Sets the minimum height of the element."
         }
       ],
       "restrictions": [
         {
           "name": [
-            "length"
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -5511,23 +8265,24 @@
       ],
       "syntax": [
         {
-          "name": "<length>"
+          "name": "<length> | <percentage>"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
         {
-          "name": " "
+          "name": "Sets the maximum width of the element. The default value is unlimited."
         }
       ],
       "restrictions": [
         {
           "name": [
-            "length"
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -5542,23 +8297,24 @@
       ],
       "syntax": [
         {
-          "name": "<length>"
+          "name": "<length> | <percentage>"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
         {
-          "name": " "
+          "name": "Sets the maximum height of the element. The default value is unlimited."
         }
       ],
       "restrictions": [
         {
           "name": [
-            "length"
+            "length",
+            "percentage"
           ]
         }
       ]
@@ -5573,23 +8329,23 @@
       ],
       "syntax": [
         {
-          "name": "<number>"
+          "name": "h-shadow | v-shadow | blur | spread | color"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
         {
-          "name": " "
+          "name": "This style allows you to set the shadow style of the current component"
         }
       ],
       "restrictions": [
         {
           "name": [
-            "number"
+            "length"
           ]
         }
       ]
@@ -5604,12 +8360,17 @@
       ],
       "syntax": [
         {
-          "name": "<string>"
+          "name": "blur()"
+        }
+      ],
+      "values": [
+        {
+          "name": "blur()"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
@@ -5620,7 +8381,7 @@
       "restrictions": [
         {
           "name": [
-            "string"
+            "enum"
           ]
         }
       ]
@@ -5635,12 +8396,17 @@
       ],
       "syntax": [
         {
-          "name": "<string>"
+          "name": "blur()"
+        }
+      ],
+      "values": [
+        {
+          "name": "blur()"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
@@ -5651,7 +8417,7 @@
       "restrictions": [
         {
           "name": [
-            "string"
+            "enum"
           ]
         }
       ]
@@ -5666,12 +8432,17 @@
       ],
       "syntax": [
         {
-          "name": "<string>"
+          "name": "blur() | style"
+        }
+      ],
+      "values": [
+        {
+          "name": "blur()"
         }
       ],
       "version": [
         {
-          "name": "v4.0"
+          "name": "v5.0"
         }
       ],
       "description": [
@@ -5682,7 +8453,7 @@
       "restrictions": [
         {
           "name": [
-            "string"
+            "enum"
           ]
         }
       ]
@@ -5782,6 +8553,12 @@
     },
     {
       "name": "caret-color",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
       "syntax": [
         {
           "name": "<color>"
@@ -5789,12 +8566,12 @@
       ],
       "version": [
         {
-          "name": "v3.0"
+          "name": "v6.0"
         }
       ],
       "description": [
         {
-          "name": "Caret color"
+          "name": "Sets the color of the input cursor."
         }
       ],
       "restrictions": [
@@ -5905,7 +8682,7 @@
       ],
       "description": [
         {
-          "name": "Defines a stylesheet for a particular media type.",
+          "name": "Defines a stylesheet for a particular media type",
           "supportedDevices": [
             "tv",
             "phone",
@@ -5934,14 +8711,12 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is being activated by the user.",
+          "name": "Represents an element that is being activated by the user",
           "supportedDevices": [
             "tv",
             "phone",
             "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+            "wearable"
           ]
         }
       ]
@@ -5952,9 +8727,7 @@
         "tv",
         "phone",
         "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+        "wearable"
       ],
       "version": [
         {
@@ -5963,14 +8736,37 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is checked or toggled to an on state..",
+          "name": "Represents an element that is checked or toggled to an on state",
           "supportedDevices": [
             "tv",
             "phone",
             "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+            "wearable"
+          ]
+        }
+      ]
+    },
+    {
+      "name": ":hover",
+      "supportedDevices": [
+        "tv",
+        "phone",
+        "tablet",
+        "wearable"
+      ],
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "description": [
+        {
+          "name": " Represents the element when the mouse is hovering",
+          "supportedDevices": [
+            "tv",
+            "phone",
+            "tablet",
+            "wearable"
           ]
         }
       ]
@@ -5981,9 +8777,7 @@
         "tv",
         "phone",
         "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+        "wearable"
       ],
       "version": [
         {
@@ -5992,14 +8786,12 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is waiting for operation finished.",
+          "name": "Represents an element that is waiting for operation finished",
           "supportedDevices": [
             "tv",
             "phone",
             "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+            "wearable"
           ]
         }
       ]
@@ -6019,7 +8811,7 @@
       ],
       "description": [
         {
-          "name": "Represents any disabled element.",
+          "name": "Represents any disabled element",
           "supportedDevices": [
             "tv",
             "phone",
@@ -6044,7 +8836,7 @@
       ],
       "description": [
         {
-          "name": "Represents an element that has received focus.",
+          "name": "Represents an element that has received focus",
           "supportedDevices": [
             "tv",
             "phone",

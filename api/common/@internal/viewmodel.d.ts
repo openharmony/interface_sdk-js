@@ -14,6 +14,8 @@
  */
 
 import { Image, ImageData } from "./global";
+import { WebGLContextAttributes, WebGLRenderingContext } from "../webgl/webgl";
+import { WebGL2RenderingContext } from "../webgl/webgl2";
 
 /**
  * @devices tv, phone, tablet, wearable
@@ -2184,6 +2186,26 @@ export interface CanvasElement extends Element {
    * @devices tv, phone, tablet, wearable, smartVision
    */
   getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D;
+
+  /**
+   * Obtains the context of webgl canvas drawing.
+   * Only parameters related to webgl canvas drawing are supported.
+   * The return value is a webgl drawing object that provides specific webgl drawing operations.
+   * @param type identifier defining the drawing context associated to the canvas.
+   * @param options use this context attributes to creating rendering context.
+   * @devices tv, phone, tablet, wearable
+   */
+  getContext(type: "webgl", options?: WebGLContextAttributes): WebGLRenderingContext;
+
+  /**
+   * Obtains the context of webgl2 canvas drawing.
+   * Only parameters related to webgl2 canvas drawing are supported.
+   * The return value is a webgl2 drawing object that provides specific webgl2 drawing operations.
+   * @param type identifier defining the drawing context associated to the canvas.
+   * @param options use this context attributes to creating rendering context.
+   * @devices tv, phone, tablet, wearable
+   */
+  getContext(type: "webgl2", options?: WebGLContextAttributes): WebGL2RenderingContext;
 
   /**
    * Creates a data URI that contains the image display.

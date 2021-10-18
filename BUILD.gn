@@ -82,9 +82,11 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/radio.d.ts",
     "api/@internal/component/ets/rating.d.ts",
     "api/@internal/component/ets/rect.d.ts",
+    "api/@internal/component/ets/refresh.d.ts",
     "api/@internal/component/ets/row.d.ts",
     "api/@internal/component/ets/row_split.d.ts",
     "api/@internal/component/ets/scroll.d.ts",
+    "api/@internal/component/ets/search.d.ts",
     "api/@internal/component/ets/shape.d.ts",
     "api/@internal/component/ets/slider.d.ts",
     "api/@internal/component/ets/span.d.ts",
@@ -99,6 +101,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/textinput.d.ts",
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/video.d.ts",
+    "api/@internal/component/ets/web.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
