@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,11 @@
  */
 
 /**
- * @devices phone, tablet, wearable, liteWearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.ACCELEROMETER
+ * @since 3
  */
 export interface AccelerometerResponse {
   /**
@@ -40,7 +44,11 @@ export interface AccelerometerResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.ACCELEROMETER
+ * @since 3
  */
 export interface subscribeAccelerometerOptions {
   /**
@@ -71,7 +79,10 @@ export interface subscribeAccelerometerOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface CompassResponse {
   /**
@@ -83,7 +94,10 @@ export interface CompassResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface SubscribeCompassOptions {
   /**
@@ -102,7 +116,10 @@ export interface SubscribeCompassOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface ProximityResponse {
   /**
@@ -114,7 +131,10 @@ export interface ProximityResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface SubscribeProximityOptions {
   /**
@@ -133,7 +153,10 @@ export interface SubscribeProximityOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface LightResponse {
   /**
@@ -145,7 +168,10 @@ export interface LightResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface SubscribeLightOptions {
   /**
@@ -164,7 +190,11 @@ export interface SubscribeLightOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.ACTIVITY_MOTION
+ * @since 3
  */
 export interface StepCounterResponse {
   /**
@@ -177,26 +207,33 @@ export interface StepCounterResponse {
 }
 
 /**
- * @devices phone, tablet, liteWearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices phone, tablet, wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.ACTIVITY_MOTION
+ * @since 3
  */
 export interface SubscribeStepCounterOptions {
   /**
    * Called when step counter sensor data changes.
-   * @devices phone, tablet, liteWearable
+   * @devices phone, tablet, wearable, liteWearable
    * @since 3
    */
   success: (data: StepCounterResponse) => void;
 
   /**
    * Called when the listening fails.
-   * @devices phone, tablet, liteWearable
+   * @devices phone, tablet, wearable, liteWearable
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface BarometerResponse {
   /**
@@ -208,7 +245,10 @@ export interface BarometerResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface SubscribeBarometerOptions {
   /**
@@ -227,7 +267,11 @@ export interface SubscribeBarometerOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.READ_HEALTH_DATA
+ * @since 3
  */
 export interface HeartRateResponse {
   /**
@@ -240,7 +284,11 @@ export interface HeartRateResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.READ_HEALTH_DATA
+ * @since 3
  */
 export interface SubscribeHeartRateOptions {
   /**
@@ -259,64 +307,76 @@ export interface SubscribeHeartRateOptions {
 }
 
 /**
- * @devices liteWearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface OnBodyStateResponse {
   /**
    * Whether the sensor is worn.
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   value: boolean;
 }
 
 /**
- * @devices liteWearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface SubscribeOnBodyStateOptions {
   /**
    * Called when the wearing status changes.
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   success: (data: OnBodyStateResponse) => void;
 
   /**
    * Called when the listening fails.
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 }
 
 /**
- * @devices liteWearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 3
  */
 export interface GetOnBodyStateOptions {
   /**
    * Called when the sensor wearing state is obtained
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   success: (data: OnBodyStateResponse) => void;
 
   /**
    * Called when the sensor wearing state fails to be obtained
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed
-   * @devices liteWearable
+   * @devices wearable, liteWearable
    * @since 3
    */
   complete?: () => void;
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 6
  */
 export interface DeviceOrientationResponse {
   /**
@@ -342,7 +402,10 @@ export interface DeviceOrientationResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 6
  */
 export interface SubscribeDeviceOrientationOptions {
   /**
@@ -373,7 +436,11 @@ export interface SubscribeDeviceOrientationOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.GYROSCOPE
+ * @since 6
  */
 export interface GyroscopeResponse {
   /**
@@ -399,7 +466,11 @@ export interface GyroscopeResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @permission ohos.permission.GYROSCOPE
+ * @since 6
  */
 export interface SubscribeGyroscopeOptions {
   /**
@@ -430,7 +501,10 @@ export interface SubscribeGyroscopeOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface GravityResponse {
   /**
@@ -456,7 +530,10 @@ export interface GravityResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface SubscribeGravityOptions {
   /**
@@ -487,7 +564,10 @@ export interface SubscribeGravityOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface MagneticResponse {
   /**
@@ -513,7 +593,10 @@ export interface MagneticResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet, wearable
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface SubscribeMagneticOptions {
   /**
@@ -544,7 +627,10 @@ export interface SubscribeMagneticOptions {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface HallResponse {
   /**
@@ -556,7 +642,10 @@ export interface HallResponse {
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.Sensor
  * @devices phone, tablet
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export interface SubscribeHallOptions {
   /**
@@ -587,20 +676,29 @@ export interface SubscribeHallOptions {
 }
 
 /**
- * @devices phone, tablet, wearable
+ * @SysCap SystemCapability.Sensors.Sensor
+ * @devices phone, tablet, wearable, liteWearable
+ * @import import sensor from '@system.sensor';
+ * @since 7
  */
 export default class Sensor {
   /**
    * Listens to acceleration sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @permission ohos.permission.ACCELEROMETER
+   * @since 3
    */
   static subscribeAccelerometer(options: subscribeAccelerometerOptions): void;
 
   /**
    * Cancels listening to acceleration sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @permission ohos.permission.ACCELEROMETER
+   * @since 3
    */
   static unsubscribeAccelerometer(): void;
 
@@ -608,13 +706,17 @@ export default class Sensor {
    * Listens to compass sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 3
    */
   static subscribeCompass(options: SubscribeCompassOptions): void;
 
   /**
    * Cancels listening to compass sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 3
    */
   static unsubscribeCompass(): void;
 
@@ -622,14 +724,18 @@ export default class Sensor {
    * Listens to distance sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet
+   * @since 3
    */
   static subscribeProximity(options: SubscribeProximityOptions): void;
 
   /**
    * Cancels listening to distance sensor data.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet
+   * @since 3
    */
   static unsubscribeProximity(): void;
 
@@ -637,13 +743,17 @@ export default class Sensor {
    * Listens to ambient light sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 3
    */
   static subscribeLight(options: SubscribeLightOptions): void;
 
   /**
    * Cancels listening to ambient light sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 3
    */
   static unsubscribeLight(): void;
 
@@ -651,13 +761,19 @@ export default class Sensor {
    * Listens to step counter sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable, liteWearable
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @since 3
    */
   static subscribeStepCounter(options: SubscribeStepCounterOptions): void;
 
   /**
    * Cancels listening to step counter sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable, liteWearable
+   * @permission ohos.permission.ACTIVITY_MOTION
+   * @since 3
    */
   static unsubscribeStepCounter(): void;
 
@@ -665,13 +781,17 @@ export default class Sensor {
    * Listens to barometer sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable, liteWearable
+   * @since 3
    */
   static subscribeBarometer(options: SubscribeBarometerOptions): void;
 
   /**
    * Cancels listening to barometer sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable, liteWearable
+   * @since 3
    */
   static unsubscribeBarometer(): void;
 
@@ -679,13 +799,19 @@ export default class Sensor {
    * Listens to changes of heart rate sensor data.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices wearable, liteWearable
+   * @permission ohos.permission.READ_HEALTH_DATA
+   * @since 3
    */
   static subscribeHeartRate(options: SubscribeHeartRateOptions): void;
 
   /**
    * Cancels listening to heart rate sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices wearable, liteWearable
+   * @permission ohos.permission.READ_HEALTH_DATA
+   * @since 3
    */
   static unsubscribeHeartRate(): void;
 
@@ -693,27 +819,44 @@ export default class Sensor {
    * Listens to whether a sensor is worn.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices wearable, liteWearable
+   * @since 3
    */
   static subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void;
 
   /**
    * Cancels listening to whether the sensor is worn.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices wearable, liteWearable
+   * @since 3
    */
   static unsubscribeOnBodyState(): void;
+
+  /**
+   * Obtains the sensor wearing state.
+   * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
+   * @devices wearable, liteWearable
+   * @since 3
+   */
+  static getOnBodyState(options: GetOnBodyStateOptions): void;
 
   /**
    * Listens to device orientation sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 6
    */
   static subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void;
 
   /**
    * Cancels listening to device orientation sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 6
    */
   static unsubscribeDeviceOrientation(): void;
 
@@ -721,13 +864,19 @@ export default class Sensor {
    * Listens to gyroscope sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @permission ohos.permission.GYROSCOPE
+   * @since 6
    */
   static subscribeGyroscope(options: SubscribeGyroscopeOptions): void;
 
   /**
    * Cancels listening to gyroscope sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @permission ohos.permission.GYROSCOPE
+   * @since 6
    */
   static unsubscribeGyroscope(): void;
 
@@ -735,13 +884,17 @@ export default class Sensor {
    * Listens to gravity sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static subscribeGravity(options: SubscribeGravityOptions): void;
 
   /**
    * Cancels listening to gravity sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static unsubscribeGravity(): void;
 
@@ -749,13 +902,17 @@ export default class Sensor {
    * Listens to magnetic sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static subscribeMagnetic(options: SubscribeMagneticOptions): void;
 
   /**
    * Cancels listening to magnetic sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static unsubscribeMagnetic(): void;
 
@@ -763,20 +920,17 @@ export default class Sensor {
    * Listens to hall sensor data changes.
    * If this API is called multiple times, the last call takes effect.
    * @param options Options.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static subscribeHall(options: SubscribeHallOptions): void;
 
   /**
    * Cancels listening to hall sensor data.
+   * @SysCap SystemCapability.Sensors.Sensor
    * @devices phone, tablet, wearable
+   * @since 7
    */
   static unsubscribeHall(): void;
-
-  /**
-   * Obtains the sensor wearing state.
-   * @param options Options.
-   * @devices wearable, liteWearable
-   */
-  static getOnBodyState(options: GetOnBodyStateOptions): void;
 }

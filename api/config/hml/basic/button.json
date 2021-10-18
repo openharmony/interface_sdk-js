@@ -5,42 +5,22 @@
       "name": "v3.0"
     }
   ],
-  "supportedDevices": [
-    "phone",
-    "tablet",
-    "tv",
-    "wearable"
-  ],
+  "supportedDevices": ["phone", "tablet", "tv", "wearable"],
   "description": [
     {
       "name": "The <button> component includes capsule, circle, text, arc, and download buttons.",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ]
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
     }
   ],
   "attributes": [
     {
       "name": "type",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
           "name": "Dynamic modification is not supported. If this attribute is not set, capsule-like buttons are displayed. Different from the capsule button, the four rounded corners of a capsule-like button can be configured using border-radius. Available button types are as follows: capsule: a capsule button with fillets, background color, and text. circle: a circle button which can be used to place icons. text: a text button which displays the text only. arc: an arc button. download: a download button. The download progress bar is added.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
       "type": "enum",
@@ -56,72 +36,41 @@
         },
         {
           "name": "arc",
-          "supportedDevices": [
-            "wearable"
-          ]
+          "supportedDevices": ["wearable"]
         },
         {
           "name": "download",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv"]
         }
       ]
     },
     {
       "name": "value",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
           "name": "Text value of the button. This attribute is unavailable for circle buttons.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
       "type": "string"
     },
     {
       "name": "icon",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
           "name": "Path of the button icon. This parameter is valid only for the circle button. The supported icon formatformats are JPG, PNG, and SVG.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
-      "type": "url"
+      "type": "string"
     },
     {
       "name": "placement",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "version": [
         {
@@ -130,13 +79,8 @@
       ],
       "description": [
         {
-          "name": "",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "name": "This parameter is valid only when the type attribute is set to the default value. The options are as follows:\nstart: The icon is located at the beginning of the text.\nend: The icon is at the end of the text.\ntop: The icon is above the text.\nbottom: The icon is below the text.",
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
       "type": "enum",
@@ -157,22 +101,12 @@
     },
     {
       "name": "waiting",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
           "name": "Waiting status. When waiting is set to true, the waiting transition is displayed on the left of the text. This attribute is unavailable for download buttons and smart watches.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
       "type": "enum",
@@ -187,22 +121,12 @@
     },
     {
       "name": "shareid",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
-      ],
+      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
           "name": "Used for the transition of shared elements and takes effect only when it is configured. This attribute cannot be modified after being set. list-item, image, text, button, label components are supported for the transition of shared elements.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
-          ]
+          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
         }
       ],
       "type": "string"
@@ -402,7 +326,7 @@
       ]
     },
     {
-      "name": "data",
+      "name": "data-*",
       "supportedDevices": [
         "phone",
         "tablet",
@@ -1091,6 +1015,354 @@
       "description": [
         {
           "name": "A component is long pressed.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "doubleclick",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "A component is double clicked.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch starts.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchupdate",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch updates.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pinchcancel",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v4.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The pinch is interrupted.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drag",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The duration of drag.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragstart",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag starts.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragend",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag ends.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragenter",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag enters.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragover",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag overs.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dragleave",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag leaves.",
+          "supportedDevices": [
+            "phone",
+            "tablet",
+            "tv",
+            "liteWearable",
+            "wearable",
+            "smartVision"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "drop",
+      "supportedDevices": [
+        "phone",
+        "tablet",
+        "tv",
+        "liteWearable",
+        "wearable",
+        "smartVision"
+      ],
+      "version": [
+        {
+          "name": "v7.0"
+        }
+      ],
+      "description": [
+        {
+          "name": "The drag drops.",
           "supportedDevices": [
             "phone",
             "tablet",

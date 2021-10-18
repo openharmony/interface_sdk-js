@@ -125,4 +125,28 @@ export default class App {
    * @devices phone, tablet
    */
   static requestFullWindow(options?: RequestFullWindowOptions): void;
+
+  /**
+   * Set image cache capacity of decoded image count.
+   * If not set, the application will not cache any decoded image.
+   * @param value  capacity of decoded image count
+   * @devices tv, phone, tablet, wearable
+   */
+  static setImageCacheCount(value: number): void;
+
+  /**
+   * Set image cache capacity of raw image data size in Bytes before decode.
+   * If not set, the application will not cache any raw image data.
+   * @param value  capacity of raw image data size in Bytes.
+   * @devices tv, phone, tablet, wearable
+   */
+  static setImageRawDataCacheSize(value: number): void;
+
+  /**
+   * Set image file cache size in Bytes on disk before decode.
+   * If not set, the application will not cache 100MB image files on disk.
+   * @param value  capacity of image file size in Bytes.
+   * @devices tv, phone, tablet, wearable
+   */
+  static setImageFileCacheSize(value: number): void;
 }

@@ -42,6 +42,26 @@ export interface RouterOptions {
 /**
  * @devices tv, phone, tablet, wearable
  */
+export interface BackRouterOptions {
+  /**
+   * Returns to the page of the specified path.
+   * If the page with the specified path does not exist in the page stack, router.back() is called by default.
+   * @devices tv, phone, tablet, wearable
+   * @since 7
+   */
+  uri?: string;
+
+  /**
+   * Data that needs to be passed to the destination page during navigation.
+   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 7
+   */
+  params?: Object;
+}
+
+/**
+ * @devices tv, phone, tablet, wearable
+ */
 export interface RouterState {
   /**
    * Index of the current page in the stack.
@@ -149,7 +169,7 @@ export default class Router {
    * @devices tv, phone, tablet, wearable
    * @since 7
    */
-  static back(options?: RouterOptions): void;
+  static back(options?: BackRouterOptions): void;
 
   /**
    * Obtains information about the current page params.

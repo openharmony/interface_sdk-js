@@ -14,7 +14,11 @@
  */
 
 /**
- *  @devices phone, tablet, wearable, liteWearable
+ * @SysCap SystemCapability.Sensors.MiscDevice
+ * @devices phone, tablet, wearable, liteWearable
+ * @import import vibrator from '@system.vibrator';
+ * @permission ohos.permission.VIBRATE
+ * @since 3
  */
 export interface VibrateOptions {
   /**
@@ -27,34 +31,40 @@ export interface VibrateOptions {
 
   /**
    * Called when success to trigger vibration.
-   * @devices liteWearable
+   * @devices phone, tablet, wearable, liteWearable
    * @since 3
    */
   success: () => void;
 
   /**
    * Called when fail to trigger vibration.
-   * @devices liteWearable
+   * @devices phone, tablet, wearable, liteWearable
    * @since 3
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
-   * @devices liteWearable
+   * @devices phone, tablet, wearable, liteWearable
    * @since 3
    */
   complete?: () => void;
 }
 
 /**
+ * @SysCap SystemCapability.Sensors.MiscDevice
  * @devices phone, tablet, wearable, liteWearable
+ * @import import vibrator from '@system.vibrator';
+ * @permission ohos.permission.VIBRATE
+ * @since 3
  */
 export default class Vibrator {
   /**
    * Triggers vibration.
    * @param options Options.
    * @devices phone, tablet, wearable, liteWearable
+   * @permission ohos.permission.VIBRATE
+   * @since 3
    */
   static vibrate(options?: VibrateOptions): void;
 }

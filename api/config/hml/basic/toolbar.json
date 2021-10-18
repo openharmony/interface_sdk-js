@@ -8,8 +8,8 @@
   "supportedDevices": ["phone", "tablet"],
   "description": [
     {
-      "name": "",
-      "supportedDevices": []
+      "name": "Toolbar, which is placed at the bottom of the interface and is used to display the operation options on the current interface.",
+      "supportedDevices": ["phone", "tablet"]
     }
   ],
   "attributes": [
@@ -62,7 +62,7 @@
       "type": "string"
     },
     {
-      "name": "data",
+      "name": "data-*",
       "supportedDevices": [],
       "required": false,
       "description": [
@@ -304,18 +304,7 @@
       "type": "string"
     }
   ],
-  "events": [
-    {
-      "name": "accessibility",
-      "supportedDevices": [],
-      "description": [
-        {
-          "name": "Event dispatched by the accessibility service.",
-          "supportedDevices": []
-        }
-      ]
-    }
-  ],
+  "events": [],
   "supportedSubComponents": true,
   "supportedSubComponentsRestriction": [
     {
