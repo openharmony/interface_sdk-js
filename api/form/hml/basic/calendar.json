@@ -26,6 +26,18 @@
       "type": "string"
     },
     {
+      "name": "offdays",
+      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
+      "required": false,
+      "description": [
+        {
+          "name": "",
+          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+        }
+      ],
+      "type": "string"
+    },
+    {
       "name": "cardcalendar",
       "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "required": false,
