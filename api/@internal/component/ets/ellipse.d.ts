@@ -13,45 +13,24 @@
  * limitations under the License.
  */
 
-import {CommonShapeMethod} from "./common";
-
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class EllipseExtend<T> extends EllipseAttribute<T> {
-}
+import { CommonShapeMethod } from "./common";
 
 /**
  * Ellipse drawing.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Ellipse extends EllipseAttribute<Ellipse> {
   /**
-   * Set a new value.
-   * @devices phone, tablet, car.
-   * @since 7
-   */
-  new (value?: { width?: string | number, height?: string | number }): Ellipse;
-
-  /**
    * Set the value.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (value?: { width?: string | number, height?: string | number }): Ellipse;
+  (value?: { width?: string | number; height?: string | number }): Ellipse;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
-declare class EllipseAttribute<T> extends CommonShapeMethod<T> {
-}
+declare class EllipseAttribute<T> extends CommonShapeMethod<T> {}
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class EllipseExtend<T> extends EllipseAttribute<T> {}
 export declare const EllipseInterface: Ellipse;

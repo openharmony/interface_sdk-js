@@ -13,43 +13,49 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
+import { CommonMethod } from "./common";
 
 /**
- * Defines circle option for Circle component.
+ * Defines the option of DataPanel.
  * @since 7
  */
-export declare interface CircleOption {
+export declare interface DataPanelOption {
   /**
-   * Defines the width property.
+   * Current data value. the max length is 9.
    * @since 7
    */
-  width?: string | number;
+  values: number[];
 
   /**
-   * Defines the height property.
+   * Maximum value of the current data.
    * @since 7
    */
-  height?: string | number;
+  max?: number;
 }
 
 /**
- * Defines circle component.
+ * Defines the DataPanel component.
  * @since 7
  */
-interface Circle extends CircleAttribute<Circle> {
+interface DataPanel extends DataPanelAttribute<DataPanel> {
   /**
-   * Set the value..
+   * Return a DataPanel.
    * @since 7
    */
-  (value?: CircleOption): Circle;
+  (options: DataPanelOption): DataPanel;
 }
 
 /**
- * Circle drawing component attribute functions.
+ * Defines the DataPanel attribute functions.
  * @since 7
  */
-declare class CircleAttribute<T> extends CommonShapeMethod<T> {}
+declare class DataPanelAttribute<T> extends CommonMethod<T> {
+  /**
+   * Disable the special effect of the data ratio chart.
+   * @since 7
+   */
+  closeEffect(value: boolean): T;
+}
 
-export declare class CircleExtend<T> extends CircleAttribute<T> {}
-export declare const CircleInterface: Circle;
+export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
+export declare const DataPanelInterface: DataPanel;

@@ -13,45 +13,32 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common"
+import { CommonMethod } from "./common";
+import { ResourceColor } from "./units";
 
 /**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class BlankExtend<T> extends BlankAttribute<T> {
-}
-
-/**
- * Create Blank
- * @devices phone, tablet, car.
+ * Create Blank.
  * @since 7
  */
 interface Blank extends BlankAttribute<Blank> {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (min?: number | string): Blank;
 }
 
 /**
- * inheritance CommonMethod Set Styles
- * @devices phone, tablet, car.
+ * Inheritance CommonMethod Set Styles
  * @since 7
  */
 declare class BlankAttribute<T> extends CommonMethod<T> {
   /**
    * color: set color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare const BlankInterface: Blank
+export declare class BlankExtend<T> extends BlankAttribute<T> {}
+export declare const BlankInterface: Blank;

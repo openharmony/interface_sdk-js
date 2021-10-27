@@ -13,58 +13,43 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class CounterExtend<T> extends CounterAttribute<T> {
-}
+import { CommonMethod } from "./common";
 
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
 interface Counter extends CounterAttribute<Counter> {
   /**
    * Return Counter.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   (): Counter;
 }
 
 /**
- * @devices phone, tablet, car.
- * @since 7
+ * Defines the Counter attibute functions.
+ * @since 8
  */
 declare class CounterAttribute<T> extends CommonMethod<T> {
   /**
    * Listens to the value change event.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onStateChange(event: () => void): T;
 
   /**
    * Listen to the event that the value increases.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onInc(event: () => void): T;
 
   /**
    * Listens to the number decrease event.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onDec(event: () => void): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
 export declare const CounterInterface: Counter;
+export declare class CounterExtend<T> extends CounterAttribute<T> {}

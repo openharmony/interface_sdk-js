@@ -15,77 +15,65 @@
 
 /**
  * Data Change Listener.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare interface DataChangeListener {
   /**
    * Data ready.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onDataReloaded(): void;
 
   /**
    * Data added.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onDataAdded(index: number): void;
 
   /**
    * Data moved.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onDataMoved(from: number, to: number): void;
 
   /**
    * Data deleted.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  onDataDeleted(index:number): void;
+  onDataDeleted(index: number): void;
 
   /**
    * Data changed.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  onDataChanged(index:number): void;
+  onDataChanged(index: number): void;
 }
-
 
 /**
  * Data  changed.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare interface IDataSource {
   /**
    * Total count.
-   * @devices phone, tablet, car.
    * @since 7
    */
   totalCount(): number;
 
   /**
    * get  data.
-   * @devices phone, tablet, car.
    * @since 7
    */
   getData(index: number): any;
 
   /**
    * register Data Change Listener
-   * @devices phone, tablet, car.
    * @since 7
    */
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
    * unregister Data Change Listener
-   * @devices phone, tablet, car.
    * @since 7
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
@@ -93,21 +81,21 @@ export declare interface IDataSource {
 
 /**
  * Lazy loading.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface LazyForEach {
   /**
    * Enter the value to obtain the LazyForEach.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (dataSource: IDataSource, itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string): LazyForEach;
+  (
+    dataSource: IDataSource,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): LazyForEach;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare const LazyForEachInterface: LazyForEach;

@@ -13,124 +13,111 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common"
-import {FontWeight} from "./text"
+import { CommonMethod } from "./common";
+import { FontWeight } from "./enums";
+import { Length, ResourceColor, ResourceStr } from "./units";
 
 /**
  * Provides a button component.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare enum ButtonType {
   /**
    * Capsule button (rounded corners default to half the height).
-   * @devices phone, tablet, car.
    * @since 7
    */
   Capsule,
 
   /**
    * Round buttons.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Circle,
 
   /**
-   * Arc Button.
-   * @devices phone, tablet, car.
-   * @since 7
-   */
-  Arc,
-
-  /**
    * Common button (no rounded corners by default).
-   * @devices phone, tablet, car.
    * @since 7
    */
-  Normal
+  Normal,
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the button options.
  * @since 7
  */
-export declare class ButtonExtend<T> extends ButtonAttribute<T> {
+export declare interface ButtonOption {
+  /**
+   * Describes the button style.
+   * @since 7
+   */
+  type?: ButtonType;
+
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * @since 7
+   */
+  stateEffect?: boolean;
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the Button Component.
  * @since 7
  */
 interface Button extends ButtonAttribute<Button> {
   /**
    * Button object
-   * @devices phone, tablet, car.
    * @since 7
    */
   (): Button;
 
   /**
-   * Describes the button style.
-   * stateEffect: Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   * @devices phone, tablet, car.
+   * Create Button with Text child.
    * @since 7
    */
-  (options: { type?: ButtonType, stateEffect?: boolean }): Button;
+  (options: ButtonOption): Button;
 
   /**
-   * Button text content.
-   * type: Describes the button style.
-   * stateEffect: Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   * @devices phone, tablet, car.
+   * Create Button with inner text label.
    * @since 7
    */
-  (label: string | Resource, options?: { type?: ButtonType, stateEffect?: boolean }): Button;
+  (label: ResourceStr, options?: ButtonOption): Button;
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the button attibute functions.
  * @since 7
  */
 declare class ButtonAttribute<T> extends CommonMethod<T> {
   /**
    * Describes the button style.
-   * @devices phone, tablet, car.
    * @since 7
    */
   type(value: ButtonType): T;
 
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   * @devices phone, tablet, car.
    * @since 7
    */
   stateEffect(value: boolean): T;
 
   /**
    * Text color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  fontColor(value: Color | number | string | Resource): T;
+  fontColor(value: ResourceColor): T;
 
   /**
    * Text size.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  fontSize(value: number | string | Resource): T;
+  fontSize(value: Length): T;
 
   /**
    * fonse weight
-   * @devices phone, tablet, car.
    * @since 7
    */
   fontWeight(value: number | FontWeight | string): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare const ButtonInterface: Button
+export declare class ButtonExtend<T> extends ButtonAttribute<T> {}
+export declare const ButtonInterface: Button;

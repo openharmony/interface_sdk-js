@@ -13,39 +13,25 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
+import { CommonMethod } from "./common";
 
 /**
- * Creating a Geometry View
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {
-}
-
-/**
- * @devices phone, tablet, car.
- * @since 7
+ * Defines the GeometryView Component.
+ * @since 8
  */
 interface GeometryView extends GeometryViewAttribute<GeometryView> {
   /**
    * Callback function.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   (callback: (geometry?: any) => void): GeometryView;
 }
 
 /**
  * Inherit Public
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
-declare class GeometryViewAttribute<T> extends CommonMethod<T> {
-}
+declare class GeometryViewAttribute<T> extends CommonMethod<T> {}
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
 export declare const GeometryViewInterface: GeometryView;

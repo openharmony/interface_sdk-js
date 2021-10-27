@@ -13,18 +13,11 @@
  * limitations under the License.
  */
 
-import {CommonMethod, HorizontalAlignDeclaration, HorizontalAlign} from "./common";
+import { CommonMethod } from "./common";
+import { HorizontalAlign } from "./enums";
 
 /**
- * Containers laid out vertically.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class ColumnExtend<T> extends ColumnAttribute<T> {
-}
-
-/**
- * @devices phone, tablet, car.
+ * Defines the Column Component.
  * @since 7
  */
 interface Column extends ColumnAttribute<Column> {
@@ -32,27 +25,22 @@ interface Column extends ColumnAttribute<Column> {
    * Set the value.
    * useAlign:Use a custom alignment.
    * space: Vertical layout element spacing.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (value?: { useAlign?: HorizontalAlignDeclaration, space?: string | number }): Column;
+  (value?: { space?: string | number }): Column;
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the Column component attribute functions.
  * @since 7
  */
 export declare class ColumnAttribute<T> extends CommonMethod<T> {
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
-   * @devices phone, tablet, car.
    * @since 7
    */
   alignItems(value: HorizontalAlign): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class ColumnExtend<T> extends ColumnAttribute<T> {}
 export declare const ColumnInterface: Column;

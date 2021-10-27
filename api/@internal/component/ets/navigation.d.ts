@@ -13,40 +13,25 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-
-/**
- * Show routing content.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class NavigationViewExtend<T> extends NavigationViewAttribute<T> {
-}
+import { CommonMethod } from "./common";
 
 /**
  * Provide navigator view interface
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
-interface NavigationView extends NavigationViewAttribute<NavigationView> {
+interface Navigation extends NavigationAttribute<Navigation> {
   /**
    * Called when the navigator view interface is used.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
-  (): NavigationView;
+  (): Navigation;
 }
 
 /**
  * Declare Navigation view properties.
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
-declare class NavigationViewAttribute<T> extends CommonMethod<T> {
-}
+declare class NavigationAttribute<T> extends CommonMethod<T> {}
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare const NavigationViewInterface: NavigationView;
+export declare class NavigationExtend<T> extends NavigationAttribute<T> {}
+export declare const NavigationInterface: Navigation;

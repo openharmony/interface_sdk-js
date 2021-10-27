@@ -13,622 +13,626 @@
  * limitations under the License.
  */
 
-import {Axis, Color, Resource} from "./common";
+import { Axis } from "./enums";
+import { ResourceColor } from "./units";
 
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   index: number;
 
   /**
    * Lunar moon.
    * The week sequence is one, two, three, four, five, six.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   lunarMonth: string;
 
   /**
    * Lunar day.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   lunarDay: string;
 
   /**
    * Day.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayMark: string;
 
   /**
    * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is not required.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayMarkValue: string;
 
   /**
    * Gregorian calendar year.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   year: number;
 
   /**
    * Gregorian calendar month.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   month: number;
 
   /**
    * Gregorian calendar day.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   day: number;
 
   /**
    *
    * Indicates whether the default value is Lunar calendar.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   isFirstOfLunar: boolean;
 
   /**
    * Indicates whether to display has Schedule.
    * The week sequence is one, two, three, four, five, six.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   hasSchedule: boolean;
 
   /**
    * Display Lunar Date.The week sequence is one, two, three, four, five, six.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   markLunarDay: boolean;
 }
 
 /**
  *  Date object.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface MonthData {
   /**
    * Gregorian calendar year.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   year: number;
 
   /**
    * Gregorian calendar month.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   month: number;
 
   /**
    * CalendarDay.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   data: CalendarDay[];
 }
 
 /**
  * CurrentDayStyle object.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface CurrentDayStyle {
   /**
    * Text color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  dayColor?: Color | number | string | Resource;
+  dayColor?: ResourceColor;
 
   /**
    * lunar Text color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  lunarColor?: Color | number | string | Resource;
+  lunarColor?: ResourceColor;
 
   /**
    * lunar  Work and rest  text color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  markLunarColor?: Color | number | string | Resource;
+  markLunarColor?: ResourceColor;
 
   /**
    * Text fontSize.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayFontSize?: number;
 
   /**
    * lunar text fontSize.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   lunarDayFontSize?: number;
 
   /**
    * Single date height.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayHeight?: number;
 
   /**
    * Single date width.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayWidth?: number;
 
   /**
    * Gregorian calendar height.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   gregorianCalendarHeight?: number;
 
   /**
    * Data y axis Off set.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dayYAxisOffset?: number;
 
   /**
    * Lunar data y axis Off set.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   lunarDayYAxisOffset?: number;
 
   /**
    * Under score X Axis Off set.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   underscoreXAxisOffset?: number;
 
   /**
    * Under score Y Axis Off set
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   underscoreYAxisOffset?: number;
 
   /**
    * Schedule marker X axis Off set
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   scheduleMarkerXAxisOffset?: number;
 
   /**
    * schedule Marker Y Axis Off set
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   scheduleMarkerYAxisOffset?: number;
 
   /**
    * Number of columns.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   colSpace?: number;
 
   /**
    * Daily five row space.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dailyFiveRowSpace?: number;
 
   /**
    * Daily six row space.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   dailySixRowSpace?: number;
 
   /**
    * Sigle lunar height.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   lunarHeight?: number;
 
   /**
    * Under score width.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   underscoreWidth?: number;
 
   /**
    * Under score length.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   underscoreLength?: number;
 
   /**
    * Schedule marker radius.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   scheduleMarkerRadius?: number;
 
   /**
    * Boun dary row offset.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   boundaryRowOffset?: number;
 
   /**
    * Boundary col offsett.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   boundaryColOffset?: number;
 }
 
 /**
  * Non current day style.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  nonCurrentMonthDayColor?: Color | number | string | Resource;
+  nonCurrentMonthDayColor?: ResourceColor;
 
   /**
    * Lunar style of non-current month.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  nonCurrentMonthLunarColor?: Color | number | string | Resource;
+  nonCurrentMonthLunarColor?: ResourceColor;
 
   /**
    * Non-Current Month Workday Marker Color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  nonCurrentMonthWorkDayMarkColor?: Color | number | string | Resource;
+  nonCurrentMonthWorkDayMarkColor?: ResourceColor;
 
   /**
    * Non-Current Month Off Day Marker Color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  nonCurrentMonthOffDayMarkColor?: Color | number | string | Resource;
+  nonCurrentMonthOffDayMarkColor?: ResourceColor;
 }
 
 /**
  * Non current day style.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface TodayStyle {
   /**
    * Style of focus color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  focusedDayColor?: Color | number | string | Resource;
+  focusedDayColor?: ResourceColor;
 
   /**
    * Focus on Lunar Colors.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  focusedLunarColor?: Color | number | string | Resource;
+  focusedLunarColor?: ResourceColor;
 
   /**
    * Background color of the focus area.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  focusedAreaBackgroundColor?: Color | number | string | Resource;
+  focusedAreaBackgroundColor?: ResourceColor;
 
   /**
    * Focus area radius.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   focusedAreaRadius?: number;
 }
 
 /**
  * Week Style.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface WeekStyle {
   /**
    * Style of week color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  weekColor?: Color | number | string | Resource;
+  weekColor?: ResourceColor;
 
   /**
    * Style of week day color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  weekendDayColor?: Color | number | string | Resource;
+  weekendDayColor?: ResourceColor;
 
   /**
    * Style of lunar color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  weekendLunarColor?: Color | number | string | Resource;
+  weekendLunarColor?: ResourceColor;
 
   /**
    * Style of week font size.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   weekFontSize?: number;
 
   /**
    * Style of week height.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   weekHeight?: number;
 
   /**
    * Style of week width.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   weekWidth?: number;
 
   /**
    * Style of week space.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   weekAndDayRowSpace?: number;
 }
 
 /**
  * Work state style.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 export interface WorkStateStyle {
   /**
    * Style of day color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  workDayMarkColor?: Color | number | string | Resource;
+  workDayMarkColor?: ResourceColor;
 
   /**
    * Style of day color.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  offDayMarkColor?: Color | number | string | Resource;
+  offDayMarkColor?: ResourceColor;
 
   /**
    * Style of day size.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   workDayMarkSize?: number;
 
   /**
    * Style of day size.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   offDayMarkSize?: number;
 
   /**
    * Style of width.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   workStateWidth?: number;
 
   /**
    * Style of distance.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   workStateHorizontalMovingDistance?: number;
 
   /**
    * Style of distance.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   workStateVerticalMovingDistance?: number;
 }
 
 /**
  * Calendar controller.
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 declare class CalendarController {
   /**
    * Constructor.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   constructor();
 
   /**
    * Back to day.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   backToToday();
 
   /**
    * To the specified element.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  goTo(value: { year: number, month: number, day: number });
+  goTo(value: { year: number; month: number; day: number });
 }
 
 /**
- * Create calendar.
- * @devices phone, tablet, car.
  * @since 7
- */
-export declare class CalendarExtend<T> extends CalendarAttribute<T> {
-}
-
-/**
- * @devices phone, tablet, car.
- * @since 7
+ * @systemapi
  */
 interface Calendar extends CalendarAttribute<Calendar> {
   /**
    * Set value.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  (value: { date: { year: number, month: number, day: number }, currentData: MonthData, preData: MonthData, nextData: MonthData, controller?: CalendarController }): Calendar;
+  (value: {
+    date: { year: number; month: number; day: number };
+    currentData: MonthData;
+    preData: MonthData;
+    nextData: MonthData;
+    controller?: CalendarController;
+  }): Calendar;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
+ * @systemapi
  */
 declare class CalendarAttribute<T> {
   /**
    * Specifies whether the component displays the lunar calendar information.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   showLunar(value: boolean): T;
 
   /**
    * Setting whether to display holiday information
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   showHoliday(value: boolean): T;
 
   /**
    * Indicates whether the page can be scrolled.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   needSlide(value: boolean): T;
 
   /**
    * Set the start day of the week for the calendar.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   startOfWeek(value: number): T;
 
   /**
    * Set weekend. The default value is Sunday and Saturday.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   offDays(value: number): T;
 
   /**
    * Sets the sliding direction.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   direction(value: Axis): T;
 
   /**
    * Sets the date style in the current month.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   currentDayStyle(value: CurrentDayStyle): T;
 
   /**
    * Sets the non-monthly date style.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   nonCurrentDayStyle(value: NonCurrentDayStyle): T;
 
   /**
    * Set the date style for today.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   todayStyle(value: TodayStyle): T;
 
   /**
    * Sets the date style for the weekend.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   weekStyle(value: WeekStyle): T;
 
   /**
    * Sets the style of the working state.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
   workStateStyle(value: WorkStateStyle): T;
 
   /**
    * Click a date to return the information about the date you clicked.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  onSelectChange(event: (event: { year: number, month: number, day: number }) => void): T;
+  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): T;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
-   * @devices phone, tablet, car.
    * @since 7
+   * @systemapi
    */
-  onRequestData(event: (event: { year: number, month: number, currentYear: number, currentMonth: number, monthState: number }) => void): T;
+  onRequestData(
+    event: (event: {
+      year: number;
+      month: number;
+      currentYear: number;
+      currentMonth: number;
+      monthState: number;
+    }) => void,
+  ): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare const CalendarInterface: Calendar
+export declare class CalendarExtend<T> extends CalendarAttribute<T> {}
+export declare const CalendarInterface: Calendar;
