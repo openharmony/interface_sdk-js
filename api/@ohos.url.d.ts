@@ -76,8 +76,9 @@ declare namespace url {
          * @param value Current traversal key value.
          * @param key Indicates the name of the key that is traversed.
          * @param searchParams The instance object that is currently calling the forEach method.
+         * @param thisArg to be used as this value for when callbackfn is called
          */
-        forEach(callbackfn: (value: string, key: string, searchParams: this) => void): void;
+        forEach(callbackfn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
 
         /**
          * Returns the first value associated to the given search parameter.
