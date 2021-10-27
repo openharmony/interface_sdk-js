@@ -15,14 +15,12 @@
 
 /**
  * Get inspector node infos.
- * @devices phone, tablet, car.
  * @since 7
  */
 declare function getInspectorNodes(): object;
 
 /**
  * Get inspector node info by node id.
- * @devices phone, tablet, car.
  * @since 7
  */
 declare function getInspectorNodeById(id: number): object;

@@ -13,93 +13,79 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Resource} from "./common";
+import { CommonMethod } from "./common";
+import { Resource } from "./units";
 
 /**
  * Declare the type of selector
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
 export declare enum PickerStyle {
   /**
    * Inside the line.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   INLINE = 0,
 
   /**
    * Block-level elements.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   BLOCK,
 
   /**
    * fade.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   FADE,
 }
 
 /**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {
-}
-
-/**
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
 interface TextPicker extends TextPickerAttribute<TextPicker> {
   /**
    * Add the property of the selector value range.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
-  (options?: {range: string[] | Resource, value?: string, selected?: number, loop?: boolean , style?: PickerStyle}): TextPicker;
+  (options?: {
+    range: string[] | Resource;
+    value?: string;
+    selected?: number;
+    loop?: boolean;
+    style?: PickerStyle;
+  }): TextPicker;
 }
 
 /**
  * Style the text selector.
- * @devices phone, tablet, car.
- * @since 7
+ * @since 8
  */
 declare class TextPickerAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the default height of the selected element is set.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   defaultPickerItemHeight(value: number): T;
 
   /**
    * Called when the pop-up value is returned.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onAccept(callback: (value: string, index: number) => void): T;
 
   /**
    * Called when the Cancel button in the pop-up window is clicked.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onCancel(callback: () => void): T;
 
   /**
    * Called when the OK button in the pop-up window is clicked.
-   * @devices phone, tablet, car.
-   * @since 7
+   * @since 8
    */
   onChange(callback: (value: string, index: number) => void): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
 export declare const TextPickerInterface: TextPicker;

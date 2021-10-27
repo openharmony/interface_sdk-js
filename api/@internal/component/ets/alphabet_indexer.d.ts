@@ -13,144 +13,117 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, Resource} from "./common";
-import {FontWeight, FontStyle} from "./text";
+import { CommonMethod } from "./common";
+import { ResourceColor, Font } from "./units";
 
 /**
- * @devices phone, tablet, car.
+ * indexer align property.
  * @since 7
  */
 export declare enum IndexerAlign {
   /**
    * A dialog box is displayed on the right of the index bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Left,
 
   /**
    * A dialog box is displayed on the left of the index bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  Right
+  Right,
 }
 
 /**
  * Alphabet index bar.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {
-}
-
-/**
- * Alphabet index bar.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
   /**
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  (value: {ArrayValue : Array<string>, selected : number}): AlphabetIndexer;
+  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexer;
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the alphabet index bar attribute functions.
  * @since 7
  */
 declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
   /**
    * Index bar selection callback.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onSelected(event: (index: number) => void): T;
 
   /**
    * Definitions color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 
   /**
    * Select the text color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  selectedColor(value: Color | number | string | Resource): T;
+  selectedColor(value: ResourceColor): T;
 
   /**
    * Font color of the pop-up prompt text.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  popupColor(value: Color | number | string | Resource): T;
+  popupColor(value: ResourceColor): T;
 
   /**
    * Select the text background color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  selectedBackgroundColor(value: Color | number | string | Resource): T;
+  selectedBackgroundColor(value: ResourceColor): T;
 
   /**
    * Background color of the pop-up window index.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  popupBackground(value: Color | number | string | Resource): T;
+  popupBackground(value: ResourceColor): T;
 
   /**
    * Whether to use pop-up index hints.
-   * @devices phone, tablet, car.
    * @since 7
    */
   usingPopup(value: boolean): T;
 
   /**
    * Select the text text style,
-   * @devices phone, tablet, car.
    * @since 7
    */
-  selectedFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  selectedFont(value: Font): T;
 
   /**
    * Select the text background color.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  popupFont(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  popupFont(value: Font): T;
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
-   * @devices phone, tablet, car.
    * @since 7
    */
   itemSize(value: string | number): T;
 
   /**
    * Definitions fonts.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  font(value: { size?: number, weight?: FontWeight, family?: string, style?: FontStyle}): T;
+  font(value: Font): T;
 
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.
-   * @devices phone, tablet, car.
    * @since 7
    */
   alignStyle(value: IndexerAlign): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
 export declare const AlphabetIndexerInterface: AlphabetIndexer;
+export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {}

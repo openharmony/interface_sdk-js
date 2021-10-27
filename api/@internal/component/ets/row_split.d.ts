@@ -13,45 +13,30 @@
  * limitations under the License.
  */
 
-import {CommonMethod} from "./common";
-
-/**
- * Component horizontal layout.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {
-}
+import { CommonMethod } from "./common";
 
 /**
  * Provides interfaces for layout in the vertical direction.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface RowSplit extends RowSplitAttribute<RowSplit> {
   /**
    * Called when the layout along the vertical direction is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (): RowSplit;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class RowSplitAttribute<T> extends CommonMethod<T> {
   /**
    * Called when judging whether the split line can be dragged.
-   * @devices phone, tablet, car.
    * @since 7
    */
   resizeable(value: boolean): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class RowSplitExtend<T> extends RowSplitAttribute<T> {}
 export declare const RowSplitInterface: RowSplit;

@@ -13,101 +13,80 @@
  * limitations under the License.
  */
 
-import {CommonMethod, BarState, Color, Resource} from "./common";
-import {Scroller} from "./scroll";
+import { CommonMethod } from "./common";
+import { BarState, Color } from "./enums";
+import { Scroller } from "./scroll";
+import { Length } from "./units";
 
 /**
- * Mesh container for static fixed-size layout scenarios.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class GridExtend<T> extends GridAttribute<T> {
-}
-
-/**
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Grid extends GridAttribute<Grid> {
   /**
    * Grid is returned when the parameter is transferred.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (scroller?: Scroller): Grid;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class GridAttribute<T> extends CommonMethod<T> {
   /**
    * This parameter specifies the number of columns in the current grid layout.
-   * @devices phone, tablet, car.
    * @since 7
    */
   columnsTemplate(value: string): T;
 
   /**
    * Lets you set the number of rows in the current grid layout,
-   * @devices phone, tablet, car.
    * @since 7
    */
   rowsTemplate(value: string): T;
 
   /**
    * Allows you to set the spacing between columns.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  columnsGap(value: number | string | Resource): T;
+  columnsGap(value: Length): T;
 
   /**
    * Lets you set the spacing between rows.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  rowsGap(value: number | string | Resource): T;
+  rowsGap(value: Length): T;
 
   /**
    * This parameter specifies the width of the scroll bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
   scrollBarWidth(value: number | string): T;
 
   /**
    * Sets the color of the scroll bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
   scrollBarColor(value: Color | number | string): T;
 
   /**
    * Lets you set the spacing between rows.
-   * @devices phone, tablet, car.
    * @since 7
    */
   scrollBar(value: BarState): T;
 
   /**
    * Sets the status of the scroll bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onScrollIndex(event: (first: number) => void): T;
 
   /**
    * cached Count
-   * @devices phone, tablet, car.
    * @since 7
    */
   cachedCount(value: number): T;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
+export declare class GridExtend<T> extends GridAttribute<T> {}
 export declare const GridInterface: Grid;

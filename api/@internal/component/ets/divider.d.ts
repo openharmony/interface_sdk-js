@@ -13,66 +13,52 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Color, LineCapStyle, Resource} from "./common";
-
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class DividerExtend<T> extends DividerAttribute<T> {
-}
+import { CommonMethod } from "./common";
+import { LineCapStyle } from "./enums";
+import { ResourceColor } from "./units";
 
 /**
  * Provides a divider component to separate different content blocks/content elements.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Divider extends DividerAttribute<Divider> {
   /**
    * Return Divider.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (): Divider;
 }
 
 /**
- * @devices phone, tablet, car.
+ * Defines the Divider attribute functions.
  * @since 7
  */
 declare class DividerAttribute<T> extends CommonMethod<T> {
   /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
    * The options are as follows: false: horizontal splitter; true: vertical splitter.
-   * @devices phone, tablet, car.
    * @since 7
    */
   vertical(value: boolean): T;
 
   /**
    * Sets the color of the divider line.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  color(value: Color | number | string | Resource): T;
+  color(value: ResourceColor): T;
 
   /**
    * Sets the width of the dividing line.
-   * @devices phone, tablet, car.
    * @since 7
    */
   strokeWidth(value: number | string): T;
 
   /**
    * Sets the end style of the split line. The default value is Butt.
-   * @devices phone, tablet, car.
    * @since 7
    */
   lineCap(value: LineCapStyle): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class DividerExtend<T> extends DividerAttribute<T> {}
 export declare const DividerInterface: Divider;

@@ -14,37 +14,69 @@
  */
 
 import { DialogAlignment } from "./alert_dialog";
-import {CommonMethod, Resource} from "./common";
+import { Offset } from "./units";
+
+/**
+ * Defines the option of CustomDialogController.
+ * @since 7
+ */
+export declare interface CustomDialogControllerOption {
+  /**
+   * Custom builder function.
+   * @since 7
+   */
+  builder: any;
+
+  /**
+   * Defines the cancel function.
+   * @since 7
+   */
+  cancel?: () => void;
+
+  /**
+   * Defines if use auto cancel when click on the outside of the dialog.
+   * @since 7
+   */
+  autoCancel?: boolean;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   * @since 7
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   * @since 7
+   */
+  offset?: Offset;
+
+  /**
+   * Defines if use costom style.
+   * @since 7
+   */
+  customStyle?: boolean;
+}
 
 /**
  * Use the CustomDialogController class to display the custom pop-up window.
- * @devices phone, tablet, car.
  * @since 7
  */
 export declare class CustomDialogController {
   /**
    * The constructor transfers parameter settings.
-   * @devices phone, tablet, car.
    * @since 7
    */
-  constructor(value: {
-    builder: any, cancel?: () => void,
-    autoCancel?: boolean,
-    alignment?: DialogAlignment,
-    offset?: { dx: number | string | Resource, dy: number | string | Resource },
-    customStyle?: boolean
-  });
+  constructor(value: CustomDialogControllerOption);
 
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.
-   * @devices phone, tablet, car.
    * @since 7
    */
   open();
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
-   * @devices phone, tablet, car.
    * @since 7
    */
   close();

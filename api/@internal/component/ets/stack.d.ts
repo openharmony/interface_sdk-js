@@ -13,45 +13,31 @@
  * limitations under the License.
  */
 
-import {CommonMethod, Alignment} from "./common";
-
-/**
- * Declaration extension.
- * @devices phone, tablet, car.
- * @since 7
- */
-export declare class StackExtend<T> extends StackAttribute<T> {
-}
+import { CommonMethod } from "./common";
+import { Alignment } from "./enums";
 
 /**
  * Provides ports for stacking containers.
- * @devices phone, tablet, car.
  * @since 7
  */
 interface Stack extends StackAttribute<Stack> {
   /**
    * Set the value.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { alignContent?: Alignment }): Stack;
 }
 
 /**
- * @devices phone, tablet, car.
  * @since 7
  */
 declare class StackAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the occupancy of items in the container is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   alignContent(value: Alignment): T;
 }
 
-/**
- * @devices phone, tablet, car.
- * @since 7
- */
+export declare class StackExtend<T> extends StackAttribute<T> {}
 export declare const StackInterface: Stack;
