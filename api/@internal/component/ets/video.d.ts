@@ -20,7 +20,7 @@ import { Resource } from "./units";
 /**
  * @since 7
  */
-declare class VideoController {
+export declare class VideoController {
   /**
    * constructor.
    * @since 7
