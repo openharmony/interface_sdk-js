@@ -406,5 +406,181 @@ export class NumberFormat {
      */
     resolvedOptions(): NumberOptions;
 }
+
+/**
+ * Provides the options of Collator
+ *
+ * @since 8
+ */
+export interface CollatorOptions {
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     */
+    localeMatcher: string;
+
+    /**
+     * Whether the comparison is for sorting or for searching for matching strings.
+     * Possible values are "sort" and "search"; the default is "sort".
+     */
+    usage: string;
+
+    /**
+     * Which differences in the strings should lead to non-zero result values.
+     * Possible values are "base", "accent", "case", "variant".
+     */
+    sensitivity: string;
+
+    /**
+     * Whether punctuation should be ignored.
+     * Possible values are true and false; the default is false.
+     */
+    ignorePunctuation: boolean;
+
+    /**
+     * Variant collations for certain locales.
+     */
+    collation: string;
+
+    /**
+     * Whether numeric collation should be used.
+     * Possible values are true and false; the default is false.
+     */
+    numeric: boolean;
+
+    /**
+     * Whether upper case or lower case should sort first.
+     * Possible values are "upper", "lower", or "false" (use the locale's default).
+     */
+    caseFirst: string;
+}
+
+/**
+ * Enable language-sensitive string comparison.
+ *
+ * @since 8
+ */
+export class Collator {
+    /**
+     * A constructor used to create Collator object.
+     *
+     * @since 8
+     */
+    constructor();
+    /**
+     * A constructor used to create Collator Object;
+     *
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the Collator object.
+     * @param options Indicates the options used to initialize Collator object.
+     * @since 8
+     */
+    constructor(locale: string | Array<string>, options?: CollatorOptions);
+
+    /**
+     * compares two strings according to the sort order of this Collator object
+     *
+     * @param first The first string to compare.
+     * @param second The second string to compare.
+     * @return Returns a number indicating how first compare to second:
+     *         a negative value if string1 comes before string2;
+     *         a positive value if string1 comes after string2;
+     *         0 if they are considered equal.
+     * @since 8
+     */
+    compare(first: string, second: string): number;
+
+    /**
+     * Returns a new object with properties reflecting the locale and collation options computed
+     * during initialization of the object.
+     *
+     * @return Returns a CollatorOptions object reflecting the properties of this object.
+     * @since 8
+     */
+    resolvedOptions(): CollatorOptions;
+}
+
+/**
+ * Provides the options of PluralRules
+ *
+ * @since 8
+ */
+export interface PluralRulesOptions {
+    /**
+     * The locale matching algorithm to use.
+     * Possible values are "lookup" and "best fit"; the default is "best fit".
+     */
+    localeMatcher: string;
+
+    /**
+     * The type to use. Possible values are: "cardinal", "ordinal"
+     */
+    type: string;
+
+    /**
+     * The minimum number of integer digits to use.
+     * Possible values are from 1 to 21; the default is 1.
+     */
+    minimumIntegerDigits: number;
+
+    /**
+     * The minimum number of fraction digits to use.
+     * Possible values are from 0 to 20; the default for plain number and percent formatting is 0;
+     */
+    minimumFractionDigits: number;
+
+    /**
+     * The maximum number of fraction digits to use.
+     * Possible values are from 0 to 20;
+     * the default for plain number formatting is the larger of minimumFractionDigits and 3;
+     */
+    maximumFractionDigits: number;
+
+    /**
+     * The minimum number of significant digits to use.
+     * Possible values are from 1 to 21; the default is 1.
+     */
+    minimumSignificantDigits: number;
+
+    /**
+     * The maximum number of significant digits to use.
+     * Possible values are from 1 to 21; the default is 21.
+     */
+    maximumSignificantDigits: number;
+}
+
+/**
+ * Enables plural-sensitive formatting and plural-related language rules.
+ *
+ * @since 8
+ */
+export class PluralRules {
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @since 8
+     */
+    constructor();
+
+    /**
+     * A constructor used to create PluralRules object.
+     *
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region, for the PluralRules object.
+     * @param options Indicates the options used to initialize PluralRules object.
+     * @since 8
+     */
+    constructor(locale: string | Array<string>, options?: PluralRulesOptions);
+
+    /**
+     * Returns a string indicating which plural rule to use for locale-aware formatting.
+     *
+     * @param n The number to get a plural rule for.
+     * @return A string representing the pluralization category of the number,
+     *         can be one of zero, one, two, few, many or other.
+     * @since 8
+     */
+    select(n: number): string;
+}
 }
 export default intl;
