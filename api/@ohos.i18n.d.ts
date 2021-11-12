@@ -285,4 +285,14 @@ export class Calendar {
      */
     isWeekend(date?: Date): boolean;
 }
+
+/**
+ * Judge whether the locale is RTL locale.
+ *
+ * @param locale The locale to be used.
+ * @return Returns true representing the locale is an RTL locale
+ *
+ * @since 8
+ */
+export function isRTL(locale: string): boolean;
 }

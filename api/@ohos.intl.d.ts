@@ -225,22 +225,19 @@ export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
-     * @param locale Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the DateTimeFormat object.
-     * @param options Indicates the options used to format the date.
-     * @since 6
+     * @since 8
      */
-    constructor(locale: string, options?: DateTimeOptions);
+    constructor();
 
     /**
      * A constructor used to create a DateTimeFormat object.
      *
-     * @param locale Indicates an array of character string containing the locale information, including
+     * @param locale Indicates character string containing the locale information, including
      *               the language and optionally the script and region, for the DateTimeFormat object.
      * @param options Indicates the options used to format the date.
      * @since 6
      */
-    constructor(locale: Array<string>, options?: DateTimeOptions);
+    constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
     /**
      * Obtains the formatted date strings.
@@ -372,22 +369,19 @@ export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
+     * @since 6
+     */
+    constructor();
+
+    /**
+     * A constructor used to create a NumberFormat object.
+     *
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the NumberFormat object.
      * @param options Indicates the options used to format the number.
      * @since 6
      */
-    constructor(locale: string, options?: NumberOptions);
-
-    /**
-     * A constructor used to create a NumberFormat object.
-     *
-     * @param locale Indicates an array of character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @param options Indicates the options used to format the number.
-     * @since 6
-     */
-    constructor(locale: Array<string>, options?: NumberOptions);
+    constructor(locale: string | Array<string>, options?: NumberOptions);
 
     /**
      * Obtains the formatted number string.
