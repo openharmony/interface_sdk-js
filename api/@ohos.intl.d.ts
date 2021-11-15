@@ -305,6 +305,11 @@ export interface NumberOptions {
     unitDisplay: string
 
     /**
+     * Indicates the unit display format.
+     */
+    unitUsage: string
+
+    /**
      * Indicates the sign display format.
      */
     signDisplay: string

@@ -124,6 +124,41 @@ export function getSystemLocale(): string;
 export function setSystemLocale(locale: string): boolean;
 
 /**
+ * Provides util functions.
+ *
+ * @since 8
+ */
+export interface Util {
+    /**
+     * Convert from unit to to unit and format according to the locale.
+     * @param fromUnit Information of the unit to be converted.
+     * @param toUnit Information about the unit to be converted to.
+     * @param value Indicates the number to be formatted.
+     * @param locale The locale to be used.
+     * @param style The style of format.
+     * @since 8
+     */
+    unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+}
+
+/**
+ * Provides the options of unit.
+ *
+ * @since 8
+ */
+export interface UnitInfo {
+    /**
+     * Unit name.
+     */
+    unit: string
+
+    /**
+     * The measurement system of the unit.
+     */
+    measureSystem: string
+}
+
+/**
  * Provides the options of PhoneNumberFormat.
  *
  * @since 8
