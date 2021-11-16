@@ -534,7 +534,6 @@ declare namespace util {
          * @since 8
          * @sysCap SystemCapability.CCRuntime
 		 * @param value A Uint8Array value
-		 * @param value A number value
          * @return Return the encoded new Uint8Array.
          */ 
 		encode(src: Uint8Array): Uint8Array;
