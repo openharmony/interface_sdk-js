@@ -135,6 +135,19 @@ declare namespace rdb {
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
         executeSql(sql: string, bindArgs: Array<ValueType>): Promise<void>;
+
+        /**
+         * change the encrypted key(not null) if the database is configured with encrypted key.
+         *
+         * @note N/A
+         * @since 7
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param the encrypted key is uint8 form in a vector.
+         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
+         */
+        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
+        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
     }
 
     /**
