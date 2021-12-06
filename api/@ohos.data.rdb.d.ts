@@ -140,14 +140,13 @@ declare namespace rdb {
          * change the encrypted key(not null) if the database is configured with encrypted key.
          *
          * @note N/A
-         * @since 7
+         * @since 8
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
-         * @param the encrypted key is uint8 form in a vector.
-         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
+         * @param newEncryptKey the encrypted key is uint8 form in a vector.
          */
-        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
-        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
+        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<number>):void;
+        changeEncryptKey(newEncryptKey:Uint8Array): Promise<number>;
     }
 
     /**
@@ -187,10 +186,11 @@ declare namespace rdb {
         /**
          * Indicates the name of the database file
          *
-         * @since 7
+         * @since 8
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          */
         name: string;
+        encryptKey: Uint8Array;
     }
 
     /**
