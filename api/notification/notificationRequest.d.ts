@@ -140,6 +140,13 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
+   * The group information for this notification.
+   *
+   * @since 8
+   */
+  groupName?: string;
+
+  /**
    * Read-only name of the package for which a notification is created.
    */
   readonly creatorBundleName?: string;
@@ -165,4 +172,21 @@ export interface NotificationRequest {
    * Obtains the unique hash code of a notification in the current application.
    */
   readonly hashCode?: string;
+
+  /**
+   * Whether the notification can be remove.
+   *
+   * @default true
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly isRemoveAllowed?: boolean;
+
+  /**
+   * Notification source. enum SourceType
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly source?: number;
 }

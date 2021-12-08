@@ -496,6 +496,54 @@ declare namespace notification {
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
+   * Cancel the notification of a specified group for this application.
+   *
+   * @since 8
+   */
+  function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
+  function cancelGroup(groupName: string): Promise<void>;
+
+  /**
+   * Delete the notification of a specified group for this application.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
+  function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
+
+  /**
+   * Set the Do Not Disturb date.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
+  function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
+
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
+  function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
+
+  /**
+   * Obtains whether to support the Do Not Disturb mode.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
+  function supportDoNotDisturbMode(): Promise<boolean>;
+
+  /**
    * Describes a BundleOption.
    */
   export interface BundleOption {
@@ -540,6 +588,85 @@ declare namespace notification {
      * are allowed to interrupt the user in Do Not Disturb mode.
      */
     ALLOW_ALARMS
+  }
+
+  /**
+   * The type of the Do Not Disturb.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+   export enum DoNotDisturbType {
+    /**
+     * Non do not disturb type notification
+     */
+    TYPE_NONE = 0,
+
+    /**
+     * Execute do not disturb once in the set time period (only watch hours and minutes)
+     */
+    TYPE_ONCE = 1,
+
+    /**
+     * Execute do not disturb every day with a set time period (only watch hours and minutes)
+     */
+    TYPE_DAILY = 2,
+
+    /**
+     * Execute in the set time period (specify the time, month, day and hour)
+     */
+    TYPE_CLEARLY = 3,
+  }
+
+  /**
+   * Describes a DoNotDisturbDate instance.
+   *
+   * @systemapi Hide this for inner system use.
+   */
+  export interface DoNotDisturbDate {
+    /**
+     * the type of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    type: DoNotDisturbType;
+
+    /**
+     * the start time of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    begin: Date;
+
+    /**
+     * the end time of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    end: Date;
+  }
+
+  /**
+   * Notification source type
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum SourceType {
+    /**
+     * General notification
+     */
+    TYPE_NORMAL = 0x00000000,
+
+    /**
+     * Continuous notification
+     */
+    TYPE_CONTINUOUS = 0x00000001,
+
+    /**
+     * Scheduled notification
+     */
+    TYPE_TIMER = 0x00000002,
   }
 }
 

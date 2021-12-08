@@ -13,37 +13,18 @@
  * limitations under the License.
  */
 
-import { NotificationUserInput } from './notificationUserInput';
-import { WantAgent } from '../@ohos.wantAgent';
-
 /**
- * Describes an action button displayed in a notification.
- * @name NotificationActionButton
- * @since 7
+ * Describes a NotificationUserInput instance.
+ *
+ * @name NotificationUserInput
+ * @since 8
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  * @sysCap SystemCapability.Notification.ANS
  */
-export interface NotificationActionButton {
+export interface NotificationUserInput {
   /**
-   * Button title.
+   * Obtains the key used to identify this input when the input is collected from the user.
    */
-  title: string;
-
-  /**
-   * WantAgent of the button.
-   */
-  wantAgent: WantAgent;
-
-  /**
-   * Extra information of the button.
-   */
-  extras?: {[key: string]: any};
-
-  /**
-   * User input
-   *
-   * @since 8
-   */
-  userInput?: NotificationUserInput;
+  inputKey: string;
 }
