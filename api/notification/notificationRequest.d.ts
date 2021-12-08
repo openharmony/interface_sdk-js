@@ -141,6 +141,8 @@ export interface NotificationRequest {
 
   /**
    * The group information for this notification.
+   *
+   * @since 8
    */
   groupName?: string;
 
@@ -174,6 +176,8 @@ export interface NotificationRequest {
   /**
    * Whether the notification can be remove.
    *
+   * @default true
+   * @since 8
    * @systemapi Hide this for inner system use.
    */
   readonly isRemoveAllowed?: boolean;
@@ -181,6 +185,7 @@ export interface NotificationRequest {
   /**
    * Notification source. enum SourceType
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    */
   readonly source?: number;

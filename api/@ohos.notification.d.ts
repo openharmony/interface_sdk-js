@@ -497,6 +497,8 @@ declare namespace notification {
 
   /**
    * Cancel the notification of a specified group for this application.
+   *
+   * @since 8
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
   function cancelGroup(groupName: string): Promise<void>;
@@ -504,6 +506,7 @@ declare namespace notification {
   /**
    * Delete the notification of a specified group for this application.
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
@@ -513,6 +516,7 @@ declare namespace notification {
   /**
    * Set the Do Not Disturb date.
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
@@ -522,6 +526,7 @@ declare namespace notification {
   /**
    * Obtains the Do Not Disturb date.
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
@@ -531,6 +536,7 @@ declare namespace notification {
   /**
    * Obtains whether to support the Do Not Disturb mode.
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
@@ -587,6 +593,7 @@ declare namespace notification {
   /**
    * The type of the Do Not Disturb.
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    */
    export enum DoNotDisturbType {
@@ -619,16 +626,22 @@ declare namespace notification {
   export interface DoNotDisturbDate {
     /**
      * the type of the Do Not Disturb.
+     *
+     * @since 8
      */
     type: DoNotDisturbType;
 
     /**
      * the start time of the Do Not Disturb.
+     *
+     * @since 8
      */
     begin: Date;
 
     /**
      * the end time of the Do Not Disturb.
+     *
+     * @since 8
      */
     end: Date;
   }
@@ -636,6 +649,7 @@ declare namespace notification {
   /**
    * Notification source type
    *
+   * @since 8
    * @systemapi Hide this for inner system use.
    */
   export enum SourceType {

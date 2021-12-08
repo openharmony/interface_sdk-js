@@ -42,6 +42,8 @@ export interface NotificationActionButton {
 
   /**
    * User input
+   *
+   * @since 8
    */
   userInput?: NotificationUserInput;
 }
