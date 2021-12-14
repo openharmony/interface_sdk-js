@@ -305,7 +305,7 @@ export class Calendar {
      * Get calendar's name localized for display in the given locale.
      *
      * @param locale Locale used to get the localized name for this calendar.
-     * @return Retuns the localized name of this calendar.
+     * @return Returns the localized name of this calendar.
      * @since 8
      */
     getDisplayName(locale: string): string;
@@ -315,7 +315,7 @@ export class Calendar {
      *  the date object of this calendar is used.
      *
      * @param date Date object whose attribute is desired.
-     * @return Retuns whether the date is a weekend day.
+     * @return Returns whether the date is a weekend day.
      * @since 8
      */
     isWeekend(date?: Date): boolean;
