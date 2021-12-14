@@ -14,8 +14,6 @@
  */
 import { AsyncCallback } from './basic';
 
-export interface Response {}
-
 /**
  * This module provides the capability to subscribe to sensor data.
  *
@@ -449,6 +447,15 @@ declare namespace sensor {
         SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
         SENSOR_TYPE_ID_WEAR_DETECTION = 280,        /**< Wear detection sensor */
         SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281,   /**< Uncalibrated acceleration sensor */
+    }
+
+    /**
+     * The basic data structure of the sensor event.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.Sensor
+     */
+    interface Response {
+        timestamp: number; /**< The timestamp of the reported sensor data */
     }
 
     /**
