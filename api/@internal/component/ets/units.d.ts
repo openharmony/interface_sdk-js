@@ -130,3 +130,49 @@ export declare interface Font {
    */
   style?: FontStyle;
 }
+/**
+ * Defines the area property.
+ * @since 8
+ */
+export declare interface Area {
+  /**
+   * Defines the width property.
+   * @since 8
+   */
+  width: Length;
+
+  /**
+   * Defines the height property.
+   * @since 8
+   */
+  height: Length;
+
+  /**
+   * Defines the local position.
+   * @since 8
+   */
+  pos: Position;
+
+  /**
+   * Defines the global position.
+   * @since 8
+   */
+  globalPos: Position;
+}
+
+/**
+ * Defines the position.
+ * @since 8
+ */
+export declare interface Position {
+  /**
+   * Coordinate x of the Position.
+   * @since 8
+   */
+  x: Length;
+  /**
+   * Coordinate y of the Position.
+   * @since 8
+   */
+  y: Length;
+}

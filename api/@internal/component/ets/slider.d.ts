@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { Axis } from "./enums";
 import { CommonMethod } from "./common";
 import { ResourceColor } from "./units";
 
@@ -32,6 +33,11 @@ export declare enum SliderStyle {
    * @since 7
    */
   InSet,
+  /**
+   * Capsule style slider.
+   * @since 8
+   */
+  Capsule,
 }
 
 /**
@@ -92,6 +98,17 @@ export declare interface SliderOption {
    * @since 7
    */
   style?: SliderStyle;
+  /**
+   * Sets the slider direction style.
+   * @since 8
+   */
+  direction?: Axis;
+
+  /**
+   * Set whether the direction of the slider needs to be reversed.
+   * @since 8
+   */
+  reverse?: boolean;
 }
 
 /**

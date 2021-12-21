@@ -14,6 +14,8 @@
  */
 
 import { CommonMethod } from "./common";
+import { FontStyle, FontWeight } from "./enums";
+import { Length, ResourceColor, ResourceStr } from "./units";
 
 /**
  * Sets the relative position of icons and text.
@@ -47,12 +49,51 @@ interface Piece extends PieceAttribute<Piece> {
   (options?: { content: string; icon?: string }): Piece;
 }
 
+/**
+ * @since 8
+ */
 declare class PieceAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the relative position of the icon and the text is set.
    * @since 8
    */
   iconPosition(value: IconPosition): T;
+  /**
+   * Called when the value of Piece fontColor is set
+   * @since 8
+   */
+  fontColor(value: ResourceColor): T;
+  /**
+   * Called when the value of Piece fontSize is set
+   * @since 8
+   */
+  fontSize(value: Length): T;
+  /**
+   * Called when the value of Piece fontStyle is set
+   * @since 8
+   */
+  fontStyle(value: FontStyle): T;
+  /**
+   * Called when the value of Piece fontWeight is set
+   * @since 8
+   */
+  fontWeight(value: number | FontWeight | string): T;
+  /**
+   * Called when the value of Piece fontFamily is set
+   * @since 8
+   */
+  fontFamily(value: ResourceStr): T;
+  /**
+   * Called when the value of Piece showDelete is set
+   * @since 8
+   */
+  showDelete(value: boolean): T;
+  /**
+   * Default icon is invisible,
+   * Callback onClose function when icon is clicked
+   * @since 8
+   */
+  onClose(callback: () => void): T;
 }
 
 export declare class PieceExtend<T> extends PieceAttribute<T> {}

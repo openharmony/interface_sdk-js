@@ -13,35 +13,32 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
-
 /**
- * Provides the path drawing interface.
+ * @name Provides parameters required for installing or uninstalling an application.
  * @since 7
+ * @SysCap SystemCapability.Appexecfwk
+ * @permission NA
+ * @devices phone, tablet, tv, wearable, car
  */
-interface Path extends PathAttribute<Path> {
-   /**
-   * Use new to create Path.
-   * @since 7
-   */
-  new (value?: { width?: number | string; height?: number | string; commands?: string }): Path;
+export declare interface InstallParam {
   /**
-   * Called when drawing path.
+   * @default Indicates the user id
    * @since 7
+   * @SysCap SystemCapability.Appexecfwk
    */
-  (value?: { width?: number | string; height?: number | string; commands?: string }): Path;
-}
+  userId: number;
 
-/**
- * @since 7
- */
-declare class PathAttribute<T> extends CommonShapeMethod<T> {
   /**
-   * Called when the command string drawn by the path is set.
+   * @default Indicates the install flag
    * @since 7
+   * @SysCap SystemCapability.Appexecfwk
    */
-  commands(value: string): T;
-}
+  installFlag: number;
 
-export declare class PathExtend<T> extends PathAttribute<T> {}
-export declare const PathInterface: Path;
+  /**
+   * @default Indicates whether the param has data
+   * @since 7
+   * @SysCap SystemCapability.Appexecfwk
+   */
+  isKeepData: boolean;
+}

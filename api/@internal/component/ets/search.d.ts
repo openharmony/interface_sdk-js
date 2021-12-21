@@ -14,8 +14,7 @@
  */
 
 import { CommonMethod } from "./common";
-import { FontStyle, FontWeight } from "./enums";
-import { ResourceColor } from "./units";
+import { ResourceColor, Font } from "./units";
 
 /**
  * @since 8
@@ -28,11 +27,55 @@ interface Search extends SearchAttribute<Search> {
  * @since 8
  */
 declare class SearchAttribute<T> extends CommonMethod<T> {
+  /**
+   * Set the search button text
+   * @since 8
+   */
   searchButton(value: string): T;
+  /**
+   * Set the place hold text color
+   * @since 8
+   */
   placeholderColor(value: ResourceColor): T;
-  placeholderFont(value: { size: number; weight: FontWeight; family: string; style: FontStyle }): T;
+
+  /**
+   * Set the font used for place holder text
+   * @since 8
+   */
+  placeholderFont(value?: Font): T;
+
+  /**
+   * Set the font used for input text
+   * @since 8
+   */
+  textFont(value?: Font): T;
+  /**
+   * Call the function when clicked the search button
+   * @since 8
+   */
   onSubmit(callback: (value: string) => void): T;
+  /**
+   * Call the function when editing the input text
+   * @since 8
+   */
   onChange(callback: (value: string) => void): T;
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onCopy(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onCut(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 8
+   */
+  onPaste(callback: (value: string) => void): T;
 }
 
 export declare class SearchExtend<T> extends SearchAttribute<T> {}

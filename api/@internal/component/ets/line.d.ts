@@ -21,11 +21,12 @@ import { CommonShapeMethod } from "./common";
  */
 interface Line extends LineAttribute<Line> {
   /**
-   * Returns the line.
+   * Uses new to create the line.
+   * width: Width of the rectangle where the line resides..
    * height: Height of the rectangle where the line resides.
    * @since 7
    */
-  (): Line;
+  new (value?: { width?: string | number; height?: string | number }): Line;
   /**
    * The return value of the parameter is Line.
    * width: Width of the rectangle where the line resides..

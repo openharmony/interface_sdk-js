@@ -12,8 +12,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { CommonMethod } from "./common";
+
+/**
+ * Input parameter for creating a radio box.
+ * @devices phone, tablet, car
+ * @since 8
+ */
+export declare interface RadioOption {
+  /**
+   * Radio group name.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  group: string;
+
+  /**
+   * Radio name.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  value: string;
+}
 
 /**
  * Provides an interface for creating a radio box.
@@ -28,17 +48,20 @@ interface Radio extends RadioAttribute<Radio> {
 }
 
 /**
+ * @devices phone, tablet, car
  * @since 8
  */
 declare class RadioAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the radio box is selected.
+   * @devices phone, tablet, car
    * @since 8
    */
   checked(value: boolean): T;
 
   /**
    * Called when the radio box selection status changes.
+   * @devices phone, tablet, car
    * @since 8
    */
   onChange(callback: (isChecked: boolean) => void): T;

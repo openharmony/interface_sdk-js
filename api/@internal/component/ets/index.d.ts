@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export * from "./ability_component";
+export * from "./action_sheet";
 export * from "./alert_dialog";
 export * from "./alphabet_indexer";
 export * from "./animator";
@@ -21,6 +21,7 @@ export * from "./badge";
 export * from "./blank";
 export * from "./button";
 export * from "./calendar";
+export * from "./canvas";
 export * from "./circle";
 export * from "./column";
 export * from "./column_split";
@@ -36,14 +37,13 @@ export * from "./flex";
 export * from "./forEach";
 export * from "./form_component";
 export * from "./gauge";
-export * from "./geometry_view";
 export * from "./gesture";
 export * from "./grid";
 export * from "./gridItem";
 export * from "./grid_container";
-export * from "./hyperlink";
 export * from "./image";
 export * from "./image_animator";
+export * from "./inspector";
 export * from "./lazyForEach";
 export * from "./line";
 export * from "./list";
@@ -67,12 +67,16 @@ export * from "./refresh";
 export * from "./row";
 export * from "./row_split";
 export * from "./scroll";
+export * from "./scroll_bar";
 export * from "./search";
 export * from "./shape";
+export * from "./sheet";
 export * from "./slider";
 export * from "./span";
 export * from "./stack";
 export * from "./stateManagement";
+export * from "./stepper";
+export * from "./stepperItem";
 export * from "./swiper";
 export * from "./tabs";
 export * from "./tab_content";
@@ -84,3 +88,5 @@ export * from "./toggle";
 export * from "./units";
 export * from "./video";
 export * from "./web";
+export * from "./xcomponent";
+

@@ -43,6 +43,24 @@ export declare enum ScrollState {
 }
 
 /**
+ * ItemDragInfo object description
+ * @since 8
+ */
+export interface ItemDragInfo {
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @since 8
+   */
+  x: number;
+
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @since 8
+   */
+  y: number;
+}
+
+/**
  * ListExtend extension declaration.
  * @since 7
  */
@@ -63,7 +81,7 @@ interface List extends ListAttribute<List> {
 /**
  * @since 7
  */
-declare class ListAttribute<T> extends CommonMethod<T> {
+export declare class ListAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
@@ -153,6 +171,39 @@ declare class ListAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   onItemMove(event: (from: number, to: number) => boolean): T;
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @since 8
+   */
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): T;
+
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * @since 8
+   */
+  onItemDragEnter(event: (event: ItemDragInfo) => void): T;
+
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * @since 8
+   */
+  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): T;
+
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * @since 8
+   */
+  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): T;
+
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @since 8
+   */
+  onItemDrop(
+    event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
+  ): T;
 }
 
 /**

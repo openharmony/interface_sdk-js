@@ -14,6 +14,7 @@
  */
 
 import { CommonMethod } from "./common";
+import { EdgeEffect } from "./enums";
 
 /**
  * Provides methods for switching components.
@@ -37,6 +38,11 @@ export declare class SwiperController {
    * @since 7
    */
   showPrevious();
+  /**
+   * Called when need to stop the swiper animation.
+   * @since 8
+   */
+  finishAnimation(callback?: () => void);
 }
 
 /**
@@ -126,6 +132,30 @@ declare class SwiperAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   displayMode(value: SwiperDisplayMode): T;
+
+  /**
+   * Called when setting the cached count of the swiper container one side.
+   * @since 8
+   */
+  cachedCount(value: number): T;
+
+  /**
+   * This command is invoked when the number of subcomponents is set.
+   * @since 8
+   */
+  displayCount(value: number | string): T;
+
+  /**
+   * Invoked when setting the sliding effect
+   * @since 8
+   */
+  effectMode(value: EdgeEffect): T;
+
+  /**
+   * Called when sliding is disableSwipe
+   * @since 8
+   */
+  disableSwipe(value: boolean): T;
 
   /**
    * Called when the index value changes.

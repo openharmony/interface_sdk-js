@@ -19,7 +19,14 @@ import { CommonShapeMethod } from "./common";
  * Ellipse drawing.
  * @since 7
  */
+ 
 interface Ellipse extends EllipseAttribute<Ellipse> {
+   /**
+   * use new function to set the value.
+   * @since 7
+   */
+  new (value?: { width?: string | number; height?: string | number }): Ellipse;
+
   /**
    * Set the value.
    * @since 7

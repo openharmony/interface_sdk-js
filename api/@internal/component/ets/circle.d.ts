@@ -39,6 +39,12 @@ export declare interface CircleOption {
  */
 interface Circle extends CircleAttribute<Circle> {
   /**
+   * use new function to set the value.
+   * @since 7
+   */
+  new (value?: CircleOption): Circle;
+  
+  /**
    * Set the value..
    * @since 7
    */

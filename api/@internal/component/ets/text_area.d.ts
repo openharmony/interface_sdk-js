@@ -15,8 +15,8 @@
 
 import { ResourceStr } from ".";
 import { CommonMethod } from "./common";
-import { TextAlign } from "./enums";
-import { Font, ResourceColor } from "./units";
+import { TextAlign, FontStyle,FontWeight} from "./enums";
+import { Font, ResourceColor, Length} from "./units";
 
 /**
  * Defines the option of TextArea.
@@ -78,11 +78,58 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
   caretColor(value: ResourceColor): T;
 
   /**
+   * Called when the font color is set.
+   * @since 7
+   */
+  fontColor(value: ResourceColor): T;
+
+  /**
+   * Called when the font size is set.
+   * @since 7
+   */
+  fontSize(value: Length): T;
+
+  /**
+   * Called when the font style of a font is set.
+   * @since 7
+   */
+  fontStyle(value: FontStyle): T;
+
+  /**
+   * Called when the font weight is set.
+   * @since 7
+   */
+  fontWeight(value: number | FontWeight | string): T;
+
+  /**
+   * Called when the font list of text is set.
+   * @since 7
+   */
+  fontFamily(value: ResourceStr): T;
+
+  /**
    * Called when the input changes.
    * @devices phone, tablet, car.
    * @since 8
    */
   onChange(callback: (value: string) => void): T;
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCopy(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCut(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onPaste(callback: (value: string) => void): T;
 }
 
 export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {}

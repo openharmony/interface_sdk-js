@@ -20,12 +20,11 @@ import { CommonShapeMethod } from "./common";
  * @since 7
  */
 interface Polygon extends PolygonAttribute<Polygon> {
-  /**
-   * Called when the draw polygon interface is used.
-   * @devices phone, tablet, car.
+   /**
+   * Uses new to create Polygon.
    * @since 7
    */
-  (): Polygon;
+  new (value?: { width?: string | number; height?: string | number }): Polygon;
 
   /**
    * Called when drawing a polygon.

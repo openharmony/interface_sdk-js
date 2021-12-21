@@ -16,7 +16,7 @@
 import { Font } from ".";
 import { CommonMethod } from "./common";
 import { FontWeight, FontStyle } from "./enums";
-import { Resource, ResourceColor, ResourceStr } from "./units";
+import { ResourceColor, ResourceStr, Length } from "./units";
 
 /**
  * Declare the type of input box
@@ -168,10 +168,57 @@ declare class TextInputAttribute<T> extends CommonMethod<T> {
 
   /**
    * Called when the input of maximum text length is set.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision.
-   * @since 5
+   * @since 7
    */
   maxLength(value: number): T;
+
+  /**
+   * Called when the font color is set.
+   * @since 7
+   */
+  fontColor(value: ResourceColor): T;
+
+  /**
+   * Called when the font size is set.
+   * @since 7
+   */
+  fontSize(value: Length): T;
+
+  /**
+   * Called when the font style of a font is set.
+   * @since 7
+   */
+  fontStyle(value: FontStyle): T;
+
+  /**
+   * Called when the font weight is set.
+   * @since 7
+   */
+  fontWeight(value: number | FontWeight | string): T;
+
+  /**
+   * Called when the font list of text is set.
+   * @since 7
+   */
+  fontFamily(value: ResourceStr): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCopy(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onCut(callback: (value: string) => void): T;
+
+  /**
+   * Called when using the Clipboard menu
+   * @since 7
+   */
+  onPaste(callback: (value: string) => void): T;
 }
 
 export declare class TextInputExtend<T> extends TextInputAttribute<T> {}

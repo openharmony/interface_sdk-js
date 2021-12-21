@@ -14,8 +14,9 @@
  */
 
 import { CommonMethod } from "./common";
-import { FontWeight } from "./enums";
+import { FontWeight,FontStyle } from "./enums";
 import { Length, ResourceColor, ResourceStr } from "./units";
+import {  Resource } from ".";
 
 /**
  * Provides a button component.
@@ -117,6 +118,17 @@ declare class ButtonAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   fontWeight(value: number | FontWeight | string): T;
+  /**
+   * Font style.
+   * @since 8
+   */
+  fontStyle(value: FontStyle): T;
+
+  /**
+   * Font family.
+   * @since 8
+   */
+  fontFamily(value: string | Resource): T;
 }
 
 export declare class ButtonExtend<T> extends ButtonAttribute<T> {}

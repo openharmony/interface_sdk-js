@@ -13,25 +13,25 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
+import { CommonMethod } from "./common"
 
 /**
- * Defines the GeometryView Component.
+ * Provides the interface for the sheet attributes.
  * @since 8
  */
-interface GeometryView extends GeometryViewAttribute<GeometryView> {
+interface Sheet extends  SheetAttribute<Sheet>{
   /**
-   * Callback function.
+   * Create sheet.
    * @since 8
    */
-  (callback: (geometry?: any) => void): GeometryView;
+  (): Sheet;
 }
 
 /**
- * Inherit Public
+ * Declares sheet properties.
  * @since 8
  */
-declare class GeometryViewAttribute<T> extends CommonMethod<T> {}
+declare class SheetAttribute<T> extends CommonMethod<T> {}
 
-export declare class GeometryViewExtend<T> extends GeometryViewAttribute<T> {}
-export declare const GeometryViewInterface: GeometryView;
+export declare class SheetExtend<T> extends SheetAttribute<T> {}
+export declare const SheetInstance: Sheet;
