@@ -590,6 +590,42 @@ export declare enum Direction {
 }
 
 /**
+ * Sets the horizontal layout of elements.
+ * @since 8
+ */
+export declare enum FocusDirection {
+  /**
+   * From the key up.
+   * @since 8
+   */
+  Up,
+
+  /**
+   * From the key down.
+   * @since 8
+   */
+  Down,
+
+  /**
+   * From the key left.
+   * @since 8
+   */
+  Left,
+
+  /**
+   * From the key right.
+   * @since 8
+   */
+  Right,
+
+  /**
+   * From the key tab.
+   * @since 8
+   */
+  Tab,
+}
+
+/**
  * Used to set the status of the scroll bar.
  * @since 7
  */
@@ -1294,4 +1330,87 @@ export declare enum TextCase {
    * @since 7
    */
   UpperCase,
+}
+/**
+ * HoverEffect enumeration description
+ * @since 8
+ */
+export declare enum HoverEffect {
+  /**
+   * Default effect
+   * @since 8
+   */
+  Auto,
+
+  /**
+   * Zoom in and out effect
+   * @since 8
+   */
+  Scale,
+
+  /**
+   * Highlight effect
+   * @since 8
+   */
+  Board,
+
+  /**
+   * None effect
+   * @since 8
+   */
+  None,
+}
+
+/**
+ * Placement enumeration description
+ * @since 8
+ */
+declare enum Placement {
+  /**
+   * Left placement
+   * @since 8
+   */
+  Left,
+
+  /**
+   * Right placement
+   * @since 8
+   */
+  Right,
+
+  /**
+   * Top placement
+   * @since 8
+   */
+  Top,
+
+  /**
+   * Bottom placement
+   * @since 8
+   */
+  Bottom,
+
+  /**
+   * TopLeft placement
+   * @since 8
+   */
+  TopLeft,
+
+  /**
+   * TopRight placement
+   * @since 8
+   */
+  TopRight,
+
+  /**
+   * BottomLeft placement
+   * @since 8
+   */
+  BottomLeft,
+
+  /**
+   * BottomRight placement
+   * @since 8
+   */
+  BottomRight,
 }

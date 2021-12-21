@@ -28,7 +28,7 @@ ohos_copy("ets_internal_api") {
 
 ohos_copy("ets_component") {
   sources = [
-    "api/@internal/component/ets/ability_component.d.ts",
+    "api/@internal/component/ets/action_sheet.d.ts",
     "api/@internal/component/ets/alert_dialog.d.ts",
     "api/@internal/component/ets/alphabet_indexer.d.ts",
     "api/@internal/component/ets/animator.d.ts",
@@ -36,6 +36,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/blank.d.ts",
     "api/@internal/component/ets/button.d.ts",
     "api/@internal/component/ets/calendar.d.ts",
+    "api/@internal/component/ets/canvas.d.ts",
     "api/@internal/component/ets/circle.d.ts",
     "api/@internal/component/ets/column.d.ts",
     "api/@internal/component/ets/column_split.d.ts",
@@ -51,12 +52,10 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/forEach.d.ts",
     "api/@internal/component/ets/form_component.d.ts",
     "api/@internal/component/ets/gauge.d.ts",
-    "api/@internal/component/ets/geometry_view.d.ts",
     "api/@internal/component/ets/gesture.d.ts",
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",
     "api/@internal/component/ets/grid_container.d.ts",
-    "api/@internal/component/ets/hyperlink.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
     "api/@internal/component/ets/index.d.ts",
@@ -83,12 +82,16 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/row.d.ts",
     "api/@internal/component/ets/row_split.d.ts",
     "api/@internal/component/ets/scroll.d.ts",
+    "api/@internal/component/ets/scroll_bar.d.ts",
     "api/@internal/component/ets/search.d.ts",
     "api/@internal/component/ets/shape.d.ts",
+    "api/@internal/component/ets/sheet.d.ts",
     "api/@internal/component/ets/slider.d.ts",
     "api/@internal/component/ets/span.d.ts",
     "api/@internal/component/ets/stack.d.ts",
     "api/@internal/component/ets/stateManagement.d.ts",
+    "api/@internal/component/ets/stepper.d.ts",
+    "api/@internal/component/ets/stepperItem.d.ts",
     "api/@internal/component/ets/swiper.d.ts",
     "api/@internal/component/ets/tab_content.d.ts",
     "api/@internal/component/ets/tabs.d.ts",
@@ -99,7 +102,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
-    "api/@internal/component/ets/web.d.ts",
+    "api/@internal/component/ets/xcomponent.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"

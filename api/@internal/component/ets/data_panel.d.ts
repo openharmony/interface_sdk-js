@@ -12,8 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
+ import { CommonMethod } from "./common";
 
-import { CommonMethod } from "./common";
+/**
+ * DataPanelType enum
+ * @since 8
+ */
+export declare enum DataPanelType {
+  /**
+   * Line Type
+   * @since 8
+   */
+  Line,
+
+  /**
+   * Line Rainbow
+   * @since 8
+   */
+  Rainbow,
+}
 
 /**
  * Defines the option of DataPanel.
@@ -31,6 +49,11 @@ export declare interface DataPanelOption {
    * @since 7
    */
   max?: number;
+  /**
+   * DataPanel Type
+   * @since 8
+   */
+  type?: DataPanelType;
 }
 
 /**

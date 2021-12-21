@@ -13,34 +13,31 @@
  * limitations under the License.
  */
 
-/**
- * Get inspector node infos.
- * @since 7
- */
-export declare function getInspectorNodes(): object;
+import { CommonMethod } from "./common"
 
 /**
- * Get inspector node info by node id.
- * @since 7
- */
- export declare function getInspectorNodeById(id: number): object;
-/**
- * Get inspector info by key.
  * @since 8
- * @systemapi
  */
- export declare function getInspectorByKey(key: string): string;
+interface XComponent extends XComponentAttribute<XComponent>{
+  (value: { id: string; type: string; libraryname: string; source: string }): XComponent;
+}
 
 /**
- * Get inspector tree.
- * @systemapi
  * @since 8
  */
- export declare function getInspectorTree(): string;
+declare class XComponentAttribute<T> extends CommonMethod<T> {
+  /**
+   * Called when judging whether the xcomponent surface is created.
+   * @since 8
+   */
+  onLoad(callback: (event?: any) => void): T;
 
-/**
- * Send event to inspector by key. Return false if no inspector with key is found.
- * @since 8
- * @systemapi
- */
- export declare function sendEventByKey(key: string, action: number, params: string): boolean;
+  /**
+   * Called when judging whether the xcomponent is destroyed.
+   * @since 8
+   */
+  onDestroy(event: () => void): T;
+}
+
+export declare class XComponentExtend<T> extends XComponentAttribute<T> {}
+export declare const XComponentInterface: XComponent;

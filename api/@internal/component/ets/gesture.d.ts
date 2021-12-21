@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+
+import { BaseEvent } from "./common";
+
 /**
  * Creating an Object
  * @since 7
@@ -93,6 +96,36 @@ export declare enum PanDirection {
 
 /**
  * Creating an Object
+ * @since 8
+ */
+export declare enum SwipeDirection {
+  /**
+   * Default.
+   * @since 8
+   */
+  None,
+
+  /**
+   * Sliding horizontally.
+   * @since 8
+   */
+  Horizontal,
+
+  /**
+   * Sliding Vertical
+   * @since 8
+   */
+  Vertical,
+
+  /**
+   * Sliding in all directions.
+   * @since 8
+   */
+  All,
+}
+
+/**
+ * Creating an Object
  * @since 7
  */
 export declare enum GestureMode {
@@ -134,32 +167,98 @@ export declare enum GestureMask {
 }
 
 /**
- * Creating an Object
+ * Type of the finger information.
+ * @since 8
+ */
+export interface FingerInfo {
+  /**
+   * Finger unique identifier.
+   * @since 8
+   */
+  id: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @since 8
+   */
+  globalX: number;
+
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @since 8
+   */
+  globalY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @since 8
+   */
+  localX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @since 8
+   */
+  localY: number;
+}
+
+/**
+ * Defines the Gesture Type.
  * @since 7
  */
 export declare type GestureType =
+  | TapGesture
+  | LongPressGesture
+  | PanGesture
+  | PinchGesture
+  | SwipeGesture
+  | RotationGesture
+  | GestureGroup;
   /**
    * Set a type value.
    * @since 7
    */
-  TapGesture | LongPressGesture | PanGesture | PinchGesture | RotationGesture | GestureGroup;
+declare type GestureEvent =
+  | TapGestureEvent
+  | LongPressGestureEvent
+  | PanGestureEvent
+  | SwipeGestureEvent
+  | PinchGestureEvent
+  | RotationGestureEvent;
+
+/**
+ * tap gesture event used in the longpress scenario.
+ * @since 8
+ */
+export interface TapGestureEvent extends BaseGestureEvent {
+  /**
+   * All finger information.
+   * @since 8
+   */
+  fingerList: FingerInfo[];
+}
 
 /**
  * long press gesture event used in the longpress scenario.
  * @since 7
  */
-export interface LongPressGestureEvent extends GestureEvent {
+export interface LongPressGestureEvent extends BaseGestureEvent {
   /**
    * Indicates whether an event is triggered repeatedly.
    * @since 7
    */
   repeat: boolean;
+  /**
+   * All finger information.
+   * @since 8
+   */
+  fingerList: FingerInfo[];
 }
 
 /**
  * pan gesture event used in the pan gesture triggering scenario.
  */
-export interface PanGestureEvent extends GestureEvent {
+export interface PanGestureEvent extends BaseGestureEvent {
   /**
    * Gesture event offset X.
    * @since 7
@@ -174,10 +273,27 @@ export interface PanGestureEvent extends GestureEvent {
 }
 
 /**
+ * * pinch gesture event used for triggering the pinch gesture.
+ * @since 7
+ */
+export interface SwipeGestureEvent extends BaseGestureEvent {
+  /**
+   * Gesture event direction angle.
+   * @since 8
+   */
+  angle: number;
+
+  /**
+   * Gesture event slide speed.
+   * @since 8
+   */
+  speed: number;
+}
+/**
  * pinch gesture event used for triggering the pinch gesture.
  * @since 7
  */
-export interface PinchGestureEvent extends GestureEvent {
+export interface PinchGestureEvent extends BaseGestureEvent {
   /**
    * Scaling ratio.
    * @since 7
@@ -201,7 +317,7 @@ export interface PinchGestureEvent extends GestureEvent {
  * rotation gesture event used for triggering the pinch gesture.
  * @since 7
  */
-export interface RotationGestureEvent extends GestureEvent {
+export interface RotationGestureEvent extends BaseGestureEvent {
   /**
    * Rotation angle.
    * @since 7
@@ -213,13 +329,7 @@ export interface RotationGestureEvent extends GestureEvent {
  * base event for gesture.
  * @since 7
  */
-export interface GestureEvent {
-  /**
-   * Event timestamp.
-   * @since 7
-   */
-  timestamp: number;
-}
+export interface BaseGestureEvent extends BaseEvent {}
 
 /**
  * Creating an interface
@@ -339,6 +449,23 @@ interface PanGesture {
 }
 
 /**
+ * @since 8
+ */
+interface SwipeGesture{
+  /**
+   * Set the value.
+   * @since 8
+   */
+  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGesture;
+
+  /**
+   * Slide gesture recognition success callback.
+   * @since 8
+   */
+  onAction(event: (event?: SwipeGestureEvent) => void): SwipeGesture;
+}
+
+/**
  * @since 7
  */
 interface PinchGesture {
@@ -428,6 +555,7 @@ interface GestureGroup {
 export declare const TapGestureInterface: TapGesture;
 export declare const LongPressGestureInterface: LongPressGesture;
 export declare const PanGestureInterface: PanGesture;
+declare const SwipeGestureInterface: SwipeGesture;
 export declare const PinchGestureInterface: PinchGesture;
 export declare const RotationGestureInterface: RotationGesture;
 export declare const GestureGroupInterface: GestureGroup;

@@ -20,6 +20,11 @@ import { CommonShapeMethod } from "./common";
  * @since 7
  */
 interface Polyline extends PolylineAttribute<Polyline> {
+   /**
+   * Uses new to create Polyline.
+   * @since 7
+   */
+  new (value?: { width?: string | number; height?: string | number }): Polyline;
   /**
    * Called when using the draw polyline interface.
    * @since 7
