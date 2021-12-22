@@ -20,7 +20,7 @@ import { CommonShapeMethod } from "./common";
  * @since 7
  */
 interface Polygon extends PolygonAttribute<Polygon> {
-   /**
+  /**
    * Uses new to create Polygon.
    * @since 7
    */
@@ -28,7 +28,6 @@ interface Polygon extends PolygonAttribute<Polygon> {
 
   /**
    * Called when drawing a polygon.
-   * @devices phone, tablet, car.
    * @since 7
    */
   (value?: { width?: string | number; height?: string | number }): Polygon;
@@ -37,7 +36,6 @@ interface Polygon extends PolygonAttribute<Polygon> {
 declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
-   * @devices phone, tablet, car.
    * @since 7
    */
   points(value: Array<any>): T;

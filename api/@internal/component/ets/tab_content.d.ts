@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
+import { CommonMethod, CustomBuilder } from "./common";
 import { Resource } from "./units";
 
 /**
@@ -37,7 +37,8 @@ declare class TabContentAttribute<T> extends CommonMethod<T> {
    * Called when tabbar is entered.
    * @since 7
    */
-  tabBar(value: string | Resource | { icon?: string | Resource; text?: string | Resource }): T;
+  tabBar(value: string | Resource | CustomBuilder |
+    { icon?: string | Resource; text?: string | Resource }): T;
 }
 
 export declare class TabContentExtend<T> extends TabContentAttribute<T> {}

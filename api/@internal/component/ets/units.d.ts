@@ -79,7 +79,7 @@ export declare type Padding = {
 
 /**
  * Defines the margin property.
- * @sicne 7
+ * @since 7
  */
 export declare type Margin = Padding;
 
@@ -130,6 +130,7 @@ export declare interface Font {
    */
   style?: FontStyle;
 }
+
 /**
  * Defines the area property.
  * @since 8

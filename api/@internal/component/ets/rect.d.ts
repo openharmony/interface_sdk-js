@@ -21,12 +21,35 @@ import { CommonShapeMethod } from "./common";
  */
 interface Rect extends RectAttribute<Rect> {
   /**
+   * Use new function to create Rect.
+   * @since 7
+   */
+  new (
+    value?:
+      | {
+          width?: number | string;
+          height?: number | string;
+          radius?: number | string | Array<any>;
+        }
+      | {
+          width?: number | string;
+          height?: number | string;
+          radiusWidth?: number | string;
+          radiusHeight?: number | string;
+        },
+  ): Rect;
+
+  /**
    * Called when a rectangle is created.
    * @since 7
    */
   (
     value?:
-      | { width?: number | string; height?: number | string; radius?: number | string | Array<any> }
+      | {
+          width?: number | string;
+          height?: number | string;
+          radius?: number | string | Array<any>;
+        }
       | {
           width?: number | string;
           height?: number | string;

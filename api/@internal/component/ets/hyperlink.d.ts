@@ -22,7 +22,7 @@ import { Resource, ResourceColor } from "./units";
 interface Hyperlink extends HyperlinkAttribute<Hyperlink> {
   /**
    * Return to get Hyperlink.
-   * adress: Web page redirected by the hyperlink component.
+   * address: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
    * @since 7
    */

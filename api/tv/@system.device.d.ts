@@ -93,7 +93,6 @@ export interface DeviceResponse {
    * ar: AR
    * vr: virtual reality
    * earphones: headset
-   * pc: personal computer
    * speaker: speaker
    * smartVision: smart visual device
    * linkIoT: connection module

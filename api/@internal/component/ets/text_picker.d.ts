@@ -66,7 +66,7 @@ declare class TextPickerAttribute<T> extends CommonMethod<T> {
    * Called when the default height of the selected element is set.
    * @since 8
    */
-  defaultPickerItemHeight(value: number): T;
+  defaultPickerItemHeight(value: number | string): T;
 
   /**
    * Called when the pop-up value is returned.

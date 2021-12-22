@@ -117,7 +117,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;
@@ -149,7 +149,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;
@@ -179,7 +179,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     fontColor?: ResourceColor;
 
     /**
-     * Backgound color of the confirmation button.
+     * Background color of the confirmation button.
      * @since 7
      */
     backgroundColor?: ResourceColor;

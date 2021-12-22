@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { CommonMethod } from "./common";
 
 /**
@@ -37,14 +38,16 @@ export declare interface RadioOption {
 
 /**
  * Provides an interface for creating a radio box.
+ * @devices phone, tablet, car
  * @since 8
  */
 interface Radio extends RadioAttribute<Radio> {
   /**
    * Called when a radio box is created.
+   * @devices phone, tablet, car
    * @since 8
    */
-  (options: { value: string }): Radio;
+  (options: RadioOption): Radio;
 }
 
 /**

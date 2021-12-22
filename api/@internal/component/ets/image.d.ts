@@ -142,6 +142,7 @@ declare class ImageAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   sourceSize(value: { width: number; height: number }): T;
+
   /**
    * Sets the synchronous or asynchronous mode for image loading.
    * The default parameter type is bool, and the default value is false.

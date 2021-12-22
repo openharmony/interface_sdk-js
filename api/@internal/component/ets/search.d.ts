@@ -17,6 +17,7 @@ import { CommonMethod } from "./common";
 import { ResourceColor, Font } from "./units";
 
 /**
+ * The construct function of search
  * @since 8
  */
 interface Search extends SearchAttribute<Search> {
@@ -24,6 +25,7 @@ interface Search extends SearchAttribute<Search> {
 }
 
 /**
+ * The attribute function of search
  * @since 8
  */
 declare class SearchAttribute<T> extends CommonMethod<T> {
@@ -32,6 +34,7 @@ declare class SearchAttribute<T> extends CommonMethod<T> {
    * @since 8
    */
   searchButton(value: string): T;
+
   /**
    * Set the place hold text color
    * @since 8
@@ -49,16 +52,19 @@ declare class SearchAttribute<T> extends CommonMethod<T> {
    * @since 8
    */
   textFont(value?: Font): T;
+
   /**
    * Call the function when clicked the search button
    * @since 8
    */
   onSubmit(callback: (value: string) => void): T;
+
   /**
    * Call the function when editing the input text
    * @since 8
    */
   onChange(callback: (value: string) => void): T;
+
   /**
    * Called when using the Clipboard menu
    * @since 8

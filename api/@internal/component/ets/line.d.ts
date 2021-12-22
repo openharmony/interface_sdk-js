@@ -27,6 +27,7 @@ interface Line extends LineAttribute<Line> {
    * @since 7
    */
   new (value?: { width?: string | number; height?: string | number }): Line;
+
   /**
    * The return value of the parameter is Line.
    * width: Width of the rectangle where the line resides..

@@ -43,7 +43,7 @@ interface Circle extends CircleAttribute<Circle> {
    * @since 7
    */
   new (value?: CircleOption): Circle;
-  
+
   /**
    * Set the value..
    * @since 7

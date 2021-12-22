@@ -33,6 +33,7 @@ export declare enum SliderStyle {
    * @since 7
    */
   InSet,
+
   /**
    * Capsule style slider.
    * @since 8
@@ -98,6 +99,7 @@ export declare interface SliderOption {
    * @since 7
    */
   style?: SliderStyle;
+
   /**
    * Sets the slider direction style.
    * @since 8

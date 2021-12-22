@@ -28,7 +28,7 @@ interface Counter extends CounterAttribute<Counter> {
 }
 
 /**
- * Defines the Counter attibute functions.
+ * Defines the Counter attribute functions.
  * @since 8
  */
 declare class CounterAttribute<T> extends CommonMethod<T> {

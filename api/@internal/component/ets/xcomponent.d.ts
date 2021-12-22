@@ -13,13 +13,18 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common"
+import { CommonMethod } from "./common";
 
 /**
  * @since 8
  */
-interface XComponent extends XComponentAttribute<XComponent>{
-  (value: { id: string; type: string; libraryname: string; source: string }): XComponent;
+interface XComponent extends XComponentAttribute<XComponent> {
+  (value: {
+      id: string;
+      type: string;
+      libraryname: string;
+      source: string;
+  }): XComponent;
 }
 
 /**
@@ -30,13 +35,13 @@ declare class XComponentAttribute<T> extends CommonMethod<T> {
    * Called when judging whether the xcomponent surface is created.
    * @since 8
    */
-  onLoad(callback: (event?: any) => void): T;
+   onLoad(callback: (event?: {}) => void): T;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
    */
-  onDestroy(event: () => void): T;
+   onDestroy(event: () => void): T;
 }
 
 export declare class XComponentExtend<T> extends XComponentAttribute<T> {}

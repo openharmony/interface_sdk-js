@@ -103,7 +103,7 @@ declare class VideoAttribute<T> extends CommonMethod<T> {
   controls(value: boolean): T;
 
   /**
-   * Called when judging whether the video is played circularly.
+   * Called when judging whether the video is played circular.
    * @since 6
    */
   loop(value: boolean): T;

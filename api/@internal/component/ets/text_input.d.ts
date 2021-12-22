@@ -14,155 +14,155 @@
  */
 
 import { Font } from ".";
-import { CommonMethod } from "./common";
 import { FontWeight, FontStyle } from "./enums";
+import { CommonMethod } from "./common";
 import { ResourceColor, ResourceStr, Length } from "./units";
 
 /**
  * Declare the type of input box
- * @since 8
+ * @since 7
  */
 export declare enum InputType {
   /**
    * Basic input mode.
-   * @since 8
+   * @since 7
    */
   Normal,
 
   /**
    * Password entry mode.
-   * @since 8
+   * @since 7
    */
   Number,
 
   /**
    * E-mail address input mode.
-   * @since 8
+   * @since 7
    */
   Email,
 
   /**
    * Pure digital input mode.
-   * @since 8
+   * @since 7
    */
   Password,
 }
 
 /**
  * Declare the type of soft keyboard.
- * @since 8
+ * @since 7
  */
 export declare enum EnterKeyType {
   /**
    * Go.
-   * @since 8
+   * @since 7
    */
   Go,
 
   /**
    * Search.
-   * @since 8
+   * @since 7
    */
   Search,
 
   /**
    * Send.
-   * @since 8
+   * @since 7
    */
   Send,
 
   /**
    * Next.
-   * @since 8
+   * @since 7
    */
   Next,
 
   /**
    * Done.
-   * @since 8
+   * @since 7
    */
   Done,
 }
 
 /**
  * Defines the option of TextInput.
- * @since 8
+ * @since 7
  */
 export declare interface TextInputOption {
   /**
    * The place holder text string.
-   * @since 8
+   * @since 7
    */
   placeholder?: ResourceStr;
 
   /**
    * Sets the current value of TextArea.
-   * @since 8
+   * @since 7
    */
   text?: ResourceStr;
 }
 
 /**
  * Provides a single-line text input component interface.
- * @since 8
+ * @since 7
  */
 interface TextInput extends TextInputAttribute<TextInput> {
   /**
    * Called when writing a single line of text.
-   * @since 8
+   * @since 7
    */
   (value?: TextInputOption): TextInput;
 }
 
 /**
- * @since 8
+ * @since 7
  */
 declare class TextInputAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the input type is set.
-   * @since 8
+   * @since 7
    */
   type(value: InputType): T;
 
   /**
    * Called when the color of the placeholder is set.
-   * @since 8
+   * @since 7
    */
   placeholderColor(value: ResourceColor): T;
 
   /**
    * Called when the font property of the placeholder is set.
-   * @since 8
+   * @since 7
    */
   placeholderFont(value?: Font): T;
 
   /**
    * Called when the type of soft keyboard input button is set.
-   * @since 8
+   * @since 7
    */
   enterKeyType(value: EnterKeyType): T;
 
   /**
    * Called when the color of the insertion cursor is set.
-   * @since 8
+   * @since 7
    */
   caretColor(value: ResourceColor): T;
 
   /**
    * Called when judging whether the text editing has changed.
-   * @since 8
+   * @since 7
    */
   onEditChanged(callback: (isEditing: boolean) => void): T;
 
   /**
    * Called when submitted.
-   * @since 8
+   * @since 7
    */
   onSubmit(callback: (enterKey: EnterKeyType) => void): T;
 
   /**
    * Called when the input of the input box changes.
-   * @since 8
+   * @since 7
    */
   onChange(callback: (value: string) => void): T;
 

@@ -17,7 +17,7 @@ import { CommonMethod } from "./common";
 import { Color } from "./enums";
 
 /**
- * Defines the Guage component.
+ * Defines the Gauge component.
  * @since 8
  */
 interface Gauge extends GaugeAttribute<Gauge> {

@@ -38,6 +38,7 @@ export declare class SwiperController {
    * @since 7
    */
   showPrevious();
+
   /**
    * Called when need to stop the swiper animation.
    * @since 8

@@ -81,7 +81,7 @@ interface List extends ListAttribute<List> {
 /**
  * @since 7
  */
-export declare class ListAttribute<T> extends CommonMethod<T> {
+declare class ListAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
@@ -127,6 +127,7 @@ export declare class ListAttribute<T> extends CommonMethod<T> {
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
+   * @since 8
    */
   chainAnimation(value: boolean): T;
 
@@ -171,12 +172,13 @@ export declare class ListAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   onItemMove(event: (from: number, to: number) => boolean): T;
+
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): T;
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -201,9 +203,7 @@ export declare class ListAttribute<T> extends CommonMethod<T> {
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
    */
-  onItemDrop(
-    event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void,
-  ): T;
+  onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): T;
 }
 
 /**

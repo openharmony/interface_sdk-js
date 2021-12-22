@@ -2325,7 +2325,7 @@
       "name": "border-image-repeat",
       "syntax": [
         {
-          "name": "stretch | repeat | round"
+          "name": "stretch | repeat | round | space"
         }
       ],
       "values": [
@@ -2340,6 +2340,10 @@
         {
           "name": "round",
           "description": "Tile the picture according to the image size"
+        },
+        {
+          "name": "space",
+          "description": "Tile the picture according to the image size, leaving the extra part blank."
         }
       ],
       "version": [
