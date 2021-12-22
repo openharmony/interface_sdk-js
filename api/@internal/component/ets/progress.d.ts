@@ -14,7 +14,7 @@
  */
 
 import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
+import { Length, ResourceColor } from "./units";
 
 /**
  * Type of progress bar
@@ -41,6 +41,7 @@ export declare enum ProgressStyle {
    * @since 7
    */
   Eclipse,
+
   /**
    * ScaleRing progress bar.
    * @devices phone, tablet, car.
@@ -54,6 +55,7 @@ export declare enum ProgressStyle {
    * @since 8
    */
   Capsule,
+
 }
 
 /**
@@ -87,15 +89,15 @@ declare class ProgressAttribute<T> extends CommonMethod<T> {
   /**
    * Called when the style of the circular progress bar is set.
    * @since 7
-   * @deprecated since 7
    */
-  circularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
+  circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): T;
 
   /**
    * Called when the style of the cricular progress bar is set.
    * @since 7
+   * @deprecated since 7
    */
-  cricularStyle(value: { strokeWidth?: number; scaleCount?: number; scaleWidth?: number }): T;
+  cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): T;
 }
 
 export declare class ProgressExtend<T> extends ProgressAttribute<T> {}

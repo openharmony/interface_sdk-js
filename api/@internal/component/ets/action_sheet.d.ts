@@ -20,7 +20,7 @@ import { Resource } from ".";
  * The information of sheet.
  * @since 8
  */
-export interface SheetInfo {
+interface SheetInfo {
   /**
    * Title Properties
    * @since 8

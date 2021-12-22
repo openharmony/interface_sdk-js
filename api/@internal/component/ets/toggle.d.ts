@@ -48,7 +48,7 @@ interface Toggle extends ToggleAttribute<Toggle> {
    * Set parameters to obtain the toggle.
    * @since 8
    */
-  (options?: { type: ToggleType; isOn?: boolean }): Toggle;
+  (options: { type: ToggleType; isOn?: boolean }): Toggle;
 }
 
 /**
@@ -71,7 +71,7 @@ declare class ToggleAttribute<T> extends CommonMethod<T> {
    * Called when the color of the selected button is set.
    * @since 8
    */
-  swithPointColor(color: ResourceColor): T;
+  switchPointColor(color: ResourceColor): T;
 }
 
 export declare class ToggleExtend<T> extends ToggleAttribute<T> {}

@@ -24,14 +24,12 @@ import { Length, ResourceColor, ResourceStr } from "./units";
 export declare enum IconPosition {
   /**
    * The icon is at the beginning of the text.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Start,
 
   /**
    * The icon is at the end of the text.
-   * @devices phone, tablet, car.
    * @since 8
    */
   End,
@@ -97,4 +95,5 @@ declare class PieceAttribute<T> extends CommonMethod<T> {
 }
 
 export declare class PieceExtend<T> extends PieceAttribute<T> {}
+
 export declare const PieceInterface: Piece;

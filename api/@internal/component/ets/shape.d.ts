@@ -23,6 +23,12 @@ import { Resource, ResourceColor } from "./units";
  */
 interface Shape extends ShapeAttribute<Shape> {
   /**
+   * Use the new function to create Shape.
+   * @since 7
+   */
+  new (value?: PixelMap): Shape;
+
+  /**
    * Called when a component is drawn.
    * @since 7
    */

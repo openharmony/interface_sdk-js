@@ -86,7 +86,7 @@ export declare type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | '
 
 /**
  * Sets the image smoothness attribute. The options are as follows:
- * "high": high
+ * "high": height
  * "low": (default)low
  * "medium": medium
  * @since 8
@@ -112,7 +112,7 @@ export declare class CanvasGradient {
  * Path object, which provides basic methods for drawing paths.
  * @since 8
  */
-export declare class CanvasPath {
+declare class CanvasPath {
   /**
    * Draw an arc path
    * @param x The x-axis coordinate of the center (center of the circle) of the arc.
@@ -395,7 +395,7 @@ export declare class ImageBitmap {
  * Image data object
  * @since 8
  */
-export declare class ImageData {
+export declare interface ImageData {
   /**
    * Array containing image pixel data
    * @since 8
@@ -454,7 +454,7 @@ export declare class RenderingContextSettings {
  * Canvas renderer for drawing shapes, text, images and other objects
  * @since 8
  */
-export declare class CanvasRenderer extends CanvasPath {
+declare class CanvasRenderer extends CanvasPath {
   /**
    * Transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    The default value is 1.0. If the value is out of range, the assignment is invalid.
@@ -659,18 +659,18 @@ export declare class CanvasRenderer extends CanvasPath {
    *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
    *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
    *           --- <color>: Shadow Color
-   * grayscale(<percentage>): Converts the image to a gray image. When the value is 100%, the image is completely grayed out.
+   * grayscale(<percentage>)：Converts the image to a gray image. When the value is 100%, the image is completely grayed out.
    *    When the value is 0%, there is no change in the image.
-   * hue-rotate(<degree>): Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
-   * invert(<percentage>): Inverted image (representing the effect of a photographic negative). When the value is 100%,
+   * hue-rotate(<degree>)：Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
+   * invert(<percentage>)：Inverted image (representing the effect of a photographic negative). When the value is 100%,
    *    the image is completely inverted. When the value is 0%, there is no change in the image.
-   * opacity(<percentage>): Transparency of the image. At 0%, the image is completely transparent.
+   * opacity(<percentage>)：Transparency of the image. At 0%, the image is completely transparent.
    *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>): Perform saturation processing on the image. At 0%, the image is completely unsaturated.
+   * saturate(<percentage>)：Perform saturation processing on the image. At 0%, the image is completely unsaturated.
    *    When the value is 100%, there is no change in the image.
-   * sepia(<percentage>): The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
+   * sepia(<percentage>)：The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
-   * none:Turn off filter effects
+   * none：Turn off filter effects
    * @since 8
    */
   filter(filter: string): void;
@@ -1062,7 +1062,7 @@ export declare class OffscreenRenderingContext extends CanvasRenderer {
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  * @since 8
  */
-export declare class OffscreenCanvas extends CanvasRenderer {
+export declare interface OffscreenCanvas extends CanvasRenderer {
   /**
    * Height of the off-screen canvas.
    * @since 8
@@ -1094,7 +1094,7 @@ export declare class OffscreenCanvas extends CanvasRenderer {
  *TextTimer component, which provides the text timer capability.
  * @since 8
  */
-interface Canvas extends CanvasAttribute<Canvas>{
+interface Canvas extends CanvasAttribute<Canvas> {
   /**
    * Construct a canvas component.
    * @param context Canvas context object. For details, see {@link RenderingContext}.
@@ -1111,4 +1111,4 @@ declare class CanvasAttribute<T> extends CommonMethod<T> {
   onReady(event: () => void): T;
 }
 export declare class CanvasExtend<T> extends CanvasAttribute<T> {}
-export declare const CanvasInstance: Canvas;
+export declare const CanvasInterface: Canvas;

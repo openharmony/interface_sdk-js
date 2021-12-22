@@ -142,8 +142,7 @@ declare abstract class SubscribedAbstractProperty<T> {
  */
 declare class SyncedPropertyTwoWay<T>
   extends SubscribedAbstractProperty<T>
-  implements ISinglePropertyChangeSubscriber<T>
-{
+  implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Sources of synchronization attributes bidirectionally.
    * @since 7
@@ -186,8 +185,7 @@ declare class SyncedPropertyTwoWay<T>
  */
 declare class SyncedPropertyOneWay<T>
   extends SubscribedAbstractProperty<T>
-  implements ISinglePropertyChangeSubscriber<T>
-{
+  implements ISinglePropertyChangeSubscriber<T> {
   /**
    * Pack value for single-item binding.
    * @since 7

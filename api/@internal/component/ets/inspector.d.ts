@@ -16,31 +16,34 @@
 /**
  * Get inspector node infos.
  * @since 7
+ * @systemapi
  */
 export declare function getInspectorNodes(): object;
 
 /**
  * Get inspector node info by node id.
  * @since 7
+ * @systemapi
  */
- export declare function getInspectorNodeById(id: number): object;
+export declare function getInspectorNodeById(id: number): object;
+
 /**
  * Get inspector info by key.
  * @since 8
  * @systemapi
  */
- export declare function getInspectorByKey(key: string): string;
+export declare function getInspectorByKey(key: string): string;
 
 /**
  * Get inspector tree.
  * @systemapi
  * @since 8
  */
- export declare function getInspectorTree(): string;
+export declare function getInspectorTree(): string;
 
 /**
  * Send event to inspector by key. Return false if no inspector with key is found.
  * @since 8
  * @systemapi
  */
- export declare function sendEventByKey(key: string, action: number, params: string): boolean;
+export declare function sendEventByKey(key: string, action: number, params: string): boolean;

@@ -258,7 +258,7 @@ export interface CurrentDayStyle {
   dailySixRowSpace?: number;
 
   /**
-   * Sigle lunar height.
+   * Single lunar height.
    * @since 7
    * @systemapi
    */
@@ -286,14 +286,14 @@ export interface CurrentDayStyle {
   scheduleMarkerRadius?: number;
 
   /**
-   * Boun dary row offset.
+   * Bound dary row offset.
    * @since 7
    * @systemapi
    */
   boundaryRowOffset?: number;
 
   /**
-   * Boundary col offsett.
+   * Boundary col offset.
    * @since 7
    * @systemapi
    */

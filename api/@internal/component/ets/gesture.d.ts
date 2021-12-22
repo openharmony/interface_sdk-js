@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 import { BaseEvent } from "./common";
 
 /**
@@ -207,24 +206,16 @@ export interface FingerInfo {
  * @since 7
  */
 export declare type GestureType =
-  | TapGesture
-  | LongPressGesture
-  | PanGesture
-  | PinchGesture
-  | SwipeGesture
-  | RotationGesture
-  | GestureGroup;
-  /**
-   * Set a type value.
-   * @since 7
-   */
-declare type GestureEvent =
-  | TapGestureEvent
-  | LongPressGestureEvent
-  | PanGestureEvent
-  | SwipeGestureEvent
-  | PinchGestureEvent
-  | RotationGestureEvent;
+  TapGesture | LongPressGesture | PanGesture | PinchGesture
+  | SwipeGesture | RotationGesture | GestureGroup;
+
+/**
+ * Defines the GestureEvent type.
+ * @since 7
+ */
+export declare type GestureEvent =
+ TapGestureEvent | LongPressGestureEvent | PanGestureEvent
+ | SwipeGestureEvent | PinchGestureEvent | RotationGestureEvent;
 
 /**
  * tap gesture event used in the longpress scenario.
@@ -248,6 +239,7 @@ export interface LongPressGestureEvent extends BaseGestureEvent {
    * @since 7
    */
   repeat: boolean;
+
   /**
    * All finger information.
    * @since 8
@@ -273,8 +265,7 @@ export interface PanGestureEvent extends BaseGestureEvent {
 }
 
 /**
- * * pinch gesture event used for triggering the pinch gesture.
- * @since 7
+ * slide gesture event used in the slide gesture triggering scenario.
  */
 export interface SwipeGestureEvent extends BaseGestureEvent {
   /**
@@ -282,13 +273,13 @@ export interface SwipeGestureEvent extends BaseGestureEvent {
    * @since 8
    */
   angle: number;
-
   /**
    * Gesture event slide speed.
    * @since 8
    */
   speed: number;
 }
+
 /**
  * pinch gesture event used for triggering the pinch gesture.
  * @since 7
@@ -451,12 +442,13 @@ interface PanGesture {
 /**
  * @since 8
  */
-interface SwipeGesture{
+interface SwipeGesture {
   /**
    * Set the value.
    * @since 8
    */
-  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGesture;
+  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number })
+  : SwipeGesture;
 
   /**
    * Slide gesture recognition success callback.
@@ -555,7 +547,7 @@ interface GestureGroup {
 export declare const TapGestureInterface: TapGesture;
 export declare const LongPressGestureInterface: LongPressGesture;
 export declare const PanGestureInterface: PanGesture;
-declare const SwipeGestureInterface: SwipeGesture;
+export declare const SwipeGestureInterface: SwipeGesture;
 export declare const PinchGestureInterface: PinchGesture;
 export declare const RotationGestureInterface: RotationGesture;
 export declare const GestureGroupInterface: GestureGroup;

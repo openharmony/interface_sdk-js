@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
+import { Resource } from '.';
 import { CommonMethod } from "./common";
-import { FontWeight,FontStyle } from "./enums";
+import { FontWeight, FontStyle } from "./enums";
 import { Length, ResourceColor, ResourceStr } from "./units";
-import {  Resource } from ".";
 
 /**
  * Provides a button component.
@@ -85,7 +85,7 @@ interface Button extends ButtonAttribute<Button> {
 }
 
 /**
- * Defines the button attibute functions.
+ * Defines the button attribute functions.
  * @since 7
  */
 declare class ButtonAttribute<T> extends CommonMethod<T> {
@@ -114,10 +114,11 @@ declare class ButtonAttribute<T> extends CommonMethod<T> {
   fontSize(value: Length): T;
 
   /**
-   * fonse weight
+   * Font weight.
    * @since 7
    */
   fontWeight(value: number | FontWeight | string): T;
+
   /**
    * Font style.
    * @since 8

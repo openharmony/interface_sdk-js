@@ -61,7 +61,7 @@ export declare interface CustomDialogControllerOption {
    * Grid count of dialog.
    * @since 8
    */
-   gridCount?: number;
+  gridCount?: number;
 }
 
 /**

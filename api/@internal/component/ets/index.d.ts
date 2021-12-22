@@ -87,6 +87,4 @@ export * from "./text_picker";
 export * from "./toggle";
 export * from "./units";
 export * from "./video";
-export * from "./web";
 export * from "./xcomponent";
-

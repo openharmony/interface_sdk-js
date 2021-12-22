@@ -15,7 +15,7 @@
 
 import { CommonMethod } from "./common";
 import { BarState } from "./enums";
-import { Scroller } from "./scroll"
+import { Scroller } from "./scroll";
 
 /**
  * Content scroll direction.

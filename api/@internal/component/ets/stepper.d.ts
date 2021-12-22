@@ -17,11 +17,13 @@ import { CommonMethod } from "./common";
 
 /**
  * Declare the stepper.
+
  * @since 8
  */
 interface Stepper extends StepperAttribute<Stepper> {
   /**
    * Called when the stepper component is used.
+
    * @since 8
    */
   (value?: { index?: number }): Stepper;
@@ -34,34 +36,39 @@ interface Stepper extends StepperAttribute<Stepper> {
 declare class StepperAttribute<T> extends CommonMethod<T> {
   /**
    * Callback when the finish label is clicked.
+
    * @since 8
    */
   onFinish(callback: () => void): T;
 
   /**
    * Callback when the skip label is clicked.
+
    * @since 8
    */
   onSkip(callback: () => void): T;
 
   /**
    * Callback when the change label is clicked.
+
    * @since 8
    */
   onChange(callback: (prevIndex?: number, index?: number) => void): T;
 
   /**
    * Callback when the next label is clicked.
+
    * @since 8
    */
   onNext(callback: (index?: number, pendingIndex?: number) => void): T;
 
   /**
    * Callback when the previous label is clicked.
+
    * @since 8
    */
   onPrevious(callback: (index?: number, pendingIndex?: number) => void): T;
 }
 
 export declare class StepperExtend<T> extends StepperAttribute<T> {}
-export declare const StepperInstance: Stepper;
+export declare const StepperInterface: Stepper;

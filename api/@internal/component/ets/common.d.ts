@@ -18,7 +18,7 @@ import { Circle } from "./circle";
 import { Ellipse } from "./ellipse";
 import { Path } from "./path";
 import { Rect } from "./rect";
-import { Resource, Length, Padding, Margin, Area} from "./units";
+import { Resource, Length, Padding, Margin, Area } from "./units";
 import {
   Alignment,
   BorderStyle,
@@ -38,7 +38,7 @@ import {
   Visibility,
   FocusDirection,
   Placement,
-  HoverEffect
+  HoverEffect,
 } from "./enums";
 
 /**
@@ -62,7 +62,7 @@ export declare const Observed: ClassDecorator;
  * Defining Preview ClassDecorator.
  * @since 7
  */
-export declare const Preview: ClassDecorator;
+export declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
  * Defining State PropertyDecorator.
@@ -215,7 +215,7 @@ export interface AnimateToParam {
  * Define Preview property
  * @since 8
  */
-export interface PreviewParams {
+interface PreviewParams {
   title?: string;
   width?: number;
   height?: number;
@@ -283,7 +283,7 @@ export interface EventTarget {
  * Defines the base event.
  * @since 8
  */
-interface BaseEvent {
+export interface BaseEvent {
   /**
    * Defines the current target which fires this event.
    * @since 8
@@ -301,7 +301,7 @@ interface BaseEvent {
  * The tap action triggers this method invocation.
  * @since 7
  */
-export interface ClickEvent {
+export interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
    * @since 7
@@ -373,7 +373,7 @@ export interface TouchObject {
  * Touch Action Function Parameters
  * @since 7
  */
-export interface TouchEvent {
+export interface TouchEvent extends BaseEvent {
   /**
    * Type of the touch event.
    * @since 7
@@ -391,7 +391,7 @@ export interface TouchEvent {
    * @since 7
    */
   changedTouches: TouchObject[];
-  
+
   /**
    * The blocking event pops up.
    * @since 7
@@ -485,9 +485,9 @@ export interface KeyEvent {
 }
 
 /**
-* Component State Styels.
-* @since 8
-*/
+ * Component State Styels.
+ * @since 8
+ */
 export interface StateStyels {
   /**
    * Defines normal state styles.
@@ -520,7 +520,7 @@ export interface StateStyels {
   clicked?: any;
 }
 
-interface PopupOption {
+export interface PopupOption {
   /**
    * Information in the pop-up window.
    * @since 7
@@ -576,7 +576,7 @@ interface PopupOption {
   onStateChange?: (event: { isVisible: boolean }) => void;
 }
 
-interface CustomPopupOption {
+export interface CustomPopupOption {
   /**
    * builder of popup
    * @since 8
@@ -667,6 +667,7 @@ export declare class CommonMethod<T> {
     minHeight?: number | string | Resource;
     maxHeight?: number | string | Resource;
   }): T;
+
   /**
    * Sets the touchable of the current component
    * @devices phone, tablet, car
@@ -1214,10 +1215,9 @@ export declare class CommonMethod<T> {
    * Applies a mask of the specified shape to the current assembly.
    * @since 7
    */
-  mask(value: Circle| Ellipse | Path | Rect): T;
-  
+  mask(value: Circle | Ellipse | Path | Rect): T;
 
-   /**
+  /**
    * Key. User can set an key to the component to identify it.
    * @since 8
    */
@@ -1252,7 +1252,7 @@ export declare class CommonMethod<T> {
  * Defines the CustomBuilder Type.
  * @since 7
  */
-declare type CustomBuilder = () => any;
+export declare type CustomBuilder = () => any;
 
 /**
  * CommonShapeMethod

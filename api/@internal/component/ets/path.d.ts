@@ -20,11 +20,12 @@ import { CommonShapeMethod } from "./common";
  * @since 7
  */
 interface Path extends PathAttribute<Path> {
-   /**
+  /**
    * Use new to create Path.
    * @since 7
    */
   new (value?: { width?: number | string; height?: number | string; commands?: string }): Path;
+
   /**
    * Called when drawing path.
    * @since 7

@@ -56,6 +56,7 @@ export declare interface NavigationMenuItem {
    */
   action?: () => void;
 }
+
 /**
  * Provide navigator view interface
  * @since 8
@@ -72,7 +73,7 @@ interface Navigation extends NavigationAttribute<Navigation> {
  * Declare Navigation view properties.
  * @since 8
  */
-export declare class NavigationAttribute<T> extends CommonMethod<T> {
+declare class NavigationAttribute<T> extends CommonMethod<T> {
   /**
    * Navigation title
    * @since 8
@@ -107,7 +108,7 @@ export declare class NavigationAttribute<T> extends CommonMethod<T> {
    * Navigation title bar's menus
    * @since 8
    */
-  menus(value: Array<NavigationMenuItem> | CustomBuilder): T;
+  menus(value: Array<NavigationMenuItem> | CustomBuilder) : T;
 
   /**
    * Tool bar
@@ -127,5 +128,6 @@ export declare class NavigationAttribute<T> extends CommonMethod<T> {
    */
   onTitleModeChanged(callback: (titleMode: NavigationTitleMode) => void): T;
 }
+
 export declare class NavigationExtend<T> extends NavigationAttribute<T> {}
 export declare const NavigationInterface: Navigation;

@@ -734,7 +734,7 @@ export declare enum Alignment {
 }
 
 /**
- * TransitionType enumeration descriptio.
+ * TransitionType enumeration description.
  * @since 7
  */
 export declare enum TransitionType {
@@ -1331,6 +1331,7 @@ export declare enum TextCase {
    */
   UpperCase,
 }
+
 /**
  * HoverEffect enumeration description
  * @since 8
@@ -1365,7 +1366,7 @@ export declare enum HoverEffect {
  * Placement enumeration description
  * @since 8
  */
-declare enum Placement {
+export declare enum Placement {
   /**
    * Left placement
    * @since 8
