@@ -412,6 +412,43 @@ declare namespace sensor {
     function off(type: SensorType, callback: AsyncCallback<void>): void;
 
     /**
+     * Indicates geographic location.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.Sensor
+     */
+    interface LocationOptions {
+        latitude: number;
+        longitude: number;
+        altitude: number;
+    }
+
+    /**
+     * Indicates geomagnetic field data.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.Sensor
+     */
+    interface GeomagneticResponse {
+        x: number;
+        y: number;
+        z: number;
+        geomagneticDip: number;
+        deflectionAngle: number;
+        levelIntensity: number;
+        totalIntensity: number;
+    }
+
+   /**
+   * Implements the calculation of the geomagnetic field at a specific location on Earth.
+   *
+   * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
+   * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
+   * since the Unix epoch.
+   * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
+   * @since 8
+   */
+    function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
+    function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
+    /**
      * Subscribe to the sensor's optional parameters.
      * @devices phone, tablet
      * @sysCap SystemCapability.Sensors.Sensor
