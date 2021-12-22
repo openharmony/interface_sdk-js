@@ -26,6 +26,7 @@ export interface ContinueAbilityOptions {
 
   /**
    * Indicates whether the ability to be migrated back to the local device through
+   * This is a reserved field.
    *
    * @default -
    * @devices phone, tablet, tv, wearable, car
