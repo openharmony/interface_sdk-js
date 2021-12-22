@@ -448,6 +448,7 @@ declare namespace sensor {
    */
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
+
     /**
      * Subscribe to the sensor's optional parameters.
      * @devices phone, tablet
