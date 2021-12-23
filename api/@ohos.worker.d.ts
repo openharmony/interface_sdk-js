@@ -348,7 +348,7 @@ declare namespace worker {
 
     /**
      * Adds an event listener to the worker
-     * and removes the event listener automically after it is invoked once.
+     * and removes the event listener automatically after it is invoked once.
      * @param type Type of the event to listen for
      * @param listener Callback to invoke when an event of the specified type occurs
      * @devices phone, tablet, wearable
