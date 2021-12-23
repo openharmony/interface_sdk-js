@@ -61,11 +61,11 @@ declare namespace process {
         readonly killed: boolean;
 
         /**
-        * return 'number' is the targer process exit code
+        * return 'number' is the target process exit code
         * @since 7
         * @sysCap SystemCapability.CCRuntime
         * @systemapi Hide this for inner system use
-        * @return return the targer process exit code.
+        * @return return the target process exit code.
         */
         wait(): Promise<number>;
 
@@ -162,11 +162,11 @@ declare namespace process {
     * @since 7
     * @sysCap SystemCapability.CCRuntime
     * @systemapi Hide this for inner system use
-    * @return return The pid of the current child processs.
+    * @return return The pid of the current child process.
     */
     const ppid: number;
-    
-    /** 
+
+    /**
     * Returns the tid of the current thread.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -174,7 +174,7 @@ declare namespace process {
     */
     const tid: number;
 
-    /** 
+    /**
     * Returns a boolean whether the process is isolated.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -199,7 +199,7 @@ declare namespace process {
     */
     function is64Bit(): boolean;
 
-    /** 
+    /**
     * Returns the uid based on the specified user name.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -208,7 +208,7 @@ declare namespace process {
     */
     function getUidForName(v: string): number;
 
-    /** 
+    /**
     * Returns the thread priority based on the specified tid.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -217,7 +217,7 @@ declare namespace process {
     */
     function getThreadPriority(v: number): number;
 
-    /** 
+    /**
     * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -225,15 +225,15 @@ declare namespace process {
     */
     function getStartRealtime(): number;
 
-    /** 
+    /**
     * Returns cpu cores available for the current process on a multi-core device.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
     * @return Return cpu cores available for the current process on a multi-core device.
     */
-    function getAvailableCores​(): number[];
+    function getAvailableCores(): number[];
 
-    /** 
+    /**
     * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -241,7 +241,7 @@ declare namespace process {
     */
     function getPastCpuTime(): number;
 
-    /** 
+    /**
     * Returns the system configuration at runtime.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -250,7 +250,7 @@ declare namespace process {
     */
     function getSystemConfig(name: number): number;
 
-    /** 
+    /**
     * Returns the system value for environment variables.
     * @since 8
     * @sysCap SystemCapability.CCRuntime
@@ -317,7 +317,7 @@ declare namespace process {
     * @return Return the current work directory.
     */
     function cwd(): string;
- 
+
     /**
     * Change current  directory
     * @since 7
