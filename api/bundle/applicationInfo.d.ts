@@ -130,9 +130,30 @@ export interface ApplicationInfo {
   readonly entryDir: string;
 
   /**
+    * @default Indicates the application source code path
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly codePath: string;
+
+  /**
     * @default Indicates the custom metadata of the application
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
     */
   customizeData: Map<string, CustomizeData>;
+
+  /**
+    * @default Indicates the metadata of module
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly metaData: Map<string, Array<CustomizeData>>;
+
+  /**
+    * @default Indicates whether or not this application may be removable
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly removable: boolean;
 }

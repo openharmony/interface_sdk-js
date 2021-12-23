@@ -43,7 +43,23 @@ declare namespace bundle {
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
+    GET_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
+    GET_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000008,
+    GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
+    GET_ALL_APPLICATION_INFO = 0xFFFF0000,
+    /**
+      * @since 8
+      */
+    GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
+    /**
+      * @since 8
+      */
+    GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
+    /**
+      * @since 8
+      */
+    GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
   }
 
 /**
@@ -194,6 +210,7 @@ declare namespace bundle {
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
+    STATUS_RECOVER_FAILURE_INVALID = 0x0D,
     STATUS_ABILITY_NOT_FOUND = 0x40,
     STATUS_BMS_SERVICE_ERROR = 0x41
   }
@@ -270,7 +287,8 @@ declare namespace bundle {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
-  function queryAbilityByWant(want: Want, bundleFlags: number, userId:number): Promise<Array<AbilityInfo>>;
+  function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
+  function queryAbilityByWant(want: Want, bundleFlags: number, userId?:number): Promise<Array<AbilityInfo>>;
 
   /**
    * Obtains BundleInfo of all bundles available in the system.
@@ -360,6 +378,50 @@ declare namespace bundle {
    */
   function getModuleUsageRecords(maxNum: number, callback: AsyncCallback<Array<ModuleUsageRecord>>): void;
   function getModuleUsageRecords(maxNum: number): Promise<Array<ModuleUsageRecord>>;
+
+  /**
+   * Clears cache data of a specified application.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param bundleName Indicates the bundle name of the application whose cache data is to be cleared.
+   * @param callback Indicates the callback to be invoked for returning the operation result.
+   * @permission ohos.permission.REMOVE_CACHE_FILES
+   * @systemapi Hide this for inner system use
+   */
+  function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
+  function cleanBundleCacheFiles(bundleName: string): Promise<void>;
+
+  /**
+   * Sets whether to enable a specified application.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param bundleName Indicates the bundle name of the application.
+   * @param isEnabled Specifies whether to enable the application. The value true means to enable it, and the
+   *                  value false means to disable it.
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @systemapi Hide this for inner system use
+   */
+  function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
+
+  /**
+   * Sets whether to enable a specified ability.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param abilityInfo Indicates information about the ability to set.
+   * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
+   *                  value false means to disable it..
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @systemapi Hide this for inner system use
+   */
+  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
 }
 
 export default bundle;

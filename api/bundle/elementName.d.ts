@@ -23,7 +23,7 @@
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  */
-export interface ElementName {
+ export interface ElementName {
   /**
    * device id
    * @default -

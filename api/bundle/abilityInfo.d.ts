@@ -241,4 +241,11 @@ export interface AbilityInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   customizeData: Map<string, Array<CustomizeData>>;
+
+  /**
+    * @default Indicates the metadata of ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly metaData: Array<CustomizeData>;
 }
