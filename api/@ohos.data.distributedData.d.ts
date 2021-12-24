@@ -1216,6 +1216,19 @@ declare namespace distributedData {
         on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
 
         /**
+         * Subscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         * 
+         * @note N/A
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+		
+        /**
          * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
          *
          * @note N/A
@@ -1227,7 +1240,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-        off(event:'dataChange', observer: Callback<ChangeNotification>): void;
+        off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
 
         /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
@@ -1480,7 +1493,7 @@ declare namespace distributedData {
           * 
           * <p> Sync result is returned through asynchronous callback.
           * @note N/A
-          * @since 7
+          * @since 8
           * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
           * @devices phone, tablet, tv, wearable, car
           * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
@@ -1496,7 +1509,7 @@ declare namespace distributedData {
           * @devices phone, tablet, tv, wearable, car
           * @throws Throws this exception if no {@code SingleKvStore} database is available.
           */
-         off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+         off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 	 
 	 
          /**
@@ -1750,7 +1763,7 @@ declare namespace distributedData {
          * @devices phone, tablet, tv, wearable, car
          * @throws Throws this exception if no DeviceKvStore database is available.
          */
-        off(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
     }
     
     /**
@@ -1881,7 +1894,7 @@ declare namespace distributedData {
          * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
          * @throws exception maybe occurs.
          */
-        off(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
+        off(event: 'distributedDataServiceDie', deathCallback?: Callback<void>): void;
     }
 }
 
