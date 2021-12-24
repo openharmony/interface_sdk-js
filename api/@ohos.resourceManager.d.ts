@@ -69,6 +69,13 @@ export enum DeviceType {
     DEVICE_TYPE_CAR = 0x02,
 
     /**
+     * Indicates a PC.
+     *
+     * @since 6
+     */
+    DEVICE_TYPE_PC = 0x03,
+
+    /**
      * Indicates a smart TV.
      *
      * @since 6
