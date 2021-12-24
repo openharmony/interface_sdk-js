@@ -289,7 +289,7 @@ export class Calendar {
     getTimeZone(): string;
 
     /**
-     * Get the start day of a week. 0 indicates Sunday, 6 indicates Saturday.
+     * Get the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      *
      * @sysCap SystemCapability.I18N
      * @return Returns start day of a week.
@@ -298,10 +298,10 @@ export class Calendar {
     getFirstDayOfWeek(): number;
 
     /**
-     * Set the start day of a week. 0 indicates Sunday, 6 indicates Saturday.
+     * Set the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      *
      * @sysCap SystemCapability.I18N
-     * @param value Indicates the start day of a week. 0 indicates Sunday, 6 indicates Saturday.
+     * @param value Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @since 8
      */
     setFirstDayOfWeek(value: number);
