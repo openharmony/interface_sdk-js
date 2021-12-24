@@ -14,23 +14,43 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+/**
+ * Providers interfaces to creat a {@link KVManager} istances.
+ * @since 7
+ * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+ * @devices phone, tablet, tv, wearable, car
+ * @import N/A
+ * @permission N/A
+ */
 
 declare namespace distributedData {
     /**
      * Provides configuration information for {@link KVManager} instances,
      * including the caller's package name and distributed network type.
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface KVManagerConfig {
         /**
          * Indicates the user information
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         userInfo: UserInfo;
 
         /**
          * Indicates the bundleName
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         bundleName: string;
     }
@@ -41,59 +61,121 @@ declare namespace distributedData {
      * <p>This class provides methods for obtaining the user ID and type, setting the user ID and type,
      * and checking whether two users are the same.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @SYscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface UserInfo {
-        /** Indicates the user ID to set */
+        /** 
+         * Indicates the user ID to set 
+         * @since 7
+         * @SYscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         userId?: string;
 
-        /** Indicates the user type to set */
+        /** 
+         * Indicates the user type to set 
+         * @since 7
+         * @SYscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         userType?: UserType;
     }
 
     /**
      * Enumerates user types.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum UserType {
-        /** Indicates a user that logs in to different devices using the same account. */
+        /** 
+         * Indicates a user that logs in to different devices using the same account. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         SAME_USER_ID = 0
     }
 
     /**
      * KVStore constants
+     * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A 
      */
     namespace Constants {
         /**
-        * max key length.
-        */
+         * max key length.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         const MAX_KEY_LENGTH = 1024;
 
         /**
          * max value length.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         const MAX_VALUE_LENGTH = 4194303;
 
         /**
          * max device coordinate key length.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         const MAX_KEY_LENGTH_DEVICE = 896;
 
         /**
          * max store id length.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         const MAX_STORE_ID_LENGTH = 128;
 
         /**
          * max query length.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         const MAX_QUERY_LENGTH = 512000;
 
         /**
          * max batch operation size.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         const MAX_BATCH_SIZE = 128;
     }
@@ -104,55 +186,133 @@ declare namespace distributedData {
      * <p>{@code ValueType} is obtained based on the value.
      *
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum ValueType {
-        /** Indicates that the value type is string. */
+        /** 
+         * Indicates that the value type is string. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         STRING = 0,
 
-        /** Indicates that the value type is int. */
+        /**
+         * Indicates that the value type is int. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         INTEGER = 1,
 
-        /** Indicates that the value type is float. */
+        /** 
+         * Indicates that the value type is float. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         FLOAT = 2,
 
-        /** Indicates that the value type is byte array. */
+        /** 
+         * Indicates that the value type is byte array. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A 
+         * */
         BYTE_ARRAY = 3,
 
-        /** Indicates that the value type is boolean. */
+        /** 
+         * Indicates that the value type is boolean. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         * */
         BOOLEAN = 4,
 
-        /** Indicates that the value type is double. */
+        /** 
+         * Indicates that the value type is double. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         DOUBLE = 5
     }
 
     /**
      * Obtains {@code Value} objects stored in a {@link KVStore} database.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface Value {
         /**
          * Indicates value type
-         *
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          * @see ValueType
          * @type {number}
          * @memberof Value
          */
         type: ValueType;
+        /**
+         * Indicates value
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         value: Uint8Array | string | number | boolean;
     }
 
     /**
      * Provides key-value pairs stored in the distributed database.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface Entry {
+        /**
+         * Indicates key
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         key: string;
+        /**
+         * Indicates value
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         value: Value;
     }
 
@@ -162,82 +322,190 @@ declare namespace distributedData {
      * <p>If you have subscribed to {@code KVStore}, you will receive data change notifications and obtain the changed data
      * from the parameters in callback methods upon data insertion, update, or deletion.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface ChangeNotification {
-        /** Indicates data addition records. */
+        /** 
+         * Indicates data addition records. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         insertEntries: Entry[];
-        /** Indicates data update records. */
+        /** 
+         * Indicates data update records.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         updateEntries: Entry[];
-        /** Indicates data deletion records. */
+        /** 
+         * Indicates data deletion records. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A 
+         */
         deleteEntries: Entry[];
-        /** Indicates from device id. */
+        /**
+         * Indicates from device id.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         deviceId: string;
     }
 
     /**
      * Indicates the database synchronization mode.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum SyncMode {
-        /** Indicates that data is only pulled from the remote end. */
+        /** 
+         * Indicates that data is only pulled from the remote end.
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         PULL_ONLY = 0,
-        /** Indicates that data is only pushed from the local end. */
+        /** 
+         * Indicates that data is only pushed from the local end. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         PUSH_ONLY = 1,
-        /** Indicates that data is pushed from the local end, and then pulled from the remote end. */
+        /** 
+         * Indicates that data is pushed from the local end, and then pulled from the remote end. 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         PUSH_PULL = 2
     }
 
     /**
      * Describes the subscription type.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum SubscribeType {
-        /** Subscription to local data changes */
+        /** 
+         * Subscription to local data changes 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+        */
         SUBSCRIBE_TYPE_LOCAL = 0,
 
-        /** Subscription to remote data changes */
+        /** 
+         * Subscription to remote data changes 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+        */
         SUBSCRIBE_TYPE_REMOTE = 1,
 
-        /** Subscription to both local and remote data changes */
+        /** 
+         * Subscription to both local and remote data changes 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         SUBSCRIBE_TYPE_ALL = 2,
     }
 
     /**
      * Describes the {@code KVStore} type.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum KVStoreType {
-        /** Device-collaborated database, as specified by {@code DeviceKVStore} */
+        /** 
+         * Device-collaborated database, as specified by {@code DeviceKVStore} 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         DEVICE_COLLABORATION = 0,
 
-        /** Single-version database, as specified by {@code SingleKVStore} */
+        /** 
+         * Single-version database, as specified by {@code SingleKVStore} 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         SINGLE_VERSION = 1,
 
-        /** Multi-version database, as specified by {@code MultiKVStore} */
+        /** 
+         * Multi-version database, as specified by {@code MultiKVStore} 
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         MULTI_VERSION = 2,
     }
 
     /**
      * Describes the {@code KVStore} type.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     enum SecurityLevel {
         /**
          * NO_LEVEL: mains not set the security level.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         NO_LEVEL = 0,
 
@@ -246,6 +514,10 @@ declare namespace distributedData {
          * There is no impact even if the data is leaked.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         S0 = 1,
 
@@ -254,6 +526,10 @@ declare namespace distributedData {
          * There are some low impact, when the data is leaked.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         S1 = 2,
 
@@ -262,6 +538,10 @@ declare namespace distributedData {
          * There are some major impact, when the data is leaked.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         S2 = 3,
 
@@ -270,6 +550,10 @@ declare namespace distributedData {
          * There are some severity impact, when the data is leaked.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         S3 = 5,
 
@@ -278,6 +562,10 @@ declare namespace distributedData {
          * There are some critical impact, when the data is leaked.
          *
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
          */
         S4 = 6,
     }
@@ -288,16 +576,576 @@ declare namespace distributedData {
      * <p>You can determine whether to create another database if a {@code KVStore} database is missing,
      * whether to encrypt the database, and the database type.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      */
     interface Options {
+        /**
+         * Indicates whether to createa database when the database file does not exist
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         createIfMissing?: boolean;
+        /**
+         * Indicates setting whether database files are encrypted
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         encrypt?: boolean;
+        /**
+         * Indicates setting whether to back up database files
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         backup?: boolean;
+        /**
+         * Indicates setting whether database files are automatically synchronized
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         autoSync?: boolean;
+        /**
+         * Indicates setting the databse type
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         kvStoreType?: KVStoreType;
+        /**
+         * Indicates setting the database security level
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
         securityLevel?: SecurityLevel;
+    }
+
+    /**
+     * Represents a node of a {@link Schema} instance.
+     * 
+     * <p>Through the {@link Schema} instance, you can define the fields contained in the values stored in a database.
+     * 
+     * <p>A FieldNode of the {@link Schema} instance is either a leaf or a non-leaf node.
+     * 
+     * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
+     * 
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    interface FieldNode {
+        /**
+         * Adds a child node to this {@code FieldNode}.
+         * 
+         * <p>Adding a child node makes this node a non-leaf node. Field value will be ignored if it has child node.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param child The field node to append. 
+         * @returns Returns true if the child node is successfully added to this {@code FieldNode}; returns false otherwise.
+         */
+        appendChild(child: FieldNode): boolean;
+        /**
+         * Obtains the field name.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car 
+         * @returns Returns the field name.
+         */
+        toJson(): string;
+    }
+
+    /**
+     * Provide methods to obtain the result set of the {@code KvStore} database.
+     * 
+     * <p>The result set is created by using the {@code getResultSet} method in the {@code DeviceKvStore} class. This interface also provides
+     * methods for moving the data read position in the result set.
+     * 
+     * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    interface KvStoreResultSet {
+        /**
+         * Obtains the number of lines in a result set.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns the number of lines.
+         */
+        getCount(): number;
+        /**
+         * Obtains the current read position in a result set.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns the current read position. The read position starts with 0.
+         */
+        getPosition(): number;
+        /**
+         * Moves the read position to the first line.
+         * 
+         * <p>If the result set is empty, false is returned.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToFirst(): boolean;
+        /**
+         * Moves the read position to the last line.
+         * 
+         * <p>If the result set is empty, false is returned.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToLast(): boolean;
+        /**
+         * Moves the read position to the next line.
+         * 
+         * <p>If the result set is empty or the data in the last line is being read, false is returned.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToNext(): boolean;
+        /**
+         * Moves the read position to the previous line.
+         * 
+         * <p>If the result set is empty or the data in the first line is being read, false is returned.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToPrevious(): boolean;
+        /**
+         * Moves the read position by a relative offset to the current position.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param offset Indicates the relative offset to the current position. Anegative offset indicates moving backwards, and a
+         * positive offset indicates moving forewards. Forexample, if the current position is entry 1 and thisoffset is 2,
+         * the destination position will be entry 3; ifthe current position is entry 3 and this offset is -2,
+         * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
+         * final position is invalid, false will be returned.
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        move(offset: number): boolean;
+        /**
+         * Moves the read position from 0 to an absolute position.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param position Indicates the absolute position.
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToPosition(position: number): boolean;
+        /**
+         * Checks whether the read position is the first line.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the read position is the first line; returns false otherwise.
+         */
+        isFirst(): boolean;
+        /**
+         * Checks whether the read position is the last line.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the read position is the last line; returns false otherwise.
+         */
+        isLast(): boolean;
+        /**
+         * Checks whether the read position is before the last line.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the read position is before the first line; returns false otherwise.
+         */
+        isBeforeFirst(): boolean;
+        /**
+         * Checks whether the read position is after the last line.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns true if the read position is after the last line; returns false otherwise. 
+         */
+        isAfterLast(): boolean;
+        /**
+         * Obtains a key-value pair.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @returns Returns a key-value pair.
+         */
+        getEntry(): Entry;
+    }
+
+    /**
+     * Represents a database query using a predicate.
+     * 
+     * <p>This class provides a constructor used to create a {@code Query} instance, which is used to query data matching specified
+     * conditions in the database.
+     * 
+     * <p>This class also provides methods for adding predicates to the {@code Query} instance.
+     * 
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    interface Query {
+        /**
+         * Resets this {@code Query} object.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @returns Returns the reset {@code Query} object.
+         */
+        reset(): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value IIndicates the long value.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid.
+         */
+        equalTo(field: string, value: number|string|boolean): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the int value.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid.
+         */
+        notEqualTo(field: string, value: number|string|boolean): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
+         * specified int value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the int value.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid.
+         */
+        greaterThan(field: string, value: number|string|boolean): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the int value.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid.
+         */
+        lessThan(field: string, value: number|string): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
+         * specified int value.
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A  
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the int value.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid.
+         */
+        greaterThanOrEqualTo(field: string, value: number|string): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is less than or equal to the
+         * specified int value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A  
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the int value.
+         * @returns Returns the {@coed Query} object. 
+         * @throws Throws this exception if input is invalid.
+         */
+        lessThanOrEqualTo(field: string, value: number|string): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is null.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A   
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @returns Returns the {@coed Query} object.  
+         * @throws Throws this exception if input is invalid.
+         */
+        isNull(field: string): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified int value list.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param valueList Indicates the int value list.
+         * @returns Returns the {@coed Query} object. 
+         * @throws Throws this exception if input is invalid.
+         */
+        inNumber(field: string, valueList: number[]): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified string value list.
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param valueList Indicates the string value list.
+         * @returns Returns the {@coed Query} object. 
+         * @throws Throws this exception if input is invalid.
+         */
+        inString(field: string, valueList: string[]): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified int value list.
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param valueList Indicates the int value list.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid. 
+         */
+        notInNumber(field: string, valueList: number[]): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified string value list.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param valueList Indicates the string value list.
+         * @returns Returns the {@coed Query} object. 
+         * @throws Throws this exception if input is invalid. 
+         */
+        notInString(field: string, valueList: string[]): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the specified string value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the string value.
+         * @returns Returns the {@coed Query} object.  
+         * @throws Throws this exception if input is invalid. 
+         */
+        like(field: string, value: string): Query;
+        /**
+         * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the specified string value.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param value Indicates the string value.
+         * @returns Returns the {@coed Query} object.  
+         * @throws Throws this exception if input is invalid. 
+         */
+        unlike(field: string, value: string): Query;
+        /**
+         * Constructs a {@code Query} object with the and condition.
+         * 
+         * <p>Multiple predicates should be connected using the and or or condition.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @returns Returns the {@coed Query} object. 
+         */
+        and(): Query;
+        /**
+         * Constructs a {@code Query} object with the or condition.
+         * 
+         * <p>Multiple predicates should be connected using the and or or condition.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @returns Returns the {@coed Query} object. 
+         */
+        or(): Query;
+        /**
+         * Constructs a {@code Query} object to sort the query results in ascending order.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @returns Returns the {@coed Query} object. 
+         * @throws Throws this exception if input is invalid. 
+         */
+        orderByAsc(field: string): Query;
+        /**
+         * Constructs a {@code Query} object to sort the query results in descending order.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid. 
+         */
+        orderByDesc(field: string): Query;
+        /**
+         * Constructs a {@code Query} object to specify the number of results and the start position.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A  
+         * @param total Indicates the number of results.
+         * @param offset Indicates the start position.
+         * @returns Returns the {@coed Query} object.
+         */
+        limit(total: number, offset: number): Query;
+        /**
+         * Creates a {@code query} condition with a specified field that is not null.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A  
+         * @param field Indicates the specified field.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid. 
+         */
+        isNotNull(field: string): Query;
+        /**
+         * Creates a query condition group with a left bracket.
+         * 
+         * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can be used as a
+         * whole to combine with other query conditions.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @returns Returns the {@coed Query} object.
+         */
+        beginGroup(): Query;
+        /**
+         * Creates a query condition group with a right bracket.
+         * 
+         * <p>Multiple query conditions in an {@code Query} object can be grouped. The query conditions in a group can be used as a
+         * whole to combine with other query conditions.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @returns Returns the {@coed Query} object.
+         */
+        endGroup(): Query;
+        /**
+         * Creates a query condition with a specified key prefix.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param prefix Indicates the specified key prefix.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid. 
+         */
+        prefixKey(prefix: string): Query;
+        /**
+         * Sets a specified index that will be preferentially used for query.
+         *
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param index Indicates the index to set.
+         * @returns Returns the {@coed Query} object.
+         * @throws Throws this exception if input is invalid. 
+         */
+        setSuggestIndex(index: string): Query;
     }
 
     /**
@@ -308,20 +1156,29 @@ declare namespace distributedData {
      * with input parameter {@code Options}. Distributed database types are defined in {@code KVStoreType},
      * including {@code SingleKVStore}.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone, tablet
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      * @version 1
      */
     interface KVStore {
         /**
-         * Writes a key-value pair of the byte array type into the {@code KVStore} database.
+         * Writes a key-value pair of the string type into the {@code KvStore} database.
          *
+         * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+         * 
+         * @note N/A
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
          * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
-         * @param value Indicates the byte array, which must be less than 4 MB.
-         * @return Returns the error code of databases.
-         * @since 7
+         * @param value Indicates the string value, which must be less than 4 MB as a UTF-8 byte array.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
          */
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
@@ -329,34 +1186,156 @@ declare namespace distributedData {
         /**
          * Deletes the key-value pair based on a specified key.
          *
+         * @note N/A
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
          * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
-         * @return Returns the error code of databases.
-         * @since 7
+         *  @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
 
         /**
-         * turn on from the data change notify based on the specified {@code subscribeType}.
+         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * {@code KvStoreObserver} will be invoked.
          *
+         * @note N/A
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the observer of data change events in the distributed database.
-         * @return Returns the error code of databases.
-         * @since 7
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
 
         /**
-         * Subscribe to the notification of store synchronization completion.
-         *
-         * <p>Sync result is returned through asynchronous callback.
-         *
-         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-         * @return Returns the {@code number} object.
+         * Subscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         * 
+         * @note N/A
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+		
+        /**
+         * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+        off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
+
+        /**
+         * Inserts key-value pairs into the {@code KvStore} database in batches.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param entries Indicates the key-value pairs to be inserted in batches.
+         * @throws Throws this exception if a database error occurs.
+         */
+        putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
+        putBatch(entries: Entry[]): Promise<void>;
+
+        /**
+         * Deletes key-value pairs in batches from the {@code KvStore} database.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param keys Indicates the key-value pairs to be deleted in batches.
+         * @throws Throws this exception if a database error occurs.
+         */
+        deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
+        deleteBatch(keys: string[]): Promise<void>;
+
+        /**
+         * Starts a transaction operation in the {@code KvStore} database.
+         * 
+         * <p>After the database transaction is started, you can submit or roll back the operation.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if a database error occurs.
+         */
+        startTransaction(callback: AsyncCallback<void>): void;
+        startTransaction(): Promise<void>;
+
+        /**
+         * Submits a transaction operation in the {@code KvStore} database.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param callback 
+         * @throws Throws this exception if a database error occurs.
+         */
+        commit(callback: AsyncCallback<void>): void;
+        commit(): Promise<void>;
+
+        /**
+         * Rolls back a transaction operation in the {@code KvStore} database.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if a database error occurs.
+         */
+        rollback(callback: AsyncCallback<void>): void;
+        rollback(): Promise<void>;
+
+        /**
+         * Sets whether to enable synchronization.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param enabled Specifies whether to enable synchronization. The value true means to enable
+         * synchronization, and false means the opposite.
+         * @throws Throws this exception if an internal service error occurs.
+         */
+        enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
+        enableSync(enabled: boolean): Promise<void>;
+
+        /**
+         * Sets synchronization range labels.
+         * 
+         * <p>The labels determine the devices with which data will be synchronized.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param localLabels Indicates the synchronization labels of the local device.
+         * @param remoteSupportLabels Indicates the labels of the devices with which data will be synchronized.
+         * @throws Throws this exception if an internal service error occurs.
+         */
+        setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
+        setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
     }
 
     /**
@@ -369,34 +1348,422 @@ declare namespace distributedData {
      * The {@code SingleKVStore} database does not support
      * synchronous transactions, or data search using snapshots.
      *
-     * @devices phone, tablet
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      * @version 1
      */
     interface SingleKVStore extends KVStore {
         /**
-         * Obtains the value of a specified key.
-         *
-         * @param key Indicates the key of the value to be queried.
-         * @return Returns the value matching the given criteria.
-         * @throws Throws exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
-         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
+         * Obtains the {@code String} value of a specified key.
+         * 
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param key Indicates the key of the boolean value to be queried.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
          */
         get(key: string, callback: AsyncCallback<Uint8Array | string | boolean | number>): void;
         get(key: string): Promise<Uint8Array | string | boolean | number>;
 
         /**
-         * Synchronizing KVStore Data Between Devices.
+         * Obtains all key-value pairs that match a specified key prefix.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param keyPrefix Indicates the key prefix to match.
+         * @returns Returns the list of all key-value pairs that match the specified key prefix.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+        getEntries(keyPrefix: string): Promise<Entry[]>;
+
+        /**
+         * Obtains the list of key-value pairs matching the specified {@code Query} object.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @param query Indicates the {@code Query} object.
+         * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+         * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
+        getEntries(query: Query): Promise<Entry[]>;
+
+        /**
+         * Obtains the result sets with a specified prefix from a {@code KvStore} database. The {@code KvStoreResultSet} object can be used to
+         * query all key-value pairs that meet the search criteria. Each {@code KvStore} instance can have a maximum of four
+         * {@code KvStoreResultSet} objects at the same time. If you have created four objects, calling this method will return a
+         * failure. Therefore, you are advised to call the closeResultSet method to close unnecessary {@code KvStoreResultSet} objects
+         * in a timely manner.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param keyPrefix Indicates the key prefix to match.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        getResultSet(keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
+        getResultSet(keyPrefix: string): Promise<KvStoreResultSet>;
+
+        /**
+         * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A  
+         * @param query Indicates the {@code Query} object.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+        getResultSet(query: Query): Promise<KvStoreResultSet>;
+
+        /**
+         * Closes a {@code KvStoreResultSet} object returned by getResultSet.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
+        closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
+
+        /**
+         * Obtains the number of results matching the specified {@code Query} object.
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A 
+         * @param query Indicates the {@code Query} object.
+         * @returns Returns the number of results matching the specified {@code Query} object.
+         * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+        getResultSize(query: Query, callback: AsyncCallback<number>): void;
+        getResultSize(query: Query): Promise<number>;
+
+        /**
+         * void removeDeviceData​({@link String} deviceId) throws {@link KvStoreException}
+         * 
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         */
+        removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
+        removeDeviceData(deviceId: string): Promise<void>;
+
+        /**
+         * Synchronizes the database to the specified devices with the specified delay allowed.
          *
-         * @param deviceIdList Indicates the {@code string}.
-         * @param mode Indicates the {@code SyncMode} object.
-         * @param allowedDelayMs Indicates the number type parameter.
-         * @return Returns the {@code number} object.
+         * @note N/A
          * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param deviceIdList Indicates the list of devices to which to synchronize the database.
+         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
+         * @param allowedDelayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code INVALID_ARGUMENT}, 
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+
+         /**
+          * Register Synchronizes SingleKvStore databases callback.
+          * 
+          * <p> Sync result is returned through asynchronous callback.
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+          * @throws Throws this exception if no {@code SingleKvStore} database is available.
+          */
+         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+         /**
+          * UnRegister Synchronizes SingleKvStore databases callback.
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @throws Throws this exception if no {@code SingleKvStore} database is available.
+          */
+         off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
+	 
+	 
+         /**
+          * Sets the default delay allowed for database synchronization
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
+          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+          */
+         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
+         setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
+
+         /**
+          * Get the security level of the database.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
+          * @throws Throws this exception if any of the following errors occurs:{@code SERVER_UNAVAILABLE},
+          * {@code IPC_ERROR}, and {@code DB_ERROR}.
+          */
+         getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
+         getSecurityLevel(): Promise<SecurityLevel>;
+    }
+
+    /**
+     * Manages distributed data by device in a distributed system.
+     * 
+     * <p>To create a {@code DeviceKvStore} database, you can use the {@link data.distributed.common.KVManager.getKvStore(Options, String)}
+     * method with {@code KvStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options. This database manages distributed
+     * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
+     * into the database, the system automatically adds the ID of the device running the application to the key.
+     * 
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    interface DeviceKVStore extends KVStore {
+        /**
+         * Obtains the {@code String} value matching a specified device ID and key.
+         *
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param deviceId Indicates the device to be queried.
+         * @param key Indicates the key of the value to be queried.
+         * @return Returns the value matching the given criteria.
+         * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
+         */
+         get(deviceId: string, key: string, callback: AsyncCallback<boolean|string|number|Uint8Array>): void;
+         get(deviceId: string, key: string): Promise<boolean|string|number|Uint8Array>;
+
+         /**
+          * Obtains all key-value pairs matching a specified device ID and key prefix.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Identifies the device whose data is to be queried.
+          * @param keyPrefix Indicates the key prefix to match.
+          * @returns Returns the list of all key-value pairs meeting the given criteria.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+         getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
+
+         /**
+          * Obtains the list of key-value pairs matching the specified {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
+         getEntries(query: Query): Promise<Entry[]>;
+
+         /**
+          * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+          */
+         getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
+         getEntries(deviceId: string, query: Query): Promise<Entry[]>;
+
+         /**
+          * Obtains the {@code KvStoreResultSet} object matching the specified device ID and key prefix.
+          * 
+          * <p>The {@code KvStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code KvStore}
+          * instance can have a maximum of four {@code KvStoreResultSet} objects at the same time. If you have created four objects,
+          * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+          * {@code KvStoreResultSet} objects in a timely manner.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Identifies the device whose data is to be queried.
+          * @param keyPrefix Indicates the key prefix to match.
+          * @returns Returns the {@code KvStoreResultSet} objects.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(deviceId: string, keyPrefix: string): Promise<KvStoreResultSet>;
+
+         /**
+          * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(query: Query): Promise<KvStoreResultSet>;
+
+         /**
+          * Obtains the {@code KvStoreResultSet} object matching a specified device ID and {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+          */
+         getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
+
+         /**
+          * Closes a {@code KvStoreResultSet} object returned by getResultSet.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
+         closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
+
+         /**
+          * Obtains the number of results matching the specified {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the number of results matching the specified {@code Query} object.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         getResultSize(query: Query, callback: AsyncCallback<number>): void;
+         getResultSize(query: Query): Promise<number>;
+
+         /**
+          * Obtains the number of results matching a specified device ID and {@code Query} object.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Indicates the ID of the device to which the results belong.
+          * @param query Indicates the {@code Query} object.
+          * @returns Returns the number of results matching the specified {@code Query} object.
+          */
+         getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
+         getResultSize(deviceId: string, query: Query): Promise<number>;
+
+         /**
+          * Removes data of a specified device from the current database. This method is used to remove only the data
+          * synchronized from remote devices. This operation does not synchronize data to other databases or affect
+          * subsequent data synchronization.
+          * 
+          * @note N/A
+          * @since 8
+          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @devices phone, tablet, tv, wearable, car
+          * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
+          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
+          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
+          */
+         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
+         removeDeviceData(deviceId: string): Promise<void>;
+         
+        /**
+         * Synchronizes {@code DeviceKvStore} databases.
+         *
+         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param deviceIdList Indicates the list of IDs of devices whose
+         * {@code DeviceKvStore} databases are to be synchronized.
+         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
+         * {@code PUSH_PULL}.
+         * @throws Throws this exception if no DeviceKvStore database is available.
          */
         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+
+        /**
+         * Register Synchronizes DeviceKvStore databases callback.
+         * 
+         * <p>Sync result is returned through asynchronous callback.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+         * @throws Throws this exception if no DeviceKvStore database is available.
+         */
+        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+        /**
+         * UnRegister Synchronizes DeviceKvStore databases callback.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @throws Throws this exception if no DeviceKvStore database is available.
+         */
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
     }
     
     /**
@@ -405,38 +1772,129 @@ declare namespace distributedData {
      * <p>You must pass {@link KVManagerConfig} to provide configuration information
      * for creating the {@link KVManager} instance.
      *
+     * @note N/A
+     * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
      * @param config Indicates the {@link KVStore} configuration information,
      * including the user information and package name.
      * @return Returns the {@code KVManager} instance.
      * @throws Throws exception if input is invalid.
-     * @since 7
      */
     function createKVManager(config: KVManagerConfig, callback: AsyncCallback<KVManager>): void;
     function createKVManager(config: KVManagerConfig): Promise<KVManager>;
 
     /**
-     * Provides interfaces to manage a {@code KVStore} database,
-     * including obtaining, closing, and deleting the {@code KVStore}.
+     * Provides interfaces to manage a {@code KVStore} database, including obtaining, closing, and deleting the {@code KVStore}.
      *
-     * @devices phone, tablet
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @since 7
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
      * @version 1
      */
     interface KVManager {
         /**
          * Creates and obtains a {@code KVStore} database by specifying {@code Options} and {@code storeId}.
          *
+         * @note N/A
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
          * @param options Indicates the options used for creating and obtaining the {@code KVStore} database,
          * including {@code isCreateIfMissing}, {@code isEncrypt}, and {@code KVStoreType}.
          * @param storeId Identifies the {@code KVStore} database.
          * The value of this parameter must be unique for the same application,
          * and different applications can share the same value.
-         * @return Returns a {@code KVStore}, or {@code SingleKVStore},
-         * @since 7
+         * @return Returns a {@code KVStore}, or {@code SingleKVStore}.
          */
         getKVStore<T extends KVStore>(storeId: string, options: Options): Promise<T>;
         getKVStore<T extends KVStore>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
+
+        /**
+         * Closes the {@code KvStore} database.
+         * 
+         * <p>Warning: This method is not thread-safe. If you call this method to stop a KvStore database that is running, your
+         * thread may crash.
+         * 
+         * <p>The {@code KvStore} database to close must be an object created by using the {@code getKvStore} method. Before using this 
+         * method, release the resources created for the database, for example, {@code KvStoreResultSet} for {@code SingleKvStore},
+         * otherwise closing the database will fail. If you are attempting to close a database that is already closed, an error
+         * will be returned.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param kvStore Indicates the {@code KvStore} database to close.
+         * @throws Throws this exception if any of the following errors
+         * occurs:{@code INVALID_ARGUMENT}, {@code ERVER_UNAVAILABLE},
+         * {@code STORE_NOT_OPEN}, {@code STORE_NOT_FOUND}, {@code DB_ERROR},
+         * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+         */
+        closeKVStore(appId: string, storeId: string, kvStore: KVStore, callback: AsyncCallback<void>): void;
+        closeKVStore(appId: string, storeId: string, kvStore: KVStore): Promise<void>;
+
+        /**
+         * Deletes the {@code KvStore} database identified by storeId.
+         * 
+         * <p>Before using this method, close all {@code KvStore} instances in use that are identified by the same storeId.
+         * 
+         * <p>You can use this method to delete a {@code KvStore} database not in use. After the database is deleted, all its data will be
+         * lost.
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param storeId Identifies the {@code KvStore} database to delete.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code INVALID_ARGUMENT},
+         * {@code SERVER_UNAVAILABLE}, {@code STORE_NOT_FOUND},
+         * {@code DB_ERROR}, {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+         */
+        deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
+        deleteKVStore(appId: string, storeId: string): Promise<void>;
+
+        /**
+         * Obtains the storeId of all {@code KvStore} databases that are created by using the {@code getKvStore} method and not deleted by
+         * calling the {@code deleteKvStore} method.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car 
+         * @returns Returns the storeId of all created {@code KvStore} databases. 
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code DB_ERROR},
+         * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
+         */
+        getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
+        getAllKVStoreId(appId: string): Promise<string[]>;
+
+        /**
+         * register DeviceChangeCallback to get notification when device's status changed
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car 
+         * @param deathCallback device change callback {@code DeviceChangeCallback}
+         * @throws 	exception maybe occurs.
+         */
+        on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
+
+        /**
+         * unRegister DeviceChangeCallback and can not receive notification
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car 
+         * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
+         * @throws exception maybe occurs.
+         */
+        off(event: 'distributedDataServiceDie', deathCallback?: Callback<void>): void;
     }
 }
 
