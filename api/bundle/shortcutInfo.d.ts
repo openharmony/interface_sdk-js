@@ -21,87 +21,99 @@
   * @permission NA
   * @devices phone, tablet, tv, wearable, car
   */
-export interface ShortcutWant{
-  /**
-    * @default Indicates the target bundle of the shortcut want
+  export interface ShortcutWant{
+    /**
+      * @default Indicates the target bundle of the shortcut want
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly targetBundle: string;
+    /**
+      * @default Indicates the target class of the shortcut want
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly targetClass: string;
+  }
+  
+   /**
+    * @name  Provides information about a shortcut, including the shortcut ID and label.
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @permission NA
+    * @devices phone, tablet, tv, wearable, car
     */
-  readonly targetBundle: string;
-  /**
-    * @default Indicates the target class of the shortcut want
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly targetClass: string;
-}
-
- /**
-  * @name  Provides information about a shortcut, including the shortcut ID and label.
-  * @since 7
-  * @SysCap SystemCapability.Appexecfwk
-  * @permission NA
-  * @devices phone, tablet, tv, wearable, car
-  */
-export interface ShortcutInfo {
-  /**
-    * @default Indicates the ID of the application to which this shortcut belongs
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly id: string;
-  /**
-    * @default Indicates the name of the bundle containing the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly bundleName: string;
-  /**
-    * @default Indicates the host ability of the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly hostAbility: string;
-  /**
-    * @default Indicates the icon of the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly icon: string;
-  /**
-    * @default Indicates the label of the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly label: string;
-  /**
-    * @default Indicates the disableMessage of the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly disableMessage: string;
-  /**
-    * @default Indicates the wants of the shortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly wants: Array<ShortcutWant>;
-  /**
-    * @default Indicates whether the shortcut is static
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly isStatic?: boolean
-  /**
-    * @default Indicates whether the shortcut is homeshortcut
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly isHomeShortcut?: boolean;
-  /**
-    * @default Indicates whether the shortcut is enabled
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  readonly isEnabled?: boolean;
-}
+  export interface ShortcutInfo {
+    /**
+      * @default Indicates the ID of the application to which this shortcut belongs
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly id: string;
+    /**
+      * @default Indicates the name of the bundle containing the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly bundleName: string;
+    /**
+      * @default Indicates the host ability of the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly hostAbility: string;
+    /**
+      * @default Indicates the icon of the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly icon: string;
+     /**
+      * @default Indicate s the icon id of the shortcut
+      * @since 8
+      * @SysCap SystemCapability.Appexecfwk
+      */
+     readonly iconId: number;
+    /**
+      * @default Indicates the label of the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly label: string;
+     /**
+      * @default Indicates the label id of the shortcut
+      * @since 8
+      * @SysCap SystemCapability.Appexecfwk
+      */
+     readonly labelId: number;
+    /**
+      * @default Indicates the disableMessage of the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly disableMessage: string;
+    /**
+      * @default Indicates the wants of the shortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly wants: Array<ShortcutWant>;
+    /**
+      * @default Indicates whether the shortcut is static
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly isStatic?: boolean
+    /**
+      * @default Indicates whether the shortcut is homeshortcut
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly isHomeShortcut?: boolean;
+    /**
+      * @default Indicates whether the shortcut is enabled
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    readonly isEnabled?: boolean;
+  }

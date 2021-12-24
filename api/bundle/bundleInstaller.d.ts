@@ -104,4 +104,18 @@ export interface BundleInstaller {
    * @permission ohos.permission.INSTALL_BUNDLE
    */
   uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+
+  /**
+   * recover an application.
+   *
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @devices phone, tablet, tv, wearable, car
+   * @param bundleName Indicates the bundle name of the application to be recovered.
+   * @param installParam Indicates other parameters required for the recover.
+   * @return InstallStatus
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @systemapi Hide this for inner system use
+   */
+   recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }

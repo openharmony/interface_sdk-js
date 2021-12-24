@@ -20,7 +20,7 @@
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
  */
-export interface ModuleInfo {
+ export interface ModuleInfo {
   /**
    * The module name.
    *
