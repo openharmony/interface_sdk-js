@@ -20,18 +20,25 @@
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
  */
-export interface CustomizeData {
-  /**
-    * @default Indicates the custom metadata name
-    * @since 7
+  export interface CustomizeData {
+    /**
+      * @default Indicates the custom metadata name
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    name: string;
+  
+    /**
+      * @default Indicates the custom metadata value
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    value: string;
+  
+    /**
+    * @default Indicates the custom metadata resource
+    * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-  name: string;
-
-  /**
-    * @default Indicates the custom metadata value
-    * @since 7
-    * @SysCap SystemCapability.Appexecfwk
-    */
-  value: string;
-}
+    extra: string;
+  }

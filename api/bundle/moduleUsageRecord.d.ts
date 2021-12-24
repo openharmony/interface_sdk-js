@@ -21,7 +21,7 @@
  * @devices phone, tablet, tv, wearable, car
  * @systemapi hide this for inner system use
  */
-export interface ModuleUsageRecord {
+ export interface ModuleUsageRecord {
   /**
     * @default Indicates the name of the bundle containing the module
     * @since 7
