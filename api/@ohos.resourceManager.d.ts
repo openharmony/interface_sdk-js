@@ -358,6 +358,23 @@ export interface ResourceManager {
      * @since 6
      */
     getPluralString(resId: number, num: number): Promise<string>;
-}
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return the raw file resource.
+     * @since 8
+     */
+    getRawFile(path: string, callback: AsyncCallback<Uint8Array>);
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @return Returns the raw file resource corresponding to the specified resource path.
+     * @since 8
+     */
+    getRawFile(path: string): Promise<Uint8Array>;
 }
 export default resmgr;
