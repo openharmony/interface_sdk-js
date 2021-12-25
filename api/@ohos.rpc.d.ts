@@ -13,40 +13,42 @@
  * limitations under the License.
  */
 
-/**
- * A data object used for remote procedure call (RPC).
- * <p>
- * During RPC, the sender can use the write methods provided by {@link MessageParcel} to
- * write the to-be-sent data into a {@link MessageParcel} object in a specific format, and the receiver can use the
- * read methods provided by {@link MessageParcel} to read data of the specific format from the {@link MessageParcel} object.
- * <p>
- * <p>
- * The default capacity of a {@link MessageParcel} instance is 200KB. If you want more or less, use {@link #setCapacity(int)}
- * to change it.
- * </p>
- * <b>Note</b>: Only data of the following data types can be written into or read from a {@link MessageParcel}: byte,
- * byteArray, short, shortArray, int, intArray, long, longArray, float, floatArray, double, doubleArray, boolean,
- * booleanArray, char, charArray, String, StringArray, {@link PlainBooleanArray}, {@link Serializable},
- * {@link Sequenceable}, and SequenceableArray.
- *
- * @since 7
- * @sysCap SystemCapability.RPC
- * @devices phone, tablet, tv, wearable, car
- * @import import rpc from '@ohos.rpc';
- */
+import { AsyncCallback } from './basic'
 
 declare namespace rpc {
+    /**
+     * A data object used for reomote procedure call (RPC).
+     * <p>
+     * During RPC, the sender can use the write methods provided by {@link MessageParcel} to
+     * write the to-be-sent data into a {@link MessageParcel} object in a specific format, and the receiver can use the
+     * read methods provided by {@link MessageParcel} to read data of the specific format from the {@link MessageParcel} object.
+     * <p>
+     * <p>
+     * The default capacity of a {@link MessageParcel} instance is 200KB. If you want more or less, use {@link #setCapacity(int)}
+     * to change it.
+     * </p>
+     * <b>Note</b>: Only data of the following data types can be written into or read from a {@link MessageParcel}: byte,
+     * byteArray, short, shortArray, int, intArray, long, longArray, float, floatArray, double, doubleArray, boolean,
+     * booleanArray, char, charArray, String, StringArray, {@link IRemoteObject}, IRemoteObjectArray,
+     * {@link Sequenceable}, and SequenceableArray.
+     *
+     * @since 7
+     * @sysCap SystemCapability.RPC
+     * @devices phone, tablet, tv, wearable, car
+     * @import import rpc from '@ohos.rpc'
+     */
     class MessageParcel {
         /**
-         * Creates an empty {@link MessageParcel} object with index 0.
+         * Creates an empty {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
+         * @return Returns the object created.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         static create(): MessageParcel;
 
         /**
-         * Clears data in the {@link MessageParcel} object.
+         * Reclaims the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
          * @devices phone, tablet, tv, wearable, car
          * @since 7
@@ -56,6 +58,8 @@ declare namespace rpc {
         /**
          * Serializes a remote object and writes it to the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
+         * @param object Remote object to serialize.
+         * @return Returns true if it is successful; returns false otherwise.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
@@ -64,6 +68,7 @@ declare namespace rpc {
         /**
          * Reads a remote object from {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
+         * @return Returns the remote object.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
@@ -72,6 +77,7 @@ declare namespace rpc {
         /**
          * Writes an interface token into the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
+         * @param token Interface descriptor to write.
          * @return Returns {@code true} if the interface token has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @devices phone, tablet, tv, wearable, car
@@ -135,8 +141,8 @@ declare namespace rpc {
         /**
          * Obtains the writable data space (in bytes) in the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
-         * <p>Writable data space = Storage capacity of the {@link MessageParcel} - Size of data contained in the {@link MessageParcel}.
-         * 
+         * <p>Writable data space = Storage capacity of the {@link MessageParcel} – Size of data contained in the {@link MessageParcel}.
+         *
          * @return Returns the writable data space of the {@link MessageParcel} object.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
@@ -146,8 +152,8 @@ declare namespace rpc {
         /**
          * Obtains the readable data space (in bytes) in the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
-         * <p>Readable data space = Size of data contained in the {@link MessageParcel} - Size of data that has been read.
-         * 
+         * <p>Readable data space = Size of data contained in the {@link MessageParcel} – Size of data that has been read.
+         *
          * @return Returns the readable data space of the {@link MessageParcel} object.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
@@ -197,6 +203,25 @@ declare namespace rpc {
          * @since 7
          */
         rewindWrite(pos: number): boolean;
+
+        /**
+         * Writes information to this MessageParcel object indicating that no exception occurred.
+         * <p>After handling requests, you should call this method before writing any data to reply {@link MessageParcel}.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        writeNoException(): void;
+
+        /**
+         * Reads the exception information from this MessageParcel object.
+         * <p>If exception was thrown in server side, it will be thrown here.
+         * This method should be called before reading any data from reply {@link MessageParcel}
+         * if {@link writeNoException} was invoked in server side.
+         * @throws Throws an exception if it thrown in server side.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readException(): void;
 
         /**
          * Writes a byte value into the {@link MessageParcel} object.
@@ -457,6 +482,16 @@ declare namespace rpc {
         writeSequenceableArray(sequenceableArray: Sequenceable[]): boolean;
 
         /**
+         * Writes an array of {@link IRemoteObject} objects to this {@link MessageParcel} object.
+         * @param objectArray Array of {@link IRemoteObject} objects to write.
+         * @return Returns {@code true} if the {@link IRemoteObject} array is successfully written to the {@link MessageParcel};
+         *         returns false if the {@link IRemoteObject} array is null or fails to be written to the {@lini MessageParcel}.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
+
+        /**
          * Reads a byte value from the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a byte value.
@@ -538,9 +573,11 @@ declare namespace rpc {
         readString(): string;
 
         /**
-         * Reads a short string value from the {@link MessageParcel} object.
+         * Reads a {@link Sequenceable} object from the {@link MessageParcel} instance.
+         * @param dataIn Indicates the {@link Sequenceable} object that needs to perform the {@code unmarshalling} operation
+     *        using the {@link MessageParcel}.
          * @sysCap SystemCapability.RPC_MessageParcel
-         * @return Returns a short string value.
+         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
@@ -549,11 +586,11 @@ declare namespace rpc {
         /**
          * Writes a byte array into the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
-         * @param dataIn Indicates the byte array to write.
+         * @param dataIn Indicates the byte array read from MessageParcel.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this MessageParcel is insufficient,
-         *         exception message: {@link MessageParcelException#NO_CAPACITY_ERROR}.
+         *         exception message: {@link *MessageParcelException#NO_CAPACITY_ERROR}.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
@@ -569,12 +606,9 @@ declare namespace rpc {
         readByteArray(): number[];
 
         /**
-         * Reads all bytes from the {@link MessageParcel} object.
+         * Reads a short integer array from the {@link MessageParcel} object.
          * @sysCap SystemCapability.RPC_MessageParcel
-         * <p>This method is different from the {@code readByteArray} method. In this method,
-         * the {@code MessageParcel} cannot call other methods to read data, and this method can only
-         * read data written by using {@link #writeBytes}.
-         * @return Returns the bytes.
+         * @param dataIn Indicates the short integer array read from MessageParcel.
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
@@ -692,7 +726,7 @@ declare namespace rpc {
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
-        readCharArray(dataIn: boolean[]) : void;
+        readCharArray(dataIn: number[]) : void;
 
         /**
          * Reads a single character array from the {@link MessageParcel} object.
@@ -701,7 +735,7 @@ declare namespace rpc {
          * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
-        readCharArray(): boolean[];
+        readCharArray(): number[];
 
         /**
          * Reads a string array from the {@link MessageParcel} object.
@@ -721,34 +755,181 @@ declare namespace rpc {
          * @since 7
          */
         readStringArray(): string[];
+
+        /**
+         * Reads the specified {@link Sequenceable} array from this {@link MessageParcel} object.
+         * @param sequenceableArray Sequenceable array to read.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readSequenceableArray(sequenceableArray Sequenceable[]): void;
+
+        /**
+         * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
+         * @param objects Reads data from this {@link MessageParcel} object to the specified {@link IRemoteObject} array.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readRemoteObjectArray(objects: IRemoteObject[]): void;
+
+        /**
+         * Reads {@link IRemoteObject} objects from this {@link MessageParcel} object.
+         * @return An array of {@link IRemoteObject} objects obtained.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readRemoteObjectArray(): IRemoteObject[];
+
+        /**
+         * Closes the specified file descriptor.
+         * @param fd File descriptor to be closed.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        static closeFileDescriptor(fd: number): void;
+
+        /**
+         * Duplicates the specified file descriptor.
+         * @param fd File descriptor to be duplicated.
+         * @return A duplicated file descriptor.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        static dupFileDescriptor(fd: number) :number;
+
+        /**
+         * Checks whether this {@link MessageParcel} object contains a file descriptor.
+         * @return Returns true if the {@link MessageParcel} object contains a file descriptor;
+         * returns false otherwise.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        containFileDescriptors(): boolean;
+
+        /**
+         * Writes a file descriptor to this {@link MessageParcel} object.
+         * @param fd File descriptor to wrote.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        writeFileDescriptor(fd: number): boolean;
+
+        /**
+         * Reads a file descriptor from this {@link MessageParcel} object.
+         * @return File descriptor obtained.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readFileDescriptor(): number;
+
+        /**
+         * Writes an anonymous shared memory object to this {@link MessageParcel} object.
+         * @param ashmem Anonymous shared memory object to wrote.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        writeAshmem(ashmem: Ashmem): boolean;
+
+        /**
+         * Reads the anonymous shared memory object from this {@link MessageParcel} object.
+         * @return Anonymous share object obtained.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readAshmem(): Ashmem;
+
+        /**
+         * Obtains the maximum amount of raw data that can be sent in a time.
+         * @return 128 MB.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        getRawDataCapacity(): number;
+
+        /**
+         * Writes raw data to this {@link MessageParcel} object.
+         * @param rawData Raw data to wrote.
+         * @param size Size of the raw data, in bytes.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        writeRawData(rawData: number[], size: number): boolean;
+
+        /**
+         * Reads raw data from this {@link MessageParcel} object.
+         * @param size Size of the raw data to read.
+         * @return Raw data obtained, in bytes.
+         * @device phone, tablet, tv, wearable, car
+         * @since 8
+         */
+        readRawData(size: number): number[];
     }
 
     interface Sequenceable {
-         /**
-          * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
-          *
-          * @sysCap SystemCapability.RPC_Sequenceable
-          * @param dataOut Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
-          *        object will be marshaled..
-          * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
-          * @throws ParcelException Throws this exception if the operation fails.
-          * @devices phone, tablet, tv, wearable, car
-          * @since 7
-          */
-         marshalling(dataOut: MessageParcel): boolean;
+        /**
+         * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
+         *
+         * @sysCap SystemCapability.RPC_Sequenceable
+         * @param dataOut Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
+         *        object will be marshaled..
+         * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
+         * @throws ParcelException Throws this exception if the operation fails.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 7
+         */
+        marshalling(dataOut: MessageParcel): boolean;
 
-         /**
-          * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
-          *
-          * @sysCap SystemCapability.RPC_Sequenceable
-          * @param dataIn Indicates the {@link MessageParcel} object into which the {@code Sequenceable}
-          *        object has been marshaled..
-          * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
-          * @throws ParcelException Throws this exception if the operation fails.
-          * @devices phone, tablet, tv, wearable, car
-          * @since 7
-          */
-         unmarshalling(dataIn: MessageParcel) : boolean;
+        /**
+         * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
+         *
+         * @sysCap SystemCapability.RPC_Sequenceable
+         * @param dataIn Indicates the {@link MessageParcel} object into which the {@code Sequenceable}
+         *        object has been marshaled.
+         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
+         * @throws ParcelException Throws this exception if the operation fails.
+         * @devices phone, tablet, tv, wearable, car
+         * @since 7
+         */
+        unmarshalling(dataIn: MessageParcel) : boolean;
+    }
+
+    /**
+     * Defines the response to the request.
+     * <p> SendRequestResult object contains four members,
+     * namely error code of this operation, rquest code, data parcel
+     * and reply parcel.
+     * @since 8
+     * @import import rpc from '@ohos.rpc'
+     */
+    interface SendRequestResult {
+        /**
+         * Error code. 0 indicates successful, otherwise it is failed.
+         * @since 8
+         */
+        errCode: number;
+
+        /**
+         * Message code. It is same as the code in {@link SendRequest} method.
+         * @since 8
+         */
+        code: number;
+
+        /**
+         * MessageParcel object sent to the peer process.
+         * It is the same object in {@link SendRequest} method.
+         * @since 8
+         */
+        data: MessageParcel;
+
+        /**
+         * MessageParcel object returned by the peer process.
+         * It is the same object in {@link SendRequest} method.
+         * @since 8
+         */
+        reply: MessageParcel;
     }
 
     interface IRemoteObject {
@@ -759,7 +940,7 @@ declare namespace rpc {
          * {@code null} is returned for an interface used by the service user,
          * indicating that the interface is not a local one.
          *
-         * @param descriptor Indicates a string of the interface descriptor.
+         * @param descriptor Indicates the interface descriptor.
          * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
          * @since 7
          */
@@ -778,16 +959,50 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object sent to the peer process.
          * @param reply Indicates the {@link MessageParcel} object returned by the peer process.
          * @param options Indicates the synchronous or asynchronous mode to send messages.
-         * @return Returns a promise.
+         * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if the method fails to be called.
+         * @deprecated since 8
          * @since 7
          */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<void>;
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a promise will be fulfilled when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * @returns Promise used to return the {@link SendRequestResult} instance.
+         * @throws Throws an exception if the method fails to be called.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
 
         /**
          * Registers a callback used to receive notifications of the death of a remote object.
-         *
-         * <p>This method is called if the remote object process matching the {@link RemoteProxy} object dies.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
@@ -849,29 +1064,29 @@ declare namespace rpc {
         /**
          * Indicates synchronous call.
          */
-        TF_SYNC = 0,
+        TF_SYNC = 0;
 
         /**
          * Indicates asynchronous call.
          */
-        TF_ASYNC = 1,
+        TF_ASYNC = 1;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
          */
-        TF_ACCEPT_FDS = 0x10,
+        TF_ACCEPT_FDS = 0x10;
 
         /**
-         * Indicates the wait time for RPC, in seconds.
+         * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          */
-        TF_WAIT_TIME = 8,
+        TF_WAIT_TIME  = 4;
 
         /**
          * A constructor used to create a MessageOption instance.
          *
          * @param syncFlags Specifies whether the SendRequest is called synchronously (default) or asynchronously.
          * @param waitTime Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
-         * @since 7
+         * @since 8
          */
         constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
 
@@ -879,7 +1094,7 @@ declare namespace rpc {
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @return Returns whether the SendRequest is called synchronously or asynchronously.
-         * @since 7
+         * @since 8
          */
         getFlags(): number;
 
@@ -887,7 +1102,7 @@ declare namespace rpc {
          * Sets the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @param flags Indicates the call flag, which can be synchronous or asynchronous.
-         * @since 7
+         * @since 8
          */
         setFlags(flags: number): void;
 
@@ -895,7 +1110,7 @@ declare namespace rpc {
          * Obtains the maximum wait time for this RPC call.
          *
          * @return Returns maximum wait time obtained.
-         * @since 7
+         * @since 8
          */
         getWaitTime(): number;
 
@@ -903,7 +1118,7 @@ declare namespace rpc {
          * Sets the maximum wait time for this RPC call.
          *
          * @param waitTime Indicates maximum wait time to set.
-         * @since 7
+         * @since 8
          */
         setWaitTime(waitTime: number): void;
     }
@@ -913,7 +1128,7 @@ declare namespace rpc {
          * A constructor to create a RemoteObject instance.
          *
          * @param descriptor Specifies interface descriptor.
-         * @since 7
+         * @since 8
          */
         constructor(descriptor: string);
 
@@ -925,7 +1140,7 @@ declare namespace rpc {
          * if no such remote object is found.
          * @since 7
          */
-        queryLocalInterface(interface: string): IRemoteObject;
+        queryLocalInterface(descriptor: string): IRemoteBroker;
 
         /**
          * Queries an interface descriptor.
@@ -962,10 +1177,46 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns a promise.
+         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @deprecated since 8
          * @since 7
          */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<void>;
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a promise will be fulfilled when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * @returns Promise used to return the {@link SendRequestResult} instance.
+         * @throws Throws an exception if the method fails to be called.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
 
         /**
          * Obtains the PID of the {@link RemoteProxy} object.
@@ -999,31 +1250,31 @@ declare namespace rpc {
         /**
          * Indicates the message code for a Ping operation.
          */
-        PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G',
+        PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
 
         /**
          * Indicates the message code for a dump operation.
          */
-        DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P',
+        DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
 
         /**
          * Indicates the message code for a transmission.
          */
-        INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F',
+        INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
 
         /**
          * Indicates the minimum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
          */
-        MIN_TRANSACTION_ID = 0x1,
+        MIN_TRANSACTION_ID = 0x1;
 
         /**
          * Indicates the maximum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
          */
-        MAX_TRANSACTION_ID = 0x00FFFFFF,
+        MAX_TRANSACTION_ID = 0x00FFFFFF;
 
         /**
          * Queries a local interface with a specified descriptor.
@@ -1032,7 +1283,7 @@ declare namespace rpc {
          * @return Returns null by default, indicating a proxy interface.
          * @since 7
          */
-        queryLocalInterface(interface: string): IRemoteObject;
+        queryLocalInterface(interface: string): IRemoteBroker;
 
         /**
          * Registers a callback used to receive death notifications of a remote object.
@@ -1072,11 +1323,47 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns a promise.
+         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote object exception occurs.
+         * @deprecated since 8
          * @since 7
          */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<void>;
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a promise will be fulfilled when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * @returns Promise used to return the {@link sendRequestResult} instance.
+         * @throws Throws an exception if the method fails to be called.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+
+        /**
+         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageParcel} object holding the data to send.
+         * param reply {@link MessageParcel} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @since 8
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
 
         /**
          * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
@@ -1190,6 +1477,126 @@ declare namespace rpc {
          * @since 7
          */
         static setCallingIdentity(identity: string): boolean;
+    }
+
+    /**
+     * Provides methods related to anonymous shared memory objects,
+     * including creating, closing, mapping, and unmapping an Ashmem object,
+     * reading data from and writing data to an Ashmem object,
+     * obtaining the Ashmem size, and setting Ashmem protection.
+     * @since 8
+     */
+    class Ashmem {
+        /**
+         * The mapped memory is executable.
+         * @since 8
+         */
+        PROT_EXEC = 4;
+
+        /**
+         * The mapped memory is inaccessible.
+         * @since 8
+         */
+        PROT_NONE = 0;
+
+        /**
+         * The mapped memory is readable.
+         * @since 8
+         */
+        PROT_READ = 1;
+
+        /**
+         * The mapped memory is writeable.
+         * @since 8
+         */
+        PROT_WRITE = 2;
+
+        /**
+         * Creates an Ashmem object with the specified name and size.
+         * @param name Name of the Ashmem object to create.
+         * @param size Size (in bytes) of the Ashmem object to create.
+         * @return Returns the Ashmem object if it is created successfully; returns null otherwise.
+         * @since 8
+         */
+        static createAshmem(name: string, size: number): Ashmem;
+
+        /**
+         * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
+         * The two Ashmem objects point to the same shared memory region.
+         * @param ashmem Existing Ashmem object.
+         * @return Ashmem object created.
+         * @since 8
+         */
+        static createAshmemFromExisting(ashmem: Ashmem): Ashmem;
+
+        /**
+         * Closes this Ashmem object.
+         * @since 8
+         */
+        closeAshmem(): void;
+
+        /**
+         * Deletes the mappings for the specified address range of this Ashmem object.
+         * @since 8
+         */
+        unmapAshmem(): void;
+
+        /**
+         * Obtains the mapped memory size of this Ashmem object.
+         * @return Memory size mapped.
+         * @since 8
+         */
+        getAshmemSize(): number;
+
+        /**
+         * Creates the shared file mapping on the virtual address space of this process.
+         * The size of the mapping region is specified by this Ashmem object.
+         * @param mapType Protection level of the memory region to which the shared file is mapped.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @since 8
+         */
+        mapAshmem(mapType: number): boolean;
+
+        /**
+         * Maps the shared file to the readable and writable virtual address space of the process.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @since 8
+         */
+        mapReadAndWriteAshmem(): boolean;
+
+        /**
+         * Maps the shared file to the read-only virtual address space of the process.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @since 8
+         */
+        mapReadOnlyAshmem(): boolean;
+
+        /**
+         * Sets the protection level of the memory region to which the shared file is mapped.
+         * @param protectionType Protection type to set.
+         * @return Returns true if the operation is successful; returns false otherwise.
+         * @since 8
+         */
+        setProtection(protectionType: number): boolean;
+
+        /**
+         * Writes data to the shared file associated with this Ashmem object.
+         * @param buf Data to write
+         * @param size Size of the data to write
+         * @param offset Start position of the data to write in the memory region associated with this Ashmem object.
+         * @return Returns true is the data is written successfully; returns false otherwise.
+         * @since 8
+         */
+        writeToAshmem(buf: number[], size: number, offset: number): boolean;
+
+        /**
+         * Reads data from the shared file associated with this Ashmem object.
+         * @param size Size of the data to read.
+         * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
+         * @return Data read.
+         * @since 8
+         */
+        readFromAshmem(size: number, offset: number): number[];
     }
 }
 
