@@ -640,6 +640,39 @@ declare namespace distributedData {
     }
 
     /**
+     * Represents the database schema.
+     * 
+     * You can create Schema objects and put them in Options when creating or opening the database.
+     * 
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    class Schema {
+        /**
+         * A constructor used to create a Schema instance.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        constructor()
+        /**
+         * Obtains the schema in json format.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car 
+         * @returns Returns the schema in json format.
+         */
+        toJsonString():string;
+    }
+
+    /**
      * Represents a node of a {@link Schema} instance.
      * 
      * <p>Through the {@link Schema} instance, you can define the fields contained in the values stored in a database.
@@ -654,7 +687,17 @@ declare namespace distributedData {
      * @import N/A
      * @permission N/A
      */
-    interface FieldNode {
+    class FieldNode {
+        /**
+         * A constructor used to create a FieldNode instance with the specified field.
+         * name Indicates the field node name.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        constructor(name: string)
         /**
          * Adds a child node to this {@code FieldNode}.
          * 
@@ -845,7 +888,16 @@ declare namespace distributedData {
      * @import N/A
      * @permission N/A
      */
-    interface Query {
+    class Query {
+        /**
+         * A constructor used to create a Query instance.
+         * 
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        constructor()        
         /**
          * Resets this {@code Query} object.
          * 
