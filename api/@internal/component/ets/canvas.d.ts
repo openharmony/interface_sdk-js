@@ -998,7 +998,7 @@ declare class CanvasRenderer extends CanvasPath {
  * Draw context object for the Canvas component.
  * @since 8
  */
-export declare class RenderingContext extends CanvasRenderer {
+export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    * @since 8
@@ -1032,7 +1032,7 @@ export declare class RenderingContext extends CanvasRenderer {
  * Draw context object for the OffscreenCanvas component.
  * @since 8
  */
-export declare class OffscreenRenderingContext extends CanvasRenderer {
+export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    * @param type Image format. The default value is image/png.
@@ -1097,10 +1097,10 @@ export declare interface OffscreenCanvas extends CanvasRenderer {
 interface Canvas extends CanvasAttribute<Canvas> {
   /**
    * Construct a canvas component.
-   * @param context Canvas context object. For details, see {@link RenderingContext}.
+   * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @since 8
    */
-  (context?: RenderingContext): Canvas;
+  (context?: CanvasRenderingContext2D): Canvas;
 }
 
 declare class CanvasAttribute<T> extends CommonMethod<T> {

@@ -33,12 +33,6 @@ export declare enum SliderStyle {
    * @since 7
    */
   InSet,
-
-  /**
-   * Capsule style slider.
-   * @since 8
-   */
-  Capsule,
 }
 
 /**
