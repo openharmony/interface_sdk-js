@@ -575,7 +575,7 @@ declare namespace rpc {
         /**
          * Reads a {@link Sequenceable} object from the {@link MessageParcel} instance.
          * @param dataIn Indicates the {@link Sequenceable} object that needs to perform the {@code unmarshalling} operation
-     *        using the {@link MessageParcel}.
+         *        using the {@link MessageParcel}.
          * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @devices phone, tablet, tv, wearable, car
