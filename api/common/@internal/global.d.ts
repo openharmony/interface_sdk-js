@@ -52,32 +52,6 @@ export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
- * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
- * After obtaining the instance, you can call the function with the same name on the Java side.
- * @param name Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
- * @returns A promise object is returned. The resolve callback is the object of PA. The reject callback returns the object containing code and error data
- * @devices tv, phone, tablet, wearable, liteWearable, smartVision
- * @since 3
- */
-export declare function createLocalParticleAbility(name?: string): any;
-
-/**
- * Sets a vsync after which a function will be executed.
- * @param handler Indicates the function to be called when the vsync trigger.
- * @devices tv, phone, tablet, wearable
- * @since 3
- */
-export declare function requestAnimationFrame(handler: Function): number;
-
-/**
- * Cancels the vsync callback set by "requestAnimationFrame()".
- * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
- * @devices tv, phone, tablet, wearable
- * @since 3
- */
-export declare function cancelAnimationFrame(requestId: number): void;
-
-/**
  * Obtain the objects exposed in app.js
  * @devices tv, phone, tablet, wearable, smartVision
  * @since 6

@@ -104,25 +104,11 @@ ohos_copy("common_api") {
   sources = [
     "api/@ohos.wifi.d.ts",
     "api/common/@system.app.d.ts",
-    "api/common/@system.battery.d.ts",
-    "api/common/@system.bluetooth.d.ts",
-    "api/common/@system.brightness.d.ts",
-    "api/common/@system.cipher.d.ts",
     "api/common/@system.configuration.d.ts",
-    "api/common/@system.device.d.ts",
-    "api/common/@system.fetch.d.ts",
     "api/common/@system.file.d.ts",
-    "api/common/@system.geolocation.d.ts",
     "api/common/@system.mediaquery.d.ts",
-    "api/common/@system.network.d.ts",
-    "api/common/@system.notification.d.ts",
-    "api/common/@system.package.d.ts",
     "api/common/@system.prompt.d.ts",
-    "api/common/@system.request.d.ts",
     "api/common/@system.router.d.ts",
-    "api/common/@system.sensor.d.ts",
-    "api/common/@system.storage.d.ts",
-    "api/common/@system.vibrator.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
