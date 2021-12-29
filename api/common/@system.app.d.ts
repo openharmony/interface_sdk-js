@@ -47,19 +47,6 @@ export interface AppResponse {
 }
 
 /**
- * @devices phone, tablet
- */
-export interface RequestFullWindowOptions {
-  /**
-   * Duration for transition from non-full window to full window, in milliseconds.
-   * By default, the value is in direct proportion to the distance between the non-full window and the full window.
-   * @devices phone, tablet
-   * @since 3
-   */
-  duration?: number
-}
-
-/**
  * @devices wearable, liteWearable
  */
 export interface ScreenOnVisibleOptions {
@@ -109,13 +96,6 @@ export default class App {
   static terminate(): void;
 
   /**
-   * Keeps the application visible after the screen is woken up.
-   * This method prevents the system from returning to the home screen when the screen is locked.
-   * @devices wearable, liteWearable
-   */
-  static screenOnVisible(options?: ScreenOnVisibleOptions): void;
-
-  /**
    * Requests the application to run in full window.
    * In some scenarios, such as semi-modal FA, the FA runs in non-full window.
    * In this case, you can call this API.
@@ -125,28 +105,4 @@ export default class App {
    * @devices phone, tablet
    */
   static requestFullWindow(options?: RequestFullWindowOptions): void;
-
-  /**
-   * Set image cache capacity of decoded image count.
-   * If not set, the application will not cache any decoded image.
-   * @param value  capacity of decoded image count
-   * @devices tv, phone, tablet, wearable
-   */
-  static setImageCacheCount(value: number): void;
-
-  /**
-   * Set image cache capacity of raw image data size in Bytes before decode.
-   * If not set, the application will not cache any raw image data.
-   * @param value  capacity of raw image data size in Bytes.
-   * @devices tv, phone, tablet, wearable
-   */
-  static setImageRawDataCacheSize(value: number): void;
-
-  /**
-   * Set image file cache size in Bytes on disk before decode.
-   * If not set, the application will not cache 100MB image files on disk.
-   * @param value  capacity of image file size in Bytes.
-   * @devices tv, phone, tablet, wearable
-   */
-  static setImageFileCacheSize(value: number): void;
 }
