@@ -899,7 +899,7 @@ declare namespace rpc {
     /**
      * Defines the response to the request.
      * <p> SendRequestResult object contains four members,
-     * namely error code of this operation, rquest code, data parcel
+     * namely error code of this operation, request code, data parcel
      * and reply parcel.
      * @since 8
      * @import import rpc from '@ohos.rpc'
