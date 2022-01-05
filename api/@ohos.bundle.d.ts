@@ -189,6 +189,30 @@ declare namespace bundle {
   }
 
   /**
+   * @name BundleOptions
+   * @since 7
+   * @SysCap SystemCapability.Appexecfwk
+   * @import NA
+   * @permission NA
+   * @devices phone, tablet, tv, wearable
+   */
+  export interface BundleOptions {
+    /**
+      * @default Indicates the user id
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    userId?: number;
+
+    /**
+      * @default Indicates the network id
+      * @since 7
+      * @SysCap SystemCapability.Appexecfwk
+      */
+    networkId?: string;
+  }
+
+  /**
    * @name InstallErrorCode
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
@@ -216,20 +240,20 @@ declare namespace bundle {
   }
 
   /**
-   * Obtains based on a given networkId and bundle name.
+   * Obtains bundleInfo based on bundleName, bundleFlags and options.
    *
    * @devices phone, tablet, tv, wearable
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
-   * @param networkId Indicates the device networkId in area network.
    * @param bundleName Indicates the application bundle name to be queried.
-   * @param flags Indicates the flag used to specify information contained in that will be
-   *              returned.
+   * @param bundleFlags Indicates the application bundle flags to be queried.
+   * @param options Indicates the bundle options object.
    * @return Returns the BundleInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED,ohos.permission.GET_BUNDLE_INFO
    */
+   function getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
    function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
-   function getBundleInfo(bundleName: string, bundleFlags: number): Promise<BundleInfo>;
+   function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
   /**
    * Obtains the interface used to install bundles.
@@ -296,13 +320,15 @@ declare namespace bundle {
    * @devices phone, tablet, tv, wearable
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
-   * @param flags Indicates the flag used to specify information contained in the BundleInfo that will be
+   * @param bundlelFlag Indicates the flag used to specify information contained in the BundleInfo that will be
    *              returned.
+   * @param userId Indicates the user id.
    * @return Returns a list of BundleInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
+  function getAllBundleInfo(bundlelFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>) : void;
   function getAllBundleInfo(bundlelFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>) : void;
-  function getAllBundleInfo(bundlelFlag: BundleFlag) : Promise<Array<BundleInfo>>;
+  function getAllBundleInfo(bundlelFlag: BundleFlag, userId?: number) : Promise<Array<BundleInfo>>;
 
   /**
    * Obtains information about all installed applications of a specified user.
