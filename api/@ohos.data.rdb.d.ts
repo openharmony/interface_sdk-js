@@ -121,7 +121,21 @@ declare namespace rdb {
          * @return Returns a ResultSet object if the operation is successful;
          */
         query(rdbPredicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(rdbPredicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
+        query(rdbPredicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+        /**
+         * Queries data in the database based on SQL statement.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param sql Indicates the SQL statement to execute.
+         * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
+         * @return Returns a ResultSet object if the operation is successful;
+         */
+        querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
+        querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
         /**
          * Executes an SQL statement that contains specified parameters but returns no value.
@@ -134,7 +148,7 @@ declare namespace rdb {
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
-        executeSql(sql: string, bindArgs: Array<ValueType>): Promise<void>;
+        executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
         /**
          * change the encrypted key(not null) if the database is configured with encrypted key.
