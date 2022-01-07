@@ -145,8 +145,41 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          * @param newEncryptKey the encrypted key is uint8 form in a vector.
          */
-        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<number>):void;
-        changeEncryptKey(newEncryptKey:Uint8Array): Promise<number>;
+        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
+        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
+
+        /**
+         * beginTransaction before excute your sql
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        beginTransaction(callback: AsyncCallback<void>):void;
+        beginTransaction(): Promise<void>;
+
+        /**
+         * commit the the sql you have excuted.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        commit(callback: AsyncCallback<void>):void;
+        commit(): Promise<void>;
+
+        /**
+         * roll back the sql you have already excuted
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         */
+        rollBack(callback: AsyncCallback<void>):void;
+        rollBack(): Promise<void>;
     }
 
     /**
