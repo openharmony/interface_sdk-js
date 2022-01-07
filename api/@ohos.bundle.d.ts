@@ -63,6 +63,20 @@ declare namespace bundle {
   }
 
 /**
+ * @name ColorMode
+ * @since 7
+ * @SysCap SystemCapability.Appexecfwk
+ * @import NA
+ * @permission NA
+ * @devices phone, tablet, tv, wearable
+ */
+  export enum ColorMode {
+    AUTO_MODE = -1,
+    DARK_MODE = 0,
+    LIGHT_MODE = 1,
+  }
+
+/**
  * @name GrantStatus
  * @since 7
  * @SysCap SystemCapability.Appexecfwk
