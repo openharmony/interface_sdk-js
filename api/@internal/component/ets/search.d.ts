@@ -17,11 +17,32 @@ import { CommonMethod } from "./common";
 import { ResourceColor, Font } from "./units";
 
 /**
+ * Provides the method of switching the cursor position.
+ * @since 8
+ */
+export declare class SearchController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  caretPosition(value: number): void;
+}
+
+/**
  * The construct function of search
  * @since 8
  */
 interface Search extends SearchAttribute<Search> {
-  (options?: { value?: string; placeholder?: string; icon?: string }): Search;
+  (options?: { value?: string;
+      placeholder?: string;
+      icon?: string;
+      controller?: SearchController
+  }): Search;
 }
 
 /**

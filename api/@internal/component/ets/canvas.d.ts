@@ -23,7 +23,7 @@ import { Matrix2D } from "./matrix2d";
  * "nonzero": (Default) Non-zero Wrap Rules
  * @since 8
  */
-export declare type CanvasFillRule = 'evenodd' | 'nonzero';
+export declare type CanvasFillRule = "evenodd" | "nonzero";
 
 /**
  * Specifies the attribute of drawing the end of each line segment. The following configurations are supported:
@@ -33,7 +33,7 @@ export declare type CanvasFillRule = 'evenodd' | 'nonzero';
  *    as the segment and is half the thickness of the segment.
  * @since 8
  */
-export declare type CanvasLineCap = 'butt' | 'round' | 'square';
+export declare type CanvasLineCap = "butt" | "round" | "square";
 
 /**
  * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length is not 0
@@ -46,7 +46,7 @@ export declare type CanvasLineCap = 'butt' | 'round' | 'square';
  *    connected section. The radius of the fillet is the width of the segment.
  * @since 8
  */
-export declare type CanvasLineJoin = 'bevel' | 'miter' | 'round';
+export declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
 /**
  * Indicates the attribute of the current text direction. The options are as follows:
@@ -55,7 +55,7 @@ export declare type CanvasLineJoin = 'bevel' | 'miter' | 'round';
  * "rtl": The text direction is from right to left.
  * @since 8
  */
-export declare type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
+export declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
 /**
  * Describes the alignment mode for drawing text. The options are as follows:
@@ -68,7 +68,7 @@ export declare type CanvasDirection = 'inherit' | 'ltr' | 'rtl';
  *    and right alignment refers to the local from right to left)
  * @since 8
  */
-export declare type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'start';
+export declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
 /**
  * Text baseline, which supports the following configurations:
@@ -82,7 +82,7 @@ export declare type CanvasTextAlign = 'center' | 'end' | 'left' | 'right' | 'sta
  * "top": The text baseline is at the top of the text block.
  * @since 8
  */
-export declare type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | 'ideographic' | 'middle' | 'top';
+export declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top";
 
 /**
  * Sets the image smoothness attribute. The options are as follows:
@@ -91,7 +91,7 @@ export declare type CanvasTextBaseline = 'alphabetic' | 'bottom' | 'hanging' | '
  * "medium": medium
  * @since 8
  */
-export declare type ImageSmoothingQuality = 'high' | 'low' | 'medium';
+export declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
  * Opaque objects that describe gradients, created by createLinearGradient() or createRadialGradient()
@@ -395,7 +395,7 @@ export declare class ImageBitmap {
  * Image data object
  * @since 8
  */
-export declare interface ImageData {
+export declare class ImageData {
   /**
    * Array containing image pixel data
    * @since 8
@@ -998,7 +998,7 @@ declare class CanvasRenderer extends CanvasPath {
  * Draw context object for the Canvas component.
  * @since 8
  */
-export declare class RenderingContext extends CanvasRenderer {
+export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    * @since 8
@@ -1032,7 +1032,7 @@ export declare class RenderingContext extends CanvasRenderer {
  * Draw context object for the OffscreenCanvas component.
  * @since 8
  */
-export declare class OffscreenRenderingContext extends CanvasRenderer {
+export declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Generate a character string in the data url format.
    * @param type Image format. The default value is image/png.
@@ -1055,14 +1055,14 @@ export declare class OffscreenRenderingContext extends CanvasRenderer {
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @since 8
    */
-  constructor(width: number, height: number, settings?: RenderingContextSettings);
+  constructor(width: number, height: number,settings?: RenderingContextSettings);
 }
 
 /**
  * Draw an object off the screen. The drawing content is not directly displayed on the screen.
  * @since 8
  */
-export declare interface OffscreenCanvas extends CanvasRenderer {
+export declare class OffscreenCanvas extends CanvasRenderer {
   /**
    * Height of the off-screen canvas.
    * @since 8
@@ -1097,10 +1097,10 @@ export declare interface OffscreenCanvas extends CanvasRenderer {
 interface Canvas extends CanvasAttribute<Canvas> {
   /**
    * Construct a canvas component.
-   * @param context Canvas context object. For details, see {@link RenderingContext}.
+   * @param context Canvas context object. For details, see {@link CanvasRenderingContext2D}.
    * @since 8
    */
-  (context?: RenderingContext): Canvas;
+  (context?: CanvasRenderingContext2D): Canvas;
 }
 
 declare class CanvasAttribute<T> extends CommonMethod<T> {

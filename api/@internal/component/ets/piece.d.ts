@@ -95,5 +95,4 @@ declare class PieceAttribute<T> extends CommonMethod<T> {
 }
 
 export declare class PieceExtend<T> extends PieceAttribute<T> {}
-
 export declare const PieceInterface: Piece;

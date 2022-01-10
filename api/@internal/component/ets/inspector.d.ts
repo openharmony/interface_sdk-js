@@ -13,10 +13,15 @@
  * limitations under the License.
  */
 
+import { TouchObject } from "./common";
+import { KeyEvent } from "./common";
+import { MouseEvent } from "./common";
+
 /**
  * Get inspector node infos.
  * @since 7
  * @systemapi
+ * @deprecated
  */
 export declare function getInspectorNodes(): object;
 
@@ -24,6 +29,7 @@ export declare function getInspectorNodes(): object;
  * Get inspector node info by node id.
  * @since 7
  * @systemapi
+ * @deprecated
  */
 export declare function getInspectorNodeById(id: number): object;
 
@@ -31,13 +37,15 @@ export declare function getInspectorNodeById(id: number): object;
  * Get inspector info by key.
  * @since 8
  * @systemapi
+ * @test
  */
-export declare function getInspectorByKey(key: string): string;
+export declare function getInspectorByKey(id: string): string;
 
 /**
  * Get inspector tree.
- * @systemapi
  * @since 8
+ * @systemapi
+ * @test
  */
 export declare function getInspectorTree(): string;
 
@@ -45,5 +53,55 @@ export declare function getInspectorTree(): string;
  * Send event to inspector by key. Return false if no inspector with key is found.
  * @since 8
  * @systemapi
+ * @test
  */
-export declare function sendEventByKey(key: string, action: number, params: string): boolean;
+export declare function sendEventByKey(id: string, action: number, params: string): boolean;
+
+/**
+ * Send touch event.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+export declare function sendTouchEvent(event: TouchObject): boolean;
+
+/**
+ * Send key event.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+export declare function sendKeyEvent(event: KeyEvent): boolean;
+
+/**
+ * Send mouse event.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+export declare function sendMouseEvent(event: MouseEvent): boolean;
+
+/**
+ * Profiler tools for inspectors.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+export declare namespace Profiler {
+  /**
+   * Registers vsync callback for profiler.
+   * @param callback the callback info is json string with ui update info.
+   * @since 8
+   * @systemapi
+   * @test
+   */
+  export function registerVsyncCallback(callback: (info: string) => void): void;
+
+  /**
+   * Unregisters vsync callback.
+   * @since 8
+   * @systemapi
+   * @test
+   */
+  export function unregisterVsyncCallback(): void;
+}

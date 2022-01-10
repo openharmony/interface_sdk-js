@@ -17,36 +17,30 @@ import { CommonMethod } from "./common";
 
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
- * @since 8
+ * @since 7
  */
 interface Counter extends CounterAttribute<Counter> {
   /**
    * Return Counter.
-   * @since 8
+   * @since 7
    */
   (): Counter;
 }
 
 /**
  * Defines the Counter attribute functions.
- * @since 8
+ * @since 7
  */
 declare class CounterAttribute<T> extends CommonMethod<T> {
   /**
-   * Listens to the value change event.
-   * @since 8
-   */
-  onStateChange(event: () => void): T;
-
-  /**
    * Listen to the event that the value increases.
-   * @since 8
+   * @since 7
    */
   onInc(event: () => void): T;
 
   /**
    * Listens to the number decrease event.
-   * @since 8
+   * @since 7
    */
   onDec(event: () => void): T;
 }

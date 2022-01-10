@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
+import { CommonMethod, ItemDragInfo } from "./common";
 import { BarState, Color } from "./enums";
 import { Scroller } from "./scroll";
 import { Length } from "./units";
@@ -27,6 +27,17 @@ interface Grid extends GridAttribute<Grid> {
    * @since 7
    */
   (scroller?: Scroller): Grid;
+}
+
+/**
+ * The enum of property layoutDirection
+ * @since 8
+ */
+export declare enum GridDirection {
+  Row,
+  Column,
+  RowReverse,
+  ColumnReverse
 }
 
 /**
@@ -86,6 +97,75 @@ declare class GridAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   cachedCount(value: number): T;
+
+  /**
+   * editMode
+   * @since 8
+   */
+  editMode(value: boolean): T;
+
+  /**
+   * maxCount
+   * @since 8
+   */
+  maxCount(value: number): T;
+
+   /**
+    * minCount
+    * @since 8
+    */
+  minCount(value: number): T;
+
+  /**
+   * cellLength
+   * @since 8
+   */
+  cellLength(value: number): T;
+
+  /**
+   * control GridDirection of the grid.
+   * @since 8
+   */
+  layoutDirection(value: GridDirection): T;
+
+  /**
+   * control if the grid supports animation.
+   * @since 8
+   */
+  supportAnimation(value: boolean): T;
+
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * @since 8
+   */
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): T;
+
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * @since 8
+   */
+  onItemDragEnter(event: (event: ItemDragInfo) => void): T;
+
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * @since 8
+   */
+  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): T;
+
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * @since 8
+   */
+  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): T;
+
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * @since 8
+   */
+  onItemDrop(event:
+    (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): T;
 }
 
 export declare class GridExtend<T> extends GridAttribute<T> {}

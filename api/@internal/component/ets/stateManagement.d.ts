@@ -378,6 +378,12 @@ export declare enum LayoutDirection {
    * @since 7
    */
   RTL,
+
+  /**
+   * Elements are laid out from auto.
+   * @since 8
+   */
+  Auto
 }
 
 /**

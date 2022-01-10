@@ -60,7 +60,7 @@ export declare interface GridContainerOption {
    * Sets the total number of columns in the current layout.
    * @since 7
    */
-  columns?: number | 'auto';
+  columns?: number | "auto";
 
   /**
    * Select the device width type.

@@ -123,6 +123,30 @@ declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   alignStyle(value: IndexerAlign): T;
+
+  /**
+   * Index bar selection callback and return the strings which display on pop-up.
+   * @since 8
+   */
+  onRequestPopupData(event: (index: number) => Array<string>): T;
+
+  /**
+   * Pop-up selection callback.
+   * @since 8
+   */
+  onPopupSelected(event: (index: number) => void): T;
+
+  /**
+   * Select the index.
+   * @since 8
+   */
+  selectedIndex(index: number): T;
+
+  /**
+   * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
+   * @since 8
+   */
+  popupPosition(value: {offsetX: number, offsetY: number}): T;
 }
 
 export declare const AlphabetIndexerInterface: AlphabetIndexer;
