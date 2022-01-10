@@ -726,7 +726,7 @@ declare namespace distributedData {
     /**
      * Provide methods to obtain the result set of the {@code KvStore} database.
      * 
-     * <p>The result set is created by using the {@code getResultSet} method in the {@code DeviceKvStore} class. This interface also provides
+     * <p>The result set is created by using the {@code getResultSet} method in the {@code DeviceKVStore} class. This interface also provides
      * methods for moving the data read position in the result set.
      * 
      * @since 7
@@ -1198,6 +1198,31 @@ declare namespace distributedData {
          * @throws Throws this exception if input is invalid. 
          */
         setSuggestIndex(index: string): Query;
+		/**
+		 * Add device ID key prefix.Used by {@code DeviceKVStore}.
+		 *
+		 * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+		 * @param deviceId Specify device id to query from.
+		 * @return Returns the {@code Query} object with device ID prefix added.
+		 * @throw Throws this exception if input is invalid.
+		 */
+		deviceId(deviceId:string):Query;
+		/**
+		 * Get a String that repreaents this {@code Query}.
+		 *
+		 * <p>The String would be parsed to DB query format.
+		 * The String length should be no longer than 500kb.
+		 * 
+		 * @since 8
+         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+		 * @return String representing this {@code Query}. 
+		 */
+		getSqlLike():string;
     }
 
     /**
@@ -1596,7 +1621,7 @@ declare namespace distributedData {
     /**
      * Manages distributed data by device in a distributed system.
      * 
-     * <p>To create a {@code DeviceKvStore} database, you can use the {@link data.distributed.common.KVManager.getKvStore(Options, String)}
+     * <p>To create a {@code DeviceKVStore} database, you can use the {@link data.distributed.common.KVManager.getKvStore(Options, String)}
      * method with {@code KvStoreType} set to {@code DEVICE_COLLABORATION} for the input parameter Options. This database manages distributed
      * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
      * into the database, the system automatically adds the ID of the device running the application to the key.
@@ -1779,7 +1804,7 @@ declare namespace distributedData {
          removeDeviceData(deviceId: string): Promise<void>;
          
         /**
-         * Synchronizes {@code DeviceKvStore} databases.
+         * Synchronizes {@code DeviceKVStore} databases.
          *
          * <p>This method returns immediately and sync result will be returned through asynchronous callback.
          * @note N/A
@@ -1787,15 +1812,15 @@ declare namespace distributedData {
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
          * @devices phone, tablet, tv, wearable, car
          * @param deviceIdList Indicates the list of IDs of devices whose
-         * {@code DeviceKvStore} databases are to be synchronized.
+         * {@code DeviceKVStore} databases are to be synchronized.
          * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
          * {@code PUSH_PULL}.
-         * @throws Throws this exception if no DeviceKvStore database is available.
+         * @throws Throws this exception if no DeviceKVStore database is available.
          */
         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
 
         /**
-         * Register Synchronizes DeviceKvStore databases callback.
+         * Register Synchronizes DeviceKVStore databases callback.
          * 
          * <p>Sync result is returned through asynchronous callback.
          * @note N/A
@@ -1803,17 +1828,17 @@ declare namespace distributedData {
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
          * @devices phone, tablet, tv, wearable, car
          * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-         * @throws Throws this exception if no DeviceKvStore database is available.
+         * @throws Throws this exception if no DeviceKVStore database is available.
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
 
         /**
-         * UnRegister Synchronizes DeviceKvStore databases callback.
+         * UnRegister Synchronizes DeviceKVStore databases callback.
          * @note N/A
          * @since 8
          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
          * @devices phone, tablet, tv, wearable, car
-         * @throws Throws this exception if no DeviceKvStore database is available.
+         * @throws Throws this exception if no DeviceKVStore database is available.
          */
         off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
     }
