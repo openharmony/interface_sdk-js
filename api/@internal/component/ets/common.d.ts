@@ -1108,32 +1108,32 @@ export declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 7
    */
-  onDrag(event: (event?: DragEvent) => void): T;
+  onDragStart(event: (event?: DragEvent, extraParams?: string) => ((() => any) | void)): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 7
    */
-  onDragEnter(event: (event?: DragEvent) => void): T;
+  onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 7
    */
-  onDragMove(event: (event?: DragEvent) => void): T;
+  onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 7
    */
-  onDragLeave(event: (event?: DragEvent) => void): T;
+  onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 7
    */
-  onDrop(event: (event?: DragEvent) => void): T;
+  onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
