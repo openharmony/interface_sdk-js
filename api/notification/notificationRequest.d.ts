@@ -18,6 +18,7 @@ import image from '../@ohos.multimedia.image';
 import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
+import { NotificationTemplate } from './notificationTemplate';
 
 /**
  * Defines a NotificationRequest instance.
@@ -189,4 +190,11 @@ export interface NotificationRequest {
    * @systemapi Hide this for inner system use.
    */
   readonly source?: number;
+
+  /**
+   * Obtains the template of this notification.
+   *
+   * @since 8
+   */
+  template?: NotificationTemplate;
 }
