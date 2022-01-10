@@ -18,12 +18,29 @@ import { CommonMethod } from "./common";
 /**
  * @since 8
  */
+export declare class XComponentController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * get the id of surface created by XComponent.
+   * @since 8
+   */
+  getXComponentSurfaceId();
+}
+
+/**
+ * @since 8
+ */
 interface XComponent extends XComponentAttribute<XComponent> {
   (value: {
       id: string;
       type: string;
-      libraryname: string;
-      source: string;
+      libraryname?: string;
+      controller?: XComponentController;
   }): XComponent;
 }
 
