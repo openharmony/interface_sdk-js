@@ -16,26 +16,37 @@
 import { CommonMethod } from "./common";
 
 /**
+ * Defines XComponentController
  * @since 8
+ * @systemapi
  */
 export declare class XComponentController {
   /**
    * constructor.
    * @since 8
+   * @systemapi
    */
   constructor();
 
   /**
    * get the id of surface created by XComponent.
    * @since 8
+   * @systemapi
    */
   getXComponentSurfaceId();
 }
 
 /**
+ * Defines XComponent.
  * @since 8
+ * @systemapi
  */
 interface XComponent extends XComponentAttribute<XComponent> {
+  /**
+   * Constructor parameters
+   * @since 8
+   * @systemapi
+   */
   (value: {
       id: string;
       type: string;
@@ -45,18 +56,22 @@ interface XComponent extends XComponentAttribute<XComponent> {
 }
 
 /**
+ * Defines XComponentAttribute.
  * @since 8
+ * @systemapi
  */
 declare class XComponentAttribute<T> extends CommonMethod<T> {
   /**
    * Called when judging whether the xcomponent surface is created.
    * @since 8
+   * @systemapi
    */
    onLoad(callback: (event?: {}) => void): T;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
+   * @systemapi
    */
    onDestroy(event: () => void): T;
 }
