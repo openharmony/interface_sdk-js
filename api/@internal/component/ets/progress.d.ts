@@ -55,7 +55,6 @@ export declare enum ProgressStyle {
    * @since 8
    */
   Capsule,
-
 }
 
 /**

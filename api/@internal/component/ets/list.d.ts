@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
+import { CommonMethod, ItemDragInfo } from "./common";
 import { Axis, BarState, EdgeEffect } from "./enums";
 import { Scroller } from "./scroll";
 import { Length, ResourceColor } from "./units";
@@ -40,24 +40,6 @@ export declare enum ScrollState {
    * @since 7
    */
   Fling,
-}
-
-/**
- * ItemDragInfo object description
- * @since 8
- */
-export interface ItemDragInfo {
-  /**
-   * Obtains the X coordinate of the drag window, in vp.
-   * @since 8
-   */
-  x: number;
-
-  /**
-   * Obtains the Y coordinate of the drag window, in vp.
-   * @since 8
-   */
-  y: number;
 }
 
 /**

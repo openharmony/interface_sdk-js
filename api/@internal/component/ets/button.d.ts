@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import { Resource } from '.';
 import { CommonMethod } from "./common";
 import { FontWeight, FontStyle } from "./enums";
-import { Length, ResourceColor, ResourceStr } from "./units";
+import { Length, ResourceColor, ResourceStr, Resource } from "./units";
 
 /**
  * Provides a button component.

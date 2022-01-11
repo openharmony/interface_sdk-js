@@ -15,8 +15,25 @@
 
 import { ResourceStr } from ".";
 import { CommonMethod } from "./common";
-import { TextAlign, FontWeight, FontStyle } from "./enums";
+import { TextAlign, FontStyle, FontWeight } from "./enums";
 import { Font, Length, ResourceColor } from "./units";
+
+/**
+ * Provides the method of switching the cursor position.
+ * @since 8
+ */
+export declare class TextAreaController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  caretPosition(value: number): void;
+}
 
 /**
  * Defines the option of TextArea.
@@ -34,6 +51,12 @@ export declare interface TextAreaOption {
    * @since 7
    */
   text?: ResourceStr;
+
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  controller?: TextAreaController;
 }
 
 /**
@@ -106,6 +129,12 @@ declare class TextAreaAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   fontFamily(value: ResourceStr): T;
+
+  /**
+   * Called when the inputFilter of text is set.
+   * @since 8
+   */
+  inputFilter(value: ResourceStr, error?: (value: string) => void): T;
 
   /**
    * Called when the input changes.

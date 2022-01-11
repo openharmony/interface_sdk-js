@@ -36,7 +36,8 @@ import {
   SharedTransitionEffectType,
   TransitionType,
   Visibility,
-  FocusDirection,
+  MouseButton,
+  MouseAction,
   Placement,
   HoverEffect,
 } from "./enums";
@@ -226,6 +227,24 @@ interface PreviewParams {
 }
 
 /**
+ * ItemDragInfo object description
+ * @since 8
+ */
+export interface ItemDragInfo {
+  /**
+   * Obtains the X coordinate of the drag window, in vp.
+   * @since 8
+   */
+  x: number;
+
+  /**
+   * Obtains the Y coordinate of the drag window, in vp.
+   * @since 8
+   */
+  y: number;
+}
+
+/**
  * Defining animation function.
  * @since 7
  */
@@ -323,6 +342,48 @@ export interface ClickEvent extends BaseEvent {
   /**
    * Y coordinate of the click point relative to the upper edge of the clicked element.
    * @since 7
+   */
+  y: number;
+}
+
+/**
+ * The mouse click action triggers this method invocation.
+ * @since 8
+ */
+export interface MouseEvent extends BaseEvent {
+  /**
+   * Mouse button of the click event.
+   * @since 8
+   */
+  button: MouseButton;
+
+  /**
+   * Mouse action of the click event.
+   * @since 8
+   */
+  action: MouseAction;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the device screen.
+   * @since 8
+   */
+  screenX: number;
+
+  /**
+   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * @since 8
+   */
+  screenY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the clicked element.
+   * @since 8
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * @since 8
    */
   y: number;
 }
@@ -488,7 +549,7 @@ export interface KeyEvent {
  * Component State Styels.
  * @since 8
  */
-export interface StateStyels {
+interface StateStyels {
   /**
    * Defines normal state styles.
    * @since 8
@@ -767,6 +828,24 @@ export declare class CommonMethod<T> {
    * @since 7
    */
   onClick(event: (event?: ClickEvent) => void): T;
+
+  /**
+   * Trigger a mouse hover event.
+   * @since 8
+   */
+  onHover(event: (isHover?: boolean) => void): T;
+
+  /**
+   * Set hover effect.
+   * @since 8
+   */
+  hoverEffect(value: HoverEffect): T;
+
+  /**
+   * Trigger a mouse event.
+   * @since 8
+   */
+  onMouse(event: (event?: MouseEvent) => void): T;
 
   /**
    * Trigger a touch event when touched.
@@ -1222,6 +1301,12 @@ export declare class CommonMethod<T> {
    * @since 8
    */
   key(value: string): T;
+
+  /**
+   * Id. User can set an id to the component to identify it.
+   * @since 8
+   */
+  id(value: string): T;
 
   /**
    * geometryTransition

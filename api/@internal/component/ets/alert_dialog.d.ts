@@ -44,6 +44,42 @@ export declare enum DialogAlignment {
    * @since 7
    */
   Default,
+
+  /**
+   * Align the upper left corner.
+   * @since 8
+   */
+  TopStart,
+
+  /**
+   * Align the upper right corner.
+   * @since 8
+   */
+  TopEnd,
+
+  /**
+   * Left center alignment.
+   * @since 8
+   */
+  CenterStart,
+
+  /**
+   * Right center alignment.
+   * @since 8
+   */
+  CenterEnd,
+
+  /**
+   * Align the lower left corner.
+   * @since 8
+   */
+  BottomStart,
+
+  /**
+   * Align the lower right corner.
+   * @since 8
+   */
+  BottomEnd,
 }
 
 /**

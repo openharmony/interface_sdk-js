@@ -63,18 +63,6 @@ declare class GaugeAttribute<T> extends CommonMethod<T> {
    * @since 8
    */
   strokeWidth(length: number): T;
-
-  /**
-   * Mark points describe the content of the text.
-   * @since 8
-   */
-  labelTextConfig(markedLabelText: string): T;
-
-  /**
-   * Color of the marker point description text.
-   * @since 8
-   */
-  labelColorConfig(markedLabelColor: Color): T;
 }
 
 export declare class GaugeExtend<T> extends GaugeAttribute<T> {}

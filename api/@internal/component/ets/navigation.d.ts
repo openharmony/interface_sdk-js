@@ -108,7 +108,13 @@ declare class NavigationAttribute<T> extends CommonMethod<T> {
    * Navigation title bar's menus
    * @since 8
    */
-  menus(value: Array<NavigationMenuItem> | CustomBuilder) : T;
+  menus(value: Array<NavigationMenuItem> | CustomBuilder): T;
+
+  /**
+   * The amount of the menu in Navigation.
+   * @since 8
+   */
+  menuCount(value: number): T;
 
   /**
    * Tool bar

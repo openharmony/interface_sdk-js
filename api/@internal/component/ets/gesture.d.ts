@@ -447,8 +447,7 @@ interface SwipeGesture {
    * Set the value.
    * @since 8
    */
-  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number })
-  : SwipeGesture;
+  (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGesture;
 
   /**
    * Slide gesture recognition success callback.

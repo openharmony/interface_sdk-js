@@ -30,7 +30,7 @@ export declare enum DataPanelType {
    * Line Rainbow
    * @since 8
    */
-  Rainbow,
+  Circle,
 }
 
 /**

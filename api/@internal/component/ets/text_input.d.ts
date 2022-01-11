@@ -14,9 +14,9 @@
  */
 
 import { Font } from ".";
-import { FontWeight, FontStyle } from "./enums";
 import { CommonMethod } from "./common";
 import { ResourceColor, ResourceStr, Length } from "./units";
+import { FontStyle, FontWeight } from "./enums";
 
 /**
  * Declare the type of input box
@@ -85,6 +85,23 @@ export declare enum EnterKeyType {
 }
 
 /**
+ * Provides the method of switching the cursor position.
+ * @since 8
+ */
+export declare class TextInputController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  caretPosition(value: number): void;
+}
+
+/**
  * Defines the option of TextInput.
  * @since 7
  */
@@ -100,6 +117,12 @@ export declare interface TextInputOption {
    * @since 7
    */
   text?: ResourceStr;
+
+  /**
+   * Called when the position of the insertion cursor is set.
+   * @since 8
+   */
+  controller?: TextInputController;
 }
 
 /**
@@ -201,6 +224,12 @@ declare class TextInputAttribute<T> extends CommonMethod<T> {
    * @since 7
    */
   fontFamily(value: ResourceStr): T;
+
+  /**
+   * Called when the inputFilter of text is set.
+   * @since 8
+   */
+  inputFilter(value: ResourceStr, error?: (value: string) => void): T;
 
   /**
    * Called when using the Clipboard menu

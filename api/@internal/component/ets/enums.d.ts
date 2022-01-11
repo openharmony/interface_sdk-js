@@ -206,6 +206,84 @@ export declare enum TouchType {
 }
 
 /**
+ * Function Called by Mouse
+ * @since 8
+ */
+export declare enum MouseButton {
+  /**
+   * Mouse Left Button.
+   * @since 8
+   */
+  Left,
+
+  /**
+   * Mouse Right Button.
+   * @since 8
+   */
+  Right,
+
+  /**
+   * Mouse Middle Button.
+   * @since 8
+   */
+  Middle,
+
+  /**
+   * Mouse Back Button.
+   * @since 8
+   */
+  Back,
+
+  /**
+   * Mouse Forward Button.
+   * @since 8
+   */
+  Forward,
+
+  /**
+   * Mouse None Button.
+   * @since 8
+   */
+  None,
+}
+
+/**
+ * Function Called by Mouse
+ * @since 8
+ */
+export declare enum MouseAction {
+  /**
+   * Triggered when the mouse is pressed.
+   * @since 8
+   */
+  Press,
+
+  /**
+   * Triggered when the mouse is released.
+   * @since 8
+   */
+  Release,
+
+  /**
+   * Triggered when the mouse is Moved.
+   * @since 8
+   */
+  Move,
+
+  /**
+   * Triggered when the mouse is Hovered.
+   * @since 8
+   */
+  Hover,
+
+  /**
+   * Triggered when the mouse status is None.
+   * @since 8
+   */
+  None,
+}
+
+/**
  * Animation status.
  * @since 7
  */
