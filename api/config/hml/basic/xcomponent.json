@@ -2,7 +2,7 @@
   "name": "xcomponent",
   "version": [
     {
-      "name": "v6.0"
+      "name": "v8.0"
     }
   ],
   "supportedDevices": ["phone", "tablet", "tv", "wearable"],
@@ -14,21 +14,9 @@
   ],
   "attributes": [
     {
-      "name": "name",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
-      "required": false,
-      "description": [
-        {
-          "name": "Name of the xcomponent component.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
-        }
-      ],
-      "type": "string"
-    },
-    {
       "name": "id",
       "supportedDevices": ["phone", "tablet", "tv", "wearable"],
-      "required": false,
+      "required": true,
       "description": [
         {
           "name": "Unique ID of a component.",
@@ -62,10 +50,7 @@
       "type": "enum",
       "options": [
         {
-          "name": "texture"
-        },
-        {
-          "name": "camera"
+          "name": "surface"
         }
       ]
     },
