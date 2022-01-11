@@ -60,6 +60,14 @@ declare namespace bundle {
       * @since 8
       */
     GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
+    /**
+      * @since 8
+      */
+    GET_ABILITY_INFO_WITH_DISABLE = 0x00000100,
+     /**
+      * @since 8
+      */
+    GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
   }
 
 /**
