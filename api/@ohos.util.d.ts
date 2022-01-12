@@ -416,10 +416,19 @@ declare namespace util {
         [Symbol.iterator](): IterableIterator<[K, V]>;
     }
     interface ScopeComparable {
-        /* The comparison function is used by the scope. */
+        /**
+         * The comparison function is used by the scope.
+         * @since 8
+         * @sysCap SystemCapability.CCRuntime
+         * @return Returns whether the current object is greater than or equal to the input object.
+         */
         compareTo(other: ScopeComparable): boolean;
     }
-
+    /**
+     * A type used to denote ScopeComparable or number.
+     * @since 8
+     * @sysCap SystemCapability.CCRuntime
+     */
     type ScopeType = ScopeComparable | number;
 
     class Scope{
