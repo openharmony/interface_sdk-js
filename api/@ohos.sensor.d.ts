@@ -449,6 +449,119 @@ declare namespace sensor {
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
 
+   /**
+   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
+   *
+   * @param seaPressure Indicates the sea level pressure, in hPa.
+   * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+   * @return Returns the altitude in meters at which the device is located.
+   * @since 8
+   */
+    function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
+    function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
+
+    /**
+     * Computes the geomagnetic inclination angle in radians from the inclination matrix.
+     *
+     * @param inclinationMatrix Indicates the inclination matrix.
+     * @return Returns the geomagnetic inclination angle in radians.
+     * @since 8
+     */
+    function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
+    function getGeomagneticDip(inclinationMatrix: Array<number>): Promise<number>;
+
+    /**
+     * Get the angle change between two rotation matrices
+     *
+     * @param currentRotationMatrix Indicates the current rotation matrix.
+     * @param preRotationMatrix Indicates the current rotation matrix.
+     * @return Returns the array of number(z, x and y) in which the angle variety.
+     * @since 8
+     */
+    function getAngleModifiy(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
+        callback: AsyncCallback<Array<number>>): void;
+    function getAngleModifiy(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
+
+    /**
+     * Convert rotation vector to rotation matrix.
+     *
+     * @param rotationVector Indicates the rotation vector.
+     * @return Returns the rotation matrix.
+     * @since 8
+     */
+    function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
+    function createRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
+
+    /**
+     * Indicates the axis of the new coordinate system that coincides with the XY axis of the
+     * original coordinate system.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.Sensor
+     */
+    interface CoordinatesOptions {
+        /** Indicates the axis of the new coordinate system that coincides with the X axis of
+         * the original coordinate system. 
+         */
+        x: number;
+        /** Indicates the axis of the new coordinate system that coincides with the Z axis of
+         * the original coordinate system. 
+         */
+        y: number;
+    }
+
+    /**
+     * Rotate the provided rotation matrix so that it can be represented in a different way
+     * Coordinate System
+     * @param inRotationVector Indicates the rotation matrix to be transformed.
+     * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
+     * @return Returns the transformed rotation matrix.
+     * @since 8
+     */
+    function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
+        callback: AsyncCallback<Array<number>>): void;
+    function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
+
+    /**
+     * convert a rotation vector to a normalized quaternion.
+     *
+     * @param rotationVector Indicates the rotation vector.
+     * @return Returns the normalized quaternion.
+     * @since 8
+     */
+    function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
+    function createQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
+
+    /**
+     * Computes the device's orientation based on the rotation matrix.
+     *
+     * @param rotationMatrix Indicates the rotation matrix.
+     * @return Returns the array is the angle of rotation around the z, x, y axis.
+     * @since 8
+     */
+    function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
+    function getDirection(rotationMatrix: Array<number>): Promise<Array<number>>;
+
+    /**
+     * Indicates the response of rotation matrix.
+     * @devices phone, tablet
+     * @sysCap SystemCapability.Sensors.Sensor
+     */
+    interface RotationMatrixResponse {
+        rotation: Array<number>;
+        inclination: Array<number>
+    }
+
+    /**
+     * Calculate rotation matrix based on gravity vector and geomagnetic vector.
+     *
+     * @param gravity Indicates the gravity vector.
+     * @param geomagnetic Indicates the geomagnetic vector.
+     * @return Returns the rotation matrix, {@code RotationMatrixResponse}.
+     * @since 8
+     */
+    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
+    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
+
     /**
      * Subscribe to the sensor's optional parameters.
      * @devices phone, tablet
