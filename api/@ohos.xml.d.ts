@@ -117,90 +117,132 @@ declare namespace xml {
     enum EventType {
         /**
           * Start a document.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         START_DOCUMENT,
         /**
           * End a document.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         END_DOCUMENT,
         /**
           * Start a tag.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         START_TAG,
         /**
           * End a tag.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         END_TAG,
         /**
           * Character data.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         TEXT,
         /**
           * A CDATA sections.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         CDSECT,
         /**
           * An XML comment.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         COMMENT,
         /**
           * An XML document type declaration.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         DOCDECL,
         /**
           * An XML processing instruction declaration.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         INSTRUCTION,
         /**
           * An entity reference.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         ENTITY_REFERENCE,
         /**
           * a whitespace.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
-        WHITESPACE,
+        WHITESPACE
     }
 
     /** The current parse info.  */
     interface ParseInfo {
         /**
           * The current column number, starting from 1.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getColumnNumber(): number;
         /**
           * The current depth of the element.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getDepth(): number;
         /**
-          * The current column number, starting from 1.
+          * The current line number, starting from 1.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getLineNumber(): number;
         /**
-          * The current element name.
+          * The current element's name.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getName(): string;
         /**
-          * The current element's name.
+          * The current element's namespace.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getNamespace(): string;
         /**
-          * The current element's namespace.
+          * The current element's prefix.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getPrefix(): string;
         /**
           * The text content of the current event as String.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getText(): string;
         /**
           * Returns true if the current element is empty.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         isEmptyElementTag(): boolean;
         /**
           * Checks whether the current TEXT event contains only whitespace characters.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         isWhitespace(): boolean;
         /**
           * Returns the number of attributes of the current start tag.
+          * @since 8
+          * @sysCap SystemCapability.CCRuntime
           */
         getAttributeCount(): number;
     }
