@@ -61,6 +61,17 @@ declare namespace appManager {
      */
      function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
      function getForegroundApplications(): Promise<Array<AppStateData>>;
+
+     /**
+     * Is user running in stability test.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @SysCap appexecfwk
+     * @return Returns true if user is running stability test.
+     */
+      function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
+      function isRunningInStabilityTest(): Promise<boolean>;
 }
 
 export default appManager;
