@@ -216,13 +216,13 @@ declare namespace rdb {
      * @permission N/A
      */
     interface StoreConfig {
+        name: string;
         /**
-         * Indicates the name of the database file
+         * Indicates the encryptKey of the database file
          *
          * @since 8
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          */
-        name: string;
         encryptKey: Uint8Array;
     }
 
