@@ -386,6 +386,12 @@ export interface MouseEvent extends BaseEvent {
    * @since 8
    */
   y: number;
+
+  /**
+   * The blocking event pops up.
+   * @since 8
+   */
+  stopPropagation?: () => void;
 }
 
 /**
