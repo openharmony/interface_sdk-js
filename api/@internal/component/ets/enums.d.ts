@@ -1411,6 +1411,24 @@ export declare enum TextCase {
 }
 
 /**
+ * ResponseType for contextMenu
+ * @since 8
+ */
+export declare enum ResponseType {
+  /**
+   * Right click.
+   * @since 8
+   */
+  RightClick,
+
+  /**
+   * Long press.
+   * @since 8
+   */
+  LongPress,
+}
+
+/**
  * HoverEffect enumeration description
  * @since 8
  */

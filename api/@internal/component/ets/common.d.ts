@@ -33,6 +33,7 @@ import {
   LineCapStyle,
   LineJoinStyle,
   PlayMode,
+  ResponseType,
   SharedTransitionEffectType,
   TransitionType,
   Visibility,
@@ -1361,6 +1362,12 @@ export declare class CommonMethod<T> {
    * @since 7
    */
   bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
+
+  /**
+   * ContextMenu control
+   * @since 8
+   */
+  bindContextMenu(content: CustomBuilder, responseType : ResponseType): T;
 
   /**
    * Sets styles for component state.
