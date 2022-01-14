@@ -59,7 +59,6 @@ declare namespace backgroundTaskManager {
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
      * @devices phone, tv, wearable, tablet, car
      * @param requestId Indicates the identifier of the delay request.
-     * @param callback Indicates the callback for reporting the result.
      * @return The remaining delay time
      */
     function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
