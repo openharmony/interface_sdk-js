@@ -17,7 +17,7 @@ import { AsyncCallback , Callback} from './basic';
 
 /**
  * Manages background tasks.
- * 
+ *
  * @since 7
  * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
  * @devices phone, tv, wearable, tablet, car
@@ -25,7 +25,7 @@ import { AsyncCallback , Callback} from './basic';
 declare namespace backgroundTaskManager {
     /**
      * The info of delay suspend.
-     * 
+     *
      * @name DelaySuspendInfo
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
@@ -44,8 +44,8 @@ declare namespace backgroundTaskManager {
 
     /**
      * Cancels delayed transition to the suspended state.
-     * 
-     * @since 7 
+     *
+     * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
      * @devices phone, tv, wearable, tablet, car
      * @param requestId Indicates the identifier of the delay request.
@@ -54,7 +54,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * Obtains the remaining time before an application enters the suspended state.
-     * 
+     *
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
      * @devices phone, tv, wearable, tablet, car
@@ -67,7 +67,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * Requests delayed transition to the suspended state.
-     * 
+     *
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
      * @devices phone, tv, wearable, tablet, car
