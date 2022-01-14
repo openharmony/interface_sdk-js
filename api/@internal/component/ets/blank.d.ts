@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) 2021 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,32 +13,29 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * Create Blank.
  * @since 7
  */
-interface Blank extends BlankAttribute<Blank> {
+interface BlankInterface {
   /**
    * The minimum size of the blank fill assembly on the container spindle.
    * @since 7
    */
-  (min?: number | string): Blank;
+  (min?: number | string): BlankAttribute;
 }
 
 /**
  * Inheritance CommonMethod Set Styles
  * @since 7
  */
-declare class BlankAttribute<T> extends CommonMethod<T> {
+declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
    * color: set color.
    * @since 7
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): BlankAttribute;
 }
 
-export declare class BlankExtend<T> extends BlankAttribute<T> {}
-export declare const BlankInterface: Blank;
+declare const Blank: BlankInterface;
+declare const BlankInstance: BlankAttribute;

@@ -13,104 +13,100 @@
  * limitations under the License.
  */
 
-import { CommonMethod, PixelMap } from "./common";
-import { LineCapStyle, LineJoinStyle } from "./enums";
-import { Resource, ResourceColor } from "./units";
-
 /**
  * Provides interfaces for drawing components.
  * @since 7
  */
-interface Shape extends ShapeAttribute<Shape> {
+interface ShapeInterface {
   /**
    * Use the new function to create Shape.
    * @since 7
    */
-  new (value?: PixelMap): Shape;
+  new (value?: PixelMap): ShapeAttribute;
 
   /**
    * Called when a component is drawn.
    * @since 7
    */
-  (value?: PixelMap): Shape;
+  (value?: PixelMap): ShapeAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ShapeAttribute<T> extends CommonMethod<T> {
+declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Viewport of shape
    * @since 7
    */
-  viewPort(value: { x?: number | string; y?: number | string; width?: number | string; height?: number | string }): T;
+  viewPort(value: { x?: number | string; y?: number | string; width?: number | string; height?: number | string }): ShapeAttribute;
 
   /**
    * Called when the border color is set.
    * @since 7
    */
-  stroke(value: ResourceColor): T;
+  stroke(value: ResourceColor): ShapeAttribute;
 
   /**
    * Called when the fill color is set.
    * @since 7
    */
-  fill(value: ResourceColor): T;
+  fill(value: ResourceColor): ShapeAttribute;
 
   /**
    * Called when the offset of the starting point of border drawing is set.
    * @since 7
    */
-  strokeDashOffset(value: number | string): T;
+  strokeDashOffset(value: number | string): ShapeAttribute;
 
   /**
    * Called when the gap of the border is set.
    * @since 7
    */
-  strokeDashArray(value: Array<any>): T;
+  strokeDashArray(value: Array<any>): ShapeAttribute;
 
   /**
    * Called when the path endpoint drawing style is set.
    * @since 7
    */
-  strokeLineCap(value: LineCapStyle): T;
+  strokeLineCap(value: LineCapStyle): ShapeAttribute;
 
   /**
    * Called when the border corner drawing style is set.
    * @since 7
    */
-  strokeLineJoin(value: LineJoinStyle): T;
+  strokeLineJoin(value: LineJoinStyle): ShapeAttribute;
 
   /**
    * Called when the limit value for drawing acute angles as oblique angles is set.
    * @since 7
    */
-  strokeMiterLimit(value: number | string): T;
+  strokeMiterLimit(value: number | string): ShapeAttribute;
 
   /**
    * Called when the opacity of the border is set.
    * @since 7
    */
-  strokeOpacity(value: number | string | Resource): T;
+  strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
   /**
    * Called when the transparency of the border is set.
    * @since 7
    */
-  fillOpacity(value: number | string | Resource): T;
+  fillOpacity(value: number | string | Resource): ShapeAttribute;
 
   /**
    * Called when the width of the border is set.
    * @since 7
    */
-  strokeWidth(value: number | string): T;
+  strokeWidth(value: number | string): ShapeAttribute;
 
   /**
    * Called when setting whether anti aliasing is on.
    * @since 7
    */
-  antiAlias(value: boolean): T;
+  antiAlias(value: boolean): ShapeAttribute;
 }
 
-export declare class ShapeExtend<T> extends ShapeAttribute<T> {}
-export declare const ShapeInterface: Shape;
+declare const Shape: ShapeInterface;
+declare const ShapeInstance: ShapeAttribute;

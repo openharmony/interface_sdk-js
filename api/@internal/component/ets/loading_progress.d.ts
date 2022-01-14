@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * Load style of progress bar.
  * @since 8
  */
-export declare enum LoadingProgressStyle {
+declare enum LoadingProgressStyle {
   /**
    * Default style.
    * @since 8
@@ -40,37 +37,38 @@ export declare enum LoadingProgressStyle {
   Orbital,
 }
 
-/**
- * Loading Progress Extensions on Declarative Classes
- * @since 8
- */
-export declare class LoadingProgressExtend<T> extends LoadingProgressAttribute<T> {}
+
 
 /**
  * Provides an interface for extending the loading progress.
  * @since 8
  */
-interface LoadingProgress extends LoadingProgressAttribute<LoadingProgress> {
+interface LoadingProgressInterface {
   /**
    * Called when the progress bar progress is viewed.
    * @since 8
    */
-  (): LoadingProgress;
+  (): LoadingProgressAttribute;
 }
 
 /**
  * Declare the progress bar being loaded
  * @since 8
  */
-declare class LoadingProgressAttribute<T> extends CommonMethod<T> {
+declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
    * Load the color of the progress bar.
    * @since 8
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): LoadingProgressAttribute;
 }
 
 /**
  * @since 8
  */
-export declare const LoadingProgressInterface: LoadingProgress;
+declare const LoadingProgress: LoadingProgressInterface;
+/**
+ * Loading Progress Extensions on Declarative Classes
+ * @since 8
+ */
+ declare const LoadingProgressInstance: LoadingProgressAttribute

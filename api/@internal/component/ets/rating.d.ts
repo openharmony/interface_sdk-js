@@ -13,48 +13,46 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Provides the interface for scoring bars.
  * @since 7
  */
-interface Rating extends RatingAttribute<Rating> {
+interface RatingInterface {
   /**
    * Called when a score bar is created.
    * @since 7
    */
-  (options?: { rating: number; indicator?: boolean }): Rating;
+  (options?: { rating: number; indicator?: boolean }): RatingAttribute;
 }
 
 /**
  * @since 7
  */
-declare class RatingAttribute<T> extends CommonMethod<T> {
+declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
    * Called when the total number of stars is set.
    * @since 7
    */
-  stars(value: number): T;
+  stars(value: number): RatingAttribute;
 
   /**
    * Called when the step size of the operation rating.
    * @since 7
    */
-  stepSize(value: number): T;
+  stepSize(value: number): RatingAttribute;
 
   /**
    * Called when a picture is set.
    * @since 7
    */
-  starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): T;
+  starStyle(value: { backgroundUri: string; foregroundUri: string; secondaryUri?: string }): RatingAttribute;
 
   /**
    * Called when the star rating of the operation scoring bar changes.
    * @since 7
    */
-  onChange(callback: (value: number) => void): T;
+  onChange(callback: (value: number) => void): RatingAttribute;
 }
 
-export declare class RatingExtend<T> extends RatingAttribute<T> {}
-export declare const RatingInterface: Rating;
+declare const Rating: RatingInterface;
+declare const RatingInstance: RatingAttribute;

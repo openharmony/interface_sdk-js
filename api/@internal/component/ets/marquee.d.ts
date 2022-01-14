@@ -13,75 +13,71 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { FontWeight } from "./enums";
-import { Length, Resource, ResourceColor } from "./units";
-
 /**
  * Provides the interface for the marquee attributes.
  * @since 8
  */
-interface Marquee extends MarqueeAttribute<Marquee> {
+interface MarqueeInterface {
   /**
    * Create marquee.
    * @since 8
    */
-  (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): Marquee;
+  (value: { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string }): MarqueeAttribute;
 }
 
 /**
  * Declares marquee properties.
  * @since 8
  */
-declare class MarqueeAttribute<T> extends CommonMethod<T> {
+declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Set marquee font Color.
    * @since 8
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): MarqueeAttribute;
 
   /**
    * Set marquee font size.
    * @since 8
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): MarqueeAttribute;
 
   /**
    * Set marquee allow scale.
    * @since 8
    */
-  allowScale(value: boolean): T;
+  allowScale(value: boolean): MarqueeAttribute;
 
   /**
    * Set marquee font weight.
    * @since 8
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
   /**
    * Set marquee font family.
    * @since 8
    */
-  fontFamily(value: string | Resource): T;
+  fontFamily(value: string | Resource): MarqueeAttribute;
 
   /**
    * Called when scrolling starts.
    * @since 8
    */
-  onStart(event: () => void): T;
+  onStart(event: () => void): MarqueeAttribute;
 
   /**
    * Called when scrolling to the bottom.
    * @since 8
    */
-  onBounce(event: () => void): T;
+  onBounce(event: () => void): MarqueeAttribute;
 
   /**
    * Called when scrolling is complete.
    * @since 8
    */
-  onFinish(event: () => void): T;
+  onFinish(event: () => void): MarqueeAttribute;
 }
 
-export declare class MarqueeExtend<T> extends MarqueeAttribute<T> {}
-export declare const MarqueeInterface: Marquee;
+declare const Marquee: MarqueeInterface;
+declare const MarqueeInstance: MarqueeAttribute;

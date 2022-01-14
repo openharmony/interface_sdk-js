@@ -17,7 +17,7 @@
  * common enum of color
  * @since 7
  */
-export declare enum Color {
+declare enum Color {
   /**
    * White.
    * @since 7
@@ -89,7 +89,7 @@ export declare enum Color {
  * Image display mode
  * @since 7
  */
-export declare enum ImageFit {
+declare enum ImageFit {
   /**
    * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
    * @since 7
@@ -131,7 +131,7 @@ export declare enum ImageFit {
  * Border Style
  * @since 7
  */
-export declare enum BorderStyle {
+declare enum BorderStyle {
   /**
    * Displays as a series of dots with a radius of half the borderWidth.
    * @since 7
@@ -155,7 +155,7 @@ export declare enum BorderStyle {
  * Line Join Style
  * @since 7
  */
-export declare enum LineJoinStyle {
+declare enum LineJoinStyle {
   /**
    * Connect path segments using bevels.
    * @since 7
@@ -179,7 +179,7 @@ export declare enum LineJoinStyle {
  * Function Called by Touch
  * @since 7
  */
-export declare enum TouchType {
+declare enum TouchType {
   /**
    * Triggered when the finger is pressed.
    * @since 7
@@ -209,7 +209,7 @@ export declare enum TouchType {
  * Function Called by Mouse
  * @since 8
  */
-export declare enum MouseButton {
+declare enum MouseButton {
   /**
    * Mouse Left Button.
    * @since 8
@@ -251,7 +251,7 @@ export declare enum MouseButton {
  * Function Called by Mouse
  * @since 8
  */
-export declare enum MouseAction {
+declare enum MouseAction {
   /**
    * Triggered when the mouse is pressed.
    * @since 8
@@ -287,7 +287,7 @@ export declare enum MouseAction {
  * Animation status.
  * @since 7
  */
-export declare enum AnimationStatus {
+declare enum AnimationStatus {
   /**
    * Initial state of the animation.
    * @since 7
@@ -317,7 +317,7 @@ export declare enum AnimationStatus {
  * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
  * @since 7
  */
-export declare enum Curve {
+declare enum Curve {
   /**
    * Indicates that the speed of the animation is the same from start to finish.
    * @since 7
@@ -401,7 +401,7 @@ export declare enum Curve {
  * Sets the state before and after the animation starts.
  * @since 7
  */
-export declare enum FillMode {
+declare enum FillMode {
   /**
    * Restores to the initial state after the playback is complete.
    * @since 7
@@ -431,7 +431,7 @@ export declare enum FillMode {
  * Play Mode
  * @since 7
  */
-export declare enum PlayMode {
+declare enum PlayMode {
   /**
    * The animation plays normally.
    * @since 7
@@ -461,7 +461,7 @@ export declare enum PlayMode {
  * This style allows you to set the window blurring degree and blurring style of the current component layout range,
  * @since 7
  */
-export declare enum BlurStyle {
+declare enum BlurStyle {
   /**
    * Small range glow effect.
    * @since 7
@@ -515,7 +515,7 @@ export declare enum BlurStyle {
  * Type of a key.
  * @since 7
  */
-export declare enum KeyType {
+declare enum KeyType {
   /**
    * Press the key.
    * @since 7
@@ -533,7 +533,7 @@ export declare enum KeyType {
  * Type of the input device that triggers the current key.
  * @since 7
  */
-export declare enum KeySource {
+declare enum KeySource {
   /**
    * The input device type is unknown.
    * @since 7
@@ -551,7 +551,7 @@ export declare enum KeySource {
  * Edge.
  * @since 7
  */
-export declare enum Edge {
+declare enum Edge {
   /**
    * The top is centered horizontally.
    * @since 7
@@ -599,7 +599,7 @@ export declare enum Edge {
  * Set Weekend
  * @since 7
  */
-export declare enum Week {
+declare enum Week {
   /**
    * Monday.
    * @since 7
@@ -647,7 +647,7 @@ export declare enum Week {
  * Sets the horizontal layout of elements.
  * @since 7
  */
-export declare enum Direction {
+declare enum Direction {
   /**
    * Elements are laid out from left to right.
    * @since 7
@@ -671,7 +671,7 @@ export declare enum Direction {
  * Sets the horizontal layout of elements.
  * @since 8
  */
-export declare enum FocusDirection {
+declare enum FocusDirection {
   /**
    * From the key up.
    * @since 8
@@ -707,7 +707,7 @@ export declare enum FocusDirection {
  * Used to set the status of the scroll bar.
  * @since 7
  */
-export declare enum BarState {
+declare enum BarState {
   /**
    * Not displayed.
    * @since 7
@@ -731,7 +731,7 @@ export declare enum BarState {
  * Sliding effect
  * @since 7
  */
-export declare enum EdgeEffect {
+declare enum EdgeEffect {
   /**
    * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    * @since 7
@@ -755,7 +755,7 @@ export declare enum EdgeEffect {
  * Alignment enumeration description.
  * @since 7
  */
-export declare enum Alignment {
+declare enum Alignment {
   /**
    * Top Start.
    * @since 7
@@ -815,7 +815,7 @@ export declare enum Alignment {
  * TransitionType enumeration description.
  * @since 7
  */
-export declare enum TransitionType {
+declare enum TransitionType {
   /**
    * Specifies that the current transition action takes effect in all change scenarios of the component.
    * @since 7
@@ -839,7 +839,7 @@ export declare enum TransitionType {
  * RelateType enumeration description
  * @since 7
  */
-export declare enum RelateType {
+declare enum RelateType {
   /**
    * Scales the current component to fill the parent component.
    * @since 7
@@ -857,7 +857,7 @@ export declare enum RelateType {
  * Controls the display or hide of the current component
  * @since 7
  */
-export declare enum Visibility {
+declare enum Visibility {
   /**
    * Show
    * @since 7
@@ -881,7 +881,7 @@ export declare enum Visibility {
  * LineCapStyle enumeration description
  * @since 7
  */
-export declare enum LineCapStyle {
+declare enum LineCapStyle {
   /**
    * The two ends of the dividing line are parallel lines.
    * @since 7
@@ -905,7 +905,7 @@ export declare enum LineCapStyle {
  * Axis enumeration description.
  * @since 7
  */
-export declare enum Axis {
+declare enum Axis {
   /**
    * Longitudinal arrangement
    * @since 7
@@ -923,7 +923,7 @@ export declare enum Axis {
  * HorizontalAlign enumeration description.
  * @since 7
  */
-export declare enum HorizontalAlign {
+declare enum HorizontalAlign {
   /**
    * Aligns the start end in the language direction.
    * @since 7
@@ -947,7 +947,7 @@ export declare enum HorizontalAlign {
  * FlexAlign enumeration description.
  * @since 7
  */
-export declare enum FlexAlign {
+declare enum FlexAlign {
   /**
    * The element is aligned at the head of the principal axis,
    * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
@@ -998,7 +998,7 @@ export declare enum FlexAlign {
  * ItemAlign enumeration description
  * @since 7
  */
-export declare enum ItemAlign {
+declare enum ItemAlign {
   /**
    * Use the default configuration in the Flex container.
    * @since 7
@@ -1040,7 +1040,7 @@ export declare enum ItemAlign {
  * FlexDirection enumeration description
  * @since 7
  */
-export declare enum FlexDirection {
+declare enum FlexDirection {
   /**
    * The main axis is consistent with the row direction as the layout mode.
    * @since 7
@@ -1070,7 +1070,7 @@ export declare enum FlexDirection {
  * FlexWrap enumeration description
  * @since 7
  */
-export declare enum FlexWrap {
+declare enum FlexWrap {
   /**
    * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
    * @since 7
@@ -1094,7 +1094,7 @@ export declare enum FlexWrap {
  * VerticalAlign enumeration description
  * @since 7
  */
-export declare enum VerticalAlign {
+declare enum VerticalAlign {
   /**
    * Top alignment.
    * @since 7
@@ -1118,7 +1118,7 @@ export declare enum VerticalAlign {
  * ImageRepeat enumeration description
  * @since 7
  */
-export declare enum ImageRepeat {
+declare enum ImageRepeat {
   /**
    * Do not draw the picture again.
    * @since 7
@@ -1148,7 +1148,7 @@ export declare enum ImageRepeat {
  * ImageSize enumeration description
  * @since 7
  */
-export declare enum ImageSize {
+declare enum ImageSize {
   /**
    * Keep the scale of the original image unchanged.
    * @since 7
@@ -1172,7 +1172,7 @@ export declare enum ImageSize {
  * GradientDirection enumeration description
  * @since 7
  */
-export declare enum GradientDirection {
+declare enum GradientDirection {
   /**
    * Right to left.
    * @since 7
@@ -1232,7 +1232,7 @@ export declare enum GradientDirection {
  * SharedTransitionEffectType enumeration description
  * @since 7
  */
-export declare enum SharedTransitionEffectType {
+declare enum SharedTransitionEffectType {
   /**
    * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
    * only the static effect configured for redirecting to the target page takes effect.
@@ -1251,7 +1251,7 @@ export declare enum SharedTransitionEffectType {
  * Text style
  * @since 7
  */
-export declare enum FontStyle {
+declare enum FontStyle {
   /**
    * Default style.
    * @since 7
@@ -1269,7 +1269,7 @@ export declare enum FontStyle {
  * The font weight of the text
  * @since 7
  */
-export declare enum FontWeight {
+declare enum FontWeight {
   /**
    * Defines a lighter value than [Inherited Value]..
    * @since 7
@@ -1311,7 +1311,7 @@ export declare enum FontWeight {
  * Alignment of text.
  * @since 7
  */
-export declare enum TextAlign {
+declare enum TextAlign {
   /**
    * Center the text.
    * @since 7
@@ -1335,7 +1335,7 @@ export declare enum TextAlign {
  * Declare how text overflows.
  * @since 7
  */
-export declare enum TextOverflow {
+declare enum TextOverflow {
   /**
    * When the text is too long, it will be cropped and displayed.
    * @since 7
@@ -1360,7 +1360,7 @@ export declare enum TextOverflow {
  * Type of text modifier.
  * @since 7
  */
-export declare enum TextDecorationType {
+declare enum TextDecorationType {
   /**
    * Do not use text decorative lines.
    * @since 7
@@ -1390,7 +1390,7 @@ export declare enum TextDecorationType {
  * Letter type in text
  * @since 7
  */
-export declare enum TextCase {
+declare enum TextCase {
   /**
    * The default is normal.
    * @since 7
@@ -1414,7 +1414,7 @@ export declare enum TextCase {
  * ResponseType for contextMenu
  * @since 8
  */
-export declare enum ResponseType {
+declare enum ResponseType {
   /**
    * Right click.
    * @since 8
@@ -1432,7 +1432,7 @@ export declare enum ResponseType {
  * HoverEffect enumeration description
  * @since 8
  */
-export declare enum HoverEffect {
+declare enum HoverEffect {
   /**
    * Default effect
    * @since 8
@@ -1462,7 +1462,7 @@ export declare enum HoverEffect {
  * Placement enumeration description
  * @since 8
  */
-export declare enum Placement {
+declare enum Placement {
   /**
    * Left placement
    * @since 8

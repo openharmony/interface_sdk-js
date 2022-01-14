@@ -13,16 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod, ItemDragInfo } from "./common";
-import { Axis, BarState, EdgeEffect } from "./enums";
-import { Scroller } from "./scroll";
-import { Length, ResourceColor } from "./units";
-
 /**
  * Declare scroll status
  * @since 7
  */
-export declare enum ScrollState {
+declare enum ScrollState {
   /**
    * Not activated.
    * @since 7
@@ -42,45 +37,41 @@ export declare enum ScrollState {
   Fling,
 }
 
-/**
- * ListExtend extension declaration.
- * @since 7
- */
-export declare class ListExtend<T> extends ListAttribute<T> {}
+
 
 /**
  * The list interface is extended.
  * @since 7
  */
-interface List extends ListAttribute<List> {
+interface ListInterface {
   /**
    * Called when interface data is called.
    * @since 7
    */
-  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): List;
+  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ListAttribute<T> extends CommonMethod<T> {
+declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
    */
-  listDirection(value: Axis): T;
+  listDirection(value: Axis): ListAttribute;
 
   /**
    * Called when the display mode of the side slider is set.
    * @since 7
    */
-  scrollBar(value: BarState): T;
+  scrollBar(value: BarState): ListAttribute;
 
   /**
    * Called when the sliding effect is set.
    * @since 7
    */
-  edgeEffect(value: EdgeEffect): T;
+  edgeEffect(value: EdgeEffect): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.
@@ -93,102 +84,103 @@ declare class ListAttribute<T> extends CommonMethod<T> {
       startMargin?: Length;
       endMargin?: Length;
     } | null,
-  ): T;
+  ): ListAttribute;
 
   /**
    * Called when judging whether it is in editable mode.
    * @since 7
    */
-  editMode(value: boolean): T;
+  editMode(value: boolean): ListAttribute;
 
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    * @since 7
    */
-  cachedCount(value: number): T;
+  cachedCount(value: number): ListAttribute;
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
    * @since 8
    */
-  chainAnimation(value: boolean): T;
+  chainAnimation(value: boolean): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
 
   /**
    * Called when the start and end positions of the display change.
    * @since 7
    */
-  onScrollIndex(event: (start: number, end: number) => void): T;
+  onScrollIndex(event: (start: number, end: number) => void): ListAttribute;
 
   /**
    * Called when the list begins to arrive.
    * @since 7
    */
-  onReachStart(event: () => void): T;
+  onReachStart(event: () => void): ListAttribute;
 
   /**
    * Called when the list reaches the end.
    * @since 7
    */
-  onReachEnd(event: () => void): T;
+  onReachEnd(event: () => void): ListAttribute;
 
   /**
    * Called when the slider stops.
    * @since 7
    */
-  onScrollStop(event: () => void): T;
+  onScrollStop(event: () => void): ListAttribute;
 
   /**
    * Called when a list item is deleted.
    * @since 7
    */
-  onItemDelete(event: (index: number) => boolean): T;
+  onItemDelete(event: (index: number) => boolean): ListAttribute;
 
   /**
    * Called when a list item is moved.
    * @since 7
    */
-  onItemMove(event: (from: number, to: number) => boolean): T;
+  onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): T;
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
    */
-  onItemDragEnter(event: (event: ItemDragInfo) => void): T;
+  onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
-  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): T;
+  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
    */
-  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): T;
+  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
 
   /**
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
    */
-  onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): T;
+  onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 }
 
 /**
  * @since 7
  */
-export declare const ListInterface: List;
+declare const List: ListInterface;
+declare const ListInstance: ListAttribute;

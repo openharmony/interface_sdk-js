@@ -13,36 +13,34 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
-
 /**
  * Provides an interface for drawing polylines.
  * @since 7
  */
-interface Polyline extends PolylineAttribute<Polyline> {
+interface PolylineInterface {
   /**
    * Uses new to create Polyline.
    * @since 7
    */
-  new (value?: { width?: string | number; height?: string | number }): Polyline;
+  new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 
   /**
    * Called when using the draw fold.
    * @since 7
    */
-  (value?: { width?: string | number; height?: string | number }): Polyline;
+  (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 }
 
 /**
  * @since 7
  */
-declare class PolylineAttribute<T> extends CommonShapeMethod<T> {
+declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    * @since 7
    */
-  points(value: Array<any>): T;
+  points(value: Array<any>): PolylineAttribute;
 }
 
-export declare class PolylineExtend<T> extends PolylineAttribute<T> {}
-export declare const PolylineInterface: Polyline;
+declare const Polyline: PolylineInterface;
+declare const PolylineInstance: PolylineAttribute;

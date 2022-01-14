@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * Declare the type of status button
  * @since 8
  */
-export declare enum ToggleType {
+declare enum ToggleType {
   /**
    * Checkbox
    * @since 8
@@ -43,36 +40,36 @@ export declare enum ToggleType {
 /**
  * @since 8
  */
-interface Toggle extends ToggleAttribute<Toggle> {
+interface ToggleInterface {
   /**
    * Set parameters to obtain the toggle.
    * @since 8
    */
-  (options: { type: ToggleType; isOn?: boolean }): Toggle;
+  (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
 
 /**
  * @since 8
  */
-declare class ToggleAttribute<T> extends CommonMethod<T> {
+declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Called when the selected state of the component changes.
    * @since 8
    */
-  onChange(callback: (isOn: boolean) => void): T;
+  onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
    */
-  selectedColor(value: ResourceColor): T;
+  selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
    * @since 8
    */
-  switchPointColor(color: ResourceColor): T;
+  switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
-export declare class ToggleExtend<T> extends ToggleAttribute<T> {}
-export declare const ToggleInterface: Toggle;
+declare const Toggle: ToggleInterface;
+declare const ToggleInstance: ToggleAttribute;

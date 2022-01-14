@@ -13,15 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { AnimationStatus, Curve, FillMode, PlayMode } from "./enums";
-
 /**
  * Customize spring properties.
  * @since 7
  * @systemapi
  */
-export declare class SpringProp {
+declare class SpringProp {
   /**
    * Constructor parameters
    * @since 7
@@ -35,7 +32,7 @@ export declare class SpringProp {
  * @since 7
  * @systemapi
  */
-export declare class SpringMotion {
+declare class SpringMotion {
   /**
    * Constructor parameters
    * @since 7
@@ -49,7 +46,7 @@ export declare class SpringMotion {
  * @since 7
  * @systemapi
  */
-export declare class FrictionMotion {
+declare class FrictionMotion {
   /**
    * Constructor parameters
    * @since 7
@@ -63,7 +60,7 @@ export declare class FrictionMotion {
  * @since 7
  * @systemapi
  */
-export declare class ScrollMotion {
+declare class ScrollMotion {
   /**
    * Constructor parameters
    * @since 7
@@ -77,13 +74,13 @@ export declare class ScrollMotion {
  * @since 7
  * @systemapi
  */
-interface Animator extends AnimatorAttribute<Animator> {
+interface AnimatorInterface {
   /**
    * Constructor parameters
    * @since 7
    * @systemapi
    */
-  (value: string): Animator;
+  (value: string): AnimatorAttribute;
 }
 
 /**
@@ -91,105 +88,105 @@ interface Animator extends AnimatorAttribute<Animator> {
  * @since 7
  * @systemapi
  */
-declare class AnimatorAttribute<T> extends CommonMethod<T> {
+declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
    * Controls the playback status. The default value is the initial state.
    * @since 7
    * @systemapi
    */
-  state(value: AnimationStatus): T;
+  state(value: AnimationStatus): AnimatorAttribute;
 
   /**
    * Animation duration, in milliseconds.
    * @since 7
    * @systemapi
    */
-  duration(value: number): T;
+  duration(value: number): AnimatorAttribute;
 
   /**
    * Animation curve, default to linear curve
    * @since 7
    * @systemapi
    */
-  curve(value: Curve): T;
+  curve(value: Curve): AnimatorAttribute;
 
   /**
    * Delayed animation playback duration, in milliseconds. By default, the animation is not delayed.
    * @since 7
    * @systemapi
    */
-  delay(value: number): T;
+  delay(value: number): AnimatorAttribute;
 
   /**
    * Sets the state before and after the animation starts.
    * @since 7
    * @systemapi
    */
-  fillMode(value: FillMode): T;
+  fillMode(value: FillMode): AnimatorAttribute;
 
   /**
    * The default playback is once. If the value is -1, the playback is unlimited.
    * @since 7
    * @systemapi
    */
-  iterations(value: number): T;
+  iterations(value: number): AnimatorAttribute;
 
   /**
    * Sets the animation playback mode. By default, the animation starts to play again after the playback is complete.
    * @since 7
    * @systemapi
    */
-  playMode(value: PlayMode): T;
+  playMode(value: PlayMode): AnimatorAttribute;
 
   /**
    * Configure the physical animation algorithm.
    * @since 7
    * @systemapi
    */
-  motion(value: SpringMotion | FrictionMotion | ScrollMotion): T;
+  motion(value: SpringMotion | FrictionMotion | ScrollMotion): AnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation starts to play.
    * @since 7
    * @systemapi
    */
-  onStart(event: () => void): T;
+  onStart(event: () => void): AnimatorAttribute;
 
   /**
    * Status callback, triggered when the animation pauses.
    * @since 7
    * @systemapi
    */
-  onPause(event: () => void): T;
+  onPause(event: () => void): AnimatorAttribute;
 
   /**
    * Status callback, triggered when the animation is replayed.
    * @since 7
    * @systemapi
    */
-  onRepeat(event: () => void): T;
+  onRepeat(event: () => void): AnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation is canceled.
    * @since 7
    * @systemapi
    */
-  onCancel(event: () => void): T;
+  onCancel(event: () => void): AnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation playback is complete.
    * @since 7
    * @systemapi
    */
-  onFinish(event: () => void): T;
+  onFinish(event: () => void): AnimatorAttribute;
 
   /**
    * The callback input parameter is the interpolation during animation playback.
    * @since 7
    * @systemapi
    */
-  onFrame(event: (value: number) => void): T;
+  onFrame(event: (value: number) => void): AnimatorAttribute;
 }
 
-export declare class AnimatorExtend<T> extends AnimatorAttribute<T> {}
-export declare const AnimatorInterface: Animator;
+declare const Animator: AnimatorInterface;
+declare const AnimatorInstance: AnimatorAttribute;

@@ -13,14 +13,10 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ImageFit } from "./enums";
-import { Resource } from "./units";
-
 /**
  * @since 7
  */
-export declare class VideoController {
+declare class VideoController {
   /**
    * constructor.
    * @since 7
@@ -67,7 +63,7 @@ export declare class VideoController {
 /**
  * @since 7
  */
-interface Video extends VideoAttribute<Video> {
+interface VideoInterface {
   /**
    * Set the value.
    * @since 7
@@ -77,97 +73,97 @@ interface Video extends VideoAttribute<Video> {
     currentProgressRate?: number | string;
     previewUri?: string;
     controller?: VideoController;
-  }): Video;
+  }): VideoAttribute;
 }
 
 /**
  * @since 7
  */
-declare class VideoAttribute<T> extends CommonMethod<T> {
+declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
    * Called when judging whether the video is muted.
    * @since 7
    */
-  muted(value: boolean): T;
+  muted(value: boolean): VideoAttribute;
 
   /**
    * Called when judging whether the video is played automatically.
    * @since 7
    */
-  autoPlay(value: boolean): T;
+  autoPlay(value: boolean): VideoAttribute;
 
   /**
    * Called when judging whether the control bar is displayed.
    * @since 7
    */
-  controls(value: boolean): T;
+  controls(value: boolean): VideoAttribute;
 
   /**
    * Called when judging whether the video is played circular.
    * @since 6
    */
-  loop(value: boolean): T;
+  loop(value: boolean): VideoAttribute;
 
   /**
    * Called when determining the zoom type of the video source.
    * @since 7
    */
-  objectFit(value: ImageFit): T;
+  objectFit(value: ImageFit): VideoAttribute;
 
   /**
    * Called when the video is played.
    * @since 7
    */
-  onStart(event: () => void): T;
+  onStart(event: () => void): VideoAttribute;
 
   /**
    * Called when the video is paused.
    * @since 7
    */
-  onPause(event: () => void): T;
+  onPause(event: () => void): VideoAttribute;
 
   /**
    * Called when the video playback ends.
    * @since 7
    */
-  onFinish(event: () => void): T;
+  onFinish(event: () => void): VideoAttribute;
 
   /**
    * Called when the video enters and exits the full screen.
    * @since 7
    */
-  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): T;
+  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): VideoAttribute;
 
   /**
    * Called when the video preparation is complete.
    * @since 7
    */
-  onPrepared(callback: (event?: { duration: number }) => void): T;
+  onPrepared(callback: (event?: { duration: number }) => void): VideoAttribute;
 
   /**
    * Called when the time information is reported when the progress bar process is operated.
    * @since 7
    */
-  onSeeking(callback: (event?: { time: number }) => void): T;
+  onSeeking(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when the playback time information is reported after the operation progress bar is completed.
    * @since 7
    */
-  onSeeked(callback: (event?: { time: number }) => void): T;
+  onSeeked(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when the playback progress changes.
    * @since 7
    */
-  onUpdate(callback: (event?: { time: number }) => void): T;
+  onUpdate(callback: (event?: { time: number }) => void): VideoAttribute;
 
   /**
    * Called when playback fails.
    * @since 7
    */
-  onError(event: () => void): T;
+  onError(event: () => void): VideoAttribute;
 }
 
-export declare class VideoExtend<T> extends VideoAttribute<T> {}
-export declare const VideoInterface: Video;
+declare const Video: VideoInterface;
+declare const VideoInstance: VideoAttribute;

@@ -13,62 +13,60 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Declare the stepper.
 
  * @since 8
  */
-interface Stepper extends StepperAttribute<Stepper> {
+interface StepperInterface {
   /**
    * Called when the stepper component is used.
 
    * @since 8
    */
-  (value?: { index?: number }): Stepper;
+  (value?: { index?: number }): StepperAttribute;
 }
 
 /**
  * Defines the stepper attribute functions
  * @since 8
  */
-declare class StepperAttribute<T> extends CommonMethod<T> {
+declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
 
    * @since 8
    */
-  onFinish(callback: () => void): T;
+  onFinish(callback: () => void): StepperAttribute;
 
   /**
    * Callback when the skip label is clicked.
 
    * @since 8
    */
-  onSkip(callback: () => void): T;
+  onSkip(callback: () => void): StepperAttribute;
 
   /**
    * Callback when the change label is clicked.
 
    * @since 8
    */
-  onChange(callback: (prevIndex?: number, index?: number) => void): T;
+  onChange(callback: (prevIndex?: number, index?: number) => void): StepperAttribute;
 
   /**
    * Callback when the next label is clicked.
 
    * @since 8
    */
-  onNext(callback: (index?: number, pendingIndex?: number) => void): T;
+  onNext(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 
   /**
    * Callback when the previous label is clicked.
 
    * @since 8
    */
-  onPrevious(callback: (index?: number, pendingIndex?: number) => void): T;
+  onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 }
 
-export declare class StepperExtend<T> extends StepperAttribute<T> {}
-export declare const StepperInterface: Stepper;
+declare const Stepper: StepperInterface;
+declare const StepperInstance: StepperAttribute;

@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Axis, BarState, Color, Curve, Edge, EdgeEffect } from "./enums";
-
 /**
  * Content scroll direction.
  * @since 7
  */
-export declare enum ScrollDirection {
+declare enum ScrollDirection {
   /**
    * Vertical scrolling is supported.
    * @since 7
@@ -49,7 +46,7 @@ export declare enum ScrollDirection {
 /**
  * @since 7
  */
-export declare class Scroller {
+declare class Scroller {
   /**
    * constructor.
    * @since 7
@@ -95,66 +92,66 @@ export declare class Scroller {
  * Provides interfaces for scrollable containers.
  * @since 7
  */
-interface Scroll extends ScrollAttribute<Scroll> {
+interface ScrollInterface {
   /**
    * Called when a scrollable container is set.
    * @since 7
    */
-  (scroller?: Scroller): Scroll;
+  (scroller?: Scroller): ScrollAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ScrollAttribute<T> extends CommonMethod<T> {
+declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when the scroll method is slid.
    * @since 7
    */
-  scrollable(value: ScrollDirection): T;
+  scrollable(value: ScrollDirection): ScrollAttribute;
 
   /**
    * Called when the setting slides to the specified position.
    * @since 7
    */
-  onScroll(event: (xOffset: number, yOffset: number) => void): T;
+  onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
    * @since 7
    */
-  onScrollEdge(event: (side: Edge) => void): T;
+  onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
 
   /**
    * Called when scrolling has stopped.
    * @since 7
    */
-  onScrollEnd(event: () => void): T;
+  onScrollEnd(event: () => void): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
    * @since 7
    */
-  scrollBar(barState: BarState): T;
+  scrollBar(barState: BarState): ScrollAttribute;
 
   /**
    * Called when the color of the scroll bar is set.
    * @since 7
    */
-  scrollBarColor(color: Color | number | string): T;
+  scrollBarColor(color: Color | number | string): ScrollAttribute;
 
   /**
    * Called when the width of the scroll bar is set.
    * @since 7
    */
-  scrollBarWidth(value: number | string): T;
+  scrollBarWidth(value: number | string): ScrollAttribute;
 
   /**
    * Called when the sliding effect is set.
    * @since 7
    */
-  edgeEffect(edgeEffect: EdgeEffect): T;
+  edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 }
 
-export declare class ScrollExtend<T> extends ScrollAttribute<T> {}
-export declare const ScrollInterface: Scroll;
+declare const Scroll: ScrollInterface;
+declare const ScrollInstance: ScrollAttribute;

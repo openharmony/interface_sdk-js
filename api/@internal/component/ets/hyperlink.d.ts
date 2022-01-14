@@ -13,33 +13,30 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Resource, ResourceColor } from "./units";
-
 /**
  * @since 7
  */
-interface Hyperlink extends HyperlinkAttribute<Hyperlink> {
+interface HyperlinkInterface {
   /**
    * Return to get Hyperlink.
    * address: Web page redirected by the hyperlink component.
    * content: Hyperlinks in the hyperlink component display text.
    * @since 7
    */
-  (address: string | Resource, content?: string | Resource): Hyperlink;
+  (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
 
 /**
  * inheritance CommonMethod
  * @since 7
  */
-declare class HyperlinkAttribute<T> extends CommonMethod<T> {
+declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
    * Set Color
    * @since 7
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): HyperlinkAttribute;
 }
 
-export declare class HyperlinkExtend<T> extends HyperlinkAttribute<T> {}
-export declare const HyperlinkInterface: Hyperlink;
+declare const Hyperlink: HyperlinkInterface;
+declare const HyperlinkInstance: HyperlinkAttribute;

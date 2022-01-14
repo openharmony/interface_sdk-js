@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { EdgeEffect } from "./enums";
-
 /**
  * Provides methods for switching components.
  * @since 7
  */
-export declare class SwiperController {
+declare class SwiperController {
   /**
    * constructor.
    * @since 7
@@ -50,7 +47,7 @@ export declare class SwiperController {
  * Declare the size of the swiper on the spindle.
  * @since 7
  */
-export declare enum SwiperDisplayMode {
+declare enum SwiperDisplayMode {
   /**
    * Carousel map extension.
    * @since 7
@@ -68,102 +65,102 @@ export declare enum SwiperDisplayMode {
  * Provides an interface for sliding containers.
  * @since 7
  */
-interface Swiper extends SwiperAttribute<Swiper> {
+interface SwiperInterface {
   /**
    * Called when a sliding container is set.
    * @since 7
    */
-  (controller?: SwiperController): Swiper;
+  (controller?: SwiperController): SwiperAttribute;
 }
 
 /**
  * @since 7
  */
-declare class SwiperAttribute<T> extends CommonMethod<T> {
+declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
    * Called when the index value of the displayed subcomponent is set in the container.
    * @since 7
    */
-  index(value: number): T;
+  index(value: number): SwiperAttribute;
 
   /**
    * Called when setting whether the subcomponent plays automatically.
    * @since 7
    */
-  autoPlay(value: boolean): T;
+  autoPlay(value: boolean): SwiperAttribute;
 
   /**
    * Called when the time interval for automatic playback is set.
    * @since 7
    */
-  interval(value: number): T;
+  interval(value: number): SwiperAttribute;
 
   /**
    * Called when you set whether the navigation point indicator is enabled.
    * @since 7
    */
-  indicator(value: boolean): T;
+  indicator(value: boolean): SwiperAttribute;
 
   /**
    * Called when setting whether to turn on cyclic sliding.
    * @since 7
    */
-  loop(value: boolean): T;
+  loop(value: boolean): SwiperAttribute;
 
   /**
    * Called when the animation duration of the switch is set.
    * @since 7
    */
-  duration(value: number): T;
+  duration(value: number): SwiperAttribute;
 
   /**
    * Called when setting whether to slide vertically.
    * @since 7
    */
-  vertical(value: boolean): T;
+  vertical(value: boolean): SwiperAttribute;
 
   /**
    * Called when the size of the rotation chart is set.
    * @since 7
    */
-  itemSpace(value: number | string): T;
+  itemSpace(value: number | string): SwiperAttribute;
 
   /**
    * Called when setting the size of the swiper container on the spindle.
    * @since 7
    */
-  displayMode(value: SwiperDisplayMode): T;
+  displayMode(value: SwiperDisplayMode): SwiperAttribute;
 
   /**
    * Called when setting the cached count of the swiper container one side.
    * @since 8
    */
-  cachedCount(value: number): T;
+  cachedCount(value: number): SwiperAttribute;
 
   /**
    * This command is invoked when the number of subcomponents is set.
    * @since 8
    */
-  displayCount(value: number | string): T;
+  displayCount(value: number | string): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect
    * @since 8
    */
-  effectMode(value: EdgeEffect): T;
+  effectMode(value: EdgeEffect): SwiperAttribute;
 
   /**
    * Called when sliding is disableSwipe
    * @since 8
    */
-  disableSwipe(value: boolean): T;
+  disableSwipe(value: boolean): SwiperAttribute;
 
   /**
    * Called when the index value changes.
    * @since 7
    */
-  onChange(event: (index: number) => void): T;
+  onChange(event: (index: number) => void): SwiperAttribute;
 }
 
-export declare class SwiperExtend<T> extends SwiperAttribute<T> {}
-export declare const SwiperInterface: Swiper;
+declare const Swiper: SwiperInterface;
+declare const SwiperInstance: SwiperAttribute;

@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { FlexAlign, FlexDirection, FlexWrap, ItemAlign } from "./enums";
-
 /**
  * Defines the option of Flex.
  * @since 7
  */
-export declare interface FlexOption {
+declare interface FlexOption {
   /**
    * Sets the horizontal layout of elements.
    * @since 7
@@ -56,19 +53,19 @@ export declare interface FlexOption {
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
  */
-interface Flex extends FlexAttribute<Flex> {
+interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    * @since 7
    */
-  (value?: FlexOption): Flex;
+  (value?: FlexOption): FlexAttribute;
 }
 
 /**
  * Defines the Flex attribute functions.
  * @since 7
  */
-declare class FlexAttribute<T> extends CommonMethod<T> {}
+declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
 
-export declare class FlexExtend<T> extends FlexAttribute<T> {}
-export declare const FlexInterface: Flex;
+declare const Flex: FlexInterface;
+declare const FlexInstance: FlexAttribute;

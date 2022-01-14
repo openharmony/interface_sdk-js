@@ -13,25 +13,22 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { AnimationStatus } from "./enums";
-
 /**
  * @since 7
  */
-interface ImageAnimator extends ImageAnimatorAttribute<ImageAnimator> {
+interface ImageAnimatorInterface {
   /**
    * ImageAimator is returned.
    * @since 7
    */
-  (): ImageAnimator;
+  (): ImageAnimatorAttribute;
 }
 
 /**
  * inheritance CommonMethod
  * @since 7
  */
-declare class ImageAnimatorAttribute<T> extends CommonMethod<T> {
+declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
    * list images
    * @since 7
@@ -45,80 +42,80 @@ declare class ImageAnimatorAttribute<T> extends CommonMethod<T> {
       left?: number | string;
       duration?: number;
     }>,
-  ): T;
+  ): ImageAnimatorAttribute;
 
   /**
    * The default value is the initial state, which is used to control the playback status.
    * @since 7
    */
-  state(value: AnimationStatus): T;
+  state(value: AnimationStatus): ImageAnimatorAttribute;
 
   /**
    * The unit is millisecond.
    * @since 7
    */
-  duration(value: number): T;
+  duration(value: number): ImageAnimatorAttribute;
 
   /**
    * Set the playback sequence.
    * @since 7
    */
-  reverse(value: boolean): T;
+  reverse(value: boolean): ImageAnimatorAttribute;
 
   /**
    * Sets whether the image size is fixed to the component size.
    * @since 7
    */
-  fixedSize(value: boolean): T;
+  fixedSize(value: boolean): ImageAnimatorAttribute;
 
   /**
    * Indicates whether to enable pre-decoding.
    * @since 7
    */
-  preDecode(value: number): T;
+  preDecode(value: number): ImageAnimatorAttribute;
 
   /**
    * Sets the state before and after the animation starts
    * @since 7
    */
-  fillMode(value: FillMode): T;
+  fillMode(value: FillMode): ImageAnimatorAttribute;
 
   /**
    * Played once by default
    * @since 7
    */
-  iterations(value: number): T;
+  iterations(value: number): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation starts to play.
    * @since 7
    */
-  onStart(event: () => void): T;
+  onStart(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation pauses.
    * @since 7
    */
-  onPause(event: () => void): T;
+  onPause(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, triggered when the animation is replayed
    * @since 7
    */
-  onRepeat(event: () => void): T;
+  onRepeat(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation is canceled.
    * @since 7
    */
-  onCancel(event: () => void): T;
+  onCancel(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation playback is complete.
    * @since 7
    */
-  onFinish(event: () => void): T;
+  onFinish(event: () => void): ImageAnimatorAttribute;
 }
 
-export declare class ImageAnimatorExtend<T> extends ImageAnimatorAttribute<T> {}
-export declare const ImageAnimatorInterface: ImageAnimator;
+declare const ImageAnimator: ImageAnimatorInterface;
+declare const ImageAnimatorInstance: ImageAnimatorAttribute;

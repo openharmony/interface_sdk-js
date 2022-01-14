@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
 
 /**
  * DataPanelType enum
  * @since 8
  */
-export declare enum DataPanelType {
+declare enum DataPanelType {
   /**
    * Line Type
    * @since 8
@@ -37,7 +36,7 @@ export declare enum DataPanelType {
  * Defines the option of DataPanel.
  * @since 7
  */
-export declare interface DataPanelOption {
+declare interface DataPanelOption {
   /**
    * Current data value. the max length is 9.
    * @since 7
@@ -61,25 +60,25 @@ export declare interface DataPanelOption {
  * Defines the DataPanel component.
  * @since 7
  */
-interface DataPanel extends DataPanelAttribute<DataPanel> {
+interface DataPanelInterface {
   /**
    * Return a DataPanel.
    * @since 7
    */
-  (options: DataPanelOption): DataPanel;
+  (options: DataPanelOption): DataPanelAttribute;
 }
 
 /**
  * Defines the DataPanel attribute functions.
  * @since 7
  */
-declare class DataPanelAttribute<T> extends CommonMethod<T> {
+declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
    * Disable the special effect of the data ratio chart.
    * @since 7
    */
-  closeEffect(value: boolean): T;
+  closeEffect(value: boolean): DataPanelAttribute;
 }
 
-export declare class DataPanelExtend<T> extends DataPanelAttribute<T> {}
-export declare const DataPanelInterface: DataPanel;
+declare const DataPanel: DataPanelInterface
+declare const DataPanelInstance: DataPanelAttribute;

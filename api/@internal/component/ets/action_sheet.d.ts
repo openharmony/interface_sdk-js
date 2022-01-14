@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { DialogAlignment } from "./alert_dialog";
-import { Resource } from ".";
 
 /**
  * The information of sheet.
@@ -44,7 +42,7 @@ interface SheetInfo {
  * Declare the ActionSheet
  * @since 8
  */
-export declare class ActionSheet {
+declare class ActionSheet {
   /**
    * Invoking method display.
    * @since 8

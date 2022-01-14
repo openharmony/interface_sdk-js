@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * Defines the option of Checkbox.
  * @since 8
  */
-export declare interface CheckboxOption {
+declare interface CheckboxOption {
   /**
    * Current name of Checkbox.
    * @since 8
@@ -38,39 +35,39 @@ export declare interface CheckboxOption {
  * Provides an interface for the Checkbox component.
  * @since 8
  */
-interface Checkbox extends CheckboxAttribute<Checkbox> {
+interface CheckboxInterface {
   /**
    * Construct the Checkbox component.
    * Called when the Checkbox component is used.
    * @since 8
    */
-  (options?: CheckboxOption): Checkbox;
+  (options?: CheckboxOption): CheckboxAttribute;
 }
 
 /**
  * Defines the attribute functions of Checkbox.
  * @since 8
  */
-declare class CheckboxAttribute<T> extends CommonMethod<T> {
+declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 
   /**
    * setting whether checkbox is selected.
    * @since 8
    */
-   select(value: boolean): T;
+   select(value: boolean): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): T;
+   selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
    * Called when the selection status changes.
    * @since 8
    */
-  onChange(callback: (value: boolean) => void): T;
+  onChange(callback: (value: boolean) => void): CheckboxAttribute;
 }
 
-export declare class CheckboxExtend<T> extends CheckboxAttribute<T> {}
-export declare const CheckboxInterface: Checkbox;
+declare const Checkbox: CheckboxInterface;
+declare const CheckboxInstance: CheckboxAttribute;

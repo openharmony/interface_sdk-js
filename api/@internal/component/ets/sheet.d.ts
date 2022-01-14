@@ -13,25 +13,23 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Provides the interface for the sheet attributes.
  * @since 8
  */
-interface Sheet extends SheetAttribute<Sheet> {
+interface SheetInterface {
   /**
    * Create sheet.
    * @since 8
    */
-  (): Sheet;
+  (): SheetAttribute;
 }
 
 /**
  * Declares sheet properties.
  * @since 8
  */
-declare class SheetAttribute<T> extends CommonMethod<T> {}
+declare class SheetAttribute extends CommonMethod<SheetAttribute> {}
 
-export declare class SheetExtend<T> extends SheetAttribute<T> {}
-export declare const SheetInterface: Sheet;
+declare const Sheet: SheetInterface;
+declare const SheetInstance: SheetAttribute;

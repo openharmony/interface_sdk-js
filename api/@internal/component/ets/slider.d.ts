@@ -13,15 +13,12 @@
  * limitations under the License.
  */
 
-import { Axis } from "./enums";
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
 
 /**
  * Declare sliderstyle
  * @since 7
  */
-export declare enum SliderStyle {
+declare enum SliderStyle {
   /**
    * The slider is on the slide rail.
    * @since 7
@@ -39,7 +36,7 @@ export declare enum SliderStyle {
  * Declare SliderChangeMode
  * @since 7
  */
-export declare enum SliderChangeMode {
+declare enum SliderChangeMode {
   /**
    * Start dragging the slider.
    * @since 7
@@ -63,7 +60,7 @@ export declare enum SliderChangeMode {
  * Defines the option of Slider.
  * @since 7
  */
-export declare interface SliderOption {
+declare interface SliderOption {
   /**
    * Current value of Slider.
    * @since 7
@@ -111,70 +108,70 @@ export declare interface SliderOption {
  * Provides an interface for the slide bar component.
  * @since 7
  */
-interface Slider extends SliderAttribute<Slider> {
+interface SliderInterface {
   /**
    * Called when the slider bar component is used.
    * @since 7
    */
-  (options?: SliderOption): Slider;
+  (options?: SliderOption): SliderAttribute;
 }
 
 /**
  * Defines the attribute functions of Slider.
  * @since 7
  */
-declare class SliderAttribute<T> extends CommonMethod<T> {
+declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the slider color of the slider bar is set.
    * @since 7
    */
-  blockColor(value: ResourceColor): T;
+  blockColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the track color of the slider is set.
    * @since 7
    */
-  trackColor(value: ResourceColor): T;
+  trackColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
    * @since 7
    */
-  selectedColor(value: ResourceColor): T;
+  selectedColor(value: ResourceColor): SliderAttribute;
 
   /**
    * Called when the minimum label is set.
    * @since 7
    */
-  minLabel(value: string): T;
+  minLabel(value: string): SliderAttribute;
 
   /**
    * Called when the maximum label is set.
    * @since 7
    */
-  maxLabel(value: string): T;
+  maxLabel(value: string): SliderAttribute;
 
   /**
    * Called when setting whether to display step size.
    * @devices phone, tablet, car
    * @since 7
    */
-  showSteps(value: boolean): T;
+  showSteps(value: boolean): SliderAttribute;
 
   /**
    * Called when the percentage of bubble prompt is set when sliding.
    * @devices phone, tablet, car
    * @since 7
    */
-  showTips(value: boolean): T;
+  showTips(value: boolean): SliderAttribute;
 
   /**
    * Called when the selection value changes.
    * @devices phone, tablet, car
    * @since 7
    */
-  onChange(callback: (value: number, mode: SliderChangeMode) => void): T;
+  onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
 }
 
-export declare class SliderExtend<T> extends SliderAttribute<T> {}
-export declare const SliderInterface: Slider;
+declare const Slider: SliderInterface;
+declare const SliderInstance: SliderAttribute;

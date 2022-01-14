@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor, Font } from "./units";
-
 /**
  * indexer align property.
  * @since 7
  */
-export declare enum IndexerAlign {
+declare enum IndexerAlign {
   /**
    * A dialog box is displayed on the right of the index bar.
    * @since 7
@@ -38,116 +35,116 @@ export declare enum IndexerAlign {
  * Alphabet index bar.
  * @since 7
  */
-interface AlphabetIndexer extends AlphabetIndexerAttribute<AlphabetIndexer> {
+interface AlphabetIndexerInterface {
   /**
    * ArrayValue: Alphabetical index string array.
    * selected: ID of the selected item.
    * @since 7
    */
-  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexer;
+  (value: { arrayValue: Array<string>; selected: number }): AlphabetIndexerAttribute;
 }
 
 /**
  * Defines the alphabet index bar attribute functions.
  * @since 7
  */
-declare class AlphabetIndexerAttribute<T> extends CommonMethod<T> {
+declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
    * Index bar selection callback.
    * @since 7
    */
-  onSelected(event: (index: number) => void): T;
+  onSelected(event: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
    * Definitions color.
    * @since 7
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Select the text color.
    * @since 7
    */
-  selectedColor(value: ResourceColor): T;
+  selectedColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Font color of the pop-up prompt text.
    * @since 7
    */
-  popupColor(value: ResourceColor): T;
+  popupColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    * @since 7
    */
-  selectedBackgroundColor(value: ResourceColor): T;
+  selectedBackgroundColor(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Background color of the pop-up window index.
    * @since 7
    */
-  popupBackground(value: ResourceColor): T;
+  popupBackground(value: ResourceColor): AlphabetIndexerAttribute;
 
   /**
    * Whether to use pop-up index hints.
    * @since 7
    */
-  usingPopup(value: boolean): T;
+  usingPopup(value: boolean): AlphabetIndexerAttribute;
 
   /**
    * Select the text text style,
    * @since 7
    */
-  selectedFont(value: Font): T;
+  selectedFont(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    * @since 7
    */
-  popupFont(value: Font): T;
+  popupFont(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
    * @since 7
    */
-  itemSize(value: string | number): T;
+  itemSize(value: string | number): AlphabetIndexerAttribute;
 
   /**
    * Definitions fonts.
    * @since 7
    */
-  font(value: Font): T;
+  font(value: Font): AlphabetIndexerAttribute;
 
   /**
    * Alphabet index bar alignment style. The left and right alignment styles are supported, which affects the pop-up position of the pop-up window.
    * @since 7
    */
-  alignStyle(value: IndexerAlign): T;
+  alignStyle(value: IndexerAlign): AlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    * @since 8
    */
-  onRequestPopupData(event: (index: number) => Array<string>): T;
+  onRequestPopupData(event: (index: number) => Array<string>): AlphabetIndexerAttribute;
 
   /**
    * Pop-up selection callback.
    * @since 8
    */
-  onPopupSelected(event: (index: number) => void): T;
+  onPopupSelected(event: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
    * Select the index.
    * @since 8
    */
-  selectedIndex(index: number): T;
+  selectedIndex(index: number): AlphabetIndexerAttribute;
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
    * @since 8
    */
-  popupPosition(value: {offsetX: number, offsetY: number}): T;
+  popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
 }
 
-export declare const AlphabetIndexerInterface: AlphabetIndexer;
-export declare class AlphabetIndexerExtend<T> extends AlphabetIndexerAttribute<T> {}
+declare const AlphabetIndexer: AlphabetIndexerInterface;
+declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;

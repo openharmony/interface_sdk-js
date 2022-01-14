@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { Curve } from "./enums";
-
 /**
  * Declare the jump method.
  * @since 7
  */
-export declare enum RouteType {
+declare enum RouteType {
   /**
    * The page is not redirected.
    * @since 7
@@ -41,7 +39,7 @@ export declare enum RouteType {
  * Declare the sliding effect of transition.
  * @since 7
  */
-export declare enum SlideEffect {
+declare enum SlideEffect {
   /**
    * Swipe left.
    * @since 7
@@ -71,7 +69,7 @@ export declare enum SlideEffect {
  * Provides interfaces for common transitions.
  * @since 7
  */
-export declare class CommonTransition<T> {
+declare class CommonTransition<T> {
   /**
    * Called when a transition method is required.
    * @since 7
@@ -106,37 +104,37 @@ export declare class CommonTransition<T> {
  * Provides an interface for page rotation mode.
  * @since 7
  */
-interface PageTransitionEnter extends CommonTransition<PageTransitionEnter> {
+interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEnterInterface> {
   /**
    * Called when page Jump animation is used.
    * @since 7
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnter;
+  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnterInterface;
 
   /**
    * Called when the incoming parameter is the normalized progress of the current incoming animation.
    * @since 7
    */
-  onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnter;
+  onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnterInterface;
 }
 
 /**
  * Provide an interface to exit the transition.
  * @since 7
  */
-interface PageTransitionExit extends CommonTransition<PageTransitionExit> {
+interface PageTransitionExitInterface extends CommonTransition<PageTransitionExitInterface> {
   /**
    * Called when the transition is delayed.
    * @since 7
    */
-  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExit;
+  (value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExitInterface;
 
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
    * @since 7
    */
-  onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExit;
+  onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
 }
 
-export declare const PageTransitionEnterInterface: PageTransitionEnter;
-export declare const PageTransitionExitInterface: PageTransitionExit;
+declare const PageTransitionEnter: PageTransitionEnterInterface;
+declare const PageTransitionExit: PageTransitionExitInterface;

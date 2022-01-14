@@ -13,15 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { FontWeight, FontStyle } from "./enums";
-import { Length, ResourceColor, ResourceStr, Resource } from "./units";
-
 /**
  * Provides a button component.
  * @since 7
  */
-export declare enum ButtonType {
+declare enum ButtonType {
   /**
    * Capsule button (rounded corners default to half the height).
    * @since 7
@@ -45,7 +41,7 @@ export declare enum ButtonType {
  * Defines the button options.
  * @since 7
  */
-export declare interface ButtonOption {
+declare interface ButtonOption {
   /**
    * Describes the button style.
    * @since 7
@@ -63,73 +59,73 @@ export declare interface ButtonOption {
  * Defines the Button Component.
  * @since 7
  */
-interface Button extends ButtonAttribute<Button> {
+interface ButtonInterface {
   /**
    * Button object
    * @since 7
    */
-  (): Button;
+  (): ButtonAttribute;
 
   /**
    * Create Button with Text child.
    * @since 7
    */
-  (options: ButtonOption): Button;
+  (options: ButtonOption): ButtonAttribute;
 
   /**
    * Create Button with inner text label.
    * @since 7
    */
-  (label: ResourceStr, options?: ButtonOption): Button;
+  (label: ResourceStr, options?: ButtonOption): ButtonAttribute;
 }
 
 /**
  * Defines the button attribute functions.
  * @since 7
  */
-declare class ButtonAttribute<T> extends CommonMethod<T> {
+declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Describes the button style.
    * @since 7
    */
-  type(value: ButtonType): T;
+  type(value: ButtonType): ButtonAttribute;
 
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
    * @since 7
    */
-  stateEffect(value: boolean): T;
+  stateEffect(value: boolean): ButtonAttribute;
 
   /**
    * Text color.
    * @since 7
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): ButtonAttribute;
 
   /**
    * Text size.
    * @since 7
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): ButtonAttribute;
 
   /**
    * Font weight.
    * @since 7
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
   /**
    * Font style.
    * @since 8
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): ButtonAttribute;
 
   /**
    * Font family.
    * @since 8
    */
-  fontFamily(value: string | Resource): T;
+  fontFamily(value: string | Resource): ButtonAttribute;
 }
 
-export declare class ButtonExtend<T> extends ButtonAttribute<T> {}
-export declare const ButtonInterface: Button;
+declare const Button: ButtonInterface
+declare const ButtonInstance: ButtonAttribute;

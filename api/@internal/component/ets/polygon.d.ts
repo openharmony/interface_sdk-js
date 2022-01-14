@@ -13,33 +13,31 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
-
 /**
  * Provides the polygon drawing interface.
  * @since 7
  */
-interface Polygon extends PolygonAttribute<Polygon> {
+interface PolygonInterface{
   /**
    * Uses new to create Polygon.
    * @since 7
    */
-  new (value?: { width?: string | number; height?: string | number }): Polygon;
+  new (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 
   /**
    * Called when drawing a polygon.
    * @since 7
    */
-  (value?: { width?: string | number; height?: string | number }): Polygon;
+  (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
 
-declare class PolygonAttribute<T> extends CommonShapeMethod<T> {
+declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    * @since 7
    */
-  points(value: Array<any>): T;
+  points(value: Array<any>): PolygonAttribute;
 }
 
-export declare class PolygonExtend<T> extends PolygonAttribute<T> {}
-export declare const PolygonInterface: Polygon;
+declare const Polygon: PolygonInterface;
+declare const PolygonInstance: PolygonAttribute;

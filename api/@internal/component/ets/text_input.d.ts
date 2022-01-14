@@ -13,16 +13,12 @@
  * limitations under the License.
  */
 
-import { Font } from ".";
-import { CommonMethod } from "./common";
-import { ResourceColor, ResourceStr, Length } from "./units";
-import { FontStyle, FontWeight } from "./enums";
 
 /**
  * Declare the type of input box
  * @since 7
  */
-export declare enum InputType {
+declare enum InputType {
   /**
    * Basic input mode.
    * @since 7
@@ -52,7 +48,7 @@ export declare enum InputType {
  * Declare the type of soft keyboard.
  * @since 7
  */
-export declare enum EnterKeyType {
+declare enum EnterKeyType {
   /**
    * Go.
    * @since 7
@@ -88,7 +84,7 @@ export declare enum EnterKeyType {
  * Provides the method of switching the cursor position.
  * @since 8
  */
-export declare class TextInputController {
+declare class TextInputController {
   /**
    * constructor.
    * @since 8
@@ -105,7 +101,7 @@ export declare class TextInputController {
  * Defines the option of TextInput.
  * @since 7
  */
-export declare interface TextInputOption {
+declare interface TextInputOption {
   /**
    * The place holder text string.
    * @since 7
@@ -129,126 +125,126 @@ export declare interface TextInputOption {
  * Provides a single-line text input component interface.
  * @since 7
  */
-interface TextInput extends TextInputAttribute<TextInput> {
+interface TextInputInterface {
   /**
    * Called when writing a single line of text.
    * @since 7
    */
-  (value?: TextInputOption): TextInput;
+  (value?: TextInputOption): TextInputAttribute;
 }
 
 /**
  * @since 7
  */
-declare class TextInputAttribute<T> extends CommonMethod<T> {
+declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when the input type is set.
    * @since 7
    */
-  type(value: InputType): T;
+  type(value: InputType): TextInputAttribute;
 
   /**
    * Called when the color of the placeholder is set.
    * @since 7
    */
-  placeholderColor(value: ResourceColor): T;
+  placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
    */
-  placeholderFont(value?: Font): T;
+  placeholderFont(value?: Font): TextInputAttribute;
 
   /**
    * Called when the type of soft keyboard input button is set.
    * @since 7
    */
-  enterKeyType(value: EnterKeyType): T;
+  enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
    * Called when the color of the insertion cursor is set.
    * @since 7
    */
-  caretColor(value: ResourceColor): T;
+  caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when judging whether the text editing has changed.
    * @since 7
    */
-  onEditChanged(callback: (isEditing: boolean) => void): T;
+  onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.
    * @since 7
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): T;
+  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
    * @since 7
    */
-  onChange(callback: (value: string) => void): T;
+  onChange(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when the input of maximum text length is set.
    * @since 7
    */
-  maxLength(value: number): T;
+  maxLength(value: number): TextInputAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): TextInputAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): TextInputAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): TextInputAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): TextInputAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
    */
-  fontFamily(value: ResourceStr): T;
+  fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
    * Called when the inputFilter of text is set.
    * @since 8
    */
-  inputFilter(value: ResourceStr, error?: (value: string) => void): T;
+  inputFilter(value: ResourceStr, error?: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onCopy(callback: (value: string) => void): T;
+  onCopy(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onCut(callback: (value: string) => void): T;
+  onCut(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onPaste(callback: (value: string) => void): T;
+  onPaste(callback: (value: string) => void): TextInputAttribute;
 }
 
-export declare class TextInputExtend<T> extends TextInputAttribute<T> {}
-export declare const TextInputInterface: TextInput;
+declare const TextInput: TextInputInterface;
+declare const TextInputInstance: TextInputAttribute;

@@ -13,15 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceStr, ResourceColor, Length } from "./units";
-import { FontStyle, FontWeight } from "./enums";
-
 /**
  * TextClock component, which provides the text clock capability.
  * @since 8
  */
-interface TextClock extends TextClockAttribute<TextClock> {
+interface TextClockInterface {
   /**
    * Construct the text clock component.
    * Specifies the current time zone.
@@ -29,10 +25,10 @@ interface TextClock extends TextClockAttribute<TextClock> {
    * Where a negative value indicates the eastern time zone, for example, -8.
    * @since 8
    */
-  (options?: {hourswest?: number}): TextClock;
+  (options?: {hourswest?: number}): TextClockAttribute;
 }
 
-declare class TextClockAttribute<T> extends CommonMethod<T> {
+declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * set display time format，such as "yyyy/mm/dd"、“yyyy-mm-dd".
    * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
@@ -40,7 +36,7 @@ declare class TextClockAttribute<T> extends CommonMethod<T> {
    * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second)
    * @since 8
    */
-  format(value: string): T;
+  format(value: string): TextClockAttribute;
   /**
    * sets the start and stop of the text clock. You can customize the start and stop of the text clock.
    * when the value is true, the time of the current custom style is displayed.
@@ -48,7 +44,7 @@ declare class TextClockAttribute<T> extends CommonMethod<T> {
    * if the value is false, the clock stops updating the time and stops updating the callback.
    * @since 8
    */
-  status(value: boolean): T;
+  status(value: boolean): TextClockAttribute;
   /**
    * Provides a date change callback.
    * The callback parameter is Unix Time Stamp,
@@ -59,34 +55,34 @@ declare class TextClockAttribute<T> extends CommonMethod<T> {
    * @param event Listening date event callback.
    * @since 8
    */
-  onDateChange(event: (value: number) => void): T;
+  onDateChange(event: (value: number) => void): TextClockAttribute;
   /**
    * Called when the value of TextClock fontColor is set
    * @since 8
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): TextClockAttribute;
   /**
    * Called when the value of TextClock fontSize is set
    * @since 8
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): TextClockAttribute;
   /**
    * Called when the value of TextClock fontStyle is set
    * @since 8
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): TextClockAttribute;
   /**
    * Called when the value of TextClock fontWeight is set
    * @since 8
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): TextClockAttribute;
   /**
    * Called when the value of TextClock fontFamily is set
    * @since 8
    */
-  fontFamily(value: ResourceStr): T;
+  fontFamily(value: ResourceStr): TextClockAttribute;
 }
 
-export declare class TextClockExtend<T> extends TextClockAttribute<T> {}
+declare const TextClock: TextClockInterface;
 
-export declare const TextClockInterface: TextClock;
+declare const TextClockInstance: TextClockAttribute;

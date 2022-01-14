@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Route jump.
  * @since 7
  */
-export declare enum NavigationType {
+declare enum NavigationType {
   /**
    * Jump to the next page.
    * @since 7
@@ -43,49 +41,49 @@ export declare enum NavigationType {
  * Create route
  * @since 7
  */
-interface Navigator extends NavigatorAttribute<Navigator> {
+interface NavigatorInterface {
   /**
    * Called when the route jumps.
    * @since 7
    */
-  (value?: { target: string; type?: NavigationType }): Navigator;
+  (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
   /**
    * Called when using the navigator.
    * @since 7
    */
-  (): Navigator;
+  (): NavigatorAttribute;
 }
 
 /**
  * Declare navigator properties.
  * @since 7
  */
-declare class NavigatorAttribute<T> extends CommonMethod<T> {
+declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
    * Called when determining whether the routing component is active.
    * @since 7
    */
-  active(value: boolean): T;
+  active(value: boolean): NavigatorAttribute;
 
   /**
    * Called when determining whether the routing component is active.
    * @since 7
    */
-  type(value: NavigationType): T;
+  type(value: NavigationType): NavigatorAttribute;
 
   /**
    * Called when the path to the specified jump target page is set.
    * @since 7
    */
-  target(value: string): T;
+  target(value: string): NavigatorAttribute;
 
   /**
    * Called when data is passed to the target page at the same time during jump.
    * @since 7
    */
-  params(value: object): T;
+  params(value: object): NavigatorAttribute;
 }
 
-export declare class NavigatorExtend<T> extends NavigatorAttribute<T> {}
-export declare const NavigatorInterface: Navigator;
+declare const Navigator: NavigatorInterface;
+declare const NavigatorInstance: NavigatorAttribute;

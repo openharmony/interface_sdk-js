@@ -13,14 +13,11 @@
   * limitations under the License.
   */
 
-import { CommonMethod } from "./common"
-import { Length, ResourceColor } from "./units";
-
 /**
  * Provides methods for control pattern lock component.
  * @since 8
  */
-export declare class PatternLockController {
+declare class PatternLockController {
   /**
    * constructor.
    */
@@ -36,74 +33,74 @@ export declare class PatternLockController {
  * Provides an interface for generating PatternLock.
  * @since 8
  */
-interface PatternLock extends PatternLockAttribute<PatternLock> {
-  (controller?: PatternLockController): PatternLock;
+interface PatternLockInterface {
+  (controller?: PatternLockController): PatternLockAttribute;
 }
 
 /**
  * @since 8
  */
-declare class PatternLockAttribute<T> extends CommonMethod<T> {
+declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * The square side length of pattern lock component.
    * @since 8
    */
-  sideLength(value: Length): T;
+  sideLength(value: Length): PatternLockAttribute;
 
   /**
    * Circle radius.
    * @since 8
    */
-  circleRadius(value: Length): T;
+  circleRadius(value: Length): PatternLockAttribute;
 
   /**
    * The background color.
    * @since 8
    */
-  backgroundColor(value: ResourceColor): T;
+  backgroundColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * Regular color.
    * @since 8
    */
-  regularColor(value: ResourceColor): T;
+  regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is selected.
    * @since 8
    */
-  selectedColor(value: ResourceColor): T;
+  selectedColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is active state.
    * @since 8
    */
-  activeColor(value: ResourceColor): T;
+  activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line color.
    * @since 8
    */
-  pathColor(value: ResourceColor): T;
+  pathColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line stroke width.
    * @since 8
    */
-  pathStrokeWidth(value: number | string): T;
+  pathStrokeWidth(value: number | string): PatternLockAttribute;
 
   /**
    * Called when the pattern input completed.
    * @since 8
    */
-  onPatternComplete(callback: (input: Array<number>) => void): T;
+  onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
    * @since 8
    */
-  autoReset(value: boolean): T;
+  autoReset(value: boolean): PatternLockAttribute;
 }
 
-export declare class PatternLockExtend<T> extends PatternLockAttribute<T> {}
-export declare const PatternLockInterface: PatternLock;
+declare const PatternLock: PatternLockInterface;
+declare const PatternLockInstance: PatternLockAttribute;

@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * ItemState
  * @devices phone, tablet, car
  * @since 8
  */
-export declare enum ItemState {
+declare enum ItemState {
   /**
    * Default State
    * @devices phone, tablet, car
@@ -51,54 +49,54 @@ export declare enum ItemState {
 }
 
 /**
- * @devices phone, tablet, car
- * @since 8
- */
-export declare class StepperItemExtend<T> extends StepperItemAttribute<T> {}
-
-/**
  * Provides an interface for switching the stepperItem view on stepper container.
  * @devices phone, tablet, car
  * @since 8
  */
-interface StepperItem extends StepperItemAttribute<StepperItem> {
+interface StepperItemInterface {
   /**
    * Called when the stepperItem component is used.
    * @devices phone, tablet, car
    * @since 8
    */
-  (): StepperItem;
+  (): StepperItemAttribute;
 }
 
 /**
  * @devices phone, tablet, car
  * @since 8
  */
-declare class StepperItemAttribute<T> extends CommonMethod<T> {
+declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
    * Called when the value of stepperItem prevLabel is set
    * @devices phone, tablet, car
    * @since 8
    */
-  prevLabel(value: string): T;
+  prevLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem nextLabel is set
    * @devices phone, tablet, car
    * @since 8
    */
-  nextLabel(value: string): T;
+  nextLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem status is set
    * @devices phone, tablet, car
    * @since 8
    */
-  status(value?: ItemState): T;
+  status(value?: ItemState): StepperItemAttribute;
 }
 
 /**
  * @devices phone, tablet, car
  * @since 8
  */
-export declare const StepperItemInterface: StepperItem;
+declare const StepperItemInstance: StepperItemAttribute;
+
+/**
+ * @devices phone, tablet, car
+ * @since 8
+ */
+declare const StepperItem: StepperItemInterface;
