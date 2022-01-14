@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import {Callback} from "./basic";
 import radio from "./@ohos.telephony.radio";
 import call from "./@ohos.telephony.call";
 
@@ -38,14 +38,12 @@ declare namespace observer {
    * @param options including slotId Indicates the ID of the target card slot.
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an instance of the {@code NetworkState} class.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
-  function on(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
-  function on(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
+  function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
+  function on(type: 'networkStateChange', options: { slotId: number }, callback: Callback<NetworkState>): void;
 
-  function once(type: 'networkStateChange', callback: AsyncCallback<NetworkState>): void;
-  function once(type: 'networkStateChange', options: { slotId: number }, callback: AsyncCallback<NetworkState>): void;
-
-  function off(type: 'networkStateChange', callback?: AsyncCallback<NetworkState>): void;
+  function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
   /**
    * Called when the signal strength corresponding to a monitored {@code slotId} updates.
@@ -55,15 +53,11 @@ declare namespace observer {
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an array of instances of the classes derived from {@link SignalInformation}.
    */
-  function on(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
+  function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
   function on(type: 'signalInfoChange', options: { slotId: number },
-    callback: AsyncCallback<Array<SignalInformation>>): void;
+    callback: Callback<Array<SignalInformation>>): void;
 
-  function once(type: 'signalInfoChange', callback: AsyncCallback<Array<SignalInformation>>): void;
-  function once(type: 'signalInfoChange', options: { slotId: number },
-    callback: AsyncCallback<Array<SignalInformation>>): void;
-
-  function off(type: 'signalInfoChange', callback?: AsyncCallback<Array<SignalInformation>>): void;
+  function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
   /**
    * Receives a call state change. This callback is invoked when the call state of a specified card updates
@@ -76,15 +70,11 @@ declare namespace observer {
    *   The value of number is an empty string if the application does not have
    *     the {@code ohos.permission#READ_CALL_LOG READ_CALL_LOG} permission.
    */
-  function on(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
+  function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
   function on(type: 'callStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: CallState, number: String }>): void;
+    callback: Callback<{ state: CallState, number: string }>): void;
 
-  function once(type: 'callStateChange', callback: AsyncCallback<{ state: CallState, number: String }>): void;
-  function once(type: 'callStateChange', options: { slotId: number },
-    callback: AsyncCallback<{ state: CallState, number: String }>): void;
-
-  function off(type: 'callStateChange', callback?: AsyncCallback<{ state: CallState, number: String }>): void;
+  function off(type: 'callStateChange', callback?: Callback<{ state: CallState, number: string }>): void;
 }
 
 export default observer;
