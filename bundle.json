@@ -1,0 +1,56 @@
+{
+    "name": "@ohos/interface_sdk_js",
+    "version": "",
+    "description": "Storing declaration files for JavaScript APIs | JavaScript API 公共仓，存放 d.ts 声明文件",
+    "homePage": "https://gitee.com/openharmony",
+    "license": "Apache V2",
+    "repository": "https://gitee.com/openharmony/interface_sdk-js",
+    "domain": "os",
+    "language": "",
+    "publishAs": "code-segment",
+    "private": false,
+    "scripts": {},
+    "tags": [
+        "interface"
+    ],
+    "keywords": [
+        "interface",
+        "sdk",
+        "js"
+    ],
+    "envs": [],
+    "dirs": [],
+    "author": {
+        "name": "",
+        "email": "",
+        "url": ""
+    },
+    "contributors": [
+        {
+            "name": "",
+            "email": "",
+            "url": ""
+        }
+    ],
+    "segment": {
+        "destPath": "interface/sdk-js"
+    },
+    "component": {
+        "name": "interface_sdk_js",
+        "subsystem": "",
+        "syscap": [],
+        "features": [],
+        "adapted_system_type": [],
+        "rom": "",
+        "ram": "",
+        "deps": {
+            "components": [],
+            "third_party": []
+        },
+        "build": {
+            "sub_component": [],
+            "inner_kits": [],
+            "test": []
+        }
+    }
+}
