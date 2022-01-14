@@ -76,3 +76,5 @@ declare namespace backgroundTaskManager {
      */
     function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 }
+
+export default backgroundTaskManager;
