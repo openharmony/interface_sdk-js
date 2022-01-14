@@ -13,15 +13,12 @@
  * limitations under the License.
  */
 
-import { Axis } from "./enums";
-import { ResourceColor } from "./units";
-
 /**
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
  * @systemapi
  */
-export interface CalendarDay {
+interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
    * The week sequence is one, two, three, four, five, six.
@@ -109,7 +106,7 @@ export interface CalendarDay {
  * @since 7
  * @systemapi
  */
-export interface MonthData {
+interface MonthData {
   /**
    * Gregorian calendar year.
    * @since 7
@@ -137,7 +134,7 @@ export interface MonthData {
  * @since 7
  * @systemapi
  */
-export interface CurrentDayStyle {
+interface CurrentDayStyle {
   /**
    * Text color.
    * @since 7
@@ -305,7 +302,7 @@ export interface CurrentDayStyle {
  * @since 7
  * @systemapi
  */
-export interface NonCurrentDayStyle {
+interface NonCurrentDayStyle {
   /**
    * Non-current month day color.
    * @since 7
@@ -340,7 +337,7 @@ export interface NonCurrentDayStyle {
  * @since 7
  * @systemapi
  */
-export interface TodayStyle {
+interface TodayStyle {
   /**
    * Style of focus color.
    * @since 7
@@ -375,7 +372,7 @@ export interface TodayStyle {
  * @since 7
  * @systemapi
  */
-export interface WeekStyle {
+interface WeekStyle {
   /**
    * Style of week color.
    * @since 7
@@ -431,7 +428,7 @@ export interface WeekStyle {
  * @since 7
  * @systemapi
  */
-export interface WorkStateStyle {
+interface WorkStateStyle {
   /**
    * Style of day color.
    * @since 7
@@ -514,7 +511,7 @@ declare class CalendarController {
  * @since 7
  * @systemapi
  */
-interface Calendar extends CalendarAttribute<Calendar> {
+interface CalendarInterface {
   /**
    * Set value.
    * @since 7
@@ -526,97 +523,97 @@ interface Calendar extends CalendarAttribute<Calendar> {
     preData: MonthData;
     nextData: MonthData;
     controller?: CalendarController;
-  }): Calendar;
+  }): CalendarAttribute;
 }
 
 /**
  * @since 7
  * @systemapi
  */
-declare class CalendarAttribute<T> {
+declare class CalendarAttribute {
   /**
    * Specifies whether the component displays the lunar calendar information.
    * @since 7
    * @systemapi
    */
-  showLunar(value: boolean): T;
+  showLunar(value: boolean): CalendarAttribute;
 
   /**
    * Setting whether to display holiday information
    * @since 7
    * @systemapi
    */
-  showHoliday(value: boolean): T;
+  showHoliday(value: boolean): CalendarAttribute;
 
   /**
    * Indicates whether the page can be scrolled.
    * @since 7
    * @systemapi
    */
-  needSlide(value: boolean): T;
+  needSlide(value: boolean): CalendarAttribute;
 
   /**
    * Set the start day of the week for the calendar.
    * @since 7
    * @systemapi
    */
-  startOfWeek(value: number): T;
+  startOfWeek(value: number): CalendarAttribute;
 
   /**
    * Set weekend. The default value is Sunday and Saturday.
    * @since 7
    * @systemapi
    */
-  offDays(value: number): T;
+  offDays(value: number): CalendarAttribute;
 
   /**
    * Sets the sliding direction.
    * @since 7
    * @systemapi
    */
-  direction(value: Axis): T;
+  direction(value: Axis): CalendarAttribute;
 
   /**
    * Sets the date style in the current month.
    * @since 7
    * @systemapi
    */
-  currentDayStyle(value: CurrentDayStyle): T;
+  currentDayStyle(value: CurrentDayStyle): CalendarAttribute;
 
   /**
    * Sets the non-monthly date style.
    * @since 7
    * @systemapi
    */
-  nonCurrentDayStyle(value: NonCurrentDayStyle): T;
+  nonCurrentDayStyle(value: NonCurrentDayStyle): CalendarAttribute;
 
   /**
    * Set the date style for today.
    * @since 7
    * @systemapi
    */
-  todayStyle(value: TodayStyle): T;
+  todayStyle(value: TodayStyle): CalendarAttribute;
 
   /**
    * Sets the date style for the weekend.
    * @since 7
    * @systemapi
    */
-  weekStyle(value: WeekStyle): T;
+  weekStyle(value: WeekStyle): CalendarAttribute;
 
   /**
    * Sets the style of the working state.
    * @since 7
    * @systemapi
    */
-  workStateStyle(value: WorkStateStyle): T;
+  workStateStyle(value: WorkStateStyle): CalendarAttribute;
 
   /**
    * Click a date to return the information about the date you clicked.
    * @since 7
    * @systemapi
    */
-  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): T;
+  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): CalendarAttribute;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
@@ -631,8 +628,8 @@ declare class CalendarAttribute<T> {
       currentMonth: number;
       monthState: number;
     }) => void,
-  ): T;
+  ): CalendarAttribute;
 }
 
-export declare class CalendarExtend<T> extends CalendarAttribute<T> {}
-export declare const CalendarInterface: Calendar;
+declare const Calendar: CalendarInterface;
+declare const CalendarInstance: CalendarAttribute;

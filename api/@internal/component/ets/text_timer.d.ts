@@ -13,15 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Length, ResourceColor, ResourceStr } from "./units";
-import { FontStyle, FontWeight } from "./enums";
-
 /**
  * Provides a way to control the process.
  * @since 8
  */
-export declare class TextTimerController {
+declare class TextTimerController {
   /**
    * constructor.
    * @since 8
@@ -76,56 +72,56 @@ interface TextTimerOption {
  * Provides an interface for texttimer containers.
  * @since 8
  */
-interface TextTimer extends TextTimerAttribute<TextTimer> {
+interface TextTimerInterface {
   /**
    * Defines the TextTimer constructor.
    * @since 8
    */
-  (options?: TextTimerOption): TextTimer;
+  (options?: TextTimerOption): TextTimerAttribute;
 }
 
 /**
  * Defines the TextTimer attribute functions.
  * @since 8
  */
-declare class TextTimerAttribute<T> extends CommonMethod<T> {
+declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
    * The time format string can be hh, mm, ss, or ms.
    * @since 8
    */
-  format(value: string): T;
+  format(value: string): TextTimerAttribute;
    /**
     * Called when the font color is set.
     * @since 8
     */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): TextTimerAttribute;
   /**
    * Called when the font size is set.
    * @since 8
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): TextTimerAttribute;
   /**
    * Called when the fontStyle is set
    * @since 8
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): TextTimerAttribute;
    /**
     * Called when the fontWeight is set
     * @since 8
     */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): TextTimerAttribute;
    /**
     * Called when the fontFamily is set
     * @since 8
     */
-  fontFamily(value: ResourceStr): T;
+  fontFamily(value: ResourceStr): TextTimerAttribute;
   /**
    * Called when the timer value is returned.
    * @since 8
    */
-  onTimer(event: (utc: number, elapsedTime: number) => void): T;
+  onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 }
 
-export declare class TextTimerExtend<T> extends TextTimerAttribute<T> {}
-export declare const TextTimerInterface: TextTimer;
+declare const TextTimer: TextTimerInterface;
+declare const TextTimerInstance: TextTimerAttribute;

@@ -13,27 +13,23 @@
  * limitations under the License.
  */
 
-import { CommonMethod, ItemDragInfo } from "./common";
-import { BarState, Color } from "./enums";
-import { Scroller } from "./scroll";
-import { Length } from "./units";
 
 /**
  * @since 7
  */
-interface Grid extends GridAttribute<Grid> {
+interface GridInterface {
   /**
    * Grid is returned when the parameter is transferred.
    * @since 7
    */
-  (scroller?: Scroller): Grid;
+  (scroller?: Scroller): GridAttribute;
 }
 
 /**
  * The enum of property layoutDirection
  * @since 8
  */
-export declare enum GridDirection {
+declare enum GridDirection {
   Row,
   Column,
   RowReverse,
@@ -43,121 +39,121 @@ export declare enum GridDirection {
 /**
  * @since 7
  */
-declare class GridAttribute<T> extends CommonMethod<T> {
+declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
    * This parameter specifies the number of columns in the current grid layout.
    * @since 7
    */
-  columnsTemplate(value: string): T;
+  columnsTemplate(value: string): GridAttribute;
 
   /**
    * Lets you set the number of rows in the current grid layout,
    * @since 7
    */
-  rowsTemplate(value: string): T;
+  rowsTemplate(value: string): GridAttribute;
 
   /**
    * Allows you to set the spacing between columns.
    * @since 7
    */
-  columnsGap(value: Length): T;
+  columnsGap(value: Length): GridAttribute;
 
   /**
    * Lets you set the spacing between rows.
    * @since 7
    */
-  rowsGap(value: Length): T;
+  rowsGap(value: Length): GridAttribute;
 
   /**
    * This parameter specifies the width of the scroll bar.
    * @since 7
    */
-  scrollBarWidth(value: number | string): T;
+  scrollBarWidth(value: number | string): GridAttribute;
 
   /**
    * Sets the color of the scroll bar.
    * @since 7
    */
-  scrollBarColor(value: Color | number | string): T;
+  scrollBarColor(value: Color | number | string): GridAttribute;
 
   /**
    * Lets you set the spacing between rows.
    * @since 7
    */
-  scrollBar(value: BarState): T;
+  scrollBar(value: BarState): GridAttribute;
 
   /**
    * Sets the status of the scroll bar.
    * @since 7
    */
-  onScrollIndex(event: (first: number) => void): T;
+  onScrollIndex(event: (first: number) => void): GridAttribute;
 
   /**
    * cached Count
    * @since 7
    */
-  cachedCount(value: number): T;
+  cachedCount(value: number): GridAttribute;
 
   /**
    * editMode
    * @since 8
    */
-  editMode(value: boolean): T;
+  editMode(value: boolean): GridAttribute;
 
   /**
    * maxCount
    * @since 8
    */
-  maxCount(value: number): T;
+  maxCount(value: number): GridAttribute;
 
    /**
     * minCount
     * @since 8
     */
-  minCount(value: number): T;
+  minCount(value: number): GridAttribute;
 
   /**
    * cellLength
    * @since 8
    */
-  cellLength(value: number): T;
+  cellLength(value: number): GridAttribute;
 
   /**
    * control GridDirection of the grid.
    * @since 8
    */
-  layoutDirection(value: GridDirection): T;
+  layoutDirection(value: GridDirection): GridAttribute;
 
   /**
    * control if the grid supports animation.
    * @since 8
    */
-  supportAnimation(value: boolean): T;
+  supportAnimation(value: boolean): GridAttribute;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): T;
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
    */
-  onItemDragEnter(event: (event: ItemDragInfo) => void): T;
+  onItemDragEnter(event: (event: ItemDragInfo) => void): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
-  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): T;
+  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
    */
-  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): T;
+  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): GridAttribute;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -165,8 +161,8 @@ declare class GridAttribute<T> extends CommonMethod<T> {
    * @since 8
    */
   onItemDrop(event:
-    (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): T;
+    (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): GridAttribute;
 }
 
-export declare class GridExtend<T> extends GridAttribute<T> {}
-export declare const GridInterface: Grid;
+declare const Grid: GridInterface;
+declare const GridInstance: GridAttribute;

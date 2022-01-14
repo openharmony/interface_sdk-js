@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * PluginComponentTemplate
  * @since 8
@@ -28,36 +26,36 @@ interface PluginComponentTemplate {
  * Provides plugin component.
  * @since 8
  */
-interface PluginComponent extends PluginComponentAttribute<PluginComponent> {
+interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
    * @since 8
    */
-  (value: { template: PluginComponentTemplate; data: any }): PluginComponent;
+  (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
 
 /**
  * @since 8
  */
-declare class PluginComponentAttribute<T> extends CommonMethod<T> {
+declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * Set pluginComponent size,
    * @since 8
    */
-  size(value: { width: number; height: number }): T;
+  size(value: { width: number; height: number }): PluginComponentAttribute;
 
   /**
    * pluginComponent onComplete callback,
    * @since 8
    */
-  onComplete(callback: () => void): T;
+  onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
    * @since 8
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): T;
+  onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
 
-export declare class PluginComponentExtend<T> extends PluginComponentAttribute<T> {}
-export declare const PluginComponentInterface: PluginComponent;
+declare const PluginComponent: PluginComponentInterface;
+declare const PluginComponentInstance: PluginComponentAttribute;

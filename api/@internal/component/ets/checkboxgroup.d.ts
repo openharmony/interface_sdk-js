@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor } from "./units";
-
 /**
  * CheckboxGroup SelectStatus
  * @since 8
  */
-export declare enum SelectStatus {
+declare enum SelectStatus {
   /**
    * All checkboxs is selected.
    * @since 8
@@ -42,7 +39,7 @@ export declare enum SelectStatus {
  * Defines the option of CheckboxGroup.
  * @since 8
  */
-export declare interface CheckboxGroupOption {
+declare interface CheckboxGroupOption {
   /**
    * Setting the group of CheckboxGroup.
    * @since 8
@@ -54,38 +51,38 @@ export declare interface CheckboxGroupOption {
  * Provides an interface for the CheckboxGroup component.
  * @since 8
  */
-interface CheckboxGroup extends CheckboxGroupAttribute<CheckboxGroup> {
+interface CheckboxGroupInterface {
   /**
    * Called when the CheckboxGroup component is used.
    * @since 8
    */
-  (options?: CheckboxGroupOption): CheckboxGroup;
+  (options?: CheckboxGroupOption): CheckboxGroupAttribute;
 }
 
 /**
  * Defines the attribute functions of CheckboxGroup.
  * @since 8
  */
-declare class CheckboxGroupAttribute<T> extends CommonMethod<T> {
+declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
 
   /**
    * setting whether all checkbox is selected.
    * @since 8
    */
-   selectAll(value: boolean): T;
+   selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): T;
+   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
    * @since 8
    */
-  onChange(callback: (name: Array<any>, status: SelectStatus) => void): T;
+  onChange(callback: (name: Array<any>, status: SelectStatus) => void): CheckboxGroupAttribute;
 }
 
-export declare class CheckboxGroupExtend<T> extends CheckboxGroupAttribute<T> {}
-export declare const CheckboxGroupInterface: CheckboxGroup;
+declare const CheckboxGroup: CheckboxGroupInterface;
+declare const CheckboxGroupInstance: CheckboxGroupAttribute;

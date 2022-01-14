@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { DialogAlignment } from "./alert_dialog";
-import { Offset } from "./units";
 
 /**
  * Defines the option of CustomDialogController.
  * @since 7
  */
-export declare interface CustomDialogControllerOption {
+declare interface CustomDialogControllerOption {
   /**
    * Custom builder function.
    * @since 7
@@ -68,7 +66,7 @@ export declare interface CustomDialogControllerOption {
  * Use the CustomDialogController class to display the custom pop-up window.
  * @since 7
  */
-export declare class CustomDialogController {
+declare class CustomDialogController {
   /**
    * The constructor transfers parameter settings.
    * @since 7

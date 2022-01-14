@@ -13,16 +13,12 @@
  * limitations under the License.
  */
 
-import { ResourceStr } from ".";
-import { CommonMethod } from "./common";
-import { TextAlign, FontStyle, FontWeight } from "./enums";
-import { Font, Length, ResourceColor } from "./units";
 
 /**
  * Provides the method of switching the cursor position.
  * @since 8
  */
-export declare class TextAreaController {
+declare class TextAreaController {
   /**
    * constructor.
    * @since 8
@@ -39,7 +35,7 @@ export declare class TextAreaController {
  * Defines the option of TextArea.
  * @since 7
  */
-export declare interface TextAreaOption {
+declare interface TextAreaOption {
   /**
    * The place holder text string.
    * @since 7
@@ -63,104 +59,104 @@ export declare interface TextAreaOption {
  * Provides an interface for the multi-line text input component.
  * @since 7
  */
-interface TextArea extends TextAreaAttribute<TextArea> {
+interface TextAreaInterface {
   /**
    * Called when writing multiple lines of text.
    * @since 7
    */
-  (value?: TextAreaOption): TextArea;
+  (value?: TextAreaOption): TextAreaAttribute;
 }
 
 /**
  * Defines the attribute functions of TextArea.
  * @since 7
  */
-declare class TextAreaAttribute<T> extends CommonMethod<T> {
+declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the color of the placeholder is set.
    * @since 7
    */
-  placeholderColor(value: ResourceColor): T;
+  placeholderColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font property of the placeholder is set.
    * @since 7
    */
-  placeholderFont(value: Font): T;
+  placeholderFont(value: Font): TextAreaAttribute;
 
   /**
    * Called when the alignment of the contents of a multiline text box is set.
    * @since 7
    */
-  textAlign(value: TextAlign): T;
+  textAlign(value: TextAlign): TextAreaAttribute;
 
   /**
    * Called when the insertion cursor color is set.
    * @since 7
    */
-  caretColor(value: ResourceColor): T;
+  caretColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font color is set.
    * @since 7
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): TextAreaAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
    */
-  fontSize(value: Length): T;
+  fontSize(value: Length): TextAreaAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): TextAreaAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): TextAreaAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
    */
-  fontFamily(value: ResourceStr): T;
+  fontFamily(value: ResourceStr): TextAreaAttribute;
 
   /**
    * Called when the inputFilter of text is set.
    * @since 8
    */
-  inputFilter(value: ResourceStr, error?: (value: string) => void): T;
+  inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when the input changes.
    * @devices phone, tablet, car.
    * @since 7
    */
-  onChange(callback: (value: string) => void): T;
+  onChange(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onCopy(callback: (value: string) => void): T;
+  onCopy(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onCut(callback: (value: string) => void): T;
+  onCut(callback: (value: string) => void): TextAreaAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 7
    */
-  onPaste(callback: (value: string) => void): T;
+  onPaste(callback: (value: string) => void): TextAreaAttribute;
 }
 
-export declare class TextAreaExtend<T> extends TextAreaAttribute<T> {}
-export declare const TextAreaInterface: TextArea;
+declare const TextArea: TextAreaInterface;
+declare const TextAreaInstance: TextAreaAttribute;

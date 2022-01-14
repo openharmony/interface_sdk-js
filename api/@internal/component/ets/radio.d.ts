@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Input parameter for creating a radio box.
  * @devices phone, tablet, car
  * @since 8
  */
-export declare interface RadioOption {
+declare interface RadioOption {
   /**
    * Radio group name.
    * @devices phone, tablet, car
@@ -41,34 +39,34 @@ export declare interface RadioOption {
  * @devices phone, tablet, car
  * @since 8
  */
-interface Radio extends RadioAttribute<Radio> {
+interface RadioInterface {
   /**
    * Called when a radio box is created.
    * @devices phone, tablet, car
    * @since 8
    */
-  (options: RadioOption): Radio;
+  (options: RadioOption): RadioAttribute;
 }
 
 /**
  * @devices phone, tablet, car
  * @since 8
  */
-declare class RadioAttribute<T> extends CommonMethod<T> {
+declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
    * @devices phone, tablet, car
    * @since 8
    */
-  checked(value: boolean): T;
+  checked(value: boolean): RadioAttribute;
 
   /**
    * Called when the radio box selection status changes.
    * @devices phone, tablet, car
    * @since 8
    */
-  onChange(callback: (isChecked: boolean) => void): T;
+  onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 }
 
-export declare class RadioExtend<T> extends RadioAttribute<T> {}
-export declare const RadioInterface: Radio;
+declare const Radio: RadioInterface;
+declare const RadioInstance: RadioAttribute;

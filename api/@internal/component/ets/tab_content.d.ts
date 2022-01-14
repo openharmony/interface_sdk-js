@@ -13,33 +13,30 @@
  * limitations under the License.
  */
 
-import { CommonMethod, CustomBuilder } from "./common";
-import { Resource } from "./units";
-
 /**
  * Provides an interface for switching the content view on a tab page.
  * @since 7
  */
-interface TabContent extends TabContentAttribute<TabContent> {
+interface TabContentInterface {
   /**
    * Called when the content view of the switch tab is set.
    * @since 7
    */
-  (): TabContent;
+  (): TabContentAttribute;
 }
 
 /**
  * Defines the attribute functions of TabContent.
  * @since 7
  */
-declare class TabContentAttribute<T> extends CommonMethod<T> {
+declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
    * Called when tabbar is entered.
    * @since 7
    */
   tabBar(value: string | Resource | CustomBuilder |
-    { icon?: string | Resource; text?: string | Resource }): T;
+    { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
 }
 
-export declare class TabContentExtend<T> extends TabContentAttribute<T> {}
-export declare const TabContentInterface: TabContent;
+declare const TabContent: TabContentInterface;
+declare const TabContentInstance: TabContentAttribute;

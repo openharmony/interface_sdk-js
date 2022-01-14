@@ -13,14 +13,10 @@
  * limitations under the License.
  */
 
-import { CommonMethod, PixelMap } from "./common";
-import { ImageFit, ImageRepeat } from "./enums";
-import { Resource, ResourceColor } from "./units";
-
 /**
  * @since 7
  */
-export declare enum ImageRenderMode {
+declare enum ImageRenderMode {
   /**
    * Render according to the original image, including colors.
    * @since 7
@@ -37,7 +33,7 @@ export declare enum ImageRenderMode {
 /**
  * @since 7
  */
-export declare enum ImageInterpolation {
+declare enum ImageInterpolation {
   /**
    * Do not use interpolated image data.
    * @since 7
@@ -63,92 +59,88 @@ export declare enum ImageInterpolation {
   High,
 }
 
-/**
- * @since 7
- */
-export declare class ImageExtend<T> extends ImageAttribute<T> {}
 
 /**
  * @since 7
  */
-interface Image extends ImageAttribute<Image> {
+interface ImageInterface {
   /**
    * Set src to obtain images.
    * @since 7
    */
-  (src: string | PixelMap | Resource): Image;
+  (src: string | PixelMap | Resource): ImageAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ImageAttribute<T> extends CommonMethod<T> {
+declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Placeholder displayed on load
    * @since 7
    */
-  alt(value: string | Resource): T;
+  alt(value: string | Resource): ImageAttribute;
 
   /**match Text Direction
    * @since 7
    */
-  matchTextDirection(value: boolean): T;
+  matchTextDirection(value: boolean): ImageAttribute;
 
   /**
    * Indicates whether the image follows the text direction.
    * @since 7
    */
-  fitOriginalSize(value: boolean): T;
+  fitOriginalSize(value: boolean): ImageAttribute;
 
   /**
    * fill Color
    * @since 7
    */
-  fillColor(value: ResourceColor): T;
+  fillColor(value: ResourceColor): ImageAttribute;
 
   /**
    * Sets the zoom type of an image.
    * @since 7
    */
-  objectFit(value: ImageFit): T;
+  objectFit(value: ImageFit): ImageAttribute;
 
   /**
    * Set the repeat style of the picture
    * @since 7
    */
-  objectRepeat(value: ImageRepeat): T;
+  objectRepeat(value: ImageRepeat): ImageAttribute;
 
   /**
    * Set the auto style of the picture
    * @since 7
    */
-  autoResize(value: boolean): T;
+  autoResize(value: boolean): ImageAttribute;
 
   /**
    * Sets the image rendering mode.
    * @since 7
    */
-  renderMode(value: ImageRenderMode): T;
+  renderMode(value: ImageRenderMode): ImageAttribute;
 
   /**
    * Sets the interpolation effect of an image. The interpolation effect is only magnified for the image.
    * @since 7
    */
-  interpolation(value: ImageInterpolation): T;
+  interpolation(value: ImageInterpolation): ImageAttribute;
 
   /**
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    * @since 7
    */
-  sourceSize(value: { width: number; height: number }): T;
+  sourceSize(value: { width: number; height: number }): ImageAttribute;
 
   /**
    * Sets the synchronous or asynchronous mode for image loading.
    * The default parameter type is bool, and the default value is false.
    * @since 8
    */
-  syncLoad(value: boolean): T;
+  syncLoad(value: boolean): ImageAttribute;
 
   /**
    * This callback is triggered when an image is successfully loaded.
@@ -163,24 +155,28 @@ declare class ImageAttribute<T> extends CommonMethod<T> {
       componentHeight: number;
       loadingStatus: number;
     }) => void,
-  ): T;
+  ): ImageAttribute;
 
   /**
    * This callback is triggered when an exception occurs during image loading.
    * @since 7
    */
-  onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): T;
+  onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    * @since 7
    */
-  onFinish(event: () => void): T;
+  onFinish(event: () => void): ImageAttribute;
 }
 
 /**
  * @devices phone, tablet, car
  * @since 7
  */
-export declare const ImageInterface: Image;
+declare const Image: ImageInterface;
+/**
+ * @since 7
+ */
+declare const ImageInstance: ImageAttribute;

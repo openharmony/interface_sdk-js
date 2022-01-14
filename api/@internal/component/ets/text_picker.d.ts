@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Resource } from "./units";
-
 /**
  * Defines the option of TextPicker.
  * @since 8
  */
-export declare interface TextPickerOption {
+declare interface TextPickerOption {
   /**
    * Specifies the range of the text selector.
    */
@@ -38,46 +35,46 @@ export declare interface TextPickerOption {
 /**
  * @since 8
  */
-interface TextPicker extends TextPickerAttribute<TextPicker> {
+interface TextPickerInterface {
   /**
    * Defines the TextPicker constructor.
    * @since 8
    */
-  (options?: TextPickerOption): TextPicker;
+  (options?: TextPickerOption): TextPickerAttribute;
 }
 
 /**
  * Style the text selector.
  * @since 8
  */
-declare class TextPickerAttribute<T> extends CommonMethod<T> {
+declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
    */
-  defaultPickerItemHeight(value: number | string): T;
+  defaultPickerItemHeight(value: number | string): TextPickerAttribute;
   /**
    * Called when the pop-up value is returned.
    * @since 8
    */
-  onAccept(callback: (value: string, index: number) => void): T;
+  onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
   /**
    * Called when the Cancel button in the pop-up window is clicked.
    * @since 8
    */
-  onCancel(callback: () => void): T;
+  onCancel(callback: () => void): TextPickerAttribute;
   /**
    * Called when the OK button in the pop-up window is clicked.
    * @since 8
    */
-  onChange(callback: (value: string, index: number) => void): T;
+  onChange(callback: (value: string, index: number) => void): TextPickerAttribute;
 }
 
 /**
  * Defines the TextPickerDialogOption for Text Picker Dialog.
  * @since 8
  */
-export declare interface TextPickerDialogOption extends TextPickerOption {
+declare interface TextPickerDialogOption extends TextPickerOption {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
@@ -89,7 +86,7 @@ export declare interface TextPickerDialogOption extends TextPickerOption {
  * Defines the event callback status in the pop-up window state.
  * @since 8
  */
-export declare enum TextPickerDialogStatus {
+declare enum TextPickerDialogStatus {
   /**
    * Triggered when a user clicks the OK button.
    * @since 8
@@ -111,7 +108,7 @@ export declare enum TextPickerDialogStatus {
  * Defines the TextPickerDialogResult for TextPickerDialog.
  * @since 8
  */
-export declare interface TextPickerDialogResult {
+declare interface TextPickerDialogResult {
  /**
    * The currently selected value.
    * @since 8
@@ -132,7 +129,7 @@ export declare interface TextPickerDialogResult {
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  * @since 8
  */
-export declare class TextPickerDialog {
+declare class TextPickerDialog {
   /**
    * Invoking method display.
    * @since 8
@@ -140,5 +137,5 @@ export declare class TextPickerDialog {
   static show(options?: TextPickerDialogOption, callback?: (value: TextPickerDialogResult) => void);
 }
 
-export declare class TextPickerExtend<T> extends TextPickerAttribute<T> {}
-export declare const TextPickerInterface: TextPicker;
+declare const TextPicker: TextPickerInterface;
+declare const TextPickerInstance: TextPickerAttribute;

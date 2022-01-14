@@ -13,73 +13,69 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { FontStyle, FontWeight, TextDecorationType, TextCase } from "./enums";
-import { Resource, ResourceColor } from "./units";
-
 /**
  * Provide text decoration.
  * @since 7
  */
-interface Span extends SpanAttribute<Span> {
+interface SpanInterface {
   /**
    * Called when text is entered in span.
    * @since 7
    */
-  (value: string | Resource): Span;
+  (value: string | Resource): SpanAttribute;
 }
 
 /**
  * @since 7
  */
-declare class SpanAttribute<T> extends CommonMethod<T> {
+declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
    * Called when the font color is set.
    * @since 7
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): SpanAttribute;
 
   /**
    * Called when the font size is set.
    * @since 7
    */
-  fontSize(value: number | string | Resource): T;
+  fontSize(value: number | string | Resource): SpanAttribute;
 
   /**
    * Called when the font style of a font is set.
    * @since 7
    */
-  fontStyle(value: FontStyle): T;
+  fontStyle(value: FontStyle): SpanAttribute;
 
   /**
    * Called when the font weight is set.
    * @since 7
    */
-  fontWeight(value: number | FontWeight | string): T;
+  fontWeight(value: number | FontWeight | string): SpanAttribute;
 
   /**
    * Called when the font list of text is set.
    * @since 7
    */
-  fontFamily(value: string | Resource): T;
+  fontFamily(value: string | Resource): SpanAttribute;
 
   /**
    * Called when the text decoration of the text is set.
    * @since 7
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): T;
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): SpanAttribute;
 
   /**
    * Called when the distance between text fonts is set.
    * @since 7
    */
-  letterSpacing(value: number | string): T;
+  letterSpacing(value: number | string): SpanAttribute;
 
   /**
    * Called when the type of letter in the text font is set.
    */
-  textCase(value: TextCase): T;
+  textCase(value: TextCase): SpanAttribute;
 }
 
-export declare class SpanExtend<T> extends SpanAttribute<T> {}
-export declare const SpanInterface: Span;
+declare const Span: SpanInterface;
+declare const SpanInstance: SpanAttribute;

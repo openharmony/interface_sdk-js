@@ -17,7 +17,7 @@
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  * @since 8
  */
-export declare class Matrix2D {
+declare class Matrix2D {
   /**
    * Horizontal Zoom
    * @since 8

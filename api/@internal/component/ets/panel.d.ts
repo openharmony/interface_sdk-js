@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Sets the initial state of the slidable panel.
  * @since 7
  */
-export declare enum PanelMode {
+declare enum PanelMode {
   /**
    * Minimum state.
    * @since 7
@@ -43,7 +41,7 @@ export declare enum PanelMode {
  * Sets the type of sliding panel.
  * @since 7
  */
-export declare enum PanelType {
+declare enum PanelType {
   /**
    * The switch between the minibar and full-screen display is provided.
    * @since 7
@@ -69,59 +67,59 @@ export declare enum PanelType {
  * Provides a sliding panel interface.
  * @since 7
  */
-interface Panel extends PanelAttribute<Panel> {
+interface PanelInterface {
   /**
    * Called when the panel slidable panel pops up.
    * @since 7
    */
-  (show: boolean): Panel;
+  (show: boolean): PanelAttribute;
 }
 
 /**
  * @since 7
  */
-declare class PanelAttribute<T> extends CommonMethod<T> {
+declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
    * Called when the initial state of the slidable panel is set.
    * @since 7
    */
-  mode(value: PanelMode): T;
+  mode(value: PanelMode): PanelAttribute;
 
   /**
    * Called when the slidable panel type is set.
    * @since 7
    */
-  type(value: PanelType): T;
+  type(value: PanelType): PanelAttribute;
 
   /**
    * Called when determining whether dragbar exists.
    * @since 7
    */
-  dragBar(value: boolean): T;
+  dragBar(value: boolean): PanelAttribute;
 
   /**
    * Called when the height in the full state is specified.
    * @since 7
    */
-  fullHeight(value: number | string): T;
+  fullHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the height in the half state is specified.
    * @since 7
    */
-  halfHeight(value: number | string): T;
+  halfHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the height in the mini state is specified.
    * @since 7
    */
-  miniHeight(value: number | string): T;
+  miniHeight(value: number | string): PanelAttribute;
 
   /**
    * Called when the panel slidable panel pops up.
    * @since 7
    */
-  show(value: boolean): T;
+  show(value: boolean): PanelAttribute;
 
   /**
    * Called when the state of the slidable panel changes.
@@ -147,8 +145,8 @@ declare class PanelAttribute<T> extends CommonMethod<T> {
        */
       mode: PanelMode,
     ) => void,
-  ): T;
+  ): PanelAttribute;
 }
 
-export declare class PanelExtend<T> extends PanelAttribute<T> {}
-export declare const PanelInterface: Panel;
+declare const Panel: PanelInterface;
+declare const PanelInstance: PanelAttribute;

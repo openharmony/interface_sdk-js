@@ -232,12 +232,12 @@ declare class SyncedPropertyOneWay<T>
 /**
  * @since 7
  */
-export declare class AppStorage {
+declare class AppStorage {
   /**
    * Called when a link is set.
    * @since 7
    */
-  static Link<T>(propName: string): any;
+  static Link(propName: string): any;
 
   /**
    * Called when a hyperlink is set.
@@ -249,7 +249,7 @@ export declare class AppStorage {
    * Called when a property is set.
    * @since 7
    */
-  static Prop<S>(propName: string): any;
+  static Prop(propName: string): any;
 
   /**
    * Called when dynamic properties are set.
@@ -315,7 +315,7 @@ export declare class AppStorage {
 /**
  * @since 7
  */
-export declare class Environment {
+declare class Environment {
   /**
    * Constructor.
    * @since 7
@@ -349,7 +349,7 @@ export declare class Environment {
 /**
  * @since 7
  */
-export declare enum ColorMode {
+declare enum ColorMode {
   /**
    * Bright color.
    * @since 7
@@ -366,7 +366,7 @@ export declare enum ColorMode {
 /**
  * @since 7
  */
-export declare enum LayoutDirection {
+declare enum LayoutDirection {
   /**
    * Elements are laid out from left to right.
    * @since 7
@@ -389,7 +389,7 @@ export declare enum LayoutDirection {
 /**
  * @since 7
  */
-export declare class PersistentStorage {
+declare class PersistentStorage {
   /**
    * Constructor parameters.
    * @since 7
@@ -429,7 +429,7 @@ export declare class PersistentStorage {
 /**
  * @since 7
  */
-export declare class Storage {
+declare class Storage {
   /**
    * Constructor parameters.
    * @since 7
@@ -464,7 +464,7 @@ export declare class Storage {
 /**
  * @since 7
  */
-export declare abstract class SubscribaleAbstract {
+declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    * @since 7
@@ -505,4 +505,4 @@ export declare abstract class SubscribaleAbstract {
 /**
  * @since 7
  */
-export declare const appStorage: AppStorage;
+declare const appStorage: AppStorage;

@@ -13,36 +13,34 @@
  * limitations under the License.
  */
 
-import { CommonShapeMethod } from "./common";
-
 /**
  * Provides the path drawing interface.
  * @since 7
  */
-interface Path extends PathAttribute<Path> {
+interface PathInterface {
   /**
    * Use new to create Path.
    * @since 7
    */
-  new (value?: { width?: number | string; height?: number | string; commands?: string }): Path;
+  new (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 
   /**
    * Called when drawing path.
    * @since 7
    */
-  (value?: { width?: number | string; height?: number | string; commands?: string }): Path;
+  (value?: { width?: number | string; height?: number | string; commands?: string }): PathAttribute;
 }
 
 /**
  * @since 7
  */
-declare class PathAttribute<T> extends CommonShapeMethod<T> {
+declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
    * Called when the command string drawn by the path is set.
    * @since 7
    */
-  commands(value: string): T;
+  commands(value: string): PathAttribute;
 }
 
-export declare class PathExtend<T> extends PathAttribute<T> {}
-export declare const PathInterface: Path;
+declare const Path: PathInterface;
+declare const PathInstance: PathAttribute;

@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceColor, Font } from "./units";
-
 /**
  * Provides the method of switching the cursor position.
  * @since 8
  */
-export declare class SearchController {
+declare class SearchController {
   /**
    * constructor.
    * @since 8
@@ -37,73 +34,73 @@ export declare class SearchController {
  * The construct function of search
  * @since 8
  */
-interface Search extends SearchAttribute<Search> {
+interface SearchInterface {
   (options?: { value?: string;
       placeholder?: string;
       icon?: string;
       controller?: SearchController
-  }): Search;
+  }): SearchAttribute;
 }
 
 /**
  * The attribute function of search
  * @since 8
  */
-declare class SearchAttribute<T> extends CommonMethod<T> {
+declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * Set the search button text
    * @since 8
    */
-  searchButton(value: string): T;
+  searchButton(value: string): SearchAttribute;
 
   /**
    * Set the place hold text color
    * @since 8
    */
-  placeholderColor(value: ResourceColor): T;
+  placeholderColor(value: ResourceColor): SearchAttribute;
 
   /**
    * Set the font used for place holder text
    * @since 8
    */
-  placeholderFont(value?: Font): T;
+  placeholderFont(value?: Font): SearchAttribute;
 
   /**
    * Set the font used for input text
    * @since 8
    */
-  textFont(value?: Font): T;
+  textFont(value?: Font): SearchAttribute;
 
   /**
    * Call the function when clicked the search button
    * @since 8
    */
-  onSubmit(callback: (value: string) => void): T;
+  onSubmit(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Call the function when editing the input text
    * @since 8
    */
-  onChange(callback: (value: string) => void): T;
+  onChange(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
    */
-  onCopy(callback: (value: string) => void): T;
+  onCopy(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
    */
-  onCut(callback: (value: string) => void): T;
+  onCut(callback: (value: string) => void): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
    * @since 8
    */
-  onPaste(callback: (value: string) => void): T;
+  onPaste(callback: (value: string) => void): SearchAttribute;
 }
 
-export declare class SearchExtend<T> extends SearchAttribute<T> {}
-export declare const SearchInterface: Search;
+declare const Search: SearchInterface;
+declare const SearchInstance: SearchAttribute;

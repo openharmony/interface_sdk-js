@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { ResourceColor } from ".";
-import { Offset, ResourceStr } from "./units";
-
 /**
  * The alignment of dialog,
  * @since 7
  */
-export declare enum DialogAlignment {
+declare enum DialogAlignment {
   /**
    * Vertical top alignment.
    * @since 7
@@ -86,7 +83,7 @@ export declare enum DialogAlignment {
  * Base param used for AlertDialog.show method.
  * @since 7
  */
-export declare interface AlertDialogParam {
+declare interface AlertDialogParam {
   /**
    * Title Properties
    * @since 7
@@ -134,7 +131,7 @@ export declare interface AlertDialogParam {
  * Defines the AlertDialog with confirm button.
  * @since 7
  */
-export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
+declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
    * @since 7
@@ -166,7 +163,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   };
 }
 
-export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
+declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
    * @since 7
@@ -232,7 +229,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * Defines AlertDialog which uses show method to show alert dialog.
  * @since 7
  */
-export declare class AlertDialog {
+declare class AlertDialog {
   /**
    * Invoking method display.
    * @since 7

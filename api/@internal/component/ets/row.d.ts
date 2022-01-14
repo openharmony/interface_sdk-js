@@ -13,31 +13,28 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { VerticalAlign } from "./enums";
-
 /**
  * The components are laid out horizontally
  * @since 7
  */
-interface Row extends RowAttribute<Row> {
+interface RowInterface {
   /**
    * Called when the layout is set in the horizontal direction.
    * @since 7
    */
-  (value?: { space?: string | number }): Row;
+  (value?: { space?: string | number }): RowAttribute;
 }
 
 /**
  * @since 7
  */
-declare class RowAttribute<T> extends CommonMethod<T> {
+declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
    * Called when the vertical alignment is set.
    * @since 7
    */
-  alignItems(value: VerticalAlign): T;
+  alignItems(value: VerticalAlign): RowAttribute;
 }
 
-export declare class RowExtend<T> extends RowAttribute<T> {}
-export declare const RowInterface: Row;
+declare const Row: RowInterface;
+declare const RowInstance: RowAttribute;

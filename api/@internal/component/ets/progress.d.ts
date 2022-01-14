@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Length, ResourceColor } from "./units";
-
 /**
  * Type of progress bar
  * @since 7
  */
-export declare enum ProgressStyle {
+declare enum ProgressStyle {
   /**
    * Linear progress bar style.
    * @devices phone, tablet, car.
@@ -61,43 +58,43 @@ export declare enum ProgressStyle {
  * Provides the progress bar interface.
  * @since 7
  */
-interface Progress extends ProgressAttribute<Progress> {
+interface ProgressInterface {
   /**
    * Called when the progress bar is set.
    * @since 7
    */
-  (object: { value: number; total?: number; style?: ProgressStyle }): Progress;
+  (object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
 }
 
 /**
  * @since 7
  */
-declare class ProgressAttribute<T> extends CommonMethod<T> {
+declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
    * Called when the current progress value is set.
    * @since 7
    */
-  value(value: number): T;
+  value(value: number): ProgressAttribute;
 
   /**
    * Called when the progress bar foreground is set.
    * @since 7
    */
-  color(value: ResourceColor): T;
+  color(value: ResourceColor): ProgressAttribute;
 
   /**
    * Called when the style of the circular progress bar is set.
    * @since 7
    */
-  circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): T;
+  circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
 
   /**
    * Called when the style of the cricular progress bar is set.
    * @since 7
    * @deprecated since 7
    */
-  cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): T;
+  cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
 }
 
-export declare class ProgressExtend<T> extends ProgressAttribute<T> {}
-export declare const ProgressInterface: Progress;
+declare const Progress: ProgressInterface;
+declare const ProgressInstance: ProgressAttribute;

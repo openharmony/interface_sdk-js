@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { ColumnAttribute } from "./column";
-
 /**
  * Defines the size type.
  * @since 7
  */
-export declare enum SizeType {
+declare enum SizeType {
   /**
    * Select a value based on the device type.
    * @since 7
@@ -55,7 +53,7 @@ export declare enum SizeType {
  * Defines the option of GridContainer.
  * @since 7
  */
-export declare interface GridContainerOption {
+declare interface GridContainerOption {
   /**
    * Sets the total number of columns in the current layout.
    * @since 7
@@ -85,19 +83,19 @@ export declare interface GridContainerOption {
  * Defines the GridContainer component.
  * @since 7
  */
-interface GridContainer extends GridContainerAttribute<GridContainer> {
+interface GridContainerInterface {
   /**
    * Defines the constructor of GridContainer.
    * @since 7
    */
-  (value?: GridContainerOption): GridContainer;
+  (value?: GridContainerOption): GridContainerAttribute;
 }
 
 /**
  * Defines the grid container attribute from inheritance Column
  * @since 7
  */
-declare class GridContainerAttribute<T> extends ColumnAttribute<T> {}
+declare class GridContainerAttribute extends ColumnAttribute {}
 
-export declare class GridContainerExtend<T> extends GridContainerAttribute<T> {}
-export declare const GridContainerInterface: GridContainer;
+declare const GridContainer: GridContainerInterface
+declare const GridContainerInstance: GridContainerAttribute;

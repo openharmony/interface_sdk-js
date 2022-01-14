@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * Defines XComponentController
  * @since 8
  * @systemapi
  */
-export declare class XComponentController {
+declare class XComponentController {
   /**
    * constructor.
    * @since 8
@@ -41,7 +39,7 @@ export declare class XComponentController {
  * @since 8
  * @systemapi
  */
-interface XComponent extends XComponentAttribute<XComponent> {
+interface XComponentInterface {
   /**
    * Constructor parameters
    * @since 8
@@ -52,7 +50,7 @@ interface XComponent extends XComponentAttribute<XComponent> {
       type: string;
       libraryname?: string;
       controller?: XComponentController;
-  }): XComponent;
+  }): XComponentAttribute;
 }
 
 /**
@@ -60,21 +58,21 @@ interface XComponent extends XComponentAttribute<XComponent> {
  * @since 8
  * @systemapi
  */
-declare class XComponentAttribute<T> extends CommonMethod<T> {
+declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
    * @since 8
    * @systemapi
    */
-   onLoad(callback: (event?: {}) => void): T;
+   onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
    * @systemapi
    */
-   onDestroy(event: () => void): T;
+   onDestroy(event: () => void): XComponentAttribute;
 }
 
-export declare class XComponentExtend<T> extends XComponentAttribute<T> {}
-export declare const XComponentInterface: XComponent;
+declare const XComponent: XComponentInterface;
+declare const XComponentInstance: XComponentAttribute;

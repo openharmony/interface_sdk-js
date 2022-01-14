@@ -13,14 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { ResourceStr, Font, ResourceColor } from "./units";
-
 /**
  * The declare of slectOption.
  * @since 8
  */
-export declare interface SelectOption {
+declare interface SelectOption {
   /**
    * option string.
    * @since 8
@@ -38,85 +35,85 @@ export declare interface SelectOption {
  * Provides the select interface.
  * @since 8
  */
-interface Select extends SelectAttribute<Select> {
+interface SelectInterface {
   /**
    * Called when the select is set.
    * @since 8
    */
-  (options: Array<SelectOption>): Select;
+  (options: Array<SelectOption>): SelectAttribute;
 }
 
 /**
  * The commonMethod of select.
  * @since 8
  */
-declare class SelectAttribute<T> extends CommonMethod<T> {
+declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the serial number of the select item, starting from 0.
    * @since 8
    */
-  selected(value: number): T;
+  selected(value: number): SelectAttribute;
 
   /**
    * Sets the text display of the select button itself.
    * @since 8
    */
-  value(value: string): T;
+  value(value: string): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.
    * @since 8
    */
-  font(value: Font): T;
+  font(value: Font): SelectAttribute;
 
   /**
    * Sets the text color of the select button itself.
    * @since 8
    */
-  fontColor(value: ResourceColor): T;
+  fontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the background color of the selected items in the select.
    * @since 8
    */
-  selectedOptionBgColor(value: ResourceColor): T;
+  selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style of the selected items in the select.
    * @since 8
    */
-  selectedOptionFont(value: Font): T;
+  selectedOptionFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color of the selected item in the select.
    * @since 8
    */
-  selectedOptionFontColor(value: ResourceColor): T;
+  selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the background color of the select item.
    * @since 8
    */
-  optionBgColor(value: ResourceColor): T;
+  optionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style for select items.
    * @since 8
    */
-  optionFont(value: Font): T;
+  optionFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color for select items.
    * @since 8
    */
-  optionFontColor(value: ResourceColor): T;
+  optionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Callback for selecting an item from the select.
    * @since 8
    */
-  onSelected(event: (index: number) => void): T;
+  onSelected(event: (index: number) => void): SelectAttribute;
 }
 
-export declare class SelectExtend<T> extends SelectAttribute<T> {}
-export declare const SelectInterface: Select;
+declare const Select: SelectInterface;
+declare const SelectInstance: SelectAttribute;

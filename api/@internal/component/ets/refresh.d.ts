@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-
 /**
  * The refresh status of the drop-down refresh.
  * @since 8
  */
-export declare enum RefreshStatus {
+declare enum RefreshStatus {
   /**
    * The refresh status of the drop-down refresh.
    * @since 8
@@ -55,30 +53,30 @@ export declare enum RefreshStatus {
  * Provides a pull-down refresh interface.
  * @since 8
  */
-interface Refresh extends RefreshAttribute<Refresh> {
+interface RefreshInterface {
   /**
    * Called when the drop-down refresh is set.
    * @since 8
    */
-  (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): Refresh;
+  (value: { refreshing: boolean; offset?: number | string; friction?: number | string }): RefreshAttribute;
 }
 
 /**
  * @since 8
  */
-declare class RefreshAttribute<T> extends CommonMethod<T> {
+declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Called when the refresh state changes.
    * @since 8
    */
-  onStateChange(callback: (state: RefreshStatus) => void): T;
+  onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
   /**
    * Called when the refresh state is entered.
    * @since 8
    */
-  onRefreshing(callback: () => void): T;
+  onRefreshing(callback: () => void): RefreshAttribute;
 }
 
-export declare class RefreshExtend<T> extends RefreshAttribute<T> {}
-export declare const RefreshInterface: Refresh;
+declare const Refresh: RefreshInterface;
+declare const RefreshInstance: RefreshAttribute;

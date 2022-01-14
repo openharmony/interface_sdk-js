@@ -13,17 +13,13 @@
  * limitations under the License.
  */
 
-import { TouchObject } from "./common";
-import { KeyEvent } from "./common";
-import { MouseEvent } from "./common";
-
 /**
  * Get inspector node infos.
  * @since 7
  * @systemapi
  * @deprecated
  */
-export declare function getInspectorNodes(): object;
+declare function getInspectorNodes(): object;
 
 /**
  * Get inspector node info by node id.
@@ -31,7 +27,7 @@ export declare function getInspectorNodes(): object;
  * @systemapi
  * @deprecated
  */
-export declare function getInspectorNodeById(id: number): object;
+declare function getInspectorNodeById(id: number): object;
 
 /**
  * Get inspector info by key.
@@ -39,7 +35,7 @@ export declare function getInspectorNodeById(id: number): object;
  * @systemapi
  * @test
  */
-export declare function getInspectorByKey(id: string): string;
+declare function getInspectorByKey(id: string): string;
 
 /**
  * Get inspector tree.
@@ -47,7 +43,7 @@ export declare function getInspectorByKey(id: string): string;
  * @systemapi
  * @test
  */
-export declare function getInspectorTree(): string;
+declare function getInspectorTree(): string;
 
 /**
  * Send event to inspector by key. Return false if no inspector with key is found.
@@ -55,7 +51,7 @@ export declare function getInspectorTree(): string;
  * @systemapi
  * @test
  */
-export declare function sendEventByKey(id: string, action: number, params: string): boolean;
+declare function sendEventByKey(id: string, action: number, params: string): boolean;
 
 /**
  * Send touch event.
@@ -63,7 +59,7 @@ export declare function sendEventByKey(id: string, action: number, params: strin
  * @systemapi
  * @test
  */
-export declare function sendTouchEvent(event: TouchObject): boolean;
+declare function sendTouchEvent(event: TouchObject): boolean;
 
 /**
  * Send key event.
@@ -71,7 +67,7 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
  * @systemapi
  * @test
  */
-export declare function sendKeyEvent(event: KeyEvent): boolean;
+declare function sendKeyEvent(event: KeyEvent): boolean;
 
 /**
  * Send mouse event.
@@ -79,7 +75,7 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
  * @systemapi
  * @test
  */
-export declare function sendMouseEvent(event: MouseEvent): boolean;
+declare function sendMouseEvent(event: MouseEvent): boolean;
 
 /**
  * Profiler tools for inspectors.
@@ -87,7 +83,7 @@ export declare function sendMouseEvent(event: MouseEvent): boolean;
  * @systemapi
  * @test
  */
-export declare namespace Profiler {
+declare namespace Profiler {
   /**
    * Registers vsync callback for profiler.
    * @param callback the callback info is json string with ui update info.
@@ -95,7 +91,7 @@ export declare namespace Profiler {
    * @systemapi
    * @test
    */
-  export function registerVsyncCallback(callback: (info: string) => void): void;
+  function registerVsyncCallback(callback: (info: string) => void): void;
 
   /**
    * Unregisters vsync callback.
@@ -103,5 +99,5 @@ export declare namespace Profiler {
    * @systemapi
    * @test
    */
-  export function unregisterVsyncCallback(): void;
+  function unregisterVsyncCallback(): void;
 }

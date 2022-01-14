@@ -13,15 +13,11 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { BarState } from "./enums";
-import { Scroller } from "./scroll";
-
 /**
  * Content scroll direction.
  * @since 8
  */
-export declare enum ScrollBarDirection {
+declare enum ScrollBarDirection {
   /**
    * Vertical scrolling is supported.
    * @since 8
@@ -39,7 +35,7 @@ export declare enum ScrollBarDirection {
  * Defines the option of ScrollBar.
  * @since 8
  */
-export declare interface ScrollBarOption {
+declare interface ScrollBarOption {
   /**
    * Sets the scroller of scroll bar.
    * @since 8
@@ -63,17 +59,17 @@ export declare interface ScrollBarOption {
  * Provides interfaces for scroll bar.
  * @since 8
  */
-interface ScrollBar extends ScrollBarAttribute<ScrollBar> {
+interface ScrollBarInterface {
   /**
    * Called when a ScrollBar container is set.
    * @since 8
    */
-  (value: ScrollBarOption): ScrollBar;
+  (value: ScrollBarOption): ScrollBarAttribute;
 }
 
 /**
  * @since 8
  */
-declare class ScrollBarAttribute<T> extends CommonMethod<T> {}
-export declare class ScrollBarExtend<T> extends ScrollBarAttribute<T> {}
-export declare const ScrollBarInterface: ScrollBar;
+declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
+declare const ScrollBar: ScrollBarInterface;
+declare const ScrollBarInstance: ScrollBarAttribute;

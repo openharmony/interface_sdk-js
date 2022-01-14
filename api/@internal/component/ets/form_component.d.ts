@@ -13,15 +13,13 @@
  * limitations under the License.
  */
 
-import { CommonMethod } from "./common";
-import { Visibility } from "./enums";
 
 /**
  * Defines the FormDimension enum.
  * @since 7
  * @systemapi
  */
-export declare enum FormDimension {
+declare enum FormDimension {
   /**
    * 1 x 2 cards
    * @since 7
@@ -56,7 +54,7 @@ export declare enum FormDimension {
  * @since 7
  * @systemapi
  */
-interface FormComponent extends FormComponentAttribute<FormComponent> {
+interface FormComponentInterface {
   /**
    * Set a new value.
    * @since 7
@@ -69,70 +67,71 @@ interface FormComponent extends FormComponentAttribute<FormComponent> {
     ability: string;
     module: string;
     dimension?: FormDimension;
-  }): FormComponent;
+  }): FormComponentAttribute;
 }
 
 /**
  * @since 7
  * @systemapi
  */
-declare class FormComponentAttribute<T> extends CommonMethod<T> {
+declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
   /**
    * Sets the display area size of the card.
    * @since 7
    * @systemapi
    */
-  size(value: { width: number; height: number }): T;
+  size(value: { width: number; height: number }): FormComponentAttribute;
 
   /**
    * Card module name.
    * @since 7
    * @systemapi
    */
-  moduleName(value: string): T;
+  moduleName(value: string): FormComponentAttribute;
 
   /**
    * Set the card size.
    * @since 7
    * @systemapi
    */
-  dimension(value: FormDimension): T;
+  dimension(value: FormDimension): FormComponentAttribute;
 
   /**
    * Indicates whether to allow card update.
    * @since 7
    * @systemapi
    */
-  allowUpdate(value: boolean): T;
+  allowUpdate(value: boolean): FormComponentAttribute;
 
   /**
    * Whether the card is visible.
    * @since 7
    * @systemapi
    */
-  visibility(value: Visibility): T;
+  visibility(value: Visibility): FormComponentAttribute;
 
   /**
-   * This function is triggered after card information is obtained. For details about the form information, see the definition of the original capability subsystem.
+   * This function is triggered after card information is obtained.
+   * For details about the form information, see the definition of the original capability subsystem.
    * @since 7
    * @systemapi
    */
-  onAcquired(callback: (info: { id: number }) => void): T;
+  onAcquired(callback: (info: { id: number }) => void): FormComponentAttribute;
 
   /**
    * Card loading error.
    * @since 7
    * @systemapi
    */
-  onError(callback: (info: { errcode: number; msg: string }) => void): T;
+  onError(callback: (info: { errcode: number; msg: string }) => void): FormComponentAttribute;
 
   /**
    * Card to be redirected.
    * @since 7
    * @systemapi
    */
-  onRouter(callback: (info: any) => void): T;
+  onRouter(callback: (info: any) => void): FormComponentAttribute;
 }
 
-export declare class FormComponentExtend<T> extends FormComponentAttribute<T> {}
-export declare const FormComponentInterface: FormComponent;
+declare const FormComponent: FormComponentInterface;
+declare const FormComponentInstance: FormComponentAttribute;
