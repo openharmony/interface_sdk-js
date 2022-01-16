@@ -17,7 +17,7 @@
  * Seek mode.
  * @since 8
  */
-export declare enum SeekMode {
+declare enum SeekMode {
   /**
    * Sync to keyframes before the time point.
    * @since 8
