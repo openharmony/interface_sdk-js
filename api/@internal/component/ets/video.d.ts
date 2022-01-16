@@ -81,7 +81,7 @@ declare class VideoController {
    * Provide the progress method of video playback.
    * @since 8
    */
-   setCurrentTime(value: number, seekMode: SeekMode);
+  setCurrentTime(value: number, seekMode: SeekMode);
 
   /**
    * Provides a full screen playback method.
@@ -107,7 +107,7 @@ interface VideoInterface {
   (value: {
     src?: string | Resource;
     currentProgressRate?: number | string;
-    previewUri?: string;
+    previewUri?: string | PixelMap | Resource;
     controller?: VideoController;
   }): VideoAttribute;
 }
