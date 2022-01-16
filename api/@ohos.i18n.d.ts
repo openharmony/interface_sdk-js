@@ -609,4 +609,62 @@ export class Character {
      */
     getType(char: string): string;
 }
+
+/**
+ * check out whether system is 24-hour system.
+ *
+ * @sysCap SystemCapability.I18N
+ * @return Returns a boolean represent whether system is 24-hour system.
+ * @since 8
+ */
+ export function is24HourClock(): boolean;
+
+/**
+ * set 24-hour system.
+ *
+ * @sysCap SystemCapability.I18N
+ * @param option represent the boolean to be set.
+ * @return Returns a boolean represent whether setting 24-hour system success.
+ * @since 8
+ */
+  export function set24HourClock(option: boolean): boolean;
+
+/**
+ * Add one language to preferred language List.
+ *
+ * @sysCap SystemCapability.I18N
+ * @param language the language to be added.
+ * @param index the postion of preferred language list to be inserted. 
+ * @return Returns a boolean represent whether language added success.
+ * @since 8
+ */
+export function addPreferredLanguage(language: string, index?: number): boolean;
+
+/**
+ * Remove one language from preferred language list.
+ *
+ * @sysCap SystemCapability.I18N
+ * @param index the position of removed language in preferred language list.
+ * @return Returns a boolean represent whether removed success.
+ * @since 8
+ */
+export function removePreferredLanguage(index: number): boolean;
+
+/**
+ * Access the system preferred language list.
+ *
+ * @sysCap SystemCapability.I18N
+ * @return Returns a string Array represent the preferred language list.
+ * @since 8
+ */
+export function getPreferredLanguageList(): Array<string>;
+
+/**
+ * Get the first preferred language of system.
+ *
+ * @sysCap SystemCapability.I18N
+ * @return Returns a string represent the first preferred language of system.
+ * @since 8
+ */
+export function getFirstPreferredLanguage(): string;
 }
