@@ -15,9 +15,18 @@
 
 import { AsyncCallback, Callback } from './basic';
 
+/**
+ * Providers interfaces to creat a {@link deviceManager} instances.
+ * 
+ * @since 7
+ * @Syscap SystemCapability.DISTRIBUTEDHARDWARE.deviceManager
+ * 
+ */
 declare namespace deviceManager {
   /**
    * DeviceInfo
+   *
+   * @systemapi this method can be used only by system applications.
    */
   interface DeviceInfo {
     /**
@@ -34,6 +43,13 @@ declare namespace deviceManager {
      * Device type of the device.
      */
     deviceType: DeviceType;
+
+    /**
+     * NetworkId of the device.
+     * 
+     * @since 8
+     */
+    networkId: string;
   }
 
   /**
@@ -78,6 +94,8 @@ declare namespace deviceManager {
 
   /**
    * Device state change event definition
+   *
+   * @systemapi this method can be used only by system applications.
    */
   enum DeviceStateChangeAction {
     /**
@@ -243,16 +261,6 @@ declare namespace deviceManager {
     authType: number;
 
     /**
-     * App application Icon.
-     */
-    appIcon?: Uint8Array;
-
-    /**
-     * App application thumbnail.
-     */
-    appThumbnail?: Uint8Array;
-
-    /**
      * Authentication extra infos.
      */
     extraInfo: {[key:string] : any};
@@ -288,6 +296,7 @@ declare namespace deviceManager {
    *
    * @param bundleName Indicates the bundle name of the application.
    * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
+   * @systemapi this method can be used only by system applications.
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
 
@@ -297,18 +306,65 @@ declare namespace deviceManager {
   interface DeviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
+     * 
+     * @systemapi this method can be used only by system applications.
      */
     release(): void;
 
     /**
      * Obtains a list of trusted devices.
      *
-     * @param options Indicates the extra parameters to be passed to this method for device filtering or sorting.
-     * This parameter can be null. For details about available values, see {@link #TARGET_PACKAGE_NAME} and
-     * {@link #SORT_TYPE}.
      * @return Returns a list of trusted devices.
+     * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
+
+    /**
+     * Obtains a list of trusted devices.
+     *
+     * @since 8
+     * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
+     * @return Returns a list of trusted devices.
+     * @systemapi this method can be used only by system applications.
+     */
+    getTrustedDeviceList(callback:AsyncCallback<Array<DeviceInfo>>): void;
+
+    /**
+     * Obtains a list of trusted devices.
+     *
+     * @since 8
+     * @return Returns a list of trusted devices.
+     * @systemapi this method can be used only by system applications.
+     */
+    getTrustedDeviceList(): Promise<Array<DeviceInfo>>;
+
+    /**
+     * Obtains local device info
+     *
+     * @since 8
+     * @return Returns local device info.
+     * @systemapi this method can be used only by system applications.
+     */
+    getLocalDeviceInfoSync(): DeviceInfo;
+
+    /**
+     * Obtains local device info
+     *
+     * @since 8
+     * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
+     * @return Returns local device info.
+     * @systemapi this method can be used only by system applications.
+     */
+    getLocalDeviceInfo(callback:AsyncCallback<DeviceInfo>): void;
+
+    /**
+     * Obtains local device info
+     *
+     * @since 8
+     * @return Returns local device info.
+     * @systemapi this method can be used only by system applications.
+     */
+    getLocalDeviceInfo(): Promise<DeviceInfo>;
 
     /**
      * Start to discover device.
@@ -330,11 +386,20 @@ declare namespace deviceManager {
      * Authenticate the specified device.
      *
      * @param deviceInfo deviceInfo of device to authenticate
-     * @param authparam authparam of device to authenticate
+     * @param authParam authParam of device to authenticate
      * @param callback Indicates the callback to be invoked upon authenticateDevice
      * @systemapi this method can be used only by system applications.
      */
     authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
+
+    /**
+     * unAuthenticate the specified device.
+     *
+     * @since 8
+     * @param deviceInfo deviceInfo of device to unAuthenticate
+     * @systemapi this method can be used only by system applications.
+     */
+    unAuthenticateDevice(deviceInfo: DeviceInfo): void
 
      /**
      * verify auth info, such as pin code.
@@ -345,13 +410,13 @@ declare namespace deviceManager {
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
 
-
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @systemapi this method can be used only by system applications.
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -360,6 +425,7 @@ declare namespace deviceManager {
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
+     * @systemapi this method can be used only by system applications.
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -399,6 +465,7 @@ declare namespace deviceManager {
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @systemapi this method can be used only by system applications.
      */
     on(type: 'serviceDie', callback: () => void): void;
 
@@ -406,6 +473,7 @@ declare namespace deviceManager {
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
+     * @systemapi this method can be used only by system applications.
      */
     off(type: 'serviceDie', callback?: () => void): void;
   }
