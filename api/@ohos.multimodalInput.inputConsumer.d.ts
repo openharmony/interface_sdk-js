@@ -50,8 +50,8 @@ declare namespace inputConsumer {
      * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
-	 * @param keyOption the key events about input which is to be subscribed.
-	 * @param callback callback function, receive reported data.
+     * @param keyOption the key events about input which is to be subscribed.
+     * @param callback callback function, receive reported data.
      */
     function on(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
 
@@ -63,8 +63,8 @@ declare namespace inputConsumer {
      * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
-	 * @param keyOption the key events about input which is to be subscribed.
-	 * @param callback callback function, receive reported data.
+     * @param keyOption the key events about input which is to be subscribed.
+     * @param callback callback function, receive reported data.
      */
     function off(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
 }
