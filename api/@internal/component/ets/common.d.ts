@@ -1297,13 +1297,13 @@ declare class CommonMethod<T> {
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    * @since 7
    */
-  clip(value: boolean | CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
+  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
    * @since 7
    */
-  mask(value: CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
    * Key. User can set an key to the component to identify it.
