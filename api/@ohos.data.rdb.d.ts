@@ -205,7 +205,7 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
-        setDistributedTables(tables: Array<string>): Promise<void>
+        setDistributedTables(tables: Array<string>): Promise<void>;
     }
 
     /**
