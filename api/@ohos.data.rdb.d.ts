@@ -194,6 +194,18 @@ declare namespace rdb {
          */
         rollBack(callback: AsyncCallback<void>):void;
         rollBack(): Promise<void>;
+
+        /**
+         * set table to be distributed table
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @param tables the tables name you want to set
+         * @devices phone, tablet, tv, wearable, car
+         */
+        setTableDistributed(tables: Array<string>, callback: AsyncCallback<void>): void;
+        setTableDistributed(tables: Array<string>): Promise<void>
     }
 
     /**
