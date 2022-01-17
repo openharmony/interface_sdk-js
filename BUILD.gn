@@ -102,6 +102,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
+    "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
