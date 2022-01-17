@@ -196,7 +196,7 @@ declare namespace rdb {
         rollBack(): Promise<void>;
 
         /**
-         * set table to be distributed table
+         * Set table to be distributed table.
          *
          * @note N/A
          * @since 8
