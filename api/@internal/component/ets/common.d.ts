@@ -195,6 +195,8 @@ interface PreviewParams {
   colorMode?: string;
   deviceType?: string;
   dpi?: number;
+  orientation?: string;
+  roundScreen?: boolean;
 }
 
 /**
