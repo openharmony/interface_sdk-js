@@ -109,6 +109,16 @@ export default class Ability {
      * @return -
      */
     onBackground(): void;
+
+    /**
+     * Called back when an ability prepares to migrate.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @return true if ability agrees to migrate and saves data successfully, otherwise false.
+     */
+     onContinue(wantParam : {[key: string]: any}): boolean;
 }
 
 export interface LaunchParam {
