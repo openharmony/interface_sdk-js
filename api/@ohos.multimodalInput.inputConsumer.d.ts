@@ -25,7 +25,7 @@ import { AsyncCallback } from './basic';
  * @permission N/A
  */
 
-declare namespace inputDevice {
+declare namespace inputConsumer {
     /**
      * Defines event of key that user want to subscribe or unsubscribe.
      *
@@ -37,9 +37,9 @@ declare namespace inputDevice {
      */
     interface KeyOptions {
         preKeys: Array<number>;
-		finalKey: number;
-		isFinalKeyDown: boolean;
-		finalKeyDownDuration: number;
+        finalKey: number;
+        isFinalKeyDown: boolean;
+        finalKeyDownDuration: number;
     }
 
     /**
