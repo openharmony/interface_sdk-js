@@ -15,6 +15,7 @@
 
 import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
+import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
@@ -234,4 +235,18 @@ export interface BundleInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly entryInstallationFree: boolean;
+
+  /**
+    * @default Indicates whether free installation of the entry is supported
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly reqPermissionStates: Array<number>;
+
+  /**
+    * @default Obtains configuration information about an ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

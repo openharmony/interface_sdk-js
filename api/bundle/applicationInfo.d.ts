@@ -15,6 +15,7 @@
 
 import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData'
+import { Metadata } from './metadata'
 
 /**
  * @name Obtains configuration information about an application
@@ -148,12 +149,40 @@ export interface ApplicationInfo {
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-   readonly metaData: Map<string, Array<CustomizeData>>;
+  readonly metaData: Map<string, Array<CustomizeData>>;
+
+  /**
+    * @default Indicates the metadata of module
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly metadata: Array<Metadata>
 
   /**
     * @default Indicates whether or not this application may be removable
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-   readonly removable: boolean;
+  readonly removable: boolean;
+
+  /**
+    * @default Indicates the access token of the application
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly accessTokenId: number;
+
+  /**
+    * @default Indicates the uid of the application
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly uid: number;
+
+  /**
+    * @default Indicates entity type of the application
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly entityType: string;
 }
