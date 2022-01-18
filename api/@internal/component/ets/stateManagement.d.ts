@@ -503,6 +503,89 @@ declare abstract class SubscribaleAbstract {
 }
 
 /**
+ * @since 8
+ */
+ declare class ContentStorage {
+  /**
+   * Called when a link is set.
+   * @since 8
+   */
+  link(propName: string): any;
+
+  /**
+   * Called when a hyperlink is set.
+   * @since 8
+   */
+  setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+
+  /**
+   * Called when a property is set.
+   * @since 8
+   */
+  prop(propName: string): any;
+
+  /**
+   * Called when dynamic properties are set.
+   * @since 8
+   */
+  setAndProp<S>(propName: string, defaultValue: S): SubscribedAbstractProperty<S>;
+
+  /**
+   * Called when owning or not.
+   * @since 8
+   */
+  has(propName: string): boolean;
+
+  /**
+   * Called when data is obtained.
+   * @since 8
+   */
+  get<T>(propName: string): T | undefined;
+
+  /**
+   * Called when setting.
+   * @since 8
+   */
+  set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * Called when setting or creating.
+   * @since 8
+   */
+  setOrCreate<T>(propName: string, newValue: T): void;
+
+  /**
+   * Called when a deletion is made.
+   * @since 8
+   */
+  delete(propName: string): boolean;
+
+  /**
+   * Called when a dictionary is sorted.
+   * @since 8
+   */
+  keys(): IterableIterator<string>;
+
+  /**
+   * Called when a cleanup occurs.
+   * @since 8
+   */
+  clear(): boolean;
+
+  /**
+   * Called when the data can be changed.
+   * @since 8
+   */
+  isMutable(propName: string): boolean;
+
+  /**
+   * Called when you check how much data is stored.
+   * @since 8
+   */
+  size(): number;
+}
+
+/**
  * @since 7
  */
 declare const appStorage: AppStorage;
