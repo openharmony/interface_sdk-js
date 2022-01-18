@@ -180,6 +180,20 @@ declare function $r(value: string, ...params: any[]): Resource;
  */
 declare function $rawfile(value: string): Resource;
 
+/**
+ * global getContentStorage function
+ * @since 8
+ */
+declare function getContentStorage(value: any): ContentStorage;
+
+declare type Context = any;
+
+/**
+ * global getContext function
+ * @since 8
+ */
+declare function getContext(value: any): Context;
+
 interface AnimateToParam {
   duration?: number;
   tempo?: number;
