@@ -70,7 +70,8 @@ export default class AbilityContext extends Context {
      * @return Returns the {@link AbilityResult}.
      */
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
-    startAbilityForResult(want: Want): Promise<AbilityResult>;
+    startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
+    startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
     /**
      * Destroys this Page ability.
