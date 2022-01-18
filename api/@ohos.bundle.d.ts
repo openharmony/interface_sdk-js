@@ -256,8 +256,17 @@ declare namespace bundle {
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
+    /**
+      * @since 8
+      */
     STATUS_RECOVER_FAILURE_INVALID = 0x0D,
+    /**
+      * @since 7
+      */
     STATUS_ABILITY_NOT_FOUND = 0x40,
+    /**
+      * @since 7
+      */
     STATUS_BMS_SERVICE_ERROR = 0x41
   }
 
