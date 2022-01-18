@@ -24,13 +24,13 @@ import {AsyncCallback, Callback} from './basic';
  */
 declare namespace distributedDataObject {
     /**
-     * Create distributed data
+     * Create distributed object
      *
-     * @param obj Init data of distributed data
+     * @param source Init data of distributed object
      * @return Returns the distributed object
      * @since 8
      */
-    function distributed(obj: object): DistributedObject;
+    function createDistributedObject(source: object): DistributedObject;
 
     /**
      * Generate a random sessionId
@@ -41,7 +41,7 @@ declare namespace distributedDataObject {
     function genSessionId(): string;
 
     /**
-     * Object create by {@link distributed}.
+     * Object create by {@link createDistributedObject}.
      *
      * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
      * @devices phone
@@ -55,7 +55,7 @@ declare namespace distributedDataObject {
          * @return Operation result, true is success, false is failed
          * @since 8
          */
-        setSession(sessionId?: string): boolean;
+        setSessionId(sessionId?: string): boolean;
 
         /**
          * On watch of change
