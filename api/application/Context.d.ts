@@ -15,6 +15,7 @@
 
 import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
+import BaseContext from "./BaseContext";
 
 /**
  * The base context of an ability or an application. It allows access to
@@ -25,7 +26,7 @@ import resmgr from "../@ohos.resourceManager";
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  */
-export default class Context {
+export default class Context extends BaseContext {
     /**
      * Indicates the capability of accessing application resources.
      *
