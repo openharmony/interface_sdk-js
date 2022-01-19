@@ -48,6 +48,23 @@ declare interface CheckboxGroupOption {
 }
 
 /**
+ * Defines the option of CheckboxGroupResult.
+ * @since 8
+ */
+declare interface CheckboxGroupResult {
+  /**
+   * Set checkbox name.
+   * @since 8
+   */
+   name: Array<string>;
+  /**
+   * Set the group of status.
+   * @since 8
+   */
+   status:SelectStatus;
+}
+
+/**
  * Provides an interface for the CheckboxGroup component.
  * @since 8
  */
@@ -81,7 +98,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * Called when the selection status changes.
    * @since 8
    */
-  onChange(callback: (name: Array<any>, status: SelectStatus) => void): CheckboxGroupAttribute;
+  onChange(callback: (event:CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
 declare const CheckboxGroup: CheckboxGroupInterface;
