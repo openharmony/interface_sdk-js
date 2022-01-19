@@ -237,7 +237,7 @@ export interface BundleInfo {
   readonly entryInstallationFree: boolean;
 
   /**
-    * @default Indicates whether free installation of the entry is supported
+    * @default Indicates the grant status of required permissions
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
