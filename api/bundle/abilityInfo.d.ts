@@ -15,6 +15,7 @@
 
 import { ApplicationInfo } from './applicationInfo';
 import { CustomizeData } from './customizeData'
+import { Metadata } from './metadata'
 import bundle from './../@ohos.bundle';
 
 /**
@@ -248,4 +249,18 @@ export interface AbilityInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly metaData: Array<CustomizeData>;
+
+  /**
+    * @default Indicates the metadata of ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly metadata: Array<Metadata>;
+
+  /**
+    * @default Indicates the metadata of ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+   readonly enabled: boolean;
 }

@@ -102,4 +102,22 @@ export declare interface Want {
    * @default -
    */
   entities?: Array<string>;
+
+  /**
+   * The description of a extension ability name in a Want.
+   * @devices phone, tablet
+   * @since 8
+   * @sysCap AAFwk
+   * @default -
+   */
+  extensionAbilityName?: string;
+
+  /**
+   * The description of a extension ability type in a Want.
+   * @devices phone, tablet
+   * @since 8
+   * @sysCap AAFwk
+   * @default -
+   */
+  extensionAbilityType?: number;
 }
