@@ -28,6 +28,7 @@
 /// <reference path="./column.d.ts" />
 /// <reference path="./column_split.d.ts" />
 /// <reference path="./common.d.ts" />
+/// <reference path="./context_menu.d.ts" />
 /// <reference path="./counter.d.ts" />
 /// <reference path="./custom_dialog_controller.d.ts" />
 /// <reference path="./data_panel.d.ts" />
