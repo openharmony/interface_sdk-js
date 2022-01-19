@@ -362,7 +362,11 @@ declare namespace bundle {
     /**
       * @since 8
       */
-    STATUS_FAILED_NO_SPACE_LEFT = 0x42
+    STATUS_FAILED_NO_SPACE_LEFT = 0x42,
+    /**
+      * @since 8
+      */
+    STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43
   }
 
   /**
