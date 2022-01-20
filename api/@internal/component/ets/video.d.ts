@@ -66,12 +66,6 @@ declare class VideoController {
   pause();
 
   /**
-   * Provides an event to stop playback.
-   * @since 6
-   */
-  stop();
-
-  /**
    * Provide the progress method of video playback.
    * @since 7
    */
@@ -82,18 +76,6 @@ declare class VideoController {
    * @since 8
    */
   setCurrentTime(value: number, seekMode: SeekMode);
-
-  /**
-   * Provides a full screen playback method.
-   * @since 7
-   */
-  requestFullscreen(value: boolean);
-
-  /**
-   * Provides a method to exit full screen playback.
-   * @since 7
-   */
-  exitFullscreen();
 }
 
 /**
@@ -106,7 +88,6 @@ interface VideoInterface {
    */
   (value: {
     src?: string | Resource;
-    currentProgressRate?: number | string;
     previewUri?: string | PixelMap | Resource;
     controller?: VideoController;
   }): VideoAttribute;
@@ -163,12 +144,6 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @since 7
    */
   onFinish(event: () => void): VideoAttribute;
-
-  /**
-   * Called when the video enters and exits the full screen.
-   * @since 7
-   */
-  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): VideoAttribute;
 
   /**
    * Called when the video preparation is complete.
