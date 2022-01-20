@@ -50,6 +50,17 @@ declare namespace notification {
   function publish(request: NotificationRequest): Promise<void>;
 
   /**
+   * Publishes a notification to the specified user.
+   *
+   * @since 8
+   * @param Publishes a notification.
+   * @param userId of subscriber receiving the notification
+   * 
+   */
+   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
+   function publish(request: NotificationRequest, userId: number): Promise<void>;
+
+  /**
    * Cancels a notification with the specified ID.
    *
    * @param ID of the notification to cancel, which must be unique in the application.
@@ -329,6 +340,15 @@ declare namespace notification {
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
+   * Checks whether this application has permission to publish notifications under the user.
+   *
+   * since 8
+   * @systemapi Hide this for inner system use.
+   */
+   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
+   function isNotificationEnabled(userId: number): Promise<boolean>;
+
+  /**
    * isNotificationEnabled
    *
    * @systemapi Hide this for inner system use.
@@ -458,6 +478,16 @@ declare namespace notification {
   function removeAll(callback: AsyncCallback<void>): void;
 
   /**
+   * Remove all notifications under the specified user.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+   function removeAll(userId: number, callback: AsyncCallback<void>): void;
+   function removeAll(userId: number): Promise<void>;
+
+  /**
    * removeAll
    *
    * @systemapi Hide this for inner system use.
@@ -524,6 +554,16 @@ declare namespace notification {
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
   /**
+   * Set the Do Not Disturb date under the specified user.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
+   function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
+
+  /**
    * Obtains the Do Not Disturb date.
    *
    * @since 8
@@ -532,6 +572,16 @@ declare namespace notification {
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
+
+  /**
+   * Obtains the Do Not Disturb date.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use under the specified user.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+   function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
+   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
