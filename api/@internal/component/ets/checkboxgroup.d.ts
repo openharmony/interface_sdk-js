@@ -53,7 +53,7 @@ declare interface CheckboxGroupOption {
  */
 declare interface CheckboxGroupResult {
   /**
-   * Set checkbox name.
+   * Checkbox name.
    * @since 8
    */
    name: Array<string>;
@@ -61,7 +61,7 @@ declare interface CheckboxGroupResult {
    * Set the group of status.
    * @since 8
    */
-   status:SelectStatus;
+   status: SelectStatus;
 }
 
 /**
@@ -98,7 +98,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * Called when the selection status changes.
    * @since 8
    */
-  onChange(callback: (event:CheckboxGroupResult) => void): CheckboxGroupAttribute;
+  onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
 }
 
 declare const CheckboxGroup: CheckboxGroupInterface;
