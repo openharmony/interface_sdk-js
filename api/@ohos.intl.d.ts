@@ -22,6 +22,56 @@
  */
 declare namespace intl {
 /**
+ * Provides the options of Locale.
+ *
+ * @since 8
+ * @sysCap SystemCapability.I18N
+ */
+export interface LocaleOptions {
+    /**
+     * Indicates the calendar.
+     *
+     * @since 8
+     */
+    calendar: string;
+
+    /**
+     * Indicates the collation.
+     *
+     * @since 8
+     */
+    collation: string;
+    
+    /**
+     * Indicates the hourCycle.
+     *
+     * @since 8
+     */
+    hourCycle: string;
+    
+    /**
+     * Indicates the numberingSystem.
+     *
+     * @since 8
+     */
+    numberingSystem: string;
+    
+    /**
+     * Indicates the numeric.
+     *
+     * @since 8
+     */
+    numeric: boolean;
+    
+    /**
+     * Indicates the caseFirst.
+     *
+     * @since 8
+     */
+    caseFirst: string;
+}
+
+/**
  * Provides APIs for obtaining locale information.
  *
  * @sysCap SystemCapability.I18N
@@ -36,7 +86,7 @@ export class Locale {
      *               the language and optionally the script and region.
      * @since 6
      */
-   constructor(locale?: string);
+   constructor(locale?: string, options?: LocaleOptions);
 
     /**
      * Indicates the language of the locale.
