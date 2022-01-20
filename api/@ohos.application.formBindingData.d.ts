@@ -31,7 +31,7 @@ declare namespace formBindingData {
      * @param obj Indicates the FormBindingData instance data.
      * @return Returns the {@link FormBindingData} instance.
      */
-    function createFormBindingData(obj: Object | string): FormBindingData;
+    function createFormBindingData(obj?: Object | string): FormBindingData;
 
     interface FormBindingData {
         data: Object
