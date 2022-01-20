@@ -427,12 +427,6 @@ declare class ImageData {
  */
 declare class RenderingContextSettings {
   /**
-   * Indicates whether the canvas contains an alpha channel. The default value is false.
-   * @since 8
-   */
-  alpha?: boolean;
-
-  /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
    * @since 8
    */
@@ -441,10 +435,9 @@ declare class RenderingContextSettings {
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
    * @param antialias Indicates whether anti-aliasing is enabled for canvas
-   * @param alpha Indicates whether the canvas contains an alpha channel
    * @since 8
    */
-  constructor(antialias?: boolean, alpha?: boolean);
+  constructor(antialias?: boolean);
 }
 
 /**
