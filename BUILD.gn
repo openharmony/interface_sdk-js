@@ -127,10 +127,7 @@ ohos_copy("common_api") {
 }
 
 ohos_copy("bundle_api") {
-  sources = [
-    "api/bundle/bundleFlag.d.ts",
-    "api/bundle/bundleStatusCallback.d.ts",
-  ]
+  sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
