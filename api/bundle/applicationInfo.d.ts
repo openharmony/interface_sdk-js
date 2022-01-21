@@ -156,7 +156,7 @@ export interface ApplicationInfo {
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-  readonly metadata: Array<Metadata>
+  readonly metadata: Map<string, Array<Metadata>>;
 
   /**
     * @default Indicates whether or not this application may be removable
