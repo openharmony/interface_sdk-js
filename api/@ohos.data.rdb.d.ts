@@ -80,7 +80,7 @@ declare namespace rdb {
         /**
          * Indicates the data is pulled from remote device to local device.
          *
-         * @since 7
+         * @since 8
          * @Syscap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          * @import N/A
