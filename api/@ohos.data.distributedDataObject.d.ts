@@ -72,6 +72,22 @@ declare namespace distributedDataObject {
          * @since 8
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+		/**
+		 * On watch of status
+		 *
+		 * @param callback The callback of status, sessionId is the sessionId of changed object
+		 * deviceId is the device that object changed, status is the status of object
+		 * @since 8
+		 */
+        on(type: 'status', callback: Callback<{ sessionId: string, deviceId: string, status: 'online'|'offline' }>): void;
+
+        /**
+         * Off watch of status
+         *
+         * @param callback If not null, off the callback, if undefined, off all callbacks
+         * @since 8
+         */
+        off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online'|'offline' }>): void;
     }
 }
 
