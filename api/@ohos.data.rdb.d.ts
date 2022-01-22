@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
+import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 
 /**
@@ -55,6 +55,80 @@ declare namespace rdb {
      */
     function deleteRdbStore(name: string, callback: AsyncCallback<void>): void;
     function deleteRdbStore(name: string): Promise<void>;
+
+    /**
+     * Indicates the database synchronization mode.
+     *
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    enum SyncMode {
+        /**
+         * Indicates the data is pushed to remote device from local device.
+         *
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+        SYNC_MODE_PUSH = 0,
+
+        /**
+         * Indicates the data is pulled from remote device to local device.
+         *
+         * @since 7
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+        SYNC_MODE_PULL = 1,
+    }
+
+    /**
+     * Describes the subscription type.
+     *
+     * @since 8
+     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+     * @devices phone, tablet, tv, wearable, car
+     * @import N/A
+     * @permission N/A
+     */
+    enum SubscribeType {
+        /**
+         * Subscription to local data changes
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+        SUBSCRIBE_TYPE_LOCAL = 0,
+
+        /**
+         * Subscription to remote data changes
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+        SUBSCRIBE_TYPE_REMOTE = 1,
+
+        /**
+         * Subscription to both local and remote data changes
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @import N/A
+         * @permission N/A
+         */
+        SUBSCRIBE_TYPE_ALL = 2,
+    }
 
     /**
      * Provides methods for managing the relational database (RDB).
@@ -206,6 +280,59 @@ declare namespace rdb {
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
         setDistributedTables(tables: Array<string>): Promise<void>;
+
+        /**
+         * Obtain distributed table name of specified remote device according to local table name.
+         * When query remote device database, distributed table name is needed.
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @param device Indicates the remote device.
+         * @param table Indicates the local table name.
+         * @return the distributed table name.
+         * @devices phone, tablet, tv, wearable, car
+         */
+        ObtainDistributedTableName(device: string, table: string): string;
+
+        /**
+         * Sync data between devices
+         *
+         * @note N/A
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
+         * @param predicates Constraint synchronized data and devices.
+         * @param callback Indicates the callback used to send the synchronization result to the caller.
+         * @devices phone, tablet, tv, wearable, car
+         */
+        sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
+        sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
+
+        /**
+         * Registers a observer for the database. When data in the distributed database changes,
+         * the callback will be invoked.
+         *
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param observer Indicates the observer of data change events in the distributed database.
+         */
+        on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
+        /**
+         * Remove specified observer of specified type from the database.
+         *
+         * @note N/A
+         * @since 8
+         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param observer Indicates the data change observer already registered .
+         */
+        off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
 
     /**
@@ -272,6 +399,29 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          */
         constructor(name: string)
+
+        /**
+         * Specify remote devices when syncing distributed database.
+         *
+         * @note When query database, this function should not be called.
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @param devices Indicates specified remote devices.
+         * @return Returns the RdbPredicates self.
+         */
+        inDevices(devices: Array<string>): RdbPredicates;
+
+        /**
+         * Specify all remote devices which connect to local device when syncing distributed database.
+         *
+         * @note When query database, this function should not be called.
+         * @since 8
+         * @sysCap SystemCapability.Data.DATA_APPDATAMGR
+         * @devices phone, tablet, tv, wearable, car
+         * @return Returns the RdbPredicates self.
+         */
+        inAllDevices(): RdbPredicates;
 
         /**
          * Configures the RdbPredicates to match the field whose data type is ValueType and value is equal
