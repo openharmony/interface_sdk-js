@@ -15,30 +15,34 @@
 
  /**
  * @name Indicates the Metadata
- * @since 8
+ * @since 9 preview
  * @SysCap SystemCapability.Appexecfwk
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
+ * @StageModelOnly
  */
   export interface Metadata {
     /**
       * @default Indicates the metadata name
-      * @since 8
+      * @since 9 preview
       * @SysCap SystemCapability.Appexecfwk
+      * @StageModelOnly
       */
     name: string;
 
     /**
       * @default Indicates the metadata value
-      * @since 8
+      * @since 9 preview
       * @SysCap SystemCapability.Appexecfwk
+      * @StageModelOnly
       */
     value: string;
 
     /**
     * @default Indicates the metadata resource
-    * @since 8
+    * @since 9 preview
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
     resource: string;
   }

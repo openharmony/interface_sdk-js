@@ -245,8 +245,9 @@ export interface BundleInfo {
 
   /**
     * @default Obtains configuration information about an ability
-    * @since 8
+    * @since 9 preview
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

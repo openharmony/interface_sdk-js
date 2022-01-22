@@ -54,7 +54,8 @@ declare namespace bundle {
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
-     * @since 8
+     * @since 9 preview
+     * @StageModelOnly
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
     /**
@@ -77,11 +78,12 @@ declare namespace bundle {
 
   /**
  * @name ExtensionFlag
- * @since 8
+ * @since 9 preview
  * @SysCap SystemCapability.Appexecfwk
  * @import NA
  * @permission NA
  * @devices phone, tablet, tv, wearable
+ * @StageModelOnly
  */
   enum ExtensionFlag {
     GET_EXTENSION_INFO_DEFAULT = 0x00000000,
@@ -232,71 +234,82 @@ declare namespace bundle {
 
   /**
   * @name ExtensionAbilityType
-  * @since 8
+  * @since 9 preview
   * @SysCap SystemCapability.Appexecfwk
   * @import NA
   * @permission NA
   * @devices phone, tablet, tv, wearable
+  * @StageModelOnly
   */
   export enum ExtensionAbilityType {
     /**
      * @default Indicates extension info with type of form
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     FORM = 0,
     /**
      * @default Indicates extension info with type of work schedule
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     WORK_SCHEDULER = 1,
     /**
      * @default Indicates extension info with type of input method
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     INPUTMETHOD = 2,
     /**
      * @default Indicates extension info with type of service
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
     */
     SERVICE = 3,
     /**
      * @default Indicates extension info with type of accessibility
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     ACCESSIBILITY = 4,
     /**
      * @default Indicates extension info with type of datashare
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     DATASHARE = 5,
     /**
      * @default Indicates extension info with type of fileshare
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     FILESHARE = 6,
     /**
      * @default Indicates extension info with type of staticsubscriber
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     STATICSUBSCRIBER = 7,
     /**
      * @default Indicates extension info with type of wallpaper
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     WALLPAPER = 8,
     /**
      * @default Indicates extension info with type of unspecified
-     * @since 8
+     * @since 9 preview
      * @SysCap SystemCapability.Appexecfwk
+     * @StageModelOnly
      */
     UNSPECIFIED = 9,
   }
@@ -508,7 +521,7 @@ declare namespace bundle {
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
-  
+
   /**
    * Obtains information about the shortcuts of the application.
    *
@@ -583,7 +596,7 @@ declare namespace bundle {
    * Query extension info of by utilizing a Want.
    *
    * @devices phone, tablet, tv, wearable, car
-   * @since 8
+   * @since 9 preview
    * @SysCap SystemCapability.Appexecfwk
    * @param want Indicates the Want containing the application bundle name to be queried.
    * @param extensionFlags Indicates the flag used to specify information contained in the ExtensionInfo objects that
@@ -591,6 +604,7 @@ declare namespace bundle {
    * @param userId Indicates the user ID.
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
+   * @StageModelOnly
    */
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
