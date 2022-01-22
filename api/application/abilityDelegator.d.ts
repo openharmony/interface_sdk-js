@@ -113,10 +113,12 @@ export interface AbilityDelegator {
      * Execute the given command in the aa tools side.
      * 异步方式执行指定的shell命令
      * @param cmd shell命令字符串
-     * @return shell命令执行结果对象
+     * @param timeoutSecs 超时时间，单位秒
+     * @return shell命令的执行结果ShellCmdResult对象
      */
+    executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;​
     executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;​
-    executeShellCommand(cmd: string, timeoutSecs: number): Promise<ShellCmdResult>;​
+    executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;​
 }
 
 export default AbilityDelegator;
