@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback , Callback} from './basic';
+import { WantAgent } from "./@ohos.wantAgent";
 
 /**
  * Manages background tasks.
@@ -75,6 +76,84 @@ declare namespace backgroundTaskManager {
      * @return Info of delay request
      */
     function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
+
+    /**
+     * Service ability uses this method to request start running in background.
+     * system will publish a notification related to the this service when condition is met.
+     * each ability will only allowed to request one type background mode.
+     *
+     * @devices phone, tablet
+     * @since 8
+     * @param bgMode Indicates which background mode to request.
+     * @param wantAgent Indicates which ability to start when user click the notification.
+     */
+    function startBackgroundRunning(bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
+    function startBackgroundRunning(bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
+
+    /**
+     * Service ability uses this method to request stop running in background.
+     *
+     * @devices phone, tablet
+     * @since 8
+     */
+    function stopBackgroundRunning(callback: AsyncCallback<void>): void;
+    function stopBackgroundRunning(): Promise<void>;
+
+    /**
+     * supported background mode.
+     *
+     * @since 8
+     */
+    export enum BackgroundMode {
+        /**
+         * data transfer mode
+         */
+        DATA_TRANSFER = 1,
+
+        /**
+         * audio playback mode
+         */
+        AUDIO_PLAYBACK = 2,
+
+        /**
+         * audio recording mode
+         */
+        AUDIO_RECORDING = 3,
+
+        /**
+         * location mode
+         */
+        LOCATION = 4,
+
+        /**
+         * bluetooth interaction mode
+         */
+        BLUETOOTH_INTERACTION = 5,
+
+        /**
+         * multi-device connection mode
+         */
+        MULTI_DEVICE_CONNECTION = 6,
+
+        /**
+         * wifi interaction mode
+         *
+         * @systemapi Hide this for inner system use.
+         */
+        WIFI_INTERACTION = 7,
+
+        /**
+         * Voice over Internet Phone mode
+         *
+         * @systemapi Hide this for inner system use.
+         */
+        VOIP = 8,
+
+        /**
+         * backgroud continuous calculate mode, for example 3d render.
+         */
+        TASK_KEEPING = 9,
+    }
 }
 
 export default backgroundTaskManager;
