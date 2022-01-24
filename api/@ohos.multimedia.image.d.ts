@@ -420,7 +420,7 @@ declare namespace image {
   function createPixelMap(colors: ArrayBuffer, opts: InitializationOptions): Promise<PixelMap>;
   function createPixelMap(colors: ArrayBuffer, opts: InitializationOptions, callback: AsyncCallback<PixelMap>): void;
 
-
+  // Create a incremental image source.
   function createIncrementalSource(data: ArrayBuffer): ImageSource;
 
   /**
