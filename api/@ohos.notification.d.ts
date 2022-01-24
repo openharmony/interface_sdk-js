@@ -553,6 +553,58 @@ declare namespace notification {
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
   /**
+   * Sets whether the device supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
+  function enableDistributed(enable: boolean): Promise<void>;
+
+  /**
+   * Obtains whether the device supports distributed notification.
+   *
+   * @since 8
+   */
+  function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
+  function isDistributedEnabled(): Promise<boolean>;
+
+  /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
+  function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
+
+  /**
+   * Sets whether the application supports distributed notification.
+   *
+   * @since 8
+   */
+  function enableDistributedSelf(enable: boolean, callback: AsyncCallback<void>): void;
+  function enableDistributedSelf(enable: boolean): Promise<void>;
+
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
+  function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
+
+  /**
+   * Obtains the remind modes of the notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
+  function getDeviceRemindType(): Promise<DeviceRemindType>;
+
+  /**
    * Describes a BundleOption.
    */
   export interface BundleOption {
@@ -569,34 +621,82 @@ declare namespace notification {
   }
 
   /**
-   * DisturbMode
+   * The type of the Do Not Disturb.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum DoNotDisturbType {
+    /**
+     * Non do not disturb type notification
+     */
+    TYPE_NONE = 0,
+
+    /**
+     * Execute do not disturb once in the set time period (only watch hours and minutes)
+     */
+    TYPE_ONCE = 1,
+
+    /**
+     * Execute do not disturb every day with a set time period (only watch hours and minutes)
+     */
+    TYPE_DAILY = 2,
+
+    /**
+     * Execute in the set time period (specify the time, month, day and hour)
+     */
+    TYPE_CLEARLY = 3,
+  }
+
+  /**
+   * Describes a DoNotDisturbDate instance.
    *
    * @systemapi Hide this for inner system use.
    */
-  export enum DoNotDisturbMode {
-    ALLOW_UNKNOWN,
+  export interface DoNotDisturbDate {
+    /**
+     * the type of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    type: DoNotDisturbType;
 
     /**
-     * Indicates that all notifications are allowed to interrupt the user in Do Not Disturb mode.
+     * the start time of the Do Not Disturb.
+     *
+     * @since 8
      */
-    ALLOW_ALL,
+    begin: Date;
 
     /**
-     * Indicates that only notifications meeting the specified priority criteria are allowed to interrupt
-     * the user in Do Not Disturb mode.
+     * the end time of the Do Not Disturb.
+     *
+     * @since 8
      */
-    ALLOW_PRIORITY,
+    end: Date;
+  }
+
+  /**
+   * Notification source type
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum SourceType {
+    /**
+     * General notification
+     */
+    TYPE_NORMAL = 0x00000000,
 
     /**
-     * Indicates that no notifications are allowed to interrupt the user in Do Not Disturb mode.
+     * Continuous notification
      */
-    ALLOW_NONE,
+    TYPE_CONTINUOUS = 0x00000001,
 
     /**
-     * Indicates that only notifications of the {@link NotificationRequest#CLASSIFICATION_ALARM} category
-     * are allowed to interrupt the user in Do Not Disturb mode.
+     * Scheduled notification
      */
-    ALLOW_ALARMS
+    TYPE_TIMER = 0x00000002,
   }
 
   /**
@@ -676,6 +776,34 @@ declare namespace notification {
      * Scheduled notification
      */
     TYPE_TIMER = 0x00000002,
+  }
+
+  /**
+   * The remind type of the nofication.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum DeviceRemindType {
+    /**
+     * The device is not in use, no reminder
+     */
+    IDLE_DONOT_REMIND = 0,
+
+    /**
+     * The device is not in use, remind
+     */
+    IDLE_REMIND = 1,
+
+    /**
+     * The device is in use, no reminder
+     */
+    ACTIVE_DONOT_REMIND = 2,
+
+    /**
+     * The device is in use, reminder
+     */
+    ACTIVE_REMIND = 3,
   }
 }
 

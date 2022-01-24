@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http?://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -197,4 +197,55 @@ export interface NotificationRequest {
    * @since 8
    */
   template?: NotificationTemplate;
+
+  /**
+   * The options to distributed notification.
+   *
+   * @since 8
+   */
+  distributedOption?: DistributedOptions;
+
+  /**
+   * The device ID of the notification source.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  readonly deviceId?: string;
+}
+
+
+/**
+ * Describes distributed options.
+ *
+ * @name DistributedOptions
+ * @since 8
+ * @sysCap SystemCapability.Notification.ANS
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ */
+export interface DistributedOptions {
+  /**
+   * Obtains whether is the distributed notification.
+   *
+   * @default true
+   */
+  isDistributed?: boolean;
+
+  /**
+   * Obtains the types of devices to which the notification can be synchronized.
+   */
+  supportDisplayDevices?: Array<string>;
+
+  /**
+   * Obtains the devices on which notifications can be open.
+   */
+  supportOperateDevices?: Array<string>;
+
+  /**
+   * Obtains the remind mode of the notification. enum DeviceRemindType.
+
+   * @systemapi Hide this for inner system use.
+   */
+  readonly remindType?: number;
 }
