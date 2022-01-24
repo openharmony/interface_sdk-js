@@ -692,6 +692,16 @@ declare class CanvasRenderer extends CanvasPath {
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
+   * Obtains the PixelMap of a specified area on the current canvas.
+   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sw The width of the rectangular area of the PixelMap to be extracted.
+   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   * @since 8
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
+
+  /**
    * Draws the specified ImageData object onto the canvas
    * @param imagedata ImageData object to be drawn.
    * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
