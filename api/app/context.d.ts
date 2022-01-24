@@ -17,6 +17,7 @@ import { AsyncCallback } from '../basic';
 import { ApplicationInfo } from '../bundle/applicationInfo';
 import { ProcessInfo } from './processInfo';
 import { ElementName } from '../bundle/elementName';
+import BaseContext from '../application/BaseContext';
 
 /**
  * The context of an ability or an application.  It allows access to
@@ -29,7 +30,7 @@ import { ElementName } from '../bundle/elementName';
  * @import import abilityManager from 'app/context'
  * @permission N/A
  */
-export interface Context {
+export interface Context extends BaseContext {
 
     /**
     * Get the local root dir of an app. If it is the first call, the dir

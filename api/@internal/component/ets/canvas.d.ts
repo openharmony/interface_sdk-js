@@ -427,12 +427,6 @@ declare class ImageData {
  */
 declare class RenderingContextSettings {
   /**
-   * Indicates whether the canvas contains an alpha channel. The default value is false.
-   * @since 8
-   */
-  alpha?: boolean;
-
-  /**
    * Indicates whether anti-aliasing is enabled for canvas. The default value is false.
    * @since 8
    */
@@ -441,10 +435,9 @@ declare class RenderingContextSettings {
   /**
    * Create an RenderingContextSettings object based on the antialias and alpha.
    * @param antialias Indicates whether anti-aliasing is enabled for canvas
-   * @param alpha Indicates whether the canvas contains an alpha channel
    * @since 8
    */
-  constructor(antialias?: boolean, alpha?: boolean);
+  constructor(antialias?: boolean);
 }
 
 /**
@@ -697,6 +690,16 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 8
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
+
+  /**
+   * Obtains the PixelMap of a specified area on the current canvas.
+   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sw The width of the rectangular area of the PixelMap to be extracted.
+   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   * @since 8
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
   /**
    * Draws the specified ImageData object onto the canvas

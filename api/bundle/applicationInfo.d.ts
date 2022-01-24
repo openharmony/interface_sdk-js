@@ -153,10 +153,11 @@ export interface ApplicationInfo {
 
   /**
     * @default Indicates the metadata of module
-    * @since 8
+    * @since 9 preview
     * @SysCap SystemCapability.Appexecfwk
+    * @StageModelOnly
     */
-  readonly metadata: Array<Metadata>
+  readonly metadata: Map<string, Array<Metadata>>;
 
   /**
     * @default Indicates whether or not this application may be removable
