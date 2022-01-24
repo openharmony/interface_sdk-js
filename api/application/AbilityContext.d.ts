@@ -121,4 +121,15 @@ export default class AbilityContext extends Context {
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;
+
+    /**
+     * Set mission label of current ability.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param label The label of ability that showed in recent missions.
+     */
+     setMissionLabel(label: string, callback:AsyncCallback<void>): void;
+     setMissionLabel(label: string): Promise<void>;
 }
