@@ -15,6 +15,7 @@
 
 import { AsyncCallback , Callback} from './basic';
 import { WantAgent } from "./@ohos.wantAgent";
+import { Context } from './app/context';
 
 /**
  * Manages background tasks.
@@ -79,30 +80,35 @@ declare namespace backgroundTaskManager {
 
     /**
      * Service ability uses this method to request start running in background.
-     * system will publish a notification related to the this service when condition is met.
-     * each ability will only allowed to request one type background mode.
+     * system will publish a notification related to the this service.
      *
-     * @devices phone, tablet
      * @since 8
+     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
+     * @devices phone, tv, wearable, tablet, car
+     * @param context app running context.
      * @param bgMode Indicates which background mode to request.
      * @param wantAgent Indicates which ability to start when user click the notification.
      */
-    function startBackgroundRunning(bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
-    function startBackgroundRunning(bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
+    function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
+    function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
     /**
      * Service ability uses this method to request stop running in background.
      *
-     * @devices phone, tablet
      * @since 8
+     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
+     * @devices phone, tv, wearable, tablet, car
+     * @param context app running context.
      */
-    function stopBackgroundRunning(callback: AsyncCallback<void>): void;
-    function stopBackgroundRunning(): Promise<void>;
+    function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
+    function stopBackgroundRunning(context: Context, ): Promise<void>;
 
     /**
      * supported background mode.
      *
      * @since 8
+     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
+     * @devices phone, tv, wearable, tablet, car
      */
     export enum BackgroundMode {
         /**
@@ -151,6 +157,7 @@ declare namespace backgroundTaskManager {
 
         /**
          * backgroud continuous calculate mode, for example 3d render.
+         * only supported in portable computer
          */
         TASK_KEEPING = 9,
     }

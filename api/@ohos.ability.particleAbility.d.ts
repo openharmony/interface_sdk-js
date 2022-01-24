@@ -62,25 +62,26 @@ declare namespace particleAbility {
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
   /**
-   * Service ability uses this method to request keep running in background.
-   * note this is old api. will be deprecated in furture api version
+   * Keeps this Service ability in the background and displays a notification bar.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap BackgroundTaskMgr
-   * @param id Identifies the notificaiton bar information
-   * @param request the notification related to the this service.
+   * @sysCap AAFwk
+   * @param id Identifies the notification bar information.
+   * @param request Indicates the notificationRequest instance containing information for displaying a notification bar.
+   * @return -
    * @deprecated
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
   /**
-   * Service ability uses this method to request cancel running in background.
+   * Cancels background running of this ability to free up system memory.
    *
-   * @devices phone, tablet
+   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap BackgroundTaskMgr
+   * @sysCap AAFwk
+   * @return -
    * @deprecated
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
