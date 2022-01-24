@@ -139,7 +139,7 @@ declare namespace xml {
         elementsKey: string;
     }
 
-    interface ConvertXML {
+    class ConvertXML {
         /**
          * To convert XML text to JavaScript object.
          * @since 8
