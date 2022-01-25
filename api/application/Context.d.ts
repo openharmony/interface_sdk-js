@@ -16,6 +16,7 @@
 import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
+import EventHub from "./EventHub";
 
 /**
  * The base context of an ability or an application. It allows access to
@@ -98,6 +99,14 @@ export default class Context extends BaseContext {
      * @sysCap AAFwk
      */
     distributedFilesDir: string;
+
+    /**
+     * Indicates event hub.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+    eventHub: EventHub;
 
     /**
      * Create a bundle context
