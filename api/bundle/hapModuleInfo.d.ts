@@ -124,7 +124,7 @@ export interface HapModuleInfo {
 
   /**
     * @default Obtains configuration information about extension ability
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */

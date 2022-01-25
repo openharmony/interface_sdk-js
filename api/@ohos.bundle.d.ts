@@ -54,7 +54,7 @@ declare namespace bundle {
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
-     * @since 9 preview
+     * @since 9
      * @StageModelOnly
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
@@ -78,7 +78,7 @@ declare namespace bundle {
 
   /**
  * @name ExtensionFlag
- * @since 9 preview
+ * @since 9
  * @SysCap SystemCapability.Appexecfwk
  * @import NA
  * @permission NA
@@ -234,7 +234,7 @@ declare namespace bundle {
 
   /**
   * @name ExtensionAbilityType
-  * @since 9 preview
+  * @since 9
   * @SysCap SystemCapability.Appexecfwk
   * @import NA
   * @permission NA
@@ -244,70 +244,70 @@ declare namespace bundle {
   export enum ExtensionAbilityType {
     /**
      * @default Indicates extension info with type of form
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     FORM = 0,
     /**
      * @default Indicates extension info with type of work schedule
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     WORK_SCHEDULER = 1,
     /**
      * @default Indicates extension info with type of input method
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     INPUTMETHOD = 2,
     /**
      * @default Indicates extension info with type of service
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
     */
     SERVICE = 3,
     /**
      * @default Indicates extension info with type of accessibility
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     ACCESSIBILITY = 4,
     /**
      * @default Indicates extension info with type of datashare
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     DATASHARE = 5,
     /**
      * @default Indicates extension info with type of fileshare
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     FILESHARE = 6,
     /**
      * @default Indicates extension info with type of staticsubscriber
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     STATICSUBSCRIBER = 7,
     /**
      * @default Indicates extension info with type of wallpaper
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
     WALLPAPER = 8,
     /**
      * @default Indicates extension info with type of unspecified
-     * @since 9 preview
+     * @since 9
      * @SysCap SystemCapability.Appexecfwk
      * @StageModelOnly
      */
@@ -596,7 +596,7 @@ declare namespace bundle {
    * Query extension info of by utilizing a Want.
    *
    * @devices phone, tablet, tv, wearable, car
-   * @since 9 preview
+   * @since 9
    * @SysCap SystemCapability.Appexecfwk
    * @param want Indicates the Want containing the application bundle name to be queried.
    * @param extensionFlags Indicates the flag used to specify information contained in the ExtensionInfo objects that

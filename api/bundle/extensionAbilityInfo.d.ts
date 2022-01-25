@@ -19,7 +19,7 @@ import bundle from './../@ohos.bundle';
 
 /**
  * @name Obtains extension information about a bundle
- * @since 9 preview
+ * @since 9
  * @SysCap SystemCapability.Appexecfwk
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
@@ -28,7 +28,7 @@ import bundle from './../@ohos.bundle';
 export interface ExtensionAbilityInfo {
   /**
     * @default Indicates the name of the bundle
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -36,7 +36,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the name of the module
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -44,7 +44,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the name of the extension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -52,7 +52,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the label id of the entension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -60,7 +60,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the description id of the entension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -68,7 +68,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the icon id of the entension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -76,7 +76,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates whether the entensionInfo can be visible or not
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -84,7 +84,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Enumerates types of the entension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -92,7 +92,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default The permissions that others need to use this extension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -100,7 +100,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Obtains configuration information about an application
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -108,7 +108,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the metadata of bundle
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -116,7 +116,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the src language to express extension info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -124,7 +124,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the read permission extension ability info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
@@ -132,7 +132,7 @@ export interface ExtensionAbilityInfo {
 
   /**
     * @default Indicates the write permission of extension ability info
-    * @since 9 preview
+    * @since 9
     * @SysCap SystemCapability.Appexecfwk
     * @StageModelOnly
     */
