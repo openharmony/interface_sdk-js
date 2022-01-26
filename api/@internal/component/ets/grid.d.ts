@@ -101,6 +101,12 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
   editMode(value: boolean): GridAttribute;
 
   /**
+   * Called when judging whether it is multiSelectable.
+   * @since 8
+   */
+  multiSelectable(value: boolean): GridAttribute;
+
+  /**
    * maxCount
    * @since 8
    */

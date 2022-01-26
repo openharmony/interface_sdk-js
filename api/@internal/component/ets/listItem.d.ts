@@ -94,6 +94,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 7
    */
   editable(value: boolean | EditMode): ListItemAttribute;
+
+  /**
+   * Called when judging whether it is selectable.
+   * @since 8
+   */
+  selectable(value: boolean): ListItemAttribute;
+
+  /**
+   * Called when the listItem is selected.
+   * @since 8
+   */
+  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**
