@@ -62,6 +62,21 @@ export default class AbilityContext extends Context {
     startAbility(want: Want, options?: StartOptions): Promise<void>;
 
     /**
+     * Starts a new ability with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param want Indicates the want info to start.
+     * @param want Indicates the account to start.
+     * @systemapi hide for inner use.
+     * @return -
+     */
+    startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+
+    /**
      * Starts an ability and returns the execution result when the ability is destroyed.
      *
      * @devices phone, tablet, tv, wearable, car
@@ -73,6 +88,21 @@ export default class AbilityContext extends Context {
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
     startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
+
+    /**
+     * Starts an ability and returns the execution result when the ability is destroyed with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param want Indicates the want info to start.
+     * @param want Indicates the account to start.
+     * @systemapi hide for inner use.
+     * @return Returns the {@link AbilityResult}.
+     */
+    startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
+    startAbilityForResultWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
 
     /**
      * Destroys this Page ability.
@@ -110,6 +140,20 @@ export default class AbilityContext extends Context {
      * @return Returns the number code of the ability connected
      */
     connectAbility(want: Want, options: ConnectOptions): number;
+
+    /**
+     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param want The element name of the service ability
+     * @param options The remote object instance
+     * @param accountId The account to connect
+     * @systemapi hide for inner use.
+     * @return Returns the number code of the ability connected
+     */
+    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * The callback interface was connect successfully.
