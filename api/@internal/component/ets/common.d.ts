@@ -212,7 +212,7 @@ interface PreviewParams {
   title?: string;
   width?: number;
   height?: number;
-  language?: string;
+  locale?: string;
   colorMode?: string;
   deviceType?: string;
   dpi?: number;
