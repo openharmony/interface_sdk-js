@@ -392,6 +392,12 @@ export interface Element {
   getBoundingClientRect(): RectObj;
 
   /**
+   * Obtains attributes of the element.
+   * @returns attributes of the element in json string.
+   */
+  getInspector(): string;
+
+  /**
    * If 0.5 is returned, 50% of the current component is visible.
    * @param radios Scope of Monitoring components.
    */
