@@ -890,6 +890,30 @@ declare class CommonMethod<T> {
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
   /**
+   * Set focusable.
+   * @since 8
+   */
+   focusable(value: boolean): T;
+
+  /**
+   * Trigger a event when got focus.
+   * @since 8
+   */
+   onFocus(event: () => void): T;
+
+  /**
+   * Trigger a event when lose focus.
+   * @since 8
+   */
+   onBlur(event: () => void): T;
+
+  /**
+   * Trigger a event when focus move.
+   * @since 8
+   */
+   onFocusMove(event: (direction?: FocusDirection) => void): T;
+
+  /**
    * animation
    * @since 7
    */
