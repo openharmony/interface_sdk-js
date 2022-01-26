@@ -21,6 +21,7 @@ import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
+import PermissionRequestResult from "./PermissionRequestResult";
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -132,4 +133,15 @@ export default class AbilityContext extends Context {
      */
      setMissionLabel(label: string, callback:AsyncCallback<void>): void;
      setMissionLabel(label: string): Promise<void>;
+
+     /**
+     * Requests certain permissions from the system.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     */
+    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+    requestPermissionsFromUser(permissions: Array<string>) : Promise<PermissionRequestResult>;
 }
