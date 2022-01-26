@@ -210,6 +210,13 @@ declare namespace wantConstant {
      * @since 7
      */
     PARAMS_STREAM = "ability.params.stream",
+
+    /**
+     * Indicates the action of providing oauth service.
+     *
+     * @since 8
+     */
+    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
   }
 
   /**
