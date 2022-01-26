@@ -175,12 +175,6 @@ declare namespace featureAbility {
     PERMISSION_DENY = -3
   }
 
-  export enum ContinuationState {
-    LOCAL_RUNNING = 0,
-    REMOTE_RUNNING = 1,
-    REPLICA_RUNNING = 2
-  }
-
   export enum DataAbilityOperationType {
     TYPE_INSERT = 1,
     TYPE_UPDATE = 2,
