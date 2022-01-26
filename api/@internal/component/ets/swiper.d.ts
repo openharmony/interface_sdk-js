@@ -156,6 +156,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   disableSwipe(value: boolean): SwiperAttribute;
 
   /**
+   * Called when sliding is curve
+   * @since 8
+   */
+  curve(value: Curve | string): SwiperAttribute;
+  /**
    * Called when the index value changes.
    * @since 7
    */
