@@ -21,29 +21,33 @@ export default filemanager;
  * @devices phone, tablet, tv, wearable
  */
 declare namespace filemanager {
-    export { listfile };
+    export { listFile };
     export { getRoot };
     export { createFile };
-    export { ListFileParam };
     export { FileInfo };
     export { DevInfo };
 }
 
 /**
- * listfile.
+ * listFile.
  *
  * @note N/A
  * @sysCap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
- * @function listfile
- * @param {ListFileParam} param - listfile param.
+ * @function listFile
+ * @param {DevInfo} dev - dev name.
+ * @param {string} path - path.
+ * @param {Object} options - options
+ * @param {string} [options.type] - type.
+ * @param {number} [options.offset = 0] - offset.
+ * @param {number} [options.count = 0] - count.
  * @param {AsyncCallback} [callback] - callback.
  * @returns {void | Promise<FileInfo[]>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
  */
-declare function listfile(param: ListFileParam): Promise<FileInfo[]>;
-declare function listfile(param: ListFileParam, AsyncCallback<FileInfo[]>): void;
+declare function listFile(dev: DevInfo, path: string, options:{type: string, offset?: number, count?: number}): Promise<FileInfo[]>;
+declare function listFile(dev: DevInfo, path: string, options:{type: string, offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
 
 /**
  * getRoot.
@@ -78,37 +82,6 @@ declare function getRoot(dev: DevInfo, callback: AsyncCallback<FileInfo[]>): voi
  */
 declare function createFile(dev: DevInfo, filename: string, path: string): Promise<string>;
 declare function createFile(dev: DevInfo, filename: string, path: string, callback: AsyncCallback<string>): void;
-
-/**
- * ListFileParam
- * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
- * @since 8
- * @permission N/A
- * @devices phone, tablet, tv, wearable
- */
- declare interface ListFileParam {
-    /**
-     * dev info
-     */
-     dev: DevInfo;
-    /**
-     * file type
-     */
-     type: string;
-    /**
-     * path
-     */
-     path: string;
-    /**
-     * offset
-     */
-     offset?: number;
-    /**
-     * count
-     */
-     count?: number;
- }
 
 /**
  * FileInfo
