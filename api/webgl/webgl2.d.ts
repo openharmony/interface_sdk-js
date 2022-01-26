@@ -17,24 +17,21 @@
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 type GLint64 = number;
 /**
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 type GLuint64 = number;
 /**
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGLQuery {
 }
@@ -42,8 +39,7 @@ interface WebGLQuery {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGLSampler {
 }
@@ -51,8 +47,7 @@ interface WebGLSampler {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGLSync {
 }
@@ -60,8 +55,7 @@ interface WebGLSync {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGLTransformFeedback {
 }
@@ -69,8 +63,7 @@ interface WebGLTransformFeedback {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGLVertexArrayObject {
 }
@@ -78,16 +71,14 @@ interface WebGLVertexArrayObject {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 type Uint32List = Uint32Array | GLuint[];
 /**
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGL2RenderingContextBase {
     readonly READ_BUFFER: GLenum;
@@ -453,8 +444,7 @@ interface WebGL2RenderingContextBase {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 interface WebGL2RenderingContextOverloads {
     bufferData(target: GLenum, size: GLsizeiptr, usage: GLenum): void;
@@ -495,8 +485,7 @@ interface WebGL2RenderingContextOverloads {
  * WebGL 2.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/2.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL2
  */
 export interface WebGL2RenderingContext extends WebGL2RenderingContextBase, WebGL2RenderingContextOverloads, WebGLRenderingContextBase {
 }
