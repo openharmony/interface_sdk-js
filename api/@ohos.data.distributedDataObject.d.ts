@@ -78,9 +78,9 @@ declare namespace distributedDataObject {
          *
          * @param callback Indicates the observer of object status changed.
 		 *                 sessionId: The sessionId of the changed object 
-		                   deviceId: NetworkId of the changed device
-						   status: 'online' The object became online on the device and data can be synced to the device
-						           'offline' The object became offline on the device and the object can not sync any data
+         *                 deviceId: NetworkId of the changed device
+         *                 status: 'online' The object became online on the device and data can be synced to the device
+		 *				           'offline' The object became offline on the device and the object can not sync any data
          * @since 8
          */
         on(type: 'status', callback: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
