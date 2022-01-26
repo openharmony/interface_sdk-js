@@ -45,6 +45,21 @@ export default class ServiceExtensionContext extends ExtensionContext {
     startAbility(want: Want, options?: StartOptions): Promise<void>;
 
     /**
+     * Service extension uses this method to start a specific ability with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param parameter Indicates the ability to start.
+     * @param parameter Indicates the accountId to start.
+     * @systemapi hide for inner use.
+     * @return -
+     */
+    startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+
+    /**
      * Destroys this service extension.
      *
      * @devices phone, tablet, tv, wearable, car
@@ -71,6 +86,23 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @return connection id, int value.
      */
     connectAbility(want: Want, options: ConnectOptions): number;
+
+    /**
+     * Connects an ability to a Service extension with account.
+     *
+     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
+     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+     * service extension when the Service extension is connected.</p>
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap AAFwk
+     * @param request Indicates the service extension to connect.
+     * @param request Indicates the account to connect.
+     * @systemapi hide for inner use.
+     * @return connection id, int value.
+     */
+    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * Disconnects an ability to a service extension, in contrast to
