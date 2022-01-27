@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Context } from './app/context';
+import Context from './application/Context';
 
 /**
  * Provides resource related APIs.
@@ -21,7 +21,7 @@ import { Context } from './app/context';
  * @since 6
  * @devices phone, tablet, tv, wearable, car
  */
-declare namespace resmgr {
+declare namespace resourceManager {
 /**
  * Enumerates screen directions.
  *
@@ -426,4 +426,4 @@ export interface ResourceManager {
     getRawFile(path: string): Promise<Uint8Array>;
 }
 }
-export default resmgr;
+export default resourceManager;
