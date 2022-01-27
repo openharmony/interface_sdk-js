@@ -36,18 +36,18 @@ declare namespace filemanager {
  * @since 8
  * @permission N/A
  * @function listFile
- * @param {DevInfo} dev - dev name.
- * @param {string} type - type.
  * @param {string} path - path.
+ * @param {string} type - type.
  * @param {Object} options - options
+ * @param {DevInfo} [options.dev = {name: "local"}] - dev name.
  * @param {number} [options.offset = 0] - offset.
  * @param {number} [options.count = 0] - count.
  * @param {AsyncCallback} [callback] - callback.
  * @returns {void | Promise<FileInfo[]>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
  */
-declare function listFile(dev: DevInfo, type: string, path: string, options?:{offset?: number, count?: number}): Promise<FileInfo[]>;
-declare function listFile(dev: DevInfo, type: string, path: string, options?:{offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
+declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}): Promise<FileInfo[]>;
+declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
 
 /**
  * getRoot.
@@ -57,13 +57,14 @@ declare function listFile(dev: DevInfo, type: string, path: string, options?:{of
  * @since 8
  * @permission N/A
  * @function getRoot
- * @param {DevInfo} dev - dev name.
+ * @param {Object} options - options
+ * @param {DevInfo} [options.dev = {name: "local"}] - dev name.
  * @param {AsyncCallback} [callback] - callback.
  * @returns {void | Promise<FileInfo>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
  */
-declare function getRoot(dev: DevInfo): Promise<FileInfo[]>;
-declare function getRoot(dev: DevInfo, callback: AsyncCallback<FileInfo[]>): void;
+declare function getRoot(options?: {dev?: DevInfo}): Promise<FileInfo[]>;
+declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<FileInfo[]>): void;
 
 /**
  * createFile.
@@ -73,15 +74,16 @@ declare function getRoot(dev: DevInfo, callback: AsyncCallback<FileInfo[]>): voi
  * @since 8
  * @permission N/A
  * @function createFile
- * @param {DevInfo} dev - dev name.
- * @param {string} filename- file name.
  * @param {string} path - album uri.
+ * @param {string} filename- file name.
+ * @param {Object} options - options
+ * @param {DevInfo} [options.dev = {name: "local"}] - dev name.
  * @param {AsyncCallback} [callback] - callback.
  * @returns {void | Promise<string>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
  */
-declare function createFile(dev: DevInfo, filename: string, path: string): Promise<string>;
-declare function createFile(dev: DevInfo, filename: string, path: string, callback: AsyncCallback<string>): void;
+declare function createFile(path: string, filename: string, options?: {dev?: DevInfo}): Promise<string>;
+declare function createFile(path: string, filename: string, options?: {dev?: DevInfo}, callback: AsyncCallback<string>): void;
 
 /**
  * FileInfo
