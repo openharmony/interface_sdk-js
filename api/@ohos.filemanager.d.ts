@@ -37,17 +37,17 @@ declare namespace filemanager {
  * @permission N/A
  * @function listFile
  * @param {DevInfo} dev - dev name.
+ * @param {string} type - type.
  * @param {string} path - path.
  * @param {Object} options - options
- * @param {string} [options.type] - type.
  * @param {number} [options.offset = 0] - offset.
  * @param {number} [options.count = 0] - count.
  * @param {AsyncCallback} [callback] - callback.
  * @returns {void | Promise<FileInfo[]>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
  */
-declare function listFile(dev: DevInfo, path: string, options:{type: string, offset?: number, count?: number}): Promise<FileInfo[]>;
-declare function listFile(dev: DevInfo, path: string, options:{type: string, offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
+declare function listFile(dev: DevInfo, type: string, path: string, options?:{offset?: number, count?: number}): Promise<FileInfo[]>;
+declare function listFile(dev: DevInfo, type: string, path: string, options?:{offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
 
 /**
  * getRoot.
