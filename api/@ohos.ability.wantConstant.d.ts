@@ -262,15 +262,11 @@ declare namespace wantConstant {
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
     /**
      * Indicates the grant to perform write operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
