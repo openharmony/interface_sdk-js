@@ -109,7 +109,6 @@ export declare interface Want {
    * @since 9
    * @sysCap AAFwk
    * @default -
-   * @StageModelOnly
    */
   extensionAbilityName?: string;
 
@@ -119,7 +118,6 @@ export declare interface Want {
    * @since 9
    * @sysCap AAFwk
    * @default -
-   * @StageModelOnly
    */
   extensionAbilityType?: number;
 }

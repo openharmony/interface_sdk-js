@@ -268,7 +268,6 @@ export interface AbilityInfo {
     * @default Indicates the metadata of ability
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     * 
     */
   readonly metadata: Array<Metadata>;

@@ -55,7 +55,6 @@ declare namespace bundle {
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
      * @since 9
-     * @StageModelOnly
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
     /**
@@ -76,14 +75,13 @@ declare namespace bundle {
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
   }
 
-  /**
+/**
  * @name ExtensionFlag
  * @since 9
  * @SysCap SystemCapability.Appexecfwk
  * @import NA
  * @permission NA
  * @devices phone, tablet, tv, wearable
- * @StageModelOnly
  */
   enum ExtensionFlag {
     GET_EXTENSION_INFO_DEFAULT = 0x00000000,
@@ -239,77 +237,66 @@ declare namespace bundle {
   * @import NA
   * @permission NA
   * @devices phone, tablet, tv, wearable
-  * @StageModelOnly
   */
   export enum ExtensionAbilityType {
     /**
      * @default Indicates extension info with type of form
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     FORM = 0,
     /**
      * @default Indicates extension info with type of work schedule
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     WORK_SCHEDULER = 1,
     /**
      * @default Indicates extension info with type of input method
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     INPUTMETHOD = 2,
     /**
      * @default Indicates extension info with type of service
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
     */
     SERVICE = 3,
     /**
      * @default Indicates extension info with type of accessibility
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     ACCESSIBILITY = 4,
     /**
      * @default Indicates extension info with type of datashare
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     DATASHARE = 5,
     /**
      * @default Indicates extension info with type of fileshare
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     FILESHARE = 6,
     /**
      * @default Indicates extension info with type of staticsubscriber
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     STATICSUBSCRIBER = 7,
     /**
      * @default Indicates extension info with type of wallpaper
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     WALLPAPER = 8,
     /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
-     * @StageModelOnly
      */
     UNSPECIFIED = 9,
   }
@@ -604,7 +591,6 @@ declare namespace bundle {
    * @param userId Indicates the user ID.
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
-   * @StageModelOnly
    */
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
