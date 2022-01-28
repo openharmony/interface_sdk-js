@@ -97,3 +97,4 @@
 /// <reference path="./web.d.ts" />
 /// <reference path="./xcomponent.d.ts" />
 /// <reference path="./inspector.d.ts" />
+/// <reference path="./sidebar.d.ts" />
