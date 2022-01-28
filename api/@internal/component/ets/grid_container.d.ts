@@ -95,7 +95,25 @@ interface GridContainerInterface {
  * Defines the grid container attribute from inheritance Column
  * @since 7
  */
-declare class GridContainerAttribute extends ColumnAttribute {}
+declare class GridContainerAttribute extends ColumnAttribute {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: GridContainerOption): GridContainerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): GridContainerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): GridContainerAttribute;
+}
 
 declare const GridContainer: GridContainerInterface
 declare const GridContainerInstance: GridContainerAttribute;

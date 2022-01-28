@@ -31,6 +31,24 @@ interface BlankInterface {
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(min?: number | string): BlankAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): BlankAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): BlankAttribute;
+
+  /**
    * color: set color.
    * @since 7
    */

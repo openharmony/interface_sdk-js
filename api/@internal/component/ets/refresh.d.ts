@@ -66,6 +66,24 @@ interface RefreshInterface {
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: { refreshing: boolean; offset?: number | string; friction?: number | string }): RefreshAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): RefreshAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RefreshAttribute;
+
+  /**
    * Called when the refresh state changes.
    * @since 8
    */

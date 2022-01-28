@@ -53,6 +53,24 @@ interface ToggleInterface {
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ToggleAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ToggleAttribute;
+
+  /**
    * Called when the selected state of the component changes.
    * @since 8
    */

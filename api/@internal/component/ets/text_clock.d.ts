@@ -30,6 +30,24 @@ interface TextClockInterface {
 
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: {hourswest?: number}): TextClockAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TextClockAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextClockAttribute;
+
+  /**
    * set display time format，such as "yyyy/mm/dd"、“yyyy-mm-dd".
    * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),

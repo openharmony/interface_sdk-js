@@ -56,6 +56,24 @@ interface ListInterface {
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ListAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ListAttribute;
+ 
+  /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
    */

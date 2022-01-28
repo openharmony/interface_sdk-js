@@ -25,6 +25,12 @@ interface ColumnInterface {
    * @since 7
    */
   (value?: { space?: string | number }): ColumnAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { space?: string | number }): ColumnAttribute;
 }
 
 /**
@@ -32,6 +38,18 @@ interface ColumnInterface {
  * @since 7
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ColumnAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ColumnAttribute;
+
   /**
    * Sets the alignment format of the subassembly in the horizontal direction.
    * @since 7

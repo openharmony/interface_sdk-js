@@ -30,6 +30,24 @@ interface QRCodeInterface {
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: string): QRCodeAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): QRCodeAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): QRCodeAttribute;
+
+  /**
    * Called when the QR code color is set.
    * @since 7
    */

@@ -54,6 +54,18 @@ interface RadioInterface {
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options: RadioOption): RadioAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RadioAttribute;
+
+  /**
    * Called when the radio box is selected.
    * @devices phone, tablet, car
    * @since 8

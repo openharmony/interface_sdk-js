@@ -32,6 +32,24 @@ interface HyperlinkInterface {
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(address: string | Resource, content?: string | Resource): HyperlinkAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): HyperlinkAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): HyperlinkAttribute;
+ 
+  /**
    * Set Color
    * @since 7
    */

@@ -73,6 +73,24 @@ interface NavigationInterface {
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(): NavigationAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): NavigationAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): NavigationAttribute;
+ 
+  /**
    * Navigation title
    * @since 8
    */
