@@ -87,6 +87,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/search.d.ts",
     "api/@internal/component/ets/shape.d.ts",
     "api/@internal/component/ets/sheet.d.ts",
+    "api/@internal/component/ets/sidebar.d.ts",
     "api/@internal/component/ets/slider.d.ts",
     "api/@internal/component/ets/span.d.ts",
     "api/@internal/component/ets/stack.d.ts",
