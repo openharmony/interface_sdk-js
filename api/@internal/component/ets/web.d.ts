@@ -43,18 +43,6 @@ interface WebInterface {
 
 declare class WebAttribute extends CommonMethod<WebAttribute> {
    /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   create(value: WebOptions): WebAttribute;
-
-   /**
-    * Just use for genetate tsbundle
-    * @ignore ide should ignore this arrtibute
-    */
-   debugLine(value: string): WebAttribute;
-
-   /**
     * Set whether WebView allows JavaScript scripts to execute
     * @since 8
     */
@@ -77,6 +65,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * @since 8
     */
     onRequestSelected(event: () => void): WebAttribute;
+
+   /**
+    * Just use for genetate tsbundle
+    * @ignore ide should ignore this arrtibute
+    */
+    create(value: WebOptions): WebAttribute;
+
+   /**
+    * Just use for genetate tsbundle
+    * @ignore ide should ignore this arrtibute
+    */
+    debugLine(value: string): WebAttribute; 
 }
 
 declare const Web: WebInterface;
