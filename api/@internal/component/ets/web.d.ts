@@ -55,7 +55,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    debugLine(value: string): WebAttribute;
 
    /**
-    * Triggered at the end of web page loading
+    * Set whether WebView allows JavaScript scripts to execute
     * @since 8
     */
     onPageFinish(callback: (event?:{ url: string }) => void): WebAttribute;
