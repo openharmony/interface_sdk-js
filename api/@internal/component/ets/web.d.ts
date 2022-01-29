@@ -9,19 +9,19 @@ declare class WebController {
     * Means to load a piece of code and execute JS code in the context of the currently displayed page
     * @since 8
     */
-    evaluateJavaScript(jscode: string);
+    runJavaScript(jscode: string);
 
    /**
     * Indicates that a piece of code is loaded
     * @since 8
     */
-    loadDataWithBaseURL(value : {baseUrl: string, data: string, mimeType:string, encoding:string, historyUrl: string});
+    loadData(value: { baseUrl: string, data: string, mimeType: string, encoding: string, historyUrl: string });
 
    /**
     * Load the given URL
     * @since 8
     */
-    loadUrl(url : string);
+    loadUrl(url: string);
 }
 
 declare interface WebOptions {
@@ -58,25 +58,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * Set whether WebView allows JavaScript scripts to execute
     * @since 8
     */
-    onPageFinish(callback: (event?:{ url: string }) => void): WebAttribute;
-
-   /**
-    * Get WebView focus callback event
-    * @since 8
-    */
-    onRequestFocus(event: () => void): WebAttribute;
-
-   /**
-    * Set whether WebView allows JavaScript scripts to execute
-    * @since 8
-    */
-    javaScriptEnabled(value: boolean): WebAttribute;
+    javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
    /**
     * Enable or disable local file system access in WebView
     * @since 8
     */
-    fileAccessEnabled(value: boolean): WebAttribute;
+    fileAccess(fileAccess: boolean): WebAttribute;
+
+   /**
+    * Triggered at the end of web page loading
+    * @since 8
+    */
+    onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
+
+   /**
+    * Get WebView focus callback event
+    * @since 8
+    */
+    onRequestSelected(event: () => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

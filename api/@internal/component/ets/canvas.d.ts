@@ -174,7 +174,7 @@ declare class CanvasPath {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    counterclockwise?: number,
+    counterclockwise?: boolean,
   ): void;
 
   /**

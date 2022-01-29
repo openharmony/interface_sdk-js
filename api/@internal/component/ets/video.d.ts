@@ -44,6 +44,101 @@ declare enum SeekMode {
 }
 
 /**
+ * playback speed.
+ * @since 8
+ */
+declare enum PlaybackSpeed {
+    /**
+     * 0.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_0_75_X,
+  
+    /**
+     * 1.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_00_X,
+  
+    /**
+     * 1.25x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_25_X,
+  
+    /**
+     * 1.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_75_X,
+  
+    /**
+     * 2.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_2_00_X,
+  }
+  
+  /**
+   * @since 7
+   * @deprecated since 8
+   */
+  interface VideoOptionPre {
+    /**
+     * src of video.
+     * @since 7
+     */
+    src?: string | Resource;
+  
+    /**
+     * playback rate of video.
+     * @since 7
+     */
+    currentProgressRate?: number | string;
+  
+    /**
+     * preview uri of video.
+     * @since 7
+     */
+    previewUri?: string;
+  
+    /**
+     * controller of video.
+     * @since 7
+     */
+    controller?: VideoController;
+  }
+  
+  /**
+   * @since 8
+   */
+  interface VideoOption {
+    /**
+     * src of video.
+     * @since 8
+     */
+    src?: string | Resource;
+  
+    /**
+     * playback rate of video.
+     * @since 8
+     */
+    currentProgressRate?: PlaybackSpeed;
+  
+    /**
+     * preview uri of video.
+     * @since 8
+     */
+    previewUri?: string | PixelMap | Resource;
+  
+    /**
+     * controller of video.
+     * @since 8
+     */
+    controller?: VideoController;
+  }
+
+/**
  * @since 7
  */
 declare class VideoController {
@@ -66,6 +161,12 @@ declare class VideoController {
   pause();
 
   /**
+   * Provides an event to stop playback.
+   * @since 6
+   */
+  stop();
+
+  /**
    * Provide the progress method of video playback.
    * @since 7
    */
@@ -86,11 +187,7 @@ interface VideoInterface {
    * Set the value.
    * @since 7
    */
-  (value: {
-    src?: string | Resource;
-    previewUri?: string | PixelMap | Resource;
-    controller?: VideoController;
-  }): VideoAttribute;
+  (value: VideoOptionPre | VideoOption): VideoAttribute;
 }
 
 /**
