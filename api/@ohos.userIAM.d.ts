@@ -18,8 +18,7 @@ import{AsyncCallback} from './basic';
 /**
  * User Identity and Access Management.
  * @since 8
- * @sysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
- * @devices phone, tablet
+ * @sysCap SystemCapability.UserIAM.UserAuth
  * @permission ohos.permission.ACCESS_BIOMETRIC
  */
 declare namespace userIAM {
@@ -28,17 +27,17 @@ declare namespace userIAM {
      */
     class UserAuth {
         /**
-         * Constructor to get the userauth class instance.
+         * Constructor to get the UserAuth class instance.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
-         * @return Returns the userauth class instance.
+         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @return Returns the UserAuth class instance.
          */
         constructor();
 
         /**
          * Get version information.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @return Returns version information.
          */
         getVersion() : number;
@@ -46,7 +45,7 @@ declare namespace userIAM {
         /**
          * Check whether the authentication capability is available.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC  
          * @param authType Credential type for authentication.
          * @param authTrustLevel Trust level of authentication result.
@@ -57,7 +56,7 @@ declare namespace userIAM {
         /**
          * Executes authentication.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param challenge pass in challenge value.
          * @param authType type of authentication.
@@ -70,7 +69,7 @@ declare namespace userIAM {
         /**
          * Cancels authentication with ContextID.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param contextID Cancel authentication and pass in ContextID.
          * @return Returns a number value indicating whether Cancel authentication was successful.

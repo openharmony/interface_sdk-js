@@ -18,8 +18,7 @@ import { AsyncCallback } from './basic';
 /**
  * User authentication
  * @since 6
- * @sysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
- * @devices phone, tablet
+ * @sysCap SystemCapability.UserIAM.UserAuth
  * @permission ohos.permission.ACCESS_BIOMETRIC
  */
 declare namespace userAuth {
@@ -278,7 +277,7 @@ declare namespace userAuth {
         /**
          * Cancels the current authentication.
          * @since 7
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @return Returns a cancel result, which is specified by Result.
          */
         cancel(): number;
@@ -286,7 +285,7 @@ declare namespace userAuth {
         /**
          * Checks whether the device supports the specified authentication type and security level.
          * @since 7
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @param type Indicates the authentication type.
          * @param level Indicates the security level.
          * @return Returns a check result, which is specified by CheckAvailabilityResult.
@@ -295,7 +294,7 @@ declare namespace userAuth {
 
         /**
          * Execute authentication.
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @param type Indicates the authentication type.
          * @param level Indicates the security level.
          * @return Returns authentication result, which is specified by AuthenticationResult.
@@ -306,7 +305,7 @@ declare namespace userAuth {
         /**
          * Registers an event callback.
          * @since 7
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @param type Indicates the event type.
          * @param callback Indicates the authentication tip callback to register.
          */
@@ -315,7 +314,7 @@ declare namespace userAuth {
         /**
          * Unregisters an event callback.
          * @since 7
-         * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+         * @SysCap SystemCapability.UserIAM.UserAuth
          * @param type Indicates the event type.
          * @param callback Indicates the authentication tip callback to unregister.
          */
@@ -324,7 +323,7 @@ declare namespace userAuth {
 
     /**
      * Get Authenticator instance.
-     * @SysCap SystemCapability.UserIAM.UserAuth.BiometricAuth
+     * @SysCap SystemCapability.UserIAM.UserAuth
      * @return Returns an Authenticator.
      */
     function getAuthenticator(): Authenticator;
