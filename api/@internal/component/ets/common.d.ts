@@ -796,20 +796,25 @@ declare class CommonMethod<T> {
    * src: Image address url
    * @since 7
    */
-  backgroundImage(src: string, repeat?: ImageRepeat): T;
+  backgroundImage(src: string | Resource, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
    * @since 7
    */
-  backgroundImageSize(value: { width?: number | string; height?: number | string } | ImageSize): T;
+  backgroundImageSize(
+    value: {
+      width?: number | string | Resource;
+      height?: number | string | Resource
+    } | ImageSize
+  ): T;
 
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
    * @since 7
    */
-  backgroundImagePosition(value: { x?: number | string; y?: number | string } | Alignment): T;
+  backgroundImagePosition(value: { x?: number | string | Resource; y?: number | string | Resource } | Alignment): T;
 
   /**
    * Opacity
