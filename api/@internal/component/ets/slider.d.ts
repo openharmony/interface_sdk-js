@@ -122,6 +122,18 @@ interface SliderInterface {
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: SliderOption): SliderAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SliderAttribute;
+
+  /**
    * Called when the slider color of the slider bar is set.
    * @since 7
    */

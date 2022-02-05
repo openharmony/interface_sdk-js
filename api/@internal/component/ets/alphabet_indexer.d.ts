@@ -50,6 +50,24 @@ interface AlphabetIndexerInterface {
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): AlphabetIndexerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): AlphabetIndexerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: { arrayValue: Array<string>; selected: number }): AlphabetIndexerAttribute;
+
+  /**
    * Index bar selection callback.
    * @since 7
    */

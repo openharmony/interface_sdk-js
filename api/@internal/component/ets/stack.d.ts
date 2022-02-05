@@ -30,6 +30,24 @@ interface StackInterface {
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { alignContent?: Alignment }): StackAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): StackAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): StackAttribute;
+
+  /**
    * Called when the occupancy of items in the container is set.
    * @since 7
    */

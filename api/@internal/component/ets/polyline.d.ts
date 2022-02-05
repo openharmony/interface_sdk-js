@@ -36,6 +36,18 @@ interface PolylineInterface {
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { width?: string | number; height?: string | number }): PolylineAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): PolylineAttribute;
+
+  /**
    * Called when the polyline is set to pass through the coordinate point list.
    * @since 7
    */

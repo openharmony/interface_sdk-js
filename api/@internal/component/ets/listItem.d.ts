@@ -84,6 +84,24 @@ interface ListItemInterface {
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: string): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ListItemAttribute;
+ 
+  /**
    * Called when setting whether item is ceiling effect.
    * @since 7
    */

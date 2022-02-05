@@ -30,6 +30,24 @@ interface RatingInterface {
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: { rating: number; indicator?: boolean }): RatingAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): RatingAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RatingAttribute;
+
+  /**
    * Called when the total number of stars is set.
    * @since 7
    */
