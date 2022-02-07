@@ -22,6 +22,7 @@ export interface StartAbilityParameter {
    * @devices phone, tablet
    * @since 3
    * @SysCap aafwk
+   * @FAModelOnly
    */
   want: Want;
 
@@ -32,6 +33,7 @@ export interface StartAbilityParameter {
    * @devices phone, tablet
    * @since 3
    * @SysCap aafwk
+   * @FAModelOnly
    */
   abilityStartSetting?: {[key: string]: any};
 

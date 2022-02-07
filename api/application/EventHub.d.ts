@@ -16,45 +16,49 @@
 /**
  * The event center of a context, support the subscription and publication of events.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
- export default class EventHub {
-    /**
-     * Subscribe to an event.
-     *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
-     * @param event Indicates the event.
-     * @param callback Indicates the callback.
-     * @return -
-     */
-    on(event: string, callback: Function): void
+export default class EventHub {
+   /**
+    * Subscribe to an event.
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 9
+    * @sysCap AAFwk
+    * @param event Indicates the event.
+    * @param callback Indicates the callback.
+    * @return -
+    * @StageModelOnly
+    */
+   on(event: string, callback: Function): void
 
-    /**
-     * Unsubscribe from an event.
-     *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
-     * @param event Indicates the event.
-     * @param callback Indicates the callback.
-     * @return -
-     */
-     off(event: string, callback?: Function): void
+   /**
+    * Unsubscribe from an event.
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 9
+    * @sysCap AAFwk
+    * @param event Indicates the event.
+    * @param callback Indicates the callback.
+    * @return -
+    * @StageModelOnly
+    */
+   off(event: string, callback?: Function): void
 
-     /**
-     * Trigger the event callbacks.
-     *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
-     * @param event Indicates the event.
-     * @param args Indicates the callback arguments.
-     * @return -
-     */
-    emit(event: string, ...args: Object[]): void
- }
+   /**
+    * Trigger the event callbacks.
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 9
+    * @sysCap AAFwk
+    * @param event Indicates the event.
+    * @param args Indicates the callback arguments.
+    * @return -
+    * @StageModelOnly
+    */
+   emit(event: string, ...args: Object[]): void
+}

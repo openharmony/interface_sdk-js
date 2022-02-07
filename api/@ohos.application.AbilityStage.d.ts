@@ -18,17 +18,19 @@ import AbilityStageContext from "./application/AbilityStageContext";
 /**
  * The class of an ability stage.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class AbilityStage {
     /**
      * Indicates configuration information about context.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     context: AbilityStageContext;
 
@@ -36,9 +38,10 @@ export default class AbilityStage {
      * Called back when an ability stage is started for initialization.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @return -
+     * @StageModelOnly
      */
     onCreate(): void;
 }

@@ -20,6 +20,7 @@ export interface DataAbilityResult {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
    uri?: string;
 
@@ -29,6 +30,7 @@ export interface DataAbilityResult {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
    count?:number;
 }

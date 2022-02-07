@@ -24,6 +24,7 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  * @sysCap AAFwk
  * @devices phone, tablet
  * @permission N/A
+ * @FAModelOnly
  */
 declare namespace particleAbility {
   /**
@@ -34,6 +35,7 @@ declare namespace particleAbility {
    * @sysCap AAFwk
    * @param parameter Indicates the ability to start.
    * @return -
+   * @FAModelOnly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
   function startAbility(parameter: StartAbilityParameter): Promise<void>;
@@ -45,6 +47,7 @@ declare namespace particleAbility {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
   function terminateSelf(): Promise<void>;
@@ -57,6 +60,7 @@ declare namespace particleAbility {
    * @sysCap AAFwk
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
+   * @FAModelOnly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 }
