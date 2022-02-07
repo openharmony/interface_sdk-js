@@ -18,7 +18,7 @@
 *
  *@import import hichecker from '@ohos.hichecker';
 * @since 8
-* @Syscap SystemCapability.HiviewDFX
+* @Syscap SystemCapability.HiviewDFX.HiChecker
 */
 declare namespace hichecker {
 
