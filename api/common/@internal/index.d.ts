@@ -17,3 +17,4 @@ export * from './viewmodel';
 export * from './featureability';
 export * from './console';
 export * from './global';
+export * from './dom';
