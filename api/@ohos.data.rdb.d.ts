@@ -293,8 +293,8 @@ declare namespace rdb {
          * @return the distributed table name.
          * @devices phone, tablet, tv, wearable, car
          */
-        ObtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
-        ObtainDistributedTableName(device: string, table: string): Promise<string>;
+        obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
+        obtainDistributedTableName(device: string, table: string): Promise<string>;
 
         /**
          * Sync data between devices
