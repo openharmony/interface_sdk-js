@@ -23,14 +23,12 @@ import bundle from './../@ohos.bundle';
  * @SysCap SystemCapability.Appexecfwk
  * @permission NA
  * @devices phone, tablet, tv, wearable, car
- * @StageModelOnly
  */
 export interface ExtensionAbilityInfo {
   /**
     * @default Indicates the name of the bundle
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly bundleName: string;
 
@@ -38,7 +36,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the name of the module
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly moduleName: string;
 
@@ -46,7 +43,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the name of the extension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly name: string;
 
@@ -54,7 +50,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the label id of the entension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly labelId: number;
 
@@ -62,7 +57,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the description id of the entension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly descriptionId: number;
 
@@ -70,7 +64,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the icon id of the entension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly iconId: number;
 
@@ -78,7 +71,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates whether the entensionInfo can be visible or not
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly isVisible: boolean;
 
@@ -86,7 +78,6 @@ export interface ExtensionAbilityInfo {
     * @default Enumerates types of the entension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly extensionAbilityType: bundle.ExtensionAbilityType;
 
@@ -94,7 +85,6 @@ export interface ExtensionAbilityInfo {
     * @default The permissions that others need to use this extension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly permissions: Array<string>;
 
@@ -102,7 +92,6 @@ export interface ExtensionAbilityInfo {
     * @default Obtains configuration information about an application
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly applicationInfo: ApplicationInfo;
 
@@ -110,7 +99,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the metadata of bundle
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly metadata: Array<Metadata>;
 
@@ -118,7 +106,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the src language to express extension info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly enabled: boolean;
 
@@ -126,7 +113,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the read permission extension ability info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly readPermission: string;
 
@@ -134,7 +120,6 @@ export interface ExtensionAbilityInfo {
     * @default Indicates the write permission of extension ability info
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly writePermission: string;
 }

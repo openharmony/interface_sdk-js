@@ -155,7 +155,6 @@ export interface ApplicationInfo {
     * @default Indicates the metadata of module
     * @since 9
     * @SysCap SystemCapability.Appexecfwk
-    * @StageModelOnly
     */
   readonly metadata: Map<string, Array<Metadata>>;
 
