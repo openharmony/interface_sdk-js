@@ -170,6 +170,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
+        beginTransactionSync():void;
         beginTransaction(callback: AsyncCallback<void>):void;
         beginTransaction(): Promise<void>;
 
@@ -181,6 +182,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
+        commitSync():void;
         commit(callback: AsyncCallback<void>):void;
         commit(): Promise<void>;
 
@@ -192,6 +194,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
+        rollBackSync():void;
         rollBack(callback: AsyncCallback<void>):void;
         rollBack(): Promise<void>;
 
