@@ -22,25 +22,25 @@ declare enum SeekMode {
    * Sync to keyframes before the time point.
    * @since 8
    */
-  PreviousSync,
+  PreviousKeyframe,
 
   /**
    * Sync to keyframes after the time point.
    * @since 8
    */
-  NextSync,
+  NextKeyframe,
 
   /**
    * Sync to closest keyframes.
    * @since 8
    */
-  ClosestSync,
+  ClosestKeyframe,
 
    /**
    * Seek to frames closest the time point.
    * @since 8
    */
-  Closest,
+  Accurate,
 }
 
 /**
@@ -81,49 +81,19 @@ declare enum PlaybackSpeed {
   
   /**
    * @since 7
-   * @deprecated since 8
-   */
-  interface VideoOptionPre {
-    /**
-     * src of video.
-     * @since 7
-     */
-    src?: string | Resource;
-  
-    /**
-     * playback rate of video.
-     * @since 7
-     */
-    currentProgressRate?: number | string;
-  
-    /**
-     * preview uri of video.
-     * @since 7
-     */
-    previewUri?: string;
-  
-    /**
-     * controller of video.
-     * @since 7
-     */
-    controller?: VideoController;
-  }
-  
-  /**
-   * @since 8
    */
   interface VideoOption {
     /**
      * src of video.
-     * @since 8
+     * @since 7
      */
     src?: string | Resource;
   
     /**
      * playback rate of video.
-     * @since 8
+     * @since 7
      */
-    currentProgressRate?: PlaybackSpeed;
+    currentProgressRate?: number | string | PlaybackSpeed;
   
     /**
      * preview uri of video.
@@ -133,7 +103,7 @@ declare enum PlaybackSpeed {
   
     /**
      * controller of video.
-     * @since 8
+     * @since 7
      */
     controller?: VideoController;
   }
@@ -187,7 +157,7 @@ interface VideoInterface {
    * Set the value.
    * @since 7
    */
-  (value: VideoOptionPre | VideoOption): VideoAttribute;
+  (value: VideoOption): VideoAttribute;
 }
 
 /**
