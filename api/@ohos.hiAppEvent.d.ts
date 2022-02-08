@@ -28,6 +28,7 @@ declare namespace hiAppEvent {
      * Enumerate application event types.
      *
      * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
     enum EventType {
         /**
