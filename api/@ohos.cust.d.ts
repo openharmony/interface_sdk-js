@@ -1,10 +1,10 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 *
-*     http://www.apache.org/licenses/LICENSE-2.0
+* http://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -41,11 +41,11 @@ declare namespace cust {
    * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @sysCap SystemCapability.Customization.Cust
-   * @param pathSuffix Indicates the path of the file to open.
+   * @param pathSuffix the relative path of the config file.
    * @param type 0 for common file, 1 for future use.
    * @return Returns paths of config files.
    */
-  function getCfgFileList(pathSuffix: string, type?: number, callback: AsyncCallback<Array<string>);
+  function getCfgFileList(pathSuffix: string, type?: number, callback: AsyncCallback<Array<string>>);
   function getCfgFileList(pathSuffix: string, type?: number): Promise<Array<string>>;
 
   /**
@@ -54,10 +54,10 @@ declare namespace cust {
    * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @sysCap SystemCapability.Customization.Cust
-   * @param type 0 for common file, 1 for future use.
+   * @param type 0 for common configs, 1 for future use.
    * @return Returns paths of config directories.
    */
-  function getCfgDir(type?: number, callback: AsyncCallback<Array<string>>): void;
+  function getCfgDir(type?: number, callback: AsyncCallback<Array<string>>);
   function getCfgDir(type?: number): Promise<Array<string>>;
 }
 
