@@ -133,7 +133,7 @@ declare namespace hitrace {
     }
 
     /**
-     * trace id
+     * trace id, for tracing process.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -150,41 +150,43 @@ declare namespace hitrace {
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {string} name trace name.
-     * @param {number} flags trace flags.
-     * @return {HiTraceId} id of the trace.
+     * @param {string} name Process name.
+     * @param {number} flags Trace function flag.
+     * @return {HiTraceId} Valid if first call, otherwise invalid.
      */
     function begin(name: string, flags: number = HiTraceFlag.DEFAULT): HiTraceId;
 
     /**
-     * end a trace by trace id.
+     * Stop process tracing and clear trace id of current thread if the given trace
+     * id is valid, otherwise do nothing.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceId} id trace id of the trace.
+     * @param {HiTraceId} id The trace id that need to stop.
      */
     function end(id: HiTraceId): void;
 
     /**
-     * get the trace id of a trace.
+     * Get trace id of current thread, and return a invalid trace id if no
+     * trace id belong to current thread
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @return {HiTraceId} trace id of a trace.
+     * @return {HiTraceId} Valid if current thread have a trace id, otherwise invalid.
      */
     function getId(): HiTraceId;
 
     /**
-     * change the trace id for a trace.
+     * Set id as trace iod of current thread. Do nothing if id is invalid.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceId} id trace id which will be set into a trace.
+     * @param {HiTraceId} id Set id as trace id of current thread.
      */
     function setId(id: HiTraceId): void;
 
     /**
-     * clear the id of a trace.
+     * Clear trace id of current thread and set it invalid.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -192,54 +194,54 @@ declare namespace hitrace {
     function clearId(): void;
 
     /**
-     * create span for a trace.
+     * Create a new span Id according to the trace id of current thread.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @return {HiTraceId} trace id of the trace which has created a span.
+     * @return {HiTraceId} A valid span trace id. Otherwise trace id of current thread if do not allow create span.
      */
     function createSpan(): HiTraceId;
 
     /**
-     * set a trace point
+     * Print hitrace info, include trace id info.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceCommunicationMode} mode communication mode.
-     * @param {HiTraceTracePointType} type trace point type.
-     * @param {HiTraceId} id trace id of the trace.
-     * @param {string} msg description about this trace point.
+     * @param {HiTraceCommunicationMode} mode Trace communication mode.
+     * @param {HiTraceTracePointType} type Trace info type.
+     * @param {HiTraceId} id Trace id that need to print.
+     * @param {string} msg Customized info that need to print.
      */
     function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracePointType, id: HiTraceId, msg?: string): void;
 
     /**
-     * check whether a trace id is valid.
+     * Judge whether the trace id is valid.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceId} id the trace id to check.
-     * @return {boolean} true if trace id is valid.
+     * @param {HiTraceId} id Trace id that need to judge.
+     * @return {boolean} True for a valid trace id, otherwise false.
      */
     function isValid(id: HiTraceId): boolean;
 
     /**
-     * check whether a trace id has enabled the designative trace flag.
+     * Judge whether the trace id has enabled a flag or not.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceId} id the trace id to check.
-     * @param {HiTraceFlag} flag the trace flag to check.
-     * @return {boolean} true if the flag has been enabled in a trace.
+     * @param {HiTraceId} id Trace id that need to judge.
+     * @param {HiTraceFlag} flag Trace flag that need to judge.
+     * @return {boolean} true if the trace id has enabled the flag.
      */
     function isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean;
 
     /**
-     * enable a designative trace flag for a trace id.
+     * Enable the designative trace flag for the trace id.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
-     * @param {HiTraceId} id trace id which need enable a flag. 
-     * @param {HiTraceFlag} flag the designative trace flag which will be enabled.
+     * @param {HiTraceId} id Trace id that need to enable a flag. 
+     * @param {HiTraceFlag} flag the designative trace flag that need to be enabled in the trace id.
      */
     function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }
