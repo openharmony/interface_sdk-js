@@ -20,7 +20,6 @@ import { AsyncCallback , Callback} from './basic';
  *
  * @since 7
  * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
- * @devices phone, tv, wearable, tablet, car
  */
 declare namespace backgroundTaskManager {
     /**
@@ -29,7 +28,6 @@ declare namespace backgroundTaskManager {
      * @name DelaySuspendInfo
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
      */
     interface DelaySuspendInfo {
         /**
@@ -47,7 +45,6 @@ declare namespace backgroundTaskManager {
      *
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
      * @param requestId Indicates the identifier of the delay request.
      */
     function cancelSuspendDelay(requestId: number): void;
@@ -57,7 +54,6 @@ declare namespace backgroundTaskManager {
      *
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
      * @param requestId Indicates the identifier of the delay request.
      * @return The remaining delay time
      */
@@ -69,7 +65,6 @@ declare namespace backgroundTaskManager {
      *
      * @since 7
      * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
      * @param reason Indicates the reason for delayed transition to the suspended state.
      * @param callback The callback delay time expired.
      * @return Info of delay request
