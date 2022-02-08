@@ -37,6 +37,12 @@ declare const Observed: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
+ * Defining BuilderParam PropertyDecorator
+ * @since 7
+ */
+declare const BuilderParam: PropertyDecorator;
+
+/**
  * Defining State PropertyDecorator.
  * @since 7
  */
@@ -89,6 +95,7 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * @since 7
  */
 declare const Watch: (value: string) => PropertyDecorator;
+
 
 /**
  * Defining Builder MethodDecorator
@@ -172,6 +179,20 @@ declare function $r(value: string, ...params: any[]): Resource;
  * @since 7
  */
 declare function $rawfile(value: string): Resource;
+
+/**
+ * global getContentStorage function
+ * @since 8
+ */
+declare function getContentStorage(value: any): ContentStorage;
+
+declare type Context = any;
+
+/**
+ * global getContext function
+ * @since 8
+ */
+declare function getContext(value: any): Context;
 
 interface AnimateToParam {
   duration?: number;
@@ -1297,13 +1318,13 @@ declare class CommonMethod<T> {
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    * @since 7
    */
-  clip(value: boolean | CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
+  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
    * @since 7
    */
-  mask(value: CircleInterface | EllipseInterface | PathInterface | RectInterface): T;
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
    * Key. User can set an key to the component to identify it.

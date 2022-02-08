@@ -17,6 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
+import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { ShortcutInfo } from './bundle/shortcutInfo';
@@ -49,25 +50,44 @@ declare namespace bundle {
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
-      * @since 8
-      */
+     * @since 8
+     */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
-      * @since 8
-      */
-    GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
+     * @since 8
+     */
+     GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
     /**
-      * @since 8
-      */
+     * @since 8
+     */
+     GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
+    /**
+     * @since 8
+     */
     GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
     /**
-      * @since 8
-      */
+     * @since 8
+     */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000100,
-     /**
-      * @since 8
-      */
+    /**
+     * @since 8
+     */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+  }
+
+  /**
+ * @name ExtensionFlag
+ * @since 8
+ * @SysCap SystemCapability.Appexecfwk
+ * @import NA
+ * @permission NA
+ * @devices phone, tablet, tv, wearable
+ */
+  enum ExtensionFlag {
+    GET_EXTENSION_INFO_DEFAULT = 0x00000000,
+    GET_EXTENSION_INFO_WITH_PERMISSION = 0x00000002,
+    GET_EXTENSION_INFO_WITH_APPLICATION = 0x00000004,
+    GET_EXTENSION_INFO_WITH_METADATA = 0x00000020,
   }
 
 /**
@@ -107,31 +127,31 @@ declare namespace bundle {
    */
   export enum AbilityType {
     /**
-      * @default Indicates an unknown ability type
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates an unknown ability type
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     UNKNOWN,
 
     /**
-      * @default Indicates that the ability has a UI
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the ability has a UI
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     PAGE,
 
     /**
-      * @default Indicates that the ability does not have a UI
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the ability does not have a UI
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     SERVICE,
 
     /**
-      * @default Indicates that the ability is used to provide data access services
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the ability is used to provide data access services
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     DATA,
   }
 
@@ -158,31 +178,31 @@ declare namespace bundle {
    */
   export enum DisplayOrientation {
     /**
-      * @default Indicates that the system automatically determines the display orientation
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the system automatically determines the display orientation
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     UNSPECIFIED,
 
     /**
-      * @default Indicates the landscape orientation
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates the landscape orientation
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     LANDSCAPE,
 
     /**
-      * @default Indicates the portrait orientation
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates the portrait orientation
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     PORTRAIT,
 
     /**
-      * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     FOLLOW_RECENT,
   }
 
@@ -196,18 +216,89 @@ declare namespace bundle {
    */
   export enum LaunchMode {
     /**
-      * @default Indicates that the ability has only one instance
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the ability has only one instance
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     SINGLETON = 0,
 
     /**
-      * @default Indicates that the ability can have multiple instances
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates that the ability can have multiple instances
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     STANDARD = 1,
+  }
+
+  /**
+  * @name ExtensionAbilityType
+  * @since 8
+  * @SysCap SystemCapability.Appexecfwk
+  * @import NA
+  * @permission NA
+  * @devices phone, tablet, tv, wearable
+  */
+  export enum ExtensionAbilityType {
+    /**
+     * @default Indicates extension info with type of form
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    FORM = 0,
+    /**
+     * @default Indicates extension info with type of work schedule
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    WORK_SCHEDULER = 1,
+    /**
+     * @default Indicates extension info with type of input method
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    INPUTMETHOD = 2,
+    /**
+     * @default Indicates extension info with type of service
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+    */
+    SERVICE = 3,
+    /**
+     * @default Indicates extension info with type of accessibility
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    ACCESSIBILITY = 4,
+    /**
+     * @default Indicates extension info with type of datashare
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    DATASHARE = 5,
+    /**
+     * @default Indicates extension info with type of fileshare
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    FILESHARE = 6,
+    /**
+     * @default Indicates extension info with type of staticsubscriber
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    STATICSUBSCRIBER = 7,
+    /**
+     * @default Indicates extension info with type of wallpaper
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    WALLPAPER = 8,
+    /**
+     * @default Indicates extension info with type of unspecified
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     */
+    UNSPECIFIED = 9,
   }
 
   /**
@@ -220,17 +311,17 @@ declare namespace bundle {
    */
   export interface BundleOptions {
     /**
-      * @default Indicates the user id
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates the user id
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     userId?: number;
 
     /**
-      * @default Indicates the network id
-      * @since 7
-      * @SysCap SystemCapability.Appexecfwk
-      */
+     * @default Indicates the network id
+     * @since 7
+     * @SysCap SystemCapability.Appexecfwk
+     */
     networkId?: string;
   }
 
@@ -256,9 +347,22 @@ declare namespace bundle {
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
+    /**
+      * @since 8
+      */
     STATUS_RECOVER_FAILURE_INVALID = 0x0D,
+    /**
+      * @since 7
+      */
     STATUS_ABILITY_NOT_FOUND = 0x40,
-    STATUS_BMS_SERVICE_ERROR = 0x41
+    /**
+      * @since 7
+      */
+    STATUS_BMS_SERVICE_ERROR = 0x41,
+    /**
+      * @since 8
+      */
+    STATUS_FAILED_NO_SPACE_LEFT = 0x42
   }
 
   /**
@@ -296,7 +400,7 @@ declare namespace bundle {
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
    * @param bundleName Indicates the application bundle name to be queried.
-   * @param flags Indicates the flag used to specify information contained in the ApplicationInfo object
+   * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
    *              that will be returned.
    * @param userId Indicates the user ID.
    * @return Returns the ApplicationInfo object.
@@ -324,9 +428,9 @@ declare namespace bundle {
    * @devices phone, tablet, tv, wearable
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
-   * @param intent Indicates the Intent containing the application bundle name to
+   * @param want Indicates the Want containing the application bundle name to
    *               be queried.
-   * @param flags Indicates the flag used to specify information contained in the AbilityInfo objects that
+   * @param bundleFlags Indicates the flag used to specify information contained in the AbilityInfo objects that
    *              will be returned.
    * @param userId Indicates the user ID.
    * @return Returns a list of AbilityInfo objects.
@@ -358,7 +462,7 @@ declare namespace bundle {
    * @devices phone, tablet, tv, wearable
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
-   * @param flags Indicates the flag used to specify information contained in the ApplicationInfo objects
+   * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo objects
    *              that will be returned.
    * @param userId Indicates the user ID.
    * @return Returns a list of ApplicationInfo objects.
@@ -375,7 +479,7 @@ declare namespace bundle {
    * @SysCap SystemCapability.Appexecfwk
    * @param hapFilePath Indicates the path storing the HAP. The path should be the relative path to the data
    *                    directory of the current application.
-   * @param flags Indicates the flag used to specify information contained in the BundleInfo object to be
+   * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
    */
@@ -385,16 +489,16 @@ declare namespace bundle {
   /**
 
   /**
-   * Obtains the Intent for starting the main ability of an application based on the
+   * Obtains the Want for starting the main ability of an application based on the
    * given bundle name. The main ability of an application is the ability that has the
-   * #ACTION_HOME and #ENTITY_HOME intent
+   * #ACTION_HOME and #ENTITY_HOME Want
    * filters set in the application's <b>config.json</b> file.
    *
    * @devices phone, tablet, tv, wearable
    * @since 7
    * @SysCap SystemCapability.Appexecfwk
    * @param bundleName Indicates the bundle name of the application.
-   * @return Returns the Intent for starting the application's main ability if any; returns null if
+   * @return Returns the Want for starting the application's main ability if any; returns null if
    *         the given bundle does not exist or does not contain any main ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
@@ -470,6 +574,23 @@ declare namespace bundle {
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
+
+  /**
+   * Query extension info of by utilizing a Want.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param want Indicates the Want containing the application bundle name to be queried.
+   * @param extensionFlags Indicates the flag used to specify information contained in the ExtensionInfo objects that
+   *              will be returned.
+   * @param userId Indicates the user ID.
+   * @return Returns a list of ExtensionInfo objects.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
+   */
+  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 }
 
 export default bundle;

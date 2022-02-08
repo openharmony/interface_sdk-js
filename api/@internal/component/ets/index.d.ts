@@ -93,5 +93,6 @@
 /// <reference path="./toggle.d.ts" />
 /// <reference path="./units.d.ts" />
 /// <reference path="./video.d.ts" />
+/// <reference path="./web.d.ts" />
 /// <reference path="./xcomponent.d.ts" />
 /// <reference path="./inspector.d.ts" />

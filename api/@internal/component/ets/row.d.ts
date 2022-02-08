@@ -34,6 +34,12 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @since 7
    */
   alignItems(value: VerticalAlign): RowAttribute;
+
+  /**
+   * Called when the horizontal alignment is set.
+   * @since 8
+   */
+   justifyContent(value: FlexAlign): RowAttribute;
 }
 
 declare const Row: RowInterface;

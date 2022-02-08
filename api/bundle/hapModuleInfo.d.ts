@@ -14,6 +14,7 @@
  */
 
 import { AbilityInfo } from "./abilityInfo";
+import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
 
 /**
  * @name Obtains configuration information about an module.
@@ -113,4 +114,18 @@ export interface HapModuleInfo {
     * @SysCap SystemCapability.Appexecfwk
     */
   readonly installationFree: boolean;
+
+  /**
+    * @default Indicates main elementName of the module
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly mainElementName: string;
+
+  /**
+    * @default Obtains configuration information about extension ability
+    * @since 8
+    * @SysCap SystemCapability.Appexecfwk
+    */
+  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

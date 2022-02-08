@@ -37,6 +37,12 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @since 7
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
+
+  /**
+   * Sets the alignment format of the subassembly in the vertical direction.
+   * @since 8
+   */
+  justifyContent(value: FlexAlign): ColumnAttribute;
 }
 
 declare const Column: ColumnInterface;
