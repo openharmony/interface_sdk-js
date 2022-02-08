@@ -121,7 +121,7 @@ export interface ApplicationInfo {
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
     */
-  readonly moduleInfo: Array<ModuleInfo>;
+  readonly moduleInfos: Array<ModuleInfo>;
 
   /**
     * @default Indicates the path where the {@code Entry.hap} file of the application is saved
