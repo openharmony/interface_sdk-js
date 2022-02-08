@@ -16,12 +16,17 @@
 import {AsyncCallback} from "./basic";
 import {Want} from "./ability/want";
 
+/**
+ * This module provides the capability to manage application accounts.
+ *
+ * @since 7
+ * @syscap SystemCapability.Account.AppAccount
+ */
 declare namespace appAccount {
     /**
      * Obtains the AppAccountManager instance.
      * @since 7
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      * @return Returns the instance of the AppAccountManager.
      */
     function createAppAccountManager(): AppAccountManager;
@@ -30,8 +35,7 @@ declare namespace appAccount {
      * Provides methods for managing application accounts.
      * @name AppAccountManager
      * @since 7
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     interface AppAccountManager {
         /**
@@ -40,7 +44,6 @@ declare namespace appAccount {
          * Only the owner of the application account has the permission to call this method.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account to add.
          * @param extraInfo Indicates the extra information of the application account to add.
          *        The extra information cannot be sensitive information of the application account.
@@ -54,7 +57,6 @@ declare namespace appAccount {
          * Adds an application account of a specified owner implicitly.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param owner Indicates the account owner of your application or third-party applications.
          * @param authType Indicates the authentication type.
          * @param options Indicates the authenticator-specific options for the request.
@@ -69,7 +71,6 @@ declare namespace appAccount {
          * Only the owner of the application account has the permission to call this method.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account to delete.
          * @return void.
          */
@@ -81,7 +82,6 @@ declare namespace appAccount {
          * accessing the given application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account to disable access from
          *        the third-party application.
          * @param bundleName Indicates the bundle name of the third-party application.
@@ -95,7 +95,6 @@ declare namespace appAccount {
          * account for data query and listening.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param bundleName Indicates the bundle name of the third-party application.
          * @return void.
@@ -112,7 +111,6 @@ declare namespace appAccount {
          * <p>
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @return Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC.
@@ -124,7 +122,6 @@ declare namespace appAccount {
          * Sets the credential for this application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param credentialType Indicates the type of the credential to set.
          * @param credential Indicates the credential to set.
@@ -141,7 +138,6 @@ declare namespace appAccount {
          * need to modify the extra information.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param extraInfo Indicates the extra information to set.
          * @return void.
@@ -166,7 +162,6 @@ declare namespace appAccount {
          * <p>
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param isEnable Specifies whether to allow application data synchronization.
          * @return void.
@@ -179,7 +174,6 @@ declare namespace appAccount {
          * Sets data associated with this application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param key Indicates the key of the data to set. The key can be customized.
          * @param value Indicates the value of the data to set.
@@ -199,7 +193,6 @@ declare namespace appAccount {
          * </ul>
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns a list of application accounts.
          * @permission ohos.permission.GET_ACCOUNTS_PRIVILEGED.
          */
@@ -217,7 +210,6 @@ declare namespace appAccount {
          * </ul>
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param owner Indicates the account owner of your application or third-party applications.
          * @return Returns a list of application accounts.
          * @permission ohos.permission.GET_ACCOUNTS_PRIVILEGED.
@@ -229,7 +221,6 @@ declare namespace appAccount {
          * Obtains the credential of this application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param credentialType Indicates the type of the credential to obtain.
          * @return Returns the credential of the application account.
@@ -241,7 +232,6 @@ declare namespace appAccount {
          * Obtains extra information of this application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @return Returns the extra information of the account; returns {@code null} in other scenarios,
          *         for example, if the account does not exist.
@@ -253,7 +243,6 @@ declare namespace appAccount {
          * Obtains data associated with this application account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the name of the application account.
          * @param key Indicates the key of the data to obtain.
          * @return Returns the associated data of the application account.
@@ -268,7 +257,6 @@ declare namespace appAccount {
          * about the account change event.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param owners Indicates the account owners, which are specified
          *        by {@link AppAccount#AppAccount(String name, String owner)}.
          * @return void
@@ -279,16 +267,14 @@ declare namespace appAccount {
          * Unsubscribes from account events.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return void
          */
         off(type: 'change', callback?: Callback<void>): void;
-        
+
         /**
          * Authenticates an application account to get an oauth token.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application or third-party applications.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @param authType Indicates the authentication type.
@@ -302,7 +288,6 @@ declare namespace appAccount {
          * Gets an oauth token with the specified authentication type from a particular application account.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application or third-party applications.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @param authType Indicates the authentication type.
@@ -315,9 +300,8 @@ declare namespace appAccount {
          * Sets an oauth token with the specified authentication type for a particular account.
          * <p>
          * Only the owner of the application account has the permission to call this method.
-         * 
+         *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application.
          * @param authType Indicates the authentication type.
          * @param token Indicates the oauth token.
@@ -332,7 +316,6 @@ declare namespace appAccount {
          * Only tokens visible to the caller application can be deleted.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application or third-party applications.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @param authType Indicates the authentication type.
@@ -348,7 +331,6 @@ declare namespace appAccount {
          * Only the owner of the application account has the permission to call this method.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application.
          * @param authType Indicates the authentication type.
          * @param bundleName Indicates the bundle name of the third-party application.
@@ -364,7 +346,6 @@ declare namespace appAccount {
          * Only the owner of the application account has the permission to call this method.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application or third-party applications.
          * @param authType Indicates the authentication type.
          * @param bundleName Indicates the bundle name of the third-party application.
@@ -377,7 +358,6 @@ declare namespace appAccount {
          * Gets all oauth tokens visible to the caller application.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application or third-party applications.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @return Returns a list of oauth tokens visible to the caller application.
@@ -391,7 +371,6 @@ declare namespace appAccount {
          * Only the owner of the application account has the permission to call this method.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name of your application.
          * @param authType Indicates the authentication type.
          * @return Returns the open authorization list of the specified authentication type.
@@ -405,7 +384,6 @@ declare namespace appAccount {
          * Only the owner of the authenticator has the permission to call this method.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param sessionId Indicates the id of a authentication session.
          * @return Returns the authenticator callback related to the session id.
          */
@@ -416,7 +394,6 @@ declare namespace appAccount {
          * Gets the authenticator information of an application account.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param owner Indicates the account owner of your application or third-party applications.
          * @return Returns the authenticator information of the application account.
          */
@@ -428,8 +405,7 @@ declare namespace appAccount {
      * Provides basic information of an application account, including the account owner and name.
      * @name AppAccountInfo
      * @since 7
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     interface AppAccountInfo {
         /**
@@ -447,8 +423,7 @@ declare namespace appAccount {
      * Provides basic information of an oauth token, including the authentication type and token value.
      * @name OAuthTokenInfo
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     interface OAuthTokenInfo {
         /**
@@ -466,8 +441,7 @@ declare namespace appAccount {
      * Provides basic information of an authenticator, including the authenticator owner, icon id and label id.
      * @name AuthenticatorInfo
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     interface AuthenticatorInfo {
         /**
@@ -490,8 +464,7 @@ declare namespace appAccount {
      * Provides constants definition.
      * @name Constants
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     enum Constants {
         ACTION_ADD_ACCOUNT_IMPLICITLY = "addAccountImplicitly",
@@ -511,8 +484,7 @@ declare namespace appAccount {
      * Provides result code definition.
      * @name ResultCode
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     enum ResultCode {
         SUCCESS = 0,
@@ -540,15 +512,13 @@ declare namespace appAccount {
      * Provides methods for authenticator callback.
      * @name AuthenticatorCallback
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     interface AuthenticatorCallback {
         /**
          * Notifies the client of the authentication result.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param code Indicates the result code.
          * @param result Indicates the authentication result.
          * @return void.
@@ -559,7 +529,6 @@ declare namespace appAccount {
          * Notifies the client that the authentication request need to be redirected.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param request Indicates the request information to be redirected.
          * @return void.
          */
@@ -570,15 +539,13 @@ declare namespace appAccount {
      * Provides methods for authenticator.
      * @name Authenticator
      * @since 8
-     * @sysCap SystemCapability.Account.AppAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.AppAccount
      */
     class Authenticator {
         /**
          * Adds an application account of a specified owner implicitly.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param authType Indicates the authentication type.
          * @param callerBundleName Indicates the caller bundle name.
          * @param options Indicates the authenticator-specific options for the request.
@@ -591,7 +558,6 @@ declare namespace appAccount {
          * Authenticates an application account to get an oauth token.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param name Indicates the account name.
          * @param authType Indicates the authentication type.
          * @param callerBundleName Indicates the caller bundle name.
