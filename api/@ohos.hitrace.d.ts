@@ -18,12 +18,16 @@
  * With HiTrace, you can quickly obtain the run log for the call chain of a 
  * specified service process and locate faults in cross-device, cross-process,
  * or cross-thread communications.
- * 
- * @since 9
+ *
+ * @since 8
+ * @SysCap SystemCapability.HiviewDFX.HiTrace
  */
 declare namespace hitrace {
     /**
      * Enumerate trace flag
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceFlag {
         /**
@@ -69,6 +73,9 @@ declare namespace hitrace {
 
     /**
      * Enumerate trace point type
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceTracePointType {
         /**
@@ -99,6 +106,9 @@ declare namespace hitrace {
 
     /**
      * Enumerate trace communication mode
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceCommunicationMode {
         /**
@@ -124,6 +134,9 @@ declare namespace hitrace {
 
     /**
      * trace id
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     interface HiTraceId {
         chainId: bigint; /* 0n: invalid */
@@ -135,6 +148,8 @@ declare namespace hitrace {
     /**
      * begin a new trace.
      *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {string} name trace name.
      * @param {number} flags trace flags.
      * @return {HiTraceId} id of the trace.
@@ -144,6 +159,8 @@ declare namespace hitrace {
     /**
      * end a trace by trace id.
      *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id trace id of the trace.
      */
     function end(id: HiTraceId): void;
@@ -151,6 +168,8 @@ declare namespace hitrace {
     /**
      * get the trace id of a trace.
      *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @return {HiTraceId} trace id of a trace.
      */
     function getId(): HiTraceId;
@@ -158,6 +177,8 @@ declare namespace hitrace {
     /**
      * change the trace id for a trace.
      *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id trace id which will be set into a trace.
      */
     function setId(id: HiTraceId): void;
@@ -165,19 +186,25 @@ declare namespace hitrace {
     /**
      * clear the id of a trace.
      *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     function clearId(): void;
 
     /**
      * create span for a trace.
-     * 
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @return {HiTraceId} trace id of the trace which has created a span.
      */
     function createSpan(): HiTraceId;
 
     /**
      * set a trace point
-     * 
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceCommunicationMode} mode communication mode.
      * @param {HiTraceTracePointType} type trace point type.
      * @param {HiTraceId} id trace id of the trace.
@@ -187,7 +214,9 @@ declare namespace hitrace {
 
     /**
      * check whether a trace id is valid.
-     * 
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id the trace id to check.
      * @return {boolean} true if trace id is valid.
      */
@@ -195,7 +224,9 @@ declare namespace hitrace {
 
     /**
      * check whether a trace id has enabled the designative trace flag.
-     * 
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id the trace id to check.
      * @param {HiTraceFlag} flag the trace flag to check.
      * @return {boolean} true if the flag has been enabled in a trace.
@@ -204,7 +235,9 @@ declare namespace hitrace {
 
     /**
      * enable a designative trace flag for a trace id.
-     * 
+     *
+     * @since 8
+     * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id trace id which need enable a flag. 
      * @param {HiTraceFlag} flag the designative trace flag which will be enabled.
      */
