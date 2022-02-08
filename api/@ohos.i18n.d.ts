@@ -307,7 +307,7 @@ export class Calendar {
     setFirstDayOfWeek(value: number);
 
     /**
-     * Get the minial days of a week, which is needed for the first day of a year.
+     * Get the minimal days of a week, which is needed for the first day of a year.
      *
      * @sysCap SystemCapability.I18N
      * @return Returns the minimal days of a week.
@@ -316,7 +316,7 @@ export class Calendar {
     getMinimalDaysInFirstWeek(): number;
 
     /**
-     * Set the minial days of a week, which is needed for the first week of a year.
+     * Set the minimal days of a week, which is needed for the first week of a year.
      *
      * @sysCap SystemCapability.I18N
      * @param value The value to be set.
@@ -634,7 +634,7 @@ export class Character {
  *
  * @sysCap SystemCapability.I18N
  * @param language the language to be added.
- * @param index the postion of preferred language list to be inserted. 
+ * @param index the position of preferred language list to be inserted. 
  * @return Returns a boolean represent whether language added success.
  * @since 8
  */
