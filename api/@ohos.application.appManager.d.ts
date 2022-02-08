@@ -16,6 +16,7 @@
 import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
+import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -86,6 +87,18 @@ declare namespace appManager {
      */
       function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
       function isRunningInStabilityTest(): Promise<boolean>;
+
+    /**
+    * Get information about running processes
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 8
+    * @SysCap appexecfwk
+    * @systemapi Hide this for inner system use.
+    * @return -
+    */
+    function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
+    function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
 }
 
 export default appManager;
