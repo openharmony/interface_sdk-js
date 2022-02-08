@@ -22,89 +22,100 @@ import EventHub from "./EventHub";
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class Context extends BaseContext {
     /**
      * Indicates the capability of accessing application resources.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     resourceManager: resmgr.ResourceManager;
 
     /**
      * Indicates configuration information about an application.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     applicationInfo: ApplicationInfo;
 
     /**
      * Indicates app cache dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     cacheDir: string;
 
     /**
      * Indicates app temp dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     tempDir: string;
 
     /**
      * Indicates app files dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     filesDir : string;
 
     /**
      * Indicates app database dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     databaseDir : string;
 
     /**
      * Indicates app storage dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     storageDir : string;
 
     /**
      * Indicates app bundle code dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     bundleCodeDir : string;
 
     /**
      * Indicates app distributed files dir.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     distributedFilesDir: string;
 
     /**
      * Indicates event hub.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     eventHub: EventHub;
 
@@ -112,11 +123,12 @@ export default class Context extends BaseContext {
      * Create a bundle context
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @systemapi hide for inner use.
      * @param bundleName Indicates the bundle name.
      * @return application context
+     * @StageModelOnly
      */
     createBundleContext(bundleName: string): Context;
 
@@ -124,9 +136,10 @@ export default class Context extends BaseContext {
      * Get application context
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @return application context
+     * @StageModelOnly
      */
     getApplicationContext(): Context;
 }

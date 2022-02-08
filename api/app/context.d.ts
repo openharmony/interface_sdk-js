@@ -29,6 +29,7 @@ import BaseContext from '../application/BaseContext';
  * @devices phone, tablet, tv, wearable, car
  * @import import abilityManager from 'app/context'
  * @permission N/A
+ * @FAModelOnly
  */
 export interface Context extends BaseContext {
 
@@ -42,6 +43,7 @@ export interface Context extends BaseContext {
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable, car
     * @return the root dir
+    * @FAModelOnly
     */
     getOrCreateLocalDir(): Promise<string>;
     getOrCreateLocalDir(callback: AsyncCallback<string>): void;
@@ -58,6 +60,7 @@ export interface Context extends BaseContext {
     * @devices phone, tablet, tv, wearable, car
     * @return asynchronous callback with {@code 0} if the PID
     *         and UID have the permission; callback with {@code -1} otherwise.
+    * @FAModelOnly
     */
     verifyPermission(permission: string, options?: PermissionOptions): Promise<number>;
     verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback<number>): void;
@@ -70,6 +73,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable, car
+    * @FAModelOnly
     */
     requestPermissionsFromUser(permissions: Array<string>, requestCode: number, resultCallback: AsyncCallback<PermissionRequestResult>): void;
 
@@ -78,6 +82,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getApplicationInfo(callback: AsyncCallback<ApplicationInfo>): void
     getApplicationInfo(): Promise<ApplicationInfo>;
@@ -87,6 +92,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getBundleName(callback: AsyncCallback<string>): void
     getBundleName(): Promise<string>;
@@ -96,6 +102,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getProcessInfo(callback: AsyncCallback<ProcessInfo>): void
     getProcessInfo(): Promise<ProcessInfo>;
@@ -105,6 +112,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getElementName(callback: AsyncCallback<ElementName>): void
     getElementName(): Promise<ElementName>;
@@ -114,6 +122,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getProcessName(callback: AsyncCallback<string>): void
     getProcessName(): Promise<string>;
@@ -123,6 +132,7 @@ export interface Context extends BaseContext {
     * @since 7
     * @sysCap SystemCapability.Appexecfwk
     * @devices phone, tablet, tv, wearable
+    * @FAModelOnly
     */
     getCallingBundle(callback: AsyncCallback<string>): void
     getCallingBundle(): Promise<string>;
@@ -134,12 +144,14 @@ export interface Context extends BaseContext {
  * @SysCap SystemCapability.Appexecfwk
  * @permission N/A
  * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 interface PermissionRequestResult {
     /**
     * @default The request code passed in by the user
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
     requestCode: number;
 
@@ -147,6 +159,7 @@ interface PermissionRequestResult {
     * @default The permissions passed in by the user
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
     permissions: Array<string>;
 
@@ -154,6 +167,7 @@ interface PermissionRequestResult {
     * @default The results for the corresponding request permissions
     * @since 7
     * @SysCap SystemCapability.Appexecfwk
+    * @FAModelOnly
     */
     authResults: Array<number>;
 }
@@ -163,6 +177,7 @@ interface PermissionOptions {
   * @default The process id
   * @since 7
   * @SysCap SystemCapability.Appexecfwk
+  * @FAModelOnly
   */
  pid?: number;
 
@@ -170,6 +185,7 @@ interface PermissionOptions {
   * @default The user id
   * @since 7
   * @SysCap SystemCapability.Appexecfwk
+  * @FAModelOnly
   */
  uid?: number;
 }

@@ -21,10 +21,11 @@ import formBindingData from '../@ohos.application.formBindingData';
  * The context of form extension. It allows access to
  * formExtension-specific resources.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class FormExtensionContext extends ExtensionContext {
 
@@ -34,12 +35,13 @@ export default class FormExtensionContext extends ExtensionContext {
      * <p>You can use this method to update the given form</p>
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @permission ohos.permission.REQUIRE_FORM.
      * @param formId Indicates the given form.
      * @param formBindingData Indicates the form data.
      * @return -
+     * @StageModelOnly
      */
     updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback<void>): void;
     updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;

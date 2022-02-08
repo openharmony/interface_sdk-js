@@ -24,6 +24,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   uri: string;
 
@@ -33,6 +34,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   type: featureAbility.DataAbilityOperationType;
 
@@ -42,6 +44,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   valuesBucket?: rdb.ValuesBucket;
 
@@ -51,6 +54,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   valueBackReferences?: rdb.ValuesBucket;
 
@@ -61,6 +65,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   predicates?: dataAbility.DataAbilityPredicates;
 
@@ -70,6 +75,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   predicatesBackReferences?: Map<number, number>;
 
@@ -79,6 +85,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   interrupted?: boolean;
 
@@ -88,6 +95,7 @@ export interface DataAbilityOperation {
    * @devices phone, tablet
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
   expectedCount?: number;
 }

@@ -23,22 +23,24 @@ import StartOptions from "../@ohos.application.StartOptions";
  * The context of service extension. It allows access to
  * serviceExtension-specific resources.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @systemapi hide for inner use.
  * @permission N/A
+ * @StageModelOnly
  */
 export default class ServiceExtensionContext extends ExtensionContext {
     /**
      * Service extension uses this method to start a specific ability.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param parameter Indicates the ability to start.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -48,12 +50,13 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Service extension uses this method to start a specific ability with account.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param parameter Indicates the ability to start.
      * @param parameter Indicates the accountId to start.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
     startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -63,10 +66,11 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Destroys this service extension.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     terminateSelf(callback: AsyncCallback<void>): void;
     terminateSelf(): Promise<void>;
@@ -79,11 +83,12 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * service extension when the Service extension is connected.</p>
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param request Indicates the service extension to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
+     * @StageModelOnly
      */
     connectAbility(want: Want, options: ConnectOptions): number;
 
@@ -95,12 +100,13 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * service extension when the Service extension is connected.</p>
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param request Indicates the service extension to connect.
      * @param request Indicates the account to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
+     * @StageModelOnly
      */
     connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
@@ -109,11 +115,12 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * {@link connectAbility}.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;

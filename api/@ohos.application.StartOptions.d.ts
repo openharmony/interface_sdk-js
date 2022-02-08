@@ -17,18 +17,20 @@
  * StartOptions is the basic communication component of the system.
  *
  * @name StartOptions
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class StartOptions {
     /**
      * windowMode
      * @default -
      * @devices phone, tablet
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
      windowMode?: number;
 }
