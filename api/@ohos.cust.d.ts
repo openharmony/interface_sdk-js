@@ -29,11 +29,11 @@ declare namespace cust {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.Cust
-   * @param pathSuffix the relative path of the config file.
+   * @param relPath the relative path of the config file.
    * @return Returns the path of the highest priority config file.
    */
-  function getCfgFile(pathSuffix: string, callback: AsyncCallback<string>);
-  function getCfgFile(pathSuffix: string): Promise<string>;
+  function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
+  function getOneCfgFile(relPath: string): Promise<string>;
 
   /**
    * Get config files in device architecture, ordered by priority from low to high.
@@ -42,11 +42,11 @@ declare namespace cust {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.Cust
-   * @param pathSuffix the relative path of the config file.
+   * @param relPath the relative path of the config file.
    * @return Returns paths of config files.
    */
-  function getCfgFileList(pathSuffix: string, callback: AsyncCallback<Array<string>>);
-  function getCfgFileList(pathSuffix: string): Promise<Array<string>>;
+  function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
+  function getCfgFiles(relPath: string): Promise<Array<string>>;
 
   /**
    * Get config directories in device architecture, ordered by priority from low to high.
@@ -57,8 +57,8 @@ declare namespace cust {
    * @sysCap SystemCapability.Customization.Cust
    * @return Returns paths of config directories.
    */
-  function getCfgDir(callback: AsyncCallback<Array<string>>);
-  function getCfgDir(): Promise<Array<string>>;
+  function getCfgDirList(callback: AsyncCallback<Array<string>>);
+  function getCfgDirList(): Promise<Array<string>>;
 }
 
 export default cust;
