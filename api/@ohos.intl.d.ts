@@ -447,7 +447,7 @@ export class NumberFormat {
      * A constructor used to create a NumberFormat object.
      *
      * @sysCap SystemCapability.I18N
-     * @since 6
+     * @since 8
      */
     constructor();
 
