@@ -1402,7 +1402,7 @@ declare class CommonMethod<T> {
  * Defines the CustomBuilder Type.
  * @since 7
  */
-declare type CustomBuilder = () => any;
+declare type CustomBuilder = (() => any) | void;
 
 /**
  * CommonShapeMethod
