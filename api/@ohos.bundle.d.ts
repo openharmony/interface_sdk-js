@@ -22,6 +22,7 @@ import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
+import { PermissionDef } from  './bundle/PermissionDef';
 
 /**
  * bundle.
@@ -609,6 +610,20 @@ declare namespace bundle {
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+
+  /**
+   * Get the permission details by permissionName.
+   *
+   * @devices phone, tablet, tv, wearable, car
+   * @since 8
+   * @SysCap SystemCapability.Appexecfwk
+   * @param permissionName Indicates permission name.
+   * @return Returns permissionDef object.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @systemapi
+   */
+  function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
+  function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 }
 
 export default bundle;
