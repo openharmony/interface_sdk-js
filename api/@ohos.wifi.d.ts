@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -342,143 +342,126 @@ declare namespace wifi {
     function getStations(): Array<StationInfo>;
 
     /**
-     * Defines the EventListener class and provides functions to subscribe or unsubscribe the Wi-Fi events.
+     * Subscribe Wi-Fi status change events.
+     *
+     * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @since 7
+     */
+    function on(type: "wifiStateChange", callback: Callback<number>): void;
+
+    /**
+     * Unsubscribe Wi-Fi status change events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
-     * @SysCap SystemCapability.Communication.WiFi
-     * @devices phone, tablet, tv, wearable, car
      */
-    export class EventListener {
-        /**
-         * Subscribe Wi-Fi status change events.
-         *
-         * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
-         * @since 7
-         * @permission {@code ohos.permission.GET_WIFI_INFO}
-         */
-         on(type: "wifiStateChange", callback: Callback<number>): void;
+    function off(type: "wifiStateChange", callback?: Callback<number>): void;
 
-         /**
-          * Unsubscribe Wi-Fi status change events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         off(type: "wifiStateChange", callback?: Callback<number>): void;
+    /**
+     * Subscribe Wi-Fi connection change events.
+     *
+     * @return Returns 0: disconnected, 1: connected
+     * @since 7
+     */
+    function on(type: "wifiConnectionChange", callback: Callback<number>): void;
 
-         /**
-          * Subscribe Wi-Fi connection change events.
-          *
-          * @return Returns 0: disconnected, 1: connected
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         on(type: "wifiConnectionChange", callback: Callback<number>): void;
+    /**
+     * Unsubscribe Wi-Fi connection change events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     *
+     * @since 7
+     */
+    function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
 
-         /**
-          * Unsubscribe Wi-Fi connection change events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         off(type: "wifiConnectionChange", callback?: Callback<number>): void;
+    /**
+     * Subscribe Wi-Fi scan status change events.
+     *
+     * @return Returns 0: scan fail, 1: scan success
+     * @since 7
+     */
+    function on(type: "wifiScanStateChange", callback: Callback<number>): void;
 
-         /**
-          * Subscribe Wi-Fi scan status change events.
-          *
-          * @return Returns 0: scan fail, 1: scan success
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         on(type: "wifiScanStateChange", callback: Callback<number>): void;
+    /**
+     * Unsubscribe Wi-Fi scan status change events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     *
+     * @since 7
+     */
+    function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
 
-         /**
-          * Unsubscribe Wi-Fi scan status change events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         off(type: "wifiScanStateChange", callback?: Callback<number>): void;
+    /**
+     * Subscribe Wi-Fi rssi change events.
+     *
+     * @return Returns RSSI value in dBm
+     * @since 7
+     */
+    function on(type: "wifiRssiChange", callback: Callback<number>): void;
 
-         /**
-          * Subscribe Wi-Fi rssi change events.
-          *
-          * @return Returns RSSI value in dBm
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         on(type: "wifiRssiChange", callback: Callback<number>): void;
+    /**
+     * Unsubscribe Wi-Fi rssi change events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     *
+     * @since 7
+     */
+    function off(type: "wifiRssiChange", callback?: Callback<number>): void;
 
-         /**
-          * Unsubscribe Wi-Fi rssi change events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-          * @permission {@code ohos.permission.GET_WIFI_INFO}
-          */
-         off(type: "wifiRssiChange", callback?: Callback<number>): void;
+    /**
+     * Subscribe Wi-Fi hotspot state change events.
+     *
+     * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @since 7
+     */
+    function on(type: "hotspotStateChange", callback: Callback<number>): void;
 
-        /**
-         * Subscribe Wi-Fi hotspot state change events.
-         *
-         * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
-         * @since 7
-         */
-         on(type: "hotspotStateChange", callback: Callback<number>): void;
+    /**
+     * Unsubscribe Wi-Fi hotspot state change events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     *
+     * @since 7
+     */
+    function off(type: "hotspotStateChange", callback?: Callback<number>): void;
 
-         /**
-          * Unsubscribe Wi-Fi hotspot state change events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-         */
-         off(type: "hotspotStateChange", callback?: Callback<number>): void;
+    /**
+     * Subscribe Wi-Fi hotspot sta join events.
+     *
+     * @return Returns StationInfo
+     * @since 7
+     * @systemapi Hide this for inner system use.
+     */
+    function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
 
-         /**
-          * Subscribe Wi-Fi hotspot sta join events.
-          *
-          * @return Returns StationInfo
-          * @since 7
-          * @systemapi Hide this for inner system use.
-          */
-         on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
+    /**
+     * Unsubscribe Wi-Fi hotspot sta join events.
+     *
+     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     *
+     * @since 7
+     * @systemapi Hide this for inner system use.
+     */
+    function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
 
-         /**
-          * Unsubscribe Wi-Fi hotspot sta join events.
-          *
-          * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-          *
-          * @since 7
-          * @systemapi Hide this for inner system use.
-          */
-         off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
+    /**
+     * Subscribe Wi-Fi hotspot sta leave events.
+     *
+     * @return Returns {@link #StationInfo} object
+     * @since 7
+     * @systemapi Hide this for inner system use.
+     */
+    function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
 
-         /**
-          * Subscribe Wi-Fi hotspot sta leave events.
-          *
-          * @return Returns {@link #StationInfo} object
-          * @since 7
-          * @systemapi Hide this for inner system use.
-          */
-         on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
-
-         /**
-          * Unsubscribe Wi-Fi hotspot sta leave events.
-          *
-          * @return Returns {@link #StationInfo} object
-          * @since 7
-          * @systemapi Hide this for inner system use.
-          */
-         off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
-    }
+    /**
+     * Unsubscribe Wi-Fi hotspot sta leave events.
+     *
+     * @return Returns {@link #StationInfo} object
+     * @since 7
+     * @systemapi Hide this for inner system use.
+     */
+    function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
 
     /**
      * Wi-Fi device configuration information.
@@ -537,11 +520,20 @@ declare namespace wifi {
      * @since 6
      */
     enum WifiSecurityType {
-        WIFI_SEC_TYPE_INVALID = 0, /* Invalid security type */
-        WIFI_SEC_TYPE_OPEN = 1, /* Open */
-        WIFI_SEC_TYPE_WEP = 2, /* Wired Equivalent Privacy (WEP) */
-        WIFI_SEC_TYPE_PSK = 3, /* Pre-shared key (PSK) */
-        WIFI_SEC_TYPE_SAE = 4, /* Simultaneous Authentication of Equals (SAE) */
+        /** Invalid security type */
+        WIFI_SEC_TYPE_INVALID = 0,
+
+        /** Open */
+        WIFI_SEC_TYPE_OPEN = 1,
+
+        /** Wired Equivalent Privacy (WEP) */
+        WIFI_SEC_TYPE_WEP = 2,
+
+        /** Pre-shared key (PSK) */
+        WIFI_SEC_TYPE_PSK = 3,
+
+        /** Simultaneous Authentication of Equals (SAE) */
+        WIFI_SEC_TYPE_SAE = 4,
     }
 
     /**
