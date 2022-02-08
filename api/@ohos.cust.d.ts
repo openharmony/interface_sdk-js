@@ -27,38 +27,38 @@ declare namespace cust {
    *
    * @devices phone, tablet, tv, wearable, car
    * @since 8
+   * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.Cust
    * @param pathSuffix the relative path of the config file.
-   * @param type 0 for common file, 1 for future use.
    * @return Returns the path of the highest priority config file.
    */
-  function getCfgFile(pathSuffix: string, type?: number, callback: AsyncCallback<string>);
-  function getCfgFile(pathSuffix: string, type?: number): Promise<string>;
+  function getCfgFile(pathSuffix: string, callback: AsyncCallback<string>);
+  function getCfgFile(pathSuffix: string): Promise<string>;
 
   /**
    * Get config files in device architecture, ordered by priority from low to high.
    *
    * @devices phone, tablet, tv, wearable, car
    * @since 8
+   * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.Cust
    * @param pathSuffix the relative path of the config file.
-   * @param type 0 for common file, 1 for future use.
    * @return Returns paths of config files.
    */
-  function getCfgFileList(pathSuffix: string, type?: number, callback: AsyncCallback<Array<string>>);
-  function getCfgFileList(pathSuffix: string, type?: number): Promise<Array<string>>;
+  function getCfgFileList(pathSuffix: string, callback: AsyncCallback<Array<string>>);
+  function getCfgFileList(pathSuffix: string): Promise<Array<string>>;
 
   /**
    * Get config directories in device architecture, ordered by priority from low to high.
    *
    * @devices phone, tablet, tv, wearable, car
    * @since 8
+   * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.Cust
-   * @param type 0 for common configs, 1 for future use.
    * @return Returns paths of config directories.
    */
-  function getCfgDir(type?: number, callback: AsyncCallback<Array<string>>);
-  function getCfgDir(type?: number): Promise<Array<string>>;
+  function getCfgDir(callback: AsyncCallback<Array<string>>);
+  function getCfgDir(): Promise<Array<string>>;
 }
 
 export default cust;
