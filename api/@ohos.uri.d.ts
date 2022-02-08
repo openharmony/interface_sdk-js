@@ -74,7 +74,7 @@ declare namespace uri {
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          */
-        userinfo: string;
+        userInfo: string;
 
         /**
          * Gets the hostname portion of the URI without a port.

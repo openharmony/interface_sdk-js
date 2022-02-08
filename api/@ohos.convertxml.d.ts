@@ -54,11 +54,11 @@ declare namespace xml {
          */
         ignoreComment?: boolean;
         /**
-         * Whether to ignore writing CData of the elements.
+         * Whether to ignore writing CDATA of the elements.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          */
-        ignoreCdata?: boolean;
+        ignoreCDATA?: boolean;
         /**
          * Whether to ignore writing Doctype of the elements.
          * @since 8
