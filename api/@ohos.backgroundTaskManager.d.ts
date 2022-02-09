@@ -83,11 +83,11 @@ declare namespace backgroundTaskManager {
      * system will publish a notification related to the this service.
      *
      * @since 8
-     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
+     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param context app running context.
      * @param bgMode Indicates which background mode to request.
-     * @param wantAgent Indicates which ability to start when user click the notification.
+     * @param wantAgent Indicates which ability to start when user click the notification bar.
      */
     function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
     function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
@@ -96,8 +96,7 @@ declare namespace backgroundTaskManager {
      * Service ability uses this method to request stop running in background.
      *
      * @since 8
-     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
+     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @param context app running context.
      */
     function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
@@ -107,43 +106,62 @@ declare namespace backgroundTaskManager {
      * supported background mode.
      *
      * @since 8
-     * @sysCap SystemCapability.Ressched.BackgroundTaskMgr
-     * @devices phone, tv, wearable, tablet, car
+     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      */
     export enum BackgroundMode {
         /**
          * data transfer mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         DATA_TRANSFER = 1,
 
         /**
          * audio playback mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_PLAYBACK = 2,
 
         /**
          * audio recording mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_RECORDING = 3,
 
         /**
          * location mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         LOCATION = 4,
 
         /**
          * bluetooth interaction mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         BLUETOOTH_INTERACTION = 5,
 
         /**
          * multi-device connection mode
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         MULTI_DEVICE_CONNECTION = 6,
 
         /**
          * wifi interaction mode
          *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         WIFI_INTERACTION = 7,
@@ -151,13 +169,18 @@ declare namespace backgroundTaskManager {
         /**
          * Voice over Internet Phone mode
          *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         VOIP = 8,
 
         /**
          * backgroud continuous calculate mode, for example 3d render.
-         * only supported in portable computer
+         * only supported in portable computer device
+         *
+         * @since 8
+         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,
     }

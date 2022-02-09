@@ -62,26 +62,23 @@ declare namespace particleAbility {
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
   /**
-   * Keeps this Service ability in the background and displays a notification bar.
+   * Keep this Service ability in the background and display a notification bar.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param id Identifies the notification bar information.
    * @param request Indicates the notificationRequest instance containing information for displaying a notification bar.
-   * @return -
    * @deprecated
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
 
   /**
-   * Cancels background running of this ability to free up system memory.
+   * Cancel background running of this ability to free up system memory.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap AAFwk
-   * @return -
+   * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @deprecated
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
