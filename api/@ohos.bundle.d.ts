@@ -257,7 +257,7 @@ declare namespace bundle {
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
      */
-    INPUTMETHOD = 2,
+    INPUT_METHOD = 2,
     /**
      * @default Indicates extension info with type of service
      * @since 9
@@ -275,19 +275,19 @@ declare namespace bundle {
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
      */
-    DATASHARE = 5,
+    DATA_SHARE = 5,
     /**
      * @default Indicates extension info with type of fileshare
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
      */
-    FILESHARE = 6,
+    FILE_SHARE = 6,
     /**
      * @default Indicates extension info with type of staticsubscriber
      * @since 9
      * @SysCap SystemCapability.Appexecfwk
      */
-    STATICSUBSCRIBER = 7,
+    STATIC_SUBSCRIBER = 7,
     /**
      * @default Indicates extension info with type of wallpaper
      * @since 9
