@@ -100,7 +100,7 @@ declare namespace backgroundTaskManager {
      * @param context app running context.
      */
     function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
-    function stopBackgroundRunning(context: Context, ): Promise<void>;
+    function stopBackgroundRunning(context: Context): Promise<void>;
 
     /**
      * supported background mode.
@@ -176,7 +176,7 @@ declare namespace backgroundTaskManager {
         VOIP = 8,
 
         /**
-         * backgroud continuous calculate mode, for example 3d render.
+         * background continuous calculate mode, for example 3D render.
          * only supported in portable computer device
          *
          * @since 8
