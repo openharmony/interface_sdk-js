@@ -100,16 +100,6 @@ declare namespace rdb {
      */
     enum SubscribeType {
         /**
-         * Subscription to local data changes
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @import N/A
-         * @permission N/A
-         */
-        SUBSCRIBE_TYPE_LOCAL = 0,
-
-        /**
          * Subscription to remote data changes
          * @since 8
          * @Syscap SystemCapability.Data.DATA_APPDATAMGR
@@ -117,17 +107,7 @@ declare namespace rdb {
          * @import N/A
          * @permission N/A
          */
-        SUBSCRIBE_TYPE_REMOTE = 1,
-
-        /**
-         * Subscription to both local and remote data changes
-         * @since 8
-         * @Syscap SystemCapability.Data.DATA_APPDATAMGR
-         * @devices phone, tablet, tv, wearable, car
-         * @import N/A
-         * @permission N/A
-         */
-        SUBSCRIBE_TYPE_ALL = 2,
+        SUBSCRIBE_TYPE_REMOTE = 0,
     }
 
     /**
