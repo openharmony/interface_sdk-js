@@ -61,7 +61,7 @@ declare interface ButtonStyle {
      * Set the button icon when sidebar status has changed
      * @since 8
      */
-    icons?: {shown:string, hidden: string, switching?: string}
+    icons?: {shown:string | PixelMap | Resource, hidden: string | PixelMap | Resource, switching?: string | PixelMap | Resource}
 }
 
 /**
@@ -75,7 +75,7 @@ interface SideBarContainerInterface {
      */
     (options?: { showSideBarContainer?: boolean,
                style?: SideBarContainerStyle,
-               buttonAtt?: ButtonStyle}): SideBarContainerAttribute;
+               buttonAttr?: ButtonStyle}): SideBarContainerAttribute;
 }
 
 /**
