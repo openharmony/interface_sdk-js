@@ -16,29 +16,29 @@
  /**
  * @name Indicates the custom metadata
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
   export interface CustomizeData {
     /**
       * @default Indicates the custom metadata name
       * @since 7
-      * @SysCap SystemCapability.Appexecfwk
+      * @syscap SystemCapability.BundleManager.BundleFramework
       */
     name: string;
   
     /**
       * @default Indicates the custom metadata value
       * @since 7
-      * @SysCap SystemCapability.Appexecfwk
+      * @syscap SystemCapability.BundleManager.BundleFramework
       */
     value: string;
   
     /**
     * @default Indicates the custom metadata resource
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
     extra: string;
   }

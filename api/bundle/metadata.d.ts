@@ -16,29 +16,29 @@
  /**
   * @name Indicates the Metadata
   * @since 9
-  * @SysCap SystemCapability.Appexecfwk
+  * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
-  * @devices phone, tablet, tv, wearable, car
+  *
   */
   export interface Metadata {
     /**
      * @default Indicates the metadata name
      * @since 9
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     name: string;
 
     /**
      * @default Indicates the metadata value
      * @since 9
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     value: string;
 
     /**
      * @default Indicates the metadata resource
      * @since 9
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     resource: string;
   }

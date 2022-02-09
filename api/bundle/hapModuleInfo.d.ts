@@ -19,113 +19,113 @@ import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
 /**
  * @name Obtains configuration information about an module.
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
 export interface HapModuleInfo {
   /**
     * @default Indicates the name of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly name: string;
   /**
     * @default Describes the hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly description: string;
   /**
     * @default Indicates the description of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly descriptionId: number;
   /**
     * @default Indicates the icon of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly icon: string;
   /**
     * @default Indicates the label of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly label: string;
   /**
     * @default Indicates the label id of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly labelId: number;
   /**
     * @default Indicates the icon id of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly iconId: number;
   /**
     * @default Indicates the background img of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly backgroundImg: string;
   /**
     * @default Indicates the supported modes of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly supportedModes: number;
   /**
     * @default Indicates the req capabilities of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqCapabilities: Array<string>;
   /**
     * @default The device types that this hapmodule can run on
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly deviceTypes: Array<string>;
   /**
     * @default Obtains configuration information about ability
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly abilityInfo: Array<AbilityInfo>;
   /**
     * @default Indicates the name of the .hap package to which the capability belongs
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly moduleName: string;
   /**
     * @default Indicates the main ability name of this hapmodule
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly mainAbilityName: string;
   /**
     * @default Indicates whether free installation of the hapmodule is supported
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly installationFree: boolean;
 
   /**
     * @default Indicates main elementName of the module
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly mainElementName: string;
 
   /**
     * @default Obtains configuration information about extension ability
     * @since 9
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }
