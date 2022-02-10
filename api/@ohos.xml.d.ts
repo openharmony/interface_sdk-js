@@ -82,12 +82,12 @@ declare namespace xml {
         setNamespace(prefix: string, namespace: string): void;
 
         /**
-         * Writes the commnet.
+         * Writes the comment.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
-         * @param text Values of commnet.
+         * @param text Values of comment.
          */
-        setCommnet(text: string): void;
+        setComment(text: string): void;
 
         /**
          * Writes the CDATA.
@@ -95,7 +95,7 @@ declare namespace xml {
          * @sysCap SystemCapability.CCRuntime
          * @param text Values of CDATA.
          */
-        setCData(text: string): void;
+        setCDATA(text: string): void;
 
         /**
          * Writes the text.
