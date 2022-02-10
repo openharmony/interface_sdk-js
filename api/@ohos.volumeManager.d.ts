@@ -19,8 +19,7 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides volumemanager statistics APIs
  *
  * @since 8
- * @sysCap SystemCapability.FileManagement.StorageService.Volume
- * @devices phone, tablet
+ * @syscap SystemCapability.FileManagement.StorageService.Volume
  */
 declare namespace VolumeManager {
 
