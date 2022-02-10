@@ -59,7 +59,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/grid_container.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
-    "api/@internal/component/ets/index.d.ts",
+    "api/@internal/component/ets/index-full.d.ts",
     "api/@internal/component/ets/lazyForEach.d.ts",
     "api/@internal/component/ets/line.d.ts",
     "api/@internal/component/ets/list.d.ts",
@@ -160,13 +160,49 @@ template("ohos_declaration_template") {
 
 ohos_declaration_template("ohos_declaration_ets") {
 }
-ohos_declaration_template("ohos_declaration_phone") {
+ohos_declaration_template("ohos_declaration_common") {
 }
 
-ohos_copy("ace_platform") {
+ohos_copy("internal_full") {
   sources = [
-    "api/config",
-    "api/phone",
+    "api/common/@internal/console.d.ts",
+    "api/common/@internal/global.d.ts",
+    "api/common/@internal/index.d.ts",
+    "api/common/@internal/viewmodel.d.ts",
+  ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("internal_lite") {
+  sources = [
+    "api/liteWearable/@internal/console.d.ts",
+    "api/liteWearable/@internal/global.d.ts",
+    "api/liteWearable/@internal/index.d.ts",
+    "api/liteWearable/@internal/viewmodel.d.ts",
+  ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("syscap_check") {
+  sources = [ "api/syscapCheck/sysCapSchema.json" ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("system_api") {
+  sources = [
+    "api/common/@system.app.d.ts",
+    "api/common/@system.cipher.d.ts",
+    "api/common/@system.configuration.d.ts",
+    "api/common/@system.file.d.ts",
+    "api/common/@system.mediaquery.d.ts",
+    "api/common/@system.prompt.d.ts",
+    "api/common/@system.router.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
