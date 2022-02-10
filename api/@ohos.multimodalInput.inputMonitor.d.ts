@@ -16,8 +16,7 @@
  * Global Input Event Listener
  * System API, available only to system processes
  * @since 7
- * @sysCap SystemCapabilities.MultimodalInput.MULTIMODAL_INPUT
- * @devices phone, tablet, tv, wearable
+ * @sysCap SystemCapabilities.MultimodalInput.Input.InputMonitor
  * @import import inputMonitor from '@ohos.multimodalInput.inputMonitor';
  * @permission ohos.permission.INPUT_MONITORING
  * @systemapi hide for inner use
@@ -26,7 +25,7 @@ declare namespace inputMonitor {
     /**
      * Callback function of the touch input event. If true is returned, the touch input is consumed by the monitor (the system performs the closing action).
      * @since 7
-     * @sysCap SystemCapabilities.MultimodalInput.MULTIMODAL_INPUT
+     * @sysCap SystemCapabilities.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      */
     interface TouchEventReceiver {
@@ -36,8 +35,7 @@ declare namespace inputMonitor {
     /**
      * Listening for touch input events
      * @since 7
-     * @sysCap SystemCapabilities.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
+     * @sysCap SystemCapabilities.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @param type register event type
      * @param receiver callback function, receive reported data
@@ -47,12 +45,11 @@ declare namespace inputMonitor {
     /**
      * Cancels listening for touch input events
      * @since 7
-     * @sysCap SystemCapabilities.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
+     * @sysCap SystemCapabilities.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @param type register event type
      * @param receiver callback function, receive reported data
      */
-    function off(type:"touch", receiver:TouchEventReceiver):void;
+    function off(type:"touch", receiver?:TouchEventReceiver):void;
 }
 export default inputMonitor;
