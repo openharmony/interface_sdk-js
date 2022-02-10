@@ -49,17 +49,6 @@ export default class ApplicationStateObserver {
     onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
     /**
-     * Will be called when extension state changed.
-     *
-     * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
-     * @param abilityStateData State changed extension info.
-     * @systemapi hide for inner use.
-     * @return -
-     */
-    onExtensionStateChanged(abilityStateData: AbilityStateData): void;
-
-    /**
      * Will be called when process created.
      *
      * @since 8
