@@ -104,6 +104,18 @@ declare const Watch: (value: string) => PropertyDecorator;
 declare const Builder: MethodDecorator;
 
 /**
+ * Defining Styles MethodDecorator
+ * @since 8
+ */
+declare const Styles: MethodDecorator;
+
+/**
+ * Defining Extend MethodDecorator
+ * @since 7
+ */
+declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
+
+/**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
@@ -1399,6 +1411,32 @@ declare class CommonMethod<T> {
 }
 
 /**
+ * CommonAttribute
+ * @since 7
+ */
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+
+/**
+ * CommonInterface
+ * @since 7
+ */
+interface CommonInterface {
+  (): CommonAttribute;
+}
+
+/**
+ * CommonInstance
+ * @since 7
+ */
+declare const CommonInstance: CommonAttribute;
+
+/**
+ * Common
+ * @since 7
+ */
+declare const Common: CommonInterface;
+
+/**
  * Defines the CustomBuilder Type.
  * @since 7
  */
@@ -1494,14 +1532,14 @@ declare class CustomComponent {
   build(): void;
 
   /**
-   * Private  aboutToAppear Method
+   * aboutToAppear Method
    * @since 7
    */
-  private aboutToAppear?(): void;
+  aboutToAppear?(): void;
 
   /**
-   * Private  aboutToDisappear Method
+   * aboutToDisappear Method
    * @since 7
    */
-  private aboutToDisappear?(): void;
+  aboutToDisappear?(): void;
 }
