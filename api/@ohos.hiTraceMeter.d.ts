@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import bytrace from './@ohos.bytrace'
-
 /**
  * Provides interfaces to trace a task for performance measure, the logs can be capture by the
  * bytrace cmdline available on the device.
@@ -22,7 +20,7 @@ import bytrace from './@ohos.bytrace'
  * @since 8
  * @SysCap SystemCapability.HiviewDFX.HiTrace
  */
- declare namespace hiTraceMeter {
+declare namespace hiTraceMeter {
     /**
      * Records a trace marking it as the start of a task, can with the expected completion time between
      * startTrace and finishTrace.
@@ -35,11 +33,8 @@ import bytrace from './@ohos.bytrace'
      * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param name Indicates the task name.
      * @param taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
-     * @param expectedTime Indicates the expected time required for completing the task, in milliseconds.
      */
-    function startTrace(name: string, taskId: number, expectedTime?: number): void {
-        bytrace.startTrace(name, taskId, expectedTime);
-    }
+    function startTrace(name: string, taskId: number): void;
   
     /**
      * Records a trace and marks it as the end of a task.
@@ -53,9 +48,7 @@ import bytrace from './@ohos.bytrace'
      * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
      * {@code taskId} of startTrace.
      */
-    function finishTrace(name: string, taskId: number): void {
-        bytrace.finishTrace(name, taskId);
-    }
+    function finishTrace(name: string, taskId: number): void;
   
     /**
      * Records a trace for generating a count, such as clock pulse and the number of layers.
@@ -65,8 +58,7 @@ import bytrace from './@ohos.bytrace'
      * @param name Indicates the name used to identify the count.
      * @param count Indicates the number of the count.
      */
-    function traceByValue(name: string, count: number): void {
-        bytrace.traceByValue(name, count);
-    }
-  }
-  export default hiTraceMeter;
+    function traceByValue(name: string, count: number): void;
+}
+
+export default hiTraceMeter;
