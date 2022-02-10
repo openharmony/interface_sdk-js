@@ -18,8 +18,7 @@ import { AsyncCallback } from './basic';
  * This module provides the capability to control motor vibration.
  *
  * @since 8
- * @sysCap SystemCapability.Sensors.MiscDevice
- * @devices phone, tablet
+ * @syscap SystemCapability.Sensors.MiscDevice
  * @import import vibrator from '@ohos.vibrator'
  * @permission ohos.permission.VIBRATE
  */
@@ -27,6 +26,7 @@ declare namespace vibrator {
     /**
      * The trigger motor vibrates for a specified length of time.
      * @param duration Indicate the duration of the motor vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
      */
@@ -36,6 +36,7 @@ declare namespace vibrator {
     /**
      * The trigger motor vibrates for the specified effect of the preset.
      * @param effectId Indicate the specified effect of the preset, {@code EffectId}.
+     * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
      */
@@ -45,6 +46,7 @@ declare namespace vibrator {
     /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+     * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
      */
@@ -53,8 +55,8 @@ declare namespace vibrator {
 
     /**
      * Preset vibration effect string.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.MiscDevice
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 8
      */
     enum EffectId {
         /* Describes the vibration effect of the vibrator when a user adjusts the timer.*/
@@ -63,8 +65,8 @@ declare namespace vibrator {
 
     /**
      * Vibrator vibration stop mode.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.MiscDevice
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 8
      */
     enum VibratorStopMode {
         /* Indicates the mode of stopping a one-shot vibration effect.*/
