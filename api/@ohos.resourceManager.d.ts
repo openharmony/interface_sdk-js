@@ -19,7 +19,7 @@ import Context from './application/Context';
  * Provides resource related APIs.
  *
  * @since 6
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Global.ResourceManager
  */
 declare namespace resourceManager {
 /**
