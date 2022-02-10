@@ -83,7 +83,7 @@ declare namespace backgroundTaskManager {
      * system will publish a notification related to the this service.
      *
      * @since 8
-     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param context app running context.
      * @param bgMode Indicates which background mode to request.
@@ -96,7 +96,7 @@ declare namespace backgroundTaskManager {
      * Service ability uses this method to request stop running in background.
      *
      * @since 8
-     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @param context app running context.
      */
     function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
@@ -106,14 +106,14 @@ declare namespace backgroundTaskManager {
      * supported background mode.
      *
      * @since 8
-     * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      */
     export enum BackgroundMode {
         /**
          * data transfer mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         DATA_TRANSFER = 1,
 
@@ -121,7 +121,7 @@ declare namespace backgroundTaskManager {
          * audio playback mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_PLAYBACK = 2,
 
@@ -129,7 +129,7 @@ declare namespace backgroundTaskManager {
          * audio recording mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_RECORDING = 3,
 
@@ -137,7 +137,7 @@ declare namespace backgroundTaskManager {
          * location mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         LOCATION = 4,
 
@@ -145,7 +145,7 @@ declare namespace backgroundTaskManager {
          * bluetooth interaction mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         BLUETOOTH_INTERACTION = 5,
 
@@ -153,7 +153,7 @@ declare namespace backgroundTaskManager {
          * multi-device connection mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         MULTI_DEVICE_CONNECTION = 6,
 
@@ -161,7 +161,7 @@ declare namespace backgroundTaskManager {
          * wifi interaction mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         WIFI_INTERACTION = 7,
@@ -170,7 +170,7 @@ declare namespace backgroundTaskManager {
          * Voice over Internet Phone mode
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         VOIP = 8,
@@ -180,7 +180,7 @@ declare namespace backgroundTaskManager {
          * only supported in portable computer device
          *
          * @since 8
-         * @sysCap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,
     }
