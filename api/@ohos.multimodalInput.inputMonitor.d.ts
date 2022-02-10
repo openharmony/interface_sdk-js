@@ -32,6 +32,7 @@ declare namespace inputMonitor {
     interface TouchEventReceiver {
         (touchEvent:TouchEvent): Boolean;
     }
+	
     /**
      * Listening for touch input events
      * @since 7
@@ -39,6 +40,7 @@ declare namespace inputMonitor {
      * @systemapi
      */
     function on(type:"touch", receiver:TouchEventReceiver):void;
+
     /**
      * Cancels listening for touch input events
      * @since 7
