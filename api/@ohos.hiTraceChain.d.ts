@@ -22,7 +22,7 @@
  * @since 8
  * @SysCap SystemCapability.HiviewDFX.HiTrace
  */
-declare namespace hitrace {
+declare namespace hiTraceChain {
     /**
      * Enumerate trace flag
      *
@@ -246,4 +246,4 @@ declare namespace hitrace {
     function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }
 
-export default hitrace;
+export default hiTraceChain;
