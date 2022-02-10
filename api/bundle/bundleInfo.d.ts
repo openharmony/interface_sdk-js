@@ -21,22 +21,22 @@ import { HapModuleInfo } from './hapModuleInfo';
 /**
  * @name The scene which is used
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
 export interface UsedScene {
   /**
     * @default Indicates the abilities that need the permission
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   abilities: Array<string>;
 
   /**
     * @default Indicates the time when the permission is used
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   when: string;
 }
@@ -44,29 +44,29 @@ export interface UsedScene {
 /**
  * @name Indicates the required permissions details defined in file config.json
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
 export interface ReqPermissionDetail {
   /**
     * @default Indicates the name of this required permissions
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   name: string;
 
   /**
     * @default Indicates the reason of this required permissions
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   reason: string;
 
   /**
     * @default Indicates the used scene of this required permissions
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   usedScene: UsedScene;
 }
@@ -74,22 +74,22 @@ export interface ReqPermissionDetail {
 /**
  * @name Obtains configuration information about a bundle
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
 export interface BundleInfo {
   /**
     * @default Indicates the name of this bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly name: string;
 
   /**
     * @default Indicates the name of this original bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly type: string;
 
@@ -97,7 +97,7 @@ export interface BundleInfo {
     * @default Indicates the ID of the application to which this bundle belongs
     * The application ID uniquely identifies an application. It is determined by the bundle name and signature
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly appId: string;
 
@@ -106,147 +106,147 @@ export interface BundleInfo {
     * The UID uniquely identifies an application. It is determined by the process and user IDs of the application
     * After an application is installed, its UID remains unchanged unless it is uninstalled and then reinstalled
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly uid: number;
 
   /**
     * @default Indicates the hap install time
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly installTime: number;
 
   /**
     * @default Indicates the hap update time
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly updateTime: number;
 
   /**
     * @default Obtains configuration information about an application
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly appInfo: ApplicationInfo;
 
   /**
     * @default Obtains configuration information about an ability
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly abilityInfo: Array<AbilityInfo>;
 
   /**
     * @default Indicates the required permissions name defined in file config.json
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissions: Array<string>;
 
   /**
     * @default Indicates the required permissions details defined in file config.json
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
   /**
     * @default Describes the bundle vendor
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly vendor: string;
 
   /**
     * @default Indicates the version number of the bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly versionCode: number;
 
   /**
     * @default Indicates the text description of the bundle version
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly versionName: string;
 
   /**
     * @default Indicates the compatible version number of the bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly compatibleVersion: number;
 
   /**
     * @default Indicates the target version number of the bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly targetVersion: number;
 
   /**
     * @default Indicates is compress native libs
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly isCompressNativeLibs: boolean;
 
   /**
     * @default Obtains configuration information about an module
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly hapModuleInfo: Array<HapModuleInfo>;
 
   /**
     * @default Indicates entry module name
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly entryModuleName: string;
 
   /**
     * @default Indicates the cpuAbi information of this bundle.
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly cpuAbi: string;
 
   /**
     * @default Indicates is silent installation
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly isSilentInstallation: string;
 
   /**
     * @default Indicates the earliest historical version compatible with the bundle
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly minCompatibleVersionCode: number;
 
   /**
     * @default Indicates whether free installation of the entry is supported
     * @since 7
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly entryInstallationFree: boolean;
 
   /**
     * @default Indicates the grant status of required permissions
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissionStates: Array<number>;
 
   /**
     * @default Obtains configuration information about an ability
     * @since 9
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

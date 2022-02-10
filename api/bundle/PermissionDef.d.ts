@@ -16,37 +16,36 @@
 /**
  * @name Indicates the defined permission details in file config.json
  * @since 8
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  * @systemapi
  */
  export interface PermissionDef {
   /**
     * @default Indicates the name of this permission
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   permissionName: string;
 
   /**
     * @default Indicates the bundleName of this permission
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   bundleName: string;
 
   /**
     * @default Indicates the labelId of this permission
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   labelId: number;
 
   /**
     * @default Indicates the descriptionId of this permission
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @syscap SystemCapability.BundleManager.BundleFramework
     */
   descriptionId: number;
 }
