@@ -21,70 +21,109 @@ import { AsyncCallback } from './basic';
  * you will be able to analyze the running status of applications.
  *
  * @since 7
- * @devices phone, tablet, tv, wearable
+ * @syscap SystemCapability.HiviewDFX.HiAppEvent
  */
 declare namespace hiAppEvent {
     /**
      * Enumerate application event types.
+     *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
     enum EventType {
         /**
          * Fault event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         FAULT = 1,
 
         /**
          * Statistic event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         STATISTIC = 2,
 
         /**
          * Security event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         SECURITY = 3,
 
         /**
          * User behavior event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         BEHAVIOR = 4
     }
 
     /**
      * Preset event.
+     *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
     namespace Event {
         /**
          * user login event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_LOGIN: string;
 
         /**
          * user logout event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_LOGOUT: string;
 
         /**
          * distributed service event.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const DISTRIBUTED_SERVICE_START: string;
     }
 
     /**
      * Preset param.
+     *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      */
     namespace Param {
         /**
          * user id.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const USER_ID: string;
 
         /**
          * distributed service name.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const DISTRIBUTED_SERVICE_NAME: string;
 
         /**
          * distributed service instance id.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
     }
@@ -92,6 +131,8 @@ declare namespace hiAppEvent {
     /**
      * write application event.
      *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @static
      * @param {string} eventName application event name.
      * @param {EventType} eventType application event type.
@@ -105,20 +146,34 @@ declare namespace hiAppEvent {
     /**
      * application event logging configuration interface.
      *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @static
      * @param {ConfigOption} config application event logging configuration item object.
      * @return {boolean} configuration result.
      */
     function configure(config: ConfigOption): boolean;
 
+    /**
+     * Describe the options for the configuration.
+     *
+     * @since 7
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     */
     interface ConfigOption {
         /**
          * configuration item: application event logging switch.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         disable?: boolean;
 
         /**
          * configuration item: event file directory storage quota size.
+         *
+         * @since 7
+         * @syscap SystemCapability.HiviewDFX.HiAppEvent
          */
         maxStorage?: string;
     }
