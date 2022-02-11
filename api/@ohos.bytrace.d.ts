@@ -68,16 +68,17 @@ declare namespace bytrace {
    * @param name Indicates the task name. It must be the same whith the {@code name} of startTrace.
    * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
    * {@code taskId} of startTrace.
-   * @since 7
    */
   function finishTrace(name: string, taskId: number): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
+   * @deprecated
+   * @since 7
+   * @SysCap SystemCapability.Developtools.Bytrace
    * @param name Indicates the name used to identify the count.
    * @param count Indicates the number of the count.
-   * @since 7
    */
   function traceByValue(name: string, count: number): void;
 }
