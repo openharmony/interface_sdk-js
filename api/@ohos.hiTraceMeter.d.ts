@@ -17,6 +17,23 @@
  * Provides interfaces to trace a task for performance measure, the logs can be capture by the
  * bytrace cmdline available on the device.
  *
+ * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
+ *
+ * <p>Example:
+ * To trace a name verification that is expected to complete within 5 ms:
+ * <pre>{@code
+ * bytrace.startTrace("checkName", 111, 5);
+ * //your process
+ * bytrace.finishTrace("checkName", 111);
+ * }</pre>
+ * To trace the number of layers, which is 3:
+ * <pre>{@code
+ * bytrace.traceByValue("curLayer", 3);
+ * }</pre>
+ *
+ * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
+ * and taskId.
+ *
  * @since 8
  * @SysCap SystemCapability.HiviewDFX.HiTrace
  */
