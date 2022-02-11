@@ -22,8 +22,7 @@ import notification from '../@ohos.notification';
  * a notification is canceled.
  *
  * @name NotificationSubscriber
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7
@@ -50,8 +49,7 @@ export interface NotificationSubscriber {
  * a notification is canceled.
  *
  * @name SubscribeCallbackData
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  * @systemapi Hide this for inner system use.
  * @since 7
