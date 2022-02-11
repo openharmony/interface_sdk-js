@@ -189,10 +189,10 @@ declare namespace media {
      */
     stop(): void;
 
-    /**`
+    /**
      * Resets audio playback.
      * @devices phone, tablet, tv, wearable
-     * @since 6
+     * @since 7
      * @SysCap SystemCapability.Multimedia.Media
      */
      reset(): void;
