@@ -17,7 +17,7 @@
 * Provides interfaces to generate system logs.
 *
 * @since 7
-* @Syscap SystemCapability.HiviewDFX.HiLog
+* @syscap SystemCapability.HiviewDFX.HiLog
 */
 
 declare namespace hilog {
@@ -29,7 +29,7 @@ declare namespace hilog {
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function debug(domain: number, tag: string, format: string, ...args: any[]) : void;
   /**
@@ -40,7 +40,7 @@ declare namespace hilog {
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function info(domain: number, tag: string, format: string, ...args: any[]) : void;
   /**
@@ -51,7 +51,7 @@ declare namespace hilog {
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function warn(domain: number, tag: string, format: string, ...args: any[]) : void;
   /**
@@ -62,7 +62,7 @@ declare namespace hilog {
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function error(domain: number, tag: string, format: string, ...args: any[]) : void;
   /**
@@ -73,7 +73,7 @@ declare namespace hilog {
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function fatal(domain: number, tag: string, format: string, ...args: any[]) : void;
   /**
@@ -83,14 +83,14 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param level log level
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function isLoggable(domain: number, tag: string, level: LogLevel) : boolean;
   /**
    * Log level define
    *
    * @since 7
-   * @Syscap SystemCapability.HiviewDFX.HiLog
+   * @syscap SystemCapability.HiviewDFX.HiLog
    */
   enum LogLevel {
       DEBUG = 3,
