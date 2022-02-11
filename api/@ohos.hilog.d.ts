@@ -88,6 +88,9 @@ declare namespace hilog {
   function isLoggable(domain: number, tag: string, level: LogLevel) : boolean;
   /**
    * Log level define
+   *
+   * @since 7
+   * @Syscap SystemCapability.HiviewDFX.HiLog
    */
   enum LogLevel {
       DEBUG = 3,
