@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import AbilityConstant from "./@ohos.application.AbilityConstant";
 import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
@@ -63,7 +64,7 @@ export default class Ability {
      * @return -
      * @StageModelOnly
      */
-    onCreate(want: Want, param: LaunchParam): void;
+    onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
 
     /**
      * Called back when an ability window stage is created.
@@ -131,51 +132,3 @@ export default class Ability {
      */
      onContinue(wantParam : {[key: string]: any}): boolean;
 }
-
-export interface LaunchParam {
-    /**
-     * Indicates launch reason.
-     *
-     * @since 9
-     * @sysCap AAFwk
-     * @StageModelOnly
-     */
-    launchReason: LaunchReason;
-
-    /**
-     * Indicates last exit reason.
-     *
-     * @since 9
-     * @sysCap AAFwk
-     * @StageModelOnly
-     */
-    lastExitReason: LastExitReason;
-}
-
-/**
- * Type of launch reason.
- *
- * @since 9
- * @sysCap AAFwk
- * @StageModelOnly
- */
-export enum LaunchReason {
-    UNKNOWN = 0,
-    START_ABILITY = 1,
-    CALL = 2,
-    CONTINUATION = 3,
-}
-
-/**
- * Type of last exit reason.
- *
- * @since 9
- * @sysCap AAFwk
- * @StageModelOnly
- */
-export enum LastExitReason {
-    UNKNOWN = 0,
-    ABILITY_NOT_RESPONDING = 1,
-    NORMAL = 2,
-}
-
