@@ -359,7 +359,7 @@ declare namespace media {
     /**
      * Latitude.
      * @devices phone, tablet, tv, wearable
-     * @since 8
+     * @since 6
      * @SysCap SystemCapability.Multimedia.Media
      */
     latitude: number;
@@ -367,7 +367,7 @@ declare namespace media {
     /**
      * Longitude.
      * @devices phone, tablet, tv, wearable
-     * @since 8
+     * @since 6
      * @SysCap SystemCapability.Multimedia.Media
      */
     longitude: number;
@@ -430,7 +430,7 @@ declare namespace media {
     /**
      * Geographical location information.
      * @devices phone, tablet, tv, wearable
-     * @since 8
+     * @since 6
      * @SysCap SystemCapability.Multimedia.Media
      */
     location?: Location;
