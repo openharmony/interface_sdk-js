@@ -1756,6 +1756,15 @@ export interface CanvasRenderingContext2D {
    * @devices tv, phone, tablet, wearable
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
+  
+  /**
+   * Bitmap Mesh
+   * @param bitmap Image resource.
+   * @param mesh Array of verts coordinates after image distortion.
+   * @param column the column of Mesh array.
+   * @param row the row of Mesh array.
+   */
+  drawBitmapMesh(bitmap: object, mesh: Array<number>, column: number, row: number): void;
 }
 
 /**
