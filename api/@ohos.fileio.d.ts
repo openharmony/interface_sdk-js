@@ -18,9 +18,8 @@ export default fileIO;
 
 /**
  * fileio
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @devices phone, tablet, tv, wearable, car
  * @import import fileio from '@ohos.fileio';
  * @permission N/A
  */
@@ -95,7 +94,7 @@ declare namespace fileIO {
  * access.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function access
@@ -112,7 +111,7 @@ declare function access(path: string, mode: number, callback: AsyncCallback<void
  * accessSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function accessSync
@@ -126,7 +125,7 @@ declare function accessSync(path: string, mode?: number): void;
  * close.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function close
@@ -141,7 +140,7 @@ declare function close(fd: number, callback: AsyncCallback<void>): void;
  * closeSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function closeSync
@@ -154,7 +153,7 @@ declare function closeSync(fd: number): void;
  * copyFile.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function copyFile
@@ -172,7 +171,7 @@ declare function copyFile(src: string | number, dest: string | number, mode: num
  * copyFileSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function copyFileSync
@@ -187,7 +186,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * createStream.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function createStream
@@ -203,7 +202,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * createStreamSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function createStreamSync
@@ -217,7 +216,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * chown.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function appendFile
@@ -234,7 +233,7 @@ declare function chown(path: string, uid: number, gid: number, callback: AsyncCa
  * chownSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function appendFile
@@ -249,7 +248,7 @@ declare function chownSync(path: string, uid: number, gid: number): void;
  * chmod.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function chmod
@@ -265,7 +264,7 @@ declare function chmod(path: string, mode: number, callback: AsyncCallback<void>
  * chmodSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function chmodSync
@@ -279,7 +278,7 @@ declare function chmodSync(path: string, mode: number): void;
  * ftruncate.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function ftruncate
@@ -296,7 +295,7 @@ declare function ftruncate(fd: number, len: number, callback: AsyncCallback<void
  * ftruncateSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function ftruncateSync
@@ -310,7 +309,7 @@ declare function ftruncateSync(fd: number, len?: number): void;
  * fsync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fsync
@@ -325,7 +324,7 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  * fsyncSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fsyncSync
@@ -338,7 +337,7 @@ declare function fsyncSync(fd: number): void;
  * fstat.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fstat
@@ -352,7 +351,7 @@ declare function fstat(fd: number, callback: AsyncCallback<Stat>): void;
  * fstatSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fstatSync
@@ -365,7 +364,7 @@ declare function fstatSync(fd: number): Stat;
  * fdatasync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fdatasync
@@ -380,7 +379,7 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  * fdatasyncSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fdatasyncSync
@@ -393,7 +392,7 @@ declare function fdatasyncSync(fd: number): void;
  * fchown.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fchown
@@ -410,7 +409,7 @@ declare function fchown(fd: number, uid: number, gid: number, callback: AsyncCal
  * fchownSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fchownSync
@@ -425,7 +424,7 @@ declare function fchownSync(fd: number, uid: number, gid: number): void;
  * fchmod.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fchmod
@@ -441,7 +440,7 @@ declare function fchmod(fd: number, mode: number, callback: AsyncCallback<void>)
  * fchmodSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fchmodSync
@@ -454,7 +453,7 @@ declare function fchmodSync(fd: number, mode: number): void;
 /**
  * fdopenStream.
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fdopenStream
@@ -469,7 +468,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
 /**
  * fdopenStreamSync.
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function fdopenStreamSync
@@ -483,7 +482,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * hash.
  * @static
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function hash
@@ -499,7 +498,7 @@ declare function hash(path: string, algorithm: string, callback: AsyncCallback<s
  * lchown.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function lchown
@@ -516,7 +515,7 @@ declare function lchown(path: string, uid: number, gid: number, callback: AsyncC
  * lchownSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function lchownSync
@@ -531,7 +530,7 @@ declare function lchownSync(path: string, uid: number, gid: number): void;
  * lstat.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function lstat
@@ -546,7 +545,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * lstatSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function lstatSync
@@ -559,7 +558,7 @@ declare function lstatSync(path: string): Stat;
  * mkdir.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function mkdir
@@ -576,7 +575,7 @@ declare function mkdir(path: string, mode: number, callback: AsyncCallback<void>
  * mkdirSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function mkdirSync
@@ -590,7 +589,7 @@ declare function mkdirSync(path: string, mode?: number): void;
  * mkdtemp.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function mkdtemp
@@ -605,7 +604,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * mkdtempSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function mkdtempSync
@@ -618,7 +617,7 @@ declare function mkdtempSync(prefix: string): string;
  * open.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function open
@@ -637,7 +636,7 @@ declare function open(path: string, flags: number, mode: number, callback: Async
  * openSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function openSync
@@ -652,7 +651,7 @@ declare function openSync(path: string, flags?: number, mode?: number): number;
  * opendir.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function opendir
@@ -675,7 +674,7 @@ declare function opendirSync(path: string): Dir;
  * readText.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function readText
@@ -703,7 +702,7 @@ declare function readText(filePath: string, options: {
  * readTextSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function readTextSync
@@ -725,7 +724,7 @@ declare function readTextSync(filePath: string, options?: {
  * read.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function read
@@ -754,7 +753,7 @@ declare function read(fd: number, buffer: ArrayBuffer, options: {
  * readSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function readSync
@@ -776,7 +775,7 @@ declare function readSync(fd: number, buffer: ArrayBuffer, options?: {
  * rename.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function rename
@@ -792,7 +791,7 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * renameSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function renameSync
@@ -806,7 +805,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * rmdir.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function rmdir
@@ -821,7 +820,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * rmdirSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function rmdirSync
@@ -834,7 +833,7 @@ declare function rmdirSync(path: string): void;
  * stat.
  * @static
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @param {string} path - path.
@@ -848,7 +847,7 @@ declare function stat(path: string, callback: AsyncCallback<Stat>): void;
  * statSync.
  * @static
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @param {string} path - path.
@@ -860,7 +859,7 @@ declare function statSync(path: string): Stat;
  * symlink.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function symlink
@@ -876,7 +875,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * symlinkSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function symlinkSync
@@ -890,7 +889,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * truncate.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function truncate
@@ -907,7 +906,7 @@ declare function truncate(path: string, len: number, callback: AsyncCallback<voi
  * truncateSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function truncateSync
@@ -921,7 +920,7 @@ declare function truncateSync(path: string, len?: number): void;
  * unlink.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function unlink
@@ -936,7 +935,7 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  * unlinkSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function unlinkSync
@@ -949,7 +948,7 @@ declare function unlinkSync(path: string): void;
  * write.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function write
@@ -981,7 +980,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, options: {
  * writeSync.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  * @function writeSync
@@ -1006,7 +1005,7 @@ declare function writeSync(fd: number, buffer: ArrayBuffer | string, options?: {
  * createWatcher.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  * @function createWatcher
@@ -1019,8 +1018,7 @@ declare function writeSync(fd: number, buffer: ArrayBuffer | string, options?: {
 declare function createWatcher(filename: string, events: number, callback: AsyncCallback<number>): Watcher;
 /**
  * Dir
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  */
@@ -1029,7 +1027,7 @@ declare interface Dir {
      * read.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @function read
@@ -1042,7 +1040,7 @@ declare interface Dir {
     /**
      * readSync.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @function readSync
@@ -1053,7 +1051,7 @@ declare interface Dir {
     /**
      * close.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @function close
@@ -1066,7 +1064,7 @@ declare interface Dir {
     /**
      * closeSync.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @function closeSync
@@ -1078,8 +1076,7 @@ declare interface Dir {
 
 /**
  * Dirent
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  */
@@ -1088,7 +1085,7 @@ declare interface Dirent {
      * @type {string}
      * @readonly
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      */
@@ -1096,7 +1093,7 @@ declare interface Dirent {
     /**
      * isBlockDevice.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1105,7 +1102,7 @@ declare interface Dirent {
     /**
      * isCharacterDevice.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1114,7 +1111,7 @@ declare interface Dirent {
     /**
      * isDirectory.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1123,7 +1120,7 @@ declare interface Dirent {
     /**
      * isFIFO.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1132,7 +1129,7 @@ declare interface Dirent {
     /**
      * isFile.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1141,7 +1138,7 @@ declare interface Dirent {
     /**
      * isSocket.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1150,7 +1147,7 @@ declare interface Dirent {
     /**
      * isSymbolicLink.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1160,8 +1157,7 @@ declare interface Dirent {
 
 /**
  * Stat
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  */
@@ -1169,7 +1165,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1178,7 +1174,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1187,7 +1183,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1196,7 +1192,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1205,7 +1201,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1214,7 +1210,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1223,7 +1219,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1232,7 +1228,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1241,7 +1237,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1250,7 +1246,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1259,7 +1255,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1268,7 +1264,7 @@ declare interface Stat {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1277,7 +1273,7 @@ declare interface Stat {
     /**
      * isBlockDevice.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1286,7 +1282,7 @@ declare interface Stat {
     /**
      * isCharacterDevice.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1295,7 +1291,7 @@ declare interface Stat {
     /**
      * isDirectory.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1304,7 +1300,7 @@ declare interface Stat {
     /**
      * isFIFO.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1313,7 +1309,7 @@ declare interface Stat {
     /**
      * isFile.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1322,7 +1318,7 @@ declare interface Stat {
     /**
      * isSocket.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1331,7 +1327,7 @@ declare interface Stat {
     /**
      * isSymbolicLink.
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {boolean} is or not
@@ -1341,8 +1337,7 @@ declare interface Stat {
 
 /**
  * Stream
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  */
@@ -1351,7 +1346,7 @@ declare interface Stream {
      * close.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {AsyncCallback<void>} [callback] - callback.
@@ -1364,7 +1359,7 @@ declare interface Stream {
      * closeSync.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @returns {void} close success
@@ -1375,7 +1370,7 @@ declare interface Stream {
      * flush.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {AsyncCallback<void>} [callback] - callback.
@@ -1388,7 +1383,7 @@ declare interface Stream {
      * flushSync.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @returns {void} flush success
@@ -1399,7 +1394,7 @@ declare interface Stream {
      * write.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {ArrayBuffer | string} buffer - file description.
@@ -1429,7 +1424,7 @@ declare interface Stream {
      * writeSync.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {ArrayBuffer | string} buffer - file description.
@@ -1451,7 +1446,7 @@ declare interface Stream {
      * read.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {ArrayBuffer} buffer - file description.
@@ -1477,7 +1472,7 @@ declare interface Stream {
      * readSync.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {ArrayBuffer} buffer - file description.
@@ -1496,8 +1491,7 @@ declare interface Stream {
 
 /**
  * ReadOut
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @permission N/A
  */
@@ -1505,7 +1499,7 @@ declare interface ReadOut {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1514,7 +1508,7 @@ declare interface ReadOut {
     /**
      * @type {number}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1523,7 +1517,7 @@ declare interface ReadOut {
     /**
      * @type {ArrayBuffer}
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
      * @permission N/A
      * @readonly
@@ -1533,8 +1527,7 @@ declare interface ReadOut {
 
 /**
  * Watcher
- * @devices phone, tablet, tv, wearable, car
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
  * @permission N/A
  */
@@ -1543,7 +1536,7 @@ declare interface Watcher {
      * stop.
      *
      * @note N/A
-     * @sysCap N/A
+     * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
      * @permission N/A
      * @param {AsyncCallback<void>} [callback] - callback.
