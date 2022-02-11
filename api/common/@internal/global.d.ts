@@ -167,3 +167,13 @@ export declare class ImageBitmap {
      */
     readonly width: number;
 }
+
+/**
+ * Conditional compilation for rich equipment
+ */
+export declare const STANDARD: string;
+
+/**
+ * Conditional compilation for lite equipment
+ */
+export declare const LITE: string;
