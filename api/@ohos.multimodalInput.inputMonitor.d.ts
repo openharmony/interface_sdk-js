@@ -37,6 +37,7 @@ declare namespace inputMonitor {
      * @since 7
      * @sysCap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
+     * @permission ohos.permission.INPUT_MONITORING
      * @param type register event type
      * @param receiver callback function, receive reported data
      */
@@ -47,6 +48,7 @@ declare namespace inputMonitor {
      * @since 7
      * @sysCap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
+     * @permission ohos.permission.INPUT_MONITORING
      * @param type register event type
      * @param receiver callback function, receive reported data
      */
