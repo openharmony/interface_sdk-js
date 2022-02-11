@@ -30,11 +30,11 @@
   permissionName: string;
 
   /**
-    * @default Indicates the bundleName of this permission
+    * @default Indicates the grant mode of this permission
     * @since 8
     * @SysCap SystemCapability.Appexecfwk
     */
-  bundleName: string;
+  grantMode: number;
 
   /**
     * @default Indicates the labelId of this permission
