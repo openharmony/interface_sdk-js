@@ -133,20 +133,20 @@ declare namespace hiTraceChain {
     }
 
     /**
-     * trace id, for tracing process.
+     * Trace id, for tracing process.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
     interface HiTraceId {
         chainId: bigint; /* 0n: invalid */
-        spandId?: number;
+        spanId?: number;
         parentSpanId?: number;
         flags?: number;
     }
 
     /**
-     * begin a new trace.
+     * Start tracing a process impl.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -177,7 +177,7 @@ declare namespace hiTraceChain {
     function getId(): HiTraceId;
 
     /**
-     * Set id as trace iod of current thread. Do nothing if id is invalid.
+     * Set id as trace id of current thread. Do nothing if id is invalid.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -194,7 +194,7 @@ declare namespace hiTraceChain {
     function clearId(): void;
 
     /**
-     * Create a new span Id according to the trace id of current thread.
+     * Create a new span id according to the trace id of current thread.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -215,7 +215,7 @@ declare namespace hiTraceChain {
     function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracePointType, id: HiTraceId, msg?: string): void;
 
     /**
-     * Judge whether the trace id is valid.
+     * Judge whether the trace id is valid or not.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
@@ -225,7 +225,7 @@ declare namespace hiTraceChain {
     function isValid(id: HiTraceId): boolean;
 
     /**
-     * Judge whether the trace id has enabled a flag or not.
+     * Judge whether the trace id has enabled a trace flag or not.
      *
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
