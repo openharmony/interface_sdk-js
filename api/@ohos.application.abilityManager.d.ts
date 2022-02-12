@@ -73,7 +73,7 @@ declare namespace abilityManager {
       * Get information about running extensions
       *
       * @devices phone, tablet, tv, wearable, car
-      * @since 8
+      * @since 9
       * @SysCap AAFwk
       * @param config Indicates the new configuration.
       * @systemapi Hide this for inner system use.

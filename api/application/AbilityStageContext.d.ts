@@ -19,18 +19,20 @@ import Context from "./Context";
 /**
  * The context of an abilityStage. It allows access to abilityStage-specific resources.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class AbilityStageContext extends Context {
 
     /**
      * Indicates configuration information about an module.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
 }
