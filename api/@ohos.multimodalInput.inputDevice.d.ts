@@ -20,7 +20,6 @@ import { AsyncCallback } from './basic';
  *
  * @since 8
  * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
- * @devices phone, tablet, tv, wearable
  * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  * @permission N/A
  */
@@ -67,7 +66,6 @@ declare namespace inputDevice {
      *
      * @since 8
      * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param callback callback function, receive reported data
      */
@@ -78,7 +76,6 @@ declare namespace inputDevice {
      *
      * @since 8
      * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param deviceId ID of the input device whose information is to be obtained.
      * @param callback callback function, receive reported data

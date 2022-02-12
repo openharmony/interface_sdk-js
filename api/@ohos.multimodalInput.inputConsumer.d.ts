@@ -20,7 +20,6 @@ import { AsyncCallback } from './basic';
  *
  * @since 8
  * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
- * @devices phone, tablet, tv, wearable
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @permission N/A
  */
@@ -47,7 +46,6 @@ declare namespace inputConsumer {
      *
      * @since 8
      * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
@@ -60,7 +58,6 @@ declare namespace inputConsumer {
      *
      * @since 8
      * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
-     * @devices phone, tablet, tv, wearable
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
