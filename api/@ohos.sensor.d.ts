@@ -726,6 +726,7 @@ declare namespace sensor {
         x: number; /**< Rotation vector x-axis component */
         y: number; /**< Rotation vector y-axis component */
         z: number; /**< Rotation vector z-axis component */
+        w: number; /**< Scalar quantity */
     }
 
     /**
