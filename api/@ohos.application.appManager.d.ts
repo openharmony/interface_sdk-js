@@ -34,6 +34,7 @@ declare namespace appManager {
      * @since 8
      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param observer The application state observer.
+     * @systemapi hide this for inner system use
      * @return Returns the number code of the observer.
      */
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
@@ -44,6 +45,7 @@ declare namespace appManager {
      * @since 8
      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param observerId Indicates the number code of the observer.
+     * @systemapi hide this for inner system use
      * @return -
      */
     function unregisterApplicationStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
@@ -54,6 +56,7 @@ declare namespace appManager {
      *
      * @since 8
      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
      * @return Returns the list of AppStateData.
      */
      function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
