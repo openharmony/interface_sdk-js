@@ -50,3 +50,13 @@ export declare function clearInterval(intervalID?: number): void;
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  */
 export declare function clearTimeout(timeoutID?: number): void;
+
+/**
+ * Conditional compilation for rich equipment
+ */
+export declare const STANDARD: string;
+
+/**
+ * Conditional compilation for lite equipment
+ */
+export declare const LITE: string;
