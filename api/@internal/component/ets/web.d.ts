@@ -170,6 +170,18 @@ declare class WebController {
   constructor();
 
   /**
+   * Let the Web inactive.
+   * @since 8
+   */
+  onInactive(): void;
+
+  /**
+   * Let the Web active.
+   * @since 8
+   */
+  onActive(): void;
+
+  /**
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
    * @since 8
    */
