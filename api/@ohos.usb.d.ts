@@ -18,6 +18,7 @@ declare namespace usb {
      * Obtains the USB device list.
      *
      * @return USB device{@link USBDevice}list.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getDevices(): Array<Readonly<USBDevice>>;
@@ -27,6 +28,7 @@ declare namespace usb {
      *
      * @param device USB device information from device list {@link getDevices()}.
      * @return USB device pipe {@link USBDevicePipe} for data transfer.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
@@ -36,6 +38,7 @@ declare namespace usb {
      *
      * @param deviceName Device name，{@link USBDevice.name}.
      * @return Returns true if the user has the permission to access the device; return false otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function hasRight(deviceName: string): boolean;
@@ -45,6 +48,7 @@ declare namespace usb {
      *
      * @param deviceName Device name，{@link USBDevice.name}.
      * @return Returns true if the temporary device access permissions are granted; return false otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function requestRight(deviceName: string): Promise<boolean>;
@@ -57,6 +61,7 @@ declare namespace usb {
      * @param force Optional parameter that determines whether to forcibly claim the USB interface. 
      * The default value is false, indicating not to forcibly claim the USB interface.
      * @return Returns 0 if the USB interface is successfully claimed; returns an error code otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
@@ -67,6 +72,7 @@ declare namespace usb {
      * @param pipe Device pipe, which is used to determine the bus number and device address {@link USBDevicePipe}.
      * @param iface USB interface, which is used to determine the index of the interface to release {@link USBInterface}.
      * @return Returns 0 if the USB interface is successfully released; return an error code otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
@@ -77,6 +83,7 @@ declare namespace usb {
      * @param pipe Device pipe, which is used to determine the bus number and device address {@link USBDevicePipe}.
      * @param config USB configuration to set {@link USBConfig}.
      * @return Returns 0 if the USB configuration is successfully set; return an error code otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
@@ -87,6 +94,7 @@ declare namespace usb {
      * @param pipe Device pipe, which is used to determine the bus number and device address {@link USBDevicePipe}.
      * @param iface USB interface to set {@link USBInterface}.
      * @return Returns 0 if the USB interface is successfully set; return an error code otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
@@ -96,6 +104,7 @@ declare namespace usb {
      *
      * @param pipe Device pipe, which is used to determine the bus number and device address {@link USBDevicePipe}.
      * @return Raw descriptor data.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
@@ -105,6 +114,7 @@ declare namespace usb {
      *
      * @param pipe Device pipe, which is used to determine the bus number and device address {@link USBDevicePipe}.
      * @return File descriptor of the USB device.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getFileDescriptor(pipe: USBDevicePipe): number;
@@ -117,6 +127,7 @@ declare namespace usb {
      * @param timeout Timeout duration. This parameter is optional. The default value is 0, indicating no timeout.
      * @return Returns the size of the transmitted or received data block if the control transfer is successful; 
      * return -1 if an exception occurs. 
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function controlTransfer(pipe: USBDevicePipe, contrlparam: USBControlParams, timeout?: number): Promise<number>;
@@ -130,6 +141,7 @@ declare namespace usb {
      * @param timeout Timeout duration. This parameter is optional. The default value is 0, indicating no timeout.
      * @return Returns the size of the transmitted or received data block if the control transfer is successful; 
      * return -1 if an exception occurs. 
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array,
@@ -140,6 +152,7 @@ declare namespace usb {
      *
      * @param pipe USB device pipe {@link USBDevicePipe}.
      * @return Returns 0 if the USB device pipe is closed successfully; return an error code otherwise.
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function closePipe(pipe: USBDevicePipe): number;
