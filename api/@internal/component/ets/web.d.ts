@@ -30,6 +30,56 @@ declare enum MessageLevel {
   Warn
 }
 
+declare enum HitTestType {
+  /**
+   * The edit text.
+   * @since 8
+   */
+  Edit,
+
+  /**
+   * The email address.
+   * @since 8
+   */
+  Email,
+
+  /**
+   * The HTML::a tag with src=http.
+   * @since 8
+   */
+  Http,
+
+  /**
+   * The HTML::a tag with src=http + HTML::img.
+   * @since 8
+   */
+  HttpImg,
+
+  /**
+   * The HTML::img tag.
+   * @since 8
+   */
+  Img,
+
+  /**
+   * The map address.
+   * @since 8
+   */
+  Map,
+
+  /**
+   * The phone number.
+   * @since 8
+   */
+  Phone,
+
+  /**
+   * Other unknown hit test.
+   * @since 8
+   */
+  Unknown
+}
+
 declare class JsResult {
   /**
    * Constructor.
@@ -173,19 +223,55 @@ declare class WebController {
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
    * @since 8
    */
-  runJavaScript(jscode: string);
+  runJavaScript(jscode: string, callback?: (result: string) => void);
 
   /**
    * Indicates that a piece of code is loaded
    * @since 8
    */
-  loadData(value: { baseUrl: string, data: string, mimeType: string, encoding: string, historyUrl: string });
+  loadData(value: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
    * Load the given URL
    * @since 8
    */
-  loadUrl(url: string);
+  loadUrl(url: string, additionalHttpHeaders?: Array<{ key: string, value: string }>);
+
+  /**
+   * refreshes the current URL.
+   * @since 8
+   */
+  refresh();
+
+  /**
+   * Stops the current load.
+   * @since 8
+   */
+  stop();
+
+  /**
+   * Registers the JavaScript object and method list.
+   * @since 8
+   */
+  registerJavaScriptProxy(value: { obj: object, name: string, methodList: Array<string> });
+
+  /**
+   * Deletes a registered JavaScript object with given name.
+   * @since 8
+   */
+  deleteJavaScriptProxy(value: { name: string });
+
+  /**
+   * Get the type of hit test.
+   * @since 8
+   */
+  getHitTest(): HitTestType;
+
+  /**
+   * Get the request focus.
+   * @since 8
+   */
+  requestFocus();
 
   /**
   * Check whether the web page can go back
