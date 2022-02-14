@@ -19,7 +19,7 @@ import { AsyncCallback } from './basic';
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
  *
  * @since 8
- * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+ * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @permission N/A
  */
@@ -28,7 +28,7 @@ declare namespace inputConsumer {
     /**
      * Defines event of key that user want to subscribe or unsubscribe.
      *
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @param preKeys The pre-keys that want to subscribe or unsubscribe.
      * @param finalKey The post position key that want to subscribe or unsubscribe.
      * @param isFinalKeyDown The final key press down or up.
@@ -45,7 +45,7 @@ declare namespace inputConsumer {
      * Subscribe system keys.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
@@ -57,7 +57,7 @@ declare namespace inputConsumer {
      * Subscribe system keys.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @permission N/A
      * @param type type of the keyevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.

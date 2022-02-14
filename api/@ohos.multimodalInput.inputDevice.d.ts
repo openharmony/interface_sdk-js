@@ -19,7 +19,7 @@ import { AsyncCallback } from './basic';
  * The input device management module is configured to obtain an ID and device information of an input device.
  *
  * @since 8
- * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+ * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
  * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  * @permission N/A
  */
@@ -34,7 +34,7 @@ declare namespace inputDevice {
      * For example, a touchscreen may report information such as x, y, and pressure,
      * which indicate the x-axis coordinate, y-axis coordinate, and pressure, respectively.
      *
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @param source Input source type of the axis. For example, if a mouse reports an x-axis event, the source of the x-axis is the mouse.
      * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
      * @param max Maximum value of the data reported on this axis.
@@ -50,7 +50,7 @@ declare namespace inputDevice {
     /**
      * Defines the information about an input device.
      *
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @param name Name of the input device.
      * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
      */
@@ -65,7 +65,7 @@ declare namespace inputDevice {
      * Obtains the IDs of all input devices.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @permission N/A
      * @param callback callback function, receive reported data
      */
@@ -75,7 +75,7 @@ declare namespace inputDevice {
      * Obtain the information about an input device.
      *
      * @since 8
-     * @sysCap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
+     * @syscap SystemCapability.MultimodalInput.MULTIMODAL_INPUT
      * @permission N/A
      * @param deviceId ID of the input device whose information is to be obtained.
      * @param callback callback function, receive reported data
