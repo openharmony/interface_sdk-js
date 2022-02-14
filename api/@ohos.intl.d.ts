@@ -16,7 +16,7 @@
 /**
  * Provides internationalization related APIs.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 6
  * @devices phone, tablet, tv, wearable, car
  */
@@ -25,7 +25,7 @@ declare namespace intl {
  * Provides the options of Locale.
  *
  * @since 8
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  */
 export interface LocaleOptions {
     /**
@@ -74,14 +74,14 @@ export interface LocaleOptions {
 /**
  * Provides APIs for obtaining locale information.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 6
  */
 export class Locale {
     /**
      * A constructor used to create a Locale object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region.
      * @since 6
@@ -91,7 +91,7 @@ export class Locale {
     /**
      * Indicates the language of the locale.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 6
      */
     language: string
@@ -99,7 +99,7 @@ export class Locale {
     /**
      * Indicates the script of the locale.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 6
      */
     script: string
@@ -107,7 +107,7 @@ export class Locale {
     /**
      * Indicates the region of the locale.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 6
      */
     region: string
@@ -116,7 +116,7 @@ export class Locale {
      * Indicates the basic locale information, which is returned as a substring of
      * a complete locale string.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 6
      */
     baseName: string
@@ -154,7 +154,7 @@ export class Locale {
     /**
      * Convert the locale information to string.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns locale information in string form.
      */
     toString(): string;
@@ -162,7 +162,7 @@ export class Locale {
     /**
      * Maximize the locale's base information.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns maximized locale.
      */
     maximize(): Locale;
@@ -170,7 +170,7 @@ export class Locale {
     /**
      * Minimize the locale's base information.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns minimized locale.
      */
     minimize(): Locale;
@@ -179,7 +179,7 @@ export class Locale {
 /**
  * Provides the options of date time format.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  */
 export interface DateTimeOptions {
     /**
@@ -281,14 +281,14 @@ export interface DateTimeOptions {
 /**
  * Provides the API for formatting date strings.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 6
  */
 export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 8
      */
     constructor();
@@ -296,7 +296,7 @@ export class DateTimeFormat {
     /**
      * A constructor used to create a DateTimeFormat object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates character string containing the locale information, including
      *               the language and optionally the script and region, for the DateTimeFormat object.
      * @param options Indicates the options used to format the date.
@@ -307,7 +307,7 @@ export class DateTimeFormat {
     /**
      * Obtains the formatted date strings.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param date Indicates the Date object to be formatted.
      * @return Returns a date string formatted based on the specified locale.
      * @since 6
@@ -317,7 +317,7 @@ export class DateTimeFormat {
     /**
      * Obtains the formatted date strings of a date range.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param startDate Indicates the start date of the date range.
      * @param endDate Indicates the end date of the date range.
      * @return Returns a date string formatted based on the specified locale.
@@ -328,7 +328,7 @@ export class DateTimeFormat {
     /**
      * Obtains the options of the DateTimeFormat object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns the options of the DateTimeFormat object.
      * @since 6
      */
@@ -338,7 +338,7 @@ export class DateTimeFormat {
 /**
  * Provides the options of number format.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  */
 export interface NumberOptions {
     /**
@@ -440,21 +440,21 @@ export interface NumberOptions {
 /**
  * Provides the API for formatting number strings.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  */
 export class NumberFormat {
     /**
      * A constructor used to create a NumberFormat object.
      *
-     * @sysCap SystemCapability.I18N
-     * @since 6
+     * @sysCap SystemCapability.Global.I18n
+     * @since 8
      */
     constructor();
 
     /**
      * A constructor used to create a NumberFormat object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the NumberFormat object.
      * @param options Indicates the options used to format the number.
@@ -465,7 +465,7 @@ export class NumberFormat {
     /**
      * Obtains the formatted number string.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param number Indicates the number to be formatted.
      * @return Returns a number string formatted based on the specified locale.
      * @since 6
@@ -475,7 +475,7 @@ export class NumberFormat {
     /**
      * Obtains the options of the NumberFormat object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns the options of the NumberFormat object.
      * @since 6
      */
@@ -485,7 +485,7 @@ export class NumberFormat {
 /**
  * Provides the options of Collator
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export interface CollatorOptions {
@@ -534,21 +534,21 @@ export interface CollatorOptions {
 /**
  * Enable language-sensitive string comparison.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export class Collator {
     /**
      * A constructor used to create Collator object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 8
      */
     constructor();
     /**
      * A constructor used to create Collator Object;
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the Collator object.
      * @param options Indicates the options used to initialize Collator object.
@@ -559,7 +559,7 @@ export class Collator {
     /**
      * compares two strings according to the sort order of this Collator object
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param first The first string to compare.
      * @param second The second string to compare.
      * @return Returns a number indicating how first compare to second:
@@ -574,7 +574,7 @@ export class Collator {
      * Returns a new object with properties reflecting the locale and collation options computed
      * during initialization of the object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @return Returns a CollatorOptions object reflecting the properties of this object.
      * @since 8
      */
@@ -584,7 +584,7 @@ export class Collator {
 /**
  * Provides the options of PluralRules
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export interface PluralRulesOptions {
@@ -634,14 +634,14 @@ export interface PluralRulesOptions {
 /**
  * Enables plural-sensitive formatting and plural-related language rules.
  *
- * @sysCap SystemCapability.I18N
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @since 8
      */
     constructor();
@@ -649,7 +649,7 @@ export class PluralRules {
     /**
      * A constructor used to create PluralRules object.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the PluralRules object.
      * @param options Indicates the options used to initialize PluralRules object.
@@ -660,7 +660,7 @@ export class PluralRules {
     /**
      * Returns a string indicating which plural rule to use for locale-aware formatting.
      *
-     * @sysCap SystemCapability.I18N
+     * @sysCap SystemCapability.Global.I18n
      * @param n The number to get a plural rule for.
      * @return A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.

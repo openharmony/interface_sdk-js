@@ -20,18 +20,20 @@ import Want from './@ohos.application.Want';
 /**
  * class of service extension.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @systemapi hide for inner use.
+ * @StageModelOnly
  */
 export default class ServiceExtension {
     /**
      * Indicates service extension context.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @systemapi hide for inner use.
+     * @StageModelOnly
      */
     context: ServiceExtensionContext;
 
@@ -39,10 +41,11 @@ export default class ServiceExtension {
      * Called back when a service extension is started for initialization.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onCreate(want: Want): void;
 
@@ -50,10 +53,11 @@ export default class ServiceExtension {
      * Called back before a service extension is destroyed.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onDestroy(): void;
 
@@ -61,7 +65,7 @@ export default class ServiceExtension {
      * Called back when a service extension is started.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param want Indicates the want of service extension to start.
      * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
@@ -69,6 +73,7 @@ export default class ServiceExtension {
      *     has been started for six times.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onRequest(want: Want, startId: number): void;
 
@@ -76,11 +81,12 @@ export default class ServiceExtension {
      * Called back when a service extension is first connected to an ability.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
      * @return Returns the proxy of the Service ability.
+     * @StageModelOnly
      */
     onConnect(want: Want): rpc.RemoteObject;
 
@@ -88,11 +94,12 @@ export default class ServiceExtension {
      * Called back when all abilities connected to a service extension are disconnected.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onDisconnect(want: Want): void;
 
@@ -101,11 +108,12 @@ export default class ServiceExtension {
      * are disconnected.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onReconnect(want: Want): void;
 }

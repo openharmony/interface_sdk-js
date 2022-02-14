@@ -116,6 +116,24 @@ interface DatePickerInterface {
  */
 declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: DatePickerOption): DatePickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): DatePickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): DatePickerAttribute;
+
+  /**
    * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
    * @since 8
    */

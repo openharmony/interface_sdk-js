@@ -25,6 +25,7 @@ import rdb from '../@ohos.data.rdb';
  * @devices phone, tablet
  *
  * @since 7
+ * @FAModelOnly
  */
 export interface DataAbilityHelper {
     /**
@@ -40,6 +41,7 @@ export interface DataAbilityHelper {
      *             any existing data, or "rwt" for read and write access that truncates any existing file.
      * @param callback Indicates the callback when openfile success
      * @return Returns the file descriptor.
+     * @FAModelOnly
      */
     openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
     openFile(uri: string, mode: string): Promise<number>;
@@ -54,6 +56,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to operate.
      * @param callback Indicates the callback when dataChange.
      * @return -
+     * @FAModelOnly
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -67,6 +70,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to operate.
      * @param callback Indicates the registered callback.
      * @return -
+     * @FAModelOnly
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -78,6 +82,7 @@ export interface DataAbilityHelper {
      * @SysCap AAFwk
      * @param uri Indicates the path of the data to operate.
      * @return Returns the MIME type that matches the data specified by uri.
+     * @FAModelOnly
      */
     getType(uri: string, callback: AsyncCallback<string>): void;
     getType(uri: string): Promise<string>;
@@ -91,6 +96,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the files to obtain.
      * @param mimeTypeFilter Indicates the MIME types of the files to obtain.
      * @return Returns the matched MIME types Array.
+     * @FAModelOnly
      */
     getFileTypes(uri: string,  mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
     getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
@@ -103,6 +109,7 @@ export interface DataAbilityHelper {
      * @SysCap AAFwk
      * @param uri Indicates the uri object to normalize.
      * @return Returns the normalized uri object if the Data ability supports URI normalization or null.
+     * @FAModelOnly
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
     normalizeUri(uri: string): Promise<string>;
@@ -115,6 +122,7 @@ export interface DataAbilityHelper {
      * @SysCap AAFwk
      * @param uri Indicates the uri object to normalize.
      * @return Returns the denormalized uri object if the denormalization is successful.
+     * @FAModelOnly
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
     denormalizeUri(uri: string): Promise<string>;
@@ -127,6 +135,7 @@ export interface DataAbilityHelper {
      * @SysCap AAFwk
      * @param uri Indicates the path of the data to operate.
      * @return -
+     * @FAModelOnly
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
     notifyChange(uri: string): Promise<void>;
@@ -140,6 +149,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to insert.
      * @param valuesBucket Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
      * @return Returns the index of the inserted data record.
+     * @FAModelOnly
      */
     insert(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
     insert(uri: string, valuesBucket: rdb.ValuesBucket): Promise<number>;
@@ -153,6 +163,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to batchInsert.
      * @param valuesBuckets Indicates the data records to insert.
      * @return Returns the number of data records inserted.
+     * @FAModelOnly
      */
     batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
     batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>): Promise<number>;
@@ -166,6 +177,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to delete.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the number of data records deleted.
+     * @FAModelOnly
      */
     delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
     delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -180,6 +192,7 @@ export interface DataAbilityHelper {
      * @param valuesBucket Indicates the data to update.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the number of data records updated.
+     * @FAModelOnly
      */
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -194,6 +207,7 @@ export interface DataAbilityHelper {
      * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the query result {@link ResultSet}.
+     * @FAModelOnly
      */
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;

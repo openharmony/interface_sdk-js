@@ -35,7 +35,19 @@ interface EllipseInterface {
 /**
  * @since 7
  */
-declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
+declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): EllipseAttribute;
+}
 
 declare const Ellipse: EllipseInterface;
 declare const EllipseInstance: EllipseAttribute;

@@ -49,6 +49,24 @@ interface TextPickerInterface {
  */
 declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: TextPickerOption): TextPickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TextPickerAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextPickerAttribute;
+
+  /**
    * Called when the default height of the selected element is set.
    * @since 8
    */

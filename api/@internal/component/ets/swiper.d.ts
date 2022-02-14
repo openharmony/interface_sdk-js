@@ -78,6 +78,24 @@ interface SwiperInterface {
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(controller?: SwiperController): SwiperAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): SwiperAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SwiperAttribute;
+
+  /**
    * Called when the index value of the displayed subcomponent is set in the container.
    * @since 7
    */
@@ -155,6 +173,11 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    */
   disableSwipe(value: boolean): SwiperAttribute;
 
+  /**
+   * Called when sliding is curve
+   * @since 8
+   */
+  curve(value: Curve | string): SwiperAttribute;
   /**
    * Called when the index value changes.
    * @since 7

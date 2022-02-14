@@ -16,6 +16,7 @@
 import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
+import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -61,6 +62,67 @@ declare namespace appManager {
      */
      function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
      function getForegroundApplications(): Promise<Array<AppStateData>>;
+
+    /**
+     * Kill process with account.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @SysCap appexecfwk
+     * @param bundleName The process bundle name.
+     * @param accountId The account id.
+     * @systemapi hide this for inner system use
+     * @return -
+     */
+    function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
+    function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
+
+     /**
+     * Is user running in stability test.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @SysCap appexecfwk
+     * @return Returns true if user is running stability test.
+     */
+      function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
+      function isRunningInStabilityTest(): Promise<boolean>;
+
+    /**
+    * Get information about running processes
+    *
+    * @devices phone, tablet, tv, wearable, car
+    * @since 8
+    * @SysCap appexecfwk
+    * @systemapi Hide this for inner system use.
+    * @return -
+    */
+    function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
+    function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
+
+    /**
+     * Kill processes by bundle name
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     * @devices phone, tablet, tv, wearable, car
+     * @param bundleName bundle name.
+     * @permission ohos.permission.DELETE_MISSIONS
+     * @systemapi hide this for inner system use
+     */
+     function killProcessesByBundleName(bundleName: string): Promise<void>;
+     function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+
+    /**
+     * Clear up application data by bundle name
+     * @since 8
+     * @SysCap SystemCapability.Appexecfwk
+     * @devices phone, tablet, tv, wearable, car
+     * @param bundleName bundle name.
+     * @permission ohos.permission.DELETE_MISSIONS
+     * @systemapi hide this for inner system use
+     */
+     function clearUpApplicationData(bundleName: string): Promise<void>;
+     function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 }
 
 export default appManager;

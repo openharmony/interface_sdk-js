@@ -21,7 +21,7 @@ interface TextClockInterface {
   /**
    * Construct the text clock component.
    * Specifies the current time zone.
-   * The valid value is an integer ranging from - 12 to 12,
+   * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
    * @since 8
    */
@@ -29,6 +29,24 @@ interface TextClockInterface {
 }
 
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options?: {hourswest?: number}): TextClockAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TextClockAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TextClockAttribute;
+
   /**
    * set display time format，such as "yyyy/mm/dd"、“yyyy-mm-dd".
    * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),

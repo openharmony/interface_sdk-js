@@ -49,6 +49,24 @@ interface SelectInterface {
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options: Array<SelectOption>): SelectAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): SelectAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): SelectAttribute;
+
+  /**
    * Sets the serial number of the select item, starting from 0.
    * @since 8
    */
@@ -112,7 +130,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Callback for selecting an item from the select.
    * @since 8
    */
-  onSelected(event: (index: number) => void): SelectAttribute;
+  onSelected(event: (index: number, value?: string) => void): SelectAttribute;
 }
 
 declare const Select: SelectInterface;

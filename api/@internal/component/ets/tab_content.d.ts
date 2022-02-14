@@ -31,6 +31,24 @@ interface TabContentInterface {
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(): TabContentAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): TabContentAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): TabContentAttribute;
+
+  /**
    * Called when tabbar is entered.
    * @since 7
    */

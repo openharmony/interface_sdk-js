@@ -55,7 +55,7 @@ export default class ApplicationStateObserver {
      * Will be called when extension state changed.
      *
      * @devices phone, tablet, tv, wearable, car
-     * @since 8
+     * @since 9
      * @sysCap appexecfwk
      * @param abilityStateData State changed extension info.
      * @systemapi hide for inner use.

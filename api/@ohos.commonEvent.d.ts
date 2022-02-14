@@ -22,6 +22,7 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  * the defination for commonevent
  * @name commonEvent
  * @since 7
+ * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
  */
 declare namespace commonEvent {
@@ -29,7 +30,7 @@ declare namespace commonEvent {
    * Publishes an ordered, sticky, or standard common event.
    *
    * @since 7
-   * @param event Specified the names of the common events.
+   * @param event name of the common event.
    * @param callback Specified callback method.
    * @return -
    */
@@ -39,7 +40,7 @@ declare namespace commonEvent {
    * Publishes an ordered, sticky, or standard common event.
    *
    * @since 7
-   * @param event Specified the names of the common events.
+   * @param event name of the common event.
    * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
@@ -88,8 +89,7 @@ declare namespace commonEvent {
    *
    * @since 7
    * @param subscribeInfo Indicate the information of the subscriber.
-   * @param callback Specified callback method.
-   * @return -
+   * @return Returns common event subscriber object
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -910,7 +910,13 @@ declare namespace commonEvent {
      * Indicates the common event Action indicating that the airplane mode status of the device changes.
      * Users can register this event to listen to the change of the airplane mode status of the device.
      */
-    COMMON_EVENT_AIRPLANE_MODE_CHANGED = "usual.event.AIRPLANE_MODE"
+    COMMON_EVENT_AIRPLANE_MODE_CHANGED = "usual.event.AIRPLANE_MODE",
+
+    /**
+     * sent by the window manager service when the window mode is split.
+     * @since 8
+     */
+    COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN"
   }
 }
 

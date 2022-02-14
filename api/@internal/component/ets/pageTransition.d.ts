@@ -116,6 +116,12 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
    * @since 7
    */
   onEnter(event: (type?: RouteType, progress?: number) => void): PageTransitionEnterInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionEnterInterface;
 }
 
 /**
@@ -134,6 +140,12 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * @since 7
    */
   onExit(event: (type?: RouteType, progress?: number) => void): PageTransitionExitInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: { type?: RouteType; duration?: number; curve?: Curve | string; delay?: number }): PageTransitionExitInterface;
 }
 
 declare const PageTransitionEnter: PageTransitionEnterInterface;

@@ -22,26 +22,91 @@ declare enum SeekMode {
    * Sync to keyframes before the time point.
    * @since 8
    */
-  PreviousSync,
+  PreviousKeyframe,
 
   /**
    * Sync to keyframes after the time point.
    * @since 8
    */
-  NextSync,
+  NextKeyframe,
 
   /**
    * Sync to closest keyframes.
    * @since 8
    */
-  ClosestSync,
+  ClosestKeyframe,
 
    /**
    * Seek to frames closest the time point.
    * @since 8
    */
-  Closest,
+  Accurate,
 }
+
+/**
+ * playback speed.
+ * @since 8
+ */
+declare enum PlaybackSpeed {
+    /**
+     * 0.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_0_75_X,
+  
+    /**
+     * 1.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_00_X,
+  
+    /**
+     * 1.25x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_25_X,
+  
+    /**
+     * 1.75x speed playback.
+     * @since 8
+     */
+    Speed_Forward_1_75_X,
+  
+    /**
+     * 2.00x speed playback.
+     * @since 8
+     */
+    Speed_Forward_2_00_X,
+  }
+  
+  /**
+   * @since 7
+   */
+  interface VideoOption {
+    /**
+     * src of video.
+     * @since 7
+     */
+    src?: string | Resource;
+  
+    /**
+     * playback rate of video.
+     * @since 7
+     */
+    currentProgressRate?: number | string | PlaybackSpeed;
+  
+    /**
+     * preview uri of video.
+     * @since 8
+     */
+    previewUri?: string | PixelMap | Resource;
+  
+    /**
+     * controller of video.
+     * @since 7
+     */
+    controller?: VideoController;
+  }
 
 /**
  * @since 7
@@ -66,6 +131,12 @@ declare class VideoController {
   pause();
 
   /**
+   * Provides an event to stop playback.
+   * @since 6
+   */
+  stop();
+
+  /**
    * Provide the progress method of video playback.
    * @since 7
    */
@@ -86,17 +157,29 @@ interface VideoInterface {
    * Set the value.
    * @since 7
    */
-  (value: {
-    src?: string | Resource;
-    previewUri?: string | PixelMap | Resource;
-    controller?: VideoController;
-  }): VideoAttribute;
+  (value: VideoOption): VideoAttribute;
 }
 
 /**
  * @since 7
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: {
+    src?: string | Resource;
+    previewUri?: string | PixelMap | Resource;
+    controller?: VideoController;
+  }): VideoAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): VideoAttribute;
+
   /**
    * Called when judging whether the video is muted.
    * @since 7

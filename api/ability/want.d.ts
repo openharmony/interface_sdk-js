@@ -106,7 +106,7 @@ export declare interface Want {
   /**
    * The description of a extension ability name in a Want.
    * @devices phone, tablet
-   * @since 8
+   * @since 9
    * @sysCap AAFwk
    * @default -
    */
@@ -115,7 +115,7 @@ export declare interface Want {
   /**
    * The description of a extension ability type in a Want.
    * @devices phone, tablet
-   * @since 8
+   * @since 9
    * @sysCap AAFwk
    * @default -
    */

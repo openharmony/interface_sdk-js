@@ -53,7 +53,19 @@ interface CircleInterface {
  * Circle drawing component attribute functions.
  * @since 7
  */
-declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
+declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: CircleOption): CircleAttribute;
+
+   /**
+    * Just use for genetate tsbundle
+    * @ignore ide should ignore this arrtibute
+    */
+  debugLine(value: string): CircleAttribute;
+}
 
 declare const Circle: CircleInterface;
 declare const CircleInstance: CircleAttribute;

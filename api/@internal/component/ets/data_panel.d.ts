@@ -74,6 +74,24 @@ interface DataPanelInterface {
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(options: DataPanelOption): DataPanelAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): DataPanelAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): DataPanelAttribute;
+
+  /**
    * Disable the special effect of the data ratio chart.
    * @since 7
    */

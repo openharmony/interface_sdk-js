@@ -19,6 +19,7 @@ import { Callback } from './basic';
  * Provides methods for sending and processing in-process events.
  *
  * @since 7
+ * @syscap SystemCapability.Notification.Emitter
  * @import import events_emitter from '@ohos.emitter';
  * @permission N/A
  */

@@ -93,6 +93,28 @@ interface LazyForEachInterface {
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
   ): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    dataSource: IDataSource,
+    itemGenerator: (item: any, index?: number) => void,
+    keyGenerator?: (item: any, index?: number) => string,
+  ): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): LazyForEachInterface;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): LazyForEachInterface; 
 }
 
 /**

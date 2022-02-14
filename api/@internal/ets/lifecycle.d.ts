@@ -33,6 +33,7 @@ import { PacMap } from "../ability/dataAbilityHelper";
  * @since 7
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 export declare interface LifecycleForm {
   /**
@@ -48,6 +49,7 @@ export declare interface LifecycleForm {
    *               respectively. Such form information must be managed as persistent data for further form
    *               acquisition, update, and deletion.
    * @return Returns the created {@link formBindingData#FormBindingData} object.
+   * @FAModelOnly
    */
   onCreate?(want: Want): formBindingData.FormBindingData;
 
@@ -59,6 +61,7 @@ export declare interface LifecycleForm {
    * @sysCap AAFwk
    * @param formId Indicates the ID of the form.
    * @return -
+   * @FAModelOnly
    */
   onCastTempToNormal?(formId: string): void;
 
@@ -70,6 +73,7 @@ export declare interface LifecycleForm {
    * @sysCap AAFwk
    * @param formId Indicates the ID of the form to update.
    * @return -
+   * @FAModelOnly
    */
   onUpdate?(formId: string): void;
 
@@ -85,6 +89,7 @@ export declare interface LifecycleForm {
    *    means that the form becomes visible, and {@link formManager#VisibilityType#FORM_INVISIBLE}
    *    means that the form becomes invisible.
    * @return -
+   * @FAModelOnly
    */
   onVisibilityChanged?(newStatus: { [key: string]: number }): void;
 
@@ -100,6 +105,7 @@ export declare interface LifecycleForm {
    * @param message Indicates the value of the {@code params} field of the message event. This parameter is
    *                used to identify the specific component on which the event is triggered.
    * @return -
+   * @FAModelOnly
    */
   onTriggerEvent?(formId: string, message: string): void;
 
@@ -112,6 +118,7 @@ export declare interface LifecycleForm {
    * @sysCap AAFwk
    * @param formId Indicates the ID of the deleted form.
    * @return -
+   * @FAModelOnly
    */
   onDelete?(formId: string): void;
 
@@ -127,6 +134,7 @@ export declare interface LifecycleForm {
    * @param want Indicates the description of the form for which the {@link formManager#FormState} is obtained.
    *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
    * @return Returns the {@link formManager#FormState} object.
+   * @FAModelOnly
    */
   onAcquireFormState?(want: Want): formManager.FormState;
 }
@@ -138,6 +146,7 @@ export declare interface LifecycleForm {
  * @since 7
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 export declare interface LifecycleApp {
   /**
@@ -147,6 +156,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onShow?(): void;
 
@@ -157,6 +167,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onHide?(): void;
 
@@ -167,6 +178,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onDestroy?(): void;
 
@@ -177,6 +189,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onCreate?(): void;
 
@@ -192,6 +205,7 @@ export declare interface LifecycleApp {
    * @param newConfig Indicates the new configuration information about this Page ability.
    * @return -
    * @systemapi hide for inner use.
+   * @FAModelOnly
    */
   onWindowDisplayModeChanged?(isShownInMultiWindow: boolean, newConfig: resourceManager.Configuration): void;
 
@@ -202,6 +216,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
+   * @FAModelOnly
    */
   onStartContinuation?(): boolean;
 
@@ -215,6 +230,7 @@ export declare interface LifecycleApp {
    * @sysCap AAFwk
    * @param data Indicates the user data to save.
    * @return Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
+   * @FAModelOnly
    */
   onSaveData?(data: Object): boolean;
 
@@ -230,6 +246,7 @@ export declare interface LifecycleApp {
    * @param result Indicates the migration result code. The value {@code 0} indicates that the migration is
    *               successful, and {@code -1} indicates that the migration fails.
    * @return -
+   * @FAModelOnly
    */
   onCompleteContinuation?(result: number): void;
 
@@ -243,6 +260,7 @@ export declare interface LifecycleApp {
    * @sysCap AAFwk
    * @param data Indicates the user data to restore.
    * @return -
+   * @FAModelOnly
    */
   onRestoreData?(data: Object): void;
 
@@ -254,6 +272,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onRemoteTerminated?(): void;
 
@@ -268,6 +287,7 @@ export declare interface LifecycleApp {
    * @param outState Indicates the {@code PacMap} object used for storing user data and states. This
    * parameter cannot be null.
    * @return -
+   * @FAModelOnly
    */
   onSaveAbilityState?(outState: PacMap): void;
 
@@ -282,6 +302,7 @@ export declare interface LifecycleApp {
    * @param inState Indicates the {@code PacMap} object used for storing data and states. This
    * parameter can not be null.
    * @return -
+   * @FAModelOnly
    */
   onRestoreAbilityState?(inState: PacMap): void;
 
@@ -293,6 +314,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onInactive?(): void;
 
@@ -303,6 +325,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onActive?(): void;
 
@@ -314,6 +337,7 @@ export declare interface LifecycleApp {
    * @sysCap AAFwk
    * @param want Indicates the new {@code want} containing information about the ability.
    * @return -
+   * @FAModelOnly
    */
   onNewWant?(want: Want): void;
 
@@ -326,6 +350,7 @@ export declare interface LifecycleApp {
    * @sysCap AAFwk
    * @param level Indicates the memory trim level, which shows the current memory usage status.
    * @return -
+   * @FAModelOnly
    */
   onMemoryLevel?(level: number): void;
 }
@@ -337,6 +362,7 @@ export declare interface LifecycleApp {
  * @since 7
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 export declare interface LifecycleService {
   /**
@@ -347,6 +373,7 @@ export declare interface LifecycleService {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onStart?(): void;
 
@@ -361,6 +388,7 @@ export declare interface LifecycleService {
    *     incremented by 1 every time the ability is started. For example, if the ability has been started
    *     for six times.
    * @return -
+   * @FAModelOnly
    */
   onCommand?(want: Want, startId: number): void;
 
@@ -371,6 +399,7 @@ export declare interface LifecycleService {
    * @since 7
    * @sysCap AAFwk
    * @return -
+   * @FAModelOnly
    */
   onStop?(): void;
 
@@ -382,6 +411,7 @@ export declare interface LifecycleService {
    * @sysCap AAFwk
    * @param want Indicates connection information about the Service ability.
    * @return Returns the proxy of the Service ability.
+   * @FAModelOnly
    */
   onConnect?(want: Want): rpc.RemoteObject;
 
@@ -393,6 +423,7 @@ export declare interface LifecycleService {
    * @sysCap AAFwk
    * @param want Indicates disconnection information about the Service ability.
    * @return -
+   * @FAModelOnly
    */
   onDisconnect?(want: Want): void;
 
@@ -408,6 +439,7 @@ export declare interface LifecycleService {
    * @sysCap AAFwk
    * @param want Indicates the want of the Service ability being connected.
    * @return -
+   * @FAModelOnly
    */
   onReconnect?(want: Want): void;
 }
@@ -419,6 +451,7 @@ export declare interface LifecycleService {
  * @since 7
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
+ * @FAModelOnly
  */
 export declare interface LifecycleData {
   /**
@@ -433,6 +466,7 @@ export declare interface LifecycleData {
    *                   default.
    * @return Returns the number of data records updated.
    * @return -
+   * @FAModelOnly
    */
   async update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): number;
 
@@ -448,6 +482,7 @@ export declare interface LifecycleData {
    * @param predicates Indicates filter criteria. If this parameter is null, all data records will be queried by
    *                   default.
    * @return Returns the queried data.
+   * @FAModelOnly
    */
   async query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): ResultSet;
 
@@ -461,6 +496,7 @@ export declare interface LifecycleData {
    * @param predicates Indicates filter criteria. If this parameter is null, all data records will be deleted by
    *     default.
    * @return Returns the number of data records deleted.
+   * @FAModelOnly
    */
   async delete?(uri: string, predicates: dataAbility.DataAbilityPredicates): number;
 
@@ -472,6 +508,7 @@ export declare interface LifecycleData {
    * @sysCap AAFwk
    * @param ops Indicates the data operation list, which can contain multiple operations on the database.
    * @return Returns the result of each operation, in array.
+   * @FAModelOnly
    */
   async executeBatch?(ops: Array<DataAbilityOperation>): Array<DataAbilityResult>;
 
@@ -485,6 +522,7 @@ export declare interface LifecycleData {
    * @sysCap AAFwk
    * @param uri Indicates the uri to normalize.
    * @return Returns the normalized uri if the Data ability supports URI normalization;
+   * @FAModelOnly
    */
   normalizeUri?(uri: string): string;
 
@@ -497,6 +535,7 @@ export declare interface LifecycleData {
    * @param uri Indicates the position where the data is to insert.
    * @param valueBuckets Indicates the data to insert.
    * @return Returns the number of data records inserted.
+   * @FAModelOnly
    */
   async batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>): number;
 
@@ -511,6 +550,7 @@ export declare interface LifecycleData {
    * @return Returns the denormalized {@code uri} object if the denormalization is successful; returns the original
    * {@code uri} passed to this method if there is nothing to do; returns {@code null} if the data identified by
    * the original {@code uri} cannot be found in the current environment.
+   * @FAModelOnly
    */
   denormalizeUri?(uri: string): string;
 
@@ -523,6 +563,7 @@ export declare interface LifecycleData {
    * @param uri Indicates the position where the data is to insert.
    * @param valueBucket Indicates the data to insert.
    * @return Returns the index of the newly inserted data record.
+   * @FAModelOnly
    */
   async insert?(uri: string, valueBucket: rdb.ValuesBucket): number;
 
@@ -538,6 +579,7 @@ export declare interface LifecycleData {
    *     "wa" for write-only access to append to any existing data, "rw" for read and write access on any
    *     existing data, or "rwt" for read and write access that truncates any existing file.
    * @return Returns the file descriptor.
+   * @FAModelOnly
    */
   async openFile?(uri: string, mode: string): number;
 
@@ -554,6 +596,7 @@ export declare interface LifecycleData {
    *     <p>2. "image/*": Obtains files whose main type is image of any subtype.
    *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
    * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
+   * @FAModelOnly
    */
   getFileTypes?(uri: string, mimeTypeFilter: string): Array<string>;
 
@@ -567,6 +610,7 @@ export declare interface LifecycleData {
    * @param arg Indicates the parameter transferred by the method.
    * @param extras Indicates the parameter transferred by the method.
    * @return Returns the result of the method.
+   * @FAModelOnly
    */
   async call?(method: string, arg: string, extras: PacMap): PacMap;
 
@@ -578,6 +622,7 @@ export declare interface LifecycleData {
    * @sysCap AAFwk
    * @param info Indicates the {@code AbilityInfo} object containing information about this ability.
    * @return -
+   * @FAModelOnly
    */
   onInitialized?(info: AbilityInfo): void;
 
@@ -592,6 +637,7 @@ export declare interface LifecycleData {
    * @sysCap AAFwk
    * @param uri Indicates the uri of the data.
    * @return Returns the MIME type that matches the data specified by {@code uri}.
+   * @FAModelOnly
    */
   getType?(uri: string): string;
 }

@@ -70,6 +70,24 @@ interface ScrollBarInterface {
 /**
  * @since 8
  */
-declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
+declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: ScrollBarOption): ScrollBarAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ScrollBarAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ScrollBarAttribute;
+}
 declare const ScrollBar: ScrollBarInterface;
 declare const ScrollBarInstance: ScrollBarAttribute;

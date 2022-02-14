@@ -84,6 +84,24 @@ interface ListItemInterface {
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: string): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ListItemAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ListItemAttribute;
+ 
+  /**
    * Called when setting whether item is ceiling effect.
    * @since 7
    */
@@ -94,6 +112,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 7
    */
   editable(value: boolean | EditMode): ListItemAttribute;
+
+  /**
+   * Called when judging whether it is selectable.
+   * @since 8
+   */
+  selectable(value: boolean): ListItemAttribute;
+
+  /**
+   * Called when the listItem is selected.
+   * @since 8
+   */
+  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**

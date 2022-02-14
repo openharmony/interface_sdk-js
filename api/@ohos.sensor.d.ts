@@ -18,8 +18,7 @@ import { AsyncCallback } from './basic';
  * This module provides the capability to subscribe to sensor data.
  *
  * @since 8
- * @sysCap SystemCapability.Sensors.Sensor
- * @devices phone, tablet
+ * @syscap SystemCapability.Sensors.Sensor
  * @import import sensor from '@ohos.sensor'
  * @permission ohos.permission.ACCELEROMETER, ohos.permission.GRYOSCOPE,
  *             ohos.permission.ACTIVITY_MOTION, ohos.permission.HEALTH_DATA
@@ -30,6 +29,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @permission ohos.permission.ACCELEROMETER
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: AsyncCallback<AccelerometerResponse>,
@@ -40,6 +40,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @permission ohos.permission.ACCELEROMETER
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: AsyncCallback<AccelerometerUncalibratedResponse>,
@@ -49,6 +50,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -59,6 +61,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -69,6 +72,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -79,6 +83,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -89,6 +94,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.GRYOSCOPE
      * @since 8
      */
@@ -99,6 +105,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.GRYOSCOPE
      * @since 8
      */
@@ -109,6 +116,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -119,6 +127,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
      */
@@ -129,6 +138,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -139,6 +149,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
@@ -149,6 +160,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -159,6 +171,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -169,6 +182,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -179,6 +193,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
@@ -189,6 +204,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
@@ -199,6 +215,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -209,6 +226,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -219,6 +237,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -229,6 +248,7 @@ declare namespace sensor {
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -238,6 +258,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
@@ -246,6 +267,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
@@ -254,6 +276,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -262,6 +285,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -270,6 +294,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -278,6 +303,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -286,6 +312,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
@@ -294,6 +321,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
@@ -302,6 +330,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -310,6 +339,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEART_RATE
      * @since 8
      */
@@ -318,6 +348,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -326,6 +357,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELERATION
      * @since 8
      */
@@ -334,6 +366,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -342,6 +375,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -350,6 +384,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -358,6 +393,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
@@ -366,6 +402,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
@@ -374,6 +411,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -382,6 +420,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -390,6 +429,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -398,6 +438,7 @@ declare namespace sensor {
     /**
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -406,6 +447,7 @@ declare namespace sensor {
     /**
      * Unsubscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
@@ -413,8 +455,8 @@ declare namespace sensor {
 
     /**
      * Indicates geographic location.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface LocationOptions {
         latitude: number;
@@ -424,8 +466,8 @@ declare namespace sensor {
 
     /**
      * Indicates geomagnetic field data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface GeomagneticResponse {
         x: number;
@@ -438,25 +480,27 @@ declare namespace sensor {
     }
 
    /**
-   * Implements the calculation of the geomagnetic field at a specific location on Earth.
-   *
-   * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
-   * since the Unix epoch.
-   * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
-   * @since 8
-   */
+     * Implements the calculation of the geomagnetic field at a specific location on Earth.
+     *
+     * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
+     * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
+     * since the Unix epoch.
+     * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
 
    /**
-   * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   *
-   * @param seaPressure Indicates the sea level pressure, in hPa.
-   * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @return Returns the altitude in meters at which the device is located.
-   * @since 8
-   */
+     * Obtains the altitude at which the device is located based on the current atmospheric pressure.
+     *
+     * @param seaPressure Indicates the sea level pressure, in hPa.
+     * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+     * @return Returns the altitude in meters at which the device is located.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
     function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
     function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
 
@@ -465,6 +509,7 @@ declare namespace sensor {
      *
      * @param inclinationMatrix Indicates the inclination matrix.
      * @return Returns the geomagnetic inclination angle in radians.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
@@ -476,6 +521,7 @@ declare namespace sensor {
      * @param currentRotationMatrix Indicates the current rotation matrix.
      * @param preRotationMatrix Indicates the current rotation matrix.
      * @return Returns the array of number(z, x and y) in which the angle variety.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function getAngleModifiy(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
@@ -487,6 +533,7 @@ declare namespace sensor {
      *
      * @param rotationVector Indicates the rotation vector.
      * @return Returns the rotation matrix.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
@@ -495,8 +542,8 @@ declare namespace sensor {
     /**
      * Indicates the axis of the new coordinate system that coincides with the XY axis of the
      * original coordinate system.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface CoordinatesOptions {
         /** Indicates the axis of the new coordinate system that coincides with the X axis of
@@ -515,6 +562,7 @@ declare namespace sensor {
      * @param inRotationVector Indicates the rotation matrix to be transformed.
      * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
      * @return Returns the transformed rotation matrix.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
@@ -526,6 +574,7 @@ declare namespace sensor {
      *
      * @param rotationVector Indicates the rotation vector.
      * @return Returns the normalized quaternion.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
@@ -536,6 +585,7 @@ declare namespace sensor {
      *
      * @param rotationMatrix Indicates the rotation matrix.
      * @return Returns the array is the angle of rotation around the z, x, y axis.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
@@ -543,8 +593,8 @@ declare namespace sensor {
 
     /**
      * Indicates the response of rotation matrix.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface RotationMatrixResponse {
         rotation: Array<number>;
@@ -564,8 +614,8 @@ declare namespace sensor {
 
     /**
      * Subscribe to the sensor's optional parameters.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface Options {
         interval?: number; /**< Sensor event reporting event interval */
@@ -573,8 +623,8 @@ declare namespace sensor {
 
     /**
      * The type of sensor.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     enum SensorType {
         SENSOR_TYPE_ID_ACCELEROMETER = 1,          /**< Acceleration sensor */
@@ -602,8 +652,8 @@ declare namespace sensor {
 
     /**
      * The basic data structure of the sensor event.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface Response {
         timestamp: number; /**< The timestamp of the reported sensor data */
@@ -611,8 +661,8 @@ declare namespace sensor {
 
     /**
      * Acceleration sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface AccelerometerResponse extends Response {
         x: number; /**< Acceleration x-axis component */
@@ -622,8 +672,8 @@ declare namespace sensor {
 
     /**
      * Linear acceleration sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface LinearAccelerometerResponse extends Response{
         x: number; /**< Linear acceleration x-axis component */
@@ -633,8 +683,8 @@ declare namespace sensor {
 
     /**
      * Acceleration uncalibrated sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface AccelerometerUncalibratedResponse extends Response {
         x: number; /**< Acceleration uncalibrated x-axis component */
@@ -647,8 +697,8 @@ declare namespace sensor {
 
     /**
      * Gravity sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface GravityResponse extends Response {
         x: number; /**< Gravity x-axis component */
@@ -658,8 +708,8 @@ declare namespace sensor {
 
     /**
      * Orientation sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface OrientationResponse extends Response {
         x: number; /**< Orientation x-axis component */
@@ -669,8 +719,8 @@ declare namespace sensor {
 
     /**
      * Rotation vector sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface RotationVectorResponse extends Response {
         x: number; /**< Rotation vector x-axis component */
@@ -680,8 +730,8 @@ declare namespace sensor {
 
     /**
      * Gyroscope sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface GyroscopeResponse extends Response {
         x: number; /**< Gyroscope x-axis component */
@@ -691,8 +741,8 @@ declare namespace sensor {
 
     /**
      * Gyroscope uncalibrated sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface GyroscopeUncalibratedResponse extends Response {
         x: number; /**< Gyroscope uncalibrated x-axis component */
@@ -705,8 +755,8 @@ declare namespace sensor {
 
     /**
      * Significant motion sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface SignificantMotionResponse extends Response {
         scalar: number; /**< The degree of significant motion */
@@ -714,8 +764,8 @@ declare namespace sensor {
 
     /**
      * Proximity sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface ProximityResponse extends Response {
         distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, while 1 indicates distance */
@@ -723,8 +773,8 @@ declare namespace sensor {
 
     /**
      * Light sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface LightResponse extends Response {
         intensity: number; /**< Indicates light intensity, in lux */
@@ -732,8 +782,8 @@ declare namespace sensor {
 
     /**
      * Hall sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface HallResponse extends Response {
         status: number; /**< Indicates hall status, event 0 indicates open, while 1 indicates close*/
@@ -741,8 +791,8 @@ declare namespace sensor {
 
     /**
      * Magnetic field sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface MagneticFieldResponse extends Response {
         x: number; /**< Magnetic field x-axis component */
@@ -752,8 +802,8 @@ declare namespace sensor {
 
     /**
      * Magnetic field uncalibrated sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface MagneticFieldUncalibratedResponse extends Response {
         x: number; /**< Magnetic field uncalibrated x-axis component */
@@ -766,8 +816,8 @@ declare namespace sensor {
 
     /**
      * Pedometer sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface PedometerResponse extends Response {
         steps: number; /**< Indicates the number of steps */
@@ -775,8 +825,8 @@ declare namespace sensor {
 
     /**
      * Humidity sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface HumidityResponse extends Response {
         humidity: number; /**< Indicates the number of humidity */
@@ -784,8 +834,8 @@ declare namespace sensor {
 
     /**
      * Pedometer detection sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface PedometerDetectionResponse extends Response {
         scalar: number; /**< Indicates the pedometer detection status, 1 indicates that a walking action has occurred, and 0 indicates that no movement has occurred */
@@ -793,8 +843,8 @@ declare namespace sensor {
 
     /**
      * Ambient temperature sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface AmbientTemperatureResponse extends Response {
         temperature: number; /**< Indicates ambient temperature, in celsius */
@@ -802,8 +852,8 @@ declare namespace sensor {
 
     /**
      * Barometer sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface BarometerResponse extends Response {
         pressure: number; /**< Indicates the number of barometer, in pascal */
@@ -811,8 +861,8 @@ declare namespace sensor {
 
     /**
      * Heart rate sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface HeartRateResponse extends Response {
         heartRate: number; /**< Indicates the number of heart rate */
@@ -820,8 +870,8 @@ declare namespace sensor {
 
     /**
      * Wear detection sensor event data.
-     * @devices phone, tablet
-     * @sysCap SystemCapability.Sensors.Sensor
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
      */
     interface WearDetectionResponse extends Response {
         value: number; /**< Indicates the status of wear detection, 1 for wearing, 0 for wearing not */

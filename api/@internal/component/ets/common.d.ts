@@ -104,6 +104,18 @@ declare const Watch: (value: string) => PropertyDecorator;
 declare const Builder: MethodDecorator;
 
 /**
+ * Defining Styles MethodDecorator
+ * @since 8
+ */
+declare const Styles: MethodDecorator;
+
+/**
+ * Defining Extend MethodDecorator
+ * @since 7
+ */
+declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
+
+/**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
@@ -212,7 +224,7 @@ interface PreviewParams {
   title?: string;
   width?: number;
   height?: number;
-  language?: string;
+  locale?: string;
   colorMode?: string;
   deviceType?: string;
   dpi?: number;
@@ -796,20 +808,25 @@ declare class CommonMethod<T> {
    * src: Image address url
    * @since 7
    */
-  backgroundImage(src: string, repeat?: ImageRepeat): T;
+  backgroundImage(src: string | Resource, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
    * @since 7
    */
-  backgroundImageSize(value: { width?: number | string; height?: number | string } | ImageSize): T;
+  backgroundImageSize(
+    value: {
+      width?: number | string | Resource;
+      height?: number | string | Resource
+    } | ImageSize
+  ): T;
 
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
    * @since 7
    */
-  backgroundImagePosition(value: { x?: number | string; y?: number | string } | Alignment): T;
+  backgroundImagePosition(value: { x?: number | string | Resource; y?: number | string | Resource } | Alignment): T;
 
   /**
    * Opacity
@@ -888,6 +905,30 @@ declare class CommonMethod<T> {
    * @since 7
    */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
+
+  /**
+   * Set focusable.
+   * @since 8
+   */
+   focusable(value: boolean): T;
+
+  /**
+   * Trigger a event when got focus.
+   * @since 8
+   */
+   onFocus(event: () => void): T;
+
+  /**
+   * Trigger a event when lose focus.
+   * @since 8
+   */
+   onBlur(event: () => void): T;
+
+  /**
+   * Trigger a event when focus move.
+   * @since 8
+   */
+   onFocusMove(event: (direction?: FocusDirection) => void): T;
 
   /**
    * animation
@@ -1370,10 +1411,36 @@ declare class CommonMethod<T> {
 }
 
 /**
+ * CommonAttribute
+ * @since 7
+ */
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+
+/**
+ * CommonInterface
+ * @since 7
+ */
+interface CommonInterface {
+  (): CommonAttribute;
+}
+
+/**
+ * CommonInstance
+ * @since 7
+ */
+declare const CommonInstance: CommonAttribute;
+
+/**
+ * Common
+ * @since 7
+ */
+declare const Common: CommonInterface;
+
+/**
  * Defines the CustomBuilder Type.
  * @since 7
  */
-declare type CustomBuilder = () => any;
+declare type CustomBuilder = (() => any) | void;
 
 /**
  * CommonShapeMethod
@@ -1465,14 +1532,14 @@ declare class CustomComponent {
   build(): void;
 
   /**
-   * Private  aboutToAppear Method
+   * aboutToAppear Method
    * @since 7
    */
-  private aboutToAppear?(): void;
+  aboutToAppear?(): void;
 
   /**
-   * Private  aboutToDisappear Method
+   * aboutToDisappear Method
    * @since 7
    */
-  private aboutToDisappear?(): void;
+  aboutToDisappear?(): void;
 }

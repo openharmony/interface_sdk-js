@@ -174,7 +174,7 @@ declare class CanvasPath {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    counterclockwise?: number,
+    counterclockwise?: boolean,
   ): void;
 
   /**
@@ -692,6 +692,16 @@ declare class CanvasRenderer extends CanvasPath {
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
+   * Obtains the PixelMap of a specified area on the current canvas.
+   * @param sx x coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sy y coordinate of the upper left corner of the rectangular area of the PixelMap to be extracted.
+   * @param sw The width of the rectangular area of the PixelMap to be extracted.
+   * @param sh The height of the rectangular area of the PixelMap to be extracted.
+   * @since 8
+   */
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
+
+  /**
    * Draws the specified ImageData object onto the canvas
    * @param imagedata ImageData object to be drawn.
    * @param dx Position offset of the source image data in the target canvas (the offset in the x-axis direction).
@@ -1094,6 +1104,24 @@ interface CanvasInterface {
 }
 
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(context?: CanvasRenderingContext2D): CanvasAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): CanvasAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): CanvasAttribute;
+
   /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    * @since 8

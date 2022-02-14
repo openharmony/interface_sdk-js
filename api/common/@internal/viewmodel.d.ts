@@ -483,10 +483,41 @@ export interface Element {
   getBoundingClientRect(): RectObj;
 
   /**
+   * Obtains attributes of the element.
+   * @returns attributes of the element in json string.
+   * @devices tv, phone, tablet, wearable
+   */
+  getInspector(): string;
+
+  /**
    * If 0.5 is returned, 50% of the current component is visible.
    * @param radios Scope of Monitoring components.
    */
   createIntersectionObserver(param: {ratios: Array<number>}): observer;
+
+   /**
+   * Adds a node to the end of the child node list of the current node.
+   * @param child Subnode object to be added
+   * @since 8
+   */
+  addChild(child: Element): void
+
+  /**
+   * Sets the value of an attribute on a specified element. If the attribute already exists, update the value. Otherwise, a new attribute is added with the specified name and value.
+   * @param name attribute name
+   * @param value attribute value¡¢
+   * @since 8
+   */
+  setAttribute(name: string, value: string): void
+
+  /**
+   * Sets a style value on a specified element. If the style exists and the style value is valid, the setting is successful. Otherwise, the setting is invalid.
+   * @param name style name
+   * @param value style value
+   * @returns If the setting is successful, true is returned. If the setting fails, false is returned.
+   * @since 8
+   */
+  setStyle(name: string, value: string): boolean
 }
 
 export interface observer {

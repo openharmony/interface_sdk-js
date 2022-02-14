@@ -32,8 +32,7 @@ import { NotificationRequest } from './notification/notificationRequest';
  *
  * @name notification
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @import import notification from '@ohos.notification';
  * @permission N/A
  */
@@ -44,7 +43,8 @@ declare namespace notification {
    * <p>If a notification with the same ID has been published by the current application and has not been deleted,
    * this method will update the notification.
    *
-   * @param Publishes a notification.
+   * @param request notification request
+   * @param callback callback function
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
   function publish(request: NotificationRequest): Promise<void>;
@@ -52,15 +52,17 @@ declare namespace notification {
   /**
    * Cancels a notification with the specified ID.
    *
-   * @param ID of the notification to cancel, which must be unique in the application.
+   * @param id of the notification to cancel, which must be unique in the application.
+   * @param callback callback function
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Cancels a notification with the specified label and ID.
    *
-   * @param ID of the notification to cancel, which must be unique in the application.
-   * @param Label of the notification to cancel.
+   * @param id ID of the notification to cancel, which must be unique in the application.
+   * @param label Label of the notification to cancel.
+   * @param callback callback function
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
@@ -76,7 +78,7 @@ declare namespace notification {
    *
    * @param slot Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * This parameter must be specified.
-   *
+   * @param callback callback function
    * @systemapi Hide this for inner system use.
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
@@ -94,7 +96,8 @@ declare namespace notification {
   /**
    * Adds a slot type.
    *
-   * @param Slot type to add.
+   * @param type Slot type to add.
+   * @param callback callback function
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
   function addSlot(type: SlotType): Promise<void>;
@@ -104,7 +107,7 @@ declare namespace notification {
    *
    * @param slots Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * This parameter must be specified.
-   *
+   * @param callback callback function
    * @systemapi Hide this for inner system use.
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
@@ -122,8 +125,8 @@ declare namespace notification {
   /**
    * Obtains a notification slot of the specified slot type.
    *
-   * @param Type of the notification slot to obtain.
-   *
+   * @param slotType Type of the notification slot to obtain.
+   * @param callback callback function
    * @return Returns the created {@link NotificationSlot}.
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
@@ -140,7 +143,8 @@ declare namespace notification {
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    *
-   * @param Type of the NotificationSlot to remove.
+   * @param slotType Type of the NotificationSlot to remove.
+   * @param callback callback function
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
   function removeSlot(slotType: SlotType): Promise<void>;
@@ -186,8 +190,7 @@ declare namespace notification {
    *
    * @name ContentType
    * @since 7
-   * @sysCap SystemCapability.Notification.ANS
-   * @devices phone, tablet, tv, wearable, car
+   * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    */
   export enum ContentType {

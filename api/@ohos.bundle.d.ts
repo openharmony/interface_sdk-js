@@ -22,13 +22,13 @@ import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
+import { PermissionDef } from  './bundle/PermissionDef';
 
 /**
  * bundle.
  * @name bundle
  * @since 7
- * @sysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  */
 declare namespace bundle {
@@ -36,10 +36,9 @@ declare namespace bundle {
 /**
  * @name BundleFlag
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable
  */
   enum BundleFlag {
     GET_BUNDLE_DEFAULT = 0x00000000,
@@ -54,7 +53,7 @@ declare namespace bundle {
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
-     * @since 8
+     * @since 9
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
     /**
@@ -75,13 +74,12 @@ declare namespace bundle {
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
   }
 
-  /**
+/**
  * @name ExtensionFlag
- * @since 8
- * @SysCap SystemCapability.Appexecfwk
+ * @since 9
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable
  */
   enum ExtensionFlag {
     GET_EXTENSION_INFO_DEFAULT = 0x00000000,
@@ -93,10 +91,9 @@ declare namespace bundle {
 /**
  * @name ColorMode
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable
  */
   export enum ColorMode {
     AUTO_MODE = -1,
@@ -107,10 +104,9 @@ declare namespace bundle {
 /**
  * @name GrantStatus
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable
  */
   export enum GrantStatus {
     PERMISSION_DENIED = -1,
@@ -120,37 +116,36 @@ declare namespace bundle {
   /**
    * @name AbilityType
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export enum AbilityType {
     /**
      * @default Indicates an unknown ability type
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     UNKNOWN,
 
     /**
      * @default Indicates that the ability has a UI
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     PAGE,
 
     /**
      * @default Indicates that the ability does not have a UI
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     SERVICE,
 
     /**
      * @default Indicates that the ability is used to provide data access services
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     DATA,
   }
@@ -158,10 +153,9 @@ declare namespace bundle {
   /**
    * @name AbilitySubType
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export enum AbilitySubType {
     UNSPECIFIED = 0,
@@ -171,37 +165,36 @@ declare namespace bundle {
   /**
    * @name DisplayOrientation
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export enum DisplayOrientation {
     /**
      * @default Indicates that the system automatically determines the display orientation
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     UNSPECIFIED,
 
     /**
      * @default Indicates the landscape orientation
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     LANDSCAPE,
 
     /**
      * @default Indicates the portrait orientation
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     PORTRAIT,
 
     /**
      * @default Indicates the page ability orientation is the same as that of the nearest ability in the stack
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     FOLLOW_RECENT,
   }
@@ -209,94 +202,92 @@ declare namespace bundle {
   /**
    * @name LaunchMode
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export enum LaunchMode {
     /**
      * @default Indicates that the ability has only one instance
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     SINGLETON = 0,
 
     /**
      * @default Indicates that the ability can have multiple instances
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     STANDARD = 1,
   }
 
   /**
   * @name ExtensionAbilityType
-  * @since 8
-  * @SysCap SystemCapability.Appexecfwk
+  * @since 9
+  * @syscap SystemCapability.BundleManager.BundleFramework
   * @import NA
   * @permission NA
-  * @devices phone, tablet, tv, wearable
   */
   export enum ExtensionAbilityType {
     /**
      * @default Indicates extension info with type of form
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     FORM = 0,
     /**
      * @default Indicates extension info with type of work schedule
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     WORK_SCHEDULER = 1,
     /**
      * @default Indicates extension info with type of input method
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    INPUTMETHOD = 2,
+    INPUT_METHOD = 2,
     /**
      * @default Indicates extension info with type of service
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
     */
     SERVICE = 3,
     /**
      * @default Indicates extension info with type of accessibility
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     ACCESSIBILITY = 4,
     /**
      * @default Indicates extension info with type of datashare
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    DATASHARE = 5,
+    DATA_SHARE = 5,
     /**
      * @default Indicates extension info with type of fileshare
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    FILESHARE = 6,
+    FILE_SHARE = 6,
     /**
      * @default Indicates extension info with type of staticsubscriber
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    STATICSUBSCRIBER = 7,
+    STATIC_SUBSCRIBER = 7,
     /**
      * @default Indicates extension info with type of wallpaper
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     WALLPAPER = 8,
     /**
      * @default Indicates extension info with type of unspecified
-     * @since 8
-     * @SysCap SystemCapability.Appexecfwk
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     UNSPECIFIED = 9,
   }
@@ -304,23 +295,22 @@ declare namespace bundle {
   /**
    * @name BundleOptions
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export interface BundleOptions {
     /**
      * @default Indicates the user id
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     userId?: number;
 
     /**
      * @default Indicates the network id
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @syscap SystemCapability.BundleManager.BundleFramework
      */
     networkId?: string;
   }
@@ -328,10 +318,9 @@ declare namespace bundle {
   /**
    * @name InstallErrorCode
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @import NA
    * @permission NA
-   * @devices phone, tablet, tv, wearable
    */
   export enum InstallErrorCode{
     SUCCESS = 0,
@@ -372,9 +361,8 @@ declare namespace bundle {
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param bundleFlags Indicates the application bundle flags to be queried.
    * @param options Indicates the bundle options object.
@@ -388,9 +376,8 @@ declare namespace bundle {
   /**
    * Obtains the interface used to install bundles.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @return Returns the IBundleInstaller interface.
    * @permission ohos.permission.INSTALL_BUNDLE
    */
@@ -400,9 +387,8 @@ declare namespace bundle {
   /**
    * Obtains based on a given bundle name.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
    *              that will be returned.
@@ -416,9 +402,8 @@ declare namespace bundle {
   /**
    * Checks whether a specified bundle has been granted a specific permission.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the name of the bundle to check.
    * @param permission Indicates the permission to check.
    * @return Returns 0 if the bundle has the permission; returns -1 otherwise.
@@ -429,9 +414,8 @@ declare namespace bundle {
   /**
    * Query the AbilityInfo by the given Want.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param want Indicates the Want containing the application bundle name to
    *               be queried.
    * @param bundleFlags Indicates the flag used to specify information contained in the AbilityInfo objects that
@@ -447,9 +431,8 @@ declare namespace bundle {
   /**
    * Obtains BundleInfo of all bundles available in the system.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundlelFlag Indicates the flag used to specify information contained in the BundleInfo that will be
    *              returned.
    * @param userId Indicates the user id.
@@ -463,9 +446,8 @@ declare namespace bundle {
   /**
    * Obtains information about all installed applications of a specified user.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo objects
    *              that will be returned.
    * @param userId Indicates the user ID.
@@ -478,9 +460,8 @@ declare namespace bundle {
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param hapFilePath Indicates the path storing the HAP. The path should be the relative path to the data
    *                    directory of the current application.
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
@@ -498,9 +479,8 @@ declare namespace bundle {
    * #ACTION_HOME and #ENTITY_HOME Want
    * filters set in the application's <b>config.json</b> file.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
    * @return Returns the Want for starting the application's main ability if any; returns null if
    *         the given bundle does not exist or does not contain any main ability.
@@ -508,13 +488,12 @@ declare namespace bundle {
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
-  
+
   /**
    * Obtains information about the shortcuts of the application.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
    * @return Returns a list of ShortcutInfo objects containing shortcut information about the application.
    * @permission ohos.permission.MANAGE_SHORTCUTS
@@ -525,9 +504,8 @@ declare namespace bundle {
   /**
    * get module usage record list in descending order of lastLaunchTime.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param maxNum the return size of the records, must be in range of 1 to 1000.
    * @return Returns ability usage record list.
    * @systemapi hide this for inner system use
@@ -538,9 +516,8 @@ declare namespace bundle {
   /**
    * Clears cache data of a specified application.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application whose cache data is to be cleared.
    * @param callback Indicates the callback to be invoked for returning the operation result.
    * @permission ohos.permission.REMOVE_CACHE_FILES
@@ -552,9 +529,8 @@ declare namespace bundle {
   /**
    * Sets whether to enable a specified application.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
    * @param isEnabled Specifies whether to enable the application. The value true means to enable it, and the
    *                  value false means to disable it.
@@ -567,9 +543,8 @@ declare namespace bundle {
   /**
    * Sets whether to enable a specified ability.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param abilityInfo Indicates information about the ability to set.
    * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
    *                  value false means to disable it..
@@ -582,9 +557,8 @@ declare namespace bundle {
   /**
    * Query extension info of by utilizing a Want.
    *
-   * @devices phone, tablet, tv, wearable, car
-   * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param want Indicates the Want containing the application bundle name to be queried.
    * @param extensionFlags Indicates the flag used to specify information contained in the ExtensionInfo objects that
    *              will be returned.
@@ -595,6 +569,19 @@ declare namespace bundle {
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
   function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+
+  /**
+   * Get the permission details by permissionName.
+   *
+   * @since 8
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param permissionName Indicates permission name.
+   * @return Returns permissionDef object.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @systemapi
+   */
+  function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
+  function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 }
 
 export default bundle;

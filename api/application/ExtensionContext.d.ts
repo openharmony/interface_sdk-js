@@ -19,18 +19,20 @@ import Context from "./Context";
 /**
  * The context of an extension. It allows access to extension-specific resources.
  *
- * @since 8
+ * @since 9
  * @sysCap AAFwk
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
+ * @StageModelOnly
  */
 export default class ExtensionContext extends Context {
 
     /**
      * Indicates configuration information about an module.
      *
-     * @since 8
+     * @since 9
      * @sysCap AAFwk
+     * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
 }

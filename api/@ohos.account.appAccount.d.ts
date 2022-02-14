@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback} from "./basic";
+import {Want} from "./ability/want";
 
 declare namespace appAccount {
     /**
@@ -48,6 +49,19 @@ declare namespace appAccount {
         addAccount(name: string, callback: AsyncCallback<void>): void;
         addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
         addAccount(name: string, extraInfo?: string): Promise<void>;
+
+        /**
+         * Adds an application account of a specified owner implicitly.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @param authType Indicates the authentication type.
+         * @param options Indicates the authenticator-specific options for the request.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        addAccountImplicitly(owner: string, authType: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
 
         /**
          * Deletes an application account from the account management service.
@@ -269,6 +283,145 @@ declare namespace appAccount {
          * @return void
          */
         off(type: 'change', callback?: Callback<void>): void;
+        
+        /**
+         * Authenticates an application account to get an oauth token.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application or third-party applications.
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @param authType Indicates the authentication type.
+         * @param options Indicates the authenticator-specific options for the request.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        authenticate(name: string, owner: string, authType: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
+
+        /**
+         * Gets an oauth token with the specified authentication type from a particular application account.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application or third-party applications.
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @param authType Indicates the authentication type.
+         * @return Returns an oauth token.
+         */
+        getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
+        getOAuthToken(name: string, owner: string, authType: string): Promise<string>;
+
+        /**
+         * Sets an oauth token with the specified authentication type for a particular account.
+         * <p>
+         * Only the owner of the application account has the permission to call this method.
+         * 
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application.
+         * @param authType Indicates the authentication type.
+         * @param token Indicates the oauth token.
+         * @return void.
+         */
+        setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
+        setOAuthToken(name: string, authType: string, token: string): Promise<void>;
+
+        /**
+         * Deletes an oauth token for the specified application account.
+         * <p>
+         * Only tokens visible to the caller application can be deleted.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application or third-party applications.
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @param authType Indicates the authentication type.
+         * @param token Indicates the oauth token.
+         * @return void.
+         */
+        deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
+        deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
+
+        /**
+         * Sets the oauth token visibility of the specifed authentication type to a third-party application.
+         * <p>
+         * Only the owner of the application account has the permission to call this method.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application.
+         * @param authType Indicates the authentication type.
+         * @param bundleName Indicates the bundle name of the third-party application.
+         * @param isVisible Indicates the bool value of visibility.
+         * @return void.
+         */
+        setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void>): void;
+        setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
+
+        /**
+         * Checks the oauth token visibility of the specifed authentication type for a third-party application.
+         * <p>
+         * Only the owner of the application account has the permission to call this method.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application or third-party applications.
+         * @param authType Indicates the authentication type.
+         * @param bundleName Indicates the bundle name of the third-party application.
+         * @return Returns the bool value of visibility.
+         */
+        checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void;
+        checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
+
+        /**
+         * Gets all oauth tokens visible to the caller application.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application or third-party applications.
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @return Returns a list of oauth tokens visible to the caller application.
+         */
+        getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<OAuthTokenInfo>>): void;
+        getAllOAuthTokens(name: string, owner: string): Promise<Array<OAuthTokenInfo>>;
+
+        /**
+         * Gets the open authorization list with a specified authentication type for a paticular application account.
+         * <p>
+         * Only the owner of the application account has the permission to call this method.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name of your application.
+         * @param authType Indicates the authentication type.
+         * @return Returns the open authorization list of the specified authentication type.
+         */
+        getOAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
+        getOAuthList(name: string, authType: string): Promise<Array<string>>;
+
+        /**
+         * Gets the authenticator callback with the specified session id.
+         * <p>
+         * Only the owner of the authenticator has the permission to call this method.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param sessionId Indicates the id of a authentication session.
+         * @return Returns the authenticator callback related to the session id.
+         */
+        getAuthenticatorCallback(sessionId: string, callback: AsyncCallback<AuthenticatorCallback>): void;
+        getAuthenticatorCallback(sessionId: string): Promise<AuthenticatorCallback>;
+
+        /**
+         * Gets the authenticator information of an application account.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param owner Indicates the account owner of your application or third-party applications.
+         * @return Returns the authenticator information of the application account.
+         */
+        getAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
+        getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
     }
 
     /**
@@ -288,6 +441,165 @@ declare namespace appAccount {
          * The name an application account.
          */
         name: string;
+    }
+
+    /**
+     * Provides basic information of an oauth token, including the authentication type and token value.
+     * @name OAuthTokenInfo
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    interface OAuthTokenInfo {
+        /**
+         * The authentication type.
+         */
+        authType: string;
+
+        /**
+         * The token value.
+         */
+        token: string;
+    }
+
+    /**
+     * Provides basic information of an authenticator, including the authenticator owner, icon id and label id.
+     * @name AuthenticatorInfo
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    interface AuthenticatorInfo {
+        /**
+         * The owner of an authenticator.
+         */
+        owner: string;
+
+        /**
+         * The icon id of an authenticator.
+         */
+        iconId: number;
+
+        /**
+         * The label id of an authenticator.
+         */
+        labelId: number;
+    }
+
+    /**
+     * Provides constants definition.
+     * @name Constants
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    enum Constants {
+        ACTION_ADD_ACCOUNT_IMPLICITLY = "addAccountImplicitly",
+        ACTION_AUTHENTICATE = "authenticate",
+        KEY_NAME = "name",
+        KEY_OWNER = "owner",
+        KEY_TOKEN = "token",
+        KEY_ACTION = "action",
+        KEY_AUTH_TYPE = "authType",
+        KEY_SESSION_ID = "sessionId",
+        KEY_CALLER_PID = "callerPid",
+        KEY_CALLER_UID = "callerUid",
+        KEY_CALLER_BUNDLE_NAME = "callerBundleName",
+    }
+
+    /**
+     * Provides result code definition.
+     * @name ResultCode
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    enum ResultCode {
+        SUCCESS = 0,
+        ERROR_ACCOUNT_NOT_EXIST = 10001,
+        ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
+        ERROR_INVALID_PASSWORD = 10003,
+        ERROR_INVALID_REQUEST = 10004,
+        ERROR_INVALID_RESPONSE = 10005,
+        ERROR_NETWORK_EXCEPTION = 10006,
+        ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
+        ERROR_OAUTH_CANCELED = 10008,
+        ERROR_OAUTH_LIST_TOO_LARGE = 10009,
+        ERROR_OAUTH_SERVICE_BUSY = 10010,
+        ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
+        ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
+        ERROR_OAUTH_TIMEOUT = 10013,
+        ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
+        ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
+        ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
+        ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
+        ERROR_PERMISSION_DENIED = 10018
+    }
+
+    /**
+     * Provides methods for authenticator callback.
+     * @name AuthenticatorCallback
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    interface AuthenticatorCallback {
+        /**
+         * Notifies the client of the authentication result.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param code Indicates the result code.
+         * @param result Indicates the authentication result.
+         * @return void.
+         */
+        onResult: (code: number, result: {[key: string]: any}) => void;
+
+        /**
+         * Notifies the client that the authentication request need to be redirected.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param request Indicates the request information to be redirected.
+         * @return void.
+         */
+        onRequestRedirected: (request: Want) => void;
+    }
+
+    /**
+     * Provides methods for authenticator.
+     * @name Authenticator
+     * @since 8
+     * @sysCap SystemCapability.Account.AppAccount
+     * @devices phone, tablet, tv, wearable, car
+     */
+    class Authenticator {
+        /**
+         * Adds an application account of a specified owner implicitly.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param authType Indicates the authentication type.
+         * @param callerBundleName Indicates the caller bundle name.
+         * @param options Indicates the authenticator-specific options for the request.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
+
+        /**
+         * Authenticates an application account to get an oauth token.
+         *
+         * @since 8
+         * @devices phone, tablet, tv, wearable, car
+         * @param name Indicates the account name.
+         * @param authType Indicates the authentication type.
+         * @param callerBundleName Indicates the caller bundle name.
+         * @param options Indicates the authenticator-specific options for the request.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
     }
 }
 

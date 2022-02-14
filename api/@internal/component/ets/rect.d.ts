@@ -63,6 +63,31 @@ interface RectInterface {
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(
+    value?:
+    | {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
+    | {
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
+  ): RectAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): RectAttribute;
+
+  /**
    * Called when the fillet width is set.
    * @since 7
    */

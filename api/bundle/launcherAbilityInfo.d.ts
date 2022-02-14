@@ -19,8 +19,8 @@
  * such as the application Info , elementName, labelId, iconId, userId, installTime.
  * @name Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
  * @since 8
- * @sysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ *
  * @permission N/A
  * @systemapi Hide this for inner system use
  */
@@ -32,54 +32,54 @@ export interface LauncherAbilityInfo {
   /**
    * @name Obtains application info information about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
    * @name Obtains element name about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly elementName : ElementName;
 
   /**
    * @name Obtains labelId about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly labelId: number;
 
   /**
    * @name Obtains iconId about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly iconId: number;
 
   /**
    * @name Obtains userId about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly userId: number;
 
   /**
    * @name Obtains installTime about an launcher ability.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission NA
-   * @devices phone, tablet, tv, wearable, car
+   *
    */
   readonly installTime : number;
 }

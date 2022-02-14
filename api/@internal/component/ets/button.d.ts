@@ -85,6 +85,30 @@ interface ButtonInterface {
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  createWithChild(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  createWithLabel(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ButtonAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ButtonAttribute;
+
+  /**
    * Describes the button style.
    * @since 7
    */

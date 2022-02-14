@@ -56,6 +56,24 @@ interface ListInterface {
  */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  pop(): ListAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): ListAttribute;
+ 
+  /**
    * Called when the arrangement direction of the list component is set.
    * @since 7
    */
@@ -91,6 +109,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 7
    */
   editMode(value: boolean): ListAttribute;
+
+  /**
+   * Called when judging whether it is multiSelectable.
+   * @since 8
+   */
+  multiSelectable(value: boolean): ListAttribute;
 
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.

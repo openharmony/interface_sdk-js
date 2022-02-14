@@ -158,7 +158,7 @@ declare namespace util {
         ): { read: number; written: number };
     }
 
-    class RationalNumber​ {
+    class RationalNumber {
         /**
          * A constructor used to create a RationalNumber instance with a given numerator and denominator.
          * @since 8
@@ -174,7 +174,7 @@ declare namespace util {
          * @param String Expression of Rational Numbers
          * @return Returns a RationalNumber object generated based on the given string.
          */
-        static createRationalFromString​(rationalString: string): RationalNumber​;
+        static createRationalFromString(rationalString: string): RationalNumber​;
         /**
          * Compares the current RationalNumber object to the given object.
          * @since 8
@@ -182,7 +182,7 @@ declare namespace util {
          * @param An object of other rational numbers
          * @return Returns 0 or 1, or -1, depending on the comparison.
          */
-        compareTo​(another :RationalNumber): number;
+        compareTo(another :RationalNumber): number;
         /**
          * Compares two objects for equality.
          * @since 8
@@ -190,7 +190,7 @@ declare namespace util {
          * @param An object
          * @return Returns true if the given object is the same as the current object; Otherwise, false is returned.
          */
-        equals​(obj: Object): boolean;
+        equals(obj: Object): boolean;
         /**
          * Gets integer and floating-point values of a rational number object.
          * @since 8
@@ -206,49 +206,49 @@ declare namespace util {
          * @param number2 is an integer.
          * @return Returns the greatest common divisor of two integers, integer type.
          */
-        static getCommonDivisor​(number1: number, number2: number): number;
+        static getCommonDivisor(number1: number, number2: number): number;
         /**
          * Gets the denominator of the current object.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return Returns the denominator of the current object.
          */
-        getDenominator​(): number;
+        getDenominator(): number;
         /**
          * Gets the numerator​ of the current object.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return Returns the numerator​ of the current object.
          */
-        getNumerator​(): number;
+        getNumerator(): number;
         /**
          * Checks whether the current RationalNumber object represents an infinite value.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return If the denominator is not 0, true is returned. Otherwise, false is returned.
          */
-        isFinite​() : boolean;
+        isFinite() : boolean;
         /**
          * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
          */
-        isNaN​(): boolean;
+        isNaN(): boolean;
         /**
          * Checks whether the current RationalNumber object represents the value 0.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return If the value represented by the current object is 0, true is returned. Otherwise, false is returned.
          */
-        isZero​(): boolean;
+        isZero(): boolean;
         /**
          * Obtains a string representation of the current RationalNumber object.
          * @since 8
          * @sysCap SystemCapability.CCRuntime
          * @return Returns a string representation of the current RationalNumber object.
          */
-        toString​(): string;
+        toString(): string;
     }
 
     class LruBuffer {
@@ -334,7 +334,7 @@ declare namespace util {
          * @sysCap SystemCapability.CCRuntime
          * @return Returns true if the current buffer contains no value.
          */
-        isEmpty​(): boolean;
+        isEmpty(): boolean;
         /**
          * Obtains the value associated with a specified key.
          * @since 8
@@ -365,7 +365,7 @@ declare namespace util {
          * @sysCap SystemCapability.CCRuntime
          * @return Returns a list of keys sorted from most recently accessed to least recently accessed.
          */
-        keys​(): K[];
+        keys(): K[];
         /**
          * Deletes a specified key and its associated value from the current buffer.
          * @since 8
@@ -391,7 +391,7 @@ declare namespace util {
          * @param key Indicates the key to check.
          * @return Returns true if the buffer contains the specified key.
          */
-        contains​(key: K): boolean;
+        contains(key: K): boolean;
         /**
          * Executes subsequent operations if miss to compute a value for the specific key.
          * @since 8
@@ -399,7 +399,7 @@ declare namespace util {
          * @param key Indicates the missed key.
          * @return Returns the value associated with the key.
          */
-        createDefault​(key: K): V;
+        createDefault(key: K): V;
         /**
          * Returns an array of key-value pairs of enumeratable properties of a given object.
          * @since 8
@@ -446,7 +446,7 @@ declare namespace util {
          * @sysCap SystemCapability.CCRuntime
          * @return Returns a string representation of the current range object.
          */
-        toString​(): string;
+        toString(): string;
         /**
          * Returns the intersection of a given range and the current range.
          * @since 8

@@ -60,6 +60,23 @@ interface XComponentInterface {
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: {
+    id: string;
+    type: string;
+    libraryname?: string;
+    controller?: XComponentController;
+  }): XComponentAttribute;
+
+  /**
+   * Just use for genetate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  debugLine(value: string): XComponentAttribute;
+
+  /**
    * Called when judging whether the xcomponent surface is created.
    * @since 8
    * @systemapi
