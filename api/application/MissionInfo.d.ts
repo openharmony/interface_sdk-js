@@ -80,4 +80,12 @@ export interface MissionInfo {
      * @sysCap AAFwk
      */
     iconPath: string;
+
+    /**
+     * Indicates whether the mision is continuable.
+     *
+     * @since 8
+     * @sysCap AAFwk
+     */
+     continuable: boolean;
 }
