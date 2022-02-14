@@ -171,8 +171,6 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          */
         beginTransactionSync():void;
-        beginTransaction(callback: AsyncCallback<void>):void;
-        beginTransaction(): Promise<void>;
 
         /**
          * commit the the sql you have excuted.
@@ -183,8 +181,6 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          */
         commitSync():void;
-        commit(callback: AsyncCallback<void>):void;
-        commit(): Promise<void>;
 
         /**
          * roll back the sql you have already excuted
@@ -195,8 +191,6 @@ declare namespace rdb {
          * @devices phone, tablet, tv, wearable, car
          */
         rollBackSync():void;
-        rollBack(callback: AsyncCallback<void>):void;
-        rollBack(): Promise<void>;
 
         /**
          * Set table to be distributed table.
