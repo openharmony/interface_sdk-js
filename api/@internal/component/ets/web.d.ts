@@ -310,6 +310,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onHttpErrorReceive(callback: (event?: {request: WebResourceRequest, error: WebResourceError}) => void): WebAttribute;
 
   /**
+   * Triggered when download start
+   * @since 8
+   */
+  onDownloadStart(callback: (event?: {url: string, userAgent: string, contentDisposition: string, mimetype: string, contentLength: number}) => void): WebAttribute;
+
+  /**
    * Just use for genetate tsbundle
    * @ignore ide should ignore this arrtibute
    */
