@@ -17,13 +17,17 @@ import featureAbility from '../@ohos.ability.featureAbility';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
+ /**
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @permission N/A
+ */
 export interface DataAbilityOperation {
   /**
    * Indicates the path of data to operate.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   uri: string;
@@ -31,9 +35,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates a operation type.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   type: featureAbility.DataAbilityOperationType;
@@ -41,9 +44,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the data values to be set.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   valuesBucket?: rdb.ValuesBucket;
@@ -51,9 +53,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the valuesBucket object containing a set of key-value pairs.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   valueBackReferences?: rdb.ValuesBucket;
@@ -62,9 +63,8 @@ export interface DataAbilityOperation {
    * Indicates the filter criteria to set. If this parameter is null, all data records
    * will be operated by default.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   predicates?: dataAbility.DataAbilityPredicates;
@@ -72,9 +72,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the back reference to be used as a filter criterion in predicates.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   predicatesBackReferences?: Map<number, number>;
@@ -82,9 +81,8 @@ export interface DataAbilityOperation {
   /**
    * Specifies whether a batch operation can be interrupted.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   interrupted?: boolean;
@@ -92,9 +90,8 @@ export interface DataAbilityOperation {
   /**
    * Indicates the expected number of rows to update or delete.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   expectedCount?: number;

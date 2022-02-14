@@ -22,8 +22,7 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
  * The class of an ability manager.
  *
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace abilityManager {
@@ -31,8 +30,7 @@ declare namespace abilityManager {
     /**
      * @name AbilityState
      * @since 8
-     * @sysCap AAFwk
-     * @devices phone, tablet, tv, wearable, car
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @permission N/A
      */
     export enum AbilityState {
@@ -46,9 +44,8 @@ declare namespace abilityManager {
     /**
      * Updates the configuration by modifying the configuration.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @SysCap AAFwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
@@ -59,9 +56,8 @@ declare namespace abilityManager {
     /**
      * Get information about running abilitys
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @SysCap AAFwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
@@ -72,9 +68,8 @@ declare namespace abilityManager {
      /**
       * Get information about running extensions
       *
-      * @devices phone, tablet, tv, wearable, car
       * @since 9
-      * @SysCap AAFwk
+      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
       * @param config Indicates the new configuration.
       * @systemapi Hide this for inner system use.
       * @return -

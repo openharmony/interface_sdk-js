@@ -18,16 +18,15 @@ import { ElementName } from '../bundle/elementName';
 /**
  * @name Mission information corresponding to ability
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityMissionInfo from 'app/abilityMissionInfo'
  * @permission N/A
- * @devices phone, tablet, tv, wearable, car
  */
 export interface AbilityMissionInfo {
     /**
      * @default Unique identification of task stack information corresponding to ability
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     missionId: number;
 
@@ -35,7 +34,7 @@ export interface AbilityMissionInfo {
      * @default The component launched as the first ability in the task stack
      * This can be considered the "application" of this task stack
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     bottomAbility: ElementName;
 
@@ -43,14 +42,14 @@ export interface AbilityMissionInfo {
      * @default The ability component at the top of the history stack of the task
      * This is what the user is currently doing
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     topAbility: ElementName;
 
     /**
      * @default The corresponding ability description information in the task stack
      * @since 7
-     * @SysCap SystemCapability.Appexecfwk
+     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
      */
      windowMode: number;
 }

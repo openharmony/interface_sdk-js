@@ -13,14 +13,18 @@
  * limitations under the License.
  */
 
+ /**
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ */
 export interface ContinueAbilityOptions {
   /**
    * Indicates the ID of the target device where this ability will be migrated to.
    *
    * @default -
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    */
    deviceId: string;
@@ -30,9 +34,8 @@ export interface ContinueAbilityOptions {
    * This is a reserved field.
    *
    * @default -
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
    */
    reversible?: boolean;

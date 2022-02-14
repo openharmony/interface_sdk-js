@@ -21,8 +21,7 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  * A Particle Ability represents an ability with service.
  * @name particleAbility
  * @since 7
- * @sysCap AAFwk
- * @devices phone, tablet
+ * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
  */
@@ -30,9 +29,8 @@ declare namespace particleAbility {
   /**
    * Service ability uses this method to start a specific ability.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly
@@ -43,9 +41,8 @@ declare namespace particleAbility {
   /**
    * Destroys this service ability.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -55,9 +52,8 @@ declare namespace particleAbility {
   /**
    * Obtains the dataAbilityHelper.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
    * @FAModelOnly

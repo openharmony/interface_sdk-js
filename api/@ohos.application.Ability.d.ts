@@ -22,8 +22,7 @@ import window from './@ohos.window';
  * The class of an ability.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -32,7 +31,7 @@ export default class Ability {
      * Indicates configuration information about an ability context.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     context: AbilityContext;
@@ -41,7 +40,7 @@ export default class Ability {
      * Indicates ability launch want.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     launchWant: Want;
@@ -50,7 +49,7 @@ export default class Ability {
      * Indicates ability last request want.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     lastRequestWant: Want;
@@ -58,9 +57,8 @@ export default class Ability {
     /**
      * Called back when an ability is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -69,9 +67,8 @@ export default class Ability {
     /**
      * Called back when an ability window stage is created.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -80,9 +77,8 @@ export default class Ability {
     /**
      * Called back when an ability window stage is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -91,9 +87,8 @@ export default class Ability {
     /**
      * Called back before an ability is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -102,9 +97,8 @@ export default class Ability {
     /**
      * Called back when the state of an ability changes to foreground.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -113,9 +107,8 @@ export default class Ability {
     /**
      * Called back when the state of an ability changes to background.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -124,9 +117,8 @@ export default class Ability {
     /**
      * Called back when an ability prepares to migrate.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
      * @StageModelOnly
      */

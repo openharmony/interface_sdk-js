@@ -21,8 +21,7 @@ import ProcessData from "./ProcessData";
  * The application state observer.
  *
  * @since 8
- * @sysCap appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  */
@@ -30,9 +29,8 @@ export default class ApplicationStateObserver {
     /**
      * Will be called when foreground or background application changed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param appStateData State changed Application info.
      * @systemapi hide for inner use.
      * @return -
@@ -42,9 +40,8 @@ export default class ApplicationStateObserver {
     /**
      * Will be called when ability state changed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param abilityStateData State changed ability info.
      * @systemapi hide for inner use.
      * @return -
@@ -54,9 +51,8 @@ export default class ApplicationStateObserver {
     /**
      * Will be called when extension state changed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param abilityStateData State changed extension info.
      * @systemapi hide for inner use.
      * @return -
@@ -66,9 +62,8 @@ export default class ApplicationStateObserver {
     /**
      * Will be called when process created.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
      * @return -
@@ -78,9 +73,8 @@ export default class ApplicationStateObserver {
     /**
      * Will be called when process died.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
      * @return -

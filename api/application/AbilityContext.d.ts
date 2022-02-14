@@ -27,8 +27,7 @@ import PermissionRequestResult from "./PermissionRequestResult";
  * The context of an ability. It allows access to ability-specific resources.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -37,7 +36,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information about an ability.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     abilityInfo: AbilityInfo;
@@ -46,7 +45,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information about an module.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;
@@ -54,9 +53,8 @@ export default class AbilityContext extends Context {
     /**
      * Starts a new ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return -
      * @StageModelOnly
@@ -68,9 +66,8 @@ export default class AbilityContext extends Context {
     /**
      * Starts a new ability with account.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
@@ -84,9 +81,8 @@ export default class AbilityContext extends Context {
     /**
      * Starts an ability and returns the execution result when the ability is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @return Returns the {@link AbilityResult}.
      * @StageModelOnly
@@ -98,9 +94,8 @@ export default class AbilityContext extends Context {
     /**
      * Starts an ability and returns the execution result when the ability is destroyed with account.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
      * @param want Indicates the account to start.
      * @systemapi hide for inner use.
@@ -114,9 +109,8 @@ export default class AbilityContext extends Context {
     /**
      * Destroys this Page ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
      * @StageModelOnly
      */
@@ -127,9 +121,8 @@ export default class AbilityContext extends Context {
      * Sets the result code and data to be returned by this Page ability to the caller
      * and destroys this Page ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the result to return.
      * @return -
      * @StageModelOnly
@@ -140,9 +133,8 @@ export default class AbilityContext extends Context {
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @hide hide for inner use.
@@ -154,9 +146,8 @@ export default class AbilityContext extends Context {
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @param accountId The account to connect
@@ -169,9 +160,8 @@ export default class AbilityContext extends Context {
     /**
      * The callback interface was connect successfully.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection The number code of the ability connected
      * @hide hide for inner use.
      * @StageModelOnly
@@ -182,9 +172,8 @@ export default class AbilityContext extends Context {
     /**
      * Set mission label of current ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param label The label of ability that showed in recent missions.
      * @StageModelOnly
      */
@@ -194,9 +183,8 @@ export default class AbilityContext extends Context {
      /**
      * Requests certain permissions from the system.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
      * @StageModelOnly
      */

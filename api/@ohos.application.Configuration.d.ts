@@ -18,8 +18,7 @@
  *
  * @name Configuration
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export interface Configuration {
@@ -27,7 +26,7 @@ export interface Configuration {
      * Indicates the current language of the application.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityBase
      */
     language: string;
 }

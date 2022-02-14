@@ -15,14 +15,18 @@
 import { ElementName } from '../bundle/elementName';
 import rpc from './../@ohos.rpc';
 
+/**
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @permission N/A
+ */
 export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
    *
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @SysCap aafwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
    * @param remoteObject The remote object instance
    */
@@ -32,9 +36,8 @@ export interface ConnectOptions {
    * The callback interface was disconnect successfully.
    *
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @SysCap aafwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
    */
   onDisconnect: (elementName: ElementName) => void;
@@ -43,9 +46,8 @@ export interface ConnectOptions {
    * The callback interface was connect failed.
    *
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @SysCap aafwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param code The error code of the failed.
    */
   onFailed: (code: number) => void;

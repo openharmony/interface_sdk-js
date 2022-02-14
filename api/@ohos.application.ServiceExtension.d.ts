@@ -21,8 +21,7 @@ import Want from './@ohos.application.Want';
  * class of service extension.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
  */
@@ -31,7 +30,7 @@ export default class ServiceExtension {
      * Indicates service extension context.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
@@ -40,9 +39,8 @@ export default class ServiceExtension {
     /**
      * Called back when a service extension is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -52,9 +50,8 @@ export default class ServiceExtension {
     /**
      * Called back before a service extension is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -64,9 +61,8 @@ export default class ServiceExtension {
     /**
      * Called back when a service extension is started.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of service extension to start.
      * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
      *     incremented by 1 every time the service extension is started. For example, if the service extension
@@ -80,9 +76,8 @@ export default class ServiceExtension {
     /**
      * Called back when a service extension is first connected to an ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
      * @return Returns the proxy of the Service ability.
@@ -93,9 +88,8 @@ export default class ServiceExtension {
     /**
      * Called back when all abilities connected to a service extension are disconnected.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
      * @return -
@@ -107,9 +101,8 @@ export default class ServiceExtension {
      * Called when a new client attempts to connect to a service extension after all previous client connections to it
      * are disconnected.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
      * @return -

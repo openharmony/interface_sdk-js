@@ -13,13 +13,18 @@
  * limitations under the License.
  */
 
+ /**
+ * @name DataAbilityResult
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @permission N/A
+ */
 export interface DataAbilityResult {
   /**
    * Indicates the path of data to operate.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
    uri?: string;
@@ -27,9 +32,8 @@ export interface DataAbilityResult {
    /**
    * Indicates the number of rows affected by the operation.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
    count?:number;

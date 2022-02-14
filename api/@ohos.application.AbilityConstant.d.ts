@@ -17,8 +17,7 @@
  * The definition of AbilityConstant.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -27,7 +26,7 @@ declare namespace AbilityConstant {
      * Interface of launch param.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     export interface LaunchParam {
@@ -35,7 +34,7 @@ declare namespace AbilityConstant {
          * Indicates launch reason.
          *
          * @since 9
-         * @sysCap AAFwk
+         * @sysCap SystemCapability.Ability.AbilityRuntime.Core
          * @StageModelOnly
          */
         launchReason: LaunchReason;
@@ -44,7 +43,7 @@ declare namespace AbilityConstant {
          * Indicates last exit reason.
          *
          * @since 9
-         * @sysCap AAFwk
+         * @sysCap SystemCapability.Ability.AbilityRuntime.Core
          * @StageModelOnly
          */
         lastExitReason: LastExitReason;
@@ -54,7 +53,7 @@ declare namespace AbilityConstant {
      * Type of launch reason.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     export enum LaunchReason {
@@ -68,7 +67,7 @@ declare namespace AbilityConstant {
      * Type of last exit reason.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     export enum LastExitReason {
