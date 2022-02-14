@@ -19,7 +19,7 @@ import {AsyncCallback} from "./basic";
  * Provides cust file path related APIS.
  *
  * @since 8
- * @sysCap SystemCapability.Customization.Cust
+ * @sysCap SystemCapability.Customization.ConfigPolicy
  */
 declare namespace cust {
   /**
@@ -28,7 +28,7 @@ declare namespace cust {
    * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.Cust
+   * @sysCap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns the path of the highest priority config file.
    */
@@ -41,7 +41,7 @@ declare namespace cust {
    * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.Cust
+   * @sysCap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns paths of config files.
    */
@@ -54,7 +54,7 @@ declare namespace cust {
    * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.Cust
+   * @sysCap SystemCapability.Customization.ConfigPolicy
    * @return Returns paths of config directories.
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>);
