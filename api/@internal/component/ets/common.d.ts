@@ -1543,3 +1543,15 @@ declare class CustomComponent {
    */
   aboutToDisappear?(): void;
 }
+
+/**
+ * View
+ * @ignore ide should ignore this class
+ */
+declare class View {
+  /**
+   * Just use for generate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: any): any;
+}
