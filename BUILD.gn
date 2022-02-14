@@ -80,6 +80,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/rating.d.ts",
     "api/@internal/component/ets/rect.d.ts",
     "api/@internal/component/ets/refresh.d.ts",
+    "api/@internal/component/ets/rich_text.d.ts",
     "api/@internal/component/ets/row.d.ts",
     "api/@internal/component/ets/row_split.d.ts",
     "api/@internal/component/ets/scroll.d.ts",
