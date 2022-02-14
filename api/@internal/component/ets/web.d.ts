@@ -342,6 +342,36 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
 
   /**
+   * Triggered at the begin of web page loading
+   * @since 8
+   */
+  onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
+
+  /**
+   * Triggered when the page loading progress changes
+   * @since 8
+   */
+  onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
+
+  /**
+   * Triggered when the title of the main application document changes
+   * @since 8
+   */
+  onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
+
+  /**
+   * Triggered when the host application is notified that a previously invoked geolocation permission request onGeolocationShow() has been canceled. Therefore, any related UI should be hidden.
+   * @since 8
+   */
+  onGeolocationHide(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when notifies the host application that web content from the specified source is attempting to use the Geolocation API
+   * @since 8
+   */
+  onGeolocationShow(callback: (event?: { origin: string, callback: Function }) => void): WebAttribute;
+
+  /**
    * Get WebView focus callback event
    * @since 8
    */
