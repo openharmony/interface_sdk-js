@@ -151,7 +151,7 @@ declare namespace workScheduler {
     function stopAndClearWorks(): boolean;
 
     /**
-     * Check whether last work running is timeout. The interface is for repeat work.
+     * Check whether last work running is timeout. The interface is for repeating work.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
