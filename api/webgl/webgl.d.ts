@@ -17,152 +17,133 @@
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLenum = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLboolean = boolean;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLbitfield = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLbyte = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLshort = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLint = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLsizei = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLintptr = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLsizeiptr = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLubyte = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLushort = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLuint = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLfloat = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type GLclampf = number;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type TexImageSource = ImageData;
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type Float32List = Float32Array | GLfloat[];
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type Int32List = Int32Array | GLint[];
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 type WebGLPowerPreference = "default" | "low-power" | "high-performance";
 /**
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 export interface WebGLContextAttributes {
     alpha?: boolean;
@@ -179,8 +160,7 @@ export interface WebGLContextAttributes {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLBuffer {
 }
@@ -188,8 +168,7 @@ interface WebGLBuffer {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLFramebuffer {
 }
@@ -197,8 +176,7 @@ interface WebGLFramebuffer {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLProgram {
 }
@@ -206,8 +184,7 @@ interface WebGLProgram {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLRenderbuffer {
 }
@@ -215,8 +192,7 @@ interface WebGLRenderbuffer {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLShader {
 }
@@ -224,8 +200,7 @@ interface WebGLShader {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLTexture {
 }
@@ -233,8 +208,7 @@ interface WebGLTexture {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLUniformLocation {
 }
@@ -242,8 +216,7 @@ interface WebGLUniformLocation {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLActiveInfo {
     readonly size: GLint;
@@ -254,8 +227,7 @@ interface WebGLActiveInfo {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLShaderPrecisionFormat {
     readonly rangeMin: GLint;
@@ -267,8 +239,7 @@ interface WebGLShaderPrecisionFormat {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLRenderingContextBase {
     readonly DEPTH_BUFFER_BIT: GLenum;
@@ -693,8 +664,7 @@ interface WebGLRenderingContextBase {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 interface WebGLRenderingContextOverloads {
     bufferData(target: GLenum, size: GLsizeiptr, usage: GLenum): void;
@@ -723,8 +693,7 @@ interface WebGLRenderingContextOverloads {
  * WebGL 1.0
  * @see https://www.khronos.org/registry/webgl/specs/latest/1.0/
  * @since 7
- * @sysCap N/A
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Graphic.Graphic2D.WebGL
  */
 export interface WebGLRenderingContext extends WebGLRenderingContextBase, WebGLRenderingContextOverloads {
 }
