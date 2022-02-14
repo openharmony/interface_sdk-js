@@ -21,6 +21,7 @@ export interface ContinueAbilityOptions {
    * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
    deviceId: string;
 
@@ -32,6 +33,7 @@ export interface ContinueAbilityOptions {
    * @devices phone, tablet, tv, wearable, car
    * @since 7
    * @sysCap AAFwk
+   * @FAModelOnly
    */
    reversible?: boolean;
 }
