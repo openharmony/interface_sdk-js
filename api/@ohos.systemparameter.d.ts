@@ -18,7 +18,6 @@ import { AsyncCallback, BusinessError } from './basic';
  /**
  * The interface of system parameters class.
  *
- * @devices phone, tablet
  * @since 6
  * @Syscap SystemCapability.Startup.SysInfo
  * @hide
