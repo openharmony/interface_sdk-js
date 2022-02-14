@@ -16,12 +16,17 @@
 import distributedAccount from './@ohos.account.distributedAccount'
 import {AsyncCallback} from "./basic";
 
+/**
+ * This module provides the capability to manage os accounts.
+ *
+ * @since 7
+ * @syscap SystemCapability.Account.OsAccount
+ */
 declare namespace osAccount {
     /**
      * Obtains the AccountManager instance.
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      * @return Returns the instance of the AccountManager.
      */
     function getAccountManager(): AccountManager;
@@ -30,8 +35,7 @@ declare namespace osAccount {
      * Provides abilities for you to manage and perform operations on your OS accounts.
      * @name AccountManager
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      */
     interface AccountManager {
         /**
@@ -42,7 +46,6 @@ declare namespace osAccount {
          * switched to the background.
          * </p>
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return void.
          * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
@@ -55,7 +58,6 @@ declare namespace osAccount {
          * Checks whether the function of supporting multiple OS accounts is enabled.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns {@code true} if this function is enabled; returns {@code false} otherwise.
          */
         isMultiOsAccountEnable(callback: AsyncCallback<boolean>): void;
@@ -65,7 +67,6 @@ declare namespace osAccount {
          * Checks whether an OS account is actived based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return Returns {@code true} if the OS account is actived; returns {@code false} otherwise.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
@@ -77,7 +78,6 @@ declare namespace osAccount {
          * Checks whether a constraint has been enabled for an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @param constraint Indicates the constraint to check. The value can be:
          *        <ul>
@@ -100,7 +100,6 @@ declare namespace osAccount {
          * Checks whether this OS account is a test OS account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns {@code true} if this OS account is a test OS account; returns {@code false} otherwise.
          */
         isTestOsAccount(callback: AsyncCallback<boolean>): void;
@@ -110,7 +109,6 @@ declare namespace osAccount {
          * Checks whether this OS account has been verified.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns {@code true} if the OS account has been verified successfully;
          *         returns {@code false} otherwise.
          */
@@ -120,7 +118,6 @@ declare namespace osAccount {
          * Checks whether an OS account has been verified based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return Returns {@code true} if the OS account has been verified successfully;
          *         returns {@code false} otherwise.
@@ -133,7 +130,6 @@ declare namespace osAccount {
          * Removes an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return void.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
@@ -146,7 +142,6 @@ declare namespace osAccount {
          * Sets constraints for an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @param constraints Indicates the constraints to set for the OS account. The value can be:
          *        <ul>
@@ -171,7 +166,6 @@ declare namespace osAccount {
          * Sets the local name for an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @param localName Indicates the local name to set for the OS account.
          * @return void.
@@ -184,7 +178,6 @@ declare namespace osAccount {
          * Obtains the number of all OS accounts created on a device.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns the number of created OS accounts.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
@@ -195,7 +188,6 @@ declare namespace osAccount {
          * Obtains the local ID of an OS account from the current process UID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns the local ID of the OS account.
          */
         getOsAccountLocalIdFromProcess(callback: AsyncCallback<number>): void;
@@ -205,7 +197,6 @@ declare namespace osAccount {
          * Queries the local ID of an OS account from the process UID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param uid Indicates the process UID.
          * @return Returns the local ID of the OS account.
          */
@@ -216,7 +207,6 @@ declare namespace osAccount {
          * Queries the local ID of an OS account which is bound to the specified domain account
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param domainInfo Indicates the domain account info.
          * @return Returns the local ID of the OS account.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
@@ -228,7 +218,6 @@ declare namespace osAccount {
          * Queries the maximum number of OS accounts that can be created on a device.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns the maximum number of OS accounts that can be created.
          * @systemapi Hide this for inner system use.
          */
@@ -239,7 +228,6 @@ declare namespace osAccount {
          * Obtains all constraints of an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return Returns a list of constraints.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
@@ -251,7 +239,6 @@ declare namespace osAccount {
          * Queries the list of all the OS accounts that have been created in the system.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns a list of OS accounts.
          * @systemapi Hide this for inner system use.
          */
@@ -262,7 +249,6 @@ declare namespace osAccount {
          * Creates an OS account using the local name and account type.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localName Indicates the local name of the OS account to create.
          * @param type Indicates the type of the OS account to create.
          *        {@link OsAccountType} specifies the account types available in the system.
@@ -277,7 +263,6 @@ declare namespace osAccount {
          * Creates an OS account using the account type and domain account info
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param type Indicates the type of the OS account to create.
          *        {@link OsAccountType} specifies the account types available in the system.
          * @param domainInfo Indicates the domain account info.
@@ -292,7 +277,6 @@ declare namespace osAccount {
          * Queries information about the current OS account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns information about the current OS account; returns {@code null} if the query fails.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
@@ -303,7 +287,6 @@ declare namespace osAccount {
          * Queries OS account information based on the local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return Returns the OS account information; returns {@code null} if the query fails.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
@@ -316,7 +299,6 @@ declare namespace osAccount {
          * Obtains the type of this OS account from the current process.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns the OS account type. The value can be {@link OsAccountType#ADMIN},
          *         {@link OsAccountType#NORMAL}, and {@link OsAccountType#GUEST}.
          */
@@ -333,7 +315,6 @@ declare namespace osAccount {
          * <p>
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC.
          */
@@ -344,7 +325,6 @@ declare namespace osAccount {
          * Obtains the profile photo of an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return Returns the profile photo if obtained;
          *         returns {@code null} if the profile photo fails to be obtained.
@@ -358,7 +338,6 @@ declare namespace osAccount {
          * Sets the profile photo for an OS account based on its local ID.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @param photo Indicates the profile photo to set for the OS account.
          * @return void.
@@ -372,7 +351,6 @@ declare namespace osAccount {
          * Obtain localId according to serial number
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param serialNumber Indicates serial number.
          * @return localId.
          */
@@ -383,7 +361,6 @@ declare namespace osAccount {
          * Obtain serial number according to localId.
          *
          * @since 8
-         * @devices phone, tablet, tv, wearable, car
          * @param localId Indicates the local ID of the OS account.
          * @return serial number.
          */
@@ -397,7 +374,6 @@ declare namespace osAccount {
          * about the account change event.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param type Event type.
          * @param name Indicates the name of subscriber.
          * @return void.
@@ -410,7 +386,6 @@ declare namespace osAccount {
          * Unsubscribes from account events.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param type Event type.
          * @param name Indicates the name of subscriber.
          * @return void.
@@ -424,8 +399,7 @@ declare namespace osAccount {
      * Provides information about OS accounts, including the local ID, local name, and type of an OS account.
      * @name OsAccountInfo
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      */
     interface OsAccountInfo {
         /**
@@ -525,8 +499,7 @@ declare namespace osAccount {
      * Enumerates OS account types.
      * @name OsAccountType
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      */
     enum OsAccountType {
         /**
