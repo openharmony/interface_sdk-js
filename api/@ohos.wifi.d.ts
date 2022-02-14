@@ -19,8 +19,6 @@ import { AsyncCallback, Callback } from "./basic";
  * Provides methods to operate or manage Wi-Fi.
  *
  * @since 6
- * @SysCap SystemCapability.Communication.WiFi
- * @devices phone, tablet, tv, wearable, car
  * @import import wifi from '@ohos.wifi';
  */
 declare namespace wifi {
@@ -30,6 +28,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function enableWifi(): boolean;
@@ -40,6 +39,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function disableWifi(): boolean;
@@ -50,17 +50,19 @@ declare namespace wifi {
      * @return Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function isWifiActive(): boolean;
 
     /**
-     * Scans Wi-Fi hotspots with parameters.
+     * Scans Wi-Fi hotspots.
      *
      * <p>This API works in asynchronous mode.</p>
      *
      * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function scan(): boolean;
 
@@ -70,6 +72,7 @@ declare namespace wifi {
      * @return Returns information about scanned Wi-Fi hotspots if any.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function getScanInfos(): Promise<Array<WifiScanInfo>>;
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
@@ -79,10 +82,11 @@ declare namespace wifi {
      *
      * <p>The configuration will be updated when the configuration is added.</p>
      *
+     * @param config Indicates the device configuration for connection to the Wi-Fi network.
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
      *
-     * @devices phone, tablet
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
@@ -95,6 +99,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the network connection is successful; returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function connectToNetwork(networkId: number): boolean;
@@ -105,8 +110,8 @@ declare namespace wifi {
      * @param config Indicates the device configuration for connection to the Wi-Fi network.
      * @return Returns {@code true} if the network connection is successful; returns {@code false} otherwise.
      *
-     * @devices phone, tablet
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function connectToDevice(config: WifiDeviceConfig): boolean;
@@ -117,6 +122,7 @@ declare namespace wifi {
      * @return Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function disconnect(): boolean;
@@ -129,6 +135,7 @@ declare namespace wifi {
      * @return Returns Wi-Fi signal level ranging from 0 to 4.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function getSignalLevel(rssi: number, band: number): number;
 
@@ -137,6 +144,7 @@ declare namespace wifi {
      *
      * @return Returns the Wi-Fi connection information.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function getLinkedInfo(): Promise<WifiLinkedInfo>;
     function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
@@ -146,6 +154,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if a Wi-Fi connection has been set up; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function isConnected(): boolean;
 
@@ -156,6 +165,7 @@ declare namespace wifi {
      *
      * @return Returns the features supported by this device.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.Core
      * @systemapi Hide this for inner system use.
      */
     function getSupportedFeatures(): number;
@@ -166,6 +176,7 @@ declare namespace wifi {
      * @param featureId Indicates the ID of the feature.
      * @return Returns {@code true} if this device supports the specified feature; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.Core
      */
     function isFeatureSupported(featureId: number): boolean;
 
@@ -176,6 +187,7 @@ declare namespace wifi {
      *
      * @return Returns the MAC address of the Wi-Fi device.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function getDeviceMacAddress(): string[];
@@ -187,6 +199,7 @@ declare namespace wifi {
      *
      * @return Returns the IP information of the Wi-Fi connection.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function getIpInfo(): IpInfo;
 
@@ -195,6 +208,7 @@ declare namespace wifi {
      *
      * @return Returns the country code of this device.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.Core
      */
     function getCountryCode(): string;
 
@@ -203,6 +217,7 @@ declare namespace wifi {
      *
      * @return {@code true} if the Wi-Fi network is re-associate successfully.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function reassociate(): boolean;
@@ -212,6 +227,7 @@ declare namespace wifi {
      *
      * @return {@code true} if the Wi-Fi network is re-connect successfully.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function reconnect(): boolean;
@@ -223,6 +239,7 @@ declare namespace wifi {
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -235,6 +252,7 @@ declare namespace wifi {
      * @return Returns the network ID in the updated Wi-Fi configuration if the update is successful;
      *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function updateNetwork(config: WifiDeviceConfig): number;
@@ -247,6 +265,7 @@ declare namespace wifi {
      * @param netId Identifies the network to disable.
      * @return Returns {@code true} if the specified network is disabled; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function disableNetwork(netId: number): boolean;
@@ -257,6 +276,7 @@ declare namespace wifi {
      * @return Returns {@code true} if all the saved Wi-Fi configurations are removed;
      *     returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function removeAllNetwork(): boolean;
@@ -272,6 +292,7 @@ declare namespace wifi {
      *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
      * @return Returns {@code true} if the Wi-Fi network is deleted successfully; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      */
     function removeDevice(id: number): boolean;
@@ -283,6 +304,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function enableHotspot(): boolean;
@@ -294,6 +316,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function disableHotspot(): boolean;
@@ -303,6 +326,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if Wi-Fi hotspot is enabled; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function isHotspotActive(): boolean;
@@ -317,6 +341,7 @@ declare namespace wifi {
      *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
      * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function setHotspotConfig(config: HotspotConfig): boolean;
@@ -326,6 +351,7 @@ declare namespace wifi {
      *
      * @return Returns the configuration of an existing or enabled Wi-Fi hotspot.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function getHotspotConfig(): HotspotConfig;
@@ -337,15 +363,123 @@ declare namespace wifi {
      *
      * @return Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function getStations(): Array<StationInfo>;
+
+    /**
+     * Obtains information about a P2P connection.
+     *
+     * @return Returns the P2P connection information.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
+    function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
+
+    /**
+     * Obtains information about the current group.
+     *
+     * @return Returns the current group information.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
+    function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
+
+    /**
+     * Obtains the information about the found devices.
+     *
+     * @return Returns the found devices list.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function getP2pDevices(): Promise<WifiP2pDevice[]>;
+    function getP2pDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
+
+    /**
+     * Creates a P2P group.
+     *
+     * @param config Indicates the configuration for creating a group.
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function createGroup(config: WifiP2PConfig): boolean;
+
+    /**
+     * Removes a P2P group.
+     *
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function removeGroup(): boolean;
+
+    /**
+     * Initiates a P2P connection to a device with the specified configuration.
+     *
+     * @param config Indicates the configuration for connecting to a specific group.
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function p2pConnect(config: WifiP2PConfig): boolean;
+
+    /**
+     * Canceling a P2P connection.
+     *
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function p2pCancelConnect(): boolean;
+
+    /**
+     * Discovers Wi-Fi P2P devices.
+     *
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function startDiscoverDevices(): boolean;
+
+    /**
+     * Stops discovering Wi-Fi P2P devices.
+     *
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function stopDiscoverDevices(): boolean;
+
+    /**
+     * Deletes the persistent P2P group with the specified network ID.
+     *
+     * @param netId Indicates the network ID of the group to be deleted.
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function deletePersistentGroup(netId: number): boolean;
+
+    /**
+     * Sets the name of the Wi-Fi P2P device.
+     *
+     * @param devName Indicates the name to be set.
+     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function setDeviceName(devName: string): boolean;
 
     /**
      * Subscribe Wi-Fi status change events.
      *
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function on(type: "wifiStateChange", callback: Callback<number>): void;
 
@@ -355,6 +489,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function off(type: "wifiStateChange", callback?: Callback<number>): void;
 
@@ -363,6 +498,7 @@ declare namespace wifi {
      *
      * @return Returns 0: disconnected, 1: connected
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function on(type: "wifiConnectionChange", callback: Callback<number>): void;
 
@@ -372,6 +508,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
 
@@ -380,6 +517,7 @@ declare namespace wifi {
      *
      * @return Returns 0: scan fail, 1: scan success
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function on(type: "wifiScanStateChange", callback: Callback<number>): void;
 
@@ -389,6 +527,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
 
@@ -397,6 +536,7 @@ declare namespace wifi {
      *
      * @return Returns RSSI value in dBm
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function on(type: "wifiRssiChange", callback: Callback<number>): void;
 
@@ -406,6 +546,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     function off(type: "wifiRssiChange", callback?: Callback<number>): void;
 
@@ -414,6 +555,7 @@ declare namespace wifi {
      *
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      */
     function on(type: "hotspotStateChange", callback: Callback<number>): void;
 
@@ -423,6 +565,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      */
     function off(type: "hotspotStateChange", callback?: Callback<number>): void;
 
@@ -431,6 +574,7 @@ declare namespace wifi {
      *
      * @return Returns StationInfo
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
@@ -441,6 +585,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
@@ -450,6 +595,7 @@ declare namespace wifi {
      *
      * @return Returns {@link #StationInfo} object
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
@@ -459,9 +605,113 @@ declare namespace wifi {
      *
      * @return Returns {@link #StationInfo} object
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
      * @systemapi Hide this for inner system use.
      */
     function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
+
+    /**
+     * Subscribe P2P status change events.
+     *
+     * @return Returns 1: idle, 2: starting, 3:started, 4: closing, 5: closed
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pStateChange", callback: Callback<number>): void;
+
+    /**
+     * Unsubscribe P2P status change events.
+     *
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pStateChange", callback?: Callback<number>): void;
+
+    /**
+     * Subscribe P2P connection change events.
+     *
+     * @return Returns WifiP2pLinkedInfo
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pConnectionChange", callback: AsyncCallback<WifiP2pLinkedInfo>): void;
+
+    /**
+     * Unsubscribe P2P connection change events.
+     *
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pConnectionChange", callback?: AsyncCallback<WifiP2pLinkedInfo>): void;
+
+    /**
+     * Subscribe P2P local device change events.
+     *
+     * @return Returns WifiP2pDevice
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pDeviceChange", callback: AsyncCallback<WifiP2pDevice>): void;
+
+    /**
+     * Unsubscribe P2P local device change events.
+     *
+     * @return Returns WifiP2pDevice
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pDeviceChange", callback?: AsyncCallback<WifiP2pDevice>): void;
+
+    /**
+     * Subscribe P2P peer device change events.
+     *
+     * @return Returns WifiP2pDevice[]
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pPeerDeviceChange", callback: AsyncCallback<WifiP2pDevice[]>): void;
+
+    /**
+     * Unsubscribe P2P peer device change events.
+     *
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pPeerDeviceChange", callback?: AsyncCallback<WifiP2pDevice[]>): void;
+
+    /**
+     * Subscribe P2P persistent group change events.
+     *
+     * @return Returns void
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pPersistentGroupChange", callback: Callback<void>): void;
+
+    /**
+     * Unsubscribe P2P persistent group change events.
+     *
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pPersistentGroupChange", callback?: Callback<void>): void;
+
+    /**
+     * Subscribe P2P discovery events.
+     *
+     * @return Returns 0: initial state, 1: discovery succeeded
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function on(type: "p2pDiscoveryChange", callback: Callback<number>): void;
+
+    /**
+     * Unsubscribe P2P discovery events.
+     *
+     * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     */
+    function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
     /**
      * Wi-Fi device configuration information.
@@ -733,6 +983,137 @@ declare namespace wifi {
 
         /** Failed to set up the Wi-Fi connection. */
         UNKNOWN
+    }
+
+    /**
+     * P2P device information.
+     *
+     * @since 8
+     */
+    interface WifiP2pDevice {
+        /** Device name */
+        deviceName: string;
+
+        /** Device mac address */
+        deviceAddress: string;
+
+        /** Primary device type */
+        primaryDeviceType: string;
+
+        /** Device status */
+        deviceStatus: P2pDeviceStatus;
+
+        /** Device group capabilitys */
+        groupCapabilitys: number;
+    }
+
+    /**
+     * P2P config.
+     *
+     * @since 8
+     */
+    interface WifiP2PConfig {
+        /** Device mac address */
+        deviceAddress: string;
+
+        /**
+         * Specifies whether the P2P group of this {@code WifiP2pConfig} instance is persistent
+         * -1: temporary, -2: persistent
+         */
+        netId: number;
+
+        /* The passphrase of this {@code WifiP2pConfig} instance */
+        passphrase: string;
+        /** Group name */
+
+        groupName: string;
+
+        /** Group owner band */
+        goBand: GroupOwnerBand;
+    }
+
+    /**
+     * P2P group information.
+     *
+     * @since 8
+     */
+    interface WifiP2pGroupInfo {
+        /** Indicates whether it is group owner */
+        isP2pGo: boolean;
+
+        /** Group owner information */
+        ownerInfo: WifiP2pDevice;
+
+        /** The group passphrase */
+        passphrase: string;
+
+        /** Interface name */
+        interface: string;
+
+        /** Group name */
+        groupName: string;
+
+        /** Network ID */
+        networkId: number;
+
+        /** Frequency */
+        frequency: number;
+
+        /** Client list */
+        clientDevices: WifiP2pDevice[];
+
+        /** Group owner IP address */
+        goIpAddress: string;
+    }
+
+    /**
+     * P2P connection status.
+     *
+     * @since 8
+     */
+    enum P2pConnectState {
+        DISCONNECTED = 0,
+        CONNECTED = 1,
+    }
+
+    /**
+     * P2P linked information.
+     *
+     * @since 8
+     */
+    interface WifiP2pLinkedInfo {
+        /** Connection status */
+        connectState: P2pConnectState;
+
+        /** Indicates whether it is group owner */
+        isGroupOwner: boolean;
+
+        /** Group owner address */
+        groupOwnerAddr: string;
+    }
+
+    /**
+     * P2P device status.
+     *
+     * @since 8
+     */
+    enum P2pDeviceStatus {
+        CONNECTED = 0,
+        INVITED = 1,
+        FAILED = 2,
+        AVAILABLE = 3,
+        UNAVAILABLE = 4,
+    }
+
+    /**
+     * P2P group owner band.
+     *
+     * @since 8
+     */
+    enum GroupOwnerBand {
+        GO_BAND_AUTO = 0,
+        GO_BAND_2GHZ = 1,
+        GO_BAND_5GHZ = 2,
     }
 }
 
