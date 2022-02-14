@@ -379,9 +379,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when notifies the host application that web content from the specified source is attempting to use the Geolocation API
+   * 
+   * @param origin The origin that ask for the geolocation permission.
+   * @param allow The geolocation permission status.
+   * @param retain Whether to allow the geolocation permission status to be saved to the system.
    * @since 8
    */
-  onGeolocationShow(callback: (event?: { origin: string, callback: Function }) => void): WebAttribute;
+  onGeolocationShow(callback: (event?: { origin: string, allow: boolean, retain: boolean }) => void): WebAttribute;
 
   /**
    * Get WebView focus callback event
