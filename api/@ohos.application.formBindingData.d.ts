@@ -18,16 +18,14 @@
  *
  * @name formBindingData
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  */
 declare namespace formBindingData {
     /**
      * Create an FormBindingData instance.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param obj Indicates the FormBindingData instance data.
      * @return Returns the {@link FormBindingData} instance.
      */

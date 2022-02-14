@@ -17,8 +17,7 @@
  * the constant for action and entity in the want
  * @name wantConstant
  * @since 6
- * @sysCap aafwk
- * @devices phone, tablet
+ * @sysCap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 declare namespace wantConstant {
@@ -26,8 +25,7 @@ declare namespace wantConstant {
    * the constant for action of the want
    * @name Action
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Action {
@@ -223,8 +221,7 @@ declare namespace wantConstant {
    * the constant for Entity of the want
    * @name Action
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Entity {

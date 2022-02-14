@@ -18,8 +18,7 @@
  *
  * @name StartOptions
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -27,9 +26,8 @@ export default class StartOptions {
     /**
      * windowMode
      * @default -
-     * @devices phone, tablet
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
      windowMode?: number;

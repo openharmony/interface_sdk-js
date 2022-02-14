@@ -14,14 +14,18 @@
  */
 import { Want } from './want';
 
+/**
+ * @since 7
+ * @sysCap SystemCapability.Ability.AbilityBase
+ * @permission N/A
+ */
 export interface AbilityResult {
   /**
    * Indicates the result code returned after the ability is destroyed. You can define the result
    * code to identify an error.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    */
   resultCode: number;
 
@@ -29,9 +33,8 @@ export interface AbilityResult {
    * Indicates the data returned after the ability is destroyed. You can define the data returned.
    * This parameter can be null.
    * @default -
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    */
   want?: Want;
 }

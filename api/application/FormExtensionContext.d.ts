@@ -22,8 +22,7 @@ import formBindingData from '../@ohos.application.formBindingData';
  * formExtension-specific resources.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -34,9 +33,8 @@ export default class FormExtensionContext extends ExtensionContext {
      *
      * <p>You can use this method to update the given form</p>
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @permission ohos.permission.REQUIRE_FORM.
      * @param formId Indicates the given form.
      * @param formBindingData Indicates the form data.

@@ -17,106 +17,94 @@
   * Want is the basic communication component of the system.
   * @name Want
   * @since 6
-  * @sysCap AAFwk
-  * @devices phone, tablet
+  * @sysCap SystemCapability.Ability.AbilityBase
   * @permission N/A
   */
 export declare interface Want {
   /**
    * device id
    * @default -
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    */
   deviceId?: string;
 
   /**
    * bundle name
    * @default -
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    */
   bundleName?: string;
 
   /**
    * ability name
    * @default -
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    */
   abilityName?: string;
 
   /**
    * The description of a URI in a Want.
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   uri?: string;
 
   /**
    * The description of the type in this Want.
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   type?: string;
 
   /**
    * The options of the flags in this Want.
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   flags?: number;
 
   /**
    * The description of an action in an want.
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   action?: string;
 
   /**
    * The description of the WantParams object in an Want
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   parameters?: {[key: string]: any};
 
   /**
    * The description of a entities in a Want.
-   * @devices phone, tablet
    * @since 6
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   entities?: Array<string>;
 
   /**
    * The description of a extension ability name in a Want.
-   * @devices phone, tablet
    * @since 9
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   extensionAbilityName?: string;
 
   /**
    * The description of a extension ability type in a Want.
-   * @devices phone, tablet
    * @since 9
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @default -
    */
   extensionAbilityType?: number;

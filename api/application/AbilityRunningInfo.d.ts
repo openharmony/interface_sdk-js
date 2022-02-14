@@ -20,50 +20,49 @@ import abilityManager from '../@ohos.application.abilityManager';
  * The class of an ability running information.
  *
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface AbilityRunningInfo {
     /**
     * @default ability element name
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     ability: ElementName;
 
     /**
     * @default process id
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     pid: number;
 
     /**
     * @default user id
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     uid: number;
  
     /**
     * @default the name of the process
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     processName: string;
 
     /**
     * @default ability start time
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     startTime: number;
 
     /**
     * @default Enumerates state of the ability state info
     * @since 8
-    * @SysCap SystemCapability.Appexecfwk
+    * @sysCap SystemCapability.Ability.AbilityRuntime.Core
     */
     abilityState: abilityManager.AbilityState;
 }

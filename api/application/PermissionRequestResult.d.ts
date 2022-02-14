@@ -17,8 +17,7 @@
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @StageModelOnly
  */
@@ -27,7 +26,7 @@ export default class PermissionRequestResult {
      * The permissions passed in by the user.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @StageModelOnly
      */
     permissions: Array<string>;
@@ -37,7 +36,7 @@ export default class PermissionRequestResult {
      * permission is granted, and the value -1 indicates not.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @StageModelOnly
      */
     authResults: Array<number>;

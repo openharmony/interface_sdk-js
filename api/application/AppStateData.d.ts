@@ -17,8 +17,7 @@
  * The application state data.
  *
  * @since 8
- * @sysCap appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  */
@@ -26,9 +25,8 @@ export default class AppStateData {
     /**
      * The bundle name.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     bundleName: string;
@@ -36,9 +34,8 @@ export default class AppStateData {
     /**
      * The uid.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     uid: number;
@@ -46,9 +43,8 @@ export default class AppStateData {
     /**
      * The application state.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap appexecfwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     state: number;
