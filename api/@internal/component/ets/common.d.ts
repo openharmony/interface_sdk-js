@@ -1408,6 +1408,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   stateStyles(value: StateStyels): T;
+
+  /**
+   * id for distrubte identification.
+   * @since 8
+   */
+  restoreId(value: number): T;
 }
 
 /**
