@@ -19,7 +19,7 @@ import {AsyncCallback, Callback} from './basic';
  *
  * @name distributedDataObject
  * @since 8
- * @syscap SystemCapability.DistributedDataManager.DataObject.Core
+ * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
  */
 declare namespace distributedDataObject {
     /**
@@ -42,7 +42,7 @@ declare namespace distributedDataObject {
     /**
      * Object create by {@link createDistributedObject}.
      *
-     * @syscap SystemCapability.DistributedDataManager.DataObject.Core
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      */
     interface DistributedObject {
@@ -70,6 +70,26 @@ declare namespace distributedDataObject {
          * @since 8
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+
+        /**
+         * On watch of status
+         *
+         * @param callback Indicates the observer of object status changed.
+         *                 sessionId: The sessionId of the changed object 
+         *                 networkId: NetworkId of the changed device
+         *                 status: 'online' The object became online on the device and data can be synced to the device
+         *                         'offline' The object became offline on the device and the object can not sync any data
+         * @since 8
+         */
+        on(type: 'status', callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
+
+        /**
+         * Off watch of status
+         *
+         * @param callback If not null, off the callback, if undefined, off all callbacks
+         * @since 8
+         */
+        off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
     }
 }
 
