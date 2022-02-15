@@ -16,12 +16,12 @@
 import {AsyncCallback} from "./basic";
 
 /**
- * Provides cust file path related APIS.
+ * Provides file path related APIS.
  *
  * @since 8
  * @sysCap SystemCapability.Customization.ConfigPolicy
  */
-declare namespace cust {
+declare namespace configPolicy {
   /**
    * Get file from the highest priority config path which contains the given file name.
    *
@@ -61,4 +61,4 @@ declare namespace cust {
   function getCfgDirList(): Promise<Array<string>>;
 }
 
-export default cust;
+export default configPolicy;
