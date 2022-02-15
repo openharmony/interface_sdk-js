@@ -17,7 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
  * @since 7
- * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+ * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @import N/A
  * @permission N/A
  */
@@ -580,7 +580,7 @@ declare namespace distributedData {
         /**
          * Indicates schema object 
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @permission N/A
          */
@@ -593,7 +593,7 @@ declare namespace distributedData {
      * You can create Schema objects and put them in Options when creating or opening the database.
      * 
      * @since 8
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
      * @permission N/A
      */
@@ -603,7 +603,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         constructor()
         /**
@@ -611,7 +611,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
 		root: FieldNode;  
         /**
@@ -619,7 +619,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         indexes: Array<string>;    
         /**
@@ -627,7 +627,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         mode: number;
         /**
@@ -635,7 +635,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         skip: number;
     }
@@ -681,7 +681,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 9
-         * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
          default: string;
          /**
@@ -689,7 +689,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 9
-          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
          nullable: boolean;
          /**
@@ -697,7 +697,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 9
-          * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
          type: number;
     }
