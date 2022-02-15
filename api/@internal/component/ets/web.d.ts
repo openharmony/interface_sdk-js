@@ -30,6 +30,26 @@ declare enum MessageLevel {
   Warn
 }
 
+declare enum MixedModeContent {
+  /**
+   * MIXED_CONTENT_ALWAYS_ALLOW level.
+   * @since 8
+   */
+  MIXED_CONTENT_ALWAYS_ALLOW,
+
+  /**
+   * MIXED_CONTENT_NEVER_ALLOW level.
+   * @since 8
+   */
+  MIXED_CONTENT_NEVER_ALLOW,
+
+  /**
+   * MIXED_CONTENT_COMPATIBILITY_MODE level.
+   * @since 8
+   */
+  MIXED_CONTENT_COMPATIBILITY_MODE,
+}
+
 declare enum HitTestType {
   /**
    * The edit text.
@@ -346,6 +366,48 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
+
+  /**
+   * Whether to allow image resources to be loaded from the network
+   * @since 8
+   */
+  onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
+
+  /**
+   * Setting Whether to Enable the DOM Storage API Permission
+   * @since 8
+   */
+  domStorageAccess(domStorageAccess: boolean): WebAttribute;
+
+  /**
+   * Set whether WebView should automatically load image resources
+   * @since 8
+   */
+  imageAccess(imageAccess: boolean): WebAttribute;
+
+  /**
+   * Whether to load HTTP and HTTPS content
+   * @since 8
+   */
+  mixedMode(mixedMode: MixedModeContent): WebAttribute;
+
+  /**
+   * Sets whether the WebView supports zooming using on-screen controls or gestures
+   * @since 8
+   */
+  zoomAccess(zoomAccess: boolean): WebAttribute;
+
+  /**
+   * Indicates whether to allow access to geographical locations
+   * @since 8
+   */
+  geolocationAccess(geolocationAccess: boolean): WebAttribute;
+
+  /**
+   * Inject the arkUI JS object into H5 and invoke the function of the object in H5.
+   * @since 8
+   */
+  javaScriptProxy(javaScriptProxy: { obj: object, name: string, methodList: Array<string> }): WebAttribute;
 
   /**
    * Triggered at the end of web page loading
