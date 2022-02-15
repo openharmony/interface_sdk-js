@@ -18,6 +18,7 @@ import { ConnectOptions } from "../ability/connectOptions";
 import ExtensionContext from "./ExtensionContext";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
+import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
 
 /**
  * The context of service extension. It allows access to
@@ -30,6 +31,14 @@ import StartOptions from "../@ohos.application.StartOptions";
  * @StageModelOnly
  */
 export default class ServiceExtensionContext extends ExtensionContext {
+    /**
+     * Service extension information.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     */
+    extensionAbilityInfo: ExtensionAbilityInfo;
+
     /**
      * Service extension uses this method to start a specific ability.
      *

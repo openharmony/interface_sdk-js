@@ -31,4 +31,14 @@ export default class StartOptions {
      * @StageModelOnly
      */
      windowMode?: number;
+
+    /**
+     * displayId
+     * @default -
+     * @devices phone, tablet
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+    displayId?: number;
 }
