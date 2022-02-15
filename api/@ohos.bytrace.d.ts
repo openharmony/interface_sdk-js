@@ -34,9 +34,9 @@
  * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
  * and taskId.
  *
- * @SysCap SystemCapability.Developtools.Bytrace
- * @devices phone, tablet
+ * @deprecated
  * @since 7
+ * @SysCap SystemCapability.Developtools.Bytrace
  */
 declare namespace bytrace {
   /**
@@ -47,10 +47,12 @@ declare namespace bytrace {
    * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
    * {@link #finishTrace}, the name and taskId need to be the same.
    *
+   * @deprecated
+   * @since 7
+   * @SysCap SystemCapability.Developtools.Bytrace
    * @param name Indicates the task name.
    * @param taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @param expectedTime Indicates the expected time required for completing the task, in milliseconds.
-   * @since 7
    */
   function startTrace(name: string, taskId: number, expectedTime?: number): void;
 
@@ -60,19 +62,23 @@ declare namespace bytrace {
    * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
    * is specified by {@code name}. This method must be invoked after the the startTrace.
    *
+   * @deprecated
+   * @since 7
+   * @SysCap SystemCapability.Developtools.Bytrace
    * @param name Indicates the task name. It must be the same whith the {@code name} of startTrace.
    * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
    * {@code taskId} of startTrace.
-   * @since 7
    */
   function finishTrace(name: string, taskId: number): void;
 
   /**
    * Records a trace for generating a count, such as clock pulse and the number of layers.
    *
+   * @deprecated
+   * @since 7
+   * @SysCap SystemCapability.Developtools.Bytrace
    * @param name Indicates the name used to identify the count.
    * @param count Indicates the number of the count.
-   * @since 7
    */
   function traceByValue(name: string, count: number): void;
 }
