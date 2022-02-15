@@ -170,7 +170,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
-        beginTransactionSync():void;
+        beginTransaction():void;
 
         /**
          * commit the the sql you have excuted.
@@ -180,7 +180,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
-        commitSync():void;
+        commit():void;
 
         /**
          * roll back the sql you have already excuted
@@ -190,7 +190,7 @@ declare namespace rdb {
          * @sysCap SystemCapability.Data.DATA_APPDATAMGR
          * @devices phone, tablet, tv, wearable, car
          */
-        rollBackSync():void;
+        rollBack():void;
 
         /**
          * Set table to be distributed table.
