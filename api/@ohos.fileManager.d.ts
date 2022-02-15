@@ -17,9 +17,6 @@ import { AsyncCallback } from './basic'
 
 export default filemanager;
 
-/**
- * @devices phone, tablet, tv, wearable
- */
 declare namespace filemanager {
     export { listFile };
     export { getRoot };
@@ -32,7 +29,7 @@ declare namespace filemanager {
  * listFile.
  *
  * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
  * @function listFile
@@ -53,7 +50,7 @@ declare function listFile(path: string, type: string, options?: {dev?: DevInfo, 
  * getRoot.
  *
  * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
  * @function getRoot
@@ -70,7 +67,7 @@ declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<File
  * createFile.
  *
  * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
  * @function createFile
@@ -88,10 +85,9 @@ declare function createFile(path: string, filename: string, options?: {dev?: Dev
 /**
  * FileInfo
  * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
- * @devices phone, tablet, tv, wearable
  */
 declare interface FileInfo {
     /**
@@ -129,10 +125,9 @@ declare interface FileInfo {
 /**
  * DevInfo
  * @note N/A
- * @sysCap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 8
  * @permission N/A
- * @devices phone, tablet, tv, wearable
  */
  declare interface DevInfo {
     /**
