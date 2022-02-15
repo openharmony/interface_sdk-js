@@ -100,6 +100,23 @@ declare enum HitTestType {
   Unknown
 }
 
+declare enum CacheMode {
+  /**
+   * load online and not cache.
+   */
+  None,
+
+  /**
+   * Load cache first, then online.
+   */
+  Online,
+
+  /**
+   * load cache and not online.
+   */
+  Only
+}
+
 declare class JsResult {
   /**
    * Constructor.
@@ -232,6 +249,26 @@ declare class WebResourceError {
   getErrorCode(): number;
 }
 
+declare class WebCookie {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Sets the cookie.
+   * @since 8
+   */
+  setCookie();
+
+  /**
+   * Saves the cookies.
+   * @since 8
+   */
+  saveCookie();
+}
+
 declare class WebController {
   /**
    * Constructor.
@@ -250,6 +287,12 @@ declare class WebController {
    * @since 8
    */
   onActive(): void;
+
+  /**
+   * Clear the history in the Web.
+   * @since 8
+   */
+  clearHistory(): void;
 
   /**
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
@@ -409,6 +452,62 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   javaScriptProxy(javaScriptProxy: { obj: object, name: string, methodList: Array<string> }): WebAttribute;
 
+  /*
+   * Sets whether the Web should save the password.
+   * @param password {@code ture} means the Web can save the password; {@code false} otherwise.
+   *
+   * @since 8
+   */
+  password(password: boolean): WebAttribute;
+
+  /**
+   * Sets the mode of cache in the Web.
+   * @param cacheMode The cache mode, which can be {@link CacheMode}.
+   *
+   * @since 8
+   */
+  cacheMode(cacheMode: CacheMode): WebAttribute;
+
+  /**
+   * Sets whether the Web should save the table data.
+   * @param tableData {@code ture} means the Web can save the table data; {@code false} otherwise.
+   *
+   * @since 8
+   */
+  tableData(tableData: boolean): WebAttribute;
+
+  /**
+   * Sets whether the Web access meta 'viewport' in HTML.
+   * @param wideViewModeAccess {@code ture} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
+   *
+   * @since 8
+   */
+  wideViewModeAccess(wideViewModeAccess: boolean): WebAttribute;
+
+  /**
+   * Sets whether the Web access overview mode.
+   * @param overviewModeAccess {@code ture} means the Web access overview mode; {@code false} otherwise.
+   *
+   * @since 8
+   */
+  overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
+
+  /**
+   * Sets the atio of the text zoom.
+   * @param textZoomAtio The atio of the text zoom.
+   *
+   * @since 8
+   */
+  textZoomAtio(textZoomAtio: number): WebAttribute;
+
+  /**
+   * Sets whether the Web access the database.
+   * @param databaseAccess {@code ture} means the Web access the database; {@code false} otherwise.
+   *
+   * @since 8
+   */
+  databaseAccess(databaseAccess: boolean): WebAttribute;
+
   /**
    * Triggered at the end of web page loading
    * @since 8
@@ -508,6 +607,49 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onDownloadStart(callback: (event?: {url: string, userAgent: string, contentDisposition: string, mimetype: string, contentLength: number}) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page refreshes accessed history.
+   * @param callback The triggered callback when the Web page refreshes accessed history.
+   *
+   * @since 8
+   */
+  onRefreshAccessedHistory(callback: (event?: { url: string, refreshed: boolean }) => void): WebAttribute;
+
+  /**
+   * Triggered when the url is about to be loaded.
+   * @param callback The triggered callback when the url is about to be loaded.
+   * @return Returns {@code ture} to let the load stop; return {@code false} to let the load continue.
+   *
+   * @since 8
+   */
+  onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the Web page receives the ssl Error.
+   * @param callback The triggered callback when the Web page receives the ssl Error.
+   *
+   * @since 8
+   */
+  onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
+
+  /**
+   * Triggered when the render process is exited.
+   * @param callback The triggered when the render process is exited.
+   * @return Returns {@code ture} to handle the situation; return {@code false} to kill the render process.
+   *
+   * @since 8
+   */
+  onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the file selector shows.
+   * @param callback The triggered when the file selector shows.
+   * @return Returns {@code ture} to handle the situation; return {@code false} to use default handling.
+   *
+   * @since 8
+   */
+  onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
   /**
    * Just use for genetate tsbundle
