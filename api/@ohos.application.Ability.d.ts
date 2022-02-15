@@ -21,7 +21,7 @@ import { Configuration } from './@ohos.application.Configuration';
 import rpc from '/@ohos.rpc';
 
 /**
- * The interface of an Caller.
+ * The interface of a Caller.
  *
  * @since 9
  * @sysCap AAFwk
@@ -71,7 +71,7 @@ import rpc from '/@ohos.rpc';
  }
 
  /**
- * The interface of an Callee.
+ * The interface of a Callee.
  *
  * @since 9
  * @sysCap AAFwk
@@ -137,7 +137,7 @@ export default class Ability {
     lastRequestWant: Want;
 
     /**
-     * Call Service Sutb Object
+     * Call Service Stub Object.
      *
      * @since 9
      * @sysCap AAFwk
