@@ -18,6 +18,87 @@ import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
 import { Configuration } from './@ohos.application.Configuration';
+import rpc from '/@ohos.rpc';
+
+/**
+ * The interface of an Caller.
+ *
+ * @since 9
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @StageModelOnly
+ */
+ interface Caller {
+     /**
+     * Notify the server of Sequenceable type data.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     call(method, data: rpc.Sequenceable): Promise<void>;
+
+    /**
+     * Notify the server of Sequenceable type data and return the notification result.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+
+    /**
+     * Clear service records.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     release(): void;
+
+    /**
+     * Register death listener notification callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     onRelease(callback: function): void;
+ }
+
+ /**
+ * The interface of an Callee.
+ *
+ * @since 9
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @StageModelOnly
+ */
+ interface Callee {
+
+     /**
+     * Register data listener callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     on(method: string, callback: function): void;
+
+     /**
+     * Unregister data listener callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     off(method: string): void;
+ }
 
 /**
  * The class of an ability.
@@ -54,6 +135,15 @@ export default class Ability {
      * @StageModelOnly
      */
     lastRequestWant: Want;
+
+    /**
+     * Call Service Sutb Object
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     callee: Callee;
 
     /**
      * Called back when an ability is started for initialization.

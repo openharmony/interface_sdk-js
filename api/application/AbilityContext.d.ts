@@ -23,6 +23,7 @@ import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
+import Caller from '../@ohos.application.Ability';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -72,6 +73,18 @@ export default class AbilityContext extends Context {
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options?: StartOptions): Promise<void>;
+
+    /**
+     * Get the caller object of the startup capability
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 9
+     * @sysCap AAFwk
+     * @param parameter Indicates the ability to start.
+     * @return Caller
+     * @StageModelOnly
+     */
+     startAbilityByCall(want: Want): Promise<Caller>;
 
     /**
      * Starts a new ability with account.
