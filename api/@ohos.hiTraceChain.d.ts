@@ -77,7 +77,7 @@ declare namespace hiTraceChain {
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
      */
-    enum HiTraceTracePointType {
+    enum HiTraceTracepointType {
         /**
          * client send
          */
@@ -208,11 +208,11 @@ declare namespace hiTraceChain {
      * @since 8
      * @SysCap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceCommunicationMode} mode Trace communication mode.
-     * @param {HiTraceTracePointType} type Trace info type.
+     * @param {HiTraceTracepointType} type Trace info type.
      * @param {HiTraceId} id Trace id that need to print.
      * @param {string} msg Customized info that need to print.
      */
-    function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracePointType, id: HiTraceId, msg?: string): void;
+    function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracepointType, id: HiTraceId, msg?: string): void;
 
     /**
      * Judge whether the trace id is valid or not.
