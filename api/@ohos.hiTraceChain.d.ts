@@ -58,7 +58,7 @@ declare namespace hiTraceChain {
         /**
          * do not add id to log. default: add id to log.
          */
-        DONOT_ENABLE_LOG  = 1 << 4,
+        DISABLE_LOG  = 1 << 4,
 
         /**
          * the trace is triggered by fault.
