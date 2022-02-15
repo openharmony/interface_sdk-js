@@ -58,7 +58,6 @@ declare namespace abilityManager {
      *
      * @since 8
      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
      */
@@ -70,7 +69,7 @@ declare namespace abilityManager {
       *
       * @since 9
       * @SysCap SystemCapability.Ability.AbilityRuntime.Core
-      * @param config Indicates the new configuration.
+      * @param upperLimit Get the maximum limit of the number of messages
       * @systemapi Hide this for inner system use.
       * @return -
       */
