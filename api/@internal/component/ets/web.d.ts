@@ -223,19 +223,19 @@ declare class WebController {
    * Means to load a piece of code and execute JS code in the context of the currently displayed page
    * @since 8
    */
-  runJavaScript(jscode: string, callback?: (result: string) => void);
+  runJavaScript(options: { script: string, callback?: (result: string) => void });
 
   /**
    * Indicates that a piece of code is loaded
    * @since 8
    */
-  loadData(value: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
+  loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
    * Load the given URL
    * @since 8
    */
-  loadUrl(url: string, additionalHttpHeaders?: Array<{ key: string, value: string }>);
+  loadUrl(options: {url: string, headers?: Array<{ key: string, value: string }> });
 
   /**
    * refreshes the current URL.
@@ -253,13 +253,13 @@ declare class WebController {
    * Registers the JavaScript object and method list.
    * @since 8
    */
-  registerJavaScriptProxy(value: { obj: object, name: string, methodList: Array<string> });
+  registerJavaScriptProxy(options: { obj: object, name: string, methodList: Array<string> });
 
   /**
    * Deletes a registered JavaScript object with given name.
    * @since 8
    */
-  deleteJavaScriptProxy(value: { name: string });
+  deleteJavaScriptRegister(name: string);
 
   /**
    * Get the type of hit test.
