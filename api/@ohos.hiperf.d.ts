@@ -17,7 +17,7 @@
  * Provides interfaces to trace a task for performance measure by hiperf.
  * result can be use by hiperf python script
  *
- * @SysCap SystemCapability.Developtools.Hiperf
+ * @syscap SystemCapability.Developtools.Hiperf
  * @since 7
  */
 
@@ -25,56 +25,56 @@ declare namespace hiperf {
     /**
      * Start record when RecordOption pass to Client
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function startWithOption(): boolean;
 
     /**
      * Reset the option
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function resetOption(): boolean
 
     /**
      * Start record with default options
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function start(): boolean;
 
     /**
      * Pause recording
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function pause(): boolean;
 
     /**
      * Resume recording
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function resume(): boolean;
 
     /**
      * Stop recording
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function stop(): boolean;
 
     /**
      * Check the client is ready
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function isReady(): boolean;
 
     /**
      * Set the output dir
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param directory
      */
     function setup(outputDir: string): boolean;
@@ -82,20 +82,20 @@ declare namespace hiperf {
     /**
      * Get the output dir
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function getOutputDir(): string;
 
     /**
      * Get the command path
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function getCommandPath(): string;
     /**
      * Get the the fullpath of output file
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function getOutputPerfDataPath(): string;
 
@@ -104,7 +104,7 @@ declare namespace hiperf {
     /**
      * Set output file name, default is perf.data
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param Filename
      */
     function setOutputFilename(outputFilename: string): boolean;
@@ -112,14 +112,14 @@ declare namespace hiperf {
     /**
      * Get output file name
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function getOutputFileName(): string;
 
     /**
      * Collect system-wide information for measures all processes/threads
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is disable.
      */
     function setTargetSystemWide(enble: boolean): boolean;
@@ -127,7 +127,7 @@ declare namespace hiperf {
     /**
      * Compress record data.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is disable.
      */
     function setCompressData(enble: boolean): boolean;
@@ -135,7 +135,7 @@ declare namespace hiperf {
     /**
      * Specify cpu ID
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param cpu ID should 0,1,2...
      */
     function setSelectCpus(cpus: number[]): boolean;
@@ -143,7 +143,7 @@ declare namespace hiperf {
     /**
      * Stop in <timeStopSec> seconds.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is 10000 seconds
      */
     function setTimeStopSec(timeStopSec: number): boolean;
@@ -151,7 +151,7 @@ declare namespace hiperf {
     /**
      * Set event sampling frequency.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is 4000 samples every second.
      */
     function setFrequency(frequency: number): boolean;
@@ -160,7 +160,7 @@ declare namespace hiperf {
      * Set event sampling period for tracepoint events.
      * recording one sample when <period> events happen.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is 1
      */
     function setPeriod(period: number): boolean;
@@ -168,7 +168,7 @@ declare namespace hiperf {
     /**
      * Customize the name of the event that needs to be sampled.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setSelectEvents(selectEvents: string[]): boolean;
 
@@ -176,14 +176,14 @@ declare namespace hiperf {
      * Customize the name of the event that needs to be grouped.
      * the function is added on the basis of the function of the SetSelectEvents().
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setSelectGroups(selectGroups: string[]): boolean;
 
     /**
      * Set to don't tracing child processes.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * param default is disable
      */
     function setNoInherit(enable: boolean): boolean;
@@ -192,7 +192,7 @@ declare namespace hiperf {
      * Set the limit process id of the collection target.
      * Conflicts with the SetTargetSystemWide(true).
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setSelectPids(selectPids: number[]): boolean;
 
@@ -200,14 +200,14 @@ declare namespace hiperf {
      * Set the limit thread id of the collection target.
      * Conflicts with the SetTargetSystemWide(true).
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setSelectTids(selectTids: number[]): boolean;
 
     /**
      * Set don’t record events issued by hiperf itself.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setExcludePerf(excludePerf: boolean): boolean;
 
@@ -215,7 +215,7 @@ declare namespace hiperf {
      * Set the max percent of cpu time used for recording.
      * percent is in range [1-100]
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is 25
      */
     function setCpuPercent(cpuPercent: number): boolean;
@@ -223,7 +223,7 @@ declare namespace hiperf {
     /**
      * Set tracing when threads are scheduled off cpu
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      * @param default is disable
      */
     function setOffCPU(offCPU: boolean): boolean;
@@ -236,7 +236,7 @@ declare namespace hiperf {
      * dwarf: DWARF's CFI - Call Frame Information
      * 'dwarf,###' set sample stack size, size should be in 8~65528 and 8 byte aligned.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setCallGraph(sampleTypes: string): boolean;
 
@@ -244,7 +244,7 @@ declare namespace hiperf {
      * Set to unwind after recording.
      * If '-g dwarf' used, stack will be unwind while recording by default
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setDelayUnwind(delayUnwind: boolean): boolean;
 
@@ -252,7 +252,7 @@ declare namespace hiperf {
      * Set to disable unwinding.
      * If '-g dwarf' used, stack will be unwind while recording  by default
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setDisableUnwind(disableUnwind: boolean): boolean;
 
@@ -260,14 +260,14 @@ declare namespace hiperf {
      * Set callstack don't merged.
      * If '-g dwarf' is used, to break the 64k stack limit, callstack is merged by default
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setDisableCallstackMerge(disableCallstackMerge: boolean): boolean;
 
     /**
      * Set directory to look for symbol files, used for unwinding.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setSymbolDir(symbolDir_: string): boolean;
 
@@ -275,21 +275,21 @@ declare namespace hiperf {
      * Set to stop recording after <SIZE> bytes of records. Default is unlimited
      * format like: SIZE[K|M|G]
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setDataLimit(limit: string): boolean;
 
     /**
      * Set a OHOS app name, collect profile info for this app, the app must be debuggable.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setAppPackage(appPackage: string): boolean;
 
     /**
      * Set the clock id to use for the various time fields in the perf_event_type records.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setClockId(clockId: string): boolean;
 
@@ -303,7 +303,7 @@ declare namespace hiperf {
      *  u: only when the branch target is at the user level
      *  k: only when the branch target is in the kernel\n"
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setVecBranchSampleTypes(vecBranchSampleTypes: string[]): boolean;
 
@@ -311,14 +311,14 @@ declare namespace hiperf {
      * Set the size of the buffer used to receiving sample data from kernel,
      * must be a power of two. If not set,  a value <=1024 will be used.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function setMmapPages(mmapPages: number): boolean;
 
     /**
      * Get the string vector of all options.
      * @since 7
-     * @SysCap SystemCapability.Developtools.Hiperf
+     * @syscap SystemCapability.Developtools.Hiperf
      */
     function getOptionVecString(): string[];
 }
