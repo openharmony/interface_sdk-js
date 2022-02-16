@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage Wi-Fi.
@@ -29,6 +29,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function enableWifi(): boolean;
@@ -40,6 +41,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function disableWifi(): boolean;
@@ -51,6 +53,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function isWifiActive(): boolean;
 
@@ -63,6 +66,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.LOCATION
      */
     function scan(): boolean;
 
@@ -73,6 +77,8 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO, and at least one of the permissions of 
+     * ohos.permission.GET_WIFI_PEERS_MAC and ohos.permission.LOCATION.
      */
     function getScanInfos(): Promise<Array<WifiScanInfo>>;
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
@@ -87,10 +93,38 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
     function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
+
+    /**
+     * Adds a specified untrusted hotspot configuration.
+     *
+     * <p>This method adds one configuration at a time. After this configuration is added,
+     *     your device will determine whether to connect to the hotspot.
+     *
+     * @return Returns {@code true} if the untrusted hotspot configuration is added; returns {@code false} otherwise.
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO
+     */
+     function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
+     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+ 
+     /**
+      * Removes a specified untrusted hotspot configuration.
+      *
+      * <p>This method removes one configuration at a time.
+      *
+      * @return Returns {@code true} if the untrusted hotspot configuration is removed; returns {@code false} otherwise.
+      * @since 7
+      * @syscap SystemCapability.Communication.WiFi.STA
+      * @permission ohos.permission.SET_WIFI_INFO
+      */
+     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
+     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
 
     /**
      * Connects to Wi-Fi network.
@@ -100,6 +134,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function connectToNetwork(networkId: number): boolean;
@@ -112,6 +147,8 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.SET_WIFI_CONFIG,
+     * ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function connectToDevice(config: WifiDeviceConfig): boolean;
@@ -123,6 +160,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function disconnect(): boolean;
@@ -136,6 +174,7 @@ declare namespace wifi {
      *
      * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function getSignalLevel(rssi: number, band: number): number;
 
@@ -145,6 +184,7 @@ declare namespace wifi {
      * @return Returns the Wi-Fi connection information.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function getLinkedInfo(): Promise<WifiLinkedInfo>;
     function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
@@ -155,6 +195,7 @@ declare namespace wifi {
      * @return Returns {@code true} if a Wi-Fi connection has been set up; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function isConnected(): boolean;
 
@@ -166,6 +207,7 @@ declare namespace wifi {
      * @return Returns the features supported by this device.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.Core
+     * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
      */
     function getSupportedFeatures(): number;
@@ -177,6 +219,7 @@ declare namespace wifi {
      * @return Returns {@code true} if this device supports the specified feature; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.Core
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function isFeatureSupported(featureId: number): boolean;
 
@@ -188,6 +231,7 @@ declare namespace wifi {
      * @return Returns the MAC address of the Wi-Fi device.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_LOCAL_MAC, ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
      */
     function getDeviceMacAddress(): string[];
@@ -200,6 +244,7 @@ declare namespace wifi {
      * @return Returns the IP information of the Wi-Fi connection.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function getIpInfo(): IpInfo;
 
@@ -209,6 +254,7 @@ declare namespace wifi {
      * @return Returns the country code of this device.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.Core
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function getCountryCode(): string;
 
@@ -218,6 +264,7 @@ declare namespace wifi {
      * @return {@code true} if the Wi-Fi network is re-associate successfully.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function reassociate(): boolean;
@@ -228,6 +275,7 @@ declare namespace wifi {
      * @return {@code true} if the Wi-Fi network is re-connect successfully.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function reconnect(): boolean;
@@ -240,6 +288,7 @@ declare namespace wifi {
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION, ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
@@ -253,6 +302,7 @@ declare namespace wifi {
      *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function updateNetwork(config: WifiDeviceConfig): number;
@@ -266,6 +316,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the specified network is disabled; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function disableNetwork(netId: number): boolean;
@@ -277,6 +328,7 @@ declare namespace wifi {
      *     returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function removeAllNetwork(): boolean;
@@ -293,6 +345,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the Wi-Fi network is deleted successfully; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function removeDevice(id: number): boolean;
@@ -305,6 +358,7 @@ declare namespace wifi {
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function enableHotspot(): boolean;
@@ -317,9 +371,21 @@ declare namespace wifi {
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function disableHotspot(): boolean;
+
+    /**
+     * Checks whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
+     *
+     * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.MANAGE_WIFI_HOTSPOT
+     * @systemapi Hide this for inner system use.
+     */
+     function isHotspotDualBandSupported(): boolean;
 
     /**
      * Checks whether Wi-Fi hotspot is active on a device.
@@ -327,6 +393,7 @@ declare namespace wifi {
      * @return Returns {@code true} if Wi-Fi hotspot is enabled; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
      */
     function isHotspotActive(): boolean;
@@ -342,6 +409,7 @@ declare namespace wifi {
      * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function setHotspotConfig(config: HotspotConfig): boolean;
@@ -352,6 +420,7 @@ declare namespace wifi {
      * @return Returns the configuration of an existing or enabled Wi-Fi hotspot.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function getHotspotConfig(): HotspotConfig;
@@ -364,6 +433,7 @@ declare namespace wifi {
      * @return Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION, ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function getStations(): Array<StationInfo>;
@@ -480,6 +550,7 @@ declare namespace wifi {
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "wifiStateChange", callback: Callback<number>): void;
 
@@ -490,6 +561,7 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "wifiStateChange", callback?: Callback<number>): void;
 
@@ -499,6 +571,7 @@ declare namespace wifi {
      * @return Returns 0: disconnected, 1: connected
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "wifiConnectionChange", callback: Callback<number>): void;
 
@@ -509,6 +582,7 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
 
@@ -518,6 +592,7 @@ declare namespace wifi {
      * @return Returns 0: scan fail, 1: scan success
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "wifiScanStateChange", callback: Callback<number>): void;
 
@@ -528,6 +603,7 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
 
@@ -537,6 +613,7 @@ declare namespace wifi {
      * @return Returns RSSI value in dBm
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "wifiRssiChange", callback: Callback<number>): void;
 
@@ -547,8 +624,32 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "wifiRssiChange", callback?: Callback<number>): void;
+
+    /**
+     * Subscribe Wi-Fi stream change events.
+     *
+     * @return Returns 0: stream none, 1: stream down, 2: stream up, 3: stream bidirectional
+     * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.MANAGE_WIFI_CONNECTION
+     * @systemapi Hide this for inner system use.
+     */
+     function on(type: "streamChange", callback: Callback<number>): void;
+
+     /**
+      * Unsubscribe Wi-Fi stream change events.
+      *
+      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+      *
+      * @since 7
+      * @syscap SystemCapability.Communication.WiFi.STA
+      * @permission ohos.permission.MANAGE_WIFI_CONNECTION
+      * @systemapi Hide this for inner system use.
+      */
+     function off(type: "streamChange", callback?: Callback<number>): void;
 
     /**
      * Subscribe Wi-Fi hotspot state change events.
@@ -556,6 +657,7 @@ declare namespace wifi {
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "hotspotStateChange", callback: Callback<number>): void;
 
@@ -566,6 +668,7 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "hotspotStateChange", callback?: Callback<number>): void;
 
@@ -575,6 +678,7 @@ declare namespace wifi {
      * @return Returns StationInfo
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
@@ -586,6 +690,7 @@ declare namespace wifi {
      *
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
@@ -596,6 +701,7 @@ declare namespace wifi {
      * @return Returns {@link #StationInfo} object
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
@@ -606,6 +712,7 @@ declare namespace wifi {
      * @return Returns {@link #StationInfo} object
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP
+     * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
     function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
@@ -733,7 +840,48 @@ declare namespace wifi {
         isHiddenSsid: boolean;
 
         /** Security type: reference definition of WifiSecurityType */
-        securityType: number;
+        securityType: WifiSecurityType;
+
+        /** The UID of the Wi-Fi configuration creator */
+        /* @systemapi */
+        creatorUid: number;
+
+        /** Disable reason */
+        /* @systemapi */
+        disableReason: number;
+
+        /** Allocated networkId */
+        /* @systemapi */
+        netId: number;
+
+        /** Random mac type */
+        /* @systemapi */
+        randomMacType: number;
+
+        /** Random mac address, the length is 6 */
+        /* @systemapi */
+        randomMacAddr: string;
+
+        /** IP Type */
+        /* @systemapi */
+        ipType: IpType;
+
+        /** IP config of static */
+        /* @systemapi */
+        staticIp: IpConfig;
+    }
+
+    /**
+     * Wi-Fi IP configuration information.
+     *
+     * @since 7
+     * @systemapi
+     */
+    interface IpConfig {
+        ipAddress: number;
+        gateway: number;
+        dnsServers: number[];
+        domains: Array<string>;
     }
 
     /**
@@ -748,8 +896,11 @@ declare namespace wifi {
         /** Wi-Fi bssid(MAC): the length is 6 */
         bssid: string;
 
+        /** Hotspot capability */
+        capabilities: string;
+
         /** Security type: reference definition of WifiSecurityType */
-        securityType: number;
+        securityType: WifiSecurityType;
 
         /** Received signal strength indicator (RSSI) */
         rssi: number;
@@ -759,6 +910,9 @@ declare namespace wifi {
 
         /** Frequency */
         frequency: number;
+
+        /** Channel width */
+        channelWidth: number;
 
         /** Time stamp */
         timestamp: number;
@@ -911,6 +1065,23 @@ declare namespace wifi {
     }
 
     /**
+     * Wi-Fi IP type enumeration.
+     *
+     * @since 7
+     * @systemapi
+     */
+     enum IpType {
+        /** Use statically configured IP settings */
+        STATIC,
+
+        /** Use dynamically configured IP settings */
+        DHCP,
+
+        /** No IP details are assigned */
+        UNKNOWN,
+    }
+
+    /**
      * The state of the supplicant enumeration.
      *
      * @since 7
@@ -1017,15 +1188,15 @@ declare namespace wifi {
         deviceAddress: string;
 
         /**
-         * Specifies whether the P2P group of this {@code WifiP2pConfig} instance is persistent
-         * -1: temporary, -2: persistent
+         * Group network ID. When creating a group, -1 indicates creates a temporary group,
+         * -2: indicates creates a persistent group
          */
         netId: number;
 
         /* The passphrase of this {@code WifiP2pConfig} instance */
         passphrase: string;
-        /** Group name */
 
+        /** Group name */
         groupName: string;
 
         /** Group owner band */
