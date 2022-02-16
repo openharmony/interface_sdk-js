@@ -139,4 +139,21 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     getApplicationContext(): Context;
+
+    /**
+     * Switch file area
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @param mode file area.
+     * @StageModelOnly
+     */
+     switchArea(mode: AreaMode): void;
+}
+
+export enum AreaMode {
+    EL1 = 0,
+    EL2 = 1,
+    EL3 = 2,
+    EL4 = 3
 }
