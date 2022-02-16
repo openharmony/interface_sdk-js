@@ -24,13 +24,13 @@
  */
 declare namespace batteryInfo {
     /**
-     * Battery state of charge (SoC) of the current device.
+     * Battery state of charge (SoC) of the current device, in percent.
      * @since 6
      */
     const batterySOC: number;
 
     /**
-     * Battery charging status of the current device, in percent.
+     * Battery charging status of the current device.
      * @since 6
      */
     const chargingStatus: BatteryChargeState;
