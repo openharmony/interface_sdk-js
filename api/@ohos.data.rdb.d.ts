@@ -210,8 +210,7 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        beginTransaction(callback: AsyncCallback<void>):void;
-        beginTransaction(): Promise<void>;
+        beginTransaction():void;
 
         /**
          * commit the the sql you have excuted.
@@ -220,8 +219,7 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        commit(callback: AsyncCallback<void>):void;
-        commit(): Promise<void>;
+        commit():void;
 
         /**
          * roll back the sql you have already excuted
@@ -230,8 +228,7 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
-        rollBack(callback: AsyncCallback<void>):void;
-        rollBack(): Promise<void>;
+        rollBack():void;
 
         /**
          * Set table to be distributed table.
