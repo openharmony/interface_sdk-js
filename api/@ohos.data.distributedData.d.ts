@@ -417,7 +417,7 @@ declare namespace distributedData {
         /** 
          * Device-collaborated database, as specified by {@code DeviceKVStore} 
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @permission N/A
          */
@@ -435,7 +435,7 @@ declare namespace distributedData {
         /** 
          * Multi-version database, as specified by {@code MultiKVStore} 
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @permission N/A
          */
@@ -455,7 +455,7 @@ declare namespace distributedData {
          * NO_LEVEL: mains not set the security level.
          *
          * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @permission N/A
          */
@@ -650,7 +650,7 @@ declare namespace distributedData {
      * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
      * 
      * @since 8
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
      * @permission N/A
      */
@@ -661,7 +661,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         constructor(name: string)
         /**
@@ -671,7 +671,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param child The field node to append. 
          * @returns Returns true if the child node is successfully added to this {@code FieldNode}; returns false otherwise.
          */
@@ -1539,7 +1539,7 @@ declare namespace distributedData {
      * into the database, the system automatically adds the ID of the device running the application to the key.
      * 
      * @since 8
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @import N/A
      * @permission N/A
      */
@@ -1549,7 +1549,7 @@ declare namespace distributedData {
          *
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deviceId Indicates the device to be queried.
          * @param key Indicates the key of the value to be queried.
          * @return Returns the value matching the given criteria.
@@ -1564,7 +1564,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be queried.
           * @param keyPrefix Indicates the key prefix to match.
           * @returns Returns the list of all key-value pairs meeting the given criteria.
@@ -1579,7 +1579,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
           * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
@@ -1593,7 +1593,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core 
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore 
           * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
@@ -1611,7 +1611,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be queried.
           * @param keyPrefix Indicates the key prefix to match.
           * @returns Returns the {@code KvStoreResultSet} objects.
@@ -1626,7 +1626,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
           * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
@@ -1640,7 +1640,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
@@ -1653,7 +1653,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
           * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
@@ -1666,7 +1666,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core 
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param query Indicates the {@code Query} object.
           * @returns Returns the number of results matching the specified {@code Query} object.
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
@@ -1680,7 +1680,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core 
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Indicates the ID of the device to which the results belong.
           * @param query Indicates the {@code Query} object.
           * @returns Returns the number of results matching the specified {@code Query} object.
@@ -1695,7 +1695,7 @@ declare namespace distributedData {
           * 
           * @note N/A
           * @since 8
-          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
           * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
@@ -1845,7 +1845,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback}
          * @throws 	exception maybe occurs.
          */
@@ -1856,7 +1856,7 @@ declare namespace distributedData {
          * 
          * @note N/A
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
          * @throws exception maybe occurs.
          */
