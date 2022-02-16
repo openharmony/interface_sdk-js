@@ -18,7 +18,7 @@
 *
  *@import import hichecker from '@ohos.hichecker';
 * @since 8
-* @Syscap SystemCapability.HiviewDFX.HiChecker
+* @syscap SystemCapability.HiviewDFX.HiChecker
 */
 declare namespace hichecker {
 
@@ -26,35 +26,35 @@ declare namespace hichecker {
     /**
     * The caution rule print log.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
 
     /**
     * The caution rule trigger crash.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
 
     /**
     * The thread rule check slow process.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
 
     /**
     * The process rule check slow event.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CHECK_SLOW_EVENT: 4294967296n; // 1 << 32
 
     /**
     * The process rule check ability connection leak.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
 
@@ -62,7 +62,7 @@ declare namespace hichecker {
     * add one or more rule.
     * @param rule 
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function addRule(rule: bigint) : void;
 
@@ -70,7 +70,7 @@ declare namespace hichecker {
     * remove one or more rule.
     * @param rule 
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function removeRule(rule: bigint) : void;
 
@@ -78,7 +78,7 @@ declare namespace hichecker {
     * get added rule
     * @return all added thread rule and process rule.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function getRule() : bigint;
 
@@ -87,7 +87,7 @@ declare namespace hichecker {
     * @param rule
     * @return the result of whether the query rule is added.
     * @since 8
-    * @Syscap SystemCapability.HiviewDFX.HiChecker
+    * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function contains(rule: bigint) : boolean;
 }
