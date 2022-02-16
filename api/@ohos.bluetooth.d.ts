@@ -18,7 +18,7 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
- * @SysCap SystemCapability.Communication.Bluetooth.Core
+ * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
   /**
