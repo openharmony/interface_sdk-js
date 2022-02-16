@@ -20,14 +20,14 @@
  * or cross-thread communications.
  *
  * @since 8
- * @SysCap SystemCapability.HiviewDFX.HiTrace
+ * @syscap SystemCapability.HiviewDFX.HiTrace
  */
 declare namespace hiTraceChain {
     /**
      * Enumerate trace flag
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceFlag {
         /**
@@ -75,7 +75,7 @@ declare namespace hiTraceChain {
      * Enumerate trace point type
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceTracepointType {
         /**
@@ -108,7 +108,7 @@ declare namespace hiTraceChain {
      * Enumerate trace communication mode
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      */
     enum HiTraceCommunicationMode {
         /**
@@ -136,7 +136,7 @@ declare namespace hiTraceChain {
      * Trace id, for tracing process.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      */
     interface HiTraceId {
         chainId: bigint; /* 0n: invalid */
@@ -149,7 +149,7 @@ declare namespace hiTraceChain {
      * Start tracing a process impl.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {string} name Process name.
      * @param {number} flags Trace function flag.
      * @return {HiTraceId} Valid if first call, otherwise invalid.
@@ -161,7 +161,7 @@ declare namespace hiTraceChain {
      * id is valid, otherwise do nothing.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id The trace id that need to stop.
      */
     function end(id: HiTraceId): void;
@@ -171,7 +171,7 @@ declare namespace hiTraceChain {
      * trace id belong to current thread
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @return {HiTraceId} Valid if current thread have a trace id, otherwise invalid.
      */
     function getId(): HiTraceId;
@@ -180,7 +180,7 @@ declare namespace hiTraceChain {
      * Set id as trace id of current thread. Do nothing if id is invalid.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id Set id as trace id of current thread.
      */
     function setId(id: HiTraceId): void;
@@ -189,7 +189,7 @@ declare namespace hiTraceChain {
      * Clear trace id of current thread and set it invalid.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      */
     function clearId(): void;
 
@@ -197,7 +197,7 @@ declare namespace hiTraceChain {
      * Create a new span id according to the trace id of current thread.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @return {HiTraceId} A valid span trace id. Otherwise trace id of current thread if do not allow create span.
      */
     function createSpan(): HiTraceId;
@@ -206,7 +206,7 @@ declare namespace hiTraceChain {
      * Print hitrace info, include trace id info.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceCommunicationMode} mode Trace communication mode.
      * @param {HiTraceTracepointType} type Trace info type.
      * @param {HiTraceId} id Trace id that need to print.
@@ -218,7 +218,7 @@ declare namespace hiTraceChain {
      * Judge whether the trace id is valid or not.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id Trace id that need to judge.
      * @return {boolean} True for a valid trace id, otherwise false.
      */
@@ -228,7 +228,7 @@ declare namespace hiTraceChain {
      * Judge whether the trace id has enabled a trace flag or not.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id Trace id that need to judge.
      * @param {HiTraceFlag} flag Trace flag that need to judge.
      * @return {boolean} true if the trace id has enabled the flag.
@@ -239,7 +239,7 @@ declare namespace hiTraceChain {
      * Enable the designative trace flag for the trace id.
      *
      * @since 8
-     * @SysCap SystemCapability.HiviewDFX.HiTrace
+     * @syscap SystemCapability.HiviewDFX.HiTrace
      * @param {HiTraceId} id Trace id that need to enable a flag. 
      * @param {HiTraceFlag} flag the designative trace flag that need to be enabled in the trace id.
      */
