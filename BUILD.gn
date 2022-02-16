@@ -194,6 +194,23 @@ ohos_copy("syscap_check") {
   module_install_name = ""
 }
 
+ohos_copy("device_define") {
+  sources = [ "api/device-define/phone.json" ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("config") {
+  sources = [
+    "api/config/css",
+    "api/config/hml",
+  ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
 ohos_copy("system_api") {
   sources = [
     "api/common/@system.app.d.ts",
