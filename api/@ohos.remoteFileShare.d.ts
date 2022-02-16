@@ -36,8 +36,8 @@ declare namespace remoteFileShare {
    *
    * @since 8
    */
-  function setSecurityLabel(path:string, dataLevel:string, callback: AsyncCallback<boolean>): void;
-  function setSecurityLabel(path:string, dataLevel:string): Promise<boolean>;
+  function setSecurityLabel(path:string, dataLevel:string, callback: AsyncCallback<void>): void;
+  function setSecurityLabel(path:string, dataLevel:string): Promise<void>;
 
     /**
    * get the SecurityLabel.
