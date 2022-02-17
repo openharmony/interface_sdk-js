@@ -47,7 +47,7 @@ export interface MissionInfo {
      * @since 8
      * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
-    lockedState: number;
+    lockedState: boolean;
 
     /**
      * Indicates the recent create or update time of the mission.
