@@ -65,6 +65,22 @@ declare namespace window {
   }
 
   /**
+   * Create a sub window with a specific id and type, only support 7.
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @since 7
+   */
+  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+
+  /**
+   * Create a sub window with a specific id and type, only support 7.
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @since 7
+   */
+  function create(id: string, type: WindowType): Promise<Window>;
+
+  /**
    * Create a system window with a specific id and type.
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
@@ -556,7 +572,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    isShowing(callback: AsyncCallback<void>): void;
+    isShowing(callback: AsyncCallback<boolean>): void;
 
     /**
      * Checks whether the window is displayed
@@ -649,34 +665,34 @@ declare namespace window {
   interface WindowStage {
     /**
      * Get main window of the stage.
-     * @since 8
+     * @since 9
      */
     getMainWindow(): Promise<Window>;
     /**
      * Get main window of the stage.
-     * @since 8
+     * @since 9
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
     /**
      * Create sub window of the stage.
      * @param name window name of sub window
-     * @since 8
+     * @since 9
      */
     createSubWindow(name: string): Promise<Window>;
     /**
      * Create sub window of the stage.
      * @param name window name of sub window
-     * @since 8
+     * @since 9
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
      * Get sub window of the stage.
-     * @since 8
+     * @since 9
      */
     getSubWindow(): Promise<Array<Window>>;
     /**
      * Get sub window of the stage.
-     * @since 8
+     * @since 9
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
@@ -684,31 +700,31 @@ declare namespace window {
      * @param path  path Path of the page to which the content will be loaded
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 8
+     * @since 9
      */
     loadContent(path: string, storage: ContenStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 8
+     * @since 9
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 8
+     * @since 9
      */
     loadContent(path: string, storage?: ContenStorage): Promise<void>;
     /**
      * window stage event callback on.
-     * @since 8
+     * @since 9
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
     /**
      * window stage event callback off.
-     * @since 8
+     * @since 9
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
   }
