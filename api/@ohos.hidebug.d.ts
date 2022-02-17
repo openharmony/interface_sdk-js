@@ -27,6 +27,7 @@ declare namespace hidebug {
      * @param -
      * @return Returns total native heap memory size.
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getNativeHeapSize() : bigint;
 
@@ -35,6 +36,7 @@ declare namespace hidebug {
      * @param -
      * @return Returns native heap memory allocation size.
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getNativeHeapAllocatedSize() : bigint;
 
@@ -43,6 +45,7 @@ declare namespace hidebug {
      * @param -
      * @return Returns native heap memory free size.
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getNativeHeapFreeSize() : bigint;
 
@@ -51,6 +54,7 @@ declare namespace hidebug {
      * @param -
      * @return Returns application process proportional set size memory information.
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getPss() : bigint;
 
@@ -59,6 +63,7 @@ declare namespace hidebug {
      * @param -
      * @return Returns the size of the shared dirty memory.
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function getSharedDirty() : bigint;
 
@@ -71,6 +76,7 @@ declare namespace hidebug {
      * @param filename Indicates the user-defined file name,  excluding the file suffix.
      * @return -
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function startProfiling(filename : string) : void;
 
@@ -81,6 +87,7 @@ declare namespace hidebug {
      * @param -
      * @return -
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function stopProfiling() : void;
 
@@ -93,6 +100,7 @@ declare namespace hidebug {
      * @param filename Indicates the user-defined file name, excluding the file suffix.
      * @return -
      * @since 8
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function dumpHeapData(filename : string) : void;
 }
