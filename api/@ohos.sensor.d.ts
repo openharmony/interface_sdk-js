@@ -524,9 +524,9 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function getAngleModifiy(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
+    function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
         callback: AsyncCallback<Array<number>>): void;
-    function getAngleModifiy(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
+    function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
 
     /**
      * Convert rotation vector to rotation matrix.
