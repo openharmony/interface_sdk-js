@@ -611,7 +611,7 @@ declare namespace sms {
 
   /**
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 7
    */
   export enum RanType {
     TYPE_GSM = 1, // GSM

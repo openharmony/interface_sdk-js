@@ -134,18 +134,21 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function holdCall(callId: number, callback: AsyncCallback<void>): void;
   function holdCall(callId: number): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function unHoldCall(callId: number, callback: AsyncCallback<void>): void;
   function unHoldCall(callId: number): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function switchCall(callId: number, callback: AsyncCallback<void>): void;
   function switchCall(callId: number): Promise<void>;

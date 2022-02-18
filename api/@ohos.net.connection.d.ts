@@ -212,7 +212,6 @@ declare namespace connection {
      */
     NET_CAPABILITY_MMS = 0,
 
-
     /**
      * Indicates that the network traffic is not metered.
      */
@@ -223,7 +222,6 @@ declare namespace connection {
      */
     NET_CAPABILITY_INTERNET = 12,
 
-
     /**
      * Indicates that the network does not use a VPN.
      */
@@ -233,7 +231,6 @@ declare namespace connection {
      * Indicates that the network is available.
      */
     NET_CAPABILITY_VALIDATED = 16,
-
   }
 
   export enum NetBearType {
@@ -251,7 +248,6 @@ declare namespace connection {
      * Indicates that the network is an Ethernet network.
      */
     BEARER_ETHERNET = 3,
-
   }
 
   export interface ConnectionProperties {
@@ -262,7 +258,6 @@ declare namespace connection {
     routes: Array<RouteInfo>;
     mtu: number;
   }
-
 
   export interface RouteInfo {
     interface: string;
@@ -285,8 +280,6 @@ declare namespace connection {
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
   }
-
-
 }
 
 export default connection;
