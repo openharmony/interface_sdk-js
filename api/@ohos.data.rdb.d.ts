@@ -193,17 +193,6 @@ declare namespace rdb {
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
         /**
-         * change the encrypted key(not null) if the database is configured with encrypted key.
-         *
-         * @note N/A
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param newEncryptKey the encrypted key is uint8 form in a vector.
-         */
-        changeEncryptKey(newEncryptKey:Uint8Array, callback: AsyncCallback<void>):void;
-        changeEncryptKey(newEncryptKey:Uint8Array): Promise<void>;
-
-        /**
          * beginTransaction before excute your sql
          *
          * @note N/A
@@ -326,13 +315,6 @@ declare namespace rdb {
      */
     interface StoreConfig {
         name: string;
-        /**
-         * Indicates the encryptKey of the database file
-         *
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         */
-        encryptKey: Uint8Array;
     }
 
     /**
