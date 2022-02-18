@@ -19,7 +19,7 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @name storage
  * @since 5
- * @syscap SystemCapability.DistributedDataManager.Preference.Core
+ * @syscap SystemCapability.DistributedDataManager.Preferencess.Core
  * 
  */
 declare namespace storage {
@@ -79,7 +79,7 @@ declare namespace storage {
      * the file that stores storage data, and use emoveStorageFromCache
      * to remove the {@link Storage} instance from the memory.
      *
-     * @syscap SystemCapability.DistributedDataManager.Preference.Core
+     * @syscap SystemCapability.DistributedDataManager.Preferencess.Core
      * 
      * @since 5
      */
@@ -193,7 +193,7 @@ declare namespace storage {
     /**
      * Define the change data information object.
      *
-     * @syscap SystemCapability.DistributedDataManager.Preference.Core
+     * @syscap SystemCapability.DistributedDataManager.Preferencess.Core
      * 
      * @since 5
      */
