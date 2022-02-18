@@ -16,20 +16,28 @@
 import {AsyncCallback, Callback} from "./basic";
 
 /**
- * Provides remote file share APIs
+ * Provides securityLabel APIs
  *
  * @since 9
  * @syscap  SystemCapability.FileManagement.File.DistributedFile
  */
 
-declare namespace remoteFileShare {
+declare namespace securityLabel {
   /**
-   * Create the remote share path of src share file.
+   * set the securityLabel.
    *
    * @since 9
    */
-  function createSharePath(fd: number, cid: string, callback: AsyncCallback<number>): void;
-  function createSharePath(fd: number, cid: string): Promise<number>;
+   function setSecurityLabel(path:string, dataLevel:string, callback: AsyncCallback<void>): void;
+   function setSecurityLabel(path:string, dataLevel:string): Promise<void>;
+ 
+     /**
+    * get the securityLabel.
+    *
+    * @since 9
+    */
+   function getSecurityLabel(path:string, callback: AsyncCallback<string>): void;
+   function getSecurityLabel(path:string): Promise<string>;
 }
 
-export default remoteFileShare;
+export default securityLabel;
