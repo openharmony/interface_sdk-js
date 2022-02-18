@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import wantConstant from "../@ohos.ability.wantConstant";
+import { AsyncCallback } from './basic';
+import wantConstant from "./@ohos.ability.wantConstant";
 
 /**
  * The management class for uri of file.
