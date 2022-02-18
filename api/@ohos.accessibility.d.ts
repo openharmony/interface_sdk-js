@@ -265,7 +265,7 @@ declare namespace accessibility {
    /**
     * Indicates the info of accessibility.
     * @syscap SystemCapability.Barrierfree.Accessibility.Core
-    * @since 8
+    * @since 7
     */
   interface AccessibilityAbilityInfo {
     /**
@@ -313,7 +313,7 @@ declare namespace accessibility {
   /**
     * Indicates the info of events.
     * @syscap SystemCapability.Barrierfree.Accessibility.Core
-    * @since 8
+    * @since 7
     */
   class EventInfo {
     constructor(jsonObject);

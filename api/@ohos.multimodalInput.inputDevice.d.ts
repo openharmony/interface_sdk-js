@@ -70,6 +70,7 @@ declare namespace inputDevice {
      * @param callback callback function, receive reported data
      */
     function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
+    function getDeviceIds(): Promise<Array<number>>;
 
     /**
      * Obtain the information about an input device.
@@ -81,6 +82,7 @@ declare namespace inputDevice {
      * @param callback callback function, receive reported data
      */
     function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+    function getDevice(deviceId: number): Promise<InputDeviceData>;
 }
 
 export default inputDevice;

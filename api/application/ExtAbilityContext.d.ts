@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2021 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,32 +13,26 @@
  * limitations under the License.
  */
 
+import { HapModuleInfo } from "../bundle/hapModuleInfo";
+import Context from "./Context";
+
 /**
- * StartOptions is the basic communication component of the system.
+ * The context of an extension. It allows access to extension-specific resources.
  *
- * @name StartOptions
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  * @StageModelOnly
  */
-export default class StartOptions {
-    /**
-     * windowMode
-     * @default -
-     * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     */
-     windowMode?: number;
+export default class ExtAbilityContext extends Context {
 
     /**
-     * displayId
-     * @default -
-     * @devices phone, tablet
+     * Indicates configuration information about an module.
+     *
      * @since 9
      * @sysCap AAFwk
      * @StageModelOnly
      */
-    displayId?: number;
+    currentHapModuleInfo: HapModuleInfo;
 }

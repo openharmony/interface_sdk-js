@@ -66,4 +66,14 @@ export default class AbilityStateData {
      * @systemapi hide for inner use.
      */
     state: number;
+
+    /**
+     * The ability type, page or service and so on.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 8
+     * @sysCap appexecfwk
+     * @systemapi hide for inner use.
+     */
+    abilityType: number;
 }

@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 import { MissionInfo } from './application/MissionInfo';
 import { MissionListener } from './application/MissionListener';
 import { MissionSnapshot } from './application/MissionSnapshot';
+import StartOptions from "./@ohos.application.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -125,7 +126,8 @@ declare namespace missionManager {
      * @return -
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
-    function moveMissionToFront(missionId: number): Promise<void>;
+    function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 }
 
 export default missionManager;

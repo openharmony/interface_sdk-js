@@ -42,6 +42,13 @@ export interface NotificationSubscriber {
    * @since 8
    */
   onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
+
+  /**
+   * Callback when the notificaition permission is changed.
+   *
+   * @since 8
+   */
+  onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
 }
 
 /**
@@ -60,4 +67,17 @@ export interface SubscribeCallbackData {
   readonly reason?: number;
   readonly sound?: string;
   readonly vibrationValues?: Array<number>;
+}
+
+/**
+ * Describes the properties of the application that the permission to send notifications has changed.
+ *
+ * @name EnabledNotificationCallbackData
+ * @systemapi Hide this for inner system use.
+ * @since 8
+ */
+export interface EnabledNotificationCallbackData {
+  readonly bundle: string;
+  readonly uid: number;
+  readonly enable: boolean;
 }

@@ -19,8 +19,7 @@ import {AsyncCallback, Callback} from './basic';
  *
  * @name distributedDataObject
  * @since 8
- * @sysCap
- * @devices phone
+ * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
  */
 declare namespace distributedDataObject {
     /**
@@ -43,8 +42,7 @@ declare namespace distributedDataObject {
     /**
      * Object create by {@link createDistributedObject}.
      *
-     * @Syscap SystemCapability.Data.DATA_DISTRIBUTEDDATAMGR
-     * @devices phone
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      */
     interface DistributedObject {

@@ -190,17 +190,29 @@ declare namespace audio {
      */
     INVALID = 0,
     /**
-     * Speaker
+     * A pair of built-in earpieces.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    EARPIECE = 1,
+    /**
+     * Built-in speaker.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     SPEAKER = 2,
     /**
-     * Wired headset
+     * Wired headset, which is a combination of a pair of earpieces and a microphone.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     WIRED_HEADSET = 3,
+    /**
+     * A pair of wired headphones.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    WIRED_HEADPHONES = 4,
     /**
      * Bluetooth device using the synchronous connection oriented link (SCO)
      * @since 7
@@ -214,11 +226,17 @@ declare namespace audio {
      */
     BLUETOOTH_A2DP = 8,
     /**
-     * Microphone
+     * Built-in microphone
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     MIC = 15,
+    /**
+     * USB audio headset.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    USB_HEADSET = 22,
   }
 
   /**
@@ -718,6 +736,28 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates interrupt action types.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  enum InterruptActionType {
+
+    /**
+     * Focus gain event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    TYPE_ACTIVATED = 0,
+
+    /**
+     * Audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    TYPE_INTERRUPT = 1
+  }
+
+  /**
    * Enumerates device change types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1016,6 +1056,27 @@ declare namespace audio {
     * @syscap SystemCapability.Multimedia.Audio.Device
     */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Listens for audio interruption events. When the audio of an application is interrupted by another application,
+     * the callback is invoked to notify the former application.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @param type Type of the event to listen for. Only the interrupt event is supported.
+     * @param interrupt Parameters of the audio interruption event type.
+     * @param callback Callback invoked for the audio interruption event.
+     */
+    on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback<InterruptAction>): void;
+
+    /**
+     * Cancels the listening of audio interruption events.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @param type Type of the event to listen for. Only the interrupt event is supported.
+     * @param interrupt Input parameters of the audio interruption event.
+     * @param callback Callback invoked for the audio interruption event.
+     */
+    off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
   }
 
   /**
@@ -1070,6 +1131,75 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     updateUi: boolean;
+  }
+
+  /**
+   * Describes the callback invoked for audio interruption or focus gain events.When the audio of an application
+   * is interrupted by another application, the callback is invoked to notify the former application.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface InterruptAction {
+
+    /**
+     * Event type.
+     * The value TYPE_ACTIVATED means the focus gain event, and TYPE_INTERRUPT means the audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    actionType: InterruptActionType;
+
+    /**
+     * Type of the audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    type?: InterruptType;
+
+    /**
+     * Hint for the audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    hint?: InterruptHint;
+
+    /**
+     * Whether the focus is gained or released. The value true means that the focus is gained or released,
+     * and false means that the focus fails to be gained or released.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    activated?: boolean;
+  }
+
+  /**
+   * Describes input parameters of audio listening events.
+   * @since 7
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
+  interface AudioInterrupt {
+
+    /**
+     * Audio stream usage type.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    streamUsage: StreamUsage;
+
+    /**
+     * Type of the media interrupted.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    contentType: ContentType;
+
+    /**
+     * Whether audio playback can be paused when it is interrupted.
+     * The value true means that audio playback can be paused when it is interrupted, and false means the opposite.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    pauseWhenDucked: boolean;
   }
 
   /**

@@ -424,6 +424,13 @@ export interface ResourceManager {
      * @since 8
      */
     getRawFile(path: string): Promise<Uint8Array>;
+
+    /**
+     * Obtains release resourceManager.
+     *
+     * @since 7
+     */
+    release();
 }
 }
 export default resourceManager;
