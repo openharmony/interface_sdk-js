@@ -125,26 +125,26 @@ declare namespace mediaLibrary {
 
   /**
    * Provides methods to encapsulate file attributes.
-   * @since 7
+   * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    */
   interface FileAsset {
     /**
      * File ID.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly id: number;
     /**
      * URI of the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly uri: string;
     /**
      * MIME type, for example, video/mp4, audio/mp4, or audio/amr-wb.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly mimeType: string;
@@ -156,13 +156,13 @@ declare namespace mediaLibrary {
     readonly mediaType: MediaType;
     /**
      * Display name (with a file name extension) of the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     displayName: string;
     /**
      * File name title (without the file name extension).
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     title: string;
@@ -180,25 +180,25 @@ declare namespace mediaLibrary {
     readonly parent: number;
     /**
      * Data size of the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly size: number;
     /**
      * Date (timestamp) when the file was added.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly dateAdded: number;
     /**
      * Date (timestamp) when the file was modified.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly dateModified: number;
     /**
      * Date (timestamp) when the file was taken.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly dateTaken: number;
@@ -216,20 +216,20 @@ declare namespace mediaLibrary {
     readonly audioAlbum: string;
     /**
      * Display width of the file. This is valid only for videos and images.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly width: number;
     /**
      * Display height of the file. This is valid only for videos and images.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly height: number;
     /**
      * Rotation angle of the file, in degrees.
      * The rotation angle can be 0, 90, 180, or 270 degrees. This is valid only for videos.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     orientation: number;
@@ -241,7 +241,7 @@ declare namespace mediaLibrary {
     readonly duration: number;
     /**
      * ID of the album where the file is located.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly albumId: number;
@@ -253,7 +253,7 @@ declare namespace mediaLibrary {
     readonly albumUri: string;
     /**
      * Name of the album where the file is located.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly albumName: string;
@@ -518,25 +518,25 @@ declare namespace mediaLibrary {
 
   /**
    * Fetch parameters applicable on images, videos, audios, albums and other media
-   * @since 7
+   * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    */
   interface MediaFetchOptions {
     /**
      * Fields to retrieve, for example, selections: "media_type =? OR media_type =?".
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     selections: string;
     /**
      * Conditions for retrieval, for example, selectionArgs: [IMAGE, VIDEO].
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     selectionArgs: Array<string>;
     /**
      * Sorting criterion of the retrieval results, for example, order: "datetaken DESC,_display_name DESC, _id DESC".
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     order?: string;
@@ -562,21 +562,21 @@ declare namespace mediaLibrary {
 
   /**
    * Implements file retrieval.
-   * @since 7
+   * @since 8
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    */
   interface FetchFileResult {
     /**
      * Obtains the total number of files in the file retrieval result.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return Total number of files.
      */
     getCount(): number;
     /**
      * Checks whether the result set points to the last row.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return Whether the file is the last one.
      * You need to check whether the file is the last one before calling getNextObject,
@@ -585,20 +585,20 @@ declare namespace mediaLibrary {
     isAfterLast(): boolean;
     /**
      * Releases the FetchFileResult instance and invalidates it. Other methods cannot be called.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     close(): void;
     /**
      * Obtains the first FileAsset in the file retrieval result. This method uses a callback to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
      */
     getFirstObject(callback: AsyncCallback<FileAsset>): void;
     /**
      * Obtains the first FileAsset in the file retrieval result. This method uses a promise to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return A Promise instance used to return the file in the format of a FileAsset instance.
      */
@@ -608,7 +608,7 @@ declare namespace mediaLibrary {
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
      * This method returns the next file only when True is returned for isAfterLast().
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
      */
@@ -618,21 +618,21 @@ declare namespace mediaLibrary {
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
      * This method returns the next file only when True is returned for isAfterLast().
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return A Promise instance used to return the file in the format of a FileAsset instance.
      */
     getNextObject(): Promise<FileAsset>;
     /**
      * Obtains the last FileAsset in the file retrieval result. This method uses a callback to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
      */
     getLastObject(callback: AsyncCallback<FileAsset>): void;
     /**
      * Obtains the last FileAsset in the file retrieval result. This method uses a promise to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return A Promise instance used to return the file in the format of a FileAsset instance.
      */
@@ -640,7 +640,7 @@ declare namespace mediaLibrary {
     /**
      * Obtains the FileAsset with the specified index in the file retrieval result.
      * This method uses a callback to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
      * @param callback Callback used to return the file in the format of a FileAsset instance.
@@ -649,7 +649,7 @@ declare namespace mediaLibrary {
     /**
      * Obtains the FileAsset with the specified index in the file retrieval result.
      * This method uses a promise to return the file.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
      * @return A Promise instance used to return the file in the format of a FileAsset instance.
@@ -660,7 +660,7 @@ declare namespace mediaLibrary {
      * This method uses a callback to return the result. After this method is called, 
      * close() is automatically called to release the FetchFileResult instance and invalidate it.
      * In this case, other methods cannot be called.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return a FileAsset array.
      */
@@ -670,7 +670,7 @@ declare namespace mediaLibrary {
      * This method uses a promise to return the result. that store the selected media resources.
      * close() is automatically called to release the FetchFileResult instance and invalidate it.
      * In this case, other methods cannot be called.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @return A Promise instance used to return a FileAsset array.
      */
@@ -681,18 +681,18 @@ declare namespace mediaLibrary {
    * Defines the album.
    *
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @since 7
+   * @since 8
    */
   interface Album {
     /**
      * Album ID.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly albumId: number;
     /**
      * Album name.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     albumName: string;
@@ -704,7 +704,7 @@ declare namespace mediaLibrary {
     readonly albumUri: string;
     /**
      * Date (timestamp) when the album was last modified.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     readonly dateModified: number;
@@ -742,14 +742,14 @@ declare namespace mediaLibrary {
     commitModify(): Promise<void>;
     /**
      * SObtains files in an album. This method uses an asynchronous callback to return the files.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
      */
     getFileAssets(callback: AsyncCallback<FetchFileResult>): void;
     /**
      * SObtains files in an album. This method uses an asynchronous callback to return the files.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
@@ -757,7 +757,7 @@ declare namespace mediaLibrary {
     getFileAssets(options: MediaFetchOptions, callback: AsyncCallback<FetchFileResult>): void;
     /**
      * Obtains files in an album. This method uses a promise to return the files.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media retrieval options.
      * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
@@ -835,7 +835,7 @@ declare namespace mediaLibrary {
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param options, Media retrieval options.
      * @param callback, Callback return the FetchFileResult.
@@ -844,7 +844,7 @@ declare namespace mediaLibrary {
     /**
      * query all assets just for count & first cover
      * if need all data, getAllObject from FetchFileResult
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param options, Media retrieval options.
      * @return A promise instance used to return the files in the format of a FetchFileResult instance
@@ -904,7 +904,7 @@ declare namespace mediaLibrary {
     deleteAsset(uri: string): Promise<void>;
     /**
      * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media retrieval options.
      * @param callback Callback used to return an album array.
@@ -912,7 +912,7 @@ declare namespace mediaLibrary {
     getAlbums(options: MediaFetchOptions, callback: AsyncCallback<Array<Album>>): void;
     /**
      * Obtains albums based on the media retrieval options. This method uses a promise to return the albums.
-     * @since 7
+     * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media retrieval options.
      * @return A Promise instance used to return an album array.
