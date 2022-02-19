@@ -2,6 +2,7 @@
   "properties": [
     {
       "name": "column-span",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -33,6 +34,7 @@
     },
     {
       "name": "fill",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -64,6 +66,7 @@
     },
     {
       "name": "fill-opacity",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -95,6 +98,7 @@
     },
     {
       "name": "fill-rule",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -126,6 +130,7 @@
     },
     {
       "name": "opacity",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -157,6 +162,7 @@
     },
     {
       "name": "stroke-dasharray",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -188,6 +194,7 @@
     },
     {
       "name": "stroke-dashoffset",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -219,6 +226,7 @@
     },
     {
       "name": "stroke-linejoin",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -250,6 +258,7 @@
     },
     {
       "name": "stroke-linecap",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -281,6 +290,7 @@
     },
     {
       "name": "stroke-miterlimit",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -312,6 +322,7 @@
     },
     {
       "name": "stroke-opacity",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -343,6 +354,7 @@
     },
     {
       "name": "transform",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -374,6 +386,7 @@
     },
     {
       "name": "x",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -406,6 +419,7 @@
     },
     {
       "name": "y",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -438,6 +452,7 @@
     },
     {
       "name": "viewBox",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -469,6 +484,7 @@
     },
     {
       "name": "rx",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -501,6 +517,7 @@
     },
     {
       "name": "ry",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -533,6 +550,7 @@
     },
     {
       "name": "cx",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -565,6 +583,7 @@
     },
     {
       "name": "cy",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -597,6 +616,7 @@
     },
     {
       "name": "r",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -629,6 +649,7 @@
     },
     {
       "name": "d",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -660,6 +681,7 @@
     },
     {
       "name": "x1",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -692,6 +714,7 @@
     },
     {
       "name": "y1",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -724,6 +747,7 @@
     },
     {
       "name": "x2",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -756,6 +780,7 @@
     },
     {
       "name": "y2",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -788,6 +813,7 @@
     },
     {
       "name": "points",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -819,6 +845,7 @@
     },
     {
       "name": "dx",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -851,6 +878,7 @@
     },
     {
       "name": "dy",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -883,6 +911,7 @@
     },
     {
       "name": "stroke",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -914,6 +943,7 @@
     },
     {
       "name": "startOffset",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -946,6 +976,7 @@
     },
     {
       "name": "attributeName",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -977,6 +1008,7 @@
     },
     {
       "name": "begin",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1008,6 +1040,7 @@
     },
     {
       "name": "dur",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1039,6 +1072,7 @@
     },
     {
       "name": "end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1070,6 +1104,7 @@
     },
     {
       "name": "repeatCount",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1102,6 +1137,7 @@
     },
     {
       "name": "calcMode",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1136,6 +1172,7 @@
     },
     {
       "name": "keyTimes",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1167,6 +1204,7 @@
     },
     {
       "name": "keySplines",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1198,6 +1236,7 @@
     },
     {
       "name": "from",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1229,6 +1268,7 @@
     },
     {
       "name": "to",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1260,6 +1300,7 @@
     },
     {
       "name": "values",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1291,6 +1332,7 @@
     },
     {
       "name": "type",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1326,6 +1368,7 @@
     },
     {
       "name": "width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1365,6 +1408,7 @@
     },
     {
       "name": "height",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1404,6 +1448,7 @@
     },
     {
       "name": "padding",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length>{1,4} || <percentage>{1,4}",
@@ -1471,6 +1516,7 @@
     },
     {
       "name": "padding-left",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>",
@@ -1525,6 +1571,7 @@
     },
     {
       "name": "padding-top",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>",
@@ -1579,6 +1626,7 @@
     },
     {
       "name": "padding-right",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>",
@@ -1633,6 +1681,7 @@
     },
     {
       "name": "padding-bottom",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>",
@@ -1687,6 +1736,7 @@
     },
     {
       "name": "padding-start",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1747,6 +1797,7 @@
     },
     {
       "name": "padding-end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1807,6 +1858,7 @@
     },
     {
       "name": "margin",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length>{1,4} || <percentage>{1,4}"
@@ -1833,6 +1885,7 @@
     },
     {
       "name": "margin-left",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1859,6 +1912,7 @@
     },
     {
       "name": "margin-top",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1885,6 +1939,7 @@
     },
     {
       "name": "margin-right",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1911,6 +1966,7 @@
     },
     {
       "name": "margin-bottom",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1937,6 +1993,7 @@
     },
     {
       "name": "margin-start",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -1969,6 +2026,7 @@
     },
     {
       "name": "margin-end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2001,6 +2059,7 @@
     },
     {
       "name": "border",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2034,6 +2093,7 @@
     },
     {
       "name": "border-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2071,6 +2131,7 @@
     },
     {
       "name": "border-left-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2108,6 +2169,7 @@
     },
     {
       "name": "border-top-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2145,6 +2207,7 @@
     },
     {
       "name": "border-right-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2182,6 +2245,7 @@
     },
     {
       "name": "border-bottom-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2219,6 +2283,7 @@
     },
     {
       "name": "border-image-source",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2366,6 +2431,7 @@
     },
     {
       "name": "border-image",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2401,6 +2467,7 @@
     },
     {
       "name": "border-left",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2434,6 +2501,7 @@
     },
     {
       "name": "border-top",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2467,6 +2535,7 @@
     },
     {
       "name": "border-right",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2500,6 +2569,7 @@
     },
     {
       "name": "border-bottom",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2533,6 +2603,7 @@
     },
     {
       "name": "border-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "version": [
         {
           "name": "v3.0"
@@ -2571,6 +2642,7 @@
     },
     {
       "name": "border-left-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2602,6 +2674,7 @@
     },
     {
       "name": "border-top-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2633,6 +2706,7 @@
     },
     {
       "name": "border-right-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2664,6 +2738,7 @@
     },
     {
       "name": "border-bottom-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2695,6 +2770,7 @@
     },
     {
       "name": "border-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "version": [
         {
           "name": "v3.0"
@@ -2720,6 +2796,7 @@
     },
     {
       "name": "border-left-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2751,6 +2828,7 @@
     },
     {
       "name": "border-top-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2782,6 +2860,7 @@
     },
     {
       "name": "border-right-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2813,6 +2892,7 @@
     },
     {
       "name": "border-bottom-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2844,6 +2924,7 @@
     },
     {
       "name": "border-radius",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "version": [
         {
           "name": "v3.0"
@@ -2882,6 +2963,7 @@
     },
     {
       "name": "border-top-left-radius",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2913,6 +2995,7 @@
     },
     {
       "name": "border-top-right-radius",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2944,6 +3027,7 @@
     },
     {
       "name": "border-bottom-left-radius",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -2975,6 +3059,7 @@
     },
     {
       "name": "border-bottom-right-radius",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3006,6 +3091,7 @@
     },
     {
       "name": "mask-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3037,6 +3123,7 @@
     },
     {
       "name": "mask-image",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3071,6 +3158,7 @@
     },
     {
       "name": "mask-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3115,6 +3203,7 @@
     },
     {
       "name": "mask-position",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3148,6 +3237,7 @@
     },
     {
       "name": "background",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3174,6 +3264,7 @@
     },
     {
       "name": "background-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<color>"
@@ -3199,6 +3290,7 @@
     },
     {
       "name": "background-image",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3225,6 +3317,7 @@
     },
     {
       "name": "background-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3269,6 +3362,7 @@
     },
     {
       "name": "background-repeat",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3300,6 +3394,7 @@
     },
     {
       "name": "background-position",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3333,6 +3428,7 @@
     },
     {
       "name": "opacity",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3364,6 +3460,7 @@
     },
     {
       "name": "display",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "values": [
         {
           "name": "flex",
@@ -3417,6 +3514,7 @@
     },
     {
       "name": "visibility",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3453,6 +3551,7 @@
     },
     {
       "name": "flex",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3484,6 +3583,7 @@
     },
     {
       "name": "flex-grow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3515,6 +3615,7 @@
     },
     {
       "name": "flex-shrink",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3546,6 +3647,7 @@
     },
     {
       "name": "flex-basis",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3577,6 +3679,7 @@
     },
     {
       "name": "align-self",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3627,6 +3730,7 @@
     },
     {
       "name": "position",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3664,6 +3768,7 @@
     },
     {
       "name": "left",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3690,6 +3795,7 @@
     },
     {
       "name": "top",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3716,6 +3822,7 @@
     },
     {
       "name": "right",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3748,6 +3855,7 @@
     },
     {
       "name": "bottom",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3780,6 +3888,7 @@
     },
     {
       "name": "start",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3812,6 +3921,7 @@
     },
     {
       "name": "end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -3844,6 +3954,7 @@
     },
     {
       "name": "transform-origin",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4479,6 +4590,7 @@
     },
     {
       "name": "shared-transition-effect",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4513,6 +4625,7 @@
     },
     {
       "name": "shared-transition-name",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4539,6 +4652,7 @@
     },
     {
       "name": "shared-transition-timing-function",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4570,6 +4684,7 @@
     },
     {
       "name": "transition-enter",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4596,6 +4711,7 @@
     },
     {
       "name": "transition-exit",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4622,6 +4738,7 @@
     },
     {
       "name": "transition-duration",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4648,6 +4765,7 @@
     },
     {
       "name": "transition-timing-function",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4679,6 +4797,7 @@
     },
     {
       "name": "flex-direction",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "column | row"
@@ -4712,6 +4831,7 @@
     },
     {
       "name": "flex-wrap",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "nowrap | wrap"
@@ -4745,6 +4865,7 @@
     },
     {
       "name": "justify-content",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "flex-start | flex-end | center | space-between | space-around"
@@ -4787,6 +4908,7 @@
     },
     {
       "name": "align-items",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "values": [
         {
           "name": "stretch",
@@ -4841,6 +4963,7 @@
           "name": "color"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4872,6 +4995,7 @@
           "name": "length"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4903,6 +5027,7 @@
           "name": "length"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4934,6 +5059,7 @@
           "name": "color"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4965,6 +5091,7 @@
           "name": "length"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -4996,6 +5123,7 @@
           "name": "length"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5027,6 +5155,7 @@
           "name": "length"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5058,6 +5187,7 @@
           "name": "number"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5089,6 +5219,7 @@
           "name": "color"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5175,6 +5306,7 @@
     },
     {
       "name": "animation-direction",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5224,6 +5356,7 @@
     },
     {
       "name": "animation-play-state",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5265,6 +5398,7 @@
     },
     {
       "name": "transition",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5289,6 +5423,7 @@
     },
     {
       "name": "overscroll-effect",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5394,6 +5529,7 @@
     },
     {
       "name": "grid-template-columns",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5425,6 +5561,7 @@
     },
     {
       "name": "grid-template-rows",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5456,6 +5593,7 @@
     },
     {
       "name": "grid-columns-gap",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5518,6 +5656,7 @@
     },
     {
       "name": "grid-row-start",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5549,6 +5688,7 @@
     },
     {
       "name": "grid-row-end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5580,6 +5720,7 @@
     },
     {
       "name": "grid-column-start",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5611,6 +5752,7 @@
     },
     {
       "name": "grid-column-end",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5642,6 +5784,7 @@
     },
     {
       "name": "grid-auto-flow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5668,6 +5811,7 @@
     },
     {
       "name": "columns",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5699,6 +5843,7 @@
     },
     {
       "name": "item-extent",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5731,6 +5876,7 @@
     },
     {
       "name": "fade-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5762,6 +5908,7 @@
     },
     {
       "name": "indicator-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5793,6 +5940,7 @@
     },
     {
       "name": "indicator-selected-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5824,6 +5972,7 @@
     },
     {
       "name": "indicator-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5855,6 +6004,7 @@
     },
     {
       "name": "indicator-top",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5887,6 +6037,7 @@
     },
     {
       "name": "indicator-left",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5919,6 +6070,7 @@
     },
     {
       "name": "indicator-right",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5951,6 +6103,7 @@
     },
     {
       "name": "indicator-bottom",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -5983,6 +6136,7 @@
     },
     {
       "name": "progress-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6014,6 +6168,7 @@
     },
     {
       "name": "object-fit",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6067,6 +6222,7 @@
     },
     {
       "name": "object-position",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6149,6 +6305,7 @@
     },
     {
       "name": "word-break",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6194,6 +6351,7 @@
     },
     {
       "name": "overflow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6239,6 +6397,7 @@
     },
     {
       "name": "match-text-direction",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6278,6 +6437,7 @@
     },
     {
       "name": "fit-original-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6392,6 +6552,7 @@
     },
     {
       "name": "secondary-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6454,6 +6615,7 @@
     },
     {
       "name": "scale-number",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6610,6 +6772,7 @@
     },
     {
       "name": "font-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length>"
@@ -6635,6 +6798,7 @@
     },
     {
       "name": "allow-scale",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6674,6 +6838,7 @@
     },
     {
       "name": "letter-spacing",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "<length>"
@@ -6749,6 +6914,7 @@
     },
     {
       "name": "font-style",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6783,6 +6949,7 @@
     },
     {
       "name": "font-weight",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6894,6 +7061,7 @@
     },
     {
       "name": "text-decoration",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -6934,6 +7102,7 @@
     },
     {
       "name": "text-align",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7025,6 +7194,7 @@
           "name": "<length>"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7056,6 +7226,7 @@
           "name": "<length>"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "phone"
       ],
@@ -7079,6 +7250,7 @@
     },
     {
       "name": "text-overflow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7120,6 +7292,7 @@
     },
     {
       "name": "text-overflow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "[ clip | ellipsis | <string> ]{1,2}"
@@ -7242,6 +7415,7 @@
     },
     {
       "name": "font-family",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
       "syntax": [
         {
           "name": "[ clip | ellipsis | <string> ]{1,2}"
@@ -7275,6 +7449,7 @@
     },
     {
       "name": "max-lines",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7311,6 +7486,7 @@
     },
     {
       "name": "min-font-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7342,6 +7518,7 @@
     },
     {
       "name": "max-font-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7373,6 +7550,7 @@
     },
     {
       "name": "font-size-step",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7404,6 +7582,7 @@
     },
     {
       "name": "prefer-font-sizes",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7435,6 +7614,7 @@
     },
     {
       "name": "adapt-height",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7472,6 +7652,7 @@
     },
     {
       "name": "star-background",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7502,6 +7683,7 @@
     },
     {
       "name": "star-foreground",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7532,6 +7714,7 @@
     },
     {
       "name": "star-secondary",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7567,6 +7750,7 @@
     },
     {
       "name": "rtl-flip",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7605,6 +7789,7 @@
     },
     {
       "name": "line-cap",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7650,6 +7835,7 @@
     },
     {
       "name": "placeholder-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7681,6 +7867,7 @@
     },
     {
       "name": "text-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7712,6 +7899,7 @@
     },
     {
       "name": "text-decoration-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7743,6 +7931,7 @@
     },
     {
       "name": "icon-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7774,6 +7963,7 @@
     },
     {
       "name": "icon-height",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7805,6 +7995,7 @@
     },
     {
       "name": "block-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7838,6 +8029,7 @@
     },
     {
       "name": "texton-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7869,6 +8061,7 @@
     },
     {
       "name": "textoff-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7900,6 +8093,7 @@
     },
     {
       "name": "text-padding",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -7981,6 +8175,7 @@
     },
     {
       "name": "focus-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8012,6 +8207,7 @@
     },
     {
       "name": "focus-font-size",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8048,6 +8244,7 @@
           "name": "<color>"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "phone"
       ],
@@ -8076,6 +8273,7 @@
           "name": "<length>"
         }
       ],
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "phone"
       ],
@@ -8099,6 +8297,7 @@
     },
     {
       "name": "colors",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8130,6 +8329,7 @@
     },
     {
       "name": "weights",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8161,6 +8361,7 @@
     },
     {
       "name": "src",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8197,6 +8398,7 @@
     },
     {
       "name": "min-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8229,6 +8431,7 @@
     },
     {
       "name": "min-height",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8261,6 +8464,7 @@
     },
     {
       "name": "max-width",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8293,6 +8497,7 @@
     },
     {
       "name": "max-height",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8325,6 +8530,7 @@
     },
     {
       "name": "box-shadow",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8356,6 +8562,7 @@
     },
     {
       "name": "filter",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8392,6 +8599,7 @@
     },
     {
       "name": "backdrop-filter",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8428,6 +8636,7 @@
     },
     {
       "name": "window-filter",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8464,6 +8673,7 @@
     },
     {
       "name": "display-index",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8495,6 +8705,7 @@
     },
     {
       "name": "flex-weight",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8526,6 +8737,7 @@
     },
     {
       "name": "aspect-ratio",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8557,6 +8769,7 @@
     },
     {
       "name": "caret-color",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8590,6 +8803,7 @@
   "atDirectives": [
     {
       "name": "@import",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8619,6 +8833,7 @@
     },
     {
       "name": "@keyframes",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8648,6 +8863,7 @@
     },
     {
       "name": "@font-face",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8673,6 +8889,7 @@
     },
     {
       "name": "@media",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8700,6 +8917,7 @@
   "pseudoClasses": [
     {
       "name": ":active",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8727,6 +8945,7 @@
     },
     {
       "name": ":checked",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8752,6 +8971,7 @@
     },
     {
       "name": ":hover",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8777,6 +8997,7 @@
     },
     {
       "name": ":waiting",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8802,6 +9023,7 @@
     },
     {
       "name": ":disabled",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",
@@ -8827,6 +9049,7 @@
     },
     {
       "name": ":focus",
+      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
       "supportedDevices": [
         "tv",
         "phone",

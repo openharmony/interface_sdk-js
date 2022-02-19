@@ -5,6 +5,7 @@
       "name": "v8.0"
     }
   ],
+  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
   "supportedDevices": ["phone", "tablet", "tv", "wearable"],
   "description": [
     {
