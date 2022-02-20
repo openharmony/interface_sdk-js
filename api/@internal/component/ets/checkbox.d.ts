@@ -50,24 +50,6 @@ interface CheckboxInterface {
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(options?: CheckboxOption): CheckboxAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): CheckboxAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): CheckboxAttribute;
-
-  /**
    * setting whether checkbox is selected.
    * @since 8
    */

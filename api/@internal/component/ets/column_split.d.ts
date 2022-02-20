@@ -31,24 +31,6 @@ interface ColumnSplitInterface {
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): ColumnSplitAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): ColumnSplitAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ColumnSplitAttribute;
-
-  /**
    * Indicates whether the split line can be dragged. The default value is false.
    * @since 7
    */

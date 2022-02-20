@@ -80,24 +80,6 @@ interface PanelInterface {
  */
 declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(show: boolean): PanelAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): PanelAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): PanelAttribute;
- 
-  /**
    * Called when the initial state of the slidable panel is set.
    * @since 7
    */

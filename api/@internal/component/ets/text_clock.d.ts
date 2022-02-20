@@ -17,7 +17,7 @@
  * Provides a way to control the textclock status.
  * @since 8
  */
-export declare class TextClockController {
+declare class TextClockController {
   /**
    * constructor.
    * @since 8
@@ -51,24 +51,6 @@ interface TextClockInterface {
 }
 
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(options?: {hourswest?: number}): TextClockAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): TextClockAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): TextClockAttribute;
-
   /**
    * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
    * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),

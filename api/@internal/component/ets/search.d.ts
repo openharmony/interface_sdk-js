@@ -48,28 +48,6 @@ interface SearchInterface {
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(options?: { value?: string;
-    placeholder?: string;
-    icon?: string;
-    controller?: SearchController
-  }): SearchAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): SearchAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): SearchAttribute;
-
-  /**
    * Set the search button text
    * @since 8
    */

@@ -71,18 +71,6 @@ interface ProgressInterface {
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ProgressAttribute;
-
-  /**
    * Called when the current progress value is set.
    * @since 7
    */

@@ -32,18 +32,6 @@ interface DividerInterface {
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): DividerAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): DividerAttribute;
-
-  /**
    * Indicates whether to use a horizontal splitter or a vertical splitter.
    * The options are as follows: false: horizontal splitter; true: vertical splitter.
    * @since 7

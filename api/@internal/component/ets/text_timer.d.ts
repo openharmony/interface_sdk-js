@@ -86,24 +86,6 @@ interface TextTimerInterface {
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(options?: TextTimerOption): TextTimerAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): TextTimerAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): TextTimerAttribute;
-
-  /**
    * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
    * The time format string can be hh, mm, ss, or ms.
    * @since 8

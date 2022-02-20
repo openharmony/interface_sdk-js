@@ -41,24 +41,6 @@ declare enum GridDirection {
  */
 declare class GridAttribute extends CommonMethod<GridAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(scroller?: Scroller): GridAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): GridAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): GridAttribute;
-
-  /**
    * This parameter specifies the number of columns in the current grid layout.
    * @since 7
    */

@@ -31,24 +31,6 @@ interface CounterInterface {
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): CounterAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): CounterAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): CounterAttribute;
-
-  /**
    * Listen to the event that the value increases.
    * @since 7
    */
