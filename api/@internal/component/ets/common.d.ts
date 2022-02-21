@@ -251,6 +251,30 @@ interface ItemDragInfo {
 }
 
 /**
+ * DragItemInfo object description
+ * @since 8
+ */
+interface DragItemInfo {
+  /**
+   * Uses the pixelMap object for drawing.
+   * @since 8
+   */
+  pixelMap?: PixelMap;
+
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * @since 8
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * Sets the extra info for drag event.
+   * @since 8
+   */
+  extraInfo?: string;
+}
+
+/**
  * Defining animation function.
  * @since 7
  */
@@ -1256,32 +1280,32 @@ declare class CommonMethod<T> {
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
-   * @since 7
+   * @since 8
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void): T;
+  onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
-   * @since 7
+   * @since 8
    */
   onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   * @since 7
+   * @since 8
    */
   onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
-   * @since 7
+   * @since 8
    */
   onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   * @since 7
+   * @since 8
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
