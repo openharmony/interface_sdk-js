@@ -101,3 +101,11 @@ declare namespace Profiler {
    */
   function unregisterVsyncCallback(): void;
 }
+
+/**
+ * Set app background color.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+declare function setAppBgColor(value: string): void;
