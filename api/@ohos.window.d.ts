@@ -86,6 +86,7 @@ declare namespace window {
    * @param id Indicates window id.
    * @param type Indicates window type.
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
   function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
