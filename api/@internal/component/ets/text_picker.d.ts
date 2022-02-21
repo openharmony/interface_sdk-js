@@ -89,45 +89,11 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
 }
 
 /**
- * Defines the TextPickerDialogOption for Text Picker Dialog.
+ * Defines the struct of TextPickerResult.
  * @since 8
  */
-declare interface TextPickerDialogOption extends TextPickerOption {
+declare interface TextPickerResult {
   /**
-   * Called when the default height of the selected element is set.
-   * @since 8
-   */
-  defaultPickerItemHeight?: number | string;
-}
-
-/**
- * Defines the event callback status in the pop-up window state.
- * @since 8
- */
-declare enum TextPickerDialogStatus {
-  /**
-   * Triggered when a user clicks the OK button.
-   * @since 8
-   */
-  Accept,
-  /**
-   * Triggered when a user taps the Cancel button.
-   * @since 8
-   */
-  Cancel,
-  /**
-   * Triggered when a user performs scrolling selection.
-   * @since 8
-   */
-  Update,
-}
-
-/**
- * Defines the TextPickerDialogResult for TextPickerDialog.
- * @since 8
- */
-declare interface TextPickerDialogResult {
- /**
    * The currently selected value.
    * @since 8
    */
@@ -137,12 +103,35 @@ declare interface TextPickerDialogResult {
    * @since 8
    */
   index: number;
+}
+
+/**
+ * Defines the TextPickerDialogOption for Text Picker Dialog.
+ * @since 8
+ */
+declare interface TextPickerDialogOption extends TextPickerOption {
   /**
-   * Operation status of the current user.
+   * Called when the default height of the selected element is set.
    * @since 8
    */
-  status: TextPickerDialogStatus;
+  defaultPickerItemHeight?: number | string;
+  /**
+   * Called when the OK button in the dialog is clicked.
+   * @since 8
+   */
+  onAccept: (value: TextPickerResult) => void;
+  /**
+   * Called when the Cancel button in the dialog is clicked.
+   * @since 8
+   */
+  onCancel: () => void;
+  /**
+   * This event is triggered when a TextPicker text is selected in dialog.
+   * @since 8
+   */
+  onChange: (value: TextPickerResult) => void;
 }
+
 /**
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  * @since 8
@@ -152,7 +141,7 @@ declare class TextPickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: TextPickerDialogOption, callback?: (value: TextPickerDialogResult) => void);
+  static show(options?: TextPickerDialogOption);
 }
 
 declare const TextPicker: TextPickerInterface;
