@@ -20,7 +20,7 @@ import {AsyncCallback} from "./basic";
  * SIM cards include SIM, USIM, and CSIM cards.
  *
  * @since 6
- * @sysCap SystemCapability.Telephony.CoreService
+ * @syscap SystemCapability.Telephony.CoreService
  */
 declare namespace sim {
   /**

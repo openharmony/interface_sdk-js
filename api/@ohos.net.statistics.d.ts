@@ -19,7 +19,7 @@ import {AsyncCallback, Callback} from "./basic";
  * Obtains traffic statistics.
  *
  * @since 8
- * @sysCap SystemCapability.Communication.NetManager.Core
+ * @syscap SystemCapability.Communication.NetManager.Core
  */
 declare namespace statistics {
   /**

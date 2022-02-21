@@ -19,7 +19,7 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides methods related to call management.
  *
  * @since 6
- * @sysCap SystemCapability.Telephony.CallManager
+ * @syscap SystemCapability.Telephony.CallManager
  */
 declare namespace call {
   /**
