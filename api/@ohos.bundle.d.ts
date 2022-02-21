@@ -400,18 +400,6 @@ declare namespace bundle {
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number) : Promise<ApplicationInfo>;
 
   /**
-   * Checks whether a specified bundle has been granted a specific permission.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the name of the bundle to check.
-   * @param permission Indicates the permission to check.
-   * @return Returns 0 if the bundle has the permission; returns -1 otherwise.
-   */
-  function checkPermission(bundleName: string, permission: string, callback: AsyncCallback<GrantStatus>): void;
-  function checkPermission(bundleName: string, permission: string): Promise<GrantStatus>;
-
-  /**
    * Query the AbilityInfo by the given Want.
    *
    * @since 7
