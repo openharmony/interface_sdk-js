@@ -458,6 +458,17 @@ declare namespace bundle {
   function getAllApplicationInfo(bundleFlags: number, userId: number) : Promise<Array<ApplicationInfo>>;
 
   /**
+   * Obtains bundle name by the given uid.
+   *
+   * @since 8
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param uid Indicates the UID of an application.
+   * @return Returns the bundle name.
+   */
+   function getNameForUid(uid: number, callback: AsyncCallback<string>) : void
+   function getNameForUid(uid: number) : Promise<string>;
+
+  /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
    *
    * @since 7
