@@ -15,9 +15,8 @@
 
 /**
  * A object that records the result of shell command executes.
- * 执行shell命令的结果
  *
- * @since 8
+ * @since 9
  * @SysCap SystemCapability.Appexecfwk
  * @devices phone, tablet, tv, wearable, car
  * @import import ShellCmdResult from 'application/shellCmdResult.d'
@@ -26,13 +25,11 @@
 export interface ShellCmdResult {
     /**
      * the cmd standard result.
-     * shell命令标准输出结果
      */
     stdResult: String;
 
     /**
      * shell cmd exec result.
-     * shell命令执行的结果
      */
     exitCode: number;
 }

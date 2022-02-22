@@ -20,37 +20,31 @@ import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
- * 在应用程序启动期间，保存AbilityDelegator和AbilityDelegatorArgs对象的全局存储器
  *
- * @since 8
+ * @since 9
  * @SysCap SystemCapability.Appexecfwk
  * @devices phone, tablet, tv, wearable, car
- * @import import abilityManager from '@ohos.application.abilityManager'
+ * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
  */
 declare namespace abilityDelegatorRegistry {
     /**
      * Get the AbilityDelegator object of the application.
-     * 异步方式获取应用程序的AbilityDelegator对象
      * @return the AbilityDelegator object initialized when the application is started.
-     * 应用程序启动时被初始化的AbilityDelegator对象
      */
-    function getAbilityDelegator(callback: AsyncCallback<AbilityDelegator>): void;
-    function getAbilityDelegator(): Promise<AbilityDelegator>;
+    function getAbilityDelegator(): AbilityDelegator;
 
     /**
      * Get unit test parameters stored in the AbilityDelegatorArgs object.
-     * 异步的方式获取单元测试参数AbilityDelegatorArgs对象
      * @return the previously registered AbilityDelegatorArgs object.
-     * 单元测试参数AbilityDelegatorArgs对象
      */
-    function getArguments(callback: AsyncCallback<AbilityDelegatorArgs>): void;
-    function getArguments(): Promise<AbilityDelegatorArgs>;​
+    function getArguments(): AbilityDelegatorArgs;
 
     /**
      * Describes all lifecycle states of an ability.
      */
     export enum AbilityLifecycleState {
+        UNINITIALIZED,
         CREATE,
         FOREGROUND,
         BACKGROUND,
