@@ -131,6 +131,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   barHeight(value: number): TabsAttribute;
 
   /**
+   * Called when the width of the bar graph is set.
+   * @since 8
+   */
+  barWidth(value: Length): TabsAttribute;
+
+  /**
+   * Called when the height of the bar graph is set.
+   * @since 8
+   */
+  barHeight(value: Length): TabsAttribute;
+
+  /**
    * Called when the animation duration of the bar graph is set.
    * @since 7
    */
