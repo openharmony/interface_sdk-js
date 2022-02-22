@@ -16,12 +16,12 @@
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * Provides thermal level-related callback and query APIs to obtain the information required for temperature control.
- * The APIs are as follows:
+ * Provides thermal level-related callback and query APIs to obtain the information required for 
+ * temperature control. The APIs are as follows:
  * {@link subscribeThermalLevel}: subscribes to callbacks of thermal level changes.
  * {@link getThermalLevel}: obtains the thermal level of the system in real time.
  *
- * @SysCap SystemCapability.PowerManager.ThermalManager
+ * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8
  */
 declare namespace thermal {
@@ -36,33 +36,31 @@ declare namespace thermal {
          */
         COOL = 0,
         /**
-         * The device is operational but is not cool.
-         * You need to pay attention to its heating.
+         * The device is operational but is not cool. You need to pay attention to its heating.
          */
         NORMAL = 1,
         /**
-         * The device is warm.
-         * You need to stop or delay some imperceptible services.
+         * The device is warm. You need to stop or delay some imperceptible services.
          */
         WARM = 2,
         /**
-         * The device is heating up.
-         * You need to stop all imperceptible services and downgrade or reduce the load of other services.
+         * The device is heating up. You need to stop all imperceptible services and downgrade 
+         * or reduce the load of other services.
          */
         HOT = 3,
         /**
-         * The device is overheated.
-         * You need to stop all imperceptible services and downgrade or reduce the load of major services.
+         * The device is overheated. You need to stop all imperceptible services and downgrade 
+         * or reduce the load of major services.
          */
         OVERHEATED = 4,
         /**
-         * The device is overheated and is about to enter the emergency state.
-         * You need to stop all imperceptible services and downgrade major services to the maximum extent.
+         * The device is overheated and is about to enter the emergency state. You need to stop 
+         * all imperceptible services and downgrade major services to the maximum extent.
          */
         WARNING = 5,
         /**
-         * The device has entered the emergency state.
-         * You need to stop all services except those for the emergency help purposes.
+         * The device has entered the emergency state. You need to stop all services except those 
+         * for the emergency help purposes.
          */
         EMERGENCY = 6,
     }
