@@ -73,6 +73,18 @@ declare namespace call {
   function muteRinger(): Promise<void>;
 
   /**
+   * Checks whether a device supports voice calls.
+   *
+   * <p>The system checks whether the device has the capability to initiate a circuit switching (CS) or IP multimedia
+   * subsystem domain (IMS) call on a telephone service network. If the device supports only packet switching
+   * (even if the device supports OTT calls), {@code false} is returned.
+   *
+   * @return Returns {@code true} if the device supports voice calls; returns {@code false} otherwise.
+   * @since 7
+   */
+  function hasVoiceCapability(): boolean;
+
+  /**
    * Checks whether a phone number is on the emergency number list.
    *
    * @param phoneNumber Indicates the phone number to check.
