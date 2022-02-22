@@ -29,25 +29,7 @@ interface SheetInterface {
  * Declares sheet properties.
  * @since 8
  */
-declare class SheetAttribute extends CommonMethod<SheetAttribute> {
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): SheetAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): SheetAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): SheetAttribute;
-}
+declare class SheetAttribute extends CommonMethod<SheetAttribute> {}
 
 declare const Sheet: SheetInterface;
 declare const SheetInstance: SheetAttribute;

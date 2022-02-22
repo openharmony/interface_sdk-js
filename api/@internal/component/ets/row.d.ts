@@ -30,24 +30,6 @@ interface RowInterface {
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { space?: string | number }): RowAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): RowAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): RowAttribute;
-
-  /**
    * Called when the vertical alignment is set.
    * @since 7
    */

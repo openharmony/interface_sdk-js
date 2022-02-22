@@ -1105,24 +1105,6 @@ interface CanvasInterface {
 
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(context?: CanvasRenderingContext2D): CanvasAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): CanvasAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): CanvasAttribute;
-
-  /**
    * Event notification after the canvas component is constructed. You can draw the canvas at this time.
    * @since 8
    */

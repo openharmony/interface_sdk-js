@@ -76,18 +76,6 @@ interface ImageInterface {
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(src: string | PixelMap | Resource): ImageAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ImageAttribute;
- 
-  /**
    * Placeholder displayed on load
    * @since 7
    */

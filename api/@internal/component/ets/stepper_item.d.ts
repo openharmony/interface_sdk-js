@@ -68,24 +68,6 @@ interface StepperItemInterface {
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): StepperItemAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): StepperItemAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): StepperItemAttribute;
-
-  /**
    * Called when the value of stepperItem prevLabel is set
    * @devices phone, tablet, car
    * @since 8

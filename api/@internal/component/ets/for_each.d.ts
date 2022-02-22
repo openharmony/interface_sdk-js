@@ -27,28 +27,6 @@ interface ForEachInterface {
     itemGenerator: (item: any, index?: number) => void,
     keyGenerator?: (item: any, index?: number) => string,
   ): ForEachInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(
-    arr: Array<any>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
-  ): ForEachInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): ForEachInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ForEachInterface;  
 }
 
 /**

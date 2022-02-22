@@ -143,25 +143,7 @@ interface BadgeInterface {
  * Defines Badge Componrnt attribute.
  * @since 7
  */
-declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): BadgeAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): BadgeAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value: BadgeParamWithNumber | BadgeParamWithString): BadgeAttribute;
-}
+declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
 declare const Badge: BadgeInterface
 declare const BadgeInstance: BadgeAttribute;

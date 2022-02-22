@@ -31,24 +31,6 @@ interface RichTextInterface {
  */
 declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(content: string): RichTextAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): RichTextAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): RichTextAttribute;
-
-  /**
    * Triggered when the RichText loading starts.
    * @since 8
    */

@@ -105,24 +105,6 @@ interface ScrollInterface {
  */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(scroller?: Scroller): ScrollAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): ScrollAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ScrollAttribute;
-
-  /**
    * Called when the scroll method is slid.
    * @since 7
    */
