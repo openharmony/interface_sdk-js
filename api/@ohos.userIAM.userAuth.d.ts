@@ -127,7 +127,7 @@ declare namespace userAuth {
      * User authentication.
      * @since 8
      */
-     class UserAuth {
+    class UserAuth {
         /**
          * Constructor to get the UserAuth class instance.
          * @since 8
