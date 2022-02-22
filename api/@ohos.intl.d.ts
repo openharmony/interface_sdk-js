@@ -18,7 +18,6 @@
  *
  * @sysCap SystemCapability.Global.I18n
  * @since 6
- * @devices phone, tablet, tv, wearable, car
  */
 declare namespace intl {
 /**
