@@ -25,7 +25,6 @@ declare namespace configPolicy {
   /**
    * Get file from the highest priority config path which contains the given file name.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.ConfigPolicy
@@ -38,7 +37,6 @@ declare namespace configPolicy {
   /**
    * Get config files in device architecture, ordered by priority from low to high.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.ConfigPolicy
@@ -51,7 +49,6 @@ declare namespace configPolicy {
   /**
    * Get config directories in device architecture, ordered by priority from low to high.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 8
    * @systemapi Hide this for inner system use.
    * @sysCap SystemCapability.Customization.ConfigPolicy
