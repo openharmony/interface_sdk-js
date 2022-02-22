@@ -21,7 +21,7 @@ import {AsyncCallback} from "./basic";
  * listen for changes of the network, cell, and signal status of the WCN.
  *
  * @since 6
- * @sysCap SystemCapability.Telephony.CoreService
+ * @syscap SystemCapability.Telephony.CoreService
  */
 declare namespace radio {
   /**

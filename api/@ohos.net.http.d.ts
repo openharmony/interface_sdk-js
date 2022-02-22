@@ -19,7 +19,7 @@ import {AsyncCallback, Callback} from "./basic";
  * Provides http related APIs.
  *
  * @since 6
- * @sysCap SystemCapability.Communication.NetStack
+ * @syscap SystemCapability.Communication.NetStack
  */
 declare namespace http {
   /**
