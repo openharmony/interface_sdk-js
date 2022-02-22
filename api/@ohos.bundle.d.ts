@@ -355,7 +355,15 @@ declare namespace bundle {
     /**
       * @since 8
       */
-    STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43
+    STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43,
+    /**
+     * @since 8
+     */
+    STATUS_INSTALL_PERMISSION_DENIED = 0x44,
+    /**
+     * @since 8
+     */
+    STATUS_UNINSTALL_PERMISSION_DENIED = 0x45,
   }
 
   /**
