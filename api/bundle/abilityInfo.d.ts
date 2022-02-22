@@ -202,59 +202,12 @@ export interface AbilityInfo {
   readonly applicationInfo: ApplicationInfo;
 
   /**
-    * @default Where form can be displayed
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
-    */
-  readonly formEntity: number;
-
-  /**
-    * @default Minimum height of ability.
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
-    */
-  readonly minFormHeight: number;
-
-  /**
-    * @default Default height of ability
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
-    */
-  readonly defaultFormHeight: number;
-
-  /**
-    * @default Minimum width of ability
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
-    */
-  readonly minFormWidth: number;
-
-  /**
-    * @default Default width of ability
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
-    */
-  readonly defaultFormWidth: number;
-
-  /**
     * @default Uri of ability
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @FAModelOnly
     */
   readonly uri: string;
-
-  /**
-    * @default Indicates the custom metadata of ability
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  customizeData: Map<string, Array<CustomizeData>>;
 
   /**
     * @default Indicates the metadata of ability

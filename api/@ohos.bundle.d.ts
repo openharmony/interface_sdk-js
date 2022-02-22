@@ -306,13 +306,6 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
     userId?: number;
-
-    /**
-     * @default Indicates the network id
-     * @since 7
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    networkId?: string;
   }
 
   /**

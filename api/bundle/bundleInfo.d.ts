@@ -136,7 +136,7 @@ export interface BundleInfo {
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
-  readonly abilityInfo: Array<AbilityInfo>;
+  readonly abilityInfos: Array<AbilityInfo>;
 
   /**
     * @default Indicates the required permissions name defined in file config.json
@@ -199,7 +199,7 @@ export interface BundleInfo {
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
-  readonly hapModuleInfo: Array<HapModuleInfo>;
+  readonly hapModuleInfos: Array<HapModuleInfo>;
 
   /**
     * @default Indicates entry module name
