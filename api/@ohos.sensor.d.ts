@@ -607,6 +607,7 @@ declare namespace sensor {
      * @param gravity Indicates the gravity vector.
      * @param geomagnetic Indicates the geomagnetic vector.
      * @return Returns the rotation matrix, {@code RotationMatrixResponse}.
+     * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
     function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
