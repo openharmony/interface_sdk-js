@@ -18,49 +18,72 @@
  * The most recently matched Ability objects will be saved in the AbilityMonitor object.
  *
  * @since 9
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityMonitor from 'application/abilityMonitor.d'
  * @permission N/A
  */
 export interface AbilityMonitor {
     /**
      * The name of the ability to monitor.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     abilityName: string;
 
     /**
      * Called back when the ability is started for initialization.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityCreate?:() => void;
 
     /**
      * Called back when the state of the ability changes to foreground.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityForeground?:() => void;
 
     /**
      * Called back when the state of the ability changes to background.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityBackground?:() => void;
 
     /**
      * Called back before the ability is destroyed.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityDestroy?:() => void;
 
     /**
      * Called back when an ability window stage is created.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageCreate?:() => void;
 
     /**
      * Called back when an ability window stage is restored.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageRestore?:() => void;
 
     /**
      * Called back when an ability window stage is destroyed.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageDestroy?:() => void;
 }

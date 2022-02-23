@@ -23,14 +23,16 @@ import { ShellCmdResult } from './shellCmdResult'
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
  *
  * @since 9
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegator from 'application/abilityDelegator.d'
  * @permission N/A
  */
 export interface AbilityDelegator {
     /**
      * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      */
     addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
@@ -38,6 +40,9 @@ export interface AbilityDelegator {
 
     /**
      * Remove a specified AbilityMonitor object from the application memory.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      */
     removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
@@ -45,6 +50,9 @@ export interface AbilityDelegator {
 
     /**
      * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param monitor AbilityMonitor object
      * @param timeout Maximum wait time, in milliseconds
      * @return success: return the Ability object, failure: return null
@@ -55,19 +63,28 @@ export interface AbilityDelegator {
 
     /**
      * Obtain the application context.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return App Context
      */
     getAppContext(): Context;
 
     /**
      * Obtain the lifecycle state of a specified ability.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The Ability object
-     * @return The state of the Ability object
+     * @return The state of the Ability object. enum AbilityLifecycleState
      */
     getAbilityState(ability: Ability): number;
 
     /**
      * Obtain the ability that is currently being displayed.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return The top ability of the current application
      */
     getCurrentTopAbility(callback: AsyncCallback<Ability>): void;
@@ -75,6 +92,9 @@ export interface AbilityDelegator {
 
     /**
      * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The ability object
      * @return true: success false: failure
      */
@@ -83,6 +103,9 @@ export interface AbilityDelegator {
 
     /**
      * Invoke the Ability.onBackground() callback of a specified ability without changing its lifecycle state.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param ability The ability object
      * @return true: success false: failure
      */
@@ -92,6 +115,9 @@ export interface AbilityDelegator {
     /**
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
     print(msg: string, callback: AsyncCallback<void>): void;
@@ -99,6 +125,9 @@ export interface AbilityDelegator {
 
     /**
      * Execute the given command in the aa tools side.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @param cmd Shell command
      * @param timeoutSecs Timeout, in seconds
      * @return ShellCmdResult object
@@ -110,9 +139,12 @@ export interface AbilityDelegator {
     /**
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @hide
      * @param msg Log information
      * @param code Result code
-     * @hide
      */
     finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
     finishTest(msg: string, code: number): Promise<void>;

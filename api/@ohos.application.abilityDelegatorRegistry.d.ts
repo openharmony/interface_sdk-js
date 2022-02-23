@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
 import { AbilityDelegator } from './application/abilityDelegator'
 import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
 
@@ -22,26 +21,34 @@ import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
  * during application startup.
  *
  * @since 9
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
  */
 declare namespace abilityDelegatorRegistry {
     /**
      * Get the AbilityDelegator object of the application.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return the AbilityDelegator object initialized when the application is started.
      */
     function getAbilityDelegator(): AbilityDelegator;
 
     /**
      * Get unit test parameters stored in the AbilityDelegatorArgs object.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @return the previously registered AbilityDelegatorArgs object.
      */
     function getArguments(): AbilityDelegatorArgs;
 
     /**
      * Describes all lifecycle states of an ability.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     export enum AbilityLifecycleState {
         UNINITIALIZED,

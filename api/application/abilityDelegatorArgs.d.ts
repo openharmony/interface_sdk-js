@@ -18,29 +18,40 @@
  * Store unit testing-related parameters, including test case names, and test runner name.
  *
  * @since 9
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
  * @permission N/A
  */
 export interface AbilityDelegatorArgs {
     /**
      * the bundle name of the application being tested.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     bundleName: string;
 
     /**
      * the parameters used for unit testing.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     parameters: {[key: string]: string};
 
     /**
      * the class names of all test cases.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     testCaseNames: string;
 
     /**
      * the class name of the test runner used to execute test cases.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     testRunnerClassName: string;
 }

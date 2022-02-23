@@ -17,19 +17,24 @@
  * A object that records the result of shell command executes.
  *
  * @since 9
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import ShellCmdResult from 'application/shellCmdResult.d'
  * @permission N/A
  */
 export interface ShellCmdResult {
     /**
      * the cmd standard result.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     stdResult: String;
 
     /**
      * shell cmd exec result.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     exitCode: number;
 }
