@@ -74,6 +74,60 @@ interface SwiperInterface {
 }
 
 /**
+ * Setting indicator style navigation.
+ * @since 8
+ */
+declare interface IndicatorStyle {
+  /**
+   * Set the indicator to the left.
+   * @since 8
+   */
+  left?: Length;
+
+  /**
+   * Set the indicator to the top.
+   * @since 8
+   */
+  top?: Length;
+
+  /**
+   * Set the indicator to the right.
+   * @since 8
+   */
+  right?: Length;
+
+  /**
+   * Set the indicator to the bottom.
+   * @since 8
+   */
+  bottom?: Length;
+
+  /**
+   * Set the indicator size.
+   * @since 8
+   */
+  size?: Length;
+
+  /**
+   * Setting indicator style mask.
+   * @since 8
+   */
+  mask?: boolean;
+
+  /**
+   * Set the indicator color.
+   * @since 8
+   */
+  color?: ResourceColor;
+
+  /**
+   * Set the navigation point color.
+   * @since 8
+   */
+  selectedColor?: ResourceColor;
+}
+
+/**
  * @since 7
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
@@ -183,6 +237,12 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 7
    */
   onChange(event: (index: number) => void): SwiperAttribute;
+
+  /**
+   * Setting indicator style navigation.
+   * @since 8
+   */
+  indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
 }
 
 declare const Swiper: SwiperInterface;
