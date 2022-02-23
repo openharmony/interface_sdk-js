@@ -314,6 +314,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeShortArray(shortArray: number[]): boolean;
@@ -325,6 +327,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeIntArray(intArray: number[]): boolean;
@@ -336,6 +340,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeLongArray(longArray: number[]): boolean;
@@ -347,6 +353,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeFloatArray(floatArray: number[]): boolean;
@@ -358,6 +366,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeDoubleArray(doubleArray: number[]): boolean;
@@ -369,6 +379,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeBooleanArray(booleanArray: boolean[]): boolean;
@@ -380,6 +392,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeCharArray(charArray: number[]): boolean;
@@ -391,6 +405,8 @@ declare namespace rpc {
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeStringArray(stringArray: string[]): boolean;
