@@ -16,10 +16,10 @@
 import {AsyncCallback} from './basic';
 
 /**
- * inputmethod
+ * inputmethodengine
  *
  * @since 8
- * @devices phone, tablet, tv, wearable
+ * @syscap SystemCapability.MiscServices.InputMethodEngine
  */
 declare namespace inputMethodEngine {
     const ENTER_KEY_TYPE_UNSPECIFIED: number;
