@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,7 @@
  */
 
 import rpc from "./@ohos.rpc";
-import ServiceExtAbilityContext from "./application/ServiceExtAbilityContext";
+import ServiceExtensionContext from "./application/ServiceExtensionContext";
 import Want from './@ohos.application.Want';
 
 /**
@@ -25,7 +25,7 @@ import Want from './@ohos.application.Want';
  * @systemapi hide for inner use.
  * @StageModelOnly
  */
-export default class ServiceExtAbility {
+export default class ServiceExtensionAbility {
     /**
      * Indicates service extension ability context.
      *
@@ -34,7 +34,7 @@ export default class ServiceExtAbility {
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
-    context: ServiceExtAbilityContext;
+    context: ServiceExtensionContext;
 
     /**
      * Called back when a service extension is started for initialization.
