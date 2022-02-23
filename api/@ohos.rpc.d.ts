@@ -1292,6 +1292,16 @@ declare namespace rpc {
         static getCallingUid(): number;
 
         /**
+         * Obtains the TOKENID.
+         *
+         * <p>This method is static.
+         *
+         * @return Returns the TOKENID.
+         * @since 8
+         */
+         static getCallingTokenId(): number;
+
+        /**
          * Obtains the ID of the device where the peer process resides.
          *
          * <p>This method is static.
