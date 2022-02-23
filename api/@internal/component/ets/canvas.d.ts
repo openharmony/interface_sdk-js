@@ -348,6 +348,12 @@ declare interface TextMetrics {
    * @since 8
    */
   readonly width: number;
+
+  /**
+   * Indicates the height of a character string. The value is of the double type.
+   * @since 8
+   */
+  readonly height: number;
 }
 
 /**
