@@ -19,10 +19,9 @@ declare namespace zlib {
 /**
  * @name ErrorCode
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  */
   export enum ErrorCode {
     ERROR_CODE_OK = 0,
@@ -32,10 +31,9 @@ declare namespace zlib {
 /**
  * @name CompressLevel
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  */
   export enum CompressLevel {
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
@@ -47,10 +45,9 @@ declare namespace zlib {
 /**
  * @name CompressStrategy
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  */
   export enum CompressStrategy {
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
@@ -63,10 +60,9 @@ declare namespace zlib {
 /**
  * @name MemLevel
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  */
   export enum MemLevel {
     MEM_LEVEL_MIN = 1,
@@ -77,10 +73,9 @@ declare namespace zlib {
 /**
  * @name Options
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
  */
   interface Options {
     level?: CompressLevel;
@@ -91,9 +86,8 @@ declare namespace zlib {
   /**
    * Compress the specified file.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.Zlib
    * @param inFile Indicates the path of the file to be compressed.
    * @param outFile Indicates the path of the output compressed file.
    * @return Returns error code.
@@ -103,9 +97,8 @@ declare namespace zlib {
   /**
    * Decompress the specified file.
    *
-   * @devices phone, tablet, tv, wearable, car
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.Zlib
    * @param inFile Indicates the path of the file to be decompressed.
    * @param outFile Indicates the path of the decompressed file.
    * @return Returns error code.

@@ -22,8 +22,7 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
  * inner bundle manager.
  * @name innerBundleManager
  * @since 8
- * @sysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
  */
@@ -32,9 +31,8 @@ declare namespace innerBundleManager {
   /**
    * Obtains based on a given bundleName and userId.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param userId Indicates the id for the user.
    * @return Returns the LauncherAbilityInfo object.
@@ -47,9 +45,8 @@ declare namespace innerBundleManager {
   /**
    * Register Callback.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
    * @return Returns the result or error maeeage.
@@ -62,9 +59,8 @@ declare namespace innerBundleManager {
   /**
    * UnRegister Callback.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
@@ -76,9 +72,8 @@ declare namespace innerBundleManager {
   /**
    * Obtains based on a given userId.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param userId Indicates the id for the user.
    * @return Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -90,9 +85,8 @@ declare namespace innerBundleManager {
   /**
    * Obtains based on a given bundleName.
    *
-   * @devices phone, tablet, tv, wearable
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @return Returns the LauncherShortcutInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED

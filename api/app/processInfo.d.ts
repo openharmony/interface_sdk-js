@@ -16,19 +16,17 @@
 /**
  * @name This class saves process information about an application
  * @since 7
- * @SysCap appexecfwk
+ * @SysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import ProcessInfo from 'app/processInfo'
  * @permission N/A
- * @devices phone, tablet, tv, wearable
  */
 export interface ProcessInfo {
   /**
    * The id of the current process
    *
    * @default -
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap appexecfwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
    */
   pid: number;
 
@@ -36,9 +34,8 @@ export interface ProcessInfo {
    * The name of the current process
    *
    * @default -
-   * @devices phone, tablet, tv, wearable
    * @since 7
-   * @SysCap appexecfwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
    */
    processName: string;
 }

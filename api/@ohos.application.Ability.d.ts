@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,154 +13,228 @@
  * limitations under the License.
  */
 
+import AbilityConstant from "./@ohos.application.AbilityConstant";
 import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
+import { Configuration } from './@ohos.application.Configuration';
+import rpc from '/@ohos.rpc';
+
+/**
+ * The interface of a Caller.
+ *
+ * @since 9
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @StageModelOnly
+ */
+ interface Caller {
+     /**
+     * Notify the server of Sequenceable type data.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     call(method: string, data: rpc.Sequenceable): Promise<void>;
+
+    /**
+     * Notify the server of Sequenceable type data and return the notification result.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+
+    /**
+     * Clear service records.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     release(): void;
+
+    /**
+     * Register death listener notification callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * return Sequenceable data
+     * @StageModelOnly
+     */
+     onRelease(callback: function): void;
+ }
+
+ /**
+ * The interface of a Callee.
+ *
+ * @since 9
+ * @sysCap AAFwk
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @StageModelOnly
+ */
+ interface Callee {
+
+     /**
+     * Register data listener callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     on(method: string, callback: function): void;
+
+     /**
+     * Unregister data listener callback.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     off(method: string): void;
+ }
 
 /**
  * The class of an ability.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
+ * @StageModelOnly
  */
 export default class Ability {
     /**
      * Indicates configuration information about an ability context.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     context: AbilityContext;
 
     /**
      * Indicates ability launch want.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     launchWant: Want;
 
     /**
      * Indicates ability last request want.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
      */
     lastRequestWant: Want;
 
     /**
+     * Call Service Stub Object.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     * @StageModelOnly
+     */
+     callee: Callee;
+
+    /**
      * Called back when an ability is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
-    onCreate(want: Want, param: LaunchParam): void;
+    onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
 
     /**
      * Called back when an ability window stage is created.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
 
     /**
      * Called back when an ability window stage is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onWindowStageDestroy(): void;
 
     /**
      * Called back before an ability is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onDestroy(): void;
 
     /**
      * Called back when the state of an ability changes to foreground.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onForeground(): void;
 
     /**
      * Called back when the state of an ability changes to background.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
+     * @StageModelOnly
      */
     onBackground(): void;
 
     /**
      * Called back when an ability prepares to migrate.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
+     * @StageModelOnly
      */
      onContinue(wantParam : {[key: string]: any}): boolean;
-}
-
-export interface LaunchParam {
-    /**
-     * Indicates launch reason.
-     *
-     * @since 8
-     * @sysCap AAFwk
-     */
-    launchReason: LaunchReason;
 
     /**
-     * Indicates last exit reason.
+     * Called when the launch mode of an ability is set to singleton.
+     * This happens when you re-launch an ability that has been at the top of the ability stack.
      *
-     * @since 8
+     * @devices phone, tablet, tv, wearable, car
+     * @since 9
      * @sysCap AAFwk
+     * @return -
+     * @StageModelOnly
      */
-    lastExitReason: LastExitReason;
-}
+    onNewWant(want: Want): void;
 
-/**
- * Type of launch reason.
- *
- * @since 8
- * @sysCap AAFwk
- */
-export enum LaunchReason {
-    UNKNOWN = 0,
-    START_ABILITY = 1,
-    CALL = 2,
-    CONTINUATION = 3,
+     /**
+      * Called when the system configuration is updated.
+      *
+      * @devices phone, tablet, tv, wearable, car
+      * @since 9
+      * @sysCap AAFwk
+      * @return -
+      * @StageModelOnly
+      */
+    onConfigurationUpdated(config: Configuration): void;
 }
-
-/**
- * Type of last exit reason.
- *
- * @since 8
- * @sysCap AAFwk
- */
-export enum LastExitReason {
-    UNKNOWN = 0,
-    ABILITY_NOT_RESPONDING = 1,
-    NORMAL = 2,
-}
-

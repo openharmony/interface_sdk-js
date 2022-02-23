@@ -15,12 +15,17 @@
 
 import {AsyncCallback} from './basic'
 
+/**
+ * This module provides the capability to manage distributed accounts.
+ *
+ * @since 7
+ * @syscap SystemCapability.Account.OsAccount
+ */
 declare namespace distributedAccount {
     /**
      * Get the ability of the distributed account.
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      * @permission N/A
      * @return Ability to manage operations of distributed account.
      */
@@ -31,8 +36,7 @@ declare namespace distributedAccount {
      *
      * @name DistributedAccountAbility
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      */
     interface DistributedAccountAbility {
@@ -40,7 +44,6 @@ declare namespace distributedAccount {
          * Queries the distributed information of the current OS account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @return The distributed information of the current OS account.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
@@ -51,7 +54,6 @@ declare namespace distributedAccount {
          * Updates the distributed information of the OS account.
          *
          * @since 7
-         * @devices phone, tablet, tv, wearable, car
          * @param accountInfo Indicates the information of the OS account used for a distributed system.
          * @return void
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
@@ -65,8 +67,7 @@ declare namespace distributedAccount {
      *
      * @name DistributedInfo
      * @since 7
-     * @sysCap SystemCapability.Account.OsAccount
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Account.OsAccount
      * @permission N/A
      */
     interface DistributedInfo {

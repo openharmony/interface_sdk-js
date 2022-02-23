@@ -18,8 +18,7 @@ import {AsyncCallback} from './basic';
 /**
  * Provides interfaces to manage power.
  *
- * @SysCap SystemCapability.PowerMgr.PowerManager
- * @devices phone, tablet, tv, wearable
+ * @SysCap SystemCapability.PowerManager.PowerManager
  * @since 7
  */
 declare namespace power {
@@ -39,7 +38,7 @@ declare namespace power {
    *
    * <p>This method requires the ohos.permission.REBOOT permission.
    *
-   * @param reason Indicates the restart reason. For example, "recovery" indicates entering the recovery mode
+   * @param reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @since 7
    */

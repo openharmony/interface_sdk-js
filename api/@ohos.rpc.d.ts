@@ -33,173 +33,140 @@ declare namespace rpc {
      * {@link Sequenceable}, and SequenceableArray.
      *
      * @since 7
-     * @sysCap SystemCapability.RPC
-     * @devices phone, tablet, tv, wearable, car
+     * @sysCap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      */
     class MessageParcel {
         /**
          * Creates an empty {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the object created.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         static create(): MessageParcel;
 
         /**
          * Reclaims the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         reclaim(): void;
 
         /**
          * Serializes a remote object and writes it to the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param object Remote object to serialize.
          * @return Returns true if it is successful; returns false otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeRemoteObject(object: IRemoteObject): boolean;
 
         /**
          * Reads a remote object from {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the remote object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readRemoteObject(): IRemoteObject;
 
         /**
          * Writes an interface token into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param token Interface descriptor to write.
          * @return Returns {@code true} if the interface token has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeInterfaceToken(token: string): boolean;
 
         /**
          * Reads an interface token from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a string value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readInterfaceToken(): string;
 
         /**
          * Obtains the size of data (in bytes) contained in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the size of data contained in the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getSize(): number;
 
         /**
          * Obtains the storage capacity (in bytes) of the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the storage capacity of the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getCapacity(): number;
 
         /**
          * Sets the size of data (in bytes) contained in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>{@code false} is returned if the data size set in this method is greater
          * than the storage capacity of the {@link MessageParcel}.
          *
          * @param size Indicates the data size of the {@link MessageParcel} object.
          * @return Returns {@code true} if the setting is successful; returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         setSize(size: number): boolean;
 
         /**
          * Sets the storage capacity (in bytes) of the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>{@code false} is returned if the capacity set in this method is less than
          * the size of data contained in the {@link MessageParcel}.
          *
          * @param size Indicates the storage capacity of the {@link MessageParcel} object.
          * @return Returns {@code true} if the setting is successful; returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         setCapacity(size: number): boolean;
 
         /**
          * Obtains the writable data space (in bytes) in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>Writable data space = Storage capacity of the {@link MessageParcel} – Size of data contained in the {@link MessageParcel}.
          *
          * @return Returns the writable data space of the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getWritableBytes(): number;
 
         /**
          * Obtains the readable data space (in bytes) in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>Readable data space = Size of data contained in the {@link MessageParcel} – Size of data that has been read.
          *
          * @return Returns the readable data space of the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getReadableBytes(): number;
 
         /**
          * Obtains the current read position in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the current read position in the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getReadPosition(): number;
 
         /**
          * Obtains the current write position in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns the current write position in the {@link MessageParcel} object.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         getWritePosition(): number;
 
         /**
          * Changes the current read position in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>Generally, you are advised not to change the current read position. If you must
          * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
          *
          * @param pos Indicates the target position to start data reading.
          * @return Returns {@code true} if the read position is changed; returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         rewindRead(pos: number): boolean;
 
         /**
          * Changes the current write position in the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * <p>Generally, you are advised not to change the current write position. If you must
          * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
          *
          * @param pos Indicates the target position to start data writing.
          * @return Returns {@code true} if the write position is changed; returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         rewindWrite(pos: number): boolean;
@@ -207,7 +174,6 @@ declare namespace rpc {
         /**
          * Writes information to this MessageParcel object indicating that no exception occurred.
          * <p>After handling requests, you should call this method before writing any data to reply {@link MessageParcel}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 8
          */
         writeNoException(): void;
@@ -218,265 +184,240 @@ declare namespace rpc {
          * This method should be called before reading any data from reply {@link MessageParcel}
          * if {@link writeNoException} was invoked in server side.
          * @throws Throws an exception if it thrown in server side.
-         * @devices phone, tablet, tv, wearable, car
          * @since 8
          */
         readException(): void;
 
         /**
          * Writes a byte value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the byte value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeByte(val: number): boolean;
 
         /**
          * Writes a short integer value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the short integer value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeShort(val: number): boolean;
 
         /**
          * Writes an integer value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the integer value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeInt(val: number): boolean;
 
         /**
          * Writes a long integer value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the long integer value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeLong(val: number): boolean;
 
         /**
          * Writes a floating point value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the floating point value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeFloat(val: number): boolean;
 
         /**
          * Writes a double-precision floating point value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the double-precision floating point value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeDouble(val: number): boolean;
 
         /**
          * Writes a boolean value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the boolean value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeBoolean(val: boolean): boolean;
 
         /**
          * Writes a single character value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the single character value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeChar(val: number): boolean;
 
         /**
          * Writes a string value into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the string value to write.
          * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeString(val: string): boolean;
 
         /**
          * Writes a {@link Sequenceable} object into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param val Indicates the {@link Sequenceable} object to write.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeSequenceable(val: Sequenceable): boolean;
 
         /**
          * Writes a byte array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param byteArray Indicates the byte array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeByteArray(byteArray: number[]): boolean;
 
         /**
          * Writes a short integer array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param shortArray Indicates the short integer array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeShortArray(shortArray: number[]): boolean;
 
         /**
          * Writes an integer array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param intArray Indicates the integer array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeIntArray(intArray: number[]): boolean;
 
         /**
          * Writes a long integer array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param longArray Indicates the long integer array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeLongArray(longArray: number[]): boolean;
 
         /**
          * Writes a floating point array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param floatArray Indicates the floating point array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeFloatArray(floatArray: number[]): boolean;
 
         /**
          * Writes a double-precision floating point array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param doubleArray Indicates the double-precision floating point array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeDoubleArray(doubleArray: number[]): boolean;
 
         /**
          * Writes a boolean array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param booleanArray Indicates the boolean array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeBooleanArray(booleanArray: boolean[]): boolean;
 
         /**
          * Writes a single character array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param charArray Indicates the single character array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeCharArray(charArray: number[]): boolean;
 
         /**
          * Writes a string array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param stringArray Indicates the string array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeStringArray(stringArray: string[]): boolean;
 
         /**
          * Writes a {@link Sequenceable} object array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param sequenceableArray Indicates the {@link Sequenceable} object array to write.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         writeSequenceableArray(sequenceableArray: Sequenceable[]): boolean;
@@ -486,88 +427,69 @@ declare namespace rpc {
          * @param objectArray Array of {@link IRemoteObject} objects to write.
          * @return Returns {@code true} if the {@link IRemoteObject} array is successfully written to the {@link MessageParcel};
          *         returns false if the {@link IRemoteObject} array is null or fails to be written to the {@lini MessageParcel}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 8
          */
         writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
 
         /**
          * Reads a byte value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a byte value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readByte(): number;
 
         /**
          * Reads a short integer value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a short integer value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readShort(): number;
 
         /**
          * Reads an integer value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns an integer value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readInt(): number;
 
         /**
          * Reads a long integer value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a long integer value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readLong(): number;
 
         /**
          * Reads a floating point value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a floating point value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readFloat(): number;
 
         /**
          * Reads a double-precision floating point value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a double-precision floating point value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readDouble(): number;
 
         /**
          * Reads a boolean value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a boolean value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readBoolean(): boolean;
 
         /**
          * Reads a single character value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a single character value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readChar(): number;
 
         /**
          * Reads a string value from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a string value.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readString(): string;
@@ -576,182 +498,144 @@ declare namespace rpc {
          * Reads a {@link Sequenceable} object from the {@link MessageParcel} instance.
          * @param dataIn Indicates the {@link Sequenceable} object that needs to perform the {@code unmarshalling} operation
          *        using the {@link MessageParcel}.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readSequenceable(dataIn: Sequenceable) : boolean;
 
         /**
          * Writes a byte array into the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the byte array read from MessageParcel.
          * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this MessageParcel is insufficient,
          *         exception message: {@link *MessageParcelException#NO_CAPACITY_ERROR}.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readByteArray(dataIn: number[]) : void;
 
         /**
          * Reads a byte array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a byte array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readByteArray(): number[];
 
         /**
          * Reads a short integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the short integer array read from MessageParcel.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readShortArray(dataIn: number[]) : void;
 
         /**
          * Reads a short integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a short integer array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readShortArray(): number[];
 
         /**
          * Reads an integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the integer array to read.
          * @throws ParcelException Throws this exception if reading the integer array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readIntArray(dataIn: number[]) : void;
 
         /**
          * Reads an integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns an integer array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readIntArray(): number[];
 
         /**
          * Reads a long integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the long integer array to read.
          * @throws ParcelException Throws this exception if reading the long array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readLongArray(dataIn: number[]) : void;
 
         /**
          * Reads a long integer array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a long integer array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readLongArray(): number[];
 
         /**
          * Reads a floating point array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the floating point array to read.
          * @throws ParcelException Throws this exception if reading the float array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readFloatArray(dataIn: number[]) : void;
 
         /**
          * Reads a floating point array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a floating point array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readFloatArray(): number[];
 
         /**
          * Reads a double-precision floating point array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the double-precision floating point array to read.
          * @throws ParcelException Throws this exception if reading the double array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readDoubleArray(dataIn: number[]) : void;
 
         /**
          * Reads a double-precision floating point array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a double-precision floating point array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readDoubleArray(): number[];
 
         /**
          * Reads a boolean array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the boolean array to read.
          * @throws ParcelException Throws this exception if reading the boolean array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readBooleanArray(dataIn: boolean[]) : void;
 
         /**
          * Reads a boolean array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a boolean array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readBooleanArray(): boolean[];
 
         /**
          * Reads a single character array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the single character array to read.
          * @throws ParcelException Throws this exception if reading the char array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readCharArray(dataIn: number[]) : void;
 
         /**
          * Reads a single character array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a single character array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readCharArray(): number[];
 
         /**
          * Reads a string array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @param dataIn Indicates the string array to read.
          * @throws ParcelException Throws this exception if reading the string array fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readStringArray(dataIn: string[]) : void;
 
         /**
          * Reads a string array from the {@link MessageParcel} object.
-         * @sysCap SystemCapability.RPC_MessageParcel
          * @return Returns a string array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         readStringArray(): string[];
@@ -759,7 +643,6 @@ declare namespace rpc {
         /**
          * Reads the specified {@link Sequenceable} array from this {@link MessageParcel} object.
          * @param sequenceableArray Sequenceable array to read.
-         * @devices phone, tablet, tv, wearable, car
          * @since 8
          */
         readSequenceableArray(sequenceableArray Sequenceable[]): void;
@@ -767,7 +650,6 @@ declare namespace rpc {
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
          * @param objects Reads data from this {@link MessageParcel} object to the specified {@link IRemoteObject} array.
-         * @devices phone, tablet, tv, wearable, car
          * @since 8
          */
         readRemoteObjectArray(objects: IRemoteObject[]): void;
@@ -872,12 +754,10 @@ declare namespace rpc {
         /**
          * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
          *
-         * @sysCap SystemCapability.RPC_Sequenceable
          * @param dataOut Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
          *        object will be marshaled..
          * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         marshalling(dataOut: MessageParcel): boolean;
@@ -885,12 +765,10 @@ declare namespace rpc {
         /**
          * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
          *
-         * @sysCap SystemCapability.RPC_Sequenceable
          * @param dataIn Indicates the {@link MessageParcel} object into which the {@code Sequenceable}
          *        object has been marshaled.
          * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
-         * @devices phone, tablet, tv, wearable, car
          * @since 7
          */
         unmarshalling(dataIn: MessageParcel) : boolean;
@@ -1412,6 +1290,16 @@ declare namespace rpc {
          * @since 7
          */
         static getCallingUid(): number;
+
+        /**
+         * Obtains the TOKENID.
+         *
+         * <p>This method is static.
+         *
+         * @return Returns the TOKENID.
+         * @since 8
+         */
+         static getCallingTokenId(): number;
 
         /**
          * Obtains the ID of the device where the peer process resides.

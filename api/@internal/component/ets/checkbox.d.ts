@@ -49,7 +49,6 @@ interface CheckboxInterface {
  * @since 8
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
-
   /**
    * setting whether checkbox is selected.
    * @since 8

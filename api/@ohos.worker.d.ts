@@ -15,105 +15,105 @@
 
 /**
 * Provides options that can be set for the worker to create.
-* @devices phone, tablet, wearable
 * @since 7
+* @syscap SystemCapability.Utils.Lang
 */
 export interface WorkerOptions {
   /**
    * Mode in which the worker executes the script.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   type?: "classic" | "module";
 
   /**
    * Name of the worker.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   name?: string;
 
   /**
    * Whether the worker is shared.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   shared?: boolean;
 }
 
 /**
  * Defines the event.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 export interface Event {
   /**
    * Type of the Event.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly type: string;
 
   /**
    * Timestamp(accurate to millisecond) when the event is created.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly timeStamp: number;
 }
 
 /**
  * Provides detailed information about the exception occurred during worker execution.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 interface ErrorEvent extends Event {
   /**
    * Information about the exception.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly message: string;
 
   /**
    * File where the exception is located.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly filename: string;
 
   /**
    * Number of the line where the exception is located.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly lineno: number;
 
   /**
    * Number of the column where the exception is located.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly colno: number;
 
   /**
    * Type of the exception.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly error: Object;
 }
 
 /**
  * Holds the data transferred between worker threads.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 declare interface MessageEvent<T = Object> extends Event {
   /**
    * Data transferred when an exception occurs.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly data: T;
 }
@@ -121,52 +121,52 @@ declare interface MessageEvent<T = Object> extends Event {
 /**
  * Specifies the object whose ownership need to be transferred during data transfer.
  * The object must be ArrayBuffer.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 export interface PostMessageOptions {
   /**
    * ArrayBuffer array used to transfer the ownership.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   transfer?: Object[];
 }
 
 /**
  * Implements evemt listening.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 export interface EventListener {
   /**
    * Specifies the callback to invoke.
    * @param evt Event class for the callback to invoke.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   (evt: Event): void | Promise<void>;
 }
 
 /**
  * Type of message, only "message" and "messageerror".
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 type MessageType = "message" | "messageerror";
 
 /**
  * Specific event features.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 declare interface EventTarget {
   /**
    * Adds an event listener to the worker.
    * @param type  Type of the event to listen for.
    * @param listener Callback to invoke when an event of the specified type occurs.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   addEventListener(
     type: string,
@@ -176,8 +176,8 @@ declare interface EventTarget {
   /**
    * Dispatches the event defined for the worker.
    * @param event Event to dispatch.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   dispatchEvent(event: Event): boolean;
 
@@ -185,8 +185,8 @@ declare interface EventTarget {
    * Removes an event defined for the worker.
    * @param type Type of the event for which the event listener is removed.
    * @param callback Callback of the event listener to remove.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   removeEventListener(
     type: string,
@@ -195,22 +195,22 @@ declare interface EventTarget {
 
   /**
    * Removes all event listeners for the worker.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   removeAllListener(): void;
 }
 
 /**
  * Specifies the worker thread running environment, which is isolated from the host thread environment.
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 declare interface WorkerGlobalScope extends EventTarget {
   /**
    * Worker name specified when there is a new worker.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   readonly name: string;
 
@@ -219,8 +219,8 @@ declare interface WorkerGlobalScope extends EventTarget {
    * the event handler to be called when an exception occurs during worker execution.
    * The event handler is executed in the worker thread.
    * @param ev Error data.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   onerror?: (ev: ErrorEvent) => void;
   readonly self: WorkerGlobalScope & typeof globalThis;
@@ -228,8 +228,8 @@ declare interface WorkerGlobalScope extends EventTarget {
 
 /**
  * Specifies the worker thread running environment, which is isolated from the host thread environment
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   /**
@@ -238,8 +238,8 @@ declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * the host thread through worker postMessage.
    * The event handler is executed in the worker thread.
    * @param ev Message received.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
@@ -248,15 +248,15 @@ declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * to be called then the worker receives a message that cannot be deserialized.
    * The event handler is executed in the worker thread.
    * @param ev Error data.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   close(): void;
 
@@ -264,8 +264,8 @@ declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * Send a message to be host thread from the worker
    * @param messageObject Data to be sent to the worker
    * @param transfer array cannot contain null.
-   * @devices phone, tablet, wearable
    * @since 7
+   * @syscap SystemCapability.Utils.Lang
    */
   postMessage(messageObject: Object, transfer: Transferable[]): void;
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
@@ -273,8 +273,8 @@ declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
 
 /**
  * JS cross-thread communication tool
- * @devices phone, tablet, wearable
  * @since 7
+ * @syscap SystemCapability.Utils.Lang
  */
 declare namespace worker {
   class Worker extends EventTarget {
@@ -282,8 +282,8 @@ declare namespace worker {
      * Creates a worker instance
      * @param scriptURL URL of the script to be executed by the worker
      * @param options Options that can be set for the worker
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     constructor(scriptURL: string, options?: WorkerOptions);
 
@@ -291,8 +291,8 @@ declare namespace worker {
      * The onexit attribute of the worker specifies the event handler to be called
      * when the worker exits. The handler is executed in the host thread.
      * @param code Code indicating the worker exit state
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     onexit?: (code: number) => void;
 
@@ -300,8 +300,8 @@ declare namespace worker {
      * The onerror attribute of the worker specifies the event handler to be called
      * when an exception occurs during worker execution.
      * The event handler is executed in the host thread.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     onerror?: (err: ErrorEvent) => void;
 
@@ -311,8 +311,8 @@ declare namespace worker {
      * and sent by the worker through the parentPort.postMessage.
      * The event handler is executed in the host thread.
      * @param event Message received.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     onmessage?: (event: MessageEvent) => void;
 
@@ -320,8 +320,8 @@ declare namespace worker {
      * The onmessage attribute of the worker specifies the event handler
      * when the worker receives a message that cannot be serialized.
      * The event handler is executed in the host thread.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     onmessageerror?: (event: MessageEvent) => void;
 
@@ -331,8 +331,8 @@ declare namespace worker {
      * @param message Data to be sent to the worker
      * @param transfer ArrayBuffer instance that can be transferred.
      * The transferList array cannot contain null.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     postMessage(message: Object, transfer: ArrayBuffer[]): void;
     postMessage(message: Object, options?: PostMessageOptions): void;
@@ -341,8 +341,8 @@ declare namespace worker {
      * Adds an event listener to the worker.
      * @param type Adds an event listener to the worker.
      * @param listener Callback to invoke when an event of the specified type occurs.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     on(type: string, listener: EventListener): void;
 
@@ -351,8 +351,8 @@ declare namespace worker {
      * and removes the event listener automatically after it is invoked once.
      * @param type Type of the event to listen for
      * @param listener Callback to invoke when an event of the specified type occurs
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     once(type: string, listener: EventListener): void;
 
@@ -360,15 +360,15 @@ declare namespace worker {
      * Removes an event listener to the worker.
      * @param type Type of the event for which the event listener is removed.
      * @param listener Callback of the event listener to remove.
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     off(type: string, listener?: EventListener): void;
 
     /**
      * Terminates the worker thread to stop the worker from receiving messages
-     * @devices phone, tablet, wearable
      * @since 7
+     * @syscap SystemCapability.Utils.Lang
      */
     terminate(): void;
   }

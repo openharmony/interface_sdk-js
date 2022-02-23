@@ -19,7 +19,7 @@ import { AsyncCallback, Callback } from './basic';
  * Providers interfaces to creat a {@link deviceManager} instances.
  * 
  * @since 7
- * @Syscap SystemCapability.DISTRIBUTEDHARDWARE.deviceManager
+ * @syscap SystemCapability.DistributedHardware.DeviceManager
  * 
  */
 declare namespace deviceManager {

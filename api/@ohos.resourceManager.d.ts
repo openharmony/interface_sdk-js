@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import { Context } from './app/context';
+import Context from './application/Context';
+import { RawFileDescriptor } from './global/rawFileDescriptor';
 
 /**
  * Provides resource related APIs.
  *
  * @since 6
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Global.ResourceManager
  */
-declare namespace resmgr {
+declare namespace resourceManager {
 /**
  * Enumerates screen directions.
  *
@@ -424,6 +425,31 @@ export interface ResourceManager {
      * @since 8
      */
     getRawFile(path: string): Promise<Uint8Array>;
+
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
+     * @since 8
+     */
+    getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>);
+
+     /**
+      * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
+      *
+      * @param path Indicates the resource relative path.
+      * @return Returns the raw file resource descriptor corresponding to the specified resource path.
+      * @since 8
+      */
+    getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
+
+    /**
+     * Obtains release resourceManager.
+     *
+     * @since 7
+     */
+    release();
 }
 }
-export default resmgr;
+export default resourceManager;

@@ -16,18 +16,18 @@
 /**
  * @name Stores module information about an application.
  * @since 7
- * @SysCap SystemCapability.Appexecfwk
+ * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- * @devices phone, tablet, tv, wearable, car
+ *
  */
  export interface ModuleInfo {
   /**
    * The module name.
    *
    * @default Indicates the name of the .hap package to which the capability belongs
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   readonly moduleName: string;
 
@@ -35,9 +35,9 @@
    * The module source path.
    *
    * @default Indicates the module source dir of this module
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @since 7
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    */
   readonly moduleSourceDir: string;
 }

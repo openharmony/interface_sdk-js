@@ -8,8 +8,7 @@ import optparse
 import shutil
 
 # d.ts directories to be deleted
-remove_list = ["@internal", "common", "config", "form", "liteWearable",
-    "phone", "router", "smartVision", "tablet", "tv", "wearable"]
+remove_list = ["@internal", "common", "form", "liteWearable", "config", "syscapCheck"]
 
 
 # traversal all fill in project folder

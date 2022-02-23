@@ -166,6 +166,13 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   showTips(value: boolean): SliderAttribute;
 
   /**
+   * Called when the thickness of track is set.
+   * @devices phone, tablet, car
+   * @since 8
+   */
+  trackThickness(value: Length): SliderAttribute;
+
+  /**
    * Called when the selection value changes.
    * @devices phone, tablet, car
    * @since 7

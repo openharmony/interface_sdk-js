@@ -19,8 +19,8 @@
  * such as the add, update, remove.
  * @name Contains basic launcher status callback information, which uniquely identifies an LauncherStatusCallback
  * @since 8
- * @sysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ *
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
  * @systemapi Hide this for inner system use
  */
@@ -28,9 +28,9 @@ declare interface BundleStatusCallback {
   /**
    * @name Obtains add callback about an launcherStatusCallback.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @systemapi Hide this for inner system use
    */
   add: (bundleName : string, userId: number) => void;
@@ -38,9 +38,9 @@ declare interface BundleStatusCallback {
   /**
    * @name Obtains update callback about an launcherStatusCallback.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @systemapi Hide this for inner system use
    */
   update: (bundleName : string, userId: number) => void;
@@ -48,9 +48,9 @@ declare interface BundleStatusCallback {
   /**
    * @name Obtains remove callback about an launcherStatusCallback.
    * @since 8
-   * @SysCap SystemCapability.Appexecfwk
+   * @syscap SystemCapability.BundleManager.BundleFramework
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @devices phone, tablet, tv, wearable, car
+   *
    * @systemapi Hide this for inner system use
    */
   remove: (bundleName : string, userId: number) => void;

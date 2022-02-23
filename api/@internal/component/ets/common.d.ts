@@ -104,6 +104,18 @@ declare const Watch: (value: string) => PropertyDecorator;
 declare const Builder: MethodDecorator;
 
 /**
+ * Defining Styles MethodDecorator
+ * @since 8
+ */
+declare const Styles: MethodDecorator;
+
+/**
+ * Defining Extend MethodDecorator
+ * @since 7
+ */
+declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
+
+/**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
@@ -212,7 +224,7 @@ interface PreviewParams {
   title?: string;
   width?: number;
   height?: number;
-  language?: string;
+  locale?: string;
   colorMode?: string;
   deviceType?: string;
   dpi?: number;
@@ -237,6 +249,36 @@ interface ItemDragInfo {
    */
   y: number;
 }
+
+/**
+ * DragItemInfo object description
+ * @since 8
+ */
+interface DragItemInfo {
+  /**
+   * Uses the pixelMap object for drawing.
+   * @since 8
+   */
+  pixelMap?: PixelMap;
+
+  /**
+   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * @since 8
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * Sets the extra info for drag event.
+   * @since 8
+   */
+  extraInfo?: string;
+}
+
+/**
+ * Defining syscap function.
+ * @since 8
+ */
+declare function canIUse(syscap: string): boolean;
 
 /**
  * Defining animation function.
@@ -796,20 +838,25 @@ declare class CommonMethod<T> {
    * src: Image address url
    * @since 7
    */
-  backgroundImage(src: string, repeat?: ImageRepeat): T;
+  backgroundImage(src: string | Resource, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
    * @since 7
    */
-  backgroundImageSize(value: { width?: number | string; height?: number | string } | ImageSize): T;
+  backgroundImageSize(
+    value: {
+      width?: number | string | Resource;
+      height?: number | string | Resource
+    } | ImageSize
+  ): T;
 
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
    * @since 7
    */
-  backgroundImagePosition(value: { x?: number | string; y?: number | string } | Alignment): T;
+  backgroundImagePosition(value: { x?: number | string | Resource; y?: number | string | Resource } | Alignment): T;
 
   /**
    * Opacity
@@ -888,6 +935,30 @@ declare class CommonMethod<T> {
    * @since 7
    */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
+
+  /**
+   * Set focusable.
+   * @since 8
+   */
+   focusable(value: boolean): T;
+
+  /**
+   * Trigger a event when got focus.
+   * @since 8
+   */
+   onFocus(event: () => void): T;
+
+  /**
+   * Trigger a event when lose focus.
+   * @since 8
+   */
+   onBlur(event: () => void): T;
+
+  /**
+   * Trigger a event when focus move.
+   * @since 8
+   */
+   onFocusMove(event: (direction?: FocusDirection) => void): T;
 
   /**
    * animation
@@ -1215,32 +1286,32 @@ declare class CommonMethod<T> {
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
-   * @since 7
+   * @since 8
    */
-  onDragStart(event: (event?: DragEvent, extraParams?: string) => (() => any) | void): T;
+  onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
-   * @since 7
+   * @since 8
    */
   onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   * @since 7
+   * @since 8
    */
   onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
-   * @since 7
+   * @since 8
    */
   onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   * @since 7
+   * @since 8
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -1367,13 +1438,45 @@ declare class CommonMethod<T> {
    * @since 8
    */
   stateStyles(value: StateStyels): T;
+
+  /**
+   * id for distrubte identification.
+   * @since 8
+   */
+  restoreId(value: number): T;
 }
+
+/**
+ * CommonAttribute
+ * @since 7
+ */
+declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
+
+/**
+ * CommonInterface
+ * @since 7
+ */
+interface CommonInterface {
+  (): CommonAttribute;
+}
+
+/**
+ * CommonInstance
+ * @since 7
+ */
+declare const CommonInstance: CommonAttribute;
+
+/**
+ * Common
+ * @since 7
+ */
+declare const Common: CommonInterface;
 
 /**
  * Defines the CustomBuilder Type.
  * @since 7
  */
-declare type CustomBuilder = () => any;
+declare type CustomBuilder = (() => any) | void;
 
 /**
  * CommonShapeMethod
@@ -1465,14 +1568,26 @@ declare class CustomComponent {
   build(): void;
 
   /**
-   * Private  aboutToAppear Method
+   * aboutToAppear Method
    * @since 7
    */
-  private aboutToAppear?(): void;
+  aboutToAppear?(): void;
 
   /**
-   * Private  aboutToDisappear Method
+   * aboutToDisappear Method
    * @since 7
    */
-  private aboutToDisappear?(): void;
+  aboutToDisappear?(): void;
+}
+
+/**
+ * View
+ * @ignore ide should ignore this class
+ */
+declare class View {
+  /**
+   * Just use for generate tsbundle
+   * @ignore ide should ignore this arrtibute
+   */
+  create(value: any): any;
 }

@@ -81,7 +81,6 @@ interface CheckboxGroupInterface {
  * @since 8
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
-
   /**
    * setting whether all checkbox is selected.
    * @since 8

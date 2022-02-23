@@ -106,6 +106,12 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 7
    */
   antiAlias(value: boolean): ShapeAttribute;
+  
+  /**
+   * Called when shape mesh.
+   * @since 8
+   */
+  mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
 }
 
 declare const Shape: ShapeInterface;

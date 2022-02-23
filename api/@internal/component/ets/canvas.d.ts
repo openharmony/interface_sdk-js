@@ -174,7 +174,7 @@ declare class CanvasPath {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    counterclockwise?: number,
+    counterclockwise?: boolean,
   ): void;
 
   /**
@@ -348,6 +348,12 @@ declare interface TextMetrics {
    * @since 8
    */
   readonly width: number;
+
+  /**
+   * Indicates the height of a character string. The value is of the double type.
+   * @since 8
+   */
+  readonly height: number;
 }
 
 /**
@@ -496,7 +502,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dy y-axis coordinate of the upper left corner of the image on the target canvas.
    * @since 8
    */
-  drawImage(image: ImageBitmap, dx: number, dy: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
    * Draw an image on a canvas
@@ -507,7 +513,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param dh Specifies the drawing height of the image on the target canvas. The height of the drawn image will be scaled.
    * @since 8
    */
-  drawImage(image: ImageBitmap, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    *Draw an image on a canvas
@@ -523,7 +529,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @since 8
    */
   drawImage(
-    image: ImageBitmap,
+    image: ImageBitmap | PixelMap,
     sx: number,
     sy: number,
     sw: number,

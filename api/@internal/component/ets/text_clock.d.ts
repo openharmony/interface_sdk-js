@@ -14,6 +14,28 @@
  */
 
 /**
+ * Provides a way to control the textclock status.
+ * @since 8
+ */
+declare class TextClockController {
+  /**
+   * constructor.
+   * @since 8
+   */
+  constructor();
+  /**
+   * Provides a start event for textclock.
+   * @since 8
+   */
+  start();
+  /**
+   *  Provides a stop event for textclock.
+   *  @since 8
+   */
+  stop();
+}
+
+/**
  * TextClock component, which provides the text clock capability.
  * @since 8
  */
@@ -21,30 +43,22 @@ interface TextClockInterface {
   /**
    * Construct the text clock component.
    * Specifies the current time zone.
-   * The valid value is an integer ranging from - 12 to 12,
+   * The valid value is an integer ranging from - 14 to 12,
    * Where a negative value indicates the eastern time zone, for example, -8.
    * @since 8
    */
-  (options?: {hourswest?: number}): TextClockAttribute;
+  (options?: {timeZoneOffset?: number, controller?: TextClockController}): TextClockAttribute;
 }
 
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
-   * set display time format，such as "yyyy/mm/dd"、“yyyy-mm-dd".
+   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
    * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second)
+   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
    * @since 8
    */
   format(value: string): TextClockAttribute;
-  /**
-   * sets the start and stop of the text clock. You can customize the start and stop of the text clock.
-   * when the value is true, the time of the current custom style is displayed.
-   * the time is recalled every second.
-   * if the value is false, the clock stops updating the time and stops updating the callback.
-   * @since 8
-   */
-  status(value: boolean): TextClockAttribute;
   /**
    * Provides a date change callback.
    * The callback parameter is Unix Time Stamp,

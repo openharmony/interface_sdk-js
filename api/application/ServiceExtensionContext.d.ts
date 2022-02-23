@@ -18,40 +18,64 @@ import { ConnectOptions } from "../ability/connectOptions";
 import ExtensionContext from "./ExtensionContext";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
+import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
 
 /**
  * The context of service extension. It allows access to
  * serviceExtension-specific resources.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi hide for inner use.
  * @permission N/A
+ * @StageModelOnly
  */
 export default class ServiceExtensionContext extends ExtensionContext {
     /**
+     * Service extension information.
+     *
+     * @since 9
+     * @sysCap AAFwk
+     */
+    extensionAbilityInfo: ExtensionAbilityInfo;
+
+    /**
      * Service extension uses this method to start a specific ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @param parameter Indicates the ability to start.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
     startAbility(want: Want, options?: StartOptions): Promise<void>;
 
     /**
-     * Destroys this service extension.
+     * Service extension uses this method to start a specific ability with account.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param parameter Indicates the ability to start.
+     * @param parameter Indicates the accountId to start.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
+     */
+    startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+    startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+
+    /**
+     * Destroys this service extension.
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
      */
     terminateSelf(callback: AsyncCallback<void>): void;
     terminateSelf(): Promise<void>;
@@ -63,25 +87,42 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
      * service extension when the Service extension is connected.</p>
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @param request Indicates the service extension to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
+     * @StageModelOnly
      */
     connectAbility(want: Want, options: ConnectOptions): number;
+
+    /**
+     * Connects an ability to a Service extension with account.
+     *
+     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
+     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+     * service extension when the Service extension is connected.</p>
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param request Indicates the service extension to connect.
+     * @param request Indicates the account to connect.
+     * @systemapi hide for inner use.
+     * @return connection id, int value.
+     * @StageModelOnly
+     */
+    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * Disconnects an ability to a service extension, in contrast to
      * {@link connectAbility}.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;

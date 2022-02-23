@@ -144,48 +144,26 @@ declare interface DatePickerDialogOption extends DatePickerOption {
    * @since 8
    */
   lunar?: boolean;
-
   /**
    * Time Selector: indicates whether to display the 24-hour clock.
    * @since 8
    */
   useMilitaryTime?: boolean;
-}
-
-/**
- * Defines the event callback status in the pop-up window state.
- * @since 8
- */
-declare enum DialogStatus {
   /**
-   * Triggered when a user clicks the OK button.
+   * Called when the OK button in the dialog is clicked.
    * @since 8
    */
-  Accept,
-
+  onAccept: (value: DatePickerResult) => void;
   /**
-   * Triggered when a user taps the Cancel button.
+   * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
-  Cancel,
-
+  onCancel: () => void;
   /**
-   * Triggered when a user performs scrolling selection.
+   * This event is triggered when a DatePicker date or time is selected in dialog.
    * @since 8
    */
-  Update,
-}
-
-/**
- * Defines the DatePickerDialogResult for DatePickerDialog.
- * @since 8
- */
-declare interface DatePickerDialogResult extends DatePickerResult {
-  /**
-   * Operation status of the current user.
-   * @since 8
-   */
-  status: DialogStatus;
+  onChange: (value: DatePickerResult) => void;
 }
 
 /**
@@ -197,7 +175,7 @@ declare class DatePickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: DatePickerDialogOption, callback?: (value: DatePickerDialogResult) => void);
+  static show(options?: DatePickerDialogOption);
 }
 
 declare const DatePicker: DatePickerInterface;

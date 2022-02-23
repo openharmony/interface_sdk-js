@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,83 +16,85 @@
 import rpc from "./@ohos.rpc";
 import ServiceExtensionContext from "./application/ServiceExtensionContext";
 import Want from './@ohos.application.Want';
+import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * class of service extension.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
+ * @StageModelOnly
  */
 export default class ServiceExtension {
     /**
      * Indicates service extension context.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
+     * @StageModelOnly
      */
     context: ServiceExtensionContext;
 
     /**
      * Called back when a service extension is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onCreate(want: Want): void;
 
     /**
      * Called back before a service extension is destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onDestroy(): void;
 
     /**
      * Called back when a service extension is started.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of service extension to start.
      * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
      *     incremented by 1 every time the service extension is started. For example, if the service extension
      *     has been started for six times.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onRequest(want: Want, startId: number): void;
 
     /**
      * Called back when a service extension is first connected to an ability.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
      * @return Returns the proxy of the Service ability.
+     * @StageModelOnly
      */
     onConnect(want: Want): rpc.RemoteObject;
 
     /**
      * Called back when all abilities connected to a service extension are disconnected.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onDisconnect(want: Want): void;
 
@@ -100,13 +102,23 @@ export default class ServiceExtension {
      * Called when a new client attempts to connect to a service extension after all previous client connections to it
      * are disconnected.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
      * @return -
+     * @StageModelOnly
      */
     onReconnect(want: Want): void;
+
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return -
+     * @StageModelOnly
+     */
+    onConfigurationUpdated(config: Configuration): void;
 }
 

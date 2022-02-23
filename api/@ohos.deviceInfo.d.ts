@@ -16,7 +16,6 @@
 /**
  * A static class pertaining to the product information.
  *
- * @devices phone, tablet
  * @since 6
  * @Syscap SystemCapability.Startup.SysInfo
  */

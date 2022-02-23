@@ -18,8 +18,7 @@
  *
  * @name MissionListener
  * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @systemapi hide for inner use.
  */
@@ -27,9 +26,8 @@
     /**
      * Called by system when mission created.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionCreated(mission: number): void;
@@ -37,9 +35,8 @@
     /**
      * Called by system when mission destroyed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionDestroyed(mission: number): void;
@@ -47,9 +44,8 @@
     /**
      * Called by system when mission shapshot changed.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionSnapshotChanged(mission: number): void;
@@ -57,9 +53,8 @@
     /**
      * Called by system when mission moved to fornt.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionMovedToFront(mission: number): void;

@@ -16,8 +16,7 @@
 import { AsyncCallback } from "./basic";
 
 /**
- * @sysCap Systemcapability.Security.AccessToken
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace abilityAccessCtrl {
     /**

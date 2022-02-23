@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,31 +14,55 @@
  */
 
 import AbilityStageContext from "./application/AbilityStageContext";
+import Want from './@ohos.application.Want';
+import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * The class of an ability stage.
  *
- * @since 8
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @StageModelOnly
  */
 export default class AbilityStage {
     /**
      * Indicates configuration information about context.
      *
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
      */
     context: AbilityStageContext;
 
     /**
      * Called back when an ability stage is started for initialization.
      *
-     * @devices phone, tablet, tv, wearable, car
-     * @since 8
-     * @sysCap AAFwk
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return -
+     * @StageModelOnly
      */
     onCreate(): void;
+
+    /**
+     * Called back when start specified ability.
+     *
+     * @devices phone, tablet, tv, wearable, car
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return -
+     * @StageModelOnly
+     */
+    onAcceptWant(want: Want): string;
+
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return -
+     * @StageModelOnly
+     */
+    onConfigurationUpdated(config: Configuration): void;
 }

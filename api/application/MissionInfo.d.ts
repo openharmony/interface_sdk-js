@@ -19,7 +19,7 @@ import Want from "../@ohos.application.Want";
  * Mission information corresponding to ability.
  *
  * @since 8
- * @sysCap AAFwk
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  * @systemapi hide for inner use.
@@ -29,7 +29,7 @@ export interface MissionInfo {
      * Indicates mission id.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     missionId: number;
 
@@ -37,7 +37,7 @@ export interface MissionInfo {
      * Indicates running state.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     runningState: number;
 
@@ -45,15 +45,15 @@ export interface MissionInfo {
      * Indicates locked state.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
-    lockedState: number;
+    lockedState: boolean;
 
     /**
      * Indicates the recent create or update time of the mission.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     timestamp: string;
 
@@ -61,7 +61,7 @@ export interface MissionInfo {
      * Indicates want of the mission.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     want: Want;
 
@@ -69,7 +69,7 @@ export interface MissionInfo {
      * Indicates label of the mission.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     label: string;
 
@@ -77,7 +77,15 @@ export interface MissionInfo {
      * Indicates icon path of the mission.
      *
      * @since 8
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
      */
     iconPath: string;
+
+    /**
+     * Indicates whether the mision is continuable.
+     *
+     * @since 8
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     */
+     continuable: boolean;
 }

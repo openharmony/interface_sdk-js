@@ -17,17 +17,15 @@
  * A utility class used for handling objects that use the DataAbilityHelper scheme.
  * @name dataUriUtils
  * @since 7
- * @sysCap AAFwk
- * @devices phone, tablet
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace dataUriUtils {
   /**
    * Obtains the ID attached to the end of the path component of the given uri.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be obtained.
    * @return Returns the ID attached to the end of the path component;
    */
@@ -36,9 +34,8 @@ declare namespace dataUriUtils {
   /**
    * Attaches the given ID to the end of the path component of the given uri.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri string from which the ID is to be obtained.
    * @param id Indicates the ID to attach.
    * @return Returns the uri object with the given ID attached.
@@ -48,9 +45,8 @@ declare namespace dataUriUtils {
   /**
    * Deletes the ID from the end of the path component of the given uri.
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be deleted.
    * @return Returns the uri object with the ID deleted.
    */
@@ -59,9 +55,8 @@ declare namespace dataUriUtils {
   /**
    * Updates the ID in the specified uri
    *
-   * @devices phone, tablet
    * @since 7
-   * @sysCap AAFwk
+   * @sysCap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object to be updated.
    * @param id Indicates the new ID.
    * @return Returns the updated uri object.

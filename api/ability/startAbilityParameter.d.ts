@@ -14,14 +14,19 @@
  */
 import { Want } from './want';
 
+ /**
+ * @since 3
+ * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @permission N/A
+ */
 export interface StartAbilityParameter {
   /**
    * Indicates the Want containing information about the target ability to start.
    *
    * @default -
-   * @devices phone, tablet
    * @since 3
-   * @SysCap aafwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
    */
   want: Want;
 
@@ -29,9 +34,9 @@ export interface StartAbilityParameter {
    * Indicates the special start setting used in starting ability.
    *
    * @default -
-   * @devices phone, tablet
    * @since 3
-   * @SysCap aafwk
+   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
    */
   abilityStartSetting?: {[key: string]: any};
 

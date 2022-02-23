@@ -93,6 +93,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   editMode(value: boolean): ListAttribute;
 
   /**
+   * Called when judging whether it is multiSelectable.
+   * @since 8
+   */
+  multiSelectable(value: boolean): ListAttribute;
+
+  /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    * @since 7
    */

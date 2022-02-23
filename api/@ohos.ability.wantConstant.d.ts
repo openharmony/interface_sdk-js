@@ -17,8 +17,7 @@
  * the constant for action and entity in the want
  * @name wantConstant
  * @since 6
- * @sysCap aafwk
- * @devices phone, tablet
+ * @sysCap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 declare namespace wantConstant {
@@ -26,8 +25,7 @@ declare namespace wantConstant {
    * the constant for action of the want
    * @name Action
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Action {
@@ -210,14 +208,20 @@ declare namespace wantConstant {
      * @since 7
      */
     PARAMS_STREAM = "ability.params.stream",
+
+    /**
+     * Indicates the action of providing oauth service.
+     *
+     * @since 8
+     */
+    ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
   }
 
   /**
    * the constant for Entity of the want
    * @name Action
    * @since 6
-   * @sysCap aafwk
-   * @devices phone, tablet
+   * @sysCap SystemCapability.Ability.AbilityBase
    * @permission N/A
    */
   export enum Entity {
@@ -258,15 +262,11 @@ declare namespace wantConstant {
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
     /**
      * Indicates the grant to perform write operations on the URI.
-     *
-     * @hide
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 

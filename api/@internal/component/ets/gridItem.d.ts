@@ -58,6 +58,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @since 7
    */
   forceRebuild(value: boolean): GridItemAttribute;
+
+  /**
+   * Called when judging whether it is selectable.
+   * @since 8
+   */
+  selectable(value: boolean): GridItemAttribute;
+
+  /**
+   * Called when the gridItem is selected.
+   * @since 8
+   */
+  onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
 
 declare const GridItem: GridItemInterface

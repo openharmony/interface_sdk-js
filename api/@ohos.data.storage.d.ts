@@ -19,8 +19,8 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @name storage
  * @since 5
- * @sysCap SystemCapability.Data#DATA_APPDATAMGR
- * @devices phone, tablet
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ * 
  */
 declare namespace storage {
     /**
@@ -79,8 +79,8 @@ declare namespace storage {
      * the file that stores storage data, and use emoveStorageFromCache
      * to remove the {@link Storage} instance from the memory.
      *
-     * @sysCap SystemCapability.Data#DATA_APPDATAMGR
-     * @devices phone, tablet
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * 
      * @since 5
      */
     interface Storage {
@@ -193,8 +193,8 @@ declare namespace storage {
     /**
      * Define the change data information object.
      *
-     * @sysCap SystemCapability.Data#DATA_APPDATAMGR
-     * @devices phone, tablet
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * 
      * @since 5
      */
     interface StorageObserver {

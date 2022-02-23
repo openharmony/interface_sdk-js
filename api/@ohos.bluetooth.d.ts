@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,8 +18,7 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
- * @SysCap SystemCapability.Communication.Bluetooth
- * @devices phone, tv, wearable, tablet, car
+ * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
   /**
@@ -54,6 +53,37 @@ declare namespace bluetooth {
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
     function pairDevice(deviceId: string): boolean;
+
+    /**
+     * Remove a paired remote device.
+     *
+     * @param deviceId The address of the remote device to be removed.
+     * @return Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
+     * @since 8
+     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @systemapi Hide this for inner system use
+     */
+    function cancelPairedDevice(deviceId: string): boolean;
+
+    /**
+     * Obtains the name of a peer Bluetooth device.
+     *
+     * @param deviceId The address of the remote device.
+     * @return Returns the device name in character string format.
+     * @since 8
+     * @permission ohos.permission.USE_BLUETOOTH
+     */
+    function getRemoteDeviceName(deviceId: string): string;
+
+    /**
+     * Obtains the class of a peer Bluetooth device.
+     *
+     * @param deviceId The address of the remote device.
+     * @return The class of the remote device, {@link DeviceClass}.
+     * @since 8
+     * @permission ohos.permission.USE_BLUETOOTH
+     */
+    function getRemoteDeviceClass(deviceId: string): DeviceClass;
 
     /**
      * Enables Bluetooth on a device.
@@ -175,11 +205,11 @@ declare namespace bluetooth {
      * Subscribe the event reported when a remote Bluetooth device is bonded.
      *
      * @param type Type of the bond state event to listen for.
-     * @param callback Callback used to listen for the bond state event.
+     * @param callback Callback used to listen for the bond state event, {@link BondStateParam}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
-    function on(type: "bondStateChange", callback: Callback<BondState>): void;
+    function on(type: "bondStateChange", callback: Callback<BondStateParam>): void;
 
     /**
      * Unsubscribe the event reported when a remote Bluetooth device is bonded.
@@ -189,7 +219,7 @@ declare namespace bluetooth {
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
-    function off(type: "bondStateChange", callback?: Callback<BondState>): void;
+    function off(type: "bondStateChange", callback?: Callback<BondStateParam>): void;
 
     /**
      * Subscribe the event of a pairing request from a remote Bluetooth device.
@@ -729,7 +759,6 @@ declare namespace bluetooth {
     /**
      * Describes the Gatt service.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface GattService {
@@ -746,7 +775,6 @@ declare namespace bluetooth {
     /**
      * Describes the Gatt characteristic.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface BLECharacteristic {
@@ -763,7 +791,6 @@ declare namespace bluetooth {
     /**
      * Describes the Gatt descriptor.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface BLEDescriptor {
@@ -780,7 +807,6 @@ declare namespace bluetooth {
     /**
      * Describes the value of the indication or notification sent by the Gatt server.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface NotifyCharacteristic {
@@ -800,7 +826,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters of the Gatt client's characteristic read request.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface CharacteristicReadReq {
@@ -819,7 +844,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters of the of the Gatt client's characteristic write request.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface CharacteristicWriteReq {
@@ -844,7 +868,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters of the Gatt client's descriptor read request.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface DescriptorReadReq {
@@ -865,7 +888,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters of the Gatt client's characteristic write request.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface DescriptorWriteReq {
@@ -892,7 +914,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters of a response send by the server to a specified read or write request.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ServerResponse {
@@ -911,7 +932,6 @@ declare namespace bluetooth {
     /**
      * Describes the Gatt profile connection state.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface BLEConnectChangedState {
@@ -924,7 +944,6 @@ declare namespace bluetooth {
     /**
      * Describes the contents of the scan results.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ScanResult {
@@ -939,7 +958,6 @@ declare namespace bluetooth {
     /**
      * Describes the settings for BLE advertising.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface AdvertiseSetting {
@@ -962,7 +980,6 @@ declare namespace bluetooth {
     /**
      * Describes the advertising data.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface AdvertiseData {
@@ -977,7 +994,6 @@ declare namespace bluetooth {
     /**
      * Describes the manufacturer data.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ManufactureData {
@@ -990,7 +1006,6 @@ declare namespace bluetooth {
     /**
      * Describes the service data.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ServiceData {
@@ -1003,7 +1018,6 @@ declare namespace bluetooth {
     /**
      * Describes the criteria for filtering scanning results can be set.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ScanFilter {
@@ -1018,7 +1032,6 @@ declare namespace bluetooth {
     /**
      * Describes the parameters for scan.
      *
-     * @devices phone, tablet
      * @since 7
      */
     interface ScanOptions {
@@ -1033,7 +1046,6 @@ declare namespace bluetooth {
     /**
      * Describes the spp parameters.
      *
-     * @devices phone, tablet
      * @since 8
      */
     interface SppOption {
@@ -1048,12 +1060,32 @@ declare namespace bluetooth {
     /**
      * Describes the bond key param.
      *
-     * @devices phone, tablet
      * @since 8
      */
     interface PinRequiredParam {
         deviceId: string;
         pinCode: string;
+    }
+
+    /**
+     * Describes the class of a bluetooth device.
+     *
+     * @since 8
+     */
+    interface DeviceClass {
+        majorClass: MajorClass;
+        majorMinorClass: MajorMinorClass;
+        classOfDevice: number;
+    }
+
+    /**
+     * Describes the class of a bluetooth device.
+     *
+     * @since 8
+     */
+    interface BondStateParam {
+        deviceId: string;
+        state: BondState;
     }
 
     enum ScanDuty {
@@ -1100,11 +1132,21 @@ declare namespace bluetooth {
         STATE_BLE_TURNING_OFF = 6
     }
 
+    /**
+     * The enum of SPP type.
+     *
+     * @since 8
+     */
     enum SppType {
         /** RFCOMM */
         SPP_RFCOMM
     }
 
+    /**
+     * The enum of BR scan mode.
+     *
+     * @since 8
+     */
     enum ScanMode {
         /** Indicates the scan mode is none */
         SCAN_MODE_NONE = 0,
@@ -1120,6 +1162,11 @@ declare namespace bluetooth {
         SCAN_MODE_CONNECTABLE_LIMITED_DISCOVERABLE = 5
     }
 
+    /**
+     * The enum of bond state.
+     *
+     * @since 8
+     */
     enum BondState {
         /** Indicate the bond state is invalid */
         BOND_STATE_INVALID = 0,
@@ -1127,6 +1174,137 @@ declare namespace bluetooth {
         BOND_STATE_BONDING = 1,
         /** Indicate the bond state is bonded*/
         BOND_STATE_BONDED = 2
+    }
+
+    /**
+     * The enum of major class of a bluetooth device.
+     *
+     * @since 8
+     */
+    enum MajorClass {
+        MAJOR_MISC = 0x0000,
+        MAJOR_COMPUTER = 0x0100,
+        MAJOR_PHONE = 0x0200,
+        MAJOR_NETWORKING = 0x0300,
+        MAJOR_AUDIO_VIDEO = 0x0400,
+        MAJOR_PERIPHERAL = 0x0500,
+        MAJOR_IMAGING = 0x0600,
+        MAJOR_WEARABLE = 0x0700,
+        MAJOR_TOY = 0x0800,
+        MAJOR_HEALTH = 0x0900,
+        MAJOR_UNCATEGORIZED = 0x1F00
+    }
+
+    /**
+     * The enum of major minor class of a bluetooth device.
+     *
+     * @since 8
+     */
+    enum MajorMinorClass {
+        // The Minor Device Class field
+        // Computer Major Class
+        COMPUTER_UNCATEGORIZED = 0x0100,
+        COMPUTER_DESKTOP = 0x0104,
+        COMPUTER_SERVER = 0x0108,
+        COMPUTER_LAPTOP = 0x010C,
+        COMPUTER_HANDHELD_PC_PDA = 0x0110,
+        COMPUTER_PALM_SIZE_PC_PDA = 0x0114,
+        COMPUTER_WEARABLE = 0x0118,
+        COMPUTER_TABLET = 0x011C,
+
+        // Phone Major Class
+        PHONE_UNCATEGORIZED = 0x0200,
+        PHONE_CELLULAR = 0x0204,
+        PHONE_CORDLESS = 0x0208,
+        PHONE_SMART = 0x020C,
+        PHONE_MODEM_OR_GATEWAY = 0x0210,
+        PHONE_ISDN = 0x0214,
+
+        // LAN/Network Access Point Major Class
+        NETWORK_FULLY_AVAILABLE = 0x0300,
+        NETWORK_1_TO_17_UTILIZED = 0x0320,
+        NETWORK_17_TO_33_UTILIZED = 0x0340,
+        NETWORK_33_TO_50_UTILIZED = 0x0360,
+        NETWORK_60_TO_67_UTILIZED = 0x0380,
+        NETWORK_67_TO_83_UTILIZED = 0x03A0,
+        NETWORK_83_TO_99_UTILIZED = 0x03C0,
+        NETWORK_NO_SERVICE = 0x03E0,
+
+        // Audio/Video Major Class
+        AUDIO_VIDEO_UNCATEGORIZED = 0x0400,
+        AUDIO_VIDEO_WEARABLE_HEADSET = 0x0404,
+        AUDIO_VIDEO_HANDSFREE = 0x0408,
+        AUDIO_VIDEO_MICROPHONE = 0x0410,
+        AUDIO_VIDEO_LOUDSPEAKER = 0x0414,
+        AUDIO_VIDEO_HEADPHONES = 0x0418,
+        AUDIO_VIDEO_PORTABLE_AUDIO = 0x041C,
+        AUDIO_VIDEO_CAR_AUDIO = 0x0420,
+        AUDIO_VIDEO_SET_TOP_BOX = 0x0424,
+        AUDIO_VIDEO_HIFI_AUDIO = 0x0428,
+        AUDIO_VIDEO_VCR = 0x042C,
+        AUDIO_VIDEO_VIDEO_CAMERA = 0x0430,
+        AUDIO_VIDEO_CAMCORDER = 0x0434,
+        AUDIO_VIDEO_VIDEO_MONITOR = 0x0438,
+        AUDIO_VIDEO_VIDEO_DISPLAY_AND_LOUDSPEAKER = 0x043C,
+        AUDIO_VIDEO_VIDEO_CONFERENCING = 0x0440,
+        AUDIO_VIDEO_VIDEO_GAMING_TOY = 0x0448,
+
+        // Peripheral Major Class
+        PERIPHERAL_NON_KEYBOARD_NON_POINTING = 0x0500,
+        PERIPHERAL_KEYBOARD = 0x0540,
+        PERIPHERAL_POINTING_DEVICE = 0x0580,
+        PERIPHERAL_KEYBOARD_POINTING = 0x05C0,
+        PERIPHERAL_UNCATEGORIZED = 0x0500,
+        PERIPHERAL_JOYSTICK = 0x0504,
+        PERIPHERAL_GAMEPAD = 0x0508,
+        PERIPHERAL_REMOTE_CONTROL = 0x05C0,
+        PERIPHERAL_SENSING_DEVICE = 0x0510,
+        PERIPHERAL_DIGITIZER_TABLET = 0x0514,
+        PERIPHERAL_CARD_READER = 0x0518,
+        PERIPHERAL_DIGITAL_PEN = 0x051C,
+        PERIPHERAL_SCANNER_RFID = 0x0520,
+        PERIPHERAL_GESTURAL_INPUT = 0x0522,
+
+        // Imaging Major Class
+        IMAGING_UNCATEGORIZED = 0x0600,
+        IMAGING_DISPLAY = 0x0610,
+        IMAGING_CAMERA = 0x0620,
+        IMAGING_SCANNER = 0x0640,
+        IMAGING_PRINTER = 0x0680,
+
+        // Wearable Major Class
+        WEARABLE_UNCATEGORIZED = 0x0700,
+        WEARABLE_WRIST_WATCH = 0x0704,
+        WEARABLE_PAGER = 0x0708,
+        WEARABLE_JACKET = 0x070C,
+        WEARABLE_HELMET = 0x0710,
+        WEARABLE_GLASSES = 0x0714,
+
+        // Minor Device Class field - Toy Major Class
+        TOY_UNCATEGORIZED = 0x0800,
+        TOY_ROBOT = 0x0804,
+        TOY_VEHICLE = 0x0808,
+        TOY_DOLL_ACTION_FIGURE = 0x080C,
+        TOY_CONTROLLER = 0x0810,
+        TOY_GAME = 0x0814,
+
+        // Minor Device Class field - Health
+        HEALTH_UNCATEGORIZED = 0x0900,
+        HEALTH_BLOOD_PRESSURE = 0x0904,
+        HEALTH_THERMOMETER = 0x0908,
+        HEALTH_WEIGHING = 0x090C,
+        HEALTH_GLUCOSE = 0x0910,
+        HEALTH_PULSE_OXIMETER = 0x0914,
+        HEALTH_PULSE_RATE = 0x0918,
+        HEALTH_DATA_DISPLAY = 0x091C,
+        HEALTH_STEP_COUNTER = 0x0920,
+        HEALTH_BODY_COMPOSITION_ANALYZER = 0x0924,
+        HEALTH_PEAK_FLOW_MOITOR = 0x0928,
+        HEALTH_MEDICATION_MONITOR = 0x092C,
+        HEALTH_KNEE_PROSTHESIS = 0x0930,
+        HEALTH_ANKLE_PROSTHESIS = 0x0934,
+        HEALTH_GENERIC_HEALTH_MANAGER = 0x0938,
+        HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C,
     }
 }
 
