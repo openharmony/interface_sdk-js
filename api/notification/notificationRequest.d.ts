@@ -19,14 +19,14 @@ import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
+import { NotificationFlags } from './notificationFlags';
 
 /**
  * Defines a NotificationRequest instance.
  *
  * @name NotificationRequest
  * @since 7
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface NotificationRequest {
@@ -163,6 +163,11 @@ export interface NotificationRequest {
   readonly creatorPid?: number;
 
   /**
+   * Read-only UserId of the notification creator.
+   */
+  readonly creatorUserId?: number;
+
+  /**
    * Obtains the classification of this notification.
    *
    * @systemapi Hide this for inner system use.
@@ -212,16 +217,21 @@ export interface NotificationRequest {
    * @systemapi Hide this for inner system use.
    */
   readonly deviceId?: string;
-}
 
+  /**
+   * Obtains the set of identifiers for the notification.
+   *
+   * @since 8
+   */
+   readonly notificationFlags?: NotificationFlags;
+}
 
 /**
  * Describes distributed options.
  *
  * @name DistributedOptions
  * @since 8
- * @sysCap SystemCapability.Notification.ANS
- * @devices phone, tablet, tv, wearable, car
+ * @sysCap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface DistributedOptions {
