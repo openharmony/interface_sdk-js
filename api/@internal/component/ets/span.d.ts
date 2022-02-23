@@ -30,18 +30,6 @@ interface SpanInterface {
  */
 declare class SpanAttribute extends CommonMethod<SpanAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value: string | Resource): SpanAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): SpanAttribute;
-
-  /**
    * Called when the font color is set.
    * @since 7
    */

@@ -83,24 +83,6 @@ interface TabsInterface {
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { barPosition?: BarPosition; index?: number; controller?: TabsController }): TabsAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): TabsAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): TabsAttribute;
-
-  /**
    * Called when determining whether the tab is vertical.
    * @since 7
    */
@@ -129,6 +111,18 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 7
    */
   barHeight(value: number): TabsAttribute;
+
+  /**
+   * Called when the width of the bar graph is set.
+   * @since 8
+   */
+  barWidth(value: Length): TabsAttribute;
+
+  /**
+   * Called when the height of the bar graph is set.
+   * @since 8
+   */
+  barHeight(value: Length): TabsAttribute;
 
   /**
    * Called when the animation duration of the bar graph is set.

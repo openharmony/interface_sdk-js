@@ -301,18 +301,6 @@ interface TapGestureInterface {
   (value?: { count?: number; fingers?: number }): TapGestureInterface;
 
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { count?: number; fingers?: number }): TapGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): TapGestureInterface;
-
-  /**
    * Tap gesture recognition success callback.
    * @since 7
    */
@@ -332,18 +320,6 @@ interface LongPressGestureInterface {
    * @since 7
    */
   (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): LongPressGestureInterface;
 
   /**
    * LongPress gesture recognition success callback.
@@ -406,20 +382,6 @@ interface PanGestureInterface {
   (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGestureInterface;
 
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(
-    value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption,
-  ): PanGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): PanGestureInterface;
-
-  /**
    * Pan gesture recognition success callback.
    * @since 7
    */
@@ -456,18 +418,6 @@ interface SwipeGestureInterface {
   (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
 
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): SwipeGestureInterface;
-
-  /**
    * Slide gesture recognition success callback.
    * @since 8
    */
@@ -484,18 +434,6 @@ interface PinchGestureInterface {
    * @since 7
    */
   (value?: { fingers?: number; distance?: number }): PinchGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { fingers?: number; distance?: number }): PinchGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): PinchGestureInterface;
 
   /**
    * Pan gesture recognition success callback.
@@ -534,18 +472,6 @@ interface RotationGestureInterface {
   (value?: { fingers?: number; angle?: number }): RotationGestureInterface;
 
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { fingers?: number; angle?: number }): RotationGestureInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): RotationGestureInterface;
-
-  /**
    * Pan gesture recognition success callback.
    * @since 7
    */
@@ -580,18 +506,6 @@ interface GestureGroupInterface {
    * @since 7
    */
   (mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): GestureGroupInterface;
 
   /**
    * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.

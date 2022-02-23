@@ -165,22 +165,6 @@ interface VideoInterface {
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value: {
-    src?: string | Resource;
-    previewUri?: string | PixelMap | Resource;
-    controller?: VideoController;
-  }): VideoAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): VideoAttribute;
-
-  /**
    * Called when judging whether the video is muted.
    * @since 7
    */

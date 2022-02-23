@@ -33,18 +33,6 @@ interface PolygonInterface{
 
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: { width?: string | number; height?: string | number }): PolygonAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): PolygonAttribute;
- 
-  /**
    * Called when the vertex coordinate list of a polygon is set.
    * @since 7
    */

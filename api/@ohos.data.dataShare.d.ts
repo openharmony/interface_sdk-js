@@ -13,10 +13,12 @@
 * limitations under the License.
 */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback } from './basic';
 import { Want } from './ability/want';
+import { ResultSet } from './data/rdb/resultSet';
 import Context from './application/Context';
-import { ValuesBucket, ResultSet, DataSharePredicates } from './@ohos.data.rdb';
+import dataAbility from './@ohos.data.dataAbility';
+import rdb from './@ohos.data.rdb';
 
 declare namespace dataShare {
     /**
@@ -45,6 +47,7 @@ declare namespace dataShare {
          * @param type dataChange.
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the callback when dataChange.
+         * @return -
          * @systemapi Hide this for inner system use.
          */
         on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
@@ -56,6 +59,7 @@ declare namespace dataShare {
          * @param type dataChange.
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the registered callback.
+         * @return -
          * @systemapi Hide this for inner system use.
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
@@ -69,8 +73,8 @@ declare namespace dataShare {
          * @return Returns the index of the inserted data record.
          * @systemapi Hide this for inner system use.
          */
-        insert(URI: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
-        insert(URI: string, value: ValuesBucket): Promise<number>;
+        insert(uri: string, value: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
+        insert(uri: string, value: rdb.ValuesBucket): Promise<number>;
 
         /**
          * Deletes one or more data records from the database.
@@ -81,8 +85,9 @@ declare namespace dataShare {
          * @return Returns the number of data records deleted.
          * @systemapi Hide this for inner system use.
          */
-        delete(URI: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        delete(URI: string, predicates: DataSharePredicates): Promise<number>;
+        delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
+        delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+
 
         /**
          * Queries data in the database.
@@ -94,8 +99,8 @@ declare namespace dataShare {
          * @return Returns the query result.
          * @systemapi Hide this for inner system use.
          */
-        query(URI: string, columns: Array<String>, predicates: DataSharePredicates, callback: AsyncCallback<ResultSet>): void;
-        query(URI: string, columns: Array<String>, predicates: DataSharePredicates): Promise<ResultSet>;
+        query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
+        query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
 
         /**
          * Updates data records in the database.
@@ -107,8 +112,9 @@ declare namespace dataShare {
          * @return Returns the number of data records updated.
          * @systemapi Hide this for inner system use.
          */
-        update(URI: string, value: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(URI: string, value: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
+        update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
+        update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+
 
         /**
          * Inserts multiple data records into the database.
@@ -119,19 +125,19 @@ declare namespace dataShare {
          * @return Returns the number of data records inserted.
          * @systemapi Hide this for inner system use.
          */
-        batchInsert(URI: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
-        batchInsert(URI: string, values: Array<ValuesBucket>): Promise<number>;
+        batchInsert(uri: string, values: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
+        batchInsert(uri: string, values: Array<rdb.ValuesBucket>): Promise<number>;
 
         /**
-         * Obtains the MIME type of the date specified by the given URI.
+         * Obtains the MIME type of the date specified by the given uri.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the path of the data to operate.
          * @return Returns the MIME type that matches the data specified by uri.
          * @systemapi Hide this for inner system use.
          */
-        getType(URI: string, callback: AsyncCallback<string>): void;
-        getType(URI: string): Promise<string>;
+        getType(uri: string, callback: AsyncCallback<string>): void;
+        getType(uri: string): Promise<string>;
 
         /**
          * Obtains the MIME types of files supported.
@@ -146,18 +152,18 @@ declare namespace dataShare {
          * @systemapi Hide this for inner system use.
          */
         getFileTypes(uri: string,  mimeTypeFilter:string, callback: AsyncCallback<Array<string>>): void;
-        getFileTypes(uri: string,  mimeTypeFilter): Promise<Array<string>>;
+        getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
 
         /**
          * Converts the given {@code uri} that refers to the Data ability into a normalized {@link ohos.utils.net.Uri}.
-         * A normalized URI can be used across devices, persisted, backed up, and restored.
-         * <p>To transfer a normalized URI from another environment to the current environment, you should call this
-         * method again to re-normalize the URI for the current environment or call {@link #denormalizeUri(Uri)}
-         * to convert it to a denormalized URI that can be used only in the current environment.
+         * A normalized uri can be used across devices, persisted, backed up, and restored.
+         * <p>To transfer a normalized uri from another environment to the current environment, you should call this
+         * method again to re-normalize the uri for the current environment or call {@link #denormalizeUri(Uri)}
+         * to convert it to a denormalized uri that can be used only in the current environment.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to normalize.
-         * @return Returns the normalized {@code Uri} object if the Data ability supports URI normalization;
+         * @return Returns the normalized {@code Uri} object if the Data ability supports uri normalization;
          * returns {@code null} otherwise.
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
@@ -188,10 +194,11 @@ declare namespace dataShare {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
+         * @return -
          * @systemapi Hide this for inner system use.
          */
-        notifyChange(URI: string, callback: AsyncCallback<void>): void;
-        notifyChange(URI: string): Promise<void>;
+        notifyChange(uri: string, callback: AsyncCallback<void>): void;
+        notifyChange(uri: string): Promise<void>;
     }
 }
 

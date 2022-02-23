@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +16,13 @@
 import rpc from "./@ohos.rpc";
 import ServiceExtensionContext from "./application/ServiceExtensionContext";
 import Want from './@ohos.application.Want';
+import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * class of service extension.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
  */
@@ -30,7 +31,7 @@ export default class ServiceExtension {
      * Indicates service extension context.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
@@ -40,7 +41,7 @@ export default class ServiceExtension {
      * Called back when a service extension is started for initialization.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -51,7 +52,7 @@ export default class ServiceExtension {
      * Called back before a service extension is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -62,7 +63,7 @@ export default class ServiceExtension {
      * Called back when a service extension is started.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of service extension to start.
      * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
      *     incremented by 1 every time the service extension is started. For example, if the service extension
@@ -77,7 +78,7 @@ export default class ServiceExtension {
      * Called back when a service extension is first connected to an ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
      * @return Returns the proxy of the Service ability.
@@ -89,7 +90,7 @@ export default class ServiceExtension {
      * Called back when all abilities connected to a service extension are disconnected.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
      * @return -
@@ -102,12 +103,22 @@ export default class ServiceExtension {
      * are disconnected.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
      */
     onReconnect(want: Want): void;
+
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return -
+     * @StageModelOnly
+     */
+    onConfigurationUpdated(config: Configuration): void;
 }
 

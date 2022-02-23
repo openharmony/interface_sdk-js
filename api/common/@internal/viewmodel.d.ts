@@ -1022,6 +1022,10 @@ export interface TextMetrics {
    * @devices tv, phone, tablet, wearable
    */
   width: number;
+  /**
+   * @devices tv, phone, tablet, wearable
+   */
+  height: number;
 }
 
 /**

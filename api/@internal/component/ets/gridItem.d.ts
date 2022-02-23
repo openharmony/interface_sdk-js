@@ -30,24 +30,6 @@ interface GridItemInterface {
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): GridItemAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): GridItemAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): GridItemAttribute;
- 
-  /**
    * This parameter specifies the start line number of the current element.
    * @since 7
    */

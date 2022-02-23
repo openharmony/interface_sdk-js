@@ -138,18 +138,6 @@ interface TextInputInterface {
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: TextInputOption): TextInputAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): TextInputAttribute;
-
-  /**
    * Called when the input type is set.
    * @since 7
    */

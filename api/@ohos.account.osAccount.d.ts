@@ -246,6 +246,15 @@ declare namespace osAccount {
         queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
 
         /**
+         * Queries the id list of all activated OS accounts.
+         *
+         * @since 8
+         * @return Returns a id list of OS accounts.
+         */
+        queryActivatedOsAccountIds(callback: AsyncCallback<Array<number>>): void;
+        queryActivatedOsAccountIds(): Promise<Array<number>>;
+
+        /**
          * Creates an OS account using the local name and account type.
          *
          * @since 7

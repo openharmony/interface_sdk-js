@@ -195,7 +195,6 @@ declare interface EventTarget {
 
   /**
    * Removes all event listeners for the worker.
-   * @devices phone, tablet, wearable
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */

@@ -249,6 +249,24 @@ declare class WebResourceError {
   getErrorCode(): number;
 }
 
+declare class JsGeolocation {
+  /**
+   * Constructor.
+   * @since 8
+   */
+  constructor();
+
+  /**
+   * Report the geolocation permission status from users.
+   * 
+   * @param origin The origin that ask for the geolocation permission.
+   * @param allow The geolocation permission status.
+   * @param retain Whether to allow the geolocation permission status to be saved to the system.
+   * @since 8
+   */
+  invoke(origin: string, allow: boolean, retain: boolean): void;
+}
+
 declare class WebCookie {
   /**
    * Constructor.
@@ -533,20 +551,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
 
   /**
-   * Triggered when the host application is notified that a previously invoked geolocation permission request onGeolocationShow() has been canceled. Therefore, any related UI should be hidden.
+   * Hide prompt to ask for the geolocation permission.
    * @since 8
    */
   onGeolocationHide(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when notifies the host application that web content from the specified source is attempting to use the Geolocation API
+   * Show prompt to ask for the geolocation permission.
    * 
-   * @param origin The origin that ask for the geolocation permission.
-   * @param allow The geolocation permission status.
-   * @param retain Whether to allow the geolocation permission status to be saved to the system.
+   * @param origin the origin of the resource to get geolocation.
+   * @param geolocation callback to report geolocation.
    * @since 8
    */
-  onGeolocationShow(callback: (event?: { origin: string, allow: boolean, retain: boolean }) => void): WebAttribute;
+  onGeolocationShow(callback: (event?: { origin: string, geolocation: JsGeolocation }) => void): WebAttribute;
 
   /**
    * Get WebView focus callback event
@@ -650,18 +667,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value: WebOptions): WebAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): WebAttribute;
 }
 
 declare const Web: WebInterface;

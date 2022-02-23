@@ -37,7 +37,7 @@ import rpc from '/@ohos.rpc';
      * @sysCap AAFwk
      * @StageModelOnly
      */
-     call(method, data: rpc.Sequenceable): Promise<void>;
+     call(method: string, data: rpc.Sequenceable): Promise<void>;
 
     /**
      * Notify the server of Sequenceable type data and return the notification result.

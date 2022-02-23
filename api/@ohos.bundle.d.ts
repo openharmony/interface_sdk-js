@@ -355,7 +355,15 @@ declare namespace bundle {
     /**
       * @since 8
       */
-    STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43
+    STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43,
+    /**
+     * @since 8
+     */
+    STATUS_INSTALL_PERMISSION_DENIED = 0x44,
+    /**
+     * @since 8
+     */
+    STATUS_UNINSTALL_PERMISSION_DENIED = 0x45,
   }
 
   /**
@@ -398,18 +406,6 @@ declare namespace bundle {
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number) : Promise<ApplicationInfo>;
-
-  /**
-   * Checks whether a specified bundle has been granted a specific permission.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the name of the bundle to check.
-   * @param permission Indicates the permission to check.
-   * @return Returns 0 if the bundle has the permission; returns -1 otherwise.
-   */
-  function checkPermission(bundleName: string, permission: string, callback: AsyncCallback<GrantStatus>): void;
-  function checkPermission(bundleName: string, permission: string): Promise<GrantStatus>;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -456,6 +452,17 @@ declare namespace bundle {
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
   function getAllApplicationInfo(bundleFlags: number, userId: number) : Promise<Array<ApplicationInfo>>;
+
+  /**
+   * Obtains bundle name by the given uid.
+   *
+   * @since 8
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param uid Indicates the UID of an application.
+   * @return Returns the bundle name.
+   */
+   function getNameForUid(uid: number, callback: AsyncCallback<string>) : void
+   function getNameForUid(uid: number) : Promise<string>;
 
   /**
    * Obtains information about an application bundle contained in an ohos Ability Package (HAP).

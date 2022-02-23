@@ -31,24 +31,6 @@ interface RowSplitInterface {
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): RowSplitAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): RowSplitAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): RowSplitAttribute;
-
-  /**
    * Called when judging whether the split line can be dragged.
    * @since 7
    */

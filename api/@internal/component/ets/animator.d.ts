@@ -90,12 +90,6 @@ interface AnimatorInterface {
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value: string): AnimatorAttribute;
-
-  /**
    * Controls the playback status. The default value is the initial state.
    * @since 7
    * @systemapi

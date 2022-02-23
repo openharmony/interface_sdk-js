@@ -30,18 +30,6 @@ interface ImageAnimatorInterface {
  */
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(): ImageAnimatorAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): ImageAnimatorAttribute;
- 
-  /**
    * list images
    * @since 7
    */

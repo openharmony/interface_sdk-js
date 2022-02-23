@@ -210,6 +210,16 @@ ohos_copy("system_api") {
   module_install_name = ""
 }
 
+ohos_copy("config") {
+  sources = [
+    "api/config/css",
+    "api/config/hml",
+  ]
+  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
 ohos_copy("form_declaration") {
   sources = [
     "api/form/action",

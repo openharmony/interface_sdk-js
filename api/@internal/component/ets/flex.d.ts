@@ -65,25 +65,7 @@ interface FlexInterface {
  * Defines the Flex attribute functions.
  * @since 7
  */
-declare class FlexAttribute extends CommonMethod<FlexAttribute> {
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  create(value?: FlexOption): FlexAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  pop(): FlexAttribute;
-
-  /**
-   * Just use for genetate tsbundle
-   * @ignore ide should ignore this arrtibute
-   */
-  debugLine(value: string): FlexAttribute;
-}
+declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
 
 declare const Flex: FlexInterface;
 declare const FlexInstance: FlexAttribute;
