@@ -526,6 +526,843 @@ declare namespace osAccount {
          */
         GUEST
     }
+
+    /**
+     * Provides the abilities for user authentication.
+     * @name UserAuth
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     */
+    class UserAuth {
+        /**
+         * Constructor to get the UserAuth class instance.
+         *
+         * @since 8
+         * @return Returns the UserAuth class instance.
+         * @systemapi Hide this for inner system use.
+         */
+        constructor();
+
+        /**
+         * Gets version information.
+         *
+         * @since 8
+         * @return Returns the version information.
+         * @systemapi Hide this for inner system use.
+         */
+        getVersion(): number;
+
+        /**
+         * Checks whether the authentication capability is available.
+         *
+         * @since 8
+         * @param authType Indicates the credential type for authentication.
+         * @param authTrustLevel Indicates the trust level of authentication result.
+         * @return Returns a status result.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        getAvailableStatus(authType: AuthType, authTrustLevel: AuthTrustLevel): number;
+
+        /**
+         * Gets the property based on the specified request information.
+         *
+         * @since 8
+         * @param request Indicates the request information, including authentication type, and property type list.
+         * @return Returns an executor property.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
+        getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
+
+        /**
+         * Sets property that can be used to initialize algorithms.
+         *
+         * @since 8
+         * @param request Indicates the request information, including authentication type and the key-value to be set.
+         * @return Returns a number value indicating whether the property setting was successful.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        setProperty(request: SetPropertyRequest, callback: AsyncCallback<number>): void;
+        setProperty(request: SetPropertyRequest): Promise<number>;
+
+        /**
+         * Executes authentication.
+         *
+         * @since 8
+         * @param challenge Indicates the challenge value.
+         * @param authType Indicates the authentication type.
+         * @param authTrustLevel Indicates the trust level of authentication result.
+         * @param callback Indicates the callback to get result and acquireInfo.
+         * @return Returns a context ID for cancellation.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        auth(challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
+
+        /**
+         * Executes user authentication.
+         *
+         * @since 8
+         * @param userId Indicates the user identification.
+         * @param challenge Indicates the challenge value.
+         * @param authType Indicates the authentication type.
+         * @param authTrustLevel Indicates the trust level of authentication result.
+         * @param callback Indicates the callback to get result and acquireInfo.
+         * @return Returns a context ID for cancellation.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        authUser(userId: number, challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
+
+        /**
+         * Cancels authentication with context ID.
+         *
+         * @since 8
+         * @param contextID Indicates the authentication context ID.
+         * @return Returns a number indicating whether the cancellation was successful.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+         * @systemapi Hide this for inner system use.
+         */
+        cancelAuth(contextID: Uint8Array): number;
+    }
+
+    /**
+     * Provides the abilities for Pin code authentication.
+     *
+     * @name PINAuth
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     */
+    class PINAuth {
+        /**
+         * Constructor to get the PINAuth class instance.
+         *
+         * @since 8
+         * @return Returns the PINAuth class instance.
+         * @systemapi Hide this for inner system use.
+         */
+        constructor();
+
+        /**
+         * Register inputer.
+         *
+         * @param inputer Indicates the password input box callback
+         * @return boolean Indicates the registration succeeded or failed.
+         * @permission ohos.permission.ACCESS_PIN_AUTH
+         * @systemapi Hide this for inner system use.
+         */
+        registerInputer(inputer: IInputer): boolean;
+
+        /**
+         * Unregister inputer.
+         *
+         * @permission ohos.permission.ACCESS_PIN_AUTH
+         * @systemapi Hide this for inner system use.
+         */
+        unregisterInputer(): void;
+    }
+
+    /**
+     * Provides the abilities for managing user identity.
+     *
+     * @name UserIdentityManager
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     */
+    class UserIdentityManager {
+        /**
+         * Constructor to get the UserIdentityManager class instance.
+         *
+         * @since 8
+         * @return Returns the UserIdentityManager class instance.
+         * @systemapi Hide this for inner system use.
+         */
+        constructor();
+
+        /**
+         * Opens session.
+         * <p>
+         * Start an IDM operation to obtain challenge value.
+         * A challenge value of 0 indicates that opensession failed.
+         *
+         * @since 8
+         * @return Returns a challenge value.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        openSession(callback: AsyncCallback<Uint8Array>): void;
+        openSession(): Promise<Uint8Array>;
+
+        /**
+         * Adds credential.
+         * <p>
+         * Add user credential information, pass in credential addition method and credential information
+         * (credential type, subclass, if adding user's non password credentials, pass in password authentication token),
+         * and get the result / acquireinfo callback.
+         *
+         * @since 8
+         * @param credentialInfo Indicates the credential information.
+         * @param callback Indicates the callback to get results and acquireInfo.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
+
+        /**
+         * Updates credential.
+         *
+         * @since 8
+         * @param credentialInfo Indicates the credential information.
+         * @param callback Indicates the callback to get results and acquireInfo.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
+
+        /**
+         * Closes session.
+         * <p>
+         * End an IDM operation.
+         *
+         * @since 8
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        closeSession(): void;
+
+        /**
+         * Cancels entry with a challenge value.
+         *
+         * @since 8
+         * @param challenge Indicates the challenge value.
+         * @return Returns a number indicating whether the cancellation was successful.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        cancel(challenge: Uint8Array): number;
+
+        /**
+         * Deletes the user with the authentication token.
+         *
+         * @since 8
+         * @param token Indicates the authentication token.
+         * @param callback Indicates the callback to get the deletion result.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        delUser(token: Uint8Array, callback: IIdmCallback): void;
+
+        /**
+         * Deletes the user credential information.
+         *
+         * @since 8
+         * @param credentialId Indicates the credential index.
+         * @param token Indicates the authentication token.
+         * @param callback Indicates the callback to get the deletion result.
+         * @permission ohos.permission.MANAGE_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        delCred(credentialId: Uint8Array, token: Uint8Array, callback: IIdmCallback): void;
+
+        /**
+         * Gets authentication information.
+         *
+         * @since 8
+         * @param authType Indicates the authentication type.
+         * @param callback Indicates the callback to get all registered credential information of
+         * the specified type for the current user.
+         * @permission ohos.permission.ACCESS_USER_IDM
+         * @systemapi Hide this for inner system use.
+         */
+        getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>, authType?: AuthType): void;
+        getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+    }
+
+    /**
+     * Password data callback.
+     *
+     * @name IInputData
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface IInputData {
+        /**
+         * Notifies to set data.
+         *
+         * @since 8
+         * @param pinSubType Indicates the credential subtype for authentication.
+         * @param data Indicates the data to set.
+         * @systemapi Hide this for inner system use.
+         */
+        onSetData: (pinSubType: AuthSubType, data: Uint8Array) => void;
+    }
+    
+    /**
+     * Password input box callback.
+     *
+     * @name IInputer
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface IInputer {
+        /**
+         * Notifies to get data.
+         *
+         * @since 8
+         * @param callback Indicates the password data callback.
+         * @systemapi Hide this for inner system use.
+         */
+        onGetData: (callback: IInputData) => void;
+    }
+
+    /**
+     * User authentication callback.
+     *
+     * @name IUserAuthCallback
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface IUserAuthCallback {
+        /**
+         * The authentication result code is returned through the callback.
+         *
+         * @since 8
+         * @param result Indicates the authentication result code.
+         * @param extraInfo Indicates the specific information for different situation.
+         * If the authentication is passed, the authentication token is returned in extrainfo,
+         * If the authentication fails, the remaining authentication times are returned in extrainfo,
+         * If the authentication executor is locked, the freezing time is returned in extrainfo.
+         * @systemapi Hide this for inner system use.
+         */
+        onResult: (result: number, extraInfo: AuthResult) => void;
+
+        /**
+         * During an authentication, the TipsCode is returned through the callback.
+         *
+         * @since 8
+         * @param module Indicates the executor type for authentication.
+         * @param acquire Indicates the tip code for different authentication executor.
+         * @param extraInfo reserved parameter.
+         * @systemapi Hide this for inner system use.
+         */
+        onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+    }
+
+    /**
+     * Identity manager callback.
+     *
+     * @name IIdmCallback
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface IIdmCallback {
+        /**
+         * The authentication result code is returned through the callback.
+         *
+         * @since 8
+         * @param result Indicates the authentication result code.
+         * @param extraInfo pass the specific information for different situation.
+         * @systemapi Hide this for inner system use.
+         */
+        onResult: (result: number, extraInfo: RequestResult) => void;
+
+        /**
+         * During an authentication, the TipsCode is returned through the callback.
+         * @since 8
+         * @param module Indicates the executor type for authentication.
+         * @param acquire Indicates the tip code for different authentication executor.
+         * @param extraInfo reserved parameter.
+         * @systemapi Hide this for inner system use.
+         */
+        onAcquireInfo?: (module: number, acquire: number, extraInfo: any) => void;
+    }
+
+    /**
+     * Provides the information of the get property request.
+     *
+     * @name GetPropertyRequest
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface GetPropertyRequest {
+        /**
+         * Indicates the authentication credential type.
+         */
+        authType: AuthType;
+
+        /**
+         * Indicates the array of property types to get.
+         */
+        keys: Array<GetPropertyType>;
+    }
+
+    /**
+     * Provides the information of the set property request.
+     *
+     * @name SetPropertyRequest
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface SetPropertyRequest {
+        /**
+         * Indicates the authentication credential type.
+         */
+        authType: AuthType;
+
+        /**
+         * Indicates the property type to set.
+         */
+        key: SetPropertyType;
+
+        /**
+         * Indicates the information to set.
+         */
+        setInfo: Uint8Array;
+    }
+
+    /**
+     * Provides the property of executor.
+     *
+     * @name ExecutorProperty
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface ExecutorProperty {
+        /**
+         * Indicates the result.
+         */
+        result: number;
+
+        /**
+         * Indicates the authentication credential subtype.
+         */
+        authSubType: AuthSubType;
+
+        /**
+         * Indicates the remaining times.
+         */
+        remainTimes?: number;
+
+        /**
+         * Indicates the freezing times.
+         */
+        freezingTime?: number;
+    }
+ 
+    /**
+     * Indicates the information of authentication result.
+     *
+     * @name AuthResult
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface AuthResult {
+        /**
+         * Indicates the authentication token.
+         */
+        token?: Uint8Array;
+
+        /**
+         * Indicates the remaining times.
+         */
+        remainTimes?: number;
+
+        /**
+         * Indicates the freezing times.
+         */
+        freezingTime?: number;
+    }
+
+    /**
+     * Indicates the information of credential.
+     *
+     * @name CredentialInfo
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface CredentialInfo {
+        /**
+         * Indicates the credential type.
+         */
+        credType: AuthType;
+
+        /**
+         * Indicates the credential subtype.
+         */
+        credSubType: AuthSubType;
+
+        /**
+         * Indicates the authentication token.
+         */
+        token: Uint8Array;
+    }
+
+    /**
+     * Indicates the information of request result.
+     *
+     * @name RequestResult
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface RequestResult {
+        /**
+         * Indicates the credential index.
+         */
+        credentialId?: Uint8Array;
+    }
+
+    /**
+     * Indicates the information of enrolled credential.
+     *
+     * @name EnrolledCredInfo
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    interface EnrolledCredInfo {
+        /**
+         * Indicates the credential index.
+         */
+        credentialId: Uint8Array;
+
+        /**
+         * Indicates the authentication credential type.
+         */
+        authType: AuthType;
+
+        /**
+         * Indicates the authentication credential subtype.
+         */
+        authSubType: AuthSubType;
+
+        /**
+         * Indicates the credential template ID.
+         */
+        templateId: Uint8Array;
+    }
+
+    /**
+     * Indicates the property type to get.
+     *
+     * @name GetPropertyType
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum GetPropertyType {
+        /**
+         * Indicates the authentication subtype.
+         */
+        AUTH_SUB_TYPE = 1,
+
+        /**
+         * Indicates the remain times.
+         */
+        REMAIN_TIMES = 2,
+
+        /**
+         * Indicates the freezing time.
+         */
+        FREEZING_TIME = 3
+    }
+
+    /**
+     * Indicates the property type to set.
+     *
+     * @name SetPropertyType
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum SetPropertyType {
+        /**
+         * Indicates the init algorithm.
+         */
+        INIT_ALGORITHM = 1,
+    }
+
+    /**
+     * Indicates the credential type for authentication.
+     *
+     * @name AuthType
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum AuthType {
+        /**
+         * Indicates the PIN authentication type.
+         */
+        PIN = 1,
+
+        /**
+         * Indicates the FACE authentication type.
+         */
+        FACE = 2
+    }
+
+    /**
+     * Indicates the credential subtype for authentication.
+     *
+     * @name AuthSubType
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum AuthSubType {
+        /**
+         * Indicates the 6-digit credential.
+         */
+        PIN_SIX = 10000,
+
+        /**
+         * Indicates the self-defined digital credential.
+         */
+        PIN_NUMBER = 10001,
+
+        /**
+         * Indicates the self-defined mixed credential.
+         */
+        PIN_MIXED = 10002,
+    
+        /**
+         * Indicates the 2D face credential.
+         */
+        FACE_2D = 20000,
+
+        /**
+         * Indicates the 3D face credential.
+         */
+        FACE_3D = 20001
+    }
+
+    /**
+     * Indicates the trusted level of authentication results.
+     *
+     * @name AuthTrustLevel
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum AuthTrustLevel {
+        /**
+         * Indicates the trusted level 1.
+         */
+        ATL1 = 10000,
+
+        /**
+         * Indicates the trusted level 2.
+         */
+        ATL2 = 20000,
+
+        /**
+         * Indicates the trusted level 3.
+         */
+        ATL3 = 30000,
+
+        /**
+         * Indicates the trusted level 4.
+         */
+        ATL4 = 40000
+    }
+
+    /**
+     * Indicates the module of acquired information.
+     *
+     * @name Module
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum Module {
+        /**
+         * Indicates the information acquired from FaceAuth.
+         */
+        FACE_AUTH = 1
+    }
+
+    /**
+     * Indicates the enumeration of authentication result code.
+     *
+     * @name ResultCode
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum ResultCode {
+        /**
+         * Indicates that authentication is success or ability is supported.
+         */
+        SUCCESS = 0,
+
+        /**
+         * Indicates the authenticator fails to identify user.
+         */
+        FAIL = 1,
+
+        /**
+         * Indicates other errors.
+         */
+        GENERAL_ERROR = 2,
+
+        /**
+         * Indicates that authentication has been canceled.
+         */
+        CANCELED = 3,
+
+        /**
+         * Indicates that authentication has timed out.
+         */
+        TIMEOUT = 4,
+
+        /**
+         * Indicates that this authentication type is not supported.
+         */
+        TYPE_NOT_SUPPORT = 5,
+
+        /**
+         * Indicates that the authentication trust level is not supported.
+         */
+        TRUST_LEVEL_NOT_SUPPORT = 6,
+
+        /**
+         * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+         */
+        BUSY = 7,
+
+        /**
+         * Indicates incorrect parameters.
+         */
+        INVALID_PARAMETERS = 8,
+
+        /**
+         * Indicates that the authenticator is locked.
+         */
+        LOCKED = 9,
+
+        /**
+         * Indicates that the user has not enrolled the authenticator.
+         */
+        NOT_ENROLLED = 10
+    }
+
+    /**
+     * Indicates the enumeration of prompt codes in the process of face authentication.
+     *
+     * @name FaceTipsCode
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum FaceTipsCode {
+        /**
+         * Indicates that the obtained facial image is too bright due to high illumination.
+         */
+        FACE_AUTH_TIP_TOO_BRIGHT = 1,
+
+        /**
+         * Indicates that the obtained facial image is too dark due to low illumination.
+         */
+        FACE_AUTH_TIP_TOO_DARK = 2,
+
+        /**
+         * Indicates that the face is too close to the device.
+         */
+        FACE_AUTH_TIP_TOO_CLOSE = 3,
+
+        /**
+         * Indicates that the face is too far away from the device.
+         */
+        FACE_AUTH_TIP_TOO_FAR = 4,
+
+        /**
+         * Indicates that the device is too high, and that only the upper part of the face is captured.
+         */
+        FACE_AUTH_TIP_TOO_HIGH = 5,
+
+        /**
+         * Indicates that the device is too low, and that only the lower part of the face is captured.
+         */
+        FACE_AUTH_TIP_TOO_LOW = 6,
+
+        /**
+         * Indicates that the device is deviated to the right, and that only the right part of the face is captured.
+         */
+        FACE_AUTH_TIP_TOO_RIGHT = 7,
+
+        /**
+         * Indicates that the device is deviated to the left, and that only the left part of the face is captured.
+         */
+        FACE_AUTH_TIP_TOO_LEFT = 8,
+
+        /**
+         * Indicates that the face moves too fast during facial information collection.
+         */
+        FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
+
+        /**
+         * Indicates that the face is not facing the device.
+         */
+        FACE_AUTH_TIP_POOR_GAZE = 10,
+
+        /**
+         * Indicates that no face is detected.
+         */
+        FACE_AUTH_TIP_NOT_DETECTED = 11,
+    }
+
+    /**
+     * Indicates the enumeration of prompt codes in the process of fingerprint authentication.
+     *
+     * @name FingerprintTips
+     * @since 8
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     */
+    enum FingerprintTips {
+        /**
+         * Indicates that the image acquired is good.
+         */
+        FINGERPRINT_TIP_GOOD = 0,
+
+        /**
+         * Indicates that the fingerprint image is too noisy due to suspected or detected dirt on the sensor.
+         */
+        FINGERPRINT_TIP_IMAGER_DIRTY = 1,
+
+        /**
+         * Indicates that the fingerprint image is too noisy to process due to a detected condition.
+         */
+        FINGERPRINT_TIP_INSUFFICIENT = 2,
+
+        /**
+         * Indicates that only a partial fingerprint image is detected.
+         */
+        FINGERPRINT_TIP_PARTIAL = 3,
+
+        /**
+         * Indicates that the fingerprint image is incomplete due to quick motion.
+         */
+        FINGERPRINT_TIP_TOO_FAST = 4,
+
+        /**
+         * Indicates that the fingerprint image is unreadable due to lack of motion.
+         */
+        FINGERPRINT_TIP_TOO_SLOW = 5
+    }
 }
 
 export default osAccount;
