@@ -14,11 +14,11 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './app/context';
-import { ContenStorage } from './@internal/component/ets/stateManagement'
+import { ContentStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
-*/
+ */
 declare namespace window {
   /**
    * The type of a window.
@@ -63,90 +63,6 @@ declare namespace window {
     SECONDARY,
     FLOATING
   }
-
-  /**
-   * Create a sub window with a specific id and type, only support 7.
-   * @param id Indicates window id.
-   * @param type Indicates window type.
-   * @since 7
-   */
-  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
-
-  /**
-   * Create a sub window with a specific id and type, only support 7.
-   * @param id Indicates window id.
-   * @param type Indicates window type.
-   * @since 7
-   */
-  function create(id: string, type: WindowType): Promise<Window>;
-
-  /**
-   * Create a system window with a specific id and type.
-   * @param ctx Indicates the context on which the window depends
-   * @param id Indicates window id.
-   * @param type Indicates window type.
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
-   * @since 8
-   */
-  function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
-
-  /**
-   * Find the window by id.
-   * @param id Indicates window id.
-   * @since 7
-   */
-  function find(id: string, callback: AsyncCallback<Window>): void;
-
-  /**
-   * Find the window by id.
-   * @param id Indicates window id.
-   * @since 7
-   */
-  function find(id: string): Promise<Window>;
-
-  /**
-   * Get the final show window.
-   * @param id Indicates window id.
-   * @since 6
-   */
-  function getTopWindow(callback: AsyncCallback<Window>): void;
-
-  /**
-   * Get the final show window.
-   * @since 6
-   */
-  function getTopWindow(): Promise<Window>;
-
-  /**
-   * Get the final show window.
-   * @param ctx Indicates the context on which the window depends
-   * @since 8
-   */
-  function getTopWindow(ctx: Context): Promise<Window>;
-
-  /**
-   * Get the final show window.
-   * @param ctx Indicates the context on which the window depends
-   * @since 8
-   */
-  function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
-
-  /**
-   * register the callback of systemBarTintChange
-   * @param type: 'systemBarTintChange'
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
-
-  /**
-  * unregister the callback of systemBarTintChange
-  * @param type: 'systemBarTintChange'
-  * @systemapi Hide this for inner system use.
-  * @since 8
-  */
-  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Properties of status bar and navigation bar, it couldn't update automatically
@@ -326,7 +242,7 @@ declare namespace window {
 
     /**
      * Whether the window layout is in full screen mode(whether the window is immersive). The default value is false.
-     * @since 6
+     * @since 7
      */
     isLayoutFullScreen: boolean
 
@@ -338,7 +254,7 @@ declare namespace window {
 
     /**
      * Whether the window is touchable. The default value is false
-     * @since 6
+     * @since 7
      */
     touchable: boolean
   }
@@ -358,41 +274,136 @@ declare namespace window {
     WIDE_GAMUT,
   }
 
+  /**
+   * Create a sub window with a specific id and type, only support 7.
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @since 7
+   */
+  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+
+  /**
+   * Create a sub window with a specific id and type, only support 7.
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @since 7
+   */
+  function create(id: string, type: WindowType): Promise<Window>;
+
+  /**
+   * Create a system or float window with a specific id and type.
+   * @param ctx Indicates the context on which the window depends
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+   * @since 8
+   */
+  function create(ctx: Context, id: string, type: WindowType): Promise<Window>;
+
+  /**
+   * Create a system or float window with a specific id and type.
+   * @param ctx Indicates the context on which the window depends
+   * @param id Indicates window id.
+   * @param type Indicates window type.
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+   * @since 8
+   */
+  function create(ctx: Context, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+
+  /**
+   * Find the window by id.
+   * @param id Indicates window id.
+   * @since 7
+   */
+  function find(id: string, callback: AsyncCallback<Window>): void;
+
+  /**
+   * Find the window by id.
+   * @param id Indicates window id.
+   * @since 7
+   */
+  function find(id: string): Promise<Window>;
+
+  /**
+   * Get the final show window.
+   * @param id Indicates window id.
+   * @since 6
+   */
+  function getTopWindow(callback: AsyncCallback<Window>): void;
+
+  /**
+   * Get the final show window.
+   * @since 6
+   */
+  function getTopWindow(): Promise<Window>;
+
+  /**
+   * Get the final show window.
+   * @param ctx Indicates the context on which the window depends
+   * @since 8
+   */
+  function getTopWindow(ctx: Context): Promise<Window>;
+
+  /**
+   * Get the final show window.
+   * @param ctx Indicates the context on which the window depends
+   * @since 8
+   */
+  function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
+
+  /**
+   * register the callback of systemBarTintChange
+   * @param type: 'systemBarTintChange'
+   * @systemapi Hide this for inner system use.
+   * @since 8
+   */
+  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
+
+  /**
+  * unregister the callback of systemBarTintChange
+  * @param type: 'systemBarTintChange'
+  * @systemapi Hide this for inner system use.
+  * @since 8
+  */
+  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
   interface Window {
     /**
-     * hide sub window.
+     * hide window.
      * @systemapi Hide this for inner system use.
      * @since 7
      */
     hide (callback: AsyncCallback<void>): void;
 
     /**
-      * hide sub window.
+      * hide window.
       * @systemapi Hide this for inner system use.
       * @since 7
       */
     hide(): Promise<void>;
 
     /**
-      * show sub window.
+      * show window.
       * @since 7
       */
     show(callback: AsyncCallback<void>): void;
 
     /**
-      * show sub window.
+      * show window.
       * @since 7
       */
     show(): Promise<void>;
 
     /**
-     * Destroy the sub window.
+     * Destroy the window.
      * @since 7
      */
     destroy(callback: AsyncCallback<void>): void;
 
     /**
-      * Destroy the sub window.
+      * Destroy the window.
       * @since 7
       */
     destroy(): Promise<void>;
@@ -550,23 +561,24 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
      */
-    loadContent(path: string, storage: ContenStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
+     * @param storage storage The data object shared within the content instance loaded by the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+
+    /**
+     * Loads content
+     * @param path path of the page to which the content will be loaded2
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
-
-    /**
-     * Loads content
-     * @param path path of the page to which the content will be loaded
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    loadContent(path: string, storage?: ContenStorage): Promise<void>;
 
     /**
      * Checks whether the window is displayed
@@ -652,7 +664,11 @@ declare namespace window {
      */
     getColorSpace(callback: AsyncCallback<ColorSpace>): void;
   }
-
+  /**
+   * window stage callback event type
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
   enum WindowStageEventType {
     FOREGROUND = 1,
     ACTIVE,
@@ -662,6 +678,7 @@ declare namespace window {
   /**
    * WindowStage
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
    */
   interface WindowStage {
     /**
@@ -703,7 +720,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContenStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    /**
+     * Loads content
+     * @param path path of the page to which the content will be loaded
+     * @param storage storage The data object shared within the content instance loaded by the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    loadContent(path: string, storage?: ContentStorage): Promise<void>;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
@@ -711,13 +736,6 @@ declare namespace window {
      * @since 9
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
-    /**
-     * Loads content
-     * @param path path of the page to which the content will be loaded
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, storage?: ContenStorage): Promise<void>;
     /**
      * window stage event callback on.
      * @since 9
