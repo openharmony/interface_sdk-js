@@ -3,25 +3,28 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": true,
+  "required": [
+    "devices"
+  ],
   "propertyNames": {
     "enum": [
-      "base",
+      "devices",
       "development",
       "production"
     ]
   },
   "properties": {
-    "base": {
+    "devices": {
       "description": "Basic system capability",
       "type": "object",
       "propertyNames": {
         "enum": [
-          "deviceType",
-          "NDeviceSysCaps"
+          "general",
+          "custom"
         ]
       },
       "properties": {
-        "deviceType": {
+        "general": {
           "description": "core equipment",
           "type":"array",
           "items": {
@@ -31,19 +34,19 @@
               "tv",
               "tablet",
               "wearable",
-              "litewearable",
-              "car"
+              "liteWearable",
+              "car",
+              "smartVision",
+              "PC",
+              "router"
             ]
           }
         },
-        "NDeviceSysCaps": {
+        "custom": {
           "description": "N equipment",
           "type":"array",
           "items": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "object"
           }
         }
       }

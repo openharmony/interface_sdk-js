@@ -1,0 +1,5 @@
+{
+  "SysCaps": [
+    "SystemCapability.Communication.SoftBus.Core"
+  ]
+}
