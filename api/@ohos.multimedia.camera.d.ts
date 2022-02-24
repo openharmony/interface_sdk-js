@@ -187,7 +187,7 @@ declare namespace camera {
      * True depth camera
      * @since 8
      */
-    CAMERA_TYPE_TRUE_DEAPTH
+    CAMERA_TYPE_TRUE_DEPTH
   }
 
   /**
