@@ -138,13 +138,6 @@ export interface ApplicationInfo {
   readonly codePath: string;
 
   /**
-    * @default Indicates the custom metadata of the application
-    * @since 7
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  customizeData: Map<string, CustomizeData>;
-
-  /**
     * @default Indicates the metadata of module
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
