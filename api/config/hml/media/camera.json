@@ -5,6 +5,7 @@
         "name": "v6.0"
       }
     ],
+    "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
     "supportedDevices": ["phone","smartVision"],
     "description": [
       {
