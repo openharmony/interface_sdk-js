@@ -101,17 +101,17 @@ declare interface TextPickerDialogOption extends TextPickerOption {
    * Called when the OK button in the dialog is clicked.
    * @since 8
    */
-  onAccept: (value: TextPickerResult) => void;
+  onAccept?: (value: TextPickerResult) => void;
   /**
    * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
-  onCancel: () => void;
+  onCancel?: () => void;
   /**
    * This event is triggered when a TextPicker text is selected in dialog.
    * @since 8
    */
-  onChange: (value: TextPickerResult) => void;
+  onChange?: (value: TextPickerResult) => void;
 }
 
 /**
