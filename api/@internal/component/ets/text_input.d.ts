@@ -229,19 +229,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onCopy(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onCut(callback: (value: string) => void): TextInputAttribute;
 
   /**
    * Called when using the Clipboard menu
-   * @since 7
+   * @since 8
    */
   onPaste(callback: (value: string) => void): TextInputAttribute;
 }
