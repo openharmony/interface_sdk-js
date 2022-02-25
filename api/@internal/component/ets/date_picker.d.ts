@@ -153,17 +153,17 @@ declare interface DatePickerDialogOption extends DatePickerOption {
    * Called when the OK button in the dialog is clicked.
    * @since 8
    */
-  onAccept: (value: DatePickerResult) => void;
+  onAccept?: (value: DatePickerResult) => void;
   /**
    * Called when the Cancel button in the dialog is clicked.
    * @since 8
    */
-  onCancel: () => void;
+  onCancel?: () => void;
   /**
    * This event is triggered when a DatePicker date or time is selected in dialog.
    * @since 8
    */
-  onChange: (value: DatePickerResult) => void;
+  onChange?: (value: DatePickerResult) => void;
 }
 
 /**
