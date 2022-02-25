@@ -236,7 +236,10 @@ declare namespace radio {
   function isNrSupported(slotId: number): boolean;
 
   /**
+   * Checks whether the radio service is enabled.
+   *
    * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 7
    */
@@ -245,7 +248,10 @@ declare namespace radio {
   function isRadioOn(slotId?: number): Promise<boolean>;
 
   /**
+   * Turn on the radio service.
+   *
    * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -255,7 +261,10 @@ declare namespace radio {
   function turnOnRadio(slotId?: number): Promise<void>;
 
   /**
+   * Turn off the radio service.
+   *
    * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
