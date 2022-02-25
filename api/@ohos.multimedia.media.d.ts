@@ -62,6 +62,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @param callback Callback used to return AudioPlayer instance if the operation is successful; returns null otherwise.
+   * @systemapi
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
   /**
@@ -70,6 +71,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @return A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
+   * @systemapi
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
 
@@ -559,6 +561,7 @@ declare namespace media {
   * Describes video recorder states.
   * @since 8
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+  * @systemapi
   */
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
@@ -567,6 +570,7 @@ declare namespace media {
    * to create an VideoRecorder instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorder {
     /**
@@ -1158,6 +1162,7 @@ declare namespace media {
    * Provides the video recorder profile definitions.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorderProfile {
     /**
@@ -1236,6 +1241,7 @@ declare namespace media {
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
+   * @systemapi
    */
   enum AudioSourceType {
     /**
@@ -1257,6 +1263,7 @@ declare namespace media {
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
+   * @systemapi
    */
   enum VideoSourceType {
     /**
@@ -1277,6 +1284,7 @@ declare namespace media {
    * Provides the video recorder configuration definitions.
    * @since 8
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
+   * @systemapi
    */
   interface VideoRecorderConfig {
     /**

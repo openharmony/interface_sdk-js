@@ -782,7 +782,7 @@ declare namespace audio {
    * Enumerates audio scenes.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Communication
-  */
+   */
   enum AudioScene {
     /**
      * Default audio scene
@@ -1030,12 +1030,14 @@ declare namespace audio {
      * This method uses an asynchronous callback to return the execution result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
      */
     setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
     /**
      * Sets the audio scene mode to change audio strategy. This method uses a promise to return the execution result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @systemapi
      */
     setAudioScene(scene: AudioScene): Promise<void>;
     /**
@@ -1043,7 +1045,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    getAudioScene(callback: AsyncCallback<AudioScene> ): void;
+    getAudioScene(callback: AsyncCallback<AudioScene>): void;
     /**
      * Obtains the system audio scene mode. This method uses a promise to return the execution result.
      * @since 8

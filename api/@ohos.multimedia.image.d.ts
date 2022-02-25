@@ -162,6 +162,7 @@ declare namespace image {
    * The componet type of image.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @systemapi
    */
   enum ComponentType {
     /**
@@ -374,6 +375,7 @@ declare namespace image {
    * Describes image color components.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
    */
    interface Component {
     /**
@@ -483,6 +485,7 @@ declare namespace image {
    *            {@link ImageFormat} constants. Note that not all formats are supported, like ImageFormat.NV21.
    * @param capacity The maximum number of images the user will want to access simultaneously.
    * @return Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @systemapi
    */
   function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
 
@@ -817,6 +820,7 @@ declare namespace image {
    * Provides basic image operations, including obtaining image information, and reading and writing image data.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
    */
   interface Image {
     /**
@@ -879,6 +883,7 @@ declare namespace image {
    * Image receiver object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @systemapi
    */
   interface ImageReceiver {
     /**
