@@ -134,6 +134,7 @@ declare namespace sim {
    * @param callback Returns the ICCID; returns an empty string if no SIM card is inserted.
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
+   * @since 7
    */
   function getSimIccId(slotId: number, callback: AsyncCallback<string>): void;
   function getSimIccId(slotId: number): Promise<string>;
