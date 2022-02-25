@@ -143,6 +143,7 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the IMEI; returns an empty string if the IMEI does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getIMEI(callback: AsyncCallback<string>): void;
@@ -158,6 +159,7 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the MEID; returns an empty string if the MEID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getMEID(callback: AsyncCallback<string>): void;
@@ -177,6 +179,7 @@ declare namespace radio {
    * supported by the device.
    * @param callback Returns the unique device ID; returns an empty string if the unique device ID does not exist.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 8
    */
   function getUniqueDeviceId(callback: AsyncCallback<string>): void;
@@ -233,27 +236,33 @@ declare namespace radio {
   function isNrSupported(slotId: number): boolean;
 
   /**
+   * @param slotId Indicates the card slot index number,
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 7
    */
   function isRadioOn(callback: AsyncCallback<boolean>): void;
-  function isRadioOn(): Promise<boolean>;
+  function isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
+  function isRadioOn(slotId?: number): Promise<boolean>;
 
   /**
+   * @param slotId Indicates the card slot index number,
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function turnOnRadio(callback: AsyncCallback<void>): void;
-  function turnOnRadio(): Promise<void>;
+  function turnOnRadio(slotId: number, callback: AsyncCallback<void>): void;
+  function turnOnRadio(slotId?: number): Promise<void>;
 
   /**
+   * @param slotId Indicates the card slot index number,
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function turnOffRadio(callback: AsyncCallback<void>): void;
-  function turnOffRadio(): Promise<void>;
+  function turnOffRadio(slotId: number, callback: AsyncCallback<void>): void;
+  function turnOffRadio(slotId?: number): Promise<void>;
 
   /**
    * @since 7

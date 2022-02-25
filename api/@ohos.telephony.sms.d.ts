@@ -98,6 +98,7 @@ declare namespace sms {
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param smscAddr Indicates the SMSC address.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 7
    */
   function setSmscAddr(slotId: number, smscAddr: string, callback: AsyncCallback<void>): void;
@@ -111,6 +112,7 @@ declare namespace sms {
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param callback Returns the SMSC address.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @systemapi Hide this for inner system use.
    * @since 7
    */
   function getSmscAddr(slotId: number, callback: AsyncCallback<string>): void;
