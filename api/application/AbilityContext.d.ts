@@ -24,6 +24,7 @@ import StartOptions from "../@ohos.application.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
+import { ContentStorage } from '../@internal/component/ets/state_management';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -213,4 +214,15 @@ export default class AbilityContext extends Context {
      */
     requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
     requestPermissionsFromUser(permissions: Array<string>) : Promise<PermissionRequestResult>;
+
+    /**
+     * Restore window stage data in ability continuation
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param contentStorage the storage data used to restore window stage
+     * @StageModelOnly
+     */
+    restoreWindowStage(contentStorage: ContentStorage) : void;
+
 }
