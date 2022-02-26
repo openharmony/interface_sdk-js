@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,12 +13,14 @@
  * limitations under the License.
  */
 
+import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
+
 /**
  * configuration item.
  *
  * @name Configuration
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityBase
+ * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export interface Configuration {
@@ -26,8 +28,39 @@ export interface Configuration {
      * Indicates the current language of the application.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     language: string;
-}
 
+    /**
+     * Indicates the current colorMode of the application.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    colorMode: ConfigurationConstant.ColorMode;
+
+    /**
+     * Indicates the screen direction of the current device.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+     direction: ConfigurationConstant.Direction;
+
+    /**
+     * Indicates the screen density of the current device.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    screenDensity: ConfigurationConstant.ScreenDensity;
+
+    /**
+     * Indicates the displayId of the current device.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    displayId: number;
+}
