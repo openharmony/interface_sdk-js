@@ -29,6 +29,14 @@ declare namespace screenshot {
      * @permission ohos.permission.CAPTURE_SCREEN
      * @since 7
      */
+    function save(options?: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Takes a screenshot and saves it as a PixelMap object
+     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+     * @permission ohos.permission.CAPTURE_SCREEN
+     * @since 7
+     */
     function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
     /**
