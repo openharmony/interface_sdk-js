@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { Callback } from './basic';
 
  /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
@@ -34,7 +34,7 @@ declare namespace inputConsumer {
      * @param isFinalKeyDown The final key press down or up.
      * @param finalKeyDownDuration Duration of final key press.
      */
-    interface KeyOptions {
+    interface KeyOption {
         preKeys: Array<number>;
         finalKey: number;
         isFinalKeyDown: boolean;
@@ -47,11 +47,11 @@ declare namespace inputConsumer {
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @permission N/A
-     * @param type type of the keyevent about input which is to be subscribed.
+     * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function on(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
+    function on(type: "key", keyOption: KeyOption, callback: Callback<KeyOption>): void;
 
     /**
      * Subscribe system keys.
@@ -59,11 +59,11 @@ declare namespace inputConsumer {
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @permission N/A
-     * @param type type of the keyevent about input which is to be subscribed.
+     * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function off(type: string, keyOption: KeyOptions, callback: AsyncCallback<KeyOptions>): void;
+    function off(type: "key", keyOption: KeyOption, callback?: Callback<KeyOption>): void;
 }
 
 export default inputConsumer;
