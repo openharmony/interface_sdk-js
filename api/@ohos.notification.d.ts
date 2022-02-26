@@ -55,6 +55,8 @@ declare namespace notification {
    * @since 8
    * @param Publishes a notification.
    * @param userId of subscriber receiving the notification
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * 
    */
    function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
@@ -91,6 +93,7 @@ declare namespace notification {
    * This parameter must be specified.
    * @param callback callback function
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -101,6 +104,7 @@ declare namespace notification {
    * This parameter must be specified.
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -120,6 +124,7 @@ declare namespace notification {
    * This parameter must be specified.
    * @param callback callback function
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -130,6 +135,7 @@ declare namespace notification {
    * This parameter must be specified.
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -325,6 +331,7 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -332,6 +339,7 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -339,29 +347,33 @@ declare namespace notification {
    * isNotificationEnabled
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * isNotificationEnabled
+   *
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function isNotificationEnabled(): Promise<boolean>;
 
   /**
    * Checks whether this application has permission to publish notifications under the user.
    *
    * since 8
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
-   function isNotificationEnabled(userId: number): Promise<boolean>;
-
-  /**
-   * isNotificationEnabled
-   *
-   * @systemapi Hide this for inner system use.
-   */
-  function isNotificationEnabled(): Promise<boolean>;
+  function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
+  function isNotificationEnabled(userId: number): Promise<boolean>;
 
   /**
    * displayBadge
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -369,6 +381,7 @@ declare namespace notification {
    * displayBadge
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -376,6 +389,7 @@ declare namespace notification {
    * isBadgeDisplayed
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -383,6 +397,7 @@ declare namespace notification {
    * isBadgeDisplayed
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -422,6 +437,7 @@ declare namespace notification {
    * getSlotNumByBundle
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -429,6 +445,7 @@ declare namespace notification {
    * getSlotNumByBundle
    *
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -601,6 +618,7 @@ declare namespace notification {
    *
    * @since 8
    * @param templateName Name of template to be Obtained
+   * @param callback callback function
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
   function isSupportTemplate(templateName: string): Promise<boolean>;
@@ -622,6 +640,54 @@ declare namespace notification {
    function requestEnableNotification(): Promise<void>;
 
   /**
+   * Sets whether the device supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
+  function enableDistributed(enable: boolean): Promise<void>;
+
+  /**
+   * Obtains whether the device supports distributed notification.
+   *
+   * @since 8
+   */
+  function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
+  function isDistributedEnabled(): Promise<boolean>;
+
+  /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
+  function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
+
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
+  function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
+
+  /**
+   * Obtains the remind modes of the notification.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
+  function getDeviceRemindType(): Promise<DeviceRemindType>;
+
+  /**
    * Describes a BundleOption.
    */
   export interface BundleOption {
@@ -638,34 +704,59 @@ declare namespace notification {
   }
 
   /**
-   * DisturbMode
+   * The type of the Do Not Disturb.
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum DoNotDisturbType {
+    /**
+     * Non do not disturb type notification
+     */
+    TYPE_NONE = 0,
+
+    /**
+     * Execute do not disturb once in the set time period (only watch hours and minutes)
+     */
+    TYPE_ONCE = 1,
+
+    /**
+     * Execute do not disturb every day with a set time period (only watch hours and minutes)
+     */
+    TYPE_DAILY = 2,
+
+    /**
+     * Execute in the set time period (specify the time, month, day and hour)
+     */
+    TYPE_CLEARLY = 3,
+  }
+
+  /**
+   * Describes a DoNotDisturbDate instance.
    *
    * @systemapi Hide this for inner system use.
    */
-  export enum DoNotDisturbMode {
-    ALLOW_UNKNOWN,
+  export interface DoNotDisturbDate {
+    /**
+     * the type of the Do Not Disturb.
+     *
+     * @since 8
+     */
+    type: DoNotDisturbType;
 
     /**
-     * Indicates that all notifications are allowed to interrupt the user in Do Not Disturb mode.
+     * the start time of the Do Not Disturb.
+     *
+     * @since 8
      */
-    ALLOW_ALL,
+    begin: Date;
 
     /**
-     * Indicates that only notifications meeting the specified priority criteria are allowed to interrupt
-     * the user in Do Not Disturb mode.
+     * the end time of the Do Not Disturb.
+     *
+     * @since 8
      */
-    ALLOW_PRIORITY,
-
-    /**
-     * Indicates that no notifications are allowed to interrupt the user in Do Not Disturb mode.
-     */
-    ALLOW_NONE,
-
-    /**
-     * Indicates that only notifications of the {@link NotificationRequest#CLASSIFICATION_ALARM} category
-     * are allowed to interrupt the user in Do Not Disturb mode.
-     */
-    ALLOW_ALARMS
+    end: Date;
   }
 
   /**
@@ -725,26 +816,31 @@ declare namespace notification {
   }
 
   /**
-   * Notification source type
+   * The remind type of the nofication.
    *
    * @since 8
    * @systemapi Hide this for inner system use.
    */
-  export enum SourceType {
+  export enum DeviceRemindType {
     /**
-     * General notification
+     * The device is not in use, no reminder
      */
-    TYPE_NORMAL = 0x00000000,
+    IDLE_DONOT_REMIND = 0,
 
     /**
-     * Continuous notification
+     * The device is not in use, remind
      */
-    TYPE_CONTINUOUS = 0x00000001,
+    IDLE_REMIND = 1,
 
     /**
-     * Scheduled notification
+     * The device is in use, no reminder
      */
-    TYPE_TIMER = 0x00000002,
+    ACTIVE_DONOT_REMIND = 2,
+
+    /**
+     * The device is in use, reminder
+     */
+    ACTIVE_REMIND = 3,
   }
 }
 
