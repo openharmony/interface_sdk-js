@@ -15,6 +15,7 @@
 
 import { AbilityInfo } from "./abilityInfo";
 import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
+import { Metadata } from './metadata'
 
 /**
  * @name Obtains configuration information about an module.
@@ -128,4 +129,11 @@ export interface HapModuleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
+  /**
+    * @default Indicates the metadata of ability
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * 
+    */
+  readonly metadata: Array<Metadata>;
 }
