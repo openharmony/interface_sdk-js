@@ -133,22 +133,46 @@ declare namespace huks {
      */
     function getSdkVersion(options: HuksOptions) : string;
 
+    /**
+     * Interface of huks param.
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export interface HuksParam {
         tag: HuksTag;
         value: boolean | number | bigint | Uint8Array;
     }
 
+    /**
+     * Interface of huks handle.
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export interface HuksHandle {
         errorCode: number;
         handle: number;
         token?: Uint8Array;
     }
 
+    /**
+     * Interface of huks option.
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export interface HuksOptions {
         properties?: Array<HuksParam>;
         inData?: Uint8Array;
     }
 
+    /**
+     * Interface of huks result.
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export interface HuksResult {
         errorCode: number;
         outData?: Uint8Array;
@@ -156,6 +180,12 @@ declare namespace huks {
         certChains?: Array<string>;
     }
 
+    /**
+     * @name HuksErrorCode
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksErrorCode {
         HUKS_SUCCESS = 0,
         HUKS_FAILURE = -1,
@@ -228,6 +258,12 @@ declare namespace huks {
         HUKS_ERROR_UNKNOWN_ERROR = -1000,
     }
 
+    /**
+     * @name HuksKeyPurpose
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyPurpose {
         HUKS_KEY_PURPOSE_ENCRYPT = 1,                   /* Usable with RSA, EC and AES keys. */
         HUKS_KEY_PURPOSE_DECRYPT = 2,                   /* Usable with RSA, EC and AES keys. */
@@ -240,6 +276,12 @@ declare namespace huks {
         HUKS_KEY_PURPOSE_AGREE = 256,                   /* Usable with agree. */
     }
 
+    /**
+     * @name HuksKeyDigest
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyDigest {
         HUKS_DIGEST_NONE = 0,
         HUKS_DIGEST_MD5 = 1,
@@ -250,6 +292,12 @@ declare namespace huks {
         HUKS_DIGEST_SHA512 = 14,
     }
 
+    /**
+     * @name HuksKeyPadding
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyPadding {
         HUKS_PADDING_NONE = 0,
         HUKS_PADDING_OAEP = 1,
@@ -259,6 +307,12 @@ declare namespace huks {
         HUKS_PADDING_PKCS7 = 5,
     }
 
+    /**
+     * @name HuksCipherMode
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksCipherMode {
         HUKS_MODE_ECB = 1,
         HUKS_MODE_CBC = 2,
@@ -268,6 +322,12 @@ declare namespace huks {
         HUKS_MODE_GCM = 32,
     }
 
+    /**
+     * @name HuksKeySize
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeySize {
         HUKS_RSA_KEY_SIZE_512 = 512,
         HUKS_RSA_KEY_SIZE_768 = 768,
@@ -293,6 +353,12 @@ declare namespace huks {
         HUKS_DH_KEY_SIZE_4096 = 4096,
     }
 
+    /**
+     * @name HuksKeyAlg
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyAlg {
         HUKS_ALG_RSA = 1,
         HUKS_ALG_ECC = 2,
@@ -309,12 +375,24 @@ declare namespace huks {
         HUKS_ALG_DH = 103,
     }
 
+    /**
+     * @name HuksKeyGenerateType
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyGenerateType {
         HUKS_KEY_GENERATE_TYPE_DEFAULT = 0,
         HUKS_KEY_GENERATE_TYPE_DERIVE = 1,
         HUKS_KEY_GENERATE_TYPE_AGREE = 2,
     }
 
+    /**
+     * @name HuksKeyFlag
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyFlag {
         HUKS_KEY_FLAG_IMPORT_KEY = 1,
         HUKS_KEY_FLAG_GENERATE_KEY = 2,
@@ -322,16 +400,34 @@ declare namespace huks {
         HUKS_KEY_FLAG_DERIVE_KEY = 4,
     }
 
+    /**
+     * @name HuksKeyStorageType
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksKeyStorageType {
         HUKS_STORAGE_TEMP = 0,
         HUKS_STORAGE_PERSISTENT = 1,
     }
 
+    /**
+     * @name HuksSendType
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksSendType {
         HUKS_SEND_TYPE_ASYNC = 0,
         HUKS_SEND_TYPE_SYNC = 1,
     }
 
+    /**
+     * @name HuksTagType
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     declare enum HuksTagType {
         HUKS_TAG_TYPE_INVALID = 0 << 28,
         HUKS_TAG_TYPE_INT = 1 << 28,
@@ -341,6 +437,12 @@ declare namespace huks {
         HUKS_TAG_TYPE_BYTES = 5 << 28,
     }
 
+    /**
+     * @name HuksTag
+     * @since 8
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
     export enum HuksTag {
         /* Invalid TAG */
         HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
