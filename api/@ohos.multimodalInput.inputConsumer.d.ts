@@ -34,7 +34,7 @@ declare namespace inputConsumer {
      * @param isFinalKeyDown The final key press down or up.
      * @param finalKeyDownDuration Duration of final key press.
      */
-    interface KeyOption {
+    interface KeyOptions {
         preKeys: Array<number>;
         finalKey: number;
         isFinalKeyDown: boolean;
@@ -51,7 +51,7 @@ declare namespace inputConsumer {
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function on(type: "key", keyOption: KeyOption, callback: Callback<KeyOption>): void;
+    function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
     /**
      * Subscribe system keys.
@@ -63,7 +63,7 @@ declare namespace inputConsumer {
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
      */
-    function off(type: "key", keyOption: KeyOption, callback?: Callback<KeyOption>): void;
+    function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 }
 
 export default inputConsumer;
