@@ -231,48 +231,6 @@ export function getResourceManager(): Promise<ResourceManager>;
 export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
 /**
- * Obtains the ResourceManager object of the current application.
- *
- * @param ctx The Context object.
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 9 preview
- * @StageModelOnly
- */
-export function getResourceManager(ctx: Context, callback: AsyncCallback<ResourceManager>);
-
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param ctx The Context object.
- * @param bundleName Indicates the bundle name of the specified application.
- * @param callback Indicates the callback containing the ResourceManager object.
- * @since 9 preview
- * @StageModelOnly
- */
-export function getResourceManager(ctx: Context, bundleName: string, callback: AsyncCallback<ResourceManager>);
-
-/**
- * Obtains the ResourceManager object of the current application.
- *
- * @param ctx The Context object.
- * @return Returns that the ResourceManager object is returned in Promise mode.
- * @since 9 preview
- * @StageModelOnly
- */
-export function getResourceManager(ctx: Context): Promise<ResourceManager>;
-
-/**
- * Obtains the ResourceManager object of the specified application.
- *
- * @param ctx The Context object.
- * @param bundleName Indicates the bundle name of the specified application.
- * @return Returns that the ResourceManager object is returned in Promise mode.
- * @since 9 preview
- * @StageModelOnly
- */
-export function getResourceManager(ctx: Context, bundleName: string): Promise<ResourceManager>;
-
-/**
  * Provides the capability of accessing application resources.
  *
  * @since 6
