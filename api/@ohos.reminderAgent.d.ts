@@ -317,7 +317,7 @@ declare namespace reminderAgent {
      * @since 7
      * @syscap SystemCapability.Notification.ReminderAgent.
      */
-    dateTime: LocalDataTime;
+    dateTime: LocalDateTime;
 
     /**
      * Month in which the reminder repeats.
@@ -373,39 +373,39 @@ declare namespace reminderAgent {
     triggerTimeInSeconds: number;
   }
 
-  interface LocalDataTime {
+  interface LocalDateTime {
     /**
      * value of year.
      * @since 7
-     * @syscap LocalDataTime.
+     * @syscap SystemCapability.Notification.ReminderAgent.
      */
     year: number;
 
     /**
      * value of month.
      * @since 7
-     * @syscap LocalDataTime.
+     * @syscap SystemCapability.Notification.ReminderAgent.
      */
     month: number;
 
     /**
      * value of day.
      * @since 7
-     * @syscap LocalDataTime.
+     * @syscap SystemCapability.Notification.ReminderAgent.
      */
     day: number;
 
     /**
      * value of hour.
      * @since 7
-     * @syscap LocalDataTime.
+     * @syscap SystemCapability.Notification.ReminderAgent.
      */
     hour: number;
 
     /**
      * value of minute.
      * @since 7
-     * @syscap LocalDataTime.
+     * @syscap SystemCapability.Notification.ReminderAgent.
      */
     minute: number;
   }
