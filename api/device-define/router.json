@@ -1,0 +1,15 @@
+{
+  "SysCaps": [
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.PowerManager.PowerManager.Lite",
+    "SystemCapability.PowerManager.BatteryManager.Lite",
+    "SystemCapability.Customization.ConfigPolicy",
+    "SystemCapability.HiviewDFX.HiLogLite",
+    "SystemCapability.HiviewDFX.HiviewLite",
+    "SystemCapability.HiviewDFX.HiEventLite",
+    "SystemCapability.Update.Core",
+    "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.FileManagement.File.Environment",
+    "SystemCapability.Startup.SystemInfo"
+  ]
+}

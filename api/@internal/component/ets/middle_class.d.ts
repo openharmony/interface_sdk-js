@@ -601,7 +601,7 @@ declare class TSSwipeGestureInterface {
     pop(): SwipeGestureInterface;
 }
 
-declare class PinchGestureInterface {
+declare class TSPinchGestureInterface {
     create(value?: {
         fingers?: number;
         distance?: number;
