@@ -17,7 +17,7 @@
  * Sets the sidebar style of showing
  * @since 8
  */
-declare enum SideBarContainerStyle {
+declare enum SideBarContainerType {
     /**
      * The sidebar invisible
      * @since 8
@@ -73,9 +73,7 @@ interface SideBarContainerInterface {
      * Called when showing the sidebar of a block entry.
      * @since 8
      */
-    (options?: { showSideBarContainer?: boolean,
-               style?: SideBarContainerStyle,
-               buttonAttr?: ButtonStyle}): SideBarContainerAttribute;
+    (type?: SideBarContainerType): SideBarContainerAttribute;
 }
 
 /**
@@ -84,6 +82,16 @@ interface SideBarContainerInterface {
  */
 
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
+  /**
+   * Callback showControlButton function when setting the status of sidebar
+   * @since 8
+   */
+  showSideBar(value: boolean): SideBarContainerAttribute;
+  /**
+   * Callback controlButton function when setting the style of button
+   * @since 8
+   */
+  controlButton(value: ButtonStyle): SideBarContainerAttribute;
   /**
    * Callback showControlButton function when setting the status of button
    * @since 8
