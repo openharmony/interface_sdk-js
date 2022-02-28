@@ -30,24 +30,24 @@ declare enum MessageLevel {
   Warn
 }
 
-declare enum MixedModeContent {
+declare enum MixedMode {
   /**
-   * MIXED_CONTENT_ALWAYS_ALLOW level.
+   * Allows all sources.
    * @since 8
    */
-  MIXED_CONTENT_ALWAYS_ALLOW,
+  ALL,
 
   /**
-   * MIXED_CONTENT_NEVER_ALLOW level.
+   * Allows sources Compatibly.
    * @since 8
    */
-  MIXED_CONTENT_NEVER_ALLOW,
+  Compatible,
 
   /**
-   * MIXED_CONTENT_COMPATIBILITY_MODE level.
+   * Don't allow unsecure sources from a secure origin.
    * @since 8
    */
-  MIXED_CONTENT_COMPATIBILITY_MODE,
+  None,
 }
 
 declare enum HitTestType {
@@ -450,7 +450,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Whether to load HTTP and HTTPS content
    * @since 8
    */
-  mixedMode(mixedMode: MixedModeContent): WebAttribute;
+  mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
    * Sets whether the WebView supports zooming using on-screen controls or gestures
