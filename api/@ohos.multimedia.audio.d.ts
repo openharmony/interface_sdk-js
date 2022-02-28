@@ -690,6 +690,7 @@ declare namespace audio {
    * Interrupt force type.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @systemapi
    */
   enum InterruptForceType {
     /**
@@ -1391,6 +1392,7 @@ declare namespace audio {
      * @return InterruptEvent callback.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
      */
     on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**

@@ -276,12 +276,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback, no value will be returned.
+     * @systemapi
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     commitModify(): Promise<void>;
     /**
@@ -342,6 +344,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isFavorite ture is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
+     * @systemapi
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -349,6 +352,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isFavorite ture is favorite file, false is not favorite file
+     * @systemapi
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -356,12 +360,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return true or false.
+     * @systemapi
      */
     isFavorite(callback: AsyncCallback<boolean>): void;
     /**
      * If the file is favorite when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     isFavorite():Promise<boolean>;
     /**
@@ -369,7 +375,8 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isTrash true is trashed file, false is not trashed file
-     * @param callback Callback used to return, No value is returned. 
+     * @param callback Callback used to return, No value is returned.
+     * @systemapi
      */
     trash(isTrash: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -377,6 +384,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param isTrash true is trashed file, false is not trashed file
+     * @systemapi
      */
     trash(isTrash: boolean,): Promise<void>;
     /**
@@ -384,12 +392,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return true or false.
+     * @systemapi
      */
     isTrash(callback: AsyncCallback<boolean>): void;
     /**
      * If the file is in trash when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     isTrash():Promise<boolean>;
   }
@@ -732,12 +742,14 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback, no value will be returned.
+     * @systemapi
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @systemapi
      */
     commitModify(): Promise<void>;
     /**
@@ -892,6 +904,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param uri, FileAsset's URI
      * @param callback no value returned
+     * @systemapi
      */
     deleteAsset(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -900,6 +913,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param uri, FileAsset's URI
      * @return A Promise instance, no value returned
+     * @systemapi
      */
     deleteAsset(uri: string): Promise<void>;
     /**
