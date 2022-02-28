@@ -14,6 +14,30 @@
  */
 
 /**
+ * Defines style option for progress component.
+ * @since 8
+ */
+declare interface ProgressStyleOption {
+  /**
+   * Defines the strokeWidth property.
+   * @since 8
+   */
+  strokeWidth?: Length;
+
+  /**
+   * Defines the scaleCoun property.
+   * @since 8
+   */
+  scaleCount?: number;
+
+  /**
+   * Defines the scaleWidth property.
+   * @since 8
+   */
+  scaleWidth?: Length;
+}
+
+/**
  * Type of progress bar
  * @since 7
  */
@@ -83,17 +107,10 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   color(value: ResourceColor): ProgressAttribute;
 
   /**
-   * Called when the style of the circular progress bar is set.
-   * @since 7
+   * Called when the style of progress bar is set.
+   * @since 8
    */
-  circularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
-
-  /**
-   * Called when the style of the cricular progress bar is set.
-   * @since 7
-   * @deprecated since 7
-   */
-  cricularStyle(value: { strokeWidth?: Length; scaleCount?: number; scaleWidth?: Length }): ProgressAttribute;
+  style(value: ProgressStyleOption): ProgressAttribute;
 }
 
 declare const Progress: ProgressInterface;
