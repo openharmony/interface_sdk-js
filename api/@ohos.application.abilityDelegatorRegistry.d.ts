@@ -21,7 +21,7 @@ import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
  * during application startup.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
  */
@@ -30,7 +30,7 @@ declare namespace abilityDelegatorRegistry {
      * Get the AbilityDelegator object of the application.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return the AbilityDelegator object initialized when the application is started.
      */
     function getAbilityDelegator(): AbilityDelegator;
@@ -39,7 +39,7 @@ declare namespace abilityDelegatorRegistry {
      * Get unit test parameters stored in the AbilityDelegatorArgs object.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return the previously registered AbilityDelegatorArgs object.
      */
     function getArguments(): AbilityDelegatorArgs;
@@ -48,7 +48,7 @@ declare namespace abilityDelegatorRegistry {
      * Describes all lifecycle states of an ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     export enum AbilityLifecycleState {
         UNINITIALIZED,

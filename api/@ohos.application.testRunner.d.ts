@@ -18,7 +18,7 @@
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import TestRunner from '@ohos.application.testRunner'
  * @permission N/A
  */
@@ -27,7 +27,7 @@ export interface TestRunner {
      * Prepare the unit testing environment for running test cases.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     onPrepare(): void;
 
@@ -35,7 +35,7 @@ export interface TestRunner {
      * Run all test cases.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     onRun(): void;
 }
