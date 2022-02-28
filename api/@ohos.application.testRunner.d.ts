@@ -16,26 +16,28 @@
 /**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
- * 测试框架的执行器基类
  *
- * @since 8
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import TestRunner from '@ohos.application.testRunner'
  * @permission N/A
  */
 export interface TestRunner {
     /**
      * Prepare the unit testing environment for running test cases.
-     * 为执行器准备单元测试环境
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onPrepare​(): void;
+    onPrepare(): void;
 
     /**
      * Run all test cases.
-     * 运行所有的测试用例
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onRun​(): void;
+    onRun(): void;
 }
 
 export default TestRunner;

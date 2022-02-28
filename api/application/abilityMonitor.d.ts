@@ -16,60 +16,74 @@
 /**
  * Provide methods for matching monitored Ability objects that meet specified conditions.
  * The most recently matched Ability objects will be saved in the AbilityMonitor object.
- * 监听指定Ability生命周期状态变化的监听器
  *
- * @since 8
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityMonitor from 'application/abilityMonitor.d'
  * @permission N/A
  */
 export interface AbilityMonitor {
     /**
      * The name of the ability to monitor.
-     * 表示当前AbilityMonitor绑定的ability name
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     abilityName: string;
 
     /**
      * Called back when the ability is started for initialization.
-     * ability被启动初始化时的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityCreate?:() => void;
 
     /**
      * Called back when the state of the ability changes to foreground.
-     * ability状态变成前台时的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityForeground?:() => void;
 
     /**
      * Called back when the state of the ability changes to background.
-     * ability状态变成后台时的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityBackground?:() => void;
 
     /**
      * Called back before the ability is destroyed.
-     * ability被销毁前的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onAbilityDestroy?:() => void;
 
     /**
      * Called back when an ability window stage is created.
-     * window stage被创建时的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageCreate?:() => void;
 
     /**
      * Called back when an ability window stage is restored.
-     * window stage被重载时的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageRestore?:() => void;
 
     /**
      * Called back when an ability window stage is destroyed.
-     * window stage被销毁前的回调函数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     onWindowStageDestroy?:() => void;
 }

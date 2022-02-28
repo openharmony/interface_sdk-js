@@ -16,38 +16,44 @@
 
 /**
  * Store unit testing-related parameters, including test case names, and test runner name.
- * 存储单元测试相关的参数，包括测试用例名称，测试用例执行器名称
  *
- * @since 8
- * @SysCap SystemCapability.Appexecfwk
- * @devices phone, tablet, tv, wearable, car
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
  * @permission N/A
  */
 export interface AbilityDelegatorArgs {
     /**
      * the bundle name of the application being tested.
-     * 表示当前被测试应用的包名
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     bundleName: string;
 
     /**
      * the parameters used for unit testing.
-     * 表示当前启动单元测试的参数
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
-    parameters​: {[key: string]: string};
+    parameters: {[key: string]: string};
 
     /**
      * the class names of all test cases.
-     * 测试用例名称
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
     testCaseNames: string;
 
     /**
      * the class name of the test runner used to execute test cases.
-     * 执行测试用例的测试执行器的名称
+     *
+     * @since 9
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      */
-    testRunnerClassName: string;​
+    testRunnerClassName: string;
 }
 
 export default AbilityDelegatorArgs;
