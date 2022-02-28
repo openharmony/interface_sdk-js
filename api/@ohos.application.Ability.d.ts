@@ -176,6 +176,17 @@ export default class Ability {
     onWindowStageDestroy(): void;
 
     /**
+     * Called back when an ability window stage is restored.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param windowStage window stage to restore
+     * @return -
+     * @StageModelOnly
+     */
+    onWindowStageRestore(windowStage: window.WindowStage): void;
+
+    /**
      * Called back before an ability is destroyed.
      *
      * @since 9
