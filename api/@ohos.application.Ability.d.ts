@@ -21,20 +21,53 @@ import { Configuration } from './@ohos.application.Configuration';
 import rpc from '/@ohos.rpc';
 
 /**
+ * The prototype of the listener function interface registered by the Caller.
+ *
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @param msg Monitor status notification information.
+ * @return -
+ * @StageModelOnly
+ */
+export interface OnReleaseCallBack {
+    (msg: string): void;
+}
+
+/**
+ * The prototype of the message listener function interface registered by the Callee.
+ *
+ * @since 9
+ * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @devices phone, tablet, tv, wearable, car
+ * @permission N/A
+ * @param indata Notification data notified from the caller.
+ * @return rpc.Sequenceable
+ * @StageModelOnly
+ */
+export interface CaleeCallBack {
+    (indata: rpc.MessageParcel): rpc.Sequenceable;
+}
+
+/**
  * The interface of a Caller.
  *
  * @since 9
- * @sysCap AAFwk
+ * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  * @StageModelOnly
  */
- interface Caller {
+export interface Caller {
      /**
      * Notify the server of Sequenceable type data.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method The notification event string listened to by the callee.
+     * @param data Notification data to the callee.
+     * @return -
      * @StageModelOnly
      */
      call(method: string, data: rpc.Sequenceable): Promise<void>;
@@ -43,8 +76,10 @@ import rpc from '/@ohos.rpc';
      * Notify the server of Sequenceable type data and return the notification result.
      *
      * @since 9
-     * @sysCap AAFwk
-     * return Sequenceable data
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method The notification event string listened to by the callee.
+     * @param data Notification data to the callee.
+     * @return Returns the callee's notification result data on success, and returns undefined on failure.
      * @StageModelOnly
      */
      callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
@@ -53,8 +88,8 @@ import rpc from '/@ohos.rpc';
      * Clear service records.
      *
      * @since 9
-     * @sysCap AAFwk
-     * return Sequenceable data
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @return -
      * @StageModelOnly
      */
      release(): void;
@@ -63,38 +98,44 @@ import rpc from '/@ohos.rpc';
      * Register death listener notification callback.
      *
      * @since 9
-     * @sysCap AAFwk
-     * return Sequenceable data
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param callback Register a callback function for listening for notifications.
+     * @return -
      * @StageModelOnly
      */
-     onRelease(callback: function): void;
+     onRelease(callback: OnReleaseCallBack): void;
  }
 
  /**
  * The interface of a Callee.
  *
  * @since 9
- * @sysCap AAFwk
+ * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @devices phone, tablet, tv, wearable, car
  * @permission N/A
  * @StageModelOnly
  */
- interface Callee {
+export interface Callee {
 
      /**
      * Register data listener callback.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method A string registered to listen for notification events.
+     * @param callback Register a callback function that listens for notification events.
+     * @return -
      * @StageModelOnly
      */
-     on(method: string, callback: function): void;
+     on(method: string, callback: CaleeCallBack): void;
 
      /**
      * Unregister data listener callback.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param method A string registered to listen for notification events.
+     * @return -
      * @StageModelOnly
      */
      off(method: string): void;
@@ -140,7 +181,7 @@ export default class Ability {
      * Call Service Stub Object.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      callee: Callee;
@@ -221,7 +262,7 @@ export default class Ability {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -232,7 +273,7 @@ export default class Ability {
       *
       * @devices phone, tablet, tv, wearable, car
       * @since 9
-      * @sysCap AAFwk
+      * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
       * @return -
       * @StageModelOnly
       */

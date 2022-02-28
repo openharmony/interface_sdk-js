@@ -56,7 +56,7 @@ export default class AbilityContext extends Context {
      * Indicates configuration information.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     config: Configuration;
@@ -79,12 +79,12 @@ export default class AbilityContext extends Context {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
-     * @param parameter Indicates the ability to start.
-     * @return Caller
+     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the ability to start.
+     * @return Returns to the Caller interface on success Returns empty or undefined on failure
      * @StageModelOnly
      */
-     startAbilityByCall(want: Want): Promise<Caller>;
+    startAbilityByCall(want: Want): Promise<Caller>;
 
     /**
      * Starts a new ability with account.
