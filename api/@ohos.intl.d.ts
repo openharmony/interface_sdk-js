@@ -671,7 +671,7 @@ export class PluralRules {
 /**
  * Provides the input options of RelativeTimeFormat.
  *
- * @sysCap SystemCapability.Intl
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
  export interface RelativeTimeFormatInputOptions {
@@ -697,7 +697,7 @@ export class PluralRules {
 /**
  * Provides the resolved options of RelativeTimeFormat.
  *
- * @sysCap SystemCapability.Intl
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export interface RelativeTimeFormatResolvedOptions {
@@ -728,14 +728,14 @@ export interface RelativeTimeFormatResolvedOptions {
  * Given a Time period length value and a unit, RelativeTimeFormat object enables
  * language-sensitive relative time formatting.
  *
- * @sysCap SystemCapability.Intl
+ * @sysCap SystemCapability.Global.I18n
  * @since 8
  */
 export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
-     * @sysCap SystemCapability.Intl
+     * @sysCap SystemCapability.Global.I18n
      * @since 8
      */
     constructor();
@@ -743,7 +743,7 @@ export class RelativeTimeFormat {
     /**
      * A constructor used to create RelativeTimeFormat object.
      *
-     * @sysCap SystemCapability.Intl
+     * @sysCap SystemCapability.Global.I18n
      * @param locale Indicates a character string containing the locale information, including
      *               the language and optionally the script and region, for the RelativeTimeFormat object.
      * @param options Indicates the options used to initialize RelativeTimeFormat object.
@@ -754,7 +754,7 @@ export class RelativeTimeFormat {
     /**
      * formats a value and unit according to the locale and formatting options of this object.
      *
-     * @sysCap SystemCapability.Intl
+     * @sysCap SystemCapability.Global.I18n
      * @param value Numeric value to use in the internationalized relative time message.
      * @param unit Unit to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
@@ -767,7 +767,7 @@ export class RelativeTimeFormat {
      * returns an Array of objects representing the relative time format in parts that can be used for
      * custom locale-aware formatting
      *
-     * @sysCap SystemCapability.Intl
+     * @sysCap SystemCapability.Global.I18n
      * @param value Numeric value to use in the internationalized relative time message.
      * @param unit to use in the relative time internationalized message.
      *             Possible values are: year, quarter, month, week, day, hour, minute, second.
@@ -780,7 +780,7 @@ export class RelativeTimeFormat {
      * Returns a new object with properties reflecting the locale and formatting options computed during
      * initialization of the object.
      *
-     * @sysCap SystemCapability.Intl
+     * @sysCap SystemCapability.Global.I18n
      * @returns RelativeTimeFormatOptions which reflecting the locale and formatting options of the object.
      * @since 8
      */
