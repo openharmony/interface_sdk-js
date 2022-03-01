@@ -32,6 +32,13 @@ declare class XComponentController {
    * @systemapi
    */
   getXComponentSurfaceId();
+
+  /**
+   * get the context of native XComponent.
+   * @since 8
+   * @systemapi
+   */
+  getXComponentContext();
 }
 
 /**
