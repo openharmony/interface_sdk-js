@@ -42,8 +42,7 @@ declare namespace call {
    * Go to the dial screen and the called number is displayed.
    *
    * @param phoneNumber Indicates the called number.
-   * @syscap SystemCapability.SysAppComponents.CONTACT
-   * @devices phone, tablet
+   * @syscap SystemCapability.Applications.Contacts
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
   function makeCall(phoneNumber: string): Promise<void>;
