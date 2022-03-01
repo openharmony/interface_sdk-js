@@ -18,14 +18,14 @@
  *
  * @name formBindingData
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
 declare namespace formBindingData {
     /**
      * Create an FormBindingData instance.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param obj Indicates the FormBindingData instance data.
      * @return Returns the {@link FormBindingData} instance.
      */

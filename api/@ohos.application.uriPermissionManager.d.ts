@@ -20,7 +20,7 @@ import wantConstant from "./@ohos.ability.wantConstant";
  * The management class for uri of file.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace uriPermissionManager {
@@ -28,7 +28,7 @@ declare namespace uriPermissionManager {
      * Check whether the application corresponding to the accesstokenID has access rights to the URI.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param uri File URI.
      * @param flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
      * @param accessTokenId Indicates the access token of the application.

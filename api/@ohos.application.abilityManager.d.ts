@@ -22,7 +22,7 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
  * The class of an ability manager.
  *
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 declare namespace abilityManager {
@@ -30,7 +30,7 @@ declare namespace abilityManager {
     /**
      * @name AbilityState
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @permission N/A
      */
     export enum AbilityState {
@@ -45,7 +45,7 @@ declare namespace abilityManager {
      * Updates the configuration by modifying the configuration.
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
@@ -57,18 +57,18 @@ declare namespace abilityManager {
      * Get information about running abilitys
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi Hide this for inner system use.
      * @return -
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
- 
+
      /**
       * Get information about running extensions
       *
       * @since 9
-      * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
       * @param upperLimit Get the maximum limit of the number of messages
       * @systemapi Hide this for inner system use.
       * @return -

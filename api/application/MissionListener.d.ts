@@ -18,7 +18,7 @@
  *
  * @name MissionListener
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @systemapi hide for inner use.
  */
@@ -27,7 +27,7 @@
      * Called by system when mission created.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionCreated(mission: number): void;
@@ -36,7 +36,7 @@
      * Called by system when mission destroyed.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionDestroyed(mission: number): void;
@@ -45,7 +45,7 @@
      * Called by system when mission shapshot changed.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionSnapshotChanged(mission: number): void;
@@ -54,7 +54,7 @@
      * Called by system when mission moved to fornt.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @return -
      */
     onMissionMovedToFront(mission: number): void;

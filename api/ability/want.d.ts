@@ -17,7 +17,7 @@
   * Want is the basic communication component of the system.
   * @name Want
   * @since 6
-  * @sysCap SystemCapability.Ability.AbilityBase
+  * @syscap SystemCapability.Ability.AbilityBase
   * @permission N/A
   */
 export declare interface Want {
@@ -25,7 +25,7 @@ export declare interface Want {
    * device id
    * @default -
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   deviceId?: string;
 
@@ -33,7 +33,7 @@ export declare interface Want {
    * bundle name
    * @default -
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   bundleName?: string;
 
@@ -41,14 +41,14 @@ export declare interface Want {
    * ability name
    * @default -
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   abilityName?: string;
 
   /**
    * The description of a URI in a Want.
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   uri?: string;
@@ -56,7 +56,7 @@ export declare interface Want {
   /**
    * The description of the type in this Want.
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   type?: string;
@@ -64,7 +64,7 @@ export declare interface Want {
   /**
    * The options of the flags in this Want.
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   flags?: number;
@@ -72,7 +72,7 @@ export declare interface Want {
   /**
    * The description of an action in an want.
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   action?: string;
@@ -80,7 +80,7 @@ export declare interface Want {
   /**
    * The description of the WantParams object in an Want
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   parameters?: {[key: string]: any};
@@ -88,7 +88,7 @@ export declare interface Want {
   /**
    * The description of a entities in a Want.
    * @since 6
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   entities?: Array<string>;
@@ -96,7 +96,7 @@ export declare interface Want {
   /**
    * The description of a extension ability name in a Want.
    * @since 9
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   extensionAbilityName?: string;
@@ -104,7 +104,7 @@ export declare interface Want {
   /**
    * The description of a extension ability type in a Want.
    * @since 9
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    * @default -
    */
   extensionAbilityType?: number;

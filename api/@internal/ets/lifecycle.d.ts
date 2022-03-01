@@ -31,7 +31,7 @@ import { PacMap } from "../ability/dataAbilityHelper";
  *
  * @name LifecycleForm
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
  */
 export declare interface LifecycleForm {
@@ -39,7 +39,7 @@ export declare interface LifecycleForm {
    * Called to return a {@link formBindingData.FormBindingData} object.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the detailed information for creating a {@link formBindingData#FormBindingData}.
    *               The {@code Want} object must include the form ID, form name, and grid style of the form,
    *               which can be obtained from {@link formManager#FormParam#IDENTITY_KEY},
@@ -55,7 +55,7 @@ export declare interface LifecycleForm {
    * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the form.
    * @return -
    * @FAModelOnly
@@ -66,7 +66,7 @@ export declare interface LifecycleForm {
    * Called to notify the form provider to update a specified form.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the form to update.
    * @return -
    * @FAModelOnly
@@ -77,7 +77,7 @@ export declare interface LifecycleForm {
    * Called when the form provider receives form events from the system.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param newStatus Indicates the form events occurred. The key in the {@code Map} object indicates the form ID,
    *    and the value indicates the event type, which can be either {@link formManager#VisibilityType#FORM_VISIBLE}
    *    or {@link formManager#VisibilityType#FORM_INVISIBLE}. {@link formManager#VisibilityType#FORM_VISIBLE}
@@ -93,7 +93,7 @@ export declare interface LifecycleForm {
    * JS forms.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the form on which the message event is triggered, which is provided by
    *               the client to the form provider.
    * @param message Indicates the value of the {@code params} field of the message event. This parameter is
@@ -108,7 +108,7 @@ export declare interface LifecycleForm {
    * you want your application, as the form provider, to be notified of form deletion.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the deleted form.
    * @return -
    * @FAModelOnly
@@ -122,7 +122,7 @@ export declare interface LifecycleForm {
    * this method returns {@link FormState#DEFAULT} by default.</p>
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the description of the form for which the {@link formManager#FormState} is obtained.
    *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
    * @return Returns the {@link formManager#FormState} object.
@@ -136,7 +136,7 @@ export declare interface LifecycleForm {
  *
  * @name LifecycleApp
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAMode
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
  */
 export declare interface LifecycleApp {
@@ -144,7 +144,7 @@ export declare interface LifecycleApp {
    * Called back when the state of an ability changes from <b>BACKGROUND</b> to <b>INACTIVE</b>.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -154,7 +154,7 @@ export declare interface LifecycleApp {
    * Called back when an ability enters the <b>BACKGROUND</b> state.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -164,7 +164,7 @@ export declare interface LifecycleApp {
    * Called back before an ability is destroyed.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -174,7 +174,7 @@ export declare interface LifecycleApp {
    * Called back when an ability is started for initialization.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -185,7 +185,7 @@ export declare interface LifecycleApp {
    *     to multi-window mode or from multi-window mode to fullscreen mode.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param isShownInMultiWindow Specifies whether this ability is currently in multi-window mode.
    *     The value {@code true} indicates the multi-window mode, and {@code false} indicates another mode.
    * @param newConfig Indicates the new configuration information about this Page ability.
@@ -199,7 +199,7 @@ export declare interface LifecycleApp {
    * Asks a user whether to start the migration.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
    * @FAModelOnly
    */
@@ -211,7 +211,7 @@ export declare interface LifecycleApp {
    * Scheduler Service requests data from the local ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param data Indicates the user data to save.
    * @return Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
    * @FAModelOnly
@@ -225,7 +225,7 @@ export declare interface LifecycleApp {
    * notify the user of the successful migration and then exit the local ability.</p>
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param result Indicates the migration result code. The value {@code 0} indicates that the migration is
    *               successful, and {@code -1} indicates that the migration fails.
    * @return -
@@ -239,7 +239,7 @@ export declare interface LifecycleApp {
    * is restored.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param data Indicates the user data to restore.
    * @return -
    * @FAModelOnly
@@ -251,7 +251,7 @@ export declare interface LifecycleApp {
    * migration is performed for the ability from the local device to the remote device.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -263,7 +263,7 @@ export declare interface LifecycleApp {
    * this method is used only to save temporary states.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param outState Indicates the {@code PacMap} object used for storing user data and states. This
    * parameter cannot be null.
    * @return -
@@ -277,7 +277,7 @@ export declare interface LifecycleApp {
    * states. Generally, this method is called after the {@link #onStart(Want)} method.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param inState Indicates the {@code PacMap} object used for storing data and states. This
    * parameter can not be null.
    * @return -
@@ -290,7 +290,7 @@ export declare interface LifecycleApp {
    * change to the <b>BACKGROUND</b> or <b>ACTIVE</b> state).
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -300,7 +300,7 @@ export declare interface LifecycleApp {
    * Called back when an ability enters the <b>ACTIVE</b> state.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -310,7 +310,7 @@ export declare interface LifecycleApp {
    * Called when the launch mode of an ability is set to singleton.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the new {@code want} containing information about the ability.
    * @return -
    * @FAModelOnly
@@ -322,7 +322,7 @@ export declare interface LifecycleApp {
    * background and there is no enough memory for running as many background processes as possible.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param level Indicates the memory trim level, which shows the current memory usage status.
    * @return -
    * @FAModelOnly
@@ -335,7 +335,7 @@ export declare interface LifecycleApp {
  *
  * @name LifecycleService
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAMode
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
  */
 export declare interface LifecycleService {
@@ -344,7 +344,7 @@ export declare interface LifecycleService {
    * an ability).
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -354,7 +354,7 @@ export declare interface LifecycleService {
    * Called back when Service is started.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the want of Service to start.
    * @param startId Indicates the number of times the Service ability has been started. The {@code startId} is
    *     incremented by 1 every time the ability is started. For example, if the ability has been started
@@ -368,7 +368,7 @@ export declare interface LifecycleService {
    * Called back before an ability is destroyed.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -378,7 +378,7 @@ export declare interface LifecycleService {
    * Called back when a Service ability is first connected to an ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates connection information about the Service ability.
    * @return Returns the proxy of the Service ability.
    * @FAModelOnly
@@ -389,7 +389,7 @@ export declare interface LifecycleService {
    * Called back when all abilities connected to a Service ability are disconnected.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates disconnection information about the Service ability.
    * @return -
    * @FAModelOnly
@@ -404,7 +404,7 @@ export declare interface LifecycleService {
    * called but {@link #terminateSelf} has not.</p>
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the want of the Service ability being connected.
    * @return -
    * @FAModelOnly
@@ -417,7 +417,7 @@ export declare interface LifecycleService {
  *
  * @name LifecycleData
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAMode
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
  */
 export declare interface LifecycleData {
@@ -425,7 +425,7 @@ export declare interface LifecycleData {
    * Updates one or more data records in the database. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the database table storing the data to update.
    * @param valueBucket Indicates the data to update. This parameter can be null.
    * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
@@ -441,7 +441,7 @@ export declare interface LifecycleData {
    * Queries one or more data records in the database. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the database table storing the data to query.
    * @param columns Indicates the columns to be queried, in array, for example, {"name","age"}. You should define
    *                the processing logic when this parameter is null.
@@ -458,7 +458,7 @@ export declare interface LifecycleData {
    * Deletes one or more data records. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the database table storing the data to delete.
    * @param predicates Indicates filter criteria. If this parameter is null, all data records will be deleted by
    *     default.
@@ -475,7 +475,7 @@ export declare interface LifecycleData {
    * even if the context has changed.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the uri to normalize.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
@@ -488,7 +488,7 @@ export declare interface LifecycleData {
    * Inserts multiple data records into the database. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the position where the data is to insert.
    * @param valueBuckets Indicates the data to insert.
    * @param callback function specified by framework to receive the result, developer should call this function to
@@ -503,7 +503,7 @@ export declare interface LifecycleData {
    * The default implementation of this method returns the original uri passed to it.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the uri to denormalize.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
@@ -516,7 +516,7 @@ export declare interface LifecycleData {
    * Inserts a data record into the database. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the position where the data is to insert.
    * @param valueBucket Indicates the data to insert.
    * @param callback function specified by framework to receive the result, developer should call this function to
@@ -530,7 +530,7 @@ export declare interface LifecycleData {
    * Opens a file. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @param mode Indicates the open mode, which can be "r" for read-only access, "w" for write-only access (erasing
    *     whatever data is currently in the file), "wt" for write access that truncates any existing file,
@@ -547,7 +547,7 @@ export declare interface LifecycleData {
    * Obtains the MIME type of files. This method should be implemented by a Data ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the files to obtain.
    * @param mimeTypeFilter Indicates the MIME type of the files to obtain. This parameter cannot be set to {@code
    *     null}.
@@ -565,7 +565,7 @@ export declare interface LifecycleData {
    * Called to carry {@code AbilityInfo} to this ability after the ability is initialized.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param info Indicates the {@code AbilityInfo} object containing information about this ability.
    * @return -
    * @FAModelOnly
@@ -579,7 +579,7 @@ export declare interface LifecycleData {
    * <p>Data abilities supports general data types, including text, HTML, and JPEG.</p>
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the uri of the data.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.

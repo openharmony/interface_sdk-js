@@ -16,7 +16,7 @@
 /**
  * @name This class saves process information about an application
  * @since 7
- * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import app from 'app/activeProcessInfo'
  * @permission N/A
  */
@@ -24,28 +24,28 @@ export interface ActiveProcessInfo {
     /**
      * @default process id
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     pid: number;
 
     /**
      * @default user id
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     uid: number;
 
     /**
      * @default the name of the process
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     processName: string;
 
     /**
      * @default an array of the bundleNames running in the process
      * @since 7
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     bundleNames: Array<string>;
 }

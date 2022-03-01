@@ -16,7 +16,7 @@ import { Want } from './want';
 
  /**
  * @since 3
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  */
 export interface StartAbilityParameter {
@@ -25,7 +25,7 @@ export interface StartAbilityParameter {
    *
    * @default -
    * @since 3
-   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   want: Want;
@@ -35,7 +35,7 @@ export interface StartAbilityParameter {
    *
    * @default -
    * @since 3
-   * @SysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
   abilityStartSetting?: {[key: string]: any};
