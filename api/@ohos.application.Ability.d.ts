@@ -24,8 +24,7 @@ import rpc from '/@ohos.rpc';
  * The prototype of the listener function interface registered by the Caller.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @param msg Monitor status notification information.
  * @return -
@@ -39,8 +38,7 @@ export interface OnReleaseCallBack {
  * The prototype of the message listener function interface registered by the Callee.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @param indata Notification data notified from the caller.
  * @return rpc.Sequenceable
@@ -54,8 +52,7 @@ export interface CaleeCallBack {
  * The interface of a Caller.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -64,7 +61,7 @@ export interface Caller {
      * Notify the server of Sequenceable type data.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method The notification event string listened to by the callee.
      * @param data Notification data to the callee.
      * @return -
@@ -76,7 +73,7 @@ export interface Caller {
      * Notify the server of Sequenceable type data and return the notification result.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method The notification event string listened to by the callee.
      * @param data Notification data to the callee.
      * @return Returns the callee's notification result data on success, and returns undefined on failure.
@@ -88,7 +85,7 @@ export interface Caller {
      * Clear service records.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -98,7 +95,7 @@ export interface Caller {
      * Register death listener notification callback.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param callback Register a callback function for listening for notifications.
      * @return -
      * @StageModelOnly
@@ -110,8 +107,7 @@ export interface Caller {
  * The interface of a Callee.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -121,7 +117,7 @@ export interface Callee {
      * Register data listener callback.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method A string registered to listen for notification events.
      * @param callback Register a callback function that listens for notification events.
      * @return -
@@ -133,7 +129,7 @@ export interface Callee {
      * Unregister data listener callback.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method A string registered to listen for notification events.
      * @return -
      * @StageModelOnly
@@ -145,7 +141,7 @@ export interface Callee {
  * The class of an ability.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -154,7 +150,7 @@ export default class Ability {
      * Indicates configuration information about an ability context.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     context: AbilityContext;
@@ -163,7 +159,7 @@ export default class Ability {
      * Indicates ability launch want.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     launchWant: Want;
@@ -172,7 +168,7 @@ export default class Ability {
      * Indicates ability last request want.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     lastRequestWant: Want;
@@ -181,7 +177,7 @@ export default class Ability {
      * Call Service Stub Object.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      callee: Callee;
@@ -190,7 +186,7 @@ export default class Ability {
      * Called back when an ability is started for initialization.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -200,7 +196,7 @@ export default class Ability {
      * Called back when an ability window stage is created.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -210,7 +206,7 @@ export default class Ability {
      * Called back when an ability window stage is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -220,7 +216,7 @@ export default class Ability {
      * Called back before an ability is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -230,7 +226,7 @@ export default class Ability {
      * Called back when the state of an ability changes to foreground.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -240,7 +236,7 @@ export default class Ability {
      * Called back when the state of an ability changes to background.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -250,7 +246,7 @@ export default class Ability {
      * Called back when an ability prepares to migrate.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
      * @StageModelOnly
      */
@@ -260,9 +256,8 @@ export default class Ability {
      * Called when the launch mode of an ability is set to singleton.
      * This happens when you re-launch an ability that has been at the top of the ability stack.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -271,9 +266,8 @@ export default class Ability {
      /**
       * Called when the system configuration is updated.
       *
-      * @devices phone, tablet, tv, wearable, car
       * @since 9
-      * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
       * @return -
       * @StageModelOnly
       */
