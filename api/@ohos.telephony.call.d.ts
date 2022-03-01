@@ -43,6 +43,7 @@ declare namespace call {
    *
    * @param phoneNumber Indicates the called number.
    * @syscap SystemCapability.Applications.Contacts
+   * @since 7
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
   function makeCall(phoneNumber: string): Promise<void>;
