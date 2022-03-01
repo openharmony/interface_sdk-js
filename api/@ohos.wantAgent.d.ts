@@ -24,7 +24,7 @@ import { TriggerInfo } from './wantAgent/triggerInfo';
  *
  * @name wantAgent
  * @since 7
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import wantAgent from '@ohos.wantAgent';
  * @permission N/A
  */

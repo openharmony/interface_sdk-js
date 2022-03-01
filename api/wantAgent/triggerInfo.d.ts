@@ -20,7 +20,7 @@ import { Want } from '../ability/want';
  *
  * @name TriggerInfo
  * @since 7
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface TriggerInfo {
