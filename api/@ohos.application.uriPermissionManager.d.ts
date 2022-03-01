@@ -23,7 +23,7 @@ import wantConstant from "./@ohos.ability.wantConstant";
  * @sysCap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
-export default class UriPermissionManager {
+declare namespace uriPermissionManager {
     /**
      * Check whether the application corresponding to the accesstokenID has access rights to the URI.
      *
@@ -34,6 +34,8 @@ export default class UriPermissionManager {
      * @param accessTokenId Indicates the access token of the application.
      * @return Returns 0 if the verification is successful, otherwise returns -1.
      */
-    verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number, callback: AsyncCallback<number>): void;
-    verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number): Promise<number>;
+    function verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number, callback: AsyncCallback<number>): void;
+    function verifyUriPermission(uri: string, flag: wantConstant.Flags, accessTokenId: number): Promise<number>;
 }
+
+export default uriPermissionManager;
