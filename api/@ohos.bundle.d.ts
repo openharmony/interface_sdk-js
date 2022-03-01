@@ -490,18 +490,6 @@ declare namespace bundle {
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
 
   /**
-   * Obtains information about the shortcuts of the application.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @return Returns a list of ShortcutInfo objects containing shortcut information about the application.
-   * @permission ohos.permission.MANAGE_SHORTCUTS
-   */
-  function getAllShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
-  function getAllShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
-
-  /**
    * get module usage record list in descending order of lastLaunchTime.
    *
    * @since 7

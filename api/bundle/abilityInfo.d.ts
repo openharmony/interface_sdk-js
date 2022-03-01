@@ -225,7 +225,7 @@ export interface AbilityInfo {
   readonly metadata: Array<Metadata>;
 
   /**
-    * @default Indicates the metadata of ability
+    * @default Indicates whether the ability is enabled
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
