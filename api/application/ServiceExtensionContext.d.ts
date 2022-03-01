@@ -25,7 +25,7 @@ import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
  * serviceExtension-specific resources.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi hide for inner use.
  * @permission N/A
  * @StageModelOnly
@@ -35,7 +35,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Service extension information.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
     extensionAbilityInfo: ExtensionAbilityInfo;
 
@@ -43,7 +43,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Service extension uses this method to start a specific ability.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param parameter Indicates the ability to start.
      * @systemapi hide for inner use.
      * @return -
@@ -57,7 +57,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Service extension uses this method to start a specific ability with account.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param parameter Indicates the ability to start.
      * @param parameter Indicates the accountId to start.
      * @systemapi hide for inner use.
@@ -72,7 +72,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * Destroys this service extension.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -88,7 +88,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * service extension when the Service extension is connected.</p>
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param request Indicates the service extension to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
@@ -104,7 +104,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * service extension when the Service extension is connected.</p>
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param request Indicates the service extension to connect.
      * @param request Indicates the account to connect.
      * @systemapi hide for inner use.
@@ -118,7 +118,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * {@link connectAbility}.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
      * @return -

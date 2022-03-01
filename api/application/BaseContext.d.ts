@@ -18,7 +18,7 @@
  * 'application.Context' for Stage Mode.
  *
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export default interface BaseContext {
@@ -26,7 +26,7 @@ export default interface BaseContext {
      * Indicates the context is FA Mode or Stage Mode.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     stageMode: boolean;
 }

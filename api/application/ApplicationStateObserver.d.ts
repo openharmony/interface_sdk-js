@@ -21,7 +21,7 @@ import ProcessData from "./ProcessData";
  * The application state observer.
  *
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  */
@@ -30,7 +30,7 @@ export default class ApplicationStateObserver {
      * Will be called when foreground or background application changed.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param appStateData State changed Application info.
      * @systemapi hide for inner use.
      * @return -
@@ -41,7 +41,7 @@ export default class ApplicationStateObserver {
      * Will be called when ability state changed.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param abilityStateData State changed ability info.
      * @systemapi hide for inner use.
      * @return -
@@ -52,7 +52,7 @@ export default class ApplicationStateObserver {
      * Will be called when process created.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
      * @return -
@@ -63,7 +63,7 @@ export default class ApplicationStateObserver {
      * Will be called when process died.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
      * @return -

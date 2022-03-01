@@ -18,7 +18,7 @@
  *
  * @name Want
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityBase
+ * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export default class Want {
@@ -26,7 +26,7 @@ export default class Want {
      * device id
      * @default -
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     deviceId?: string;
 
@@ -34,7 +34,7 @@ export default class Want {
      * bundle name
      * @default -
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     bundleName?: string;
 
@@ -42,14 +42,14 @@ export default class Want {
      * ability name
      * @default -
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      */
     abilityName?: string;
 
     /**
      * The description of a URI in a Want.
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     uri?: string;
@@ -57,7 +57,7 @@ export default class Want {
     /**
      * The description of the type in this Want.
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     type?: string;
@@ -65,7 +65,7 @@ export default class Want {
     /**
      * The options of the flags in this Want.
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     flags?: number;
@@ -73,7 +73,7 @@ export default class Want {
     /**
      * The description of an action in an want.
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     action?: string;
@@ -81,7 +81,7 @@ export default class Want {
     /**
      * The description of the WantParams object in an Want
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     parameters?: {[key: string]: any};
@@ -89,7 +89,7 @@ export default class Want {
     /**
      * The description of a entities in a Want.
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityBase
+     * @syscap SystemCapability.Ability.AbilityBase
      * @default -
      */
     entities?: Array<string>;

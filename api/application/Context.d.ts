@@ -23,7 +23,7 @@ import EventHub from "./EventHub";
  * application-specific resources.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -32,7 +32,7 @@ export default class Context extends BaseContext {
      * Indicates the capability of accessing application resources.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     resourceManager: resmgr.ResourceManager;
@@ -41,7 +41,7 @@ export default class Context extends BaseContext {
      * Indicates configuration information about an application.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     applicationInfo: ApplicationInfo;
@@ -50,7 +50,7 @@ export default class Context extends BaseContext {
      * Indicates app cache dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     cacheDir: string;
@@ -59,7 +59,7 @@ export default class Context extends BaseContext {
      * Indicates app temp dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     tempDir: string;
@@ -68,7 +68,7 @@ export default class Context extends BaseContext {
      * Indicates app files dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     filesDir : string;
@@ -77,7 +77,7 @@ export default class Context extends BaseContext {
      * Indicates app database dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     databaseDir : string;
@@ -86,7 +86,7 @@ export default class Context extends BaseContext {
      * Indicates app storage dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     storageDir : string;
@@ -95,7 +95,7 @@ export default class Context extends BaseContext {
      * Indicates app bundle code dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     bundleCodeDir : string;
@@ -104,7 +104,7 @@ export default class Context extends BaseContext {
      * Indicates app distributed files dir.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     distributedFilesDir: string;
@@ -113,7 +113,7 @@ export default class Context extends BaseContext {
      * Indicates event hub.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     eventHub: EventHub;
@@ -122,7 +122,7 @@ export default class Context extends BaseContext {
      * Create a bundle context
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @param bundleName Indicates the bundle name.
      * @return application context
@@ -134,7 +134,7 @@ export default class Context extends BaseContext {
      * Get application context
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return application context
      * @StageModelOnly
      */
@@ -144,7 +144,7 @@ export default class Context extends BaseContext {
      * Switch file area
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param mode file area.
      * @StageModelOnly
      */

@@ -20,8 +20,7 @@ import Context from "./Context";
  * The context of an extension. It allows access to extension-specific resources.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
  */
@@ -31,7 +30,7 @@ export default class ExtAbilityContext extends Context {
      * Indicates configuration information about an module.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
     currentHapModuleInfo: HapModuleInfo;

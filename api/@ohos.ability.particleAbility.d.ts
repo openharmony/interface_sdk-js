@@ -22,7 +22,7 @@ import { NotificationRequest } from './notification/notificationRequest';
  * A Particle Ability represents an ability with service.
  * @name particleAbility
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
  */
@@ -31,7 +31,7 @@ declare namespace particleAbility {
    * Service ability uses this method to start a specific ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
    * @return -
    * @FAModelOnly
@@ -43,7 +43,7 @@ declare namespace particleAbility {
    * Destroys this service ability.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @return -
    * @FAModelOnly
    */
@@ -54,7 +54,7 @@ declare namespace particleAbility {
    * Obtains the dataAbilityHelper.
    *
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
    * @return Returns the dataAbilityHelper.
    * @FAModelOnly

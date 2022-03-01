@@ -20,7 +20,7 @@ import { image } from '../@ohos.multimedia.image';
  * Mission snapshot corresponding to mission.
  *
  * @since 8
- * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
  * @systemapi hide for inner use.
  */
@@ -29,7 +29,7 @@ export interface MissionSnapshot {
      * Indicates the ability elementName of the mission.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
     ability: ElementName;
 
@@ -37,7 +37,7 @@ export interface MissionSnapshot {
      * Indicates mission snapshot.
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
     snapshot: image.PixelMap;
 }

@@ -16,7 +16,7 @@
 /**
  * @name This class saves process information about an application
  * @since 7
- * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import ProcessInfo from 'app/processInfo'
  * @permission N/A
  */
@@ -26,7 +26,7 @@ export interface ProcessInfo {
    *
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
   pid: number;
 
@@ -35,7 +35,7 @@ export interface ProcessInfo {
    *
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
    processName: string;
 }
