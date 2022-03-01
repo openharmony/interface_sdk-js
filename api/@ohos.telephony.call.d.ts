@@ -1,17 +1,17 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import {AsyncCallback, Callback} from "./basic";
 
@@ -37,6 +37,16 @@ declare namespace call {
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
+
+  /**
+   * Go to the dial screen and the called number is displayed.
+   *
+   * @param phoneNumber Indicates the called number.
+   * @syscap SystemCapability.SysAppComponents.CONTACT
+   * @devices phone, tablet
+   */
+  function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
+  function makeCall(phoneNumber: string): Promise<void>;
 
   /**
    * Checks whether a call is ongoing.
@@ -414,9 +424,9 @@ declare namespace call {
    * @since 8
    */
   export interface CallTransferInfo {
-    transferNum: string,
-    type: CallTransferType,
-    settingType: CallTransferSettingType
+    transferNum: string;
+    type: CallTransferType;
+    settingType: CallTransferSettingType;
   }
 
   /**
@@ -446,16 +456,16 @@ declare namespace call {
    * @since 7
    */
   export interface CallAttributeOptions {
-    accountNumber: string,
-    speakerphoneOn: boolean,
-    accountId: number,
-    videoState: VideoStateType,
-    startTime: number,
-    isEcc: boolean,
-    callType: CallType,
-    callId: number,
-    callState: DetailedCallState,
-    conferenceState: ConferenceState,
+    accountNumber: string;
+    speakerphoneOn: boolean;
+    accountId: number;
+    videoState: VideoStateType;
+    startTime: number;
+    isEcc: boolean;
+    callType: CallType;
+    callId: number;
+    callState: DetailedCallState;
+    conferenceState: ConferenceState;
   }
 
   /**
@@ -510,9 +520,9 @@ declare namespace call {
    * @since 8
    */
   export interface CallRestrictionInfo {
-    type: CallRestrictionType,
-    password: string
-    mode: CallRestrictionMode
+    type: CallRestrictionType;
+    password: string;
+    mode: CallRestrictionMode;
   }
 
   /**

@@ -162,12 +162,12 @@ declare namespace observer {
    * @since 7
    */
   export interface SimStateData {
-    type: CardType,
-    state: SimState,
+    type: CardType;
+    state: SimState;
     /**
      * @since 8
      */
-    reason: LockReason
+    reason: LockReason;
   }
 
   /**
