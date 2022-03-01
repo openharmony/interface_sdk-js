@@ -20,7 +20,6 @@ import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
-import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
 
