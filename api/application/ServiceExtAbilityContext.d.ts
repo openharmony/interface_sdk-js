@@ -24,8 +24,7 @@ import StartOptions from "../@ohos.application.StartOptions";
  * serviceExtension-specific resources.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  * @StageModelOnly
@@ -34,9 +33,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
     /**
      * Service extension uses this method to start a specific ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @systemapi hide for inner use.
      * @return -
@@ -49,9 +47,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
     /**
      * Service extension uses this method to start a specific ability with account.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param parameter Indicates the ability to start.
      * @param parameter Indicates the accountId to start.
      * @systemapi hide for inner use.
@@ -65,9 +62,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
     /**
      * Destroys this service extension.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -82,9 +78,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
      * service extension when the Service extension is connected.</p>
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param request Indicates the service extension to connect.
      * @systemapi hide for inner use.
      * @return connection id, int value.
@@ -99,9 +94,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
      * service extension when the Service extension is connected.</p>
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param request Indicates the service extension to connect.
      * @param request Indicates the account to connect.
      * @systemapi hide for inner use.
@@ -114,9 +108,8 @@ export default class ServiceExtAbilityContext extends ExtAbilityContext {
      * Disconnects an ability to a service extension, in contrast to
      * {@link connectAbility}.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
      * @return -

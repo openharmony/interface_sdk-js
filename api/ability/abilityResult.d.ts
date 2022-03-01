@@ -16,7 +16,7 @@ import { Want } from './want';
 
 /**
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityBase
+ * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
  */
 export interface AbilityResult {
@@ -25,7 +25,7 @@ export interface AbilityResult {
    * code to identify an error.
    * @default -
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   resultCode: number;
 
@@ -34,7 +34,7 @@ export interface AbilityResult {
    * This parameter can be null.
    * @default -
    * @since 7
-   * @sysCap SystemCapability.Ability.AbilityBase
+   * @syscap SystemCapability.Ability.AbilityBase
    */
   want?: Want;
 }
