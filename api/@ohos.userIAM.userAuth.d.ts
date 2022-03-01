@@ -92,7 +92,6 @@ declare namespace userAuth {
 
     /**
      * Auth types
-     * @deprecated since 8
      */
     type AuthType = "ALL" | "FACE_ONLY";
 
