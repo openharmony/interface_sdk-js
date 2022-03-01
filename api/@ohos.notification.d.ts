@@ -624,14 +624,6 @@ declare namespace notification {
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
   /**
-   * Query notification sending permission.
-   *
-   * @since 8
-   */
-  function isNotificationEnabledSelf(callback: AsyncCallback<boolean>): void;
-  function isNotificationEnabledSelf(): Promise<boolean>;
-
-  /**
    * Request permission to send notification.
    *
    * @since 8
