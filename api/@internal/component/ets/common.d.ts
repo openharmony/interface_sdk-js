@@ -275,12 +275,6 @@ interface DragItemInfo {
 }
 
 /**
- * Defining syscap function.
- * @since 8
- */
-declare function canIUse(syscap: string): boolean;
-
-/**
  * Defining animation function.
  * @since 7
  */

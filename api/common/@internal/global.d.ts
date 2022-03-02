@@ -52,6 +52,12 @@ export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
+ * Defining syscap function.
+ * @since 8
+ */
+ export declare function canIUse(syscap: string): boolean;
+
+/**
  * Obtain the objects exposed in app.js
  * @devices tv, phone, tablet, wearable, smartVision
  * @since 6
