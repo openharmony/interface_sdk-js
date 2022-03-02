@@ -19,6 +19,7 @@ declare class TreeMap<K, V> {
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next element
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
    */
   constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
   /**
@@ -112,7 +113,7 @@ declare class TreeMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  getLowerByKey(key: K): K;
+  getLowerKey(key: K): K;
   /**
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefied is returned
@@ -121,7 +122,7 @@ declare class TreeMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  getHigherByKey(key: K): K;
+  getHigherKey(key: K): K;
   /**
    * Returns a new Iterator object that contains the keys contained in this map
    * @since 8

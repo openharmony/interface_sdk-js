@@ -56,13 +56,13 @@ declare class Queue<T> {
    * be called for each element in the queue
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
-   * @param queue (Optional) The queue object to which the current element belongs.
+   * @param Queue (Optional) The queue object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, queue?: Queue<T>) => void,
+  forEach(callbackfn: (value: T, index?: number, Queue?: Queue<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

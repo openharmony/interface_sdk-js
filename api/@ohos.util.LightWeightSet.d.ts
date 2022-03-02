@@ -32,15 +32,15 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  add(value: T): boolean;
+  add(obj: T): boolean;
   /**
    * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
-   * @param set the Map object to provide the added element
+   * @param set the Set object to provide the added element
    * @returns the boolean type(Is there any new data added successfully)
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  addAll(set: LightWeightMap<T>): boolean;
+  addAll(set: LightWeightSet<T>): boolean;
   /**
    * Returns whether this set has all the object in a specified set
    * @param set the Set object to compare
@@ -72,7 +72,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  ensureCapacityTo(minimumCapacity: number): void;
+  increaseCapacityTo(minimumCapacity: number): void;
   /**
    * Obtains the index of s key of a specified Object type in an LightWeightSet container
    * @param key Looking for goals
@@ -110,7 +110,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, map?: LightWeightSet<T>) => void,
+  forEach(callbackfn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
@@ -150,6 +150,12 @@ declare class LightWeightSet<T> {
    * @syscap SystemCapability.Utils.Lang
    */
   entries(): IterableIterator<[T, T]>;
+  /**
+   * Returns whether the set object contains elements
+   * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  isEmpty(): boolean;
 }
 
 export default LightWeightSet;

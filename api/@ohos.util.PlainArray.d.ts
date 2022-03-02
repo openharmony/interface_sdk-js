@@ -29,11 +29,11 @@ declare class PlainArray<T> {
    * Appends a key-value pair to PlainArray
    * @param key Added the key of key-value
    * @param value Added the value of key-value
-   * @returns the boolean type(Is there contain this element)
+   * @throws Throws this exception if input is invaild
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  add(key: number, value: T): boolean;
+  add(key: number, value: T): void;
   /**
    * Clears the current PlainArray object
    * @since 8
@@ -104,11 +104,11 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    * @param index  Target subscript for search
-   * @return the boolean type(Is there a delete value)
+   * @return the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  removeAt(index: number): boolean;
+  removeAt(index: number): T;
   /**
    * Remove a group of key-value pairs from a specified index
    * @param index  remove start index
@@ -125,7 +125,7 @@ declare class PlainArray<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  setValueAt(index: number, newValue: T): void;
+  setValueAt(index: number, value: T): void;
   /**
    * Obtains the string representation of the PlainArray object
    * @since 8
@@ -145,7 +145,7 @@ declare class PlainArray<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void,
+  forEach(callbackfn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

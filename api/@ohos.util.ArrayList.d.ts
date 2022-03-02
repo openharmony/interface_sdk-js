@@ -106,13 +106,13 @@ declare class ArrayList<T> {
    * each element in the arraylist,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
-   * @param arraylist (Optional) The arraylist object to which the current element belongs.
+   * @param arrlist (Optional) The arraylist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  replaceAllElements(callbackfn: (value: T, index?: number, arraylist?: ArrayList<T>) => T,
+  replaceAllElements(callbackfn: (value: T, index?: number, arrlist?: ArrayList<T>) => T,
   thisArg?: Object): void;
   /**
    * Executes a provided function once for each value in the arraylist object.
@@ -120,13 +120,13 @@ declare class ArrayList<T> {
    * be called for each element in the arraylist
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
-   * @param arraylist (Optional) The arraylist object to which the current element belongs.
+   * @param arrlist (Optional) The arraylist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, arraylist?: ArrayList<T>) => void,
+  forEach(callbackfn: (value: T, index?: number, arrlist?: ArrayList<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter, 
@@ -169,6 +169,7 @@ declare class ArrayList<T> {
    * returns the capacity of this arraylist
    * @return the number type
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
    */
   getCapacity(): number;
   /**

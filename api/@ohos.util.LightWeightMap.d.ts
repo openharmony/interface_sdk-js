@@ -64,9 +64,9 @@ declare class LightWeightMap<K, V> {
    */
   entries(): IterableIterator<[K, V]>;
   /**
-   * Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key
+   * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
    * @param key the index in LightWeightMap
-   * @return value or null
+   * @return value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -86,7 +86,7 @@ declare class LightWeightMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  getIndexOfValue(value: K): number;
+  getIndexOfValue(value: V): number;
   /**
    * Returns whether the Map object contains elements
    * @return the boolean type
