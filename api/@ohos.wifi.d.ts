@@ -444,6 +444,7 @@ declare namespace wifi {
      * @return Returns the P2P connection information.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
     function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
@@ -454,6 +455,7 @@ declare namespace wifi {
      * @return Returns the current group information.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
     function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
     function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
@@ -464,26 +466,29 @@ declare namespace wifi {
      * @return Returns the found devices list.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
-    function getP2pDevices(): Promise<WifiP2pDevice[]>;
-    function getP2pDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
+    function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
+    function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
      * Creates a P2P group.
      *
      * @param config Indicates the configuration for creating a group.
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function createGroup(config: WifiP2PConfig): boolean;
 
     /**
      * Removes a P2P group.
      *
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function removeGroup(): boolean;
 
@@ -491,36 +496,40 @@ declare namespace wifi {
      * Initiates a P2P connection to a device with the specified configuration.
      *
      * @param config Indicates the configuration for connecting to a specific group.
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
     function p2pConnect(config: WifiP2PConfig): boolean;
 
     /**
      * Canceling a P2P connection.
      *
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function p2pCancelConnect(): boolean;
 
     /**
      * Discovers Wi-Fi P2P devices.
      *
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
     function startDiscoverDevices(): boolean;
 
     /**
      * Stops discovering Wi-Fi P2P devices.
      *
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function stopDiscoverDevices(): boolean;
 
@@ -528,9 +537,11 @@ declare namespace wifi {
      * Deletes the persistent P2P group with the specified network ID.
      *
      * @param netId Indicates the network ID of the group to be deleted.
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
+     * @systemapi Hide this for inner system use.
      */
     function deletePersistentGroup(netId: number): boolean;
 
@@ -538,9 +549,11 @@ declare namespace wifi {
      * Sets the name of the Wi-Fi P2P device.
      *
      * @param devName Indicates the name to be set.
-     * @return Returns {@code true} if the scanning is successful; returns {@code false} otherwise.
+     * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.MANAGE_WIFI_CONNECTION
+     * @systemapi Hide this for inner system use.
      */
     function setDeviceName(devName: string): boolean;
 
@@ -723,6 +736,7 @@ declare namespace wifi {
      * @return Returns 1: idle, 2: starting, 3:started, 4: closing, 5: closed
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "p2pStateChange", callback: Callback<number>): void;
 
@@ -731,6 +745,7 @@ declare namespace wifi {
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "p2pStateChange", callback?: Callback<number>): void;
 
@@ -740,6 +755,7 @@ declare namespace wifi {
      * @return Returns WifiP2pLinkedInfo
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "p2pConnectionChange", callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
@@ -748,6 +764,7 @@ declare namespace wifi {
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "p2pConnectionChange", callback?: AsyncCallback<WifiP2pLinkedInfo>): void;
 
@@ -757,6 +774,7 @@ declare namespace wifi {
      * @return Returns WifiP2pDevice
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
     function on(type: "p2pDeviceChange", callback: AsyncCallback<WifiP2pDevice>): void;
 
@@ -766,6 +784,7 @@ declare namespace wifi {
      * @return Returns WifiP2pDevice
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.LOCATION
      */
     function off(type: "p2pDeviceChange", callback?: AsyncCallback<WifiP2pDevice>): void;
 
@@ -775,6 +794,7 @@ declare namespace wifi {
      * @return Returns WifiP2pDevice[]
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
     function on(type: "p2pPeerDeviceChange", callback: AsyncCallback<WifiP2pDevice[]>): void;
 
@@ -783,6 +803,7 @@ declare namespace wifi {
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.LOCATION
      */
     function off(type: "p2pPeerDeviceChange", callback?: AsyncCallback<WifiP2pDevice[]>): void;
 
@@ -792,6 +813,7 @@ declare namespace wifi {
      * @return Returns void
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "p2pPersistentGroupChange", callback: Callback<void>): void;
 
@@ -800,6 +822,7 @@ declare namespace wifi {
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "p2pPersistentGroupChange", callback?: Callback<void>): void;
 
@@ -809,6 +832,7 @@ declare namespace wifi {
      * @return Returns 0: initial state, 1: discovery succeeded
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "p2pDiscoveryChange", callback: Callback<number>): void;
 
@@ -817,6 +841,7 @@ declare namespace wifi {
      *
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
