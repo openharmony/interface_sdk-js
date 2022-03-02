@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback } from './basic';
+import { AsyncCallback, Callback } from "./basic";
 
 /**
  * This module provides the capability to subscribe to sensor data.
@@ -32,7 +32,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: AsyncCallback<AccelerometerResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
         options?: Options): void;
 
     /**
@@ -43,7 +43,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: AsyncCallback<AccelerometerUncalibratedResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>,
         options?: Options): void;
 
     /**
@@ -54,7 +54,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: AsyncCallback<LightResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>,
         options?: Options): void;
 
     /**
@@ -65,7 +65,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: AsyncCallback<AmbientTemperatureResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>,
         options?: Options): void;
 
     /**
@@ -76,7 +76,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: AsyncCallback<BarometerResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>,
         options?: Options): void;
 
     /**
@@ -87,7 +87,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: AsyncCallback<GravityResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>,
         options?: Options): void;
 
     /**
@@ -98,7 +98,7 @@ declare namespace sensor {
      * @permission ohos.permission.GRYOSCOPE
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: AsyncCallback<GyroscopeResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
         options?: Options): void;
 
     /**
@@ -109,7 +109,7 @@ declare namespace sensor {
      * @permission ohos.permission.GRYOSCOPE
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: AsyncCallback<GyroscopeUncalibratedResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
         options?: Options): void;
 
     /**
@@ -120,7 +120,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: AsyncCallback<HallResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>,
         options?: Options): void;
 
     /**
@@ -131,7 +131,7 @@ declare namespace sensor {
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: AsyncCallback<HeartRateResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
 
     /**
@@ -142,7 +142,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: AsyncCallback<HumidityResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>,
         options?: Options): void;
 
     /**
@@ -153,7 +153,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: AsyncCallback<LinearAccelerometerResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
         options?: Options): void;
 
     /**
@@ -164,7 +164,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: AsyncCallback<MagneticFieldResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>,
         options?: Options): void;
 
     /**
@@ -175,7 +175,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: AsyncCallback<MagneticFieldUncalibratedResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>,
         options?: Options): void;
 
     /**
@@ -186,7 +186,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: AsyncCallback<OrientationResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>,
         options?: Options): void;
 
     /**
@@ -197,7 +197,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: AsyncCallback<PedometerResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>,
         options?: Options): void;
 
     /**
@@ -208,7 +208,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: AsyncCallback<PedometerDetectionResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>,
         options?: Options): void;
 
     /**
@@ -219,7 +219,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: AsyncCallback<ProximityResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>,
         options?: Options): void;
 
     /**
@@ -230,7 +230,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: AsyncCallback<RotationVectorResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>,
         options?: Options): void;
 
     /**
@@ -241,7 +241,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: AsyncCallback<SignificantMotionResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>,
         options?: Options): void;
 
     /**
@@ -252,7 +252,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: AsyncCallback<WearDetectionResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
         options?: Options): void;
 
     /**
@@ -262,7 +262,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: AsyncCallback<AccelerometerResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -271,7 +271,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: AsyncCallback<AccelerometerUncalibratedResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -280,7 +280,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: AsyncCallback<LightResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -289,7 +289,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: AsyncCallback<AmbientTemperatureResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -298,7 +298,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: AsyncCallback<BarometerResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -307,7 +307,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: AsyncCallback<GravityResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -316,7 +316,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: AsyncCallback<GyroscopeResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -325,7 +325,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: AsyncCallback<GyroscopeUncalibratedResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -334,7 +334,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: AsyncCallback<HallResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -343,7 +343,7 @@ declare namespace sensor {
      * @permission ohos.permission.HEART_RATE
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: AsyncCallback<HeartRateResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -352,7 +352,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: AsyncCallback<HumidityResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -361,7 +361,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELERATION
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: AsyncCallback<LinearAccelerometerResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -370,7 +370,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: AsyncCallback<MagneticFieldResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -379,7 +379,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: AsyncCallback<MagneticFieldUncalibratedResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -388,7 +388,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: AsyncCallback<OrientationResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -397,7 +397,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: AsyncCallback<PedometerResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -406,7 +406,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: AsyncCallback<PedometerDetectionResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -415,7 +415,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: AsyncCallback<ProximityResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -424,7 +424,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: AsyncCallback<RotationVectorResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -433,7 +433,7 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: AsyncCallback<SignificantMotionResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -442,16 +442,197 @@ declare namespace sensor {
      * @permission N/A
      * @since 8
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: AsyncCallback<WearDetectionResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
 
     /**
-     * Unsubscribe to sensor data once.
-     * @param type Indicate the sensor type to listen for, {@code SensorType}.
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER}.
+     * @permission ohos.permission.ACCELEROMETER
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
+     function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED}.
+     * @permission ohos.permission.ACCELEROMETER
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,
+        callback?: Callback<AccelerometerUncalibratedResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission N/A
      * @since 8
      */
-    function off(type: SensorType, callback: AsyncCallback<void>): void;
+    function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback<GravityResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.GRYOSCOPE
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.GRYOSCOPE
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HALL}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback<HallResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.HEALTH_DATA
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback<HumidityResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACTIVITY_MOTION
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission N/A
+     * @since 8
+     */
+    function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
     /**
      * Indicates geographic location.
