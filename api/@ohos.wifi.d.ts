@@ -850,6 +850,7 @@ declare namespace wifi {
      *
      * @since 6
      * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiDeviceConfig {
         /** Wi-Fi SSID: the maximum length is 32 */
@@ -900,7 +901,8 @@ declare namespace wifi {
      * Wi-Fi IP configuration information.
      *
      * @since 7
-     * @systemapi
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface IpConfig {
         ipAddress: number;
@@ -913,6 +915,7 @@ declare namespace wifi {
      * Describes the scanned Wi-Fi information.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiScanInfo {
         /** Wi-Fi SSID: the maximum length is 32 */
@@ -947,6 +950,7 @@ declare namespace wifi {
      * Describes the wifi security type.
      *
      * @since 6
+     * @syscap SystemCapability.Communication.WiFi.Core
      */
     enum WifiSecurityType {
         /** Invalid security type */
@@ -969,6 +973,7 @@ declare namespace wifi {
      * Wi-Fi connection information.
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiLinkedInfo {
         /** The SSID of the Wi-Fi hotspot */
@@ -1025,6 +1030,7 @@ declare namespace wifi {
      * Wi-Fi IP information.
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface IpInfo {
         /** The IP address of the Wi-Fi connection */
@@ -1053,7 +1059,8 @@ declare namespace wifi {
      * Wi-Fi hotspot configuration information.
      *
      * @since 7
-     * @systemapi
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.AP
      */
     interface HotspotConfig {
         /** The SSID of the Wi-Fi hotspot */
@@ -1076,7 +1083,8 @@ declare namespace wifi {
      * Wi-Fi station information.
      *
      * @since 7
-     * @systemapi
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.AP
      */
     interface StationInfo {
         /** the network name of the Wi-Fi client */
@@ -1093,7 +1101,8 @@ declare namespace wifi {
      * Wi-Fi IP type enumeration.
      *
      * @since 7
-     * @systemapi
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
      enum IpType {
         /** Use statically configured IP settings */
@@ -1110,7 +1119,8 @@ declare namespace wifi {
      * The state of the supplicant enumeration.
      *
      * @since 7
-     * @systemapi
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     export enum SuppState {
         /** The supplicant is not associated with or is disconnected from the AP. */
@@ -1154,6 +1164,7 @@ declare namespace wifi {
      * The state of Wi-Fi connection enumeration.
      *
      * @since 7
+     * @syscap SystemCapability.Communication.WiFi.STA
      */
     export enum ConnState {
         /** The device is searching for an available AP. */
@@ -1185,6 +1196,7 @@ declare namespace wifi {
      * P2P device information.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     interface WifiP2pDevice {
         /** Device name */
@@ -1207,6 +1219,7 @@ declare namespace wifi {
      * P2P config.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     interface WifiP2PConfig {
         /** Device mac address */
@@ -1232,6 +1245,7 @@ declare namespace wifi {
      * P2P group information.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     interface WifiP2pGroupInfo {
         /** Indicates whether it is group owner */
@@ -1266,6 +1280,7 @@ declare namespace wifi {
      * P2P connection status.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     enum P2pConnectState {
         DISCONNECTED = 0,
@@ -1276,6 +1291,7 @@ declare namespace wifi {
      * P2P linked information.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     interface WifiP2pLinkedInfo {
         /** Connection status */
@@ -1292,6 +1308,7 @@ declare namespace wifi {
      * P2P device status.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     enum P2pDeviceStatus {
         CONNECTED = 0,
@@ -1305,6 +1322,7 @@ declare namespace wifi {
      * P2P group owner band.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.P2P
      */
     enum GroupOwnerBand {
         GO_BAND_AUTO = 0,
