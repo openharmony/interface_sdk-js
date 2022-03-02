@@ -18,6 +18,7 @@ import { Want } from './ability/want';
 
 /**
  * Plugin component template property.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 interface PluginComponentTemplate {
@@ -27,6 +28,7 @@ interface PluginComponentTemplate {
 
 /**
  * Plugin component manager interface.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 declare namespace pluginComponentManager {

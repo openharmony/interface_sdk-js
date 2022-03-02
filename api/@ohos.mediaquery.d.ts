@@ -15,6 +15,13 @@
 
 import {Callback} from './basic';
 
+/**
+ * Used to do mediaquery operations.
+ * @import import mediaquery from '@ohos.mediaquery'
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @devices phone, tablet, tv, wearable
+ * @since 7
+ */
 declare namespace mediaquery {
 
   interface MediaQueryResult {
@@ -22,14 +29,14 @@ declare namespace mediaquery {
     /**
      * Whether the match condition is met.
      * This parameter is read-only.
-     * @since 8
+     * @since 7
      */
     readonly matches: boolean;
 
     /**
      * Matching condition of a media event.
      * This parameter is read-only.
-     * @since 8
+     * @since 7
      */
     readonly media: string;
   }
@@ -39,21 +46,21 @@ declare namespace mediaquery {
     /**
      * Registers a callback with the corresponding query condition by using the handle.
      * This callback is triggered when the media attributes change.
-     * @since 8
+     * @since 7
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
      * This callback is not triggered when the media attributes chang.
-     * @since 8
+     * @since 7
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }
 
   /**
    * Sets the media query criteria and returns the corresponding listening handle
-   * @since 8
+   * @since 7
    */
   function matchMediaSync(condition: string): MediaQueryListener;
 }

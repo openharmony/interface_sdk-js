@@ -16,6 +16,7 @@
 import {Callback} from './basic';
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  * @import router from '@ohos.router';
  */
@@ -33,6 +34,7 @@ declare namespace router {
      *      pages/index/index
      *      pages/detail/detail
      * 2. Particular path. If the URI is a slash (/), the home page is displayed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @since 8
      */
     url: string;
@@ -41,6 +43,7 @@ declare namespace router {
      * Data that needs to be passed to the destination page during navigation.
      * After the destination page is displayed, the parameter can be directly used for the page.
      * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+     * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @since 8
      */
     params?: Object;
@@ -54,6 +57,7 @@ declare namespace router {
     /**
      * Returns to the page of the specified path.
      * If the page with the specified path does not exist in the page stack, router.back() is called by default.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     path?: string;

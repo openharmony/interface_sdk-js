@@ -14,11 +14,13 @@
  */
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  */
 export interface AppResponse {
   /**
    * Application bundleName.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 6
    */
@@ -26,6 +28,7 @@ export interface AppResponse {
 
   /**
    * Application name.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    * @since 3
    */
@@ -33,6 +36,7 @@ export interface AppResponse {
 
   /**
    * Application version name.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    * @since 3
    */
@@ -40,6 +44,7 @@ export interface AppResponse {
 
   /**
    * Application version.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    * @since 3
    */
@@ -47,6 +52,7 @@ export interface AppResponse {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices wearable, liteWearable
  */
 export interface ScreenOnVisibleOptions {
@@ -80,17 +86,20 @@ export interface ScreenOnVisibleOptions {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  */
 export default class App {
   /**
    * Obtains the declared information in the config.json file of an application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static getInfo(): AppResponse;
 
   /**
    * Destroys the current ability.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static terminate(): void;
@@ -100,6 +109,7 @@ export default class App {
    * In some scenarios, such as semi-modal FA, the FA runs in non-full window.
    * In this case, you can call this API.
    * This API is invalid for an application already in full-window mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param options Transition time from non-full window to full window, in milliseconds.
    * By default, the value is in direct proportion to the distance between the non-full window and the full window.
    * @devices phone, tablet

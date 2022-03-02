@@ -14,6 +14,7 @@
  */
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices phone, tablet, wearable, tv, car
  * @since 6
  */
