@@ -14,6 +14,12 @@
  */
 declare class LinkedList<T> {
   /**
+   * A constructor used to create a LinkedList object.
+   * @since 8
+   * @syscap SystemCapability.Utils.Lang
+   */
+  constructor();
+  /**
    * Gets the element number of the LinkedList. This is a number one higher than the highest index in the linkedlist.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -35,7 +41,7 @@ declare class LinkedList<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  insert(element: T, index: number): void;
+  insert(index: number, element: T): void;
   /**
    * Returns the element at the specified position in this linkedlist,
    * or returns undefined if this linkedlist is empty
@@ -72,7 +78,7 @@ declare class LinkedList<T> {
   /**
    * Check if linkedlist contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if vector contains the specified element,return true,else return false
+   * @return the boolean type,if linkedList contains the specified element,return true,else return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -137,7 +143,7 @@ declare class LinkedList<T> {
   /**
    * Returns the first element (the item at index 0) of this linkedlist.
    * or returns undefined if linkedlist is empty
-   * @return the T type ,returns undefined if vector is empty
+   * @return the T type ,returns undefined if linkedList is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -145,7 +151,7 @@ declare class LinkedList<T> {
   /**
    * Returns the Last element (the item at index length-1) of this linkedlist.
    * or returns undefined if linkedlist is empty
-   * @return the T type ,returns undefined if vector is empty
+   * @return the T type ,returns undefined if linkedList is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -154,37 +160,25 @@ declare class LinkedList<T> {
    * Replaces the element at the specified position in this Vector with the specified element
    * @param element replaced element
    * @param index index to find
+   * @return the T type ,returns undefined if linkedList is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  set(index: number, element: T): void;
+  set(index: number, element: T): T;
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    * @param callbackfn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the linkedlist,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
-   * @param linkedlist (Optional) The linkedlist object to which the current element belongs.
+   * @param LinkedList (Optional) The linkedlist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, linkedlist?: ArrayList<T>) => void,
+  forEach(callbackfn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
   thisArg?: Object): void;
-  /**
-   * Sorts this linkedlist according to the order induced by the specified comparator,without comparator this parameter, 
-   * it will default to ASCII sorting
-   * @param comparator (Optional) A function that accepts up to two arguments.Specifies the sort order. 
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an linkedlist 
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an linkedlist sorted in descending order;
-   * @param firstValue (Optional) previous element
-   * @param secondValue (Optional) next elements
-   * If this parameter is empty, it will default to ASCII sorting
-   * @since 8
-   * @syscap SystemCapability.Utils.Lang
-   */
-  sort(comparator?: (firstValue: T, secondValue: T) => number): void;
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will
    * be empty after this call returns.length becomes 0

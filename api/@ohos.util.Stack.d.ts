@@ -16,6 +16,7 @@ declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
    * @since 8
+   * @syscap SystemCapability.Utils.Lang
    */
   constructor();
   /**
@@ -42,11 +43,11 @@ declare class Stack<T> {
   /**
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
-   * @returns Stack top value
+   * @returns Stack top value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  pop(): boolean;
+  pop(): T;
   /**
    * Pushes an item onto the top of this stack
    * @param item to be appended to this Stack
