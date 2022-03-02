@@ -48,7 +48,6 @@ export default class AbilityStage {
     /**
      * Called back when start specified ability.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return -

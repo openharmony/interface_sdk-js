@@ -17,7 +17,7 @@ import rpc from './../@ohos.rpc';
 
 /**
  * @since 7
- * @sysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface ConnectOptions {
@@ -26,7 +26,7 @@ export interface ConnectOptions {
    *
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
    * @param remoteObject The remote object instance
    */
@@ -37,7 +37,7 @@ export interface ConnectOptions {
    *
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
    */
   onDisconnect: (elementName: ElementName) => void;
@@ -47,7 +47,7 @@ export interface ConnectOptions {
    *
    * @default -
    * @since 7
-   * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param code The error code of the failed.
    */
   onFailed: (code: number) => void;

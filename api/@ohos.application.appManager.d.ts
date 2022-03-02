@@ -22,7 +22,7 @@ import { ProcessRunningInfo } from './application/ProcessRunningInfo';
  * This module provides the function of app manager service.
  *
  * @since 8
- * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import appManager from '@ohos.application.appManager'
  * @permission N/A
  */
@@ -32,7 +32,7 @@ declare namespace appManager {
      *
      * @default -
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param observer The application state observer.
      * @systemapi hide this for inner system use
      * @return Returns the number code of the observer.
@@ -43,7 +43,7 @@ declare namespace appManager {
      * Unregister application state observer.
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param observerId Indicates the number code of the observer.
      * @systemapi hide this for inner system use
      * @return -
@@ -55,7 +55,7 @@ declare namespace appManager {
      * getForegroundApplications.
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide this for inner system use
      * @return Returns the list of AppStateData.
      */
@@ -66,7 +66,7 @@ declare namespace appManager {
      * Kill process with account.
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param bundleName The process bundle name.
      * @param accountId The account id.
      * @systemapi hide this for inner system use
@@ -79,7 +79,7 @@ declare namespace appManager {
      * Is user running in stability test.
      *
      * @since 8
-     * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return Returns true if user is running stability test.
      */
       function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
@@ -89,7 +89,7 @@ declare namespace appManager {
     * Get information about running processes
     *
     * @since 8
-    * @SysCap SystemCapability.Ability.AbilityRuntime.Core
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi Hide this for inner system use.
     * @return -
     */
@@ -99,8 +99,7 @@ declare namespace appManager {
     /**
      * Kill processes by bundle name
      * @since 8
-     * @SysCap SystemCapability.Appexecfwk
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param bundleName bundle name.
      * @permission ohos.permission.DELETE_MISSIONS
      * @systemapi hide this for inner system use
@@ -111,8 +110,7 @@ declare namespace appManager {
     /**
      * Clear up application data by bundle name
      * @since 8
-     * @SysCap SystemCapability.Appexecfwk
-     * @devices phone, tablet, tv, wearable, car
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param bundleName bundle name.
      * @permission ohos.permission.DELETE_MISSIONS
      * @systemapi hide this for inner system use
