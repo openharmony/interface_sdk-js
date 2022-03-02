@@ -37,14 +37,14 @@ export interface NotificationSubscriber {
 
   /**
    * Callback when the Do Not Disturb setting changed.
-   *
+   * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
   onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
 
   /**
    * Callback when the notificaition permission is changed.
-   *
+   * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
   onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
@@ -72,6 +72,7 @@ export interface SubscribeCallbackData {
  * Describes the properties of the application that the permission to send notifications has changed.
  *
  * @name EnabledNotificationCallbackData
+ * @syscap SystemCapability.Notification.Notification
  * @systemapi Hide this for inner system use.
  * @since 8
  */
