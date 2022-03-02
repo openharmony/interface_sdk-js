@@ -161,12 +161,14 @@ declare namespace usb {
      * Represents the USB endpoint from which data is sent or received.
      * You can obtain the USB endpoint through USBInterface {@link USBInterface}.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     interface USBEndpoint {
         /**
         * Endpoint address.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         address: number;
@@ -174,6 +176,7 @@ declare namespace usb {
         /**
         * Endpoint attributes.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         attributes: number;
@@ -181,6 +184,7 @@ declare namespace usb {
         /**
         * Endpoint interval.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         interval: number;
@@ -188,6 +192,7 @@ declare namespace usb {
         /**
         * Maximun size of data packets on the endpoint.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         maxPacketSize: number;
@@ -195,6 +200,7 @@ declare namespace usb {
         /**
         * Endpoint direction.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         direction: USBRequestDirection;
@@ -202,6 +208,7 @@ declare namespace usb {
         /**
         * Endpoint number.
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         number: number;
@@ -209,6 +216,7 @@ declare namespace usb {
         /**
         * Endpoint type
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         type: number;
@@ -216,6 +224,7 @@ declare namespace usb {
         /**
         * Unique ID of the interface to which the endpoint belongs {@link USBInterface.id}
         *
+        * @syscap SystemCapability.USB.USBManager
         * @since 8
         */
         interfaceId: number;
@@ -226,12 +235,14 @@ declare namespace usb {
      * Represents a USB interface. One USBconfig {@link USBConfig} can contain multiple USBInterface instances, 
      * each providing a specific function.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     interface USBInterface {
         /**
          * Unique ID of the USB interface.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         id: number;
@@ -239,6 +250,7 @@ declare namespace usb {
         /**
          * Interface protocol.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         protocol: number;
@@ -246,6 +258,7 @@ declare namespace usb {
         /**
          * Device type.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         clazz: number;
@@ -253,6 +266,7 @@ declare namespace usb {
         /**
          * Device subclass.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         subClass: number;
@@ -260,6 +274,7 @@ declare namespace usb {
         /**
          * Alternating between descripors of the same USB interface.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         alternateSetting: number;
@@ -267,13 +282,15 @@ declare namespace usb {
         /**
          * Interface name.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         name: string;
 
         /**
          * Endpoints {@link USBEndpoint} that belongs to the USB interface.
-         *
+         * 
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         endpoints: Array<USBEndpoint>;
@@ -282,21 +299,22 @@ declare namespace usb {
     /**
      * Represents the USB configuration. One USBDevice{@link USBDevice} can contain multiple USBConfig instances.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     interface USBConfig {
         /**
          * Unique ID if the USB configuration.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
-         *
-         *
          */
         id: number;
 
         /**
          * Configuration attributes.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         attributes: number;
@@ -304,6 +322,7 @@ declare namespace usb {
         /**
          * Maximum power consumption, in mA.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         maxPower: number;
@@ -311,6 +330,7 @@ declare namespace usb {
         /**
          * Configuration name, which can be left empty.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         name: string;
@@ -318,6 +338,7 @@ declare namespace usb {
         /**
          * Support for remote wakeup.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         isRemoteWakeup: boolean;
@@ -325,6 +346,7 @@ declare namespace usb {
         /**
          * Support for independent power supplies.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         isSelfPowered: boolean;
@@ -332,6 +354,7 @@ declare namespace usb {
         /**
          * Supported interface attributes {@link USBInterface}.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         interfaces: Array<USBInterface>;
@@ -340,84 +363,98 @@ declare namespace usb {
     /**
      * Represents a USB device.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     interface USBDevice {
         /**
          * Bus address.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         busNum: number;
         /**
          * Device address.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         devAddress: number;
         /**
          * Device SN.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         serial: string;
         /**
          * Device name.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         name: string;
         /**
          * Device manufacturer.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         manufacturerName: string;
         /**
          * Product name.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         productName: string;
         /**
          * Product version.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         version: string;
         /**
          * Vendor ID.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         vendorId: number;
         /**
          * Product ID.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         productId: number;
         /**
          * Device class.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         clazz: number;
         /**
          * Device subclass.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         subClass: number;
         /**
          * Device protocol code.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         protocol: number;
         /**
          * Device configuration descriptor information {@link USBConfig}.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         configs: Array<USBConfig>;
@@ -426,18 +463,21 @@ declare namespace usb {
     /**
      * Represents a USB device pipe, which is used to determine the USB device.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     interface USBDevicePipe {
         /**
          * Bus address.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         busNum: number;
         /**
          * Device address.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         devAddress: number;
@@ -446,41 +486,49 @@ declare namespace usb {
     /**
     * Represents control transfer parameters.
     *
+    * @syscap SystemCapability.USB.USBManager
     * @since 8
     */
     interface USBControlParams {
         /**
          * Request type.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         request: number;
         /**
          * Request target tyoe.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         target: USBRequestTargetType;
         /**
          * Request control type.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         reqType: USBControlRequestType;
         /**
          * Request parameter value.
-         *
+         * 
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
            */
         value: number;
         /**
          * Index of the parameter value.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         index: number;
         /**
          * Data written to or read from the buffer.
+         * 
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         data: Uint8Array;
@@ -489,30 +537,35 @@ declare namespace usb {
     /**
      * Enumerates USB request target types.
      *
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     enum USBRequestTargetType {
         /**
          * Device.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TARGET_DEVICE = 0,
         /**
          * Interface.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TARGET_INTERFACE,
         /**
          * Endpoint.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TARGET_ENDPOINT,
         /**
          * Others.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TARGET_OTHER
@@ -520,24 +573,29 @@ declare namespace usb {
 
     /**
      * Enumerates control request types.
+     * 
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     enum USBControlRequestType {
         /**
          * Standard.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TYPE_STANDARD = 0,
         /**
          * Class.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TYPE_CLASS,
         /**
          * Verdor.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_TYPE_VENDOR
@@ -545,18 +603,22 @@ declare namespace usb {
 
     /**
      * Enumerates request directions.
+     * 
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     enum USBRequestDirection {
         /**
          * Request for writing data from the host to the device.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_DIR_TO_DEVICE = 0,
         /**
          * Request for reading data from the device to the host.
          *
+         * @syscap SystemCapability.USB.USBManager
          * @since 8
          */
         USB_REQUEST_DIR_FROM_DEVICE = 0x80
