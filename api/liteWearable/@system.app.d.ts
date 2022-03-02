@@ -60,7 +60,7 @@ export interface ScreenOnVisibleOptions {
 }
 
 /**
- * @Syscap SysCap.ACE.UIEngineLite
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  */
 export default class App {
   /**
