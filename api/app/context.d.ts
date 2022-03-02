@@ -18,6 +18,10 @@ import { ApplicationInfo } from '../bundle/applicationInfo';
 import { ProcessInfo } from './processInfo';
 import { ElementName } from '../bundle/elementName';
 import BaseContext from '../application/BaseContext';
+import { HapModuleInfo } from '../bundle/hapModuleInfo';
+import { AppVersionInfo } from './appVersionInfo';
+import { AbilityInfo } from '../bundle/abilityInfo';
+
 
 /**
  * The context of an ability or an application.  It allows access to
@@ -126,6 +130,97 @@ export interface Context extends BaseContext {
     */
     getCallingBundle(callback: AsyncCallback<string>): void
     getCallingBundle(): Promise<string>;
+
+    /**
+    * Obtains the file directory of this application on the internal storage.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getFilesDir(callback: AsyncCallback<string>): void;
+    getFilesDir(): Promise<string>;
+
+    /**
+    * Obtains the cache directory of this application on the internal storage.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getCacheDir(callback: AsyncCallback<string>): void;
+    getCacheDir(): Promise<string>;
+
+    /**
+    * Obtains the distributed file path for storing ability or application data files.
+    * If the distributed file path does not exist, the system will create a path and return the created path.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getOrCreateDistributedDir(): Promise<string>;
+    getOrCreateDistributedDir(callback: AsyncCallback<string>): void;
+
+    /**
+    * Obtains the application type.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAppType(callback: AsyncCallback<string>): void
+    getAppType(): Promise<string>;
+
+    /**
+    * Obtains the ModuleInfo object for this application.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getHapModuleInfo(callback: AsyncCallback<HapModuleInfo>): void
+    getHapModuleInfo(): Promise<HapModuleInfo>;
+
+    /**
+    * Obtains the application version information.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAppVersionInfo(callback: AsyncCallback<AppVersionInfo>): void
+    getAppVersionInfo(): Promise<AppVersionInfo>;
+
+    /**
+    * Obtains the context of this application.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getApplicationContext(): Context;
+
+    /**
+    * Checks the detailed information of this ability.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    getAbilityInfo(callback: AsyncCallback<AbilityInfo>): void
+    getAbilityInfo(): Promise<AbilityInfo>;
+
+    /**
+    * Checks whether the configuration of this ability is changing.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @return true if the configuration of this ability is changing and false otherwise.
+    * @FAModelOnly
+    */
+    isUpdatingConfigurations(): Promise<boolean>;
+    isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;
+
+    /**
+    * Informs the system of the time required for drawing this Page ability.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @FAModelOnly
+    */
+    printDrawnCompleted(): Promise<void>;
+    printDrawnCompleted(callback: AsyncCallback<void>): void;
 }
 
 /**

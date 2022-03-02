@@ -22,6 +22,7 @@ import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
+import image from './@ohos.multimedia.image';
 
 /**
  * bundle.
@@ -383,6 +384,19 @@ declare namespace bundle {
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
+   
+  /**
+   * Obtains information about the current ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the AbilityInfo object for the current ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
+  function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
   /**
    * Obtains based on a given bundle name.
@@ -392,12 +406,13 @@ declare namespace bundle {
    * @param bundleName Indicates the application bundle name to be queried.
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
    *              that will be returned.
-   * @param userId Indicates the user ID.
+   * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>) : void;
-  function getApplicationInfo(bundleName: string, bundleFlags: number, userId: number) : Promise<ApplicationInfo>;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>) : void;
+  function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number) : Promise<ApplicationInfo>;
 
   /**
    * Query the AbilityInfo by the given Want.
@@ -438,12 +453,13 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo objects
    *              that will be returned.
-   * @param userId Indicates the user ID.
+   * @param userId Indicates the user ID or do not pass user ID.
    * @return Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
   function getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
-  function getAllApplicationInfo(bundleFlags: number, userId: number) : Promise<Array<ApplicationInfo>>;
+  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>) : void;
+  function getAllApplicationInfo(bundleFlags: number, userId?: number) : Promise<Array<ApplicationInfo>>;
 
   /**
    * Obtains bundle name by the given uid.
@@ -469,8 +485,6 @@ declare namespace bundle {
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
-
-  /**
 
   /**
    * Obtains the Want for starting the main ability of an application based on the
@@ -569,6 +583,54 @@ declare namespace bundle {
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
+
+  /**
+   * Obtains the label of a specified ability.
+   * 
+   * @since 8
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param abilityName Indicates the ability name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @return Returns the label representing the label of the specified ability.
+   */
+  function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
+   
+  /**
+    * Obtains the icon of a specified ability.
+    * 
+    * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+    * @param abilityName Indicates the ability name.
+    * @return Returns the PixelMap object representing the icon of the specified ability.
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    */
+  function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+  function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
+   
+  /**
+    * Checks whether a specified ability is enabled.
+    * 
+    * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param info Indicates information about the ability to check.
+    * @returns Returns true if the ability is enabled; returns false otherwise.
+    */ 
+  function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
+  function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
+   
+  /**
+    * Checks whether a specified application is enabled.
+    * 
+    * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @returns Returns true if the application is enabled; returns false otherwise.
+    */
+  function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
+  function isApplicationEnabled(bundleName: string): Promise<boolean>;
 }
 
 export default bundle;

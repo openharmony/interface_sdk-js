@@ -198,4 +198,44 @@ export interface DataAbilityHelper {
      */
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
+
+    /**
+     * Calls the extended API of the DataAbility. This method uses a promise to return the result.
+     *
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @param uri URI of the Data ability. Example: "dataability:///com.example.xxx.xxxx"
+     * @param method Indicates the method to call.
+     * @param arg Indicates the parameter of the String type.
+     * @param extras Indicates the parameter of the PacMap type. 
+     * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+     * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+     * If the PacMap object is to be transferred to a non-OHOS process,
+     * values of primitive types are supported, but not custom Sequenceable objects.
+     * @return Returns the query result {@link PacMap}.
+     * @FAModelOnly
+     */
+    call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
+    call(uri: string, method: string, arg: string, extras: PacMap): Promise<PacMap>;
+}
+
+/**
+ * Defines a PacMap object for storing a series of values.
+ * @since 7
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @FAModelOnly
+ */
+ export interface PacMap {
+  
+    /**
+     * Indicates the parameter of the PacMap type.
+     * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+     * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+     * If the PacMap object is to be transferred to a non-OHOS process,
+     * values of primitive types are supported, but not custom Sequenceable objects.
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
+     */
+     [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }
