@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,29 +13,37 @@
  * limitations under the License.
  */
 
-/**
- * @name This class saves process information about an application
- * @since 7
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import ProcessInfo from 'app/processInfo'
- * @permission N/A
- */
-export interface ProcessInfo {
+ /**
+  * Defines error codes used when starting an ability, for example, featureAbility.ErrorCode.NO_ERROR.
+  * @since 6
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  */
+export enum ErrorCode {
   /**
-   * The id of the current process
-   *
-   * @default -
-   * @since 7
+   * Permission denied.
+   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
-  pid: number;
+  PERMISSION_DENY = -3,
 
   /**
-   * The name of the current process
-   *
-   * @default -
-   * @since 7
+   * Ability not found.
+   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    */
-  processName: string;
+  ABILITY_NOT_FOUND = -2,
+
+  /**
+   * Invalid parameter.
+   * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  INVALID_PARAMETER = -1,
+
+  /**
+   * No error.
+   * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  NO_ERROR = 0
 }
