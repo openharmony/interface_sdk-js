@@ -19,9 +19,9 @@ import Context from "./application/Context";
  * Provides interfaces to obtain and modify preferences data.
  *
  * @name preferences
- * @since 8
+ * @since 9
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
- * 
+ *
  */
 declare namespace preferences {
     /**
@@ -34,7 +34,7 @@ declare namespace preferences {
      * @param name Indicates the preferences file name.
      * @return Returns the {@link Preferences} instance matching the specified preferences file name.
      * @throws BusinessError if invoked failed
-     * @since 8
+    * @since 9
      */
     function getPreferences(context: Context, name: string, callback: AsyncCallback<Preferences>): void;
     function getPreferences(context: Context, name: string): Promise<Preferences>;
@@ -51,7 +51,7 @@ declare namespace preferences {
      * @param context Indicates the context of application or capability.
      * @param name Indicates the preferences file name.
      * @throws BusinessError if invoked failed
-     * @since 8
+     * @since 9
      */
     function deletePreferences(context: Context, name: string, callback: AsyncCallback<void>): void;
     function deletePreferences(context: Context, name: string): Promise<void>;
@@ -67,7 +67,7 @@ declare namespace preferences {
      * @param context Indicates the context of application or capability.
      * @param name Indicates the preferences file name.
      * @throws BusinessError if invoked failed
-     * @since 8
+     * @since 9
      */
     function removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback<void>): void;
     function removePreferencesFromCache(context: Context, name: string): Promise<void>;
@@ -81,8 +81,8 @@ declare namespace preferences {
      * to remove the {@link Preferences} instance from the memory.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
-     * 
-     * @since 8
+     *
+     * @since 9
      */
     interface Preferences {
         /**
@@ -94,7 +94,7 @@ declare namespace preferences {
         * @param defValue Indicates the default value to return.
         * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
         * @throws BusinessError if invoked failed
-        * @since 8
+        * @since 9
         */
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
         get(key: string, defValue: ValueType): Promise<ValueType>;
@@ -106,7 +106,7 @@ declare namespace preferences {
          * @return Returns {@code true} if the {@link Preferences} object contains a preferences with the specified key;
          * returns {@code false} otherwise.
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         has(key: string, callback: AsyncCallback<boolean>): boolean;
         has(key: string): Promise<boolean>;
@@ -121,7 +121,7 @@ declare namespace preferences {
          * @param value Indicates the value of the preferences.
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
         put(key: string, value: ValueType): Promise<void>;
@@ -135,7 +135,7 @@ declare namespace preferences {
          * @param key Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
@@ -147,7 +147,7 @@ declare namespace preferences {
          * file.
          *
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         clear(callback: AsyncCallback<void>): void;
         clear(): Promise<void>;
@@ -156,7 +156,7 @@ declare namespace preferences {
          * Asynchronously saves the {@link Preferences} object to the file.
          *
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         flush(callback: AsyncCallback<void>): void;
         flush(): Promise<void>;
@@ -166,7 +166,7 @@ declare namespace preferences {
          *
          * @param callback Indicates the callback when preferences changes.
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         on(type: 'change', callback: Callback<{ key: string }>): void;
 
@@ -175,7 +175,7 @@ declare namespace preferences {
          *
          * @param callback Indicates the registered callback.
          * @throws BusinessError if invoked failed
-         * @since 8
+         * @since 9
          */
         off(type: 'change', callback: Callback<{ key: string }>): void;
     }
