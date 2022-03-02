@@ -19,7 +19,7 @@ import {AsyncCallback} from "./basic";
  * Provides file path related APIS.
  *
  * @since 8
- * @sysCap SystemCapability.Customization.ConfigPolicy
+ * @syscap SystemCapability.Customization.ConfigPolicy
  */
 declare namespace configPolicy {
   /**
@@ -27,7 +27,7 @@ declare namespace configPolicy {
    *
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.ConfigPolicy
+   * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns the path of the highest priority config file.
    */
@@ -39,7 +39,7 @@ declare namespace configPolicy {
    *
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.ConfigPolicy
+   * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns paths of config files.
    */
@@ -51,7 +51,7 @@ declare namespace configPolicy {
    *
    * @since 8
    * @systemapi Hide this for inner system use.
-   * @sysCap SystemCapability.Customization.ConfigPolicy
+   * @syscap SystemCapability.Customization.ConfigPolicy
    * @return Returns paths of config directories.
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>);
