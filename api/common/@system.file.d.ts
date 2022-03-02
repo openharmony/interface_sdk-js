@@ -452,6 +452,7 @@ export interface FileWriteArrayBufferOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileReadArrayBufferResponse {
   /**
@@ -463,6 +464,7 @@ export interface FileReadArrayBufferResponse {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileReadArrayBufferOption {
   /**
@@ -515,6 +517,7 @@ export interface FileReadArrayBufferOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileAccessOption {
   /**
@@ -551,6 +554,7 @@ export interface FileAccessOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileMkdirOption {
   /**
@@ -596,6 +600,7 @@ export interface FileMkdirOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileRmdirOption {
   /**
@@ -640,11 +645,13 @@ export interface FileRmdirOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export default class File {
   /**
    * Moves the source file to a specified location.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static move(options: FileMoveOption): void;
@@ -652,6 +659,7 @@ export default class File {
   /**
    * Copies a source file and save the copy to a specified location.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static copy(options: FileCopyOption): void;
@@ -659,6 +667,7 @@ export default class File {
   /**
    * Obtains the list of files in a specified directory.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static list(options: FileListOption): void;
@@ -666,6 +675,7 @@ export default class File {
   /**
    * Obtains information about a local file.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static get(options: FileGetOption): void;
@@ -673,6 +683,7 @@ export default class File {
   /**
    * Deletes local files.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static delete(options: FileDeleteOption): void;
@@ -680,6 +691,7 @@ export default class File {
   /**
    * Writes texts into a file.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static writeText(options: FileWriteTextOption): void;
@@ -687,6 +699,7 @@ export default class File {
   /**
    * Reads texts from a file.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static readText(options: FileReadTextOption): void;
@@ -694,6 +707,7 @@ export default class File {
   /**
    * Writes data from a buffer into a file.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
@@ -701,6 +715,7 @@ export default class File {
   /**
    * Reads buffer data from a file.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static readArrayBuffer(options: FileReadArrayBufferOption): void;
@@ -708,6 +723,7 @@ export default class File {
   /**
    * Checks whether a file or directory exists.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static access(options: FileAccessOption): void;
@@ -715,6 +731,7 @@ export default class File {
   /**
    * Creates a directory.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static mkdir(options: FileMkdirOption): void;
@@ -722,6 +739,7 @@ export default class File {
   /**
    * Deletes a directory.
    * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 3
    * @param options Options.
    */
   static rmdir(options: FileRmdirOption): void;
