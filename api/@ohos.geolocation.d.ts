@@ -20,7 +20,7 @@ import WantAgent from '@ohos.wantAgent';
  * and obtaining the location result cached by the system.
  *
  * @since 7
- * @SysCap SystemCapability.Location.Location.Core
+ * @syscap SystemCapability.Location.Location.Core
  * @import import geolocation from '@ohos.geolocation'
  * @permission ohos.permission.LOCATION
  */
@@ -29,7 +29,7 @@ declare namespace geolocation {
      * subscribe location changed
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param request Indicates the location request parameters.
      * @param callback Indicates the callback for reporting the location result.
@@ -40,7 +40,7 @@ declare namespace geolocation {
      * unsubscribe location changed
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
@@ -50,7 +50,7 @@ declare namespace geolocation {
      * subscribe location switch changed
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
@@ -60,7 +60,7 @@ declare namespace geolocation {
      * unsubscribe location switch changed
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
@@ -70,7 +70,7 @@ declare namespace geolocation {
      * subscribe to cache GNSS locations update messages
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param request Indicates the cached GNSS locations request parameters.
      * @param callback Indicates the callback for reporting the cached GNSS locations.
@@ -81,7 +81,7 @@ declare namespace geolocation {
      * unsubscribe to cache GNSS locations update messages
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached gnss locations.
      */
@@ -91,7 +91,7 @@ declare namespace geolocation {
      * subscribe gnss status changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
@@ -101,7 +101,7 @@ declare namespace geolocation {
      * unsubscribe gnss status changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
@@ -111,7 +111,7 @@ declare namespace geolocation {
      * subscribe nmea message changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
@@ -121,7 +121,7 @@ declare namespace geolocation {
      * unsubscribe nmea message changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
@@ -131,7 +131,7 @@ declare namespace geolocation {
      * add a geofence and subscribe geo fence status changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Geofence
+     * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the fence status.
@@ -142,7 +142,7 @@ declare namespace geolocation {
      * remove a geofence and unsubscribe geo fence status changed
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Geofence
+     * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the remove fence result.
@@ -153,7 +153,7 @@ declare namespace geolocation {
      * obtain current location
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
@@ -165,7 +165,7 @@ declare namespace geolocation {
      * obtain last known location
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
@@ -176,7 +176,7 @@ declare namespace geolocation {
      * obtain current location switch status
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
      */
@@ -187,7 +187,7 @@ declare namespace geolocation {
      * request enable location
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch status.
      */
@@ -198,7 +198,7 @@ declare namespace geolocation {
      * enable location switch
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
@@ -210,7 +210,7 @@ declare namespace geolocation {
      * disable location switch
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
@@ -222,7 +222,7 @@ declare namespace geolocation {
      * obtain address info from location
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the address info.
      */
@@ -233,7 +233,7 @@ declare namespace geolocation {
      * obtain latitude and longitude info from location address
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the latitude and longitude result.
      */
@@ -244,7 +244,7 @@ declare namespace geolocation {
      * obtain geocode service status
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the geocode service status.
      */
@@ -255,7 +255,7 @@ declare namespace geolocation {
      * obtain the number of cached GNSS locations reported at a time
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached GNSS locations size.
      */
@@ -267,7 +267,7 @@ declare namespace geolocation {
      * and the bottom-layer buffer is cleared.
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the result.
      */
@@ -278,9 +278,9 @@ declare namespace geolocation {
      * send extended commands to location subsystem.
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
-     * @param command Indicates the extended Command Message Body,it is a JSON string.
+     * @param command Indicates the extended Command Message Body.
      * @param callback Indicates the callback for reporting the send command result.
      */
     function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>) : void;
@@ -290,14 +290,14 @@ declare namespace geolocation {
      * satellite status information
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      */
     export interface SatelliteStatusInfo {
         satellitesNumber: number;
         satelliteIds: Array<number>;
         carrierToNoiseDensitys: Array<number>;
-        altitude: Array<number>;
+        altitudes: Array<number>;
         azimuths: Array<number>;
         carrierFrequencies: Array<number>;
     }
@@ -306,7 +306,7 @@ declare namespace geolocation {
      * parameters for requesting to report cache location information
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Gnss
+     * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      */
     export interface CachedGnssLoactionsRequest {
@@ -318,7 +318,7 @@ declare namespace geolocation {
      * configuring parameters in geo fence requests
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Geofence
+     * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
      */
     export interface GeofenceRequest {
@@ -331,7 +331,7 @@ declare namespace geolocation {
      * configuring parameters in geo fence requests
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Geofence
+     * @syscap SystemCapability.Location.Location.Geofence
      * @permission ohos.permission.LOCATION
      */
     export interface Geofence {
@@ -346,7 +346,7 @@ declare namespace geolocation {
      *
      * @since 8
      * @systemapi
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param type indicates location privacy protocol type.
      * @param callback indicates the callback for reporting the location privacy protocol confirmation status.
@@ -359,7 +359,7 @@ declare namespace geolocation {
      *
      * @since 8
      * @systemapi
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      * @param type indicates location privacy protocol type.
      * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
@@ -372,7 +372,7 @@ declare namespace geolocation {
      * configuring parameters in reverse geocode requests
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      */
     export interface ReverseGeoCodeRequest {
@@ -386,7 +386,7 @@ declare namespace geolocation {
      * configuring parameters in geocode requests
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      */
     export interface GeoCodeRequest {
@@ -403,7 +403,7 @@ declare namespace geolocation {
      * data struct describes geographic locations.
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Geocoder
+     * @syscap SystemCapability.Location.Location.Geocoder
      * @permission ohos.permission.LOCATION
      */
     export interface GeoAddress {
@@ -431,7 +431,7 @@ declare namespace geolocation {
      * configuring parameters in location requests
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export interface LocationRequest {
@@ -446,7 +446,7 @@ declare namespace geolocation {
      * configuring parameters in current location requests
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export interface CurrentLocationRequest {
@@ -460,7 +460,7 @@ declare namespace geolocation {
      * provides information about geographic locations
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export interface Location {
@@ -480,7 +480,7 @@ declare namespace geolocation {
      * enum for location priority
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export enum LocationRequestPriority {
@@ -494,7 +494,7 @@ declare namespace geolocation {
      * enum for location scenario
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export enum LocationRequestScenario {
@@ -510,7 +510,7 @@ declare namespace geolocation {
      * enum for error code
      *
      * @since 7
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export enum GeoLocationErrorCode {
@@ -527,7 +527,7 @@ declare namespace geolocation {
      * enum for location privacy type
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export enum LocationPrivacyType {
@@ -540,7 +540,7 @@ declare namespace geolocation {
      * Location subsystem command structure
      *
      * @since 8
-     * @SysCap SystemCapability.Location.Location.Core
+     * @syscap SystemCapability.Location.Location.Core
      * @permission ohos.permission.LOCATION
      */
     export interface LocationCommand {
