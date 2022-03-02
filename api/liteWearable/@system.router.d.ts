@@ -35,7 +35,7 @@ export interface RouterOptions {
 }
 
 /**
- * @Syscap SysCap.ACE.UIEngineLite
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  */
 export default class Router {
   /**
