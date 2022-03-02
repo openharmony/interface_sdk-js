@@ -16,6 +16,7 @@
 /**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  * @import import Curves from '@ohos.curves'
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices phone, tablet, tv, wearable
  * @since 7
  */

@@ -18,6 +18,7 @@ import { WebGLContextAttributes, WebGLRenderingContext } from "../webgl/webgl";
 import { WebGL2RenderingContext } from "../webgl/webgl2";
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface FocusParamObj {
@@ -28,6 +29,7 @@ export interface FocusParamObj {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface RectObj {
@@ -50,6 +52,7 @@ export interface RectObj {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ContextAttrOptions {
@@ -57,6 +60,7 @@ export interface ContextAttrOptions {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface AnimateStyle {
@@ -131,6 +135,7 @@ export interface AnimateStyle {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface TransformObject {
@@ -302,6 +307,7 @@ export interface TransformObject {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface AnimateOptions {
@@ -365,6 +371,7 @@ export interface AnimateOptions {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface AnimationResult {
@@ -440,6 +447,7 @@ export interface AnimationResult {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface Element {
@@ -520,6 +528,9 @@ export interface Element {
   setStyle(name: string, value: string): boolean
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export interface observer {
   /**
    * Turn on the listener.
@@ -534,6 +545,7 @@ export interface observer {
 
 /**
  * animation element
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface AnimationElement extends Element {
@@ -565,6 +577,7 @@ export interface AnimationElement extends Element {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ScrollParam {
@@ -588,6 +601,7 @@ export interface ScrollParam {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface CurrentOffsetResultValue {
@@ -605,6 +619,7 @@ export interface CurrentOffsetResultValue {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  */
 export interface ListScrollToOptions {
@@ -616,6 +631,7 @@ export interface ListScrollToOptions {
 
 /**
  * The <list> component provides a list container.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ListElement extends Element {
@@ -703,6 +719,7 @@ export interface ListElement extends Element {
 
 /**
  * The <swiper> component provides a swiper container.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface SwiperElement extends Element {
@@ -732,6 +749,7 @@ export interface SwiperElement extends Element {
 
 /**
  * @devices tv, phone, tablet, wearable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export interface CameraTakePhotoOptions {
   /**
@@ -762,7 +780,8 @@ export interface CameraTakePhotoOptions {
 }
 
 /**
- * The <camera> component provides preview and photographing functions..
+ * The <camera> component provides preview and photographing functions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface CameraElement extends Element {
@@ -776,6 +795,7 @@ export interface CameraElement extends Element {
 
 /**
  * The <web> component is a container for displaying web page content.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet
  */
 export interface WebElement extends Element {
@@ -788,6 +808,7 @@ export interface WebElement extends Element {
 
 /**
  * The <dialog> component is a custom pop-up container.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface DialogElement extends Element {
@@ -805,6 +826,7 @@ export interface DialogElement extends Element {
 
 /**
  * The <image-animator> component is used to provide an image frame animator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ImageAnimatorElement extends Element {
@@ -841,6 +863,7 @@ export interface ImageAnimatorElement extends Element {
 /**
  * The <marquee> component inserts scrolling text, which is displayed in a single line by default.
  * When the text length exceeds the display area of the component, the marquee effect is displayed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface MarqueeElement extends Element {
@@ -859,6 +882,7 @@ export interface MarqueeElement extends Element {
 
 /**
  * The <menu> component provides menus as temporary pop-up windows to display operations that can be performed by users.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet
  */
 export interface MenuElement extends Element {
@@ -878,6 +902,7 @@ export interface MenuElement extends Element {
 
 /**
  * The <chart> component displays line charts, gauge charts, and bar charts.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ChartElement extends Element {
@@ -902,6 +927,7 @@ export interface ChartElement extends Element {
 
 /**
  * The <input> component provides an interactive interface to receive user input, which is displayed in a single line by default.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface InputElement extends Element {
@@ -930,6 +956,7 @@ export interface InputElement extends Element {
 
 /**
  * The <button> component includes capsule, circle, text, arc, and download buttons.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ButtonElement extends Element {
@@ -947,6 +974,7 @@ export interface ButtonElement extends Element {
 
 /**
  * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet
  */
 export interface TextAreaElement extends Element {
@@ -960,6 +988,7 @@ export interface TextAreaElement extends Element {
 
 /**
  * The <picker> component supports common, date, time, and multi-column text selectors.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet
  */
 export interface PickerElement extends Element {
@@ -972,6 +1001,7 @@ export interface PickerElement extends Element {
 
 /**
  * The <video> component provides a video player.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet
  */
 export interface VideoElement extends Element {
@@ -1015,6 +1045,7 @@ export interface VideoElement extends Element {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface TextMetrics {
@@ -1031,6 +1062,7 @@ export interface TextMetrics {
 /**
  * Provides a 2D rendering context for the drawing surface of the < Canvas > element.
  * It is used to draw shapes, text, images and other objects.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export interface OffscreenCanvasRenderingContext2D {
   /**
@@ -1430,6 +1462,7 @@ export interface OffscreenCanvasRenderingContext2D {
 /**
  * CanvasRenderingContext2D allows you to draw rectangles, text, images, and other objects on a canvas.
  * You can call getContext('2d') on canvas to obtain a CanvasRenderingContext2D object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export interface CanvasRenderingContext2D {
   /**
@@ -2047,6 +2080,7 @@ export interface CanvasRenderingContext2D {
 
 /**
  * You can create a gradient object on the canvas by calling CanvasRenderingContext2D.createLinearGradient().
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface CanvasGradient {
@@ -2061,6 +2095,7 @@ export interface CanvasGradient {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface Path2D {
@@ -2210,6 +2245,7 @@ export interface Path2D {
  * <canvas> provides a rectangular canvas component for drawing graphics on the screen.
  * You can control each pixel to draw on the canvas.
  * <canvas> offers a variety of functions for drawing paths, rectangles, circles, text, and allows for adding images to it.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export interface CanvasElement extends Element {
   /**
@@ -2254,6 +2290,7 @@ export interface CanvasElement extends Element {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ScrollOptions {
@@ -2304,6 +2341,7 @@ export interface ScrollOptions {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface ScrollOffset {
@@ -2322,6 +2360,7 @@ export interface ScrollOffset {
 
 /**
  * The <div> component provides a div container.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface DivElement extends Element {
@@ -2338,6 +2377,9 @@ export interface DivElement extends Element {
   getScrollOffset(): ScrollOffset;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export interface Application {
   /**
    * Object that is exposed in the app.js file and obtained by this.$app.$def.
@@ -2346,6 +2388,9 @@ export interface Application {
   $def: any;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export interface ViewModel {
   $app: Application;
 
@@ -2476,6 +2521,9 @@ export interface ViewModel {
   scrollTo(options: ScrollOptions): void;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export interface ElementReferences {
   [k: string]: AnimationElement &
     CanvasElement &
@@ -2497,6 +2545,9 @@ export interface ElementReferences {
     DivElement;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export declare class Locate {
   /**
    * language, such as 'zh'.
@@ -2520,6 +2571,9 @@ export declare class Locate {
   unicodeSetting: object;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export declare class Configuration {
   /**
    * Internationalization related information, such as language, country, text layout direction, etc.
@@ -2532,6 +2586,9 @@ export declare class Configuration {
   fontScale: number;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
    * Data model of the page that can be converted into a JSON object.
@@ -2653,6 +2710,9 @@ type DefaultData<T> = object;
 type CombinedOptions<T extends ViewModel, Data> = object &
   Options<T, Data> &
   ThisType<T & ViewModel & Data>;
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export declare function extendViewModel<T extends ViewModel, Data>(
   options: CombinedOptions<T, Data>
 ): ViewModel & Data;

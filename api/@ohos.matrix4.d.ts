@@ -16,6 +16,7 @@
 /**
  * Used to do matrix operations
  * @import import Matrix4 from '@ohos.matrix4'
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices phone, tablet, tv, wearable
  * @since 7
  */

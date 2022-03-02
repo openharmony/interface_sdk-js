@@ -15,6 +15,7 @@
 
 /**
  * Sets the interval for repeatedly calling a function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
  * @param delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
@@ -26,6 +27,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
 
 /**
  * Sets a timer after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
  * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
  * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
@@ -37,6 +39,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 
 /**
  * Cancels the interval set by " setInterval()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  * @since 3
@@ -45,6 +48,7 @@ export declare function clearInterval(intervalID?: number): void;
 
 /**
  * Cancels the timer set by "setTimeout()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  * @since 3
@@ -53,6 +57,7 @@ export declare function clearTimeout(timeoutID?: number): void;
 
 /**
  * Obtain the objects exposed in app.js
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable, smartVision
  * @since 6
  */
@@ -60,6 +65,7 @@ export declare function getApp(): object;
 
 /**
  * You can create an Image object by calling new Image().
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export declare class Image {
@@ -92,6 +98,7 @@ export declare class Image {
 
 /**
  * An ImageData object is a common object that stores the actual pixel data of a Canvas object.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export declare class ImageData {
@@ -115,6 +122,7 @@ export declare class ImageData {
 /**
  * OffscreenCanvas provides a Canvas object that can be rendered off-screen.
  * It works in both window and Web worker environments.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export declare class OffscreenCanvas {
     /**
@@ -156,6 +164,9 @@ export declare class OffscreenCanvas {
     transferToImageBitmap(): ImageBitmap;
 }
 
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ */
 export declare class ImageBitmap {
     /**
      * The height of the Image Bitmap object
@@ -170,10 +181,12 @@ export declare class ImageBitmap {
 
 /**
  * Conditional compilation for rich equipment
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export declare const STANDARD: string;
 
 /**
  * Conditional compilation for lite equipment
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export declare const LITE: string;

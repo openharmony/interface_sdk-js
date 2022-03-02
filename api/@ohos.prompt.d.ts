@@ -16,6 +16,7 @@
 import {AsyncCallback} from './basic';
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  * @import prompt from '@ohos.prompt';
  */

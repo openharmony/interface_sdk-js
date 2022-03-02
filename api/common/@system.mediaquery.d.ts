@@ -14,10 +14,12 @@
  */
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface MediaQueryEvent {
   /**
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -25,12 +27,14 @@ export interface MediaQueryEvent {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export interface MediaQueryList {
   /**
    * Serialized media query condition.
    * This parameter is read-only.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -39,6 +43,7 @@ export interface MediaQueryList {
   /**
    * Whether the query is successful. True if the query condition is matched successfully, false otherwise.
    * This parameter is read-only.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -46,6 +51,7 @@ export interface MediaQueryList {
 
   /**
    * Called when the matches value changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -54,6 +60,7 @@ export interface MediaQueryList {
   /**
    * Adds a listening function to MediaQueryList.
    * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -61,6 +68,7 @@ export interface MediaQueryList {
 
   /**
    * Removes a listening function from MediaQueryList.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    * @since 3
    */
@@ -68,11 +76,13 @@ export interface MediaQueryList {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @devices tv, phone, tablet, wearable
  */
 export default class MediaQuery {
   /**
    * Queries a media item and returns a MediaQueryList object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @devices tv, phone, tablet, wearable
    */
   static matchMedia(condition: string): MediaQueryList;
