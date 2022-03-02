@@ -17,7 +17,7 @@
  * A static class pertaining to the product information.
  *
  * @since 6
- * @Syscap SystemCapability.Startup.SysInfo
+ * @syscap SystemCapability.Startup.SysInfo
  */
 declare namespace deviceInfo {
      /**

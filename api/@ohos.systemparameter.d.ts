@@ -19,7 +19,7 @@ import { AsyncCallback, BusinessError } from './basic';
  * The interface of system parameters class.
  *
  * @since 6
- * @Syscap SystemCapability.Startup.SysInfo
+ * @syscap SystemCapability.Startup.SysInfo
  * @hide
  */
 declare namespace systemParameter {
