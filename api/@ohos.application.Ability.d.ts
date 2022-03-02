@@ -24,8 +24,7 @@ import rpc from '/@ohos.rpc';
  * The interface of a Caller.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -34,7 +33,7 @@ import rpc from '/@ohos.rpc';
      * Notify the server of Sequenceable type data.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      call(method: string, data: rpc.Sequenceable): Promise<void>;
@@ -43,7 +42,7 @@ import rpc from '/@ohos.rpc';
      * Notify the server of Sequenceable type data and return the notification result.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * return Sequenceable data
      * @StageModelOnly
      */
@@ -53,7 +52,7 @@ import rpc from '/@ohos.rpc';
      * Clear service records.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * return Sequenceable data
      * @StageModelOnly
      */
@@ -63,7 +62,7 @@ import rpc from '/@ohos.rpc';
      * Register death listener notification callback.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * return Sequenceable data
      * @StageModelOnly
      */
@@ -74,8 +73,7 @@ import rpc from '/@ohos.rpc';
  * The interface of a Callee.
  *
  * @since 9
- * @sysCap AAFwk
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -85,7 +83,7 @@ import rpc from '/@ohos.rpc';
      * Register data listener callback.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      on(method: string, callback: function): void;
@@ -94,7 +92,7 @@ import rpc from '/@ohos.rpc';
      * Unregister data listener callback.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      off(method: string): void;
@@ -140,7 +138,7 @@ export default class Ability {
      * Call Service Stub Object.
      *
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
      callee: Callee;
@@ -230,9 +228,8 @@ export default class Ability {
      * Called when the launch mode of an ability is set to singleton.
      * This happens when you re-launch an ability that has been at the top of the ability stack.
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 9
-     * @sysCap AAFwk
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -241,9 +238,8 @@ export default class Ability {
      /**
       * Called when the system configuration is updated.
       *
-      * @devices phone, tablet, tv, wearable, car
       * @since 9
-      * @sysCap AAFwk
+      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
       * @return -
       * @StageModelOnly
       */
