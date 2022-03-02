@@ -403,6 +403,24 @@ export interface ResourceManager {
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
     /**
+     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return result close raw file resource descriptor.
+     * @since 8
+     */
+    closeRawFileDescriptor(path: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @return Returns result close raw file resource descriptor corresponding to the specified resource path.
+     * @since 8
+     */
+     closeRawFileDescriptor(path: string): Promise<void>;
+
+    /**
      * Obtains release resourceManager.
      *
      * @since 7
