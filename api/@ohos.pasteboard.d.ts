@@ -17,7 +17,7 @@ import { Want } from './ability/want';
 
 /**
  * systemPasteboard
- * @sysCap SystemCapability.Miscservices.Pasteboard
+ * @syscap SystemCapability.Miscservices.Pasteboard
  * @devices phone, tablet, tv, wearable, car
  * @import import pasteboard from '@ohos.pasteboard';
  */
