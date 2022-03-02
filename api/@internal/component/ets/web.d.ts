@@ -468,7 +468,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Inject the arkUI JS object into H5 and invoke the function of the object in H5.
    * @since 8
    */
-  javaScriptProxy(javaScriptProxy: { obj: object, name: string, methodList: Array<string> }): WebAttribute;
+  javaScriptProxy(javaScriptProxy: { obj: object, name: string, methodList: Array<string>, controller: WebController }): WebAttribute;
 
   /*
    * Sets whether the Web should save the password.
