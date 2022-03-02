@@ -101,7 +101,7 @@ declare class HashMap<K, V> {
   /**
    * Replace the old value by new value corresponding to the specified key
    * @param key Updated targets
-   * @param value Updated the target mapped value
+   * @param newValue Updated the target mapped value
    * @returns the boolean type(Is there a target pointed to by the key)
    * @since 8
    * @syscap SystemCapability.Utils.Lang

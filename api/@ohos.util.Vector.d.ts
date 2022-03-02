@@ -109,10 +109,11 @@ declare class Vector<T> {
    * Replaces the element at the specified position in this Vector with the specified element
    * @param element replaced element
    * @param index index to find
+   * @return the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  set(index: number, element: T): void;
+  set(index: number, element: T): T;
   /**
    * Returns in the index of the last occurrence of the specified element in this vector ,
    * or -1 if the vector does not contain the element.

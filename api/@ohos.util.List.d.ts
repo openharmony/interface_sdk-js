@@ -116,10 +116,11 @@ declare class List<T> {
    * Replaces the element at the specified position in this List with the specified element
    * @param element replaced element
    * @param index index to find
+   * @return the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  set(index: number, element: T): void;
+  set(index: number, element: T): T;
   /**
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
@@ -135,13 +136,13 @@ declare class List<T> {
    * The function to be called for each element in the list,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
-   * @param list (Optional) The list object to which the current element belongs.
+   * @param List (Optional) The list object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, list?: ArrayList<T>) => void,
+  forEach(callbackfn: (value: T, index?: number, List?: List<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this list according to the order induced by the specified comparator
@@ -186,13 +187,6 @@ declare class List<T> {
    */
   replaceAllElements(callbackfn: (value: T, index?: number, list?: List<T>) => T,
   thisArg?: Object): void;
-  /**
-   * Returns a shallow copy of this instance. (The elements themselves are not copied.)
-   * @return this list instance
-   * @since 8
-   * @syscap SystemCapability.Utils.Lang
-   */
-  clone(): List<T>;
   /**
    * convert list to array
    * @return the Array type
