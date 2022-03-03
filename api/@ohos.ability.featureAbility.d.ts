@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
+import { Callback } from './basic';
 import { Want } from './ability/want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
