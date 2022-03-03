@@ -307,6 +307,14 @@ declare class WebController {
   onActive(): void;
 
   /**
+   * Let the Web zoom by.
+   * @param factor The zoom factor.
+   *
+   * @since 8
+   */
+  zoom(factor: number): void;
+
+  /**
    * Clear the history in the Web.
    * @since 8
    */
@@ -525,6 +533,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
+
+  /**
+   * Sets the Web's user agent.
+   * @param userAgent The Web's user agent.
+   *
+   * @since 8
+   */
+  userAgent(userAgent: string): WebAttribute;
 
   /**
    * Triggered at the end of web page loading
