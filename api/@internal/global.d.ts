@@ -76,3 +76,4 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 export declare function createLocalParticleAbility(timeoutID?: number): any;
+export declare function canIUse(syscap: string): boolean;
