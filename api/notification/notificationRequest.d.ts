@@ -232,7 +232,7 @@ export interface NotificationRequest {
  *
  * @name DistributedOptions
  * @since 8
- * @sysCap SystemCapability.Notification.Notification
+ * @syscap SystemCapability.Notification.Notification
  * @permission N/A
  */
 export interface DistributedOptions {

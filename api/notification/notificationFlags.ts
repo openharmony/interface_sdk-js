@@ -18,7 +18,7 @@
  *
  * @since 8
  * @systemapi Hide this for inner system use.
- * @sysCap SystemCapability.Notification.Notification
+ * @syscap SystemCapability.Notification.Notification
  */
   export enum NotificationFlagStatus {
   /**
