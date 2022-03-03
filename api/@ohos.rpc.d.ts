@@ -941,21 +941,25 @@ declare namespace rpc {
     class MessageOption {
         /**
          * Indicates synchronous call.
+         * @since 7
          */
         TF_SYNC = 0;
 
         /**
          * Indicates asynchronous call.
+         * @since 7
          */
         TF_ASYNC = 1;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
+         * @since 7
          */
         TF_ACCEPT_FDS = 0x10;
 
         /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+         * @since 7
          */
         TF_WAIT_TIME  = 4;
 
@@ -1127,16 +1131,19 @@ declare namespace rpc {
     class RemoteProxy implements IRemoteObject {
         /**
          * Indicates the message code for a Ping operation.
+         * @since 7
          */
         PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
 
         /**
          * Indicates the message code for a dump operation.
+         * @since 7
          */
         DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
 
         /**
          * Indicates the message code for a transmission.
+         * @since 7
          */
         INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
 
@@ -1144,6 +1151,7 @@ declare namespace rpc {
          * Indicates the minimum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         * @since 7
          */
         MIN_TRANSACTION_ID = 0x1;
 
@@ -1151,6 +1159,7 @@ declare namespace rpc {
          * Indicates the maximum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         * @since 7
          */
         MAX_TRANSACTION_ID = 0x00FFFFFF;
 
