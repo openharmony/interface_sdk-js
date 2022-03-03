@@ -102,7 +102,7 @@ import rpc from '/@ohos.rpc';
  * The class of an ability.
  *
  * @since 9
- * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
  */
@@ -111,7 +111,7 @@ export default class Ability {
      * Indicates configuration information about an ability context.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     context: AbilityContext;
@@ -120,7 +120,7 @@ export default class Ability {
      * Indicates ability launch want.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     launchWant: Want;
@@ -129,7 +129,7 @@ export default class Ability {
      * Indicates ability last request want.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      */
     lastRequestWant: Want;
@@ -147,7 +147,7 @@ export default class Ability {
      * Called back when an ability is started for initialization.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -157,7 +157,7 @@ export default class Ability {
      * Called back when an ability window stage is created.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -167,7 +167,7 @@ export default class Ability {
      * Called back when an ability window stage is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -188,7 +188,7 @@ export default class Ability {
      * Called back before an ability is destroyed.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -198,7 +198,7 @@ export default class Ability {
      * Called back when the state of an ability changes to foreground.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -208,7 +208,7 @@ export default class Ability {
      * Called back when the state of an ability changes to background.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return -
      * @StageModelOnly
      */
@@ -218,7 +218,7 @@ export default class Ability {
      * Called back when an ability prepares to migrate.
      *
      * @since 9
-     * @sysCap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
      * @StageModelOnly
      */
