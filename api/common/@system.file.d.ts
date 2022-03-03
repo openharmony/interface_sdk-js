@@ -57,6 +57,7 @@ export interface FileResponse {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileMoveOption {
   /**
@@ -104,6 +105,7 @@ export interface FileMoveOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileListResponse {
   /**
@@ -115,6 +117,7 @@ export interface FileListResponse {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileListOption {
   /**
@@ -269,6 +272,7 @@ export interface FileDeleteOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileWriteTextOption {
   /**
@@ -326,6 +330,7 @@ export interface FileWriteTextOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileReadTextResponse {
   /**
@@ -394,6 +399,7 @@ export interface FileReadTextOption {
 
 /**
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 3
  */
 export interface FileWriteArrayBufferOption {
   /**
