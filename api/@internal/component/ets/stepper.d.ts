@@ -15,13 +15,11 @@
 
 /**
  * Declare the stepper.
-
  * @since 8
  */
 interface StepperInterface {
   /**
    * Called when the stepper component is used.
-
    * @since 8
    */
   (value?: { index?: number }): StepperAttribute;
@@ -34,35 +32,30 @@ interface StepperInterface {
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
    * Callback when the finish label is clicked.
-
    * @since 8
    */
   onFinish(callback: () => void): StepperAttribute;
 
   /**
    * Callback when the skip label is clicked.
-
    * @since 8
    */
   onSkip(callback: () => void): StepperAttribute;
 
   /**
    * Callback when the change label is clicked.
-
    * @since 8
    */
   onChange(callback: (prevIndex?: number, index?: number) => void): StepperAttribute;
 
   /**
    * Callback when the next label is clicked.
-
    * @since 8
    */
   onNext(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;
 
   /**
    * Callback when the previous label is clicked.
-
    * @since 8
    */
   onPrevious(callback: (index?: number, pendingIndex?: number) => void): StepperAttribute;

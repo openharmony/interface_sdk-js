@@ -79,6 +79,7 @@ interface TabsInterface {
 }
 
 /**
+ * Defines the tabs attribute functions.
  * @since 7
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {

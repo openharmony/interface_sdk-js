@@ -17,30 +17,6 @@
  * Creating an Object
  * @since 7
  */
-declare enum GestureDirection {
-  /**
-   * Sliding in all directions.
-   * @since 7
-   */
-  All,
-
-  /**
-   * Sliding horizontally.
-   * @since 7
-   */
-  Horizontal,
-
-  /**
-   * Sliding Vertical
-   * @since 7
-   */
-  Vertical,
-}
-
-/**
- * Creating an Object
- * @since 7
- */
 declare enum PanDirection {
   /**
    * Default.

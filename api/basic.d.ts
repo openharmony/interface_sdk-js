@@ -13,18 +13,50 @@
  * limitations under the License.
  */
 
+/**
+ * Defines the basic callback.
+ * @since 6
+ */
 export interface Callback<T> {
-    (data: T): void;
+  /**
+   * Defines the callback info.
+   * @since 6
+   */
+  (data: T): void;
 }
-  
+
+/**
+ * Defines the basic error callback.
+ * @since 6
+ */
 export interface ErrorCallback<T extends Error = BusinessError> {
-    (err: T): void;
+  /**
+   * Defines the basic error callback.
+   * @since 6
+   */
+  (err: T): void;
 }
 
+/**
+ * Defines the basic async callback.
+ * @since 6
+ */
 export interface AsyncCallback<T> {
-    (err: BusinessError, data: T): void;
+  /**
+   * Defines the callback data.
+   * @since 6
+   */
+  (err: BusinessError, data: T): void;
 }
 
+/**
+ * Defines the error interface.
+ * @since 6
+ */
 export interface BusinessError extends Error {
-    code: number;
+  /**
+   * Defines the basic error code.
+   * @since 6
+   */
+  code: number;
 }

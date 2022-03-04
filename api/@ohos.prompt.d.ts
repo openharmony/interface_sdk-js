@@ -113,7 +113,6 @@ declare namespace prompt {
   }
 
   /**
-   * @devices tv, phone, tablet, wearable
    * @since 8
    */
   interface ActionMenuOptions {

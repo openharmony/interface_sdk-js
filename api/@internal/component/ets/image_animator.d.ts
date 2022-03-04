@@ -14,6 +14,7 @@
  */
 
 /**
+ * Defines the ImageAnimator Interface.
  * @since 7
  */
 interface ImageAnimatorInterface {

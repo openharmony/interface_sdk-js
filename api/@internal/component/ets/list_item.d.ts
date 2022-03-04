@@ -113,4 +113,3 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  */
 declare const ListItemInstance: ListItemAttribute;
 declare const ListItem: ListItemInterface;
-

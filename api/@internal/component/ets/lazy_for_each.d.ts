@@ -50,7 +50,7 @@ declare interface DataChangeListener {
 }
 
 /**
- * Data  changed.
+ * Data changed.
  * @since 7
  */
 declare interface IDataSource {
@@ -95,7 +95,4 @@ interface LazyForEachInterface {
   ): LazyForEachInterface;
 }
 
-/**
- * @since 7
- */
 declare const LazyForEach: LazyForEachInterface;

@@ -26,6 +26,7 @@ interface RowInterface {
 }
 
 /**
+ * Defines the row attribute functions.
  * @since 7
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
@@ -39,7 +40,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * Called when the horizontal alignment is set.
    * @since 8
    */
-   justifyContent(value: FlexAlign): RowAttribute;
+  justifyContent(value: FlexAlign): RowAttribute;
 }
 
 declare const Row: RowInterface;

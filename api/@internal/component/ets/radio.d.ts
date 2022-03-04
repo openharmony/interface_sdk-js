@@ -15,20 +15,17 @@
 
 /**
  * Input parameter for creating a radio box.
- * @devices phone, tablet, car
  * @since 8
  */
 declare interface RadioOption {
   /**
    * Radio group name.
-   * @devices phone, tablet, car
    * @since 8
    */
   group: string;
 
   /**
    * Radio name.
-   * @devices phone, tablet, car
    * @since 8
    */
   value: string;
@@ -36,13 +33,11 @@ declare interface RadioOption {
 
 /**
  * Provides an interface for creating a radio box.
- * @devices phone, tablet, car
  * @since 8
  */
 interface RadioInterface {
   /**
    * Called when a radio box is created.
-   * @devices phone, tablet, car
    * @since 8
    */
   (options: RadioOption): RadioAttribute;
@@ -55,14 +50,12 @@ interface RadioInterface {
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
    * Called when the radio box is selected.
-   * @devices phone, tablet, car
    * @since 8
    */
   checked(value: boolean): RadioAttribute;
 
   /**
    * Called when the radio box selection status changes.
-   * @devices phone, tablet, car
    * @since 8
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;

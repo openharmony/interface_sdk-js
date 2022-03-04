@@ -143,7 +143,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
    * @since 8
    */
-  popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
+  popupPosition(value: { offsetX: number; offsetY: number }): AlphabetIndexerAttribute;
 }
 
 declare const AlphabetIndexer: AlphabetIndexerInterface;
