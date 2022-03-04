@@ -15,34 +15,29 @@
 
 /**
  * ItemState
- * @devices phone, tablet, car
  * @since 8
  */
 declare enum ItemState {
   /**
    * Default State
-   * @devices phone, tablet, car
    * @since 8
    */
   Normal,
 
   /**
    * Disabled State
-   * @devices phone, tablet, car
    * @since 8
    */
   Disabled,
 
   /**
    * Waiting State
-   * @devices phone, tablet, car
    * @since 8
    */
   Waiting,
 
   /**
    * Skip State
-   * @devices phone, tablet, car
    * @since 8
    */
   Skip,
@@ -50,53 +45,39 @@ declare enum ItemState {
 
 /**
  * Provides an interface for switching the stepperItem view on stepper container.
- * @devices phone, tablet, car
  * @since 8
  */
 interface StepperItemInterface {
   /**
    * Called when the stepperItem component is used.
-   * @devices phone, tablet, car
    * @since 8
    */
   (): StepperItemAttribute;
 }
 
 /**
- * @devices phone, tablet, car
+ * Defines the stepper item attrbute functions.
  * @since 8
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
    * Called when the value of stepperItem prevLabel is set
-   * @devices phone, tablet, car
    * @since 8
    */
   prevLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem nextLabel is set
-   * @devices phone, tablet, car
    * @since 8
    */
   nextLabel(value: string): StepperItemAttribute;
 
   /**
    * Called when the value of stepperItem status is set
-   * @devices phone, tablet, car
    * @since 8
    */
   status(value?: ItemState): StepperItemAttribute;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 8
- */
 declare const StepperItemInstance: StepperItemAttribute;
-
-/**
- * @devices phone, tablet, car
- * @since 8
- */
 declare const StepperItem: StepperItemInterface;

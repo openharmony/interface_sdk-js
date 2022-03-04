@@ -62,5 +62,5 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   strokeWidth(length: number): GaugeAttribute;
 }
 
-declare const Gauge: GaugeInterface
+declare const Gauge: GaugeInterface;
 declare const GaugeInstance: GaugeAttribute;

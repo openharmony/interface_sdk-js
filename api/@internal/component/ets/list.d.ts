@@ -185,8 +185,5 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 }
 
-/**
- * @since 7
- */
 declare const List: ListInterface;
 declare const ListInstance: ListAttribute;

@@ -127,5 +127,5 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontFamily(value: string | Resource): ButtonAttribute;
 }
 
-declare const Button: ButtonInterface
+declare const Button: ButtonInterface;
 declare const ButtonInstance: ButtonAttribute;

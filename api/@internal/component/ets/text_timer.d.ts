@@ -91,10 +91,10 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 8
    */
   format(value: string): TextTimerAttribute;
-   /**
-    * Called when the font color is set.
-    * @since 8
-    */
+  /**
+   * Called when the font color is set.
+   * @since 8
+   */
   fontColor(value: ResourceColor): TextTimerAttribute;
   /**
    * Called when the font size is set.
@@ -106,15 +106,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 8
    */
   fontStyle(value: FontStyle): TextTimerAttribute;
-   /**
-    * Called when the fontWeight is set
-    * @since 8
-    */
+  /**
+   * Called when the fontWeight is set
+   * @since 8
+   */
   fontWeight(value: number | FontWeight | string): TextTimerAttribute;
-   /**
-    * Called when the fontFamily is set
-    * @since 8
-    */
+  /**
+   * Called when the fontFamily is set
+   * @since 8
+   */
   fontFamily(value: ResourceStr): TextTimerAttribute;
   /**
    * Called when the timer value is returned.

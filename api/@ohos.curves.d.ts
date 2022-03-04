@@ -17,13 +17,11 @@
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
  * @import import Curves from '@ohos.curves'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices phone, tablet, tv, wearable
  * @since 7
  */
 declare namespace curves {
   /**
    * enum Curve.
-   * @devices phone, tablet, tv, wearable
    * @since 7
    */
   enum Curve {
@@ -44,28 +42,24 @@ declare namespace curves {
 
   /**
    * Initializes the interpolator curve when called.
-   * @devices phone, tablet, tv, wearable
    * @since 7
    */
   function init(curve?: Curve): string;
 
   /**
    * Constructs a step curve when called.
-   * @devices phone, tablet, tv, wearable
    * @since 7
    */
   function steps(count: number, end: boolean): string;
 
   /**
    * Constructs a third-order Bezier curve when called.
-   * @devices phone, tablet, tv, wearable
    * @since 7
    */
   function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
 
   /**
    * Constructs a spring curve when called.
-   * @devices phone, tablet, tv, wearable
    * @since 7
    */
   function spring(velocity: number, mass: number, stiffness: number, damping: number): string;

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Defines the FormDimension enum.
  * @since 7
@@ -134,10 +133,10 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
   onRouter(callback: (info: any) => void): FormComponentAttribute;
 
   /**
-  * Uninstall Card.
-  * @since 7
-  * @systemapi
-  */
+   * Uninstall Card.
+   * @since 7
+   * @systemapi
+   */
   onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
 }
 

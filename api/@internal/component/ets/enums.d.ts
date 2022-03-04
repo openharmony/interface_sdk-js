@@ -458,60 +458,6 @@ declare enum PlayMode {
 }
 
 /**
- * This style allows you to set the window blurring degree and blurring style of the current component layout range,
- * @since 7
- */
-declare enum BlurStyle {
-  /**
-   * Small range glow effect.
-   * @since 7
-   */
-  SmallLight,
-
-  /**
-   * Medium range glow effect.
-   * @since 7
-   */
-  MediumLight,
-
-  /**
-   * Wide range of luminous effects.
-   * @since 7
-   */
-  LargeLight,
-
-  /**
-   * Super-range luminous effect.
-   * @since 7
-   */
-  XlargeLight,
-
-  /**
-   * Small range of dark effects.
-   * @since 7
-   */
-  SmallDark,
-
-  /**
-   * Medium range dark effect.
-   * @since 7
-   */
-  MediumDark,
-
-  /**
-   * Wide range of dark effects.
-   * @since 7
-   */
-  LargeDark,
-
-  /**
-   * Extra large range of dark effects.
-   * @since 7
-   */
-  XlargeDark,
-}
-
-/**
  * Type of a key.
  * @since 7
  */

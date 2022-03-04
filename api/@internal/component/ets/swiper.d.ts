@@ -128,6 +128,7 @@ declare interface IndicatorStyle {
 }
 
 /**
+ * Defines the swiper attibute functions.
  * @since 7
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {

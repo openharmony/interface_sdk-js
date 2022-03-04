@@ -22,13 +22,13 @@ declare interface CheckboxOption {
    * Current name of Checkbox.
    * @since 8
    */
-   name?: string;
+  name?: string;
 
   /**
    * Sets the group of Checkbox.
    * @since 8
    */
-   group?: string;
+  group?: string;
 }
 
 /**
@@ -53,13 +53,13 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * setting whether checkbox is selected.
    * @since 8
    */
-   select(value: boolean): CheckboxAttribute;
+  select(value: boolean): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): CheckboxAttribute;
+  selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
    * Called when the selection status changes.

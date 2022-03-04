@@ -52,12 +52,7 @@ interface XComponentInterface {
    * @since 8
    * @systemapi
    */
-  (value: {
-      id: string;
-      type: string;
-      libraryname?: string;
-      controller?: XComponentController;
-  }): XComponentAttribute;
+  (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 }
 
 /**
@@ -71,14 +66,14 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 8
    * @systemapi
    */
-   onLoad(callback: (event?: object) => void): XComponentAttribute;
+  onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
    * @systemapi
    */
-   onDestroy(event: () => void): XComponentAttribute;
+  onDestroy(event: () => void): XComponentAttribute;
 }
 
 declare const XComponent: XComponentInterface;

@@ -163,6 +163,10 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   };
 }
 
+/**
+ * Defines the dialog param with buttons.
+ * @since 7
+ */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.

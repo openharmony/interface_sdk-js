@@ -38,6 +38,7 @@ declare enum ToggleType {
 }
 
 /**
+ * Defines the toggle interface.
  * @since 8
  */
 interface ToggleInterface {
@@ -49,6 +50,7 @@ interface ToggleInterface {
 }
 
 /**
+ * Defines the toggle attibute functions
  * @since 8
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
