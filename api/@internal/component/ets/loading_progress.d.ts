@@ -37,8 +37,6 @@ declare enum LoadingProgressStyle {
   Orbital,
 }
 
-
-
 /**
  * Provides an interface for extending the loading progress.
  * @since 8
@@ -71,4 +69,4 @@ declare const LoadingProgress: LoadingProgressInterface;
  * Loading Progress Extensions on Declarative Classes
  * @since 8
  */
- declare const LoadingProgressInstance: LoadingProgressAttribute
+declare const LoadingProgressInstance: LoadingProgressAttribute;

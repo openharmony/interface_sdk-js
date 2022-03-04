@@ -26,6 +26,7 @@ interface RatingInterface {
 }
 
 /**
+ * Defines the rating attibute functions.
  * @since 7
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {

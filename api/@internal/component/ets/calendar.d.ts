@@ -102,7 +102,7 @@ interface CalendarDay {
 }
 
 /**
- *  Date object.
+ * Date object.
  * @since 7
  * @systemapi
  */

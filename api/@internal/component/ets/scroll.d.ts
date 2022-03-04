@@ -101,6 +101,7 @@ interface ScrollInterface {
 }
 
 /**
+ * Defines the scroll attibute functions.
  * @since 7
  */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {

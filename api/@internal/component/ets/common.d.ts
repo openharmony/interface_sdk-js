@@ -96,7 +96,6 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
-
 /**
  * Defining Builder MethodDecorator
  * @since 7
@@ -177,6 +176,7 @@ declare interface Rectangle {
 /**
  * Defining isSystemplugin Constants.
  * @since 7
+ * @systemapi
  */
 declare const isSystemplugin: (...args: string[]) => any;
 
@@ -198,6 +198,11 @@ declare function $rawfile(value: string): Resource;
  */
 declare function getContentStorage(value: any): ContentStorage;
 
+/**
+ * Defines the context mock object.
+ * @since 8
+ * @systemapi
+ */
 declare type Context = any;
 
 /**
@@ -206,29 +211,291 @@ declare type Context = any;
  */
 declare function getContext(value: any): Context;
 
-interface AnimateToParam {
+/**
+ * Defines the animate function params.
+ * @since 7
+ */
+declare interface AnimateParam {
+  /**
+   * Animation duration, in ms.
+   * @since 7
+   */
   duration?: number;
+  /**
+   * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
+   * animation playback. The value 0 means that there is no animation.
+   * @since 7
+   */
   tempo?: number;
+  /**
+   * Animation curve.
+   * @since 7
+   */
   curve?: Curve | string;
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @since 7
+   */
   delay?: number;
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @since 7
+   */
   iterations?: number;
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @since 7
+   */
   playMode?: PlayMode;
+  /**
+   * Callback invoked when the animation playback is complete.
+   * @since 7
+   */
   onFinish?: () => void;
+}
+
+/**
+ * Defines the motion path option.
+ * @since 7
+ */
+declare interface MotionPathOption {
+  /**
+   * The path info.
+   * @since 7
+   */
+  path: string;
+  /**
+   * The origin point info.
+   * @since 7
+   */
+  from?: number;
+  /**
+   * The distance point info.
+   * @since 7
+   */
+  to?: number;
+  /**
+   * The rotate info.
+   * @since 7
+   */
+  rotatable?: boolean;
+}
+
+/**
+ * Defines the shard transition function params.
+ * @since 7
+ */
+declare interface sharedTransitionOption {
+  /**
+   * Animation duration, in ms.
+   * @since 7
+   */
+  duration?: number;
+  /**
+   * Animation duration, in ms.
+   * @since 7
+   */
+  curve?: Curve | string;
+  /**
+   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
+   * @since 7
+   */
+  delay?: number;
+  /**
+   * The motion path info.
+   * @since 7
+   */
+  motionPath?: MotionPathOption;
+  /**
+   * Z index info.
+   * @since 7
+   */
+  zIndex?: number;
+  /**
+   * the animate type.
+   * @since 7
+   */
+  type?: SharedTransitionEffectType;
+}
+
+/**
+ * Defines the option of translate.
+ * @since 7
+ */
+declare interface TranslateOption {
+  /**
+   * The param of x direction.
+   * @since 7
+   */
+  x?: number | string;
+  /**
+   * The param of y direction.
+   * @since 7
+   */
+  y?: number | string;
+  /**
+   * The param of z direction.
+   * @since 7
+   */
+  z?: number | string;
+}
+
+/**
+ * Defines the option of scale.
+ * @since 7
+ */
+declare interface ScaleOption {
+  /**
+   * The param of x direction.
+   * @since 7
+   */
+  x?: number;
+  /**
+   * The param of y direction.
+   * @since 7
+   */
+  y?: number;
+  /**
+   * The param of z direction.
+   * @since 7
+   */
+  z?: number;
+  /**
+   * The param of center point of x.
+   * @since 7
+   */
+  centerX?: number | string;
+  /**
+   * The param of center point of y.
+   * @since 7
+   */
+  centerY?: number | string;
+}
+
+declare interface RotateOption {
+  /**
+   * The param of x direction.
+   * @since 7
+   */
+  x?: number;
+  /**
+   * The param of y direction.
+   * @since 7
+   */
+  y?: number;
+  /**
+   * The param of z direction.
+   * @since 7
+   */
+  z?: number;
+  /**
+   * The param of center point of x.
+   * @since 7
+   */
+  centerX?: number | string;
+  /**
+   * The param of center point of y.
+   * @since 7
+   */
+  centerY?: number | string;
+  /**
+   * The param of angle.
+   * @since 7
+   */
+  angle: number | string;
+}
+
+/**
+ * Defines the param of transition.
+ * @since 7
+ */
+declare interface TransitionOption {
+  /**
+   * Defines the param of type.
+   * @since 7
+   */
+  type?: TransitionType;
+  /**
+   * Defines the param of opacity.
+   * @since 7
+   */
+  opacity?: number;
+  /**
+   * Defines the param of translate.
+   * @since 7
+   */
+  translate?: TransitionOption;
+  /**
+   * Defines the param of scale.
+   * @since 7
+   */
+  scale?: ScaleOption;
+  /**
+   * Defines the param of rotate.
+   * @since 7
+   */
+  rotate?: RotateOption;
 }
 
 /**
  * Define Preview property
  * @since 8
+ * @systemapi
  */
 interface PreviewParams {
+  /**
+   * Define Preview title
+   * @since 8
+   * @systemapi
+   */
   title?: string;
+  /**
+   * Define Preview width
+   * @since 8
+   * @systemapi
+   */
   width?: number;
+  /**
+   * Define Preview height
+   * @since 8
+   * @systemapi
+   */
   height?: number;
+  /**
+   * Define Preview locale
+   * @since 8
+   * @systemapi
+   */
   locale?: string;
+  /**
+   * Define Preview colorMode
+   * @since 8
+   * @systemapi
+   */
   colorMode?: string;
+  /**
+   * Define Preview deviceType
+   * @since 8
+   * @systemapi
+   */
   deviceType?: string;
+  /**
+   * Define Preview dpi
+   * @since 8
+   * @systemapi
+   */
   dpi?: number;
+  /**
+   * Define Preview orientation
+   * @since 8
+   * @systemapi
+   */
   orientation?: string;
+  /**
+   * Define Preview roundScreen
+   * @since 8
+   * @systemapi
+   */
   roundScreen?: boolean;
 }
 
@@ -236,7 +503,7 @@ interface PreviewParams {
  * ItemDragInfo object description
  * @since 8
  */
-interface ItemDragInfo {
+declare interface ItemDragInfo {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 8
@@ -254,7 +521,7 @@ interface ItemDragInfo {
  * DragItemInfo object description
  * @since 8
  */
-interface DragItemInfo {
+declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
    * @since 8
@@ -278,7 +545,7 @@ interface DragItemInfo {
  * Defining animation function.
  * @since 7
  */
-declare function animateTo(value: AnimateToParam, event: () => void): void;
+declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
  * Converts a value in vp units to a value in px.
@@ -320,7 +587,7 @@ declare function px2lpx(value: number): number;
  * Defines the event target.
  * @since 8
  */
-interface EventTarget {
+declare interface EventTarget {
   /**
    * Area of current target.
    * @since 8
@@ -356,7 +623,7 @@ declare enum SourceType {
  * Defines the base event.
  * @since 8
  */
-interface BaseEvent {
+declare interface BaseEvent {
   /**
    * Defines the current target which fires this event.
    * @since 8
@@ -380,7 +647,7 @@ interface BaseEvent {
  * The tap action triggers this method invocation.
  * @since 7
  */
-interface ClickEvent extends BaseEvent {
+declare interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
    * @since 7
@@ -410,7 +677,7 @@ interface ClickEvent extends BaseEvent {
  * The mouse click action triggers this method invocation.
  * @since 8
  */
-interface MouseEvent extends BaseEvent {
+declare interface MouseEvent extends BaseEvent {
   /**
    * Mouse button of the click event.
    * @since 8
@@ -458,7 +725,7 @@ interface MouseEvent extends BaseEvent {
  * Type of the touch event.
  * @since 7
  */
-interface TouchObject {
+declare interface TouchObject {
   /**
    * Type of the touch event.
    * @since 7
@@ -500,7 +767,7 @@ interface TouchObject {
  * Touch Action Function Parameters
  * @since 7
  */
-interface TouchEvent extends BaseEvent {
+declare interface TouchEvent extends BaseEvent {
   /**
    * Type of the touch event.
    * @since 7
@@ -527,12 +794,20 @@ interface TouchEvent extends BaseEvent {
 }
 
 /**
- * pixelmap object with release function.
+ * Defines the PixelMap type object for ui component.
  * @since 7
  */
-declare interface PixelMap {
+declare type PixelMap = PixelMapMock;
+
+/**
+ * pixelmap object with release function.
+ * @systemapi
+ * @since 7
+ */
+declare class PixelMapMock {
   /**
    * release function.
+   * @systemapi
    * @since 7
    */
   release(): void;
@@ -542,7 +817,7 @@ declare interface PixelMap {
  * DragEvent object description
  * @since 7
  */
-interface DragEvent {
+declare interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
@@ -560,7 +835,7 @@ interface DragEvent {
  * KeyEvent object description:
  * @since 7
  */
-interface KeyEvent {
+declare interface KeyEvent {
   /**
    * Type of a key.
    * @since 7
@@ -615,7 +890,7 @@ interface KeyEvent {
  * Component State Styels.
  * @since 8
  */
-interface StateStyels {
+declare interface StateStyels {
   /**
    * Defines normal state styles.
    * @since 8
@@ -647,7 +922,11 @@ interface StateStyels {
   clicked?: any;
 }
 
-interface PopupOption {
+/**
+ * Defines the popup options.
+ * @since 7
+ */
+declare interface PopupOption {
   /**
    * Information in the pop-up window.
    * @since 7
@@ -703,7 +982,11 @@ interface PopupOption {
   onStateChange?: (event: { isVisible: boolean }) => void;
 }
 
-interface CustomPopupOption {
+/**
+ * Defines the custom popup option.
+ * @since 8
+ */
+declare interface CustomPopupOption {
   /**
    * builder of popup
    * @since 8
@@ -748,13 +1031,15 @@ interface CustomPopupOption {
 }
 
 /**
- * CommonMethod
+ * CommonMethod.
  * @since 7
  */
 declare class CommonMethod<T> {
   /**
    * constructor.
+   * @systemapi
    * @since 7
+   * @ignore
    */
   constructor();
 
@@ -772,7 +1057,6 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the response region of the current component.
-   * @devices phone, tablet, car
    * @since 8
    */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
@@ -781,42 +1065,35 @@ declare class CommonMethod<T> {
    * The size of the current component.
    * @since 7
    */
-  size(value: { width?: Length; height?: Length }): T;
+  size(value: SizeOptions): T;
 
   /**
    * constraint Size：
    * minWidth：minimum Width，maxWidth：maximum Width，minHeight：minimum Height ，maxHeight：maximum Height，
    * @since 7
    */
-  constraintSize(value: {
-    minWidth?: number | string | Resource;
-    maxWidth?: number | string | Resource;
-    minHeight?: number | string | Resource;
-    maxHeight?: number | string | Resource;
-  }): T;
+  constraintSize(value: ConstraintSizeOptions): T;
 
   /**
    * Sets the touchable of the current component
-   * @devices phone, tablet, car
    * @since 8
    */
   touchable(value: boolean): T;
 
   /**
    * layout Weight
-   * @devices phone, tablet, car.
    * @since 7
    */
   layoutWeight(value: number | string): T;
 
   /**
-   * Inner margin
+   * Inner margin.
    * @since 7
    */
   padding(value: Padding | Length): T;
 
   /**
-   * Outer Margin
+   * Outer Margin.
    * @since 7
    */
   margin(value: Margin | Length): T;
@@ -825,32 +1102,27 @@ declare class CommonMethod<T> {
    * Background color
    * @since 7
    */
-  backgroundColor(value: Color | number | string | Resource): T;
+  backgroundColor(value: ResourceColor): T;
 
   /**
    * Background image
    * src: Image address url
    * @since 7
    */
-  backgroundImage(src: string | Resource, repeat?: ImageRepeat): T;
+  backgroundImage(src: ResourceStr, repeat?: ImageRepeat): T;
 
   /**
    * Background image size
    * @since 7
    */
-  backgroundImageSize(
-    value: {
-      width?: number | string | Resource;
-      height?: number | string | Resource
-    } | ImageSize
-  ): T;
+  backgroundImageSize(value: SizeOptions | ImageSize): T;
 
   /**
    * Background image position
    * x:Horizontal coordinate;y:Vertical axis coordinate.
    * @since 7
    */
-  backgroundImagePosition(value: { x?: number | string | Resource; y?: number | string | Resource } | Alignment): T;
+  backgroundImagePosition(value: Position | Alignment): T;
 
   /**
    * Opacity
@@ -863,12 +1135,7 @@ declare class CommonMethod<T> {
    * width:Border width;color:Border color;radius:Border radius;
    * @since 7
    */
-  border(value: {
-    width?: number | string | Resource;
-    color?: Color | number | string | Resource;
-    radius?: number | string | Resource;
-    style?: BorderStyle;
-  }): T;
+  border(value: BorderOption): T;
 
   /**
    * Border style
@@ -880,19 +1147,19 @@ declare class CommonMethod<T> {
    * Border width
    * @since 7
    */
-  borderWidth(value: number | string | Resource): T;
+  borderWidth(value: Length): T;
 
   /**
    * Border color
    * @since 7
    */
-  borderColor(value: Color | number | string | Resource): T;
+  borderColor(value: ResourceColor): T;
 
   /**
    * Border radius
    * @since 7
    */
-  borderRadius(value: number | string | Resource): T;
+  borderRadius(value: Length): T;
 
   /**
    * Trigger a click event when a click is clicked.
@@ -934,68 +1201,38 @@ declare class CommonMethod<T> {
    * Set focusable.
    * @since 8
    */
-   focusable(value: boolean): T;
+  focusable(value: boolean): T;
 
   /**
    * Trigger a event when got focus.
    * @since 8
    */
-   onFocus(event: () => void): T;
+  onFocus(event: () => void): T;
 
   /**
    * Trigger a event when lose focus.
    * @since 8
    */
-   onBlur(event: () => void): T;
+  onBlur(event: () => void): T;
 
   /**
    * Trigger a event when focus move.
    * @since 8
+   * @systemapi
    */
-   onFocusMove(event: (direction?: FocusDirection) => void): T;
+  onFocusMove(event: (direction?: FocusDirection) => void): T;
 
   /**
    * animation
    * @since 7
    */
-  animation(value: {
-    duration?: number;
-    tempo?: number;
-    curve?: Curve | string;
-    delay?: number;
-    iterations?: number;
-    playMode?: PlayMode;
-    onFinish?: () => void;
-  }): T;
+  animation(value: AnimateParam): T;
 
   /**
    * Transition parameter
    * @since 7
    */
-  transition(value: {
-    type?: TransitionType;
-    opacity?: number;
-    translate?: {
-      x?: number | string;
-      y?: number | string;
-      z?: number | string;
-    };
-    scale?: {
-      x?: number;
-      y?: number;
-      z?: number;
-      centerX?: number | string;
-      centerY?: number | string;
-    };
-    rotate?: {
-      x?: number;
-      y?: number;
-      z?: number;
-      centerX?: number | string;
-      centerY?: number | string;
-      angle: number | string;
-    };
-  }): T;
+  transition(value: TransitionOption): T;
 
   /**
    * Bind gesture recognition.
@@ -1099,13 +1336,13 @@ declare class CommonMethod<T> {
    * When this parameter is set together with slide, slide takes effect by default.
    * @since 7
    */
-  translate(value: { x?: number | string; y?: number | string; z?: number | string }): T;
+  translate(value: TranslateOption): T;
 
   /**
    * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
    * @since 7
    */
-  scale(value: { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string }): T;
+  scale(value: ScaleOption): T;
 
   /**
    * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
@@ -1125,14 +1362,7 @@ declare class CommonMethod<T> {
    * The values are the start point during insertion and the end point during deletion.
    * @since 7
    */
-  rotate(value: {
-    x?: number;
-    y?: number;
-    z?: number;
-    centerX?: number | string;
-    centerY?: number | string;
-    angle: number | string;
-  }): T;
+  rotate(value: RotateOption): T;
 
   /**
    * Sets the transformation matrix for the current component.
@@ -1205,22 +1435,7 @@ declare class CommonMethod<T> {
    * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
    * @since 7
    */
-  sharedTransition(
-    id: string,
-    options?: {
-      duration?: number;
-      curve?: Curve | string;
-      delay?: number;
-      motionPath?: {
-        path: string;
-        from?: number;
-        to?: number;
-        rotatable?: boolean;
-      };
-      zIndex?: number;
-      type?: SharedTransitionEffectType;
-    },
-  ): T;
+  sharedTransition(id: string, options?: sharedTransitionOption): T;
 
   /**
    * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
@@ -1238,20 +1453,20 @@ declare class CommonMethod<T> {
    * position
    * @since 7
    */
-  position(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
+  position(value: Position): T;
 
   /**
    * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
    * @since 7
    */
-  markAnchor(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
+  markAnchor(value: Position): T;
 
   /**
    * Coordinate offset relative to the layout completion position.
    * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
    * @since 7
    */
-  offset(value: { x?: number | string | Resource; y?: number | string | Resource }): T;
+  offset(value: Position): T;
 
   /**
    * If the value is true, the component is available and can respond to operations such as clicking.
@@ -1365,7 +1580,7 @@ declare class CommonMethod<T> {
    * rotatble:Whether to follow the path for rotation.
    * @since 7
    */
-  motionPath(value: { path: string; from?: number; to?: number; rotatable?: boolean }): T;
+  motionPath(value: MotionPathOption): T;
 
   /**
    * Add a shadow effect to the current component
@@ -1394,6 +1609,8 @@ declare class CommonMethod<T> {
   /**
    * Key. User can set an key to the component to identify it.
    * @since 8
+   * @systemapi
+   * @test
    */
   key(value: string): T;
 
@@ -1425,7 +1642,7 @@ declare class CommonMethod<T> {
    * ContextMenu control
    * @since 8
    */
-  bindContextMenu(content: CustomBuilder, responseType : ResponseType): T;
+  bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
 
   /**
    * Sets styles for component state.
@@ -1441,13 +1658,13 @@ declare class CommonMethod<T> {
 }
 
 /**
- * CommonAttribute
+ * CommonAttribute for ide.
  * @since 7
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
- * CommonInterface
+ * CommonInterface for ide.
  * @since 7
  */
 interface CommonInterface {
@@ -1455,13 +1672,13 @@ interface CommonInterface {
 }
 
 /**
- * CommonInstance
+ * CommonInstance for ide.
  * @since 7
  */
 declare const CommonInstance: CommonAttribute;
 
 /**
- * Common
+ * Common for ide.
  * @since 7
  */
 declare const Common: CommonInterface;
@@ -1480,6 +1697,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
+   * @syetemapi
    */
   constructor();
 
@@ -1487,13 +1705,13 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * border Color
    * @since 7
    */
-  stroke(value: Color | number | string | Resource): T;
+  stroke(value: ResourceColor): T;
 
   /**
    * Fill color.
    * @since 7
    */
-  fill(value: Color | number | string | Resource): T;
+  fill(value: ResourceColor): T;
 
   /**
    * Offset from the start point of the border drawing.
@@ -1535,7 +1753,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Sets the width of the dividing line.
    * @since 7
    */
-  strokeWidth(value: number | string | Resource): T;
+  strokeWidth(value: Length): T;
 
   /**
    * Indicates whether to enable anti-aliasing
@@ -1577,11 +1795,15 @@ declare class CustomComponent {
 /**
  * View
  * @ignore ide should ignore this class
+ * @systemapi
+ * @since 7
  */
 declare class View {
   /**
    * Just use for generate tsbundle
    * @ignore ide should ignore this arrtibute
+   * @systemapi
+   * @since 7
    */
   create(value: any): any;
 }

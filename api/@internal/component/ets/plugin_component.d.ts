@@ -18,7 +18,15 @@
  * @since 8
  */
 interface PluginComponentTemplate {
+  /**
+   * Defines the plugin source name.
+   * @since 8
+   */
   source: string;
+  /**
+   * Defines the ability name.
+   * @since 8
+   */
   ability: string;
 }
 
@@ -35,6 +43,7 @@ interface PluginComponentInterface {
 }
 
 /**
+ * Defines the plugin component attibute functions.
  * @since 8
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare the type of input box
  * @since 7
@@ -134,6 +133,7 @@ interface TextInputInterface {
 }
 
 /**
+ * Defines the TextInput attribute functions.
  * @since 7
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {

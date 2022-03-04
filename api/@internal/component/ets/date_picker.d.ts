@@ -80,20 +80,24 @@ declare interface DatePickerResult {
 declare interface DatePickerOption {
   /**
    * Specifies the start date of the date selector.
+   * @since 8
    */
   start?: Date;
   /**
    * Specifies the end date for the date selector.
+   * @since 8
    */
   end?: Date;
 
   /**
    * Specifies the date selector check date or time selector check time.
+   * @since 8
    */
   selected?: Date;
 
   /**
    * Selector type, including date selector and time selector. By default, the date selector is used.
+   * @since 8
    */
   type?: DatePickerType;
 }

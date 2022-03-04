@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides the method of switching the cursor position.
  * @since 8
@@ -134,7 +133,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the input changes.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onChange(callback: (value: string) => void): TextAreaAttribute;

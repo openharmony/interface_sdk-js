@@ -145,5 +145,5 @@ interface BadgeInterface {
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
-declare const Badge: BadgeInterface
+declare const Badge: BadgeInterface;
 declare const BadgeInstance: BadgeAttribute;

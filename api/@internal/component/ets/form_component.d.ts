@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Defines the FormDimension enum.
  * @since 7

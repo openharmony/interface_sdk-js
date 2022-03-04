@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare sliderstyle
  * @since 7
@@ -23,7 +22,7 @@ declare enum SliderStyle {
    * The slider is on the slide rail.
    * @since 7
    */
-  OutSet = 0,
+  OutSet,
 
   /**
    * The slider is in the slide rail.
@@ -41,7 +40,7 @@ declare enum SliderChangeMode {
    * Start dragging the slider.
    * @since 7
    */
-  Begin = 0,
+  Begin,
 
   /**
    * Drag the slider.

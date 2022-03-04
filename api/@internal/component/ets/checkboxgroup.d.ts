@@ -44,7 +44,7 @@ declare interface CheckboxGroupOption {
    * Setting the group of CheckboxGroup.
    * @since 8
    */
-   group?: string;
+  group?: string;
 }
 
 /**
@@ -56,12 +56,12 @@ declare interface CheckboxGroupResult {
    * Checkbox name.
    * @since 8
    */
-   name: Array<string>;
+  name: Array<string>;
   /**
    * Set the group of status.
    * @since 8
    */
-   status: SelectStatus;
+  status: SelectStatus;
 }
 
 /**
@@ -85,13 +85,13 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * setting whether all checkbox is selected.
    * @since 8
    */
-   selectAll(value: boolean): CheckboxGroupAttribute;
+  selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
+  selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
