@@ -81,11 +81,20 @@ export class Locale {
      * A constructor used to create a Locale object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region.
      * @since 6
      */
-   constructor(locale?: string, options?: LocaleOptions);
+   constructor();
+
+    /**
+     * A constructor used to create a Locale object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param locale Indicates a character string containing the locale information, including
+     *               the language and optionally the script and region.
+     * @param options Indicates Locale option object use to initialize the Locale object.
+     * @since 6
+     */
+   constructor(locale: string, options?: LocaleOptions);
 
     /**
      * Indicates the language of the locale.
