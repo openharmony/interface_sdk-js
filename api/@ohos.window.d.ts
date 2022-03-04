@@ -23,6 +23,7 @@ declare namespace window {
   /**
    * The type of a window.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 7
    */
   enum WindowType {
     /**
@@ -446,21 +447,21 @@ declare namespace window {
 
     /**
      * Set the type of a window.
-     * @param windowType Indicate the type of a window.
+     * @param type Indicate the type of a window.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    setWindowType(windowType: WindowType): Promise<void>;
+    setWindowType(type: WindowType): Promise<void>;
 
     /**
      * Set the type of a window.
-     * @param windowType Indicate the type of a window.
+     * @param type Indicate the type of a window.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    setWindowType(windowType: WindowType, callback: AsyncCallback<void>): void;
+    setWindowType(type: WindowType, callback: AsyncCallback<void>): void;
 
     /**
      * get the properties of current window
