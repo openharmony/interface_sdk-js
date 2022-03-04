@@ -293,14 +293,14 @@ declare namespace wantConstant {
     /**
      * Indicates the grant for possible persisting on the URI.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
      * Returns the result to the source ability slice.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
 
@@ -318,7 +318,7 @@ declare namespace wantConstant {
     /**
      * Indicates the continuation is reversible.
      *
-     * @hide
+     * @systemapi Hide this for inner system use.
      */
     FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 
