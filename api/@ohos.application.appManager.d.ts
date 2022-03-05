@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -117,6 +117,24 @@ declare namespace appManager {
      */
      function clearUpApplicationData(bundleName: string): Promise<void>;
      function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
+
+    /**	    
+     * Is it a ram-constrained device
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return whether a ram-constrained device.
+     */
+    function isRamConstrainedDevice(): Promise<boolean>;
+    function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get the memory size of the application
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return application memory size.
+     */
+    function getAppMemorySize(): Promise<number>;
+    function getAppMemorySize(callback: AsyncCallback<number>): void;
 }
 
 export default appManager;
