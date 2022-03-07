@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -67,7 +67,8 @@ export default class AbilityContext extends Context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param parameter Indicates the ability to start.
+     * @param want Indicates the ability to start.
+     * @param options Indicates the start options.
      * @return -
      * @StageModelOnly
      */
@@ -92,9 +93,11 @@ export default class AbilityContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
-     * @param want Indicates the account to start.
+     * @param accountId Indicates the account to start.
+     * @param options Indicates the start options.
      * @systemapi hide for inner use.
      * @return -
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      */
     startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
@@ -106,7 +109,8 @@ export default class AbilityContext extends Context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param parameter Indicates the ability to start.
+     * @param want Indicates the ability to start.
+     * @param options Indicates the start options.
      * @return Returns the {@link AbilityResult}.
      * @StageModelOnly
      */
@@ -120,9 +124,11 @@ export default class AbilityContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want info to start.
-     * @param want Indicates the account to start.
+     * @param accountId Indicates the account to start.
+     * @param options Indicates the start options.
      * @systemapi hide for inner use.
      * @return Returns the {@link AbilityResult}.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      */
     startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
@@ -172,10 +178,11 @@ export default class AbilityContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want The element name of the service ability
-     * @param options The remote object instance
      * @param accountId The account to connect
+     * @param options The remote object instance
      * @systemapi hide for inner use.
      * @return Returns the number code of the ability connected
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      */
     connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
@@ -209,6 +216,7 @@ export default class AbilityContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @return Returns the {@link PermissionRequestResult}.
      * @StageModelOnly
      */
     requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;

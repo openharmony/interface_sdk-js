@@ -36,6 +36,7 @@ declare namespace appManager {
      * @param observer The application state observer.
      * @systemapi hide this for inner system use
      * @return Returns the number code of the observer.
+     * @permission ohos.permission.RUNNING_STATE_OBSERVER
      */
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
 
@@ -47,6 +48,7 @@ declare namespace appManager {
      * @param observerId Indicates the number code of the observer.
      * @systemapi hide this for inner system use
      * @return -
+     * @permission ohos.permission.RUNNING_STATE_OBSERVER
      */
     function unregisterApplicationStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
     function unregisterApplicationStateObserver(observerId: number): Promise<void>;
@@ -58,6 +60,7 @@ declare namespace appManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide this for inner system use
      * @return Returns the list of AppStateData.
+     * @permission ohos.permission.GET_RUNNING_INFO
      */
      function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
      function getForegroundApplications(): Promise<Array<AppStateData>>;
@@ -71,6 +74,7 @@ declare namespace appManager {
      * @param accountId The account id.
      * @systemapi hide this for inner system use
      * @return -
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, ohos.permission.CLEAN_BACKGROUND_PROCESSES
      */
     function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
     function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
@@ -91,7 +95,8 @@ declare namespace appManager {
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi Hide this for inner system use.
-    * @return -
+    * @return Returns the array of {@link ProcessRunningInfo}.
+    * @permission ohos.permission.GET_RUNNING_INFO
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
@@ -101,8 +106,8 @@ declare namespace appManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param bundleName bundle name.
-     * @permission ohos.permission.DELETE_MISSIONS
      * @systemapi hide this for inner system use
+     * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
      */
      function killProcessesByBundleName(bundleName: string): Promise<void>;
      function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
@@ -112,8 +117,8 @@ declare namespace appManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param bundleName bundle name.
-     * @permission ohos.permission.DELETE_MISSIONS
      * @systemapi hide this for inner system use
+     * @permission ohos.permission.CLEAN_APPLICATION_DATA
      */
      function clearUpApplicationData(bundleName: string): Promise<void>;
      function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
