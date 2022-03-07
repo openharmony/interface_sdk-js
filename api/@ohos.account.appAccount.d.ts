@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -269,7 +269,7 @@ declare namespace appAccount {
          * @since 7
          * @return void
          */
-        off(type: 'change', callback?: Callback<void>): void;
+        off(type: 'change', callback?: Callback<Array<AppAccountInfo>>): void;
 
         /**
          * Authenticates an application account to get an oauth token.
@@ -326,7 +326,7 @@ declare namespace appAccount {
         deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
 
         /**
-         * Sets the oauth token visibility of the specifed authentication type to a third-party application.
+         * Sets the oauth token visibility of the specified authentication type to a third-party application.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          *
@@ -341,7 +341,7 @@ declare namespace appAccount {
         setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
         /**
-         * Checks the oauth token visibility of the specifed authentication type for a third-party application.
+         * Checks the oauth token visibility of the specified authentication type for a third-party application.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          *
