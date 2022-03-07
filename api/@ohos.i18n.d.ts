@@ -666,4 +666,70 @@ export function getPreferredLanguageList(): Array<string>;
  * @since 8
  */
 export function getFirstPreferredLanguage(): string;
+
+/**
+ * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
+ * 
+ * @syscap SystemCapability.Global.I18n
+ * @param zoneID TimeZone ID used to create TimeZone Object.
+ * @return Returns a TimeZone object corresponds to zoneID.
+ * @since 8
+ */
+export function getTimeZone(zoneID?: string): TimeZone;
+
+/**
+ * Provides the API for accessing TimeZone name, rawOffset and offset information.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 8
+ */
+export class TimeZone {
+    /**
+     * Get the id of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represents the timezone id.
+     * @since 8
+     */
+    getID(): string;
+
+    /**
+     * Get the displayName of the TimeZone Object under the default locale.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represents the display name.
+     * @since 8
+     */
+    getDisplayName(): string;
+
+    /**
+     * Get the displayName of the TimeZone Object under the locale.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @param locale the locale tag use to display timezone object's name.
+     * @param isDST wether conside daylight saving time when display timezone object's name.
+     * @return Returns a string represents the display name.
+     * @since 8
+     */
+    getDisplayName(locale: string, isDST?: boolean): string;
+
+    /**
+     * Get the raw offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a number represents the raw offset.
+     * @since 8
+     */
+    getRawOffset(): number;
+
+    /**
+     * Get the offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @date Indicates a date use to compute offset.
+     * @return Returns a number represents the offset with date.
+     * @since 8
+     */
+    getOffset(date: number): number;
+}
 }
