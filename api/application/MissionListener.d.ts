@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,6 +28,7 @@
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of created mission.
      * @return -
      */
     onMissionCreated(mission: number): void;
@@ -37,6 +38,7 @@
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of destroyed mission.
      * @return -
      */
     onMissionDestroyed(mission: number): void;
@@ -46,6 +48,7 @@
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission which the snapshot changes
      * @return -
      */
     onMissionSnapshotChanged(mission: number): void;
@@ -55,6 +58,7 @@
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission being moved to the foreground.
      * @return -
      */
     onMissionMovedToFront(mission: number): void;

@@ -35,7 +35,7 @@
 
     /**
      * @name Direction
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      * @permission N/A
      */
@@ -47,7 +47,7 @@
 
     /**
      * @name ScreenDensity
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      * @permission N/A
      */

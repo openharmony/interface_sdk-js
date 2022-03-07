@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -49,6 +49,7 @@ declare namespace abilityManager {
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
      * @return -
+     * @permission ohos.permission.UPDATE_CONFIGURATION
      */
     function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
     function updateConfiguration(config: Configuration): Promise<void>;
@@ -59,7 +60,8 @@ declare namespace abilityManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi Hide this for inner system use.
-     * @return -
+     * @return Returns the array of {@link AbilityRunningInfo}.
+     * @permission ohos.permission.GET_RUNNING_INFO
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
@@ -71,7 +73,8 @@ declare namespace abilityManager {
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
       * @param upperLimit Get the maximum limit of the number of messages
       * @systemapi Hide this for inner system use.
-      * @return -
+      * @return Returns the array of {@link ExtensionRunningInfo}.
+      * @permission ohos.permission.GET_RUNNING_INFO
       */
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
     function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;

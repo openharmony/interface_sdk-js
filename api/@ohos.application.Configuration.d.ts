@@ -43,7 +43,7 @@ export interface Configuration {
     /**
      * Indicates the screen direction of the current device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
      direction: ConfigurationConstant.Direction;
@@ -51,7 +51,7 @@ export interface Configuration {
     /**
      * Indicates the screen density of the current device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
     screenDensity: ConfigurationConstant.ScreenDensity;
@@ -59,7 +59,7 @@ export interface Configuration {
     /**
      * Indicates the displayId of the current device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
     displayId: number;

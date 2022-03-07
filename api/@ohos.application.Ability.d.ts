@@ -187,6 +187,8 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param want Indicates the want info of the created ability.
+     * @param param Indicates the launch param.
      * @return -
      * @StageModelOnly
      */
@@ -197,6 +199,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param windowStage Indicates the created WindowStage.
      * @return -
      * @StageModelOnly
      */
@@ -258,6 +261,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param wantParam Indicates the want parameter.
      * @return true if ability agrees to migrate and saves data successfully, otherwise false.
      * @StageModelOnly
      */
@@ -269,6 +273,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param want Indicates the want info of ability.
      * @return -
      * @StageModelOnly
      */
@@ -279,6 +284,7 @@ export default class Ability {
       *
       * @since 9
       * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+      * @param config Indicates the updated configuration.
       * @return -
       * @StageModelOnly
       */
