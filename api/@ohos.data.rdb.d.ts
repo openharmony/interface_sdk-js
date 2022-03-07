@@ -32,7 +32,7 @@ declare namespace rdb {
      * to obtain a rdb store.
      *
      * @note N/A
-     * @since 8
+     * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param context Indicates the context of application or capability.
      * @param config Indicates the configuration of the database related to this RDB store. The configurations include
@@ -47,7 +47,7 @@ declare namespace rdb {
      * Deletes the database with a specified name.
      *
      * @note N/A
-     * @since 8
+     * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param context Indicates the context of application or capability.
      * @param name Indicates the database name.
@@ -240,7 +240,7 @@ declare namespace rdb {
          * @param device Indicates the remote device.
          * @param table Indicates the local table name.
          * @return the distributed table name.
-        
+
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
         obtainDistributedTableName(device: string, table: string): Promise<string>;
@@ -254,7 +254,7 @@ declare namespace rdb {
          * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
          * @param predicates Constraint synchronized data and devices.
          * @param callback Indicates the callback used to send the synchronization result to the caller.
-        
+
          */
         sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
