@@ -410,11 +410,11 @@ declare namespace reminderAgent {
     minute: number;
 
     /**
-     * value of minute.
+     * value of second.
      * @since 7
      * @syscap SystemCapability.Notification.ReminderAgent.
      */
-    second? number;
+    second?: number;
   }
 }
 export default reminderAgent;
