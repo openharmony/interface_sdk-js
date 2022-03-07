@@ -20,7 +20,6 @@ import { AbilityResult } from './ability/abilityResult';
 import { Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
-import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
@@ -145,17 +144,6 @@ declare namespace featureAbility {
   */
   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
-
-  /**
-   * Migrates this ability to the given device on the same distributed network.
-   * @default -
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
-   * @FAModelOnly
-   */
-   function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
-   function continueAbility(options: ContinueAbilityOptions): Promise<void>;
 
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
