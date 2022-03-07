@@ -16,6 +16,7 @@
 import rpc from "./@ohos.rpc";
 import ServiceExtensionContext from "./application/ServiceExtensionContext";
 import Want from './@ohos.application.Want';
+import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * class of service extension ability.
@@ -41,6 +42,7 @@ export default class ServiceExtensionAbility {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want of created service extension.
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -109,5 +111,16 @@ export default class ServiceExtensionAbility {
      * @StageModelOnly
      */
     onReconnect(want: Want): void;
+
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param config Indicates the updated configuration.
+     * @return -
+     * @StageModelOnly
+     */
+     onConfigurationUpdated(config: Configuration): void;
 }
 
