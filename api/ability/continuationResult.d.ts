@@ -14,34 +14,37 @@
  */
 
 /**
- * Defines an AppVersionInfo object.
+ * Indicates the description of transfer results for continuation.
+ *
+ * @name ContinuationResult
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission NA
  */
-export interface AppVersionInfo {
+export interface ContinuationResult {
+  /**
+   * the information about the selected device id.
+   *
+   * @default -
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  id: string;
 
   /**
-  * Application name.
-  * @default appName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly appName: string;
+   * the information about the selected device type.
+   *
+   * @default -
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  type: string;
 
   /**
-  * Application version number.
-  * @default versionCode
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly versionCode: number;
-
-  /**
-  * Application version name.
-  * @default versionName
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  */
-  readonly versionName: string;
+   * Indicates the name of the selected device.
+   *
+   * @default -
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  name: string;
 }

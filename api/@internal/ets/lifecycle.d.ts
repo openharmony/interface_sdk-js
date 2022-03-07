@@ -542,5 +542,33 @@ export declare interface LifecycleData {
    * @return -
    * @FAModelOnly
    */
-   getType?(uri: string, callback: AsyncCallback<string>): void;
+  getType?(uri: string, callback: AsyncCallback<string>): void;
+
+   /**
+   * Performs batch operations on the database. This method should be implemented by a Data ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param ops Indicates the data operation list, which can contain multiple operations on the database.
+   * @param callback function specified by framework to receive the result, developer should call this function to
+   *                 return the result to framework.
+   * @return -
+   * @FAModelOnly
+   */
+  executeBatch?(ops: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
+
+  /**
+   * Defines a method in this Data ability (implementation depending on child classes).
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param method Indicates the method name.
+   * @param arg Indicates the parameter transferred by the method.
+   * @param extras Indicates the parameter transferred by the method.
+   * @param callback function specified by framework to receive the result, developer should call this function to
+   *                 return the result to framework.
+   * @return -
+   * @FAModelOnly
+   */
+   call?(method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
 }

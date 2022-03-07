@@ -21,6 +21,8 @@ import { Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
 import { ContinueAbilityOptions } from './ability/continueAbilityOptions';
+import { AbilityAgent } from './@ohos.ability.abilityAgent';
+import window from './@ohos.window';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
@@ -151,12 +153,145 @@ declare namespace featureAbility {
    * @default -
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC.
    * @return -
    * @FAModelOnly
    */
-   function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
-   function continueAbility(options: ContinueAbilityOptions): Promise<void>;
+  function continueAbility(options: ContinueAbilityOptions, callback: AsyncCallback<void>): void;
+  function continueAbility(options: ContinueAbilityOptions): Promise<void>;
 
+  /**
+   * Obtains the window corresponding to the current ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the window corresponding to the current ability.
+   * @FAModelOnly
+   */
+  function getWindow(callback: AsyncCallback<window.Window>): void;
+  function getWindow(): Promise<window.Window>;
+
+  /**
+   * Obtains the migration state of this ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the migration state {@link ContinuationState}.
+   * @FAModelOnly
+   */
+  function getContinuationState(callback: AsyncCallback<ContinuationState>): void;
+  function getContinuationState(): Promise<ContinuationState>;
+
+  /**
+   * Obtains the ID of the source device from which this ability is migrated.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the source device ID.
+   * @FAModelOnly
+   */
+  function getOriginalDeviceId(callback: AsyncCallback<string>): void;
+  function getOriginalDeviceId(): Promise<string>;
+ 
+  /**
+   * Migrates this ability from another device on the same distributed network back to the local device.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return -
+   * @FAModelOnly
+   */
+  function reverseContinueAbility(callback: AsyncCallback<void>): void;
+  function reverseContinueAbility(): Promise<void>;
+ 
+  /**
+   * Start assist ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC, com.huawei.hwddmp.servicebus.BIND_SERVICE
+   * @param want want.
+   * @FAModelOnly
+   */
+  function startAssistAbility(want: Want): void;
+ 
+  /**
+   * Stop assist ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
+  function stopAssistAbility(callback: AsyncCallback<void>): void;
+  function stopAssistAbility(): Promise<void>;
+ 
+  /**
+   * Subscribe assist ability success event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function on(type: 'assistConnect', callback: Callback<AbilityAgent>): void;
+ 
+  /**
+   * Subscribe assist ability fail event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function on(type: 'assistConnectFailed', callback: Callback<number>): void;
+ 
+  /**
+   * Subscribe disconnect assist ability event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function on(type: 'assistDisconnect', callback: Callback<number>): void;
+ 
+  /**
+   * Unsubscribe assist ability success event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function off(type: 'assistConnect', callback?: Callback<AbilityAgent>): void;
+ 
+  /**
+   * Unsubscribe assist ability fail event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function off(type: 'assistConnectFailed', callback?: Callback<number>): void;
+ 
+  /**
+   * Unsubscribe disconnect assist ability event.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param type event type.
+   * @FAModelOnly
+   */
+  function off(type: 'assistDisconnect', callback?: Callback<number>): void;
+
+  /**
+   * Obtain the window configuration.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
     WINDOW_MODE_FULLSCREEN = 1,
@@ -165,12 +300,26 @@ declare namespace featureAbility {
     WINDOW_MODE_FLOATING = 102
   }
 
+  /**
+   * Obtain the window properties.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityStartSetting {
     BOUNDS_KEY = "abilityBounds",
     WINDOW_MODE_KEY = "windowMode",
     DISPLAY_ID_KEY = "displayId"
   }
 
+  /**
+   * Obtain the errorCode.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum ErrorCode {
     NO_ERROR = 0,
     INVALID_PARAMETER = -1,
@@ -178,11 +327,85 @@ declare namespace featureAbility {
     PERMISSION_DENY = -3
   }
 
+  /**
+   * Indicates the operation type of data.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum DataAbilityOperationType {
     TYPE_INSERT = 1,
     TYPE_UPDATE = 2,
     TYPE_DELETE = 3,
     TYPE_ASSERT = 4,
+  }
+
+  /**
+   * Indicates the state of continuation.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
+  export enum ContinuationState {
+    LOCAL_RUNNING = 0,
+    REMOTE_RUNNING = 1,
+    REPLICA_RUNNING = 2
+  }
+
+  /**
+   * Indicates the data structure of lifecycle.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
+   export enum LifecycleEvent {
+    UNDEFINED = 0,
+    ON_START = 1,
+    ON_INACTIVE = 2,
+    ON_ACTIVE = 3,
+    ON_BACKGROUND = 4,
+    ON_FOREGROUND = 5,
+    ON_STOP = 6
+  }
+
+  /**
+   * Collaboration status code.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
+  export enum AssistantCode {
+    OK = 0,
+    ERR_UNCONNECTED = 1,
+    ERR_INVALID_PARAMETER = 2,
+    ERR_SYSTEM_ERROR = 3,
+    ERR_EVENT_HANDLER_IS_NOT_SET_UP = 4,
+    ERR_ABILITY_TYPE_NOT_SUPPORTED = 5,
+    ERR_SIGNATURE_IS_NOT_CONSISTENT = 6,
+    ERR_ABILITY_NOT_MATCHED = 7,
+    ERR_ABILITY_TERMINATED = 8,
+    ERR_DEVICE_OFFLINE = 9,
+    ERR_PROCESS_DIED = 10,
+    ERR_ABILITY_START_FAILED = 11,
+    ERR_VERSION_INCOMPATIBLE = 12,
+    ERR_DISTRIBUTED_COMMUNICATION_PERMISSION_DENIED = 13,
+    ERR_TIMEOUT = 14,
+    ERR_IN_ASSISTING_MODE = 15,
+    ERR_NETWORK_TYPE_NOT_SUPPORTED = 16
+  }
+
+  /**
+   * Indicates the connection status of Collaboration devices.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   */
+  export enum DeviceConnectState {
+    IDLE = 0,
+    CONNECTING = 1,
+    CONNECTED = 2,
+    DISCONNECTING = 3
   }
 }
 export default featureAbility;
