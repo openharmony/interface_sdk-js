@@ -17,35 +17,35 @@
  * The class of an process running information.
  *
  * @since 8
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
 export interface ProcessRunningInfo {
     /**
      * @default process id
      * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
      pid: number;
 
      /**
       * @default user id
       * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
       */
      uid: number;
 
      /**
       * @default the name of the process
       * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
       */
      processName: string;
 
      /**
       * @default an array of the bundleNames running in the process
       * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+      * @syscap SystemCapability.Ability.AbilityRuntime.Core
       */
      bundleNames: Array<string>;
 }
