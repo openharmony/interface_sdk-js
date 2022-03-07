@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 declare enum MessageLevel {
   /**
    * Debug level.
@@ -261,51 +276,51 @@ declare class WebResourceRequest {
   constructor();
 
   /**
-   * Get the data.
+   * Get the response data.
    *
-   * @return Return the data.
+   * @return Return the response data.
    * @since 8
    */
-  getData(): string;
+  getResponseData(): string;
 
   /**
-   * Get the encoding.
+   * Get the response encoding.
    *
-   * @return Return the encoding.
+   * @return Return the response encoding.
    * @since 8
    */
-  getEncoding(): string;
+  getResponseEncoding(): string;
 
   /**
-   * Get the mime type.
+   * Get the response mime type.
    *
-   * @return Return the mime type.
+   * @return Return the response mime type.
    * @since 8
    */
-  getMimeType(): string;
+  getResponseMimeType(): string;
 
   /**
-   * Get the reason phrase.
+   * Get the reason message.
    *
-   * @return Return the reason phrase.
+   * @return Return the reason message.
    * @since 8
    */
-  getReasonPhrase(): string;
+  getReasonMessage(): string;
 
   /**
-   * Get the headers.
-   * @return Return the headers.
+   * Get the response headers.
+   * @return Return the response headers.
    * @since 8
    */
-  getResponseHeaders() : Map<string, string>;
+  getResponseHeader() : Map<string, string>;
 
   /**
-   * Get the status code.
+   * Get the response code.
    *
-   * @return Return the status code.
+   * @return Return the response code.
    * @since 8
    */
-  getStatusCode(): number;
+  getResponseCode(): number;
 }
 
 /**
