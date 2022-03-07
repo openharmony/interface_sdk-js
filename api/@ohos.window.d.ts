@@ -278,6 +278,7 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
@@ -286,6 +287,7 @@ declare namespace window {
    * Create a sub window with a specific id and type, only support 7.
    * @param id Indicates window id.
    * @param type Indicates window type.
+   * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 7
    */
   function create(id: string, type: WindowType): Promise<Window>;
@@ -559,7 +561,7 @@ declare namespace window {
      * @param path  path Path of the page to which the content will be loaded
      * @param storage storage The data object shared within the content instance loaded by the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 8
+     * @since 9
      */
     loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
 
@@ -570,15 +572,23 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+    loadContent(path: string, storage: ContentStorage): Promise<void>;
 
     /**
      * Loads content
-     * @param path path of the page to which the content will be loaded2
+     * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
+
+      /**
+     * Loads content
+     * @param path path of the page to which the content will be loaded
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+       loadContent(path: string): Promise<void>;
 
     /**
      * Checks whether the window is displayed
