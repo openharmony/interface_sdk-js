@@ -33,7 +33,7 @@ declare namespace rpc {
      * {@link Sequenceable}, and SequenceableArray.
      *
      * @since 7
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      */
     class MessageParcel {
