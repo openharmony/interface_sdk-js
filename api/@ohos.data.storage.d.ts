@@ -18,7 +18,7 @@ import { AsyncCallback, Callback } from './basic';
  * Provides interfaces to obtain and modify storage data.
  *
  * @name storage
- * @since 5
+ * @since 6
  * @deprecated since 9, please use @ohos.data.preferences instead.
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  *
@@ -33,8 +33,8 @@ declare namespace storage {
      * @param path Indicates the path of storage file stored.
      * @return Returns the {@link Storage} instance matching the specified storage file name.
      * @throws BusinessError if invoked failed
-     * @since 5
-    * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @since 6
+     * @deprecated since 9, please use @ohos.data.preferences instead.
      */
 
     function getStorageSync(path: string): Storage;
@@ -52,7 +52,7 @@ declare namespace storage {
      *
      * @param path Indicates the path of storage file
      * @throws BusinessError if invoked failed
-     * @since 5
+     * @since 6
      * @deprecated since 9, please use @ohos.data.preferences instead.
      */
     function deleteStorageSync(path: string): void;
@@ -69,7 +69,7 @@ declare namespace storage {
      *
      * @param path Indicates the path of storage file.
      * @throws BusinessError if invoked failed
-     * @since 5
+     * @since 6
      * @deprecated since 9, please use @ohos.data.preferences instead.
      */
     function removeStorageFromCacheSync(path: string): void;
@@ -86,7 +86,7 @@ declare namespace storage {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      *
-     * @since 5
+     * @since 6
      * @deprecated since 9, please use @ohos.data.preferences instead.
      */
     interface Storage {
@@ -99,7 +99,7 @@ declare namespace storage {
         * @param defValue Indicates the default value to return.
         * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
         * @throws BusinessError if invoked failed
-        * @since 5
+        * @since 6
         * @deprecated since 9, please use @ohos.data.preferences instead.
         */
         getSync(key: string, defValue: ValueType): ValueType;
@@ -113,7 +113,7 @@ declare namespace storage {
          * @return Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
          * returns {@code false} otherwise.
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         hasSync(key: string): boolean;
@@ -130,7 +130,7 @@ declare namespace storage {
          * @param value Indicates the value of the storage.
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         putSync(key: string, value: ValueType): void;
@@ -146,7 +146,7 @@ declare namespace storage {
          * @param key Indicates the key of the storage to delete. It cannot be {@code null} or empty.
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         deleteSync(key: string): void;
@@ -160,7 +160,7 @@ declare namespace storage {
          * file.
          *
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         clearSync(): void;
@@ -171,7 +171,7 @@ declare namespace storage {
          * Asynchronously saves the {@link Storage} object to the file.
          *
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         flushSync(): void;
@@ -183,7 +183,7 @@ declare namespace storage {
          *
          * @param callback Indicates the callback when storage changes.
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         on(type: 'change', callback: Callback<StorageObserver>): void;
@@ -193,7 +193,7 @@ declare namespace storage {
          *
          * @param callback Indicates the registered callback.
          * @throws BusinessError if invoked failed
-         * @since 5
+         * @since 6
          * @deprecated since 9, please use @ohos.data.preferences instead.
          */
         off(type: 'change', callback: Callback<StorageObserver>): void;
@@ -209,7 +209,7 @@ declare namespace storage {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      *
-     * @since 5
+     * @since 6
      * @deprecated since 9, please use @ohos.data.preferences instead.
      */
     interface StorageObserver {
