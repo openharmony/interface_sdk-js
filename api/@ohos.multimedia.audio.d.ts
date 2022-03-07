@@ -276,13 +276,13 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    RINGER_MODE_VIBRATE,
+    RINGER_MODE_VIBRATE = 1,
     /**
      * Normal mode
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    RINGER_MODE_NORMAL,
+    RINGER_MODE_NORMAL = 2,
   }
 
   /**
@@ -510,7 +510,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STREAM_USAGE_NOTIFICATION_RINGTONE = 3
+    STREAM_USAGE_NOTIFICATION_RINGTONE = 6
   }
 
   /**
@@ -823,50 +823,52 @@ declare namespace audio {
      * Sets volume for a stream. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
-    setVolume(audioType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
+    setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
     /**
      * Sets volume for a stream. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
-    setVolume(audioType: AudioVolumeType, volume: number): Promise<void>;
+    setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
     /**
      * Obtains volume of a stream. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getVolume(audioType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
      * Obtains the volume of a stream. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getVolume(audioType: AudioVolumeType): Promise<number>;
+    getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
      * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getMinVolume(audioType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
      * Obtains the minimum volume allowed for a stream. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getMinVolume(audioType: AudioVolumeType): Promise<number>;
+    getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
      * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getMaxVolume(audioType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
      * Obtains the maximum volume allowed for a stream. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    getMaxVolume(audioType: AudioVolumeType): Promise<number>;
+    getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
      * Obtains the audio devices of a specified flag. This method uses an asynchronous callback to return the execution result.
      * @since 7
@@ -884,71 +886,77 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    mute(audioType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
+    mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
      * Sets the stream to mute. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    mute(audioType: AudioVolumeType, mute: boolean): Promise<void>;
+    mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
     /**
      * Checks whether the stream is muted. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    isMute(audioType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
+    isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether the stream is muted. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    isMute(audioType: AudioVolumeType): Promise<boolean>;
+    isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
      * Checks whether the stream is active. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    isActive(audioType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
+    isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether the stream is active. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
-    isActive(audioType: AudioVolumeType): Promise<boolean>;
+    isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
      * Mute/Unmutes the microphone. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
      * Mute/Unmutes the microphone. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
     /**
      * Checks whether the microphone is muted. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether the microphone is muted. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(): Promise<boolean>;
     /**
      * Sets the ringer mode. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
     setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
     /**
      * Sets the ringer mode. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
     /**
@@ -967,12 +975,14 @@ declare namespace audio {
      * Sets the audio parameter. This method uses an asynchronous callback to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      */
     setAudioParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
      * Sets the audio parameter. This method uses a promise to return the execution result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      */
     setAudioParameter(key: string, value: string): Promise<void>;
     /**
@@ -1054,11 +1064,18 @@ declare namespace audio {
      */
     getAudioScene(): Promise<AudioScene>;
     /**
-    * Monitors device changes
-    * @since 7
-    * @syscap SystemCapability.Multimedia.Audio.Device
-    */
+     * Monitors device changes
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Cancels the listening of device change events.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
      * Listens for audio interruption events. When the audio of an application is interrupted by another application,
