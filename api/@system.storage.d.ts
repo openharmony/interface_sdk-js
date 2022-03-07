@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @import import storage from '@system.storage';
+ * @since 3
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ */
 export interface GetStorageOptions {
   /**
    * Content index.
@@ -47,6 +52,11 @@ export interface GetStorageOptions {
   complete?: () => void;
 }
 
+/**
+ * @import import storage from '@system.storage';
+ * @since 3
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ */
 export interface SetStorageOptions {
   /**
    * Index of the stored content to be modified.
@@ -81,7 +91,9 @@ export interface SetStorageOptions {
 }
 
 /**
- * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+ * @import import storage from '@system.storage';
+ * @since 3
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  */
 export interface ClearStorageOptions {
   /**
@@ -103,6 +115,11 @@ export interface ClearStorageOptions {
   complete?: () => void;
 }
 
+/**
+ * @import import storage from '@system.storage';
+ * @since 3
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+ */
 export interface DeleteStorageOptions {
   /**
    * Content index.
@@ -131,7 +148,9 @@ export interface DeleteStorageOptions {
 }
 
 /**
- * @Syscap SysCap.ACE.UIEngine
+ * @import import storage from '@system.storage';
+ * @since 3
+ * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  */
 export default class Storage {
   /**
