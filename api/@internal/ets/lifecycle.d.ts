@@ -20,7 +20,7 @@ import { DataAbilityResult } from "../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../ability/dataAbilityOperation";
 import dataAbility from "../@ohos.data.dataAbility";
 import formBindingData from "../@ohos.ability.formBindingData";
-import formManager from "../@ohos.ability.formManager";
+import formInfo from "../@ohos.application.formInfo";
 import rdb from "../@ohos.data.rdb";
 import rpc from "../@ohos.rpc";
 import resourceManager from "../@ohos.resourceManager";
@@ -37,11 +37,11 @@ export declare interface LifecycleForm {
   /**
    * Called to return a {@link formBindingData.FormBindingData} object.
    *
-   * @since 7
+   * @since 8
    * @param want Indicates the detailed information for creating a {@link formBindingData#FormBindingData}.
    *               The {@code Want} object must include the form ID, form name, and grid style of the form,
-   *               which can be obtained from {@link formManager#FormParam#IDENTITY_KEY},
-   *               {@link formManager#FormParam#NAME_KEY}, and {@link formManager#FormParam#DIMENSION_KEY},
+   *               which can be obtained from {@link formInfo#FormParam#IDENTITY_KEY},
+   *               {@link formInfo#FormParam#NAME_KEY}, and {@link formInfo#FormParam#DIMENSION_KEY},
    *               respectively. Such form information must be managed as persistent data for further form
    *               acquisition, update, and deletion.
    * @return Returns the created {@link formBindingData#FormBindingData} object.
@@ -52,17 +52,17 @@ export declare interface LifecycleForm {
   /**
    * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
    *
-   * @since 7
+   * @since 8
    * @param formId Indicates the ID of the form.
    * @return -
    * @FAModelOnly
    */
-  onCastTempToNormal?(formId: string): void;
+  onCastToNormal?(formId: string): void;
 
   /**
    * Called to notify the form provider to update a specified form.
    *
-   * @since 7
+   * @since 8
    * @param formId Indicates the ID of the form to update.
    * @return -
    * @FAModelOnly
@@ -72,22 +72,22 @@ export declare interface LifecycleForm {
   /**
    * Called when the form provider receives form events from the system.
    *
-   * @since 7
+   * @since 8
    * @param newStatus Indicates the form events occurred. The key in the {@code Map} object indicates the form ID,
-   *    and the value indicates the event type, which can be either {@link formManager#VisibilityType#FORM_VISIBLE}
-   *    or {@link formManager#VisibilityType#FORM_INVISIBLE}. {@link formManager#VisibilityType#FORM_VISIBLE}
-   *    means that the form becomes visible, and {@link formManager#VisibilityType#FORM_INVISIBLE}
+   *    and the value indicates the event type, which can be either {@link formInfo#VisibilityType#FORM_VISIBLE}
+   *    or {@link formInfo#VisibilityType#FORM_INVISIBLE}. {@link formInfo#VisibilityType#FORM_VISIBLE}
+   *    means that the form becomes visible, and {@link formInfo#VisibilityType#FORM_INVISIBLE}
    *    means that the form becomes invisible.
    * @return -
    * @FAModelOnly
    */
-  onVisibilityChanged?(newStatus: { [key: string]: number }): void;
+  onVisibilityChange?(newStatus: { [key: string]: number }): void;
 
   /**
    * Called when a specified message event defined by the form provider is triggered. This method is valid only for
    * JS forms.
    *
-   * @since 7
+   * @since 8
    * @param formId Indicates the ID of the form on which the message event is triggered, which is provided by
    *               the client to the form provider.
    * @param message Indicates the value of the {@code params} field of the message event. This parameter is
@@ -95,18 +95,18 @@ export declare interface LifecycleForm {
    * @return -
    * @FAModelOnly
    */
-  onTriggerEvent?(formId: string, message: string): void;
+  onEvent?(formId: string, message: string): void;
 
   /**
    * Called to notify the form provider that a specified form has been deleted. Override this method if
    * you want your application, as the form provider, to be notified of form deletion.
    *
-   * @since 7
+   * @since 8
    * @param formId Indicates the ID of the deleted form.
    * @return -
    * @FAModelOnly
    */
-  onDelete?(formId: string): void;
+  onDestroy?(formId: string): void;
 
   /**
    * Called to return a {@link FormState} object.
@@ -114,13 +114,13 @@ export declare interface LifecycleForm {
    * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
    * this method returns {@link FormState#DEFAULT} by default.</p>
    *
-   * @since 7
-   * @param want Indicates the description of the form for which the {@link formManager#FormState} is obtained.
+   * @since 8
+   * @param want Indicates the description of the form for which the {@link formInfo#FormState} is obtained.
    *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
-   * @return Returns the {@link formManager#FormState} object.
+   * @return Returns the {@link formInfo#FormState} object.
    * @FAModelOnly
    */
-  onAcquireFormState?(want: Want): formManager.FormState;
+  onAcquireFormState?(want: Want): formInfo.FormState;
 }
 
 /**
