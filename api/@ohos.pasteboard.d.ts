@@ -18,6 +18,7 @@ import { Want } from './ability/want';
 /**
  * systemPasteboard
  * @syscap SystemCapability.Miscservices.Pasteboard
+ * @devices phone, tablet, tv, wearable, car
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
