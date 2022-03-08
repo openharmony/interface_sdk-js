@@ -64,11 +64,11 @@ declare namespace osAccount {
         isMultiOsAccountEnable(): Promise<boolean>;
 
         /**
-         * Checks whether an OS account is actived based on its local ID.
+         * Checks whether an OS account is activated based on its local ID.
          *
          * @since 7
          * @param localId Indicates the local ID of the OS account.
-         * @return Returns {@code true} if the OS account is actived; returns {@code false} otherwise.
+         * @return Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
          * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
          */
         isOsAccountActived(localId: number, callback: AsyncCallback<boolean>): void;
@@ -466,7 +466,7 @@ declare namespace osAccount {
         serialNumber: number;
 
         /**
-         * Os account is actived or not.
+         * Os account is activated or not.
          * @since 8
          */
         isActived: boolean;
