@@ -45,11 +45,11 @@ declare namespace screenLock {
 
   /**
    * Unlocks the screen.
-   * 
+   * return -
    * @since 7
    */
-  function unlockScreen(callback: AsyncCallback<number>): void;
-  function unlockScreen():Promise<number>;
+  function unlockScreen(callback: AsyncCallback<void>): void;
+  function unlockScreen():Promise<void>;
 
   /**
    * Receives {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation} called. 
