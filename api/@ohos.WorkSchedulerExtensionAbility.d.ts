@@ -16,13 +16,13 @@
 import workScheduler from "./@ohos.workScheduler";
 
 /**
- * Class of the work scheduler extension.
+ * Class of the work scheduler extension ability.
  *
  * @since 9
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  */
-export default class WorkSchedulerExtension {
+export default class WorkSchedulerExtensionAbility {
     /**
      * Called back when a work is started.
      *
