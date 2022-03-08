@@ -16,8 +16,8 @@ import {AsyncCallback} from './basic';
 import image from './@ohos.multimedia.image'
 
 /**
- * System wallpaper
- * @syscap SystemCapability.Miscservices.WallpaperFramework
+ * ystem wallpaper
+ * @syscap SystemCapability.Miscservices.Wallpaper
  * @devices phone, tablet, tv, wearable, car
  * @import import wallpaper from '@ohos.wallpaper';
  * @since 7
