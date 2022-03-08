@@ -543,32 +543,6 @@ declare namespace request {
      */
     off(type: 'headerReceive', callback?: (header: object) => void): void;
 
-     /**
-     * Called when the current download session fails.
-     *
-     * @since 7
-     * @devices phone, tablet, tv, wearable, car
-     * @param type Indicates the download session type, fail: download task has failed.
-     * @param callback The callback function for the download fail change event
-     *        err The error code for download task.
-     * @permission {@code ohos.permission.INTERNET}
-     * @return -
-     */
-    on(type: 'fail', callback: (err: number) => void): void;
-
-    /**
-     * Called when the current download session fails.
-     *
-     * @since 7
-     * @devices phone, tablet, tv, wearable, car
-     * @param type Indicates the download session type, fail: download task has failed.
-     * @param callback Indicate the callback function to receive err.
-     *        err The error code for download task.
-     * @permission {@code ohos.permission.INTERNET}
-     * @return -
-     */
-    off(type: 'fail', callback?: (err: number) => void): void;
-
     /**
      * Deletes a upload session.
      *
