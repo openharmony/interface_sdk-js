@@ -284,6 +284,7 @@ declare namespace media {
      * local:fd://XXX, file://XXX. network:http://xxx
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @permission ohos.permission.READ_MEDIA, ohos.permission.INTERNET
      */
     src: string;
 
@@ -540,6 +541,7 @@ declare namespace media {
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @param config Recording parameters.
+     * @permission ohos.permission.MICROPHONE
      */
     prepare(config: AudioRecorderConfig): void;
 
