@@ -42,6 +42,7 @@ export default class ServiceExtension {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want of created service extension.
      * @systemapi hide for inner use.
      * @return -
      * @StageModelOnly
@@ -116,6 +117,7 @@ export default class ServiceExtension {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param config Indicates the updated configuration.
      * @return -
      * @StageModelOnly
      */

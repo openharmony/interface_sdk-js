@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@ import StartOptions from "./@ohos.application.StartOptions";
  * @name missionManager
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
 declare namespace missionManager {
@@ -34,6 +34,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param listener Indicates the MissionListener to be registered.
      * @return The index number of the MissionListener.
      */
     function registerMissionListener(listener: MissionListener): number;
@@ -43,6 +44,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param listenerId Indicates the listener id to be unregistered.
      * @return -
      */
     function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
@@ -53,6 +55,8 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
      * @return the {@link MissionInfo} of the given id.
      */
     function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
@@ -63,6 +67,8 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param numMax Indicates the maximum number of returned missions.
      * @return The array of the {@link MissionInfo}.
      */
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
@@ -73,6 +79,8 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
      * @return The {@link MissionSnapshot} of the given id.
      */
     function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
@@ -83,6 +91,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be locked.
      * @return -
      */
     function lockMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -93,6 +102,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be unlocked.
      * @return -
      */
     function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -103,6 +113,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be cleared.
      * @return -
      */
     function clearMission(missionId: number, callback: AsyncCallback<void>): void;
@@ -123,6 +134,8 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param missionId Indicates mission id to be moved to foreground.
+     * @param options Indicates the start options.
      * @return -
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;

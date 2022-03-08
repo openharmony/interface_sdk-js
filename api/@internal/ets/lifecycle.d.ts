@@ -544,7 +544,7 @@ export declare interface LifecycleData {
    */
   getType?(uri: string, callback: AsyncCallback<string>): void;
 
-   /**
+  /**
    * Performs batch operations on the database. This method should be implemented by a Data ability.
    *
    * @since 7

@@ -50,7 +50,10 @@ export default class AbilityStage {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return -
+     * @param want Indicates the want info of startd ability.
+     * @return The user returns an ability string ID. If the ability of this ID has been started before,
+     *         do not create a new instance and pull it back to the top of the stack.
+     *         Otherwise, create a new instance and start it.
      * @StageModelOnly
      */
     onAcceptWant(want: Want): string;
@@ -60,6 +63,7 @@ export default class AbilityStage {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param config Indicates the updated configuration.
      * @return -
      * @StageModelOnly
      */
