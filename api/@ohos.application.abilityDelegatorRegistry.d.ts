@@ -20,7 +20,7 @@ import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
  *
- * @since 9
+ * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
@@ -29,7 +29,7 @@ declare namespace abilityDelegatorRegistry {
     /**
      * Get the AbilityDelegator object of the application.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return the AbilityDelegator object initialized when the application is started.
      */
@@ -38,7 +38,7 @@ declare namespace abilityDelegatorRegistry {
     /**
      * Get unit test parameters stored in the AbilityDelegatorArgs object.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return the previously registered AbilityDelegatorArgs object.
      */
@@ -47,7 +47,7 @@ declare namespace abilityDelegatorRegistry {
     /**
      * Describes all lifecycle states of an ability.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
     export enum AbilityLifecycleState {
