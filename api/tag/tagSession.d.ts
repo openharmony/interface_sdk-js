@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import tag from '../ohos.nfc.tag';
-import { AsyncCallback } form './basic';
+import { AsyncCallback } from './basic';
 
 /**
  * Controls tag read and write.
@@ -66,7 +66,7 @@ export interface TagSession {
    *
    * @since 7
    */
-  isTagConnected(); boolean;
+  isTagConnected(): boolean;
 
   /**
    * Sets the timeout duration (ms) for sending data to a tag.

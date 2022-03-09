@@ -22,7 +22,7 @@
  * @syscap SystemCapability.Communication.NFC.Core
  */
 declare namespace cardEmulation {
-  enum Featuretype {
+  enum FeatureType {
     /** This constant is used to check whether HCE card emulation is supported. */
     HCE = 0,
 
@@ -44,7 +44,7 @@ declare namespace cardEmulation {
    *
    * @since 6
    */
-  function isSupported(feature: number):boolean;
+  function isSupported(feature: number): boolean;
 
   /**
    * A class for NFC host application.
