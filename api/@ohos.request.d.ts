@@ -21,7 +21,6 @@ import { AsyncCallback } from './basic';
  * @import request from '@ohos.request';
  * @syscap SystemCapability.Miscservices.Upload
  * @syscap SystemCapability.Miscservices.Download
- * @devices phone, tablet, tv, wearable, car
  * @permission {@code ohos.permission.INTERNET}
  */
 declare namespace request {
