@@ -225,10 +225,10 @@ declare class WebResourceRequest {
   /**
    * Get request headers.
    *
-   * @return Return a map of the request headers
+   * @return Return the request headers
    * @since 8
    */
-  getRequestHeader(): Map<string, string>;
+  getRequestHeader(): Array<Header>;
 
   /**
    * Get the request url.
@@ -312,7 +312,7 @@ declare class WebResourceRequest {
    * @return Return the response headers.
    * @since 8
    */
-  getResponseHeader() : Map<string, string>;
+  getResponseHeader() : Array<Header>;
 
   /**
    * Get the response code.
@@ -321,6 +321,26 @@ declare class WebResourceRequest {
    * @since 8
    */
   getResponseCode(): number;
+}
+
+/**
+ * Defines the web resource header.
+ * @since 8
+ */
+ declare interface Header {
+  /**
+   * Get the key of the web header.
+   *
+   * @since 8
+   */
+  headerKey: string;
+
+  /**
+   * Get the value of the web header.
+   *
+   * @since 8
+   */
+  headerValue: string;
 }
 
 /**
