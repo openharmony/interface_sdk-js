@@ -23,6 +23,7 @@ declare namespace window {
   /**
    * The type of a window.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 7
    */
   enum WindowType {
     /**
@@ -297,7 +298,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @systemapi Hide this for inner system use.
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
@@ -308,7 +308,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @systemapi Hide this for inner system use.
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
@@ -448,21 +447,21 @@ declare namespace window {
 
     /**
      * Set the type of a window.
-     * @param windowType Indicate the type of a window.
+     * @param type Indicate the type of a window.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    setWindowType(windowType: WindowType): Promise<void>;
+    setWindowType(type: WindowType): Promise<void>;
 
     /**
      * Set the type of a window.
-     * @param windowType Indicate the type of a window.
+     * @param type Indicate the type of a window.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
      */
-    setWindowType(windowType: WindowType, callback: AsyncCallback<void>): void;
+    setWindowType(type: WindowType, callback: AsyncCallback<void>): void;
 
     /**
      * get the properties of current window
@@ -555,24 +554,6 @@ declare namespace window {
      * @since 6
      */
     setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
-
-    /**
-     * Loads content
-     * @param path  path Path of the page to which the content will be loaded
-     * @param storage storage The data object shared within the content instance loaded by the window
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
-
-    /**
-     * Loads content
-     * @param path path of the page to which the content will be loaded
-     * @param storage storage The data object shared within the content instance loaded by the window
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, storage: ContentStorage): Promise<void>;
 
     /**
      * Loads content
@@ -673,89 +654,6 @@ declare namespace window {
      * @since 8
      */
     getColorSpace(callback: AsyncCallback<ColorSpace>): void;
-  }
-  /**
-   * window stage callback event type
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  enum WindowStageEventType {
-    FOREGROUND = 1,
-    ACTIVE,
-    INACTIVE,
-    BACKGROUND,
-  }
-  /**
-   * WindowStage
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
-   */
-  interface WindowStage {
-    /**
-     * Get main window of the stage.
-     * @since 9
-     */
-    getMainWindow(): Promise<Window>;
-    /**
-     * Get main window of the stage.
-     * @since 9
-     */
-    getMainWindow(callback: AsyncCallback<Window>): void;
-    /**
-     * Create sub window of the stage.
-     * @param name window name of sub window
-     * @since 9
-     */
-    createSubWindow(name: string): Promise<Window>;
-    /**
-     * Create sub window of the stage.
-     * @param name window name of sub window
-     * @since 9
-     */
-    createSubWindow(name: string, callback: AsyncCallback<Window>): void;
-    /**
-     * Get sub window of the stage.
-     * @since 9
-     */
-    getSubWindow(): Promise<Array<Window>>;
-    /**
-     * Get sub window of the stage.
-     * @since 9
-     */
-    getSubWindow(callback: AsyncCallback<Array<Window>>): void;
-    /**
-     * Loads content
-     * @param path  path Path of the page to which the content will be loaded
-     * @param storage storage The data object shared within the content instance loaded by the window
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
-    /**
-     * Loads content
-     * @param path path of the page to which the content will be loaded
-     * @param storage storage The data object shared within the content instance loaded by the window
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
-    /**
-     * Loads content
-     * @param path path of the page to which the content will be loaded
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    loadContent(path: string, callback: AsyncCallback<void>): void;
-    /**
-     * window stage event callback on.
-     * @since 9
-     */
-    on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
-    /**
-     * window stage event callback off.
-     * @since 9
-     */
-    off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
   }
 }
 
