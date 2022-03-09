@@ -118,6 +118,7 @@ export default class FormExtension {
      *
      * @since 9
      * @syscap SystemCapability.Ability.Form
+     * @param system configuration, such as language and color mode.
      * @return -
      * @StageModelOnly
      */

@@ -22,7 +22,7 @@ import formBindingData from '../@ohos.application.formBindingData';
  * formExtension-specific resources.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.Form
  * @permission N/A
  * @StageModelOnly
  */
@@ -34,7 +34,7 @@ export default class FormExtensionContext extends ExtensionContext {
      * <p>You can use this method to update the given form</p>
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the given form.
      * @param formBindingData Indicates the form data.
      * @return -
