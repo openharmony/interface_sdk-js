@@ -21,6 +21,7 @@ import BaseContext from '../application/BaseContext';
 import { HapModuleInfo } from '../bundle/hapModuleInfo';
 import { AppVersionInfo } from './appVersionInfo';
 import { AbilityInfo } from '../bundle/abilityInfo';
+import { DisplayOrientation } from '../@ohos.bundle';
 
 
 /**
@@ -76,6 +77,7 @@ export interface Context extends BaseContext {
     * @FAModelOnly
     */
     requestPermissionsFromUser(permissions: Array<string>, requestCode: number, resultCallback: AsyncCallback<PermissionRequestResult>): void;
+    requestPermissionsFromUser(permissions: Array<string>, requestCode: number): Promise<PermissionRequestResult>;
 
     /**
     * Obtains information about the current application.
@@ -94,6 +96,41 @@ export interface Context extends BaseContext {
     */
     getBundleName(callback: AsyncCallback<string>): void
     getBundleName(): Promise<string>;
+
+    /**
+    * Obtains the current display orientation of this ability.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    getDisplayOrientation(callback: AsyncCallback<DisplayOrientation>): void
+    getDisplayOrientation(): Promise<DisplayOrientation>;
+    
+    /**
+    * Sets the display orientation of the current ability.
+    * @param orientation Indicates the new orientation for the current ability.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    setDisplayOrientation(orientation: DisplayOrientation, callback: AsyncCallback<void>): void
+    setDisplayOrientation(orientation: DisplayOrientation): Promise<void>;
+    
+    /**
+    * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state.
+    * @param show Specifies whether to show this ability on top of the lock screen. The value true means to show it on the lock screen, and the value false means not.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void
+    setShowOnLockScreen(show: boolean): Promise<void>;
+    
+    /**
+    * Sets whether to wake up the screen when this ability is restored.
+    * @param wakeUp Specifies whether to wake up the screen. The value true means to wake it up, and the value false means not.
+    * @since 7
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    */
+    setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback<void>): void
+    setWakeUpScreen(wakeUp: boolean): Promise<void>;  
 
     /**
     * Obtains information about the current process, including the process ID and name.
@@ -133,7 +170,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the file directory of this application on the internal storage.
-    * @since 7
+    * @since 6
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -142,7 +179,7 @@ export interface Context extends BaseContext {
 
     /**
     * Obtains the cache directory of this application on the internal storage.
-    * @since 7
+    * @since 6
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
@@ -210,8 +247,8 @@ export interface Context extends BaseContext {
     * @return true if the configuration of this ability is changing and false otherwise.
     * @FAModelOnly
     */
-    isUpdatingConfigurations(): Promise<boolean>;
     isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;
+    isUpdatingConfigurations(): Promise<boolean>;
 
     /**
     * Informs the system of the time required for drawing this Page ability.
@@ -219,8 +256,8 @@ export interface Context extends BaseContext {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
     */
-    printDrawnCompleted(): Promise<void>;
     printDrawnCompleted(callback: AsyncCallback<void>): void;
+    printDrawnCompleted(): Promise<void>;
 }
 
 /**

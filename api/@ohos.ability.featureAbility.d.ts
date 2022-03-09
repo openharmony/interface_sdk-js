@@ -20,6 +20,7 @@ import { AbilityResult } from './ability/abilityResult';
 import { Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
+import window from './@ohos.window';
 
 /**
  * A Feature Ability represents an ability with a UI and is designed to interact with users.
@@ -145,6 +146,24 @@ declare namespace featureAbility {
   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
   function disconnectAbility(connection: number): Promise<void>;
 
+  /**
+   * Obtains the window corresponding to the current ability.
+   *
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @return Returns the window corresponding to the current ability.
+   * @FAModelOnly
+   */
+  function getWindow(callback: AsyncCallback<window.Window>): void;
+  function getWindow(): Promise<window.Window>;
+
+  /**
+   * Obtain the window configuration.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityWindowConfiguration {
     WINDOW_MODE_UNDEFINED = 0,
     WINDOW_MODE_FULLSCREEN = 1,
@@ -153,12 +172,26 @@ declare namespace featureAbility {
     WINDOW_MODE_FLOATING = 102
   }
 
+  /**
+   * Obtain the window properties.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum AbilityStartSetting {
     BOUNDS_KEY = "abilityBounds",
     WINDOW_MODE_KEY = "windowMode",
     DISPLAY_ID_KEY = "displayId"
   }
 
+  /**
+   * Obtain the errorCode.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum ErrorCode {
     NO_ERROR = 0,
     INVALID_PARAMETER = -1,
@@ -166,6 +199,13 @@ declare namespace featureAbility {
     PERMISSION_DENY = -3
   }
 
+  /**
+   * Indicates the operation type of data.
+   * 
+   * @since 7
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   */
   export enum DataAbilityOperationType {
     TYPE_INSERT = 1,
     TYPE_UPDATE = 2,

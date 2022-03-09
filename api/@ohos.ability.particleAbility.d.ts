@@ -98,7 +98,7 @@ declare namespace particleAbility {
    * @return unique identifier of the connection between the client and the service side.
    * @FAModelOnly
    */
-   function connectAbility(request: Want, options:ConnectOptions ): number;
+   function connectAbility(request: Want, options:ConnectOptions): number;
 
   /**
   * Disconnects ability to a Service ability.
@@ -109,5 +109,16 @@ declare namespace particleAbility {
   */
    function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
    function disconnectAbility(connection: number): Promise<void>;
+
+  /**
+  * Obtain the errorCode.
+  *
+  * @since 7
+  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+  * @FAModelOnly
+  */
+  export enum ErrorCode {
+    INVALID_PARAMETER = -1
+  }
 }
 export default particleAbility;
