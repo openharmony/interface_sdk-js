@@ -14,18 +14,25 @@
  */
 
 /**
- * @devices smartVision
+ * Defines the cipher response.
+ * @since 3
+ * @syscap SystemCapability.Security.Cipher
+ * @permission N/A
  */
 export interface CipherResponse {
   /**
    * response text
-   * @devices smartVision
+   * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   text: string;
 }
 
 /**
- * @devices smartVision
+ * Defines the rsa cipher options.
+ * @since 3
+ * @syscap SystemCapability.Security.Cipher
+ * @permission N/A
  */
 export interface CipherRsaOptions {
   /**
@@ -33,8 +40,8 @@ export interface CipherRsaOptions {
    * The options are as follows:
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   action: string;
 
@@ -45,8 +52,8 @@ export interface CipherRsaOptions {
    * For example, if the key length is 1024 bytes, the text cannot exceed 62 bytes (1024/8 - 66 = 62).
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   text: string;
 
@@ -54,43 +61,46 @@ export interface CipherRsaOptions {
    * Keys encrypted using RSA.
    * During encryption, this parameter is a public key.
    * During decryption, it is a private key.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   key: string;
 
   /**
    * RSA algorithm padding.
    * The default value is RSA/None/OAEPWithSHA256AndMGF1Padding.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   transformation?: string;
 
   /**
    * Called when data is encrypted or decrypted successfully.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   success: (data: CipherResponse) => void;
 
   /**
    * Called when data fails to be encrypted or decrypted.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   fail: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
-   * @devices smartVision
    * @since 3
+   * @syscap SystemCapability.Security.Cipher
    */
   complete: () => void;
 }
 
 /**
- * @devices smartVision
+ * Defines the aes cipher options.
+ * @since 3
+ * @syscap SystemCapability.Security.Cipher
+ * @permission N/A
  */
 export interface CipherAesOptions {
   /**
@@ -98,7 +108,7 @@ export interface CipherAesOptions {
    * The options are as follows:
    *   encrypt: Encrypts data.
    *   decrypt: Decrypts data.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   action: string;
@@ -108,14 +118,14 @@ export interface CipherAesOptions {
    * The text to be encrypted must be a common text.
    * The text content to be decrypted must be a binary value encoded using Base64.
    * The default format is used for Base64 encoding.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   text: string;
 
   /**
    * Key used for encryption or decryption, which is a character string encrypted using Base64.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   key: string;
@@ -123,7 +133,7 @@ export interface CipherAesOptions {
   /**
    * Encryption mode and padding of the AES algorithm.
    * The default value is AES/CBC/PKCS5Padding.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   transformation?: string;
@@ -132,7 +142,7 @@ export interface CipherAesOptions {
    * Initial vector for AES-based encryption and decryption.
    * The value is a character string encoded using Base64.
    * The default value is the key value.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   iv?: string;
@@ -140,7 +150,7 @@ export interface CipherAesOptions {
   /**
    * Offset of the initial vector for AES-based encryption and decryption.
    * The default value is 0.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   ivOffset?: string;
@@ -148,48 +158,51 @@ export interface CipherAesOptions {
   /**
    * Length of the initial vector for AES-based encryption and decryption.
    * The default value is 16.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   ivLen?: string;
 
   /**
    * Called when data is encrypted or decrypted successfully.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   success: (data: CipherResponse) => void;
 
   /**
    * Called when data fails to be encrypted or decrypted.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   fail: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    * @since 3
    */
   complete: () => void;
 }
 
 /**
- * @devices smartVision
+ * Defines the cipher functions.
+ * @since 3
+ * @syscap SystemCapability.Security.Cipher
+ * @permission N/A
  */
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
    * @param options RSA options
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    */
   static rsa(options: CipherRsaOptions): void;
 
   /**
    * Encrypts or decrypts data using AES.
    * @param options AES options
-   * @devices smartVision
+   * @syscap SystemCapability.Security.Cipher
    */
   static aes(options: CipherAesOptions): void;
 }
