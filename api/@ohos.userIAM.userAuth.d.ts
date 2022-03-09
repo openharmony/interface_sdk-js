@@ -92,6 +92,7 @@ declare namespace userAuth {
 
     /**
      * Auth types
+     * @deprecated since 8
      */
     type AuthType = "ALL" | "FACE_ONLY";
 
@@ -152,7 +153,7 @@ declare namespace userAuth {
          * @param authTrustLevel Trust level of authentication result.
          * @return Returns a check result, which is specified by getAvailableStatus.
          */
-        getAvailableStatus(authType : AuthType, authTrustLevel : AuthTrustLevel) : number;
+        getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
 
         /**
          * Executes authentication.
@@ -165,7 +166,7 @@ declare namespace userAuth {
          * @param callback Return result and acquireinfo through callback.
          * @return Returns ContextId for cancel.
          */
-        auth(challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
+        auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
 
         /**
          * Cancels authentication with ContextID.
