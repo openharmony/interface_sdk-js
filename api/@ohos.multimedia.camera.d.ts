@@ -268,25 +268,6 @@ declare namespace camera {
   }
 
   /**
-   * Enum for camera data format. Align to pixel format and image format value.
-   * @since 8
-   * @syscap SystemCapability.Multimedia.Camera.Core
-   */
-  enum CameraFormat {
-    /**
-     * YCRCb 420 SP format.
-     * @since 8
-     */
-    CAMERA_FORMAT_YCRCb_420_SP = 1003,
-
-    /**
-     * JPEG format.
-     * @since 8
-     */
-    CAMERA_FORMAT_JPEG = 2000,
-  }
-
-  /**
    * Camera input object.
    * @since 8
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -300,28 +281,6 @@ declare namespace camera {
      */
     getCameraId(callback: AsyncCallback<string>): void;
     getCameraId(): Promise<string>;
-
-    /**
-     * Gets all supported sizes for current camera input.
-     * @return Supported size array.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     */
-    getSupportedSizes(format: CameraFormat, callback: AsyncCallback<Array<Size>>): void;
-    getSupportedSizes(format: CameraFormat): Promise<Array<Size>>;
-
-    /**
-     * Gets all supported formats for current camera input.
-     * @return Supported format array.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     */
-    getSupportedPreviewFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
-    getSupportedPreviewFormats(): Promise<Array<CameraFormat>>;
-    getSupportedPhotoFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
-    getSupportedPhotoFormats(): Promise<Array<CameraFormat>>;
-    getSupportedVideoFormats(callback: AsyncCallback<Array<CameraFormat>>): void;
-    getSupportedVideoFormats(): Promise<Array<CameraFormat>>;
 
     /**
      * Check if device has flash light.
