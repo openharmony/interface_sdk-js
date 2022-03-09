@@ -657,7 +657,6 @@ declare namespace rpc {
         /**
          * Reads {@link IRemoteObject} objects from this {@link MessageParcel} object.
          * @return An array of {@link IRemoteObject} objects obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readRemoteObjectArray(): IRemoteObject[];
@@ -665,7 +664,6 @@ declare namespace rpc {
         /**
          * Closes the specified file descriptor.
          * @param fd File descriptor to be closed.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         static closeFileDescriptor(fd: number): void;
@@ -674,7 +672,6 @@ declare namespace rpc {
          * Duplicates the specified file descriptor.
          * @param fd File descriptor to be duplicated.
          * @return A duplicated file descriptor.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         static dupFileDescriptor(fd: number) :number;
@@ -683,7 +680,6 @@ declare namespace rpc {
          * Checks whether this {@link MessageParcel} object contains a file descriptor.
          * @return Returns true if the {@link MessageParcel} object contains a file descriptor;
          * returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         containFileDescriptors(): boolean;
@@ -692,7 +688,6 @@ declare namespace rpc {
          * Writes a file descriptor to this {@link MessageParcel} object.
          * @param fd File descriptor to wrote.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeFileDescriptor(fd: number): boolean;
@@ -700,7 +695,6 @@ declare namespace rpc {
         /**
          * Reads a file descriptor from this {@link MessageParcel} object.
          * @return File descriptor obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readFileDescriptor(): number;
@@ -709,7 +703,6 @@ declare namespace rpc {
          * Writes an anonymous shared memory object to this {@link MessageParcel} object.
          * @param ashmem Anonymous shared memory object to wrote.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeAshmem(ashmem: Ashmem): boolean;
@@ -717,7 +710,6 @@ declare namespace rpc {
         /**
          * Reads the anonymous shared memory object from this {@link MessageParcel} object.
          * @return Anonymous share object obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readAshmem(): Ashmem;
@@ -725,7 +717,6 @@ declare namespace rpc {
         /**
          * Obtains the maximum amount of raw data that can be sent in a time.
          * @return 128 MB.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         getRawDataCapacity(): number;
@@ -735,7 +726,6 @@ declare namespace rpc {
          * @param rawData Raw data to wrote.
          * @param size Size of the raw data, in bytes.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeRawData(rawData: number[], size: number): boolean;
@@ -744,7 +734,6 @@ declare namespace rpc {
          * Reads raw data from this {@link MessageParcel} object.
          * @param size Size of the raw data to read.
          * @return Raw data obtained, in bytes.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readRawData(size: number): number[];
