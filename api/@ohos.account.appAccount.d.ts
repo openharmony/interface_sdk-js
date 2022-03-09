@@ -194,7 +194,7 @@ declare namespace appAccount {
          *
          * @since 7
          * @return Returns a list of application accounts.
-         * @permission ohos.permission.GET_ACCOUNTS_PRIVILEGED.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          */
         getAllAccessibleAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
         getAllAccessibleAccounts(): Promise<Array<AppAccountInfo>>;
@@ -212,7 +212,7 @@ declare namespace appAccount {
          * @since 7
          * @param owner Indicates the account owner of your application or third-party applications.
          * @return Returns a list of application accounts.
-         * @permission ohos.permission.GET_ACCOUNTS_PRIVILEGED.
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          */
         getAllAccounts(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
         getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>;
