@@ -145,13 +145,6 @@ export interface ApplicationInfo {
   readonly metaData: Map<string, Array<CustomizeData>>;
 
   /**
-    * @default Indicates the metadata of module
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly metadata: Map<string, Array<Metadata>>;
-
-  /**
     * @default Indicates whether or not this application may be removable
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework

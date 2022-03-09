@@ -242,11 +242,4 @@ export interface BundleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissionStates: Array<number>;
-
-  /**
-    * @default Obtains configuration information about an ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }
