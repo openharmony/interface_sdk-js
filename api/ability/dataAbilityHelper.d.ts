@@ -93,8 +93,8 @@ export interface DataAbilityHelper {
      * @return Returns the matched MIME types Array.
      * @FAModelOnly
      */
-    getFileTypes(uri: string,  mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
-    getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
+    getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
+    getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array<string>>;
 
     /**
      * Converts the given uri that refers to the Data ability into a normalized uri.
@@ -169,7 +169,8 @@ export interface DataAbilityHelper {
      * @FAModelOnly
      */
     delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
-    delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+    delete(uri: string, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
+    delete(uri: string, callback: AsyncCallback<number>): void;
 
     /**
      * Updates data records in the database.
@@ -183,7 +184,8 @@ export interface DataAbilityHelper {
      * @FAModelOnly
      */
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
-    update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+    update(uri: string, valuesBucket: rdb.ValuesBucket, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
+    update(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
      * Queries data in the database.
@@ -197,7 +199,10 @@ export interface DataAbilityHelper {
      * @FAModelOnly
      */
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
-    query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
+    query(uri: string, callback: AsyncCallback<ResultSet>): void;
+    query(uri: string, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+    query(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
+    query(uri: string, columns?: Array<string>, predicates?: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
 
     /**
      * Calls the extended API of the DataAbility. This method uses a promise to return the result.
@@ -217,6 +222,18 @@ export interface DataAbilityHelper {
      */
     call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
     call(uri: string, method: string, arg: string, extras: PacMap): Promise<PacMap>;
+
+    /**
+     * Queries data in the database.
+     *
+     * @since 7
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @param uri Indicates the path of data to query.
+     * @param operations Indicates the data operation list, which can contain multiple operations on the database.
+     * @return Returns the result of each operation, in array {@link DataAbilityResult}.
+     */
+     executeBatch(uri: string, operations: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
+     executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;
 }
 
 /**

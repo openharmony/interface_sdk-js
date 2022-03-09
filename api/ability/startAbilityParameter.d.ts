@@ -15,7 +15,7 @@
 import { Want } from './want';
 
  /**
- * @since 3
+ * @since 6
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  */
@@ -24,7 +24,7 @@ export interface StartAbilityParameter {
    * Indicates the Want containing information about the target ability to start.
    *
    * @default -
-   * @since 3
+   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
@@ -34,7 +34,7 @@ export interface StartAbilityParameter {
    * Indicates the special start setting used in starting ability.
    *
    * @default -
-   * @since 3
+   * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    */
