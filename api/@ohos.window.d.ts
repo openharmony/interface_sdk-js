@@ -33,7 +33,11 @@ declare namespace window {
     /**
      * System alert.
      */
-    TYPE_SYSTEM_ALERT
+    TYPE_SYSTEM_ALERT,
+    /**
+     * System gesture.
+     */
+    TYPE_SYSTEM_GESTURE
   }
 
   /**
@@ -258,6 +262,42 @@ declare namespace window {
      * @since 7
      */
     touchable: boolean
+
+    /**
+     * Brightness value of window.
+     * @since 6
+     */
+    brightness: number
+
+    /**
+     * The dimbehind value of window.
+     * @since 6
+     */
+    dimBehindValue: number
+
+    /**
+     * Whether keep screen on.
+     * @since 6
+     */
+    isKeepScreenOn: boolean
+
+    /**
+     * Whether make window in privacy mode or not.
+     * @since 7
+     */
+    isPrivacyMode: boolean
+
+    /**
+     * Whether is round corner or not.
+     * @since 7
+     */
+    isRoundCorner: boolean
+
+    /**
+     * Whether is transparent or not.
+     * @since 7
+     */
+    isTransparent: boolean
   }
 
   /**
@@ -298,7 +338,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @systemapi Hide this for inner system use.
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
@@ -309,7 +348,6 @@ declare namespace window {
    * @param ctx Indicates the context on which the window depends
    * @param id Indicates window id.
    * @param type Indicates window type.
-   * @systemapi Hide this for inner system use.
    * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
    * @since 8
    */
@@ -638,6 +676,22 @@ declare namespace window {
     off(type: 'systemAvoidAreaChange', callback?: Callback<AvoidArea>): void;
 
     /**
+     * register the callback of keyboardHeightChange
+     * @param type: 'keyboardHeightChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    on(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+
+    /**
+     * unregister the callback of keyboardHeightChange
+     * @param type: 'keyboardHeightChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    off(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+
+    /**
      * Whether the window supports thr wide gamut setting.
      * @since 8
      */
@@ -674,6 +728,134 @@ declare namespace window {
      * @since 8
      */
     getColorSpace(callback: AsyncCallback<ColorSpace>): void;
+
+    /**
+     * Sets the background color of window.
+     * @param color the specified color.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setBackgroundColor(color: string): Promise<void>;
+
+    /**
+     * Sets the background color of window.
+     * @param color the specified color.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setBackgroundColor(color: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the brightness of window.
+     * @param brightness the specified brightness value.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setBrightness(brightness: number): Promise<void>;
+
+    /**
+     * Sets the brightness of window.
+     * @param brightness the specified brightness value.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setBrightness(brightness: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the dimBehind of window.
+     * @param dimBehindValue the specified dimBehind.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the dimBehind of window.
+     * @param dimBehind the specified dimBehind.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setDimBehind(dimBehindValue: number): Promise<void>;
+
+    /**
+     * Sets whether focusable or not.
+     * @param isFocusable can be focus if true, or can not be focus if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setFocusable(isFocusable: boolean): Promise<void>;
+
+    /**
+     * Sets whether focusable or not.
+     * @param isFocusable can be focus if true, or can not be focus if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setFocusable(isFocusable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether keep screen on or not.
+     * @param isKeepScreenOn keep screen on if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
+
+    /**
+     * Sets whether keep screen on or not.
+     * @param isKeepScreenOn keep screen on if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 6
+     */
+    setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether outside can be touch or not.
+     * @param touchable outside can be touch if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setOutsideTouchable(touchable: boolean): Promise<void>;
+
+    /**
+     * Sets whether outside can be touch or not.
+     * @param touchable outside can be touch if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether is private mode or not.
+     * @param isPrivacyMode in private mode if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setPrivacyMode(isPrivacyMode: boolean): Promise<void>;
+
+    /**
+     * Sets whether is private mode or not.
+     * @param isPrivacyMode in private mode if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets whether is touchable or not.
+     * @param isTouchable is touchable if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setTouchable(isTouchable: boolean): Promise<void>;
+
+    /**
+     * Sets whether is touchable or not.
+     * @param isTouchable is touchable if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
   }
   /**
    * window stage callback event type
