@@ -28,9 +28,9 @@ export interface ConnectOptions {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
-   * @param remoteObject The remote object instance
+   * @param remote The remote object instance
    */
-  onConnect: (elementName: ElementName, remoteObject: RemoteObject) => void;
+  onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
 
   /**
    * The callback interface was disconnect successfully.
@@ -40,7 +40,7 @@ export interface ConnectOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param elementName The element name of the service ability
    */
-  onDisconnect: (elementName: ElementName) => void;
+  onDisconnect(elementName: ElementName): void;
 
   /**
    * The callback interface was connect failed.
@@ -50,5 +50,5 @@ export interface ConnectOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param code The error code of the failed.
    */
-  onFailed: (code: number) => void;
+  onFailed(code: number): void;
 }

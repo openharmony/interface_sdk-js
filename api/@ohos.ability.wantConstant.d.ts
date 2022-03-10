@@ -32,7 +32,7 @@ declare namespace wantConstant {
     /**
      * Indicates the action of backing home.
      *
-     * @since 1
+     * @since 6
      */
     ACTION_HOME = "ohos.want.action.home",
 
