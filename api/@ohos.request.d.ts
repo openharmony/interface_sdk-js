@@ -25,7 +25,7 @@ declare namespace request {
 
   /**
    * Bit flag indicating download is allowed when using the cellular network.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -33,7 +33,7 @@ declare namespace request {
 
   /**
   * Bit flag indicating download is allowed when using the WLAN.
-  *
+  * @syscap SystemCapability.Miscservices.Download
   * @since 7
   * @permission {@code ohos.permission.INTERNET}
   */
@@ -41,7 +41,7 @@ declare namespace request {
 
   /**
    * Indicates that the download cannot be resumed for some temporary errors.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -49,7 +49,7 @@ declare namespace request {
 
   /**
    * Indicates that no storage device, such as an SD card, is found.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -57,7 +57,7 @@ declare namespace request {
 
   /**
    * Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -65,7 +65,7 @@ declare namespace request {
 
   /**
    * Indicates that a file operation fails.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -73,7 +73,7 @@ declare namespace request {
 
   /**
    * Indicates that the HTTP transmission fails.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -81,7 +81,7 @@ declare namespace request {
 
   /**
    * Indicates insufficient storage space.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -89,7 +89,7 @@ declare namespace request {
 
   /**
    * Indicates an error caused by too many network redirections.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -97,7 +97,7 @@ declare namespace request {
 
   /**
    * Indicates an HTTP code that cannot be identified.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -105,7 +105,7 @@ declare namespace request {
 
   /**
    * Indicates an undefined error.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -113,7 +113,7 @@ declare namespace request {
 
   /**
    * Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -121,7 +121,7 @@ declare namespace request {
 
   /**
    * Indicates that the download is paused for some reasons.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -129,7 +129,7 @@ declare namespace request {
 
   /**
    * Indicates that the download is paused due to a network problem, for example, network disconnection.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -137,7 +137,7 @@ declare namespace request {
 
   /**
    * Indicates that a network error occurs, and the download session will be retried.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -145,7 +145,7 @@ declare namespace request {
 
   /**
    * Indicates that the download session has failed and will not be retried.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -153,7 +153,7 @@ declare namespace request {
 
   /**
    * Indicates that the download session has been paused.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -161,7 +161,7 @@ declare namespace request {
 
   /**
    * Indicates that the download session is being scheduled.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -169,7 +169,7 @@ declare namespace request {
 
   /**
    * Indicates that the download session is in progress.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -177,7 +177,7 @@ declare namespace request {
 
   /**
    * Indicates that the download session is completed.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 7
    * @permission {@code ohos.permission.INTERNET}
    */
@@ -185,7 +185,7 @@ declare namespace request {
 
   /**
    * Starts a download session.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 6
    * @param config download config
    * @param callback Indicate the callback function to receive DownloadTask.
@@ -196,7 +196,7 @@ declare namespace request {
 
   /**
    * Starts a download session.
-   *
+   * @syscap SystemCapability.Miscservices.Download
    * @since 6
    * @param config download config
    * @permission {@code ohos.permission.INTERNET}
@@ -206,7 +206,7 @@ declare namespace request {
 
   /**
    * Starts a upload session.
-   *
+   * @syscap SystemCapability.Miscservices.Upload
    * @since 6
    * @param config upload config
    * @param callback Indicate the callback function to receive UploadTask.
@@ -217,7 +217,7 @@ declare namespace request {
 
   /**
    * Starts a upload session.
-   *
+   * @syscap SystemCapability.Miscservices.Upload
    * @since 6
    * @param config upload config
    * @permission {@code ohos.permission.INTERNET}
@@ -250,13 +250,10 @@ declare namespace request {
     downloadTotalBytes: number; // the total size of files to be downloaded (in bytes).
   }
 
-/**
- * @syscap SystemCapability.Miscservices.Download
- */
   interface DownloadTask {
     /**
      * Called when the current download session is in process.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 6
      * @param type progress Indicates the download task progress.
      * @param callback The callback function for the download progress change event
@@ -269,7 +266,7 @@ declare namespace request {
 
     /**
      * Called when the current download session is in process.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 6
      * @param type progress Indicates the download task progress.
      * @param callback The callback function for the download progress change event
@@ -282,7 +279,7 @@ declare namespace request {
 
     /**
      * Called when the current download session complete、pause or remove.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
@@ -296,7 +293,7 @@ declare namespace request {
 
     /**
      * Called when the current download session complete、pause or remove.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
@@ -310,7 +307,7 @@ declare namespace request {
 
     /**
      * Called when the current download session fails.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param type Indicates the download session type, fail: download task has failed.
      * @param callback The callback function for the download fail change event
@@ -322,7 +319,7 @@ declare namespace request {
 
     /**
      * Called when the current download session fails.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param type Indicates the download session type, fail: download task has failed.
      * @param callback Indicate the callback function to receive err.
@@ -334,7 +331,7 @@ declare namespace request {
 
     /**
      * Deletes a download session and the downloaded files.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 6
      * @param callback Indicates asynchronous invoking Result.
      * @permission {@code ohos.permission.INTERNET}
@@ -344,7 +341,7 @@ declare namespace request {
 
     /**
      * Deletes a download session and the downloaded files.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 6
      * @permission {@code ohos.permission.INTERNET}
      * @return -
@@ -353,7 +350,7 @@ declare namespace request {
 
     /**
      * Pause a download session.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param callback Indicates asynchronous invoking Result.
      * @permission {@code ohos.permission.INTERNET}
@@ -363,7 +360,7 @@ declare namespace request {
 
     /**
      * Pause a download session.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @permission {@code ohos.permission.INTERNET}
      * @return -
@@ -372,7 +369,7 @@ declare namespace request {
 
     /**
      * Resume a paused download session.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param callback Indicates asynchronous invoking Result.
      * @permission {@code ohos.permission.INTERNET}
@@ -382,7 +379,7 @@ declare namespace request {
 
     /**
      * Resume a paused download session.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @permission {@code ohos.permission.INTERNET}
      * @return -
@@ -391,7 +388,7 @@ declare namespace request {
 
     /**
      * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param callback Indicate the callback function to receive download info.
      * @permission {@code ohos.permission.INTERNET}
@@ -401,7 +398,7 @@ declare namespace request {
 
     /**
      * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @permission {@code ohos.permission.INTERNET}
      * @return -
@@ -410,7 +407,7 @@ declare namespace request {
 
     /**
      * Queries the MIME type of the download file.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @param callback Indicate the callback function to receive download file MIME type.
      * @permission {@code ohos.permission.INTERNET}
@@ -420,7 +417,7 @@ declare namespace request {
 
     /**
      * Queries the MIME type of the download file.
-     *
+     * @syscap SystemCapability.Miscservices.Download
      * @since 7
      * @permission {@code ohos.permission.INTERNET}
      * @return -
@@ -448,13 +445,10 @@ declare namespace request {
     data: Array<RequestData>; // The requested form data.
   }
 
-/**
- * @syscap SystemCapability.Miscservices.Upload
- */
   interface UploadTask {
     /**
      * Called when the current upload session is in process.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 6
      * @param type progress Indicates the upload task progress.
      * @param callback The callback function for the upload progress change event
@@ -467,7 +461,7 @@ declare namespace request {
 
     /**
      * Called when the current upload session is in process.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 6
      * @param type progress Indicates the upload task progress.
      * @param callback The callback function for the upload progress change event
@@ -480,7 +474,7 @@ declare namespace request {
 
     /**
      * Called when the header of the current upload session has been received.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 7
      * @param type headerReceive Indicates the upload task headed receive.
      * @param callback The callback function for the HTTP Response Header event
@@ -492,7 +486,7 @@ declare namespace request {
 
     /**
      * Called when the header of the current upload session has been received.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 7
      * @param type headerReceive Indicates the upload task headed receive.
      * @param callback The callback function for the HTTP Response Header event
@@ -504,7 +498,7 @@ declare namespace request {
 
     /**
      * Deletes a upload session.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 6
      * @param callback Indicates asynchronous invoking Result.
      * @permission {@code ohos.permission.INTERNET}
@@ -514,7 +508,7 @@ declare namespace request {
 
     /**
      * Deletes a upload session.
-     *
+     * @syscap SystemCapability.Miscservices.Upload
      * @since 6
      * @permission {@code ohos.permission.INTERNET}
      * @return -
