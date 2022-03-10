@@ -755,7 +755,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
    * @since 8
    */
-  onBeforeUnload(callback: (event?: { message: string; result: JsResult }) => boolean): WebAttribute;
+  onBeforeUnload(callback: (event?: { url: string; message: string; result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
