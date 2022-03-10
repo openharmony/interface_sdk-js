@@ -17,8 +17,7 @@ import image from './@ohos.multimedia.image'
 
 /**
  * System wallpaper
- * @syscap SystemCapability.Miscservices.WallpaperFramework
- * @devices phone, tablet, tv, wearable, car
+ * @syscap SystemCapability.Miscservices.Wallpaper
  * @import import wallpaper from '@ohos.wallpaper';
  * @since 7
  */
