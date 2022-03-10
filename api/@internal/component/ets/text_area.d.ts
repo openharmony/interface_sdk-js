@@ -31,7 +31,7 @@ declare class TextAreaController {
 }
 
 /**
- * Defines the option of TextArea.
+ * Defines the options of TextArea.
  * @since 7
  */
 declare interface TextAreaOptions {

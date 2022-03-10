@@ -14,7 +14,7 @@
  */
 
 /**
- * Defines the option of Checkbox.
+ * Defines the options of Checkbox.
  * @since 8
  */
 declare interface CheckboxOptions {

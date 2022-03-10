@@ -44,7 +44,7 @@ declare class TextTimerController {
 }
 
 /**
- * Defines the option of TextTimer.
+ * Defines the options of TextTimer.
  * @since 8
  */
 interface TextTimerOptions {

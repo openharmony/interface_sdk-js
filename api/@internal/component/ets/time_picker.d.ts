@@ -32,7 +32,7 @@ declare interface TimePickerResult {
 }
 
 /**
- * Defines the option of TimePicker.
+ * Defines the options of TimePicker.
  * @since 8
  */
 declare interface TimePickerOptions {
@@ -118,7 +118,7 @@ declare class TimePickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: TimePickerDialogOption);
+  static show(options?: TimePickerDialogOptions);
 }
 
 declare const TimePicker: TimePickerInterface;

@@ -14,7 +14,7 @@
  */
 
 /**
- * Defines circle option for Circle component.
+ * Defines circle options for Circle component.
  * @since 7
  */
 declare interface CircleOptions {

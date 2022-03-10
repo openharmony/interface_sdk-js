@@ -15,7 +15,7 @@
 
 
 /**
- * Defines the option of CustomDialogController.
+ * Defines the options of CustomDialogController.
  * @since 7
  */
 declare interface CustomDialogControllerOptions {

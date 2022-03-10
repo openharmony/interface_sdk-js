@@ -50,7 +50,7 @@ declare enum SizeType {
 }
 
 /**
- * Defines the option of GridContainer.
+ * Defines the options of GridContainer.
  * @since 7
  */
 declare interface GridContainerOptions {

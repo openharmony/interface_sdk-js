@@ -14,7 +14,7 @@
  */
 
 /**
- * Defines the option of Flex.
+ * Defines the options of Flex.
  * @since 7
  */
 declare interface FlexOptions {

@@ -32,7 +32,7 @@ declare enum ScrollBarDirection {
 }
 
 /**
- * Defines the option of ScrollBar.
+ * Defines the options of ScrollBar.
  * @since 8
  */
 declare interface ScrollBarOptions {

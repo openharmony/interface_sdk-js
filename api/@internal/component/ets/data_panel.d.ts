@@ -33,7 +33,7 @@ declare enum DataPanelType {
 }
 
 /**
- * Defines the option of DataPanel.
+ * Defines the options of DataPanel.
  * @since 7
  */
 declare interface DataPanelOptions {

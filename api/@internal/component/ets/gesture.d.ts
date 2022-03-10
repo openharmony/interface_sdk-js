@@ -317,7 +317,7 @@ interface LongPressGestureInterface {
 }
 
 /**
- * Defines the PanGesture option.
+ * Defines the PanGesture options.
  * @since 7
  */
 declare class PanGestureOptions {

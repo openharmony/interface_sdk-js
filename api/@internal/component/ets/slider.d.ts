@@ -56,7 +56,7 @@ declare enum SliderChangeMode {
 }
 
 /**
- * Defines the option of Slider.
+ * Defines the options of Slider.
  * @since 7
  */
 declare interface SliderOptions {

@@ -14,7 +14,7 @@
  */
 
 /**
- * Defines the option of TextPicker.
+ * Defines the options of TextPicker.
  * @since 8
  */
 declare interface TextPickerOptions {
@@ -88,10 +88,10 @@ declare interface TextPickerResult {
 }
 
 /**
- * Defines the TextPickerDialogOption for Text Picker Dialog.
+ * Defines the TextPickerDialogOptions for Text Picker Dialog.
  * @since 8
  */
-declare interface TextPickerDialogOption extends TextPickerOption {
+declare interface TextPickerDialogOptions extends TextPickerOptions {
   /**
    * Called when the default height of the selected element is set.
    * @since 8
@@ -123,7 +123,7 @@ declare class TextPickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: TextPickerDialogOption);
+  static show(options?: TextPickerDialogOptions);
 }
 
 declare const TextPicker: TextPickerInterface;

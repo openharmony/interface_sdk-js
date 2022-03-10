@@ -38,7 +38,7 @@ declare interface DatePickerResult {
 }
 
 /**
- * Defines the option of DatePicker.
+ * Defines the options of DatePicker.
  * @since 8
  */
 declare interface DatePickerOptions {
@@ -127,7 +127,7 @@ declare class DatePickerDialog {
    * Invoking method display.
    * @since 8
    */
-  static show(options?: DatePickerDialogOption);
+  static show(options?: DatePickerDialogOptions);
 }
 
 declare const DatePicker: DatePickerInterface;

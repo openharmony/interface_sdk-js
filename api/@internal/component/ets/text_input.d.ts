@@ -97,7 +97,7 @@ declare class TextInputController {
 }
 
 /**
- * Defines the option of TextInput.
+ * Defines the options of TextInput.
  * @since 7
  */
 declare interface TextInputOptions {

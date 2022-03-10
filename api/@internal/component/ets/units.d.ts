@@ -177,7 +177,7 @@ declare interface Position {
 }
 
 /**
- * Defines the constrain size option.
+ * Defines the constrain size options.
  * @since 7
  */
 declare interface ConstraintSizeOptions {
@@ -204,7 +204,7 @@ declare interface ConstraintSizeOptions {
 }
 
 /**
- * Defines the size option.
+ * Defines the size options.
  * @since 7
  */
 declare interface SizeOptions {
@@ -221,10 +221,10 @@ declare interface SizeOptions {
 }
 
 /**
- * Defines the option of border.
+ * Defines the options of border.
  * @since 7
  */
-declare interface BorderOption {
+declare interface BorderOptions {
   /**
    * Defines the border width.
    * @since 7
