@@ -182,7 +182,7 @@ declare namespace wifi {
      * Obtains information about a Wi-Fi connection.
      *
      * @return Returns the Wi-Fi connection information.
-     * @since 7
+     * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -849,7 +849,6 @@ declare namespace wifi {
      * Wi-Fi device configuration information.
      *
      * @since 6
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiDeviceConfig {
@@ -972,7 +971,7 @@ declare namespace wifi {
     /**
      * Wi-Fi connection information.
      *
-     * @since 7
+     * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiLinkedInfo {
