@@ -394,6 +394,7 @@ declare namespace bundle {
    * @param bundleName Indicates the application bundle name to be queried.
    * @param abilityName Indicates the ability name.
    * @return Returns the AbilityInfo object for the current ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
