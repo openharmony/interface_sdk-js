@@ -35,7 +35,7 @@ declare enum ScrollBarDirection {
  * Defines the option of ScrollBar.
  * @since 8
  */
-declare interface ScrollBarOption {
+declare interface ScrollBarOptions {
   /**
    * Sets the scroller of scroll bar.
    * @since 8
@@ -64,7 +64,7 @@ interface ScrollBarInterface {
    * Called when a ScrollBar container is set.
    * @since 8
    */
-  (value: ScrollBarOption): ScrollBarAttribute;
+  (value: ScrollBarOptions): ScrollBarAttribute;
 }
 
 /**

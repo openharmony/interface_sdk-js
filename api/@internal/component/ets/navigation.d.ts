@@ -109,12 +109,6 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
 
   /**
-   * The amount of the menu in Navigation.
-   * @since 8
-   */
-  menuCount(value: number): NavigationAttribute;
-
-  /**
    * Tool bar
    * @since 8
    */
@@ -127,10 +121,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideToolBar(value: boolean): NavigationAttribute;
 
   /**
-   * Trigger a titleModeChanged event when title mode changed at free mode.
+   * Trigger callback when title mode change finished at free mode.
    * @since 8
    */
-  onTitleModeChanged(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
+  onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;

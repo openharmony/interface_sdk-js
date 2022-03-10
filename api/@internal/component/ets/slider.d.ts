@@ -59,7 +59,7 @@ declare enum SliderChangeMode {
  * Defines the option of Slider.
  * @since 7
  */
-declare interface SliderOption {
+declare interface SliderOptions {
   /**
    * Current value of Slider.
    * @since 7
@@ -112,7 +112,7 @@ interface SliderInterface {
    * Called when the slider bar component is used.
    * @since 7
    */
-  (options?: SliderOption): SliderAttribute;
+  (options?: SliderOptions): SliderAttribute;
 }
 
 /**

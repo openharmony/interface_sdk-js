@@ -17,7 +17,7 @@
  * Defines the option of Flex.
  * @since 7
  */
-declare interface FlexOption {
+declare interface FlexOptions {
   /**
    * Sets the horizontal layout of elements.
    * @since 7
@@ -58,7 +58,7 @@ interface FlexInterface {
    * Defines the constructor of Flex.
    * @since 7
    */
-  (value?: FlexOption): FlexAttribute;
+  (value?: FlexOptions): FlexAttribute;
 }
 
 /**

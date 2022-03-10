@@ -17,7 +17,7 @@
  * Defines the option of TextPicker.
  * @since 8
  */
-declare interface TextPickerOption {
+declare interface TextPickerOptions {
   /**
    * Specifies the range of the text selector.
    */
@@ -40,7 +40,7 @@ interface TextPickerInterface {
    * Defines the TextPicker constructor.
    * @since 8
    */
-  (options?: TextPickerOption): TextPickerAttribute;
+  (options?: TextPickerOptions): TextPickerAttribute;
 }
 
 /**

@@ -17,7 +17,7 @@
  * Input parameter for creating a radio box.
  * @since 8
  */
-declare interface RadioOption {
+declare interface RadioOptions {
   /**
    * Radio group name.
    * @since 8
@@ -40,7 +40,7 @@ interface RadioInterface {
    * Called when a radio box is created.
    * @since 8
    */
-  (options: RadioOption): RadioAttribute;
+  (options: RadioOptions): RadioAttribute;
 }
 
 /**

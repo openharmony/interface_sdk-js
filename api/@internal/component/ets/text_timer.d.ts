@@ -47,7 +47,7 @@ declare class TextTimerController {
  * Defines the option of TextTimer.
  * @since 8
  */
-interface TextTimerOption {
+interface TextTimerOptions {
   /**
    * Sets whether to countdown.The default value is false.
    * @since 8
@@ -77,7 +77,7 @@ interface TextTimerInterface {
    * Defines the TextTimer constructor.
    * @since 8
    */
-  (options?: TextTimerOption): TextTimerAttribute;
+  (options?: TextTimerOptions): TextTimerAttribute;
 }
 
 /**

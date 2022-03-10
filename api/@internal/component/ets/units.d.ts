@@ -150,13 +150,13 @@ declare interface Area {
    * Defines the local position.
    * @since 8
    */
-  pos: Position;
+  position: Position;
 
   /**
    * Defines the global position.
    * @since 8
    */
-  globalPos: Position;
+  globalPosition: Position;
 }
 
 /**
