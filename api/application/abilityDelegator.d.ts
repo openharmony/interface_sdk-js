@@ -22,7 +22,7 @@ import { ShellCmdResult } from './shellCmdResult'
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
  *
- * @since 9
+ * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegator from 'application/abilityDelegator.d'
  * @permission N/A
@@ -116,7 +116,7 @@ export interface AbilityDelegator {
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
@@ -126,7 +126,7 @@ export interface AbilityDelegator {
     /**
      * Execute the given command in the aa tools side.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param cmd Shell command
      * @param timeoutSecs Timeout, in seconds
@@ -140,7 +140,7 @@ export interface AbilityDelegator {
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @hide
      * @param msg Log information
