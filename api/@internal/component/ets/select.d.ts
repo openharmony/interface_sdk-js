@@ -19,13 +19,13 @@
  */
 declare interface SelectOption {
   /**
-   * options string.
+   * option string.
    * @since 8
    */
   value: ResourceStr;
 
   /**
-   * options icon.
+   * option icon.
    * @since 8
    */
   icon?: ResourceStr;
@@ -100,13 +100,13 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the text style for select items.
    * @since 8
    */
-  optionsFont(value: Font): SelectAttribute;
+  optionFont(value: Font): SelectAttribute;
 
   /**
    * Sets the text color for select items.
    * @since 8
    */
-  optionsFontColor(value: ResourceColor): SelectAttribute;
+  optionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Callback for selecting an item from the select.

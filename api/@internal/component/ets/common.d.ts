@@ -890,7 +890,7 @@ declare interface KeyEvent {
  * Component State Styels.
  * @since 8
  */
-declare interface StateStyels {
+declare interface StateStyles {
   /**
    * Defines normal state styles.
    * @since 8
