@@ -14,6 +14,7 @@
 import("//build/ohos.gni")
 import("//build/ohos/notice/notice.gni")
 import("//build/templates/metadata/module_info.gni")
+import("interface_config.gni")
 
 ohos_copy("ets_internal_api") {
   sources = [
@@ -119,17 +120,16 @@ ohos_copy("ets_component") {
 }
 
 ohos_copy("common_api") {
-  sources = [
-    "api/@ohos.wifi.d.ts",
-    "api/common/@system.app.d.ts",
-    "api/common/@system.configuration.d.ts",
-    "api/common/@system.file.d.ts",
-    "api/common/@system.mediaquery.d.ts",
-    "api/common/@system.prompt.d.ts",
-    "api/common/@system.router.d.ts",
-  ]
+  sources = common_api_src
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
+
+ohos_copy("common_api_ark") {
+  sources = common_api_src
+  outputs =
+      [ target_out_dir + "/../../developtools/api/{{source_file_part}}" ]
   module_install_name = ""
 }
 
@@ -144,7 +144,7 @@ template("ohos_declaration_template") {
   forward_variables_from(invoker, "*")
   action_with_pydeps(target_name) {
     script = "//interface/sdk-js/remove_internal.py"
-    outputs = [ root_out_dir + "/$target_name/" ]
+    outputs = [ root_out_dir + "/ohos_declaration/$target_name" ]
     args = [
       "--input",
       rebase_path("//interface/sdk-js/api", root_build_dir),
