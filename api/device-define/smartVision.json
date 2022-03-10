@@ -9,7 +9,7 @@
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.HiviewDFX.HiLogLite",
     "SystemCapability.HiviewDFX.HiviewLite",
-    "SystemCapability.Update.Core",
+    "SystemCapability.Update.UpdateService",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.Startup.SystemInfo"
