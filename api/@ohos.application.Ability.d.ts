@@ -218,15 +218,15 @@ export default class Ability {
     onBackground(): void;
 
     /**
-     * Called back when an ability prepares to migrate.
+     * Called back when an ability prepares to continue.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param wantParam Indicates the want parameter.
-     * @return true if ability agrees to migrate and saves data successfully, otherwise false.
+     * @return 0 if ability agrees to continue and saves data successfully, otherwise errcode.
      * @StageModelOnly
      */
-     onContinue(wantParam : {[key: string]: any}): boolean;
+     onContinue(wantParam : {[key: string]: any}): AbilityConstant.OnContinueResult;
 
     /**
      * Called when the launch mode of an ability is set to singleton.
