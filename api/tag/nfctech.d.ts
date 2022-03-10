@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { TagSession } form './tagSession';
+import { TagSession } from './tagSession';
 
 /**
  * Provides interfaces to control the read and write of tags that support the NFC-A technology.
@@ -23,7 +23,7 @@ import { TagSession } form './tagSession';
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
-export interface NfcATag extends TagSession{
+export interface NfcATag extends TagSession {
   /**
    * Obtains the SAK of an NFC-A tag.
    *
@@ -32,7 +32,7 @@ export interface NfcATag extends TagSession{
    *
    * @since 7
    */
-  getSak():number;
+  getSak(): number;
 
   /**
    * Obtains the ATQA of an NFC-A tag.
@@ -42,7 +42,7 @@ export interface NfcATag extends TagSession{
    *
    * @since 7
    */
-  getAtqa():number[];
+  getAtqa(): number[];
 }
 
 /**
@@ -54,7 +54,7 @@ export interface NfcATag extends TagSession{
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
-export interface NfcBTag extends TagSession{
+export interface NfcBTag extends TagSession {
   /**
    * Obtains the application data of a tag.
    *
@@ -63,7 +63,7 @@ export interface NfcBTag extends TagSession{
    *
    * @since 7
    */
-  getRespAppData():number[];
+  getRespAppData(): number[];
 
   /**
    * Obtains the protocol information of a tag.
@@ -73,7 +73,7 @@ export interface NfcBTag extends TagSession{
    *
    * @since 7
    */
-  getRespProtocol():number[];
+  getRespProtocol(): number[];
 }
 
 /**
@@ -85,7 +85,7 @@ export interface NfcBTag extends TagSession{
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
-export interface NfcFTag extends TagSession{
+export interface NfcFTag extends TagSession {
   /**
    * Obtains the system code from this {@code NfcFTag} instance.
    *
@@ -94,7 +94,7 @@ export interface NfcFTag extends TagSession{
    *
    * @since 7
    */
-  getSystemCode():number[];
+  getSystemCode(): number[];
 
   /**
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
@@ -104,7 +104,7 @@ export interface NfcFTag extends TagSession{
    *
    * @since 7
    */
-  getPmm():number[];
+  getPmm(): number[];
 }
 
 /**
@@ -116,7 +116,7 @@ export interface NfcFTag extends TagSession{
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
-export interface NfcVTag extends TagSession{
+export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
@@ -125,7 +125,7 @@ export interface NfcVTag extends TagSession{
    *
    * @since 7
    */
-  getResponseFlags():number;
+  getResponseFlags(): number;
 
   /**
    * Obtains the data storage format identifier (DSFID) from this {@code NfcVTag} instance.
@@ -135,5 +135,5 @@ export interface NfcVTag extends TagSession{
    *
    * @since 7
    */
-  getDsfId():number;
+  getDsfId(): number;
 }
