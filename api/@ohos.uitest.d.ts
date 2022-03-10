@@ -418,4 +418,4 @@
  */
  const BY:By;
 
- export {UiComponent,UiDriver,BY};
+ export {UiComponent,UiDriver,BY,MatchPattern};
