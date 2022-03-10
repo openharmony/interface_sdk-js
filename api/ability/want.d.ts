@@ -92,20 +92,4 @@ export declare interface Want {
    * @default -
    */
   entities?: Array<string>;
-
-  /**
-   * The description of a extension ability name in a Want.
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  extensionAbilityName?: string;
-
-  /**
-   * The description of a extension ability type in a Want.
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityBase
-   * @default -
-   */
-  extensionAbilityType?: number;
 }

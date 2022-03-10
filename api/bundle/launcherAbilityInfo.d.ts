@@ -20,7 +20,6 @@
  * @name Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
- *
  * @permission N/A
  * @systemapi Hide this for inner system use
  */
