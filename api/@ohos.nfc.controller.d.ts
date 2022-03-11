@@ -110,7 +110,7 @@ declare namespace nfcController {
    *
    * @since 7
    */
-  function getNfcState(): boolean
+  function getNfcState(): NfcState
 }
 
 export default nfcController;
