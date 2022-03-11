@@ -804,7 +804,7 @@ declare type PixelMap = PixelMapMock;
  * @systemapi
  * @since 7
  */
-declare class PixelMapMock {
+declare interface PixelMapMock {
   /**
    * release function.
    * @systemapi
