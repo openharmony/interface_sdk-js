@@ -470,7 +470,7 @@ declare class WebController {
    * Load the given URL
    * @since 8
    */
-  loadUrl(options: { url: string; headers?: Array<{ key: string; value: string }> });
+  loadUrl(options: { url: string | Resource; headers?: Array<{ key: string; value: string }> });
 
   /**
    * refreshes the current URL.
