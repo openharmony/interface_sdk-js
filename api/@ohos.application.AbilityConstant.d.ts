@@ -75,6 +75,19 @@ declare namespace AbilityConstant {
         ABILITY_NOT_RESPONDING = 1,
         NORMAL = 2,
     }
+
+    /**
+     * Type of onContinue result.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+     export enum OnContinueResult {
+        AGREE = 0,
+        REJECT = 1,
+        MISMATCH = 2,
+    }
 }
 
 export default AbilityConstant
