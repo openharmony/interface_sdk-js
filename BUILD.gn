@@ -128,8 +128,7 @@ ohos_copy("common_api") {
 
 ohos_copy("common_api_ark") {
   sources = common_api_src
-  outputs =
-      [ target_out_dir + "/../../developtools/api/{{source_file_part}}" ]
+  outputs = [ target_out_dir + "/../../developtools/api/{{source_file_part}}" ]
   module_install_name = ""
 }
 
