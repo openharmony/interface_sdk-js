@@ -530,7 +530,7 @@ interface TouchEvent extends BaseEvent {
  * pixelmap object with release function.
  * @since 7
  */
-declare class PixelMap {
+declare interface PixelMap {
   /**
    * release function.
    * @since 7
