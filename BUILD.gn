@@ -126,12 +126,6 @@ ohos_copy("common_api") {
   module_install_name = ""
 }
 
-ohos_copy("common_api_ark") {
-  sources = common_api_src
-  outputs = [ target_out_dir + "/../../developtools/api/{{source_file_part}}" ]
-  module_install_name = ""
-}
-
 ohos_copy("bundle_api") {
   sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
