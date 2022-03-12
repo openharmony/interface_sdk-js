@@ -37,16 +37,6 @@ declare interface TimePickerResult {
  */
 declare interface TimePickerOptions {
   /**
-   * Specifies the start Date of the Time selector.
-   */
-  start?: Date;
-
-  /**
-   * Specifies the end Date for the Time selector.
-   */
-  end?: Date;
-
-  /**
    * Specifies the time selector check time.
    */
   selected?: Date;

@@ -105,6 +105,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/text_input.d.ts",
     "api/@internal/component/ets/text_picker.d.ts",
     "api/@internal/component/ets/text_timer.d.ts",
+    "api/@internal/component/ets/time_picker.d.ts",
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
