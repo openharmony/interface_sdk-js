@@ -159,6 +159,7 @@
     "SystemCapability.Ability.AbilityRuntime.Core",
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
-    "SystemCapability.Applications.ContactsData"
+    "SystemCapability.Applications.ContactsData",
+    "SystemCapability.Test.UiTest"
   ]
 }
