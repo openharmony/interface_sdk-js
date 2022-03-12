@@ -54,7 +54,7 @@ declare enum MixedMode {
    * Allows all sources.
    * @since 8
    */
-  ALL,
+  All,
 
   /**
    * Allows sources Compatibly.
