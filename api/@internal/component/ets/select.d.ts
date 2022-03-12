@@ -94,7 +94,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Sets the background color of the select item.
    * @since 8
    */
-  optionsBgColor(value: ResourceColor): SelectAttribute;
+  optionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
    * Sets the text style for select items.
