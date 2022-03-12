@@ -364,7 +364,7 @@ export class Calendar {
  * @param locale The locale to be used.
  * @return Returns true representing the locale is an RTL locale
  *
- * @since 8
+ * @since 7
  */
 export function isRTL(locale: string): boolean;
 
@@ -474,6 +474,17 @@ export class BreakIterator {
 }
 
 /**
+ * Get IndexUtil object.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param locale Indicates a character string containing the locale information, including
+ *               the language and optionally the script and region, for the NumberFormat object.
+ * @return Returns IndexUtil object.
+ * @since 8
+ */
+export function getInstance(locale?:string): IndexUtil;
+
+/**
  * Sequence text can be grouped under the specified area,
  * and grouping index with different lengths can be specified.
  *
@@ -481,17 +492,6 @@ export class BreakIterator {
  * @since 8
  */
 export class IndexUtil {
-    /**
-     * Get IndexUtil object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @return Returns IndexUtil object.
-     * @since 8
-     */
-    getInstance(locale?:string): IndexUtil;
-
     /**
      * Get a list of labels for use as a UI index
      *
@@ -614,7 +614,7 @@ export class Character {
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns a boolean represent whether system is 24-hour system.
- * @since 8
+ * @since 7
  */
  export function is24HourClock(): boolean;
 
@@ -624,7 +624,7 @@ export class Character {
  * @syscap SystemCapability.Global.I18n
  * @param option represent the boolean to be set.
  * @return Returns a boolean represent whether setting 24-hour system success.
- * @since 8
+ * @since 7
  */
   export function set24HourClock(option: boolean): boolean;
 
@@ -673,7 +673,7 @@ export function getFirstPreferredLanguage(): string;
  * @syscap SystemCapability.Global.I18n
  * @param zoneID TimeZone ID used to create TimeZone Object.
  * @return Returns a TimeZone object corresponds to zoneID.
- * @since 8
+ * @since 7
  */
 export function getTimeZone(zoneID?: string): TimeZone;
 
@@ -681,7 +681,7 @@ export function getTimeZone(zoneID?: string): TimeZone;
  * Provides the API for accessing TimeZone name, rawOffset and offset information.
  *
  * @syscap SystemCapability.Global.I18n
- * @since 8
+ * @since 7
  */
 export class TimeZone {
     /**
@@ -689,18 +689,9 @@ export class TimeZone {
      * 
      * @syscap SystemCapability.Global.I18n
      * @return Returns a string represents the timezone id.
-     * @since 8
+     * @since 7
      */
     getID(): string;
-
-    /**
-     * Get the displayName of the TimeZone Object under the default locale.
-     * 
-     * @syscap SystemCapability.Global.I18n
-     * @return Returns a string represents the display name.
-     * @since 8
-     */
-    getDisplayName(): string;
 
     /**
      * Get the displayName of the TimeZone Object under the locale.
@@ -709,16 +700,16 @@ export class TimeZone {
      * @param locale the locale tag use to display timezone object's name.
      * @param isDST wether conside daylight saving time when display timezone object's name.
      * @return Returns a string represents the display name.
-     * @since 8
+     * @since 7
      */
-    getDisplayName(locale: string, isDST?: boolean): string;
+    getDisplayName(locale?: string, isDST?: boolean): string;
 
     /**
      * Get the raw offset of the TimeZone object.
      * 
      * @syscap SystemCapability.Global.I18n
      * @return Returns a number represents the raw offset.
-     * @since 8
+     * @since 7
      */
     getRawOffset(): number;
 
@@ -728,8 +719,9 @@ export class TimeZone {
      * @syscap SystemCapability.Global.I18n
      * @date Indicates a date use to compute offset.
      * @return Returns a number represents the offset with date.
-     * @since 8
+     * @since 7
      */
-    getOffset(date: number): number;
+    getOffset(date?: number): number;
 }
 }
+export default i18n;
