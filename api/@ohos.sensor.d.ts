@@ -894,9 +894,9 @@ declare namespace sensor {
      * @since 8
      */
     interface OrientationResponse extends Response {
-        x: number; /**< Orientation x-axis component */
-        y: number; /**< Orientation y-axis component */
-        z: number; /**< Orientation z-axis component */
+        alpha: number; /**< The device rotates at an angle around the Z axis */
+        beta: number; /**< The device rotates at an angle around the X axis */
+        gamma: number; /**< The device rotates at an angle around the Y axis */
     }
 
     /**
