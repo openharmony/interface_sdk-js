@@ -18,7 +18,7 @@ import { AsyncCallback } from './basic';
 /**
  * User authentication
  * @since 6
- * @sysCap SystemCapability.UserIAM.UserAuth
+ * @syscap SystemCapability.UserIAM.UserAuth
  * @permission ohos.permission.ACCESS_BIOMETRIC
  */
 declare namespace userAuth {
@@ -105,7 +105,7 @@ declare namespace userAuth {
     interface Authenticator {
         /**
          * Execute authentication.
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @param type Indicates the authentication type.
          * @param level Indicates the security level.
          * @return Returns authentication result, which is specified by AuthenticationResult.
@@ -117,7 +117,7 @@ declare namespace userAuth {
 
     /**
      * Get Authenticator instance.
-     * @SysCap SystemCapability.UserIAM.UserAuth
+     * @syscap SystemCapability.UserIAM.UserAuth
      * @return Returns an Authenticator.
      * @deprecated since 8
      */
@@ -131,7 +131,7 @@ declare namespace userAuth {
         /**
          * Constructor to get the UserAuth class instance.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @return Returns the UserAuth class instance.
          */
         constructor();
@@ -139,7 +139,7 @@ declare namespace userAuth {
         /**
          * Get version information.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @return Returns version information.
          */
         getVersion() : number;
@@ -147,18 +147,18 @@ declare namespace userAuth {
         /**
          * Check whether the authentication capability is available.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param authType Credential type for authentication.
          * @param authTrustLevel Trust level of authentication result.
          * @return Returns a check result, which is specified by getAvailableStatus.
          */
-        getAvailableStatus(authType : AuthType, authTrustLevel : AuthTrustLevel) : number;
+        getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
 
         /**
          * Executes authentication.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param challenge pass in challenge value.
          * @param authType type of authentication.
@@ -166,12 +166,12 @@ declare namespace userAuth {
          * @param callback Return result and acquireinfo through callback.
          * @return Returns ContextId for cancel.
          */
-        auth(challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
+        auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
 
         /**
          * Cancels authentication with ContextID.
          * @since 8
-         * @SysCap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param contextID Cancel authentication and pass in ContextID.
          * @return Returns a number value indicating whether Cancel authentication was successful.
