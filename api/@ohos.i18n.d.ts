@@ -364,7 +364,7 @@ export class Calendar {
  * @param locale The locale to be used.
  * @return Returns true representing the locale is an RTL locale
  *
- * @since 8
+ * @since 7
  */
 export function isRTL(locale: string): boolean;
 
@@ -387,7 +387,7 @@ export function isRTL(locale: string): boolean;
 export class BreakIterator {
     /**
      * Obtains the current position of the BreakIterator instance.
-     *
+     * 
      * @syscap SystemCapability.Global.I18n
      * @return Returns the current position of the BreakIterator instance.
      * @since 8
@@ -474,6 +474,17 @@ export class BreakIterator {
 }
 
 /**
+ * Get IndexUtil object.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param locale Indicates a character string containing the locale information, including
+ *               the language and optionally the script and region, for the NumberFormat object.
+ * @return Returns IndexUtil object.
+ * @since 8
+ */
+export function getInstance(locale?:string): IndexUtil;
+
+/**
  * Sequence text can be grouped under the specified area,
  * and grouping index with different lengths can be specified.
  *
@@ -481,17 +492,6 @@ export class BreakIterator {
  * @since 8
  */
 export class IndexUtil {
-    /**
-     * Get IndexUtil object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @return Returns IndexUtil object.
-     * @since 8
-     */
-    getInstance(locale?:string): IndexUtil;
-
     /**
      * Get a list of labels for use as a UI index
      *
@@ -614,7 +614,7 @@ export class Character {
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns a boolean represent whether system is 24-hour system.
- * @since 8
+ * @since 7
  */
  export function is24HourClock(): boolean;
 
@@ -624,7 +624,7 @@ export class Character {
  * @syscap SystemCapability.Global.I18n
  * @param option represent the boolean to be set.
  * @return Returns a boolean represent whether setting 24-hour system success.
- * @since 8
+ * @since 7
  */
   export function set24HourClock(option: boolean): boolean;
 
@@ -633,7 +633,7 @@ export class Character {
  *
  * @syscap SystemCapability.Global.I18n
  * @param language the language to be added.
- * @param index the position of preferred language list to be inserted.
+ * @param index the position of preferred language list to be inserted. 
  * @return Returns a boolean represent whether language added success.
  * @since 8
  */
@@ -666,4 +666,62 @@ export function getPreferredLanguageList(): Array<string>;
  * @since 8
  */
 export function getFirstPreferredLanguage(): string;
+
+/**
+ * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
+ * 
+ * @syscap SystemCapability.Global.I18n
+ * @param zoneID TimeZone ID used to create TimeZone Object.
+ * @return Returns a TimeZone object corresponds to zoneID.
+ * @since 7
+ */
+export function getTimeZone(zoneID?: string): TimeZone;
+
+/**
+ * Provides the API for accessing TimeZone name, rawOffset and offset information.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 7
+ */
+export class TimeZone {
+    /**
+     * Get the id of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represents the timezone id.
+     * @since 7
+     */
+    getID(): string;
+
+    /**
+     * Get the displayName of the TimeZone Object under the locale.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @param locale the locale tag use to display timezone object's name.
+     * @param isDST wether conside daylight saving time when display timezone object's name.
+     * @return Returns a string represents the display name.
+     * @since 7
+     */
+    getDisplayName(locale?: string, isDST?: boolean): string;
+
+    /**
+     * Get the raw offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a number represents the raw offset.
+     * @since 7
+     */
+    getRawOffset(): number;
+
+    /**
+     * Get the offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @date Indicates a date use to compute offset.
+     * @return Returns a number represents the offset with date.
+     * @since 7
+     */
+    getOffset(date?: number): number;
 }
+}
+export default i18n;
