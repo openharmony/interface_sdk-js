@@ -5,10 +5,12 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
-      "name": "" 
+      "name": ""
     }
   ],
   "attributes": [
@@ -17,7 +19,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "enum",
@@ -44,7 +46,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -54,7 +56,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -64,7 +66,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -74,7 +76,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -84,7 +86,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -94,7 +96,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -104,7 +106,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -114,7 +116,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -124,7 +126,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -134,7 +136,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "number"
@@ -144,16 +146,16 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "enum",
       "options": [
         {
-          "name": "freeze" 
+          "name": "freeze"
         },
         {
-          "name": "remove" 
+          "name": "remove"
         }
       ]
     },
@@ -162,22 +164,22 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "enum",
       "options": [
         {
-          "name": "discrete" 
+          "name": "discrete"
         },
         {
-          "name": "linear" 
+          "name": "linear"
         },
         {
-          "name": "paced" 
+          "name": "paced"
         },
         {
-          "name": "spline" 
+          "name": "spline"
         }
       ]
     },
@@ -186,7 +188,7 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
@@ -196,14 +198,13 @@
       "required": false,
       "description": [
         {
-          "name": "" 
+          "name": ""
         }
       ],
       "type": "string"
     }
   ],
-  "events": [
-  ],
+  "events": [],
   "supportedSubComponents": false,
   "supportedSubComponentsRestriction": [],
   "unSupportSubComponentsRestriction": [],

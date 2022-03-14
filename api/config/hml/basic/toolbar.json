@@ -5,7 +5,9 @@
       "name": "v4.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": "Toolbar, which is placed at the bottom of the interface and is used to display the operation options on the current interface."
@@ -14,7 +16,6 @@
   "attributes": [
     {
       "name": "id",
-
       "required": false,
       "description": [
         {
@@ -25,7 +26,6 @@
     },
     {
       "name": "style",
-      
       "required": false,
       "description": [
         {
@@ -36,7 +36,6 @@
     },
     {
       "name": "class",
-      
       "required": false,
       "description": [
         {
@@ -47,7 +46,6 @@
     },
     {
       "name": "ref",
-      
       "required": false,
       "description": [
         {
@@ -58,7 +56,6 @@
     },
     {
       "name": "data-*",
-      
       "required": false,
       "description": [
         {
@@ -69,7 +66,6 @@
     },
     {
       "name": "voicelabel",
-      
       "required": false,
       "description": [
         {
@@ -80,7 +76,6 @@
     },
     {
       "name": "subscriptflag",
-      
       "required": false,
       "description": [
         {
@@ -102,7 +97,6 @@
     },
     {
       "name": "subscriptlabel",
-      
       "required": false,
       "description": [
         {
@@ -140,7 +134,6 @@
     },
     {
       "name": "accessibilitygroup",
-      
       "required": false,
       "description": [
         {
@@ -159,7 +152,6 @@
     },
     {
       "name": "accessibilitytext",
-      
       "required": false,
       "description": [
         {
@@ -170,7 +162,6 @@
     },
     {
       "name": "accessibilitydescription",
-      
       "required": false,
       "description": [
         {
@@ -181,7 +172,6 @@
     },
     {
       "name": "accessibilityimportance",
-      
       "required": false,
       "description": [
         {
@@ -192,7 +182,6 @@
     },
     {
       "name": "if",
-      
       "required": false,
       "description": [
         {
@@ -211,7 +200,6 @@
     },
     {
       "name": "elif",
-      
       "required": false,
       "description": [],
       "type": "enum",
@@ -226,14 +214,12 @@
     },
     {
       "name": "else",
-      
       "required": false,
       "description": [],
       "type": "string"
     },
     {
       "name": "for",
-      
       "required": false,
       "description": [
         {
@@ -244,7 +230,6 @@
     },
     {
       "name": "tid",
-      
       "required": false,
       "description": [
         {
@@ -255,7 +240,6 @@
     },
     {
       "name": "show",
-      
       "required": false,
       "description": [
         {
@@ -274,7 +258,6 @@
     },
     {
       "name": "shareid",
-      
       "required": false,
       "description": [
         {

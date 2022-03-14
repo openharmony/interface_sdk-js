@@ -5,8 +5,9 @@
       "name": "v1.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": "slot component allow developer to distribute the content of custom component"
@@ -26,7 +27,6 @@
   ],
   "supportedSubComponents": false,
   "supportedSubComponentsRestriction": [],
-
   "events": [],
   "unSupportSubComponentsRestriction": [],
   "parentComponentsRestriction": []

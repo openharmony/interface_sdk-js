@@ -5,7 +5,9 @@
       "name": "v6.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": "Component that displays web page content."

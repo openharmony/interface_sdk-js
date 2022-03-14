@@ -5,7 +5,9 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": ""
@@ -14,7 +16,6 @@
   "attributes": [
     {
       "name": "fill",
-      
       "required": false,
       "description": [
         {
@@ -25,7 +26,6 @@
     },
     {
       "name": "fill-opacity",
-      
       "required": false,
       "description": [
         {
@@ -36,7 +36,6 @@
     },
     {
       "name": "fill-rule",
-      
       "required": false,
       "description": [
         {
@@ -55,7 +54,6 @@
     },
     {
       "name": "opacity",
-      
       "required": false,
       "description": [
         {
@@ -66,7 +64,6 @@
     },
     {
       "name": "stroke",
-      
       "required": false,
       "description": [
         {
@@ -77,7 +74,6 @@
     },
     {
       "name": "stroke-dasharray",
-      
       "required": false,
       "description": [
         {
@@ -88,7 +84,6 @@
     },
     {
       "name": "stroke-dashoffset",
-      
       "required": false,
       "description": [
         {
@@ -99,7 +94,6 @@
     },
     {
       "name": "stroke-linejoin",
-      
       "required": false,
       "description": [
         {
@@ -121,7 +115,6 @@
     },
     {
       "name": "stroke-linecap",
-      
       "required": false,
       "description": [
         {
@@ -143,7 +136,6 @@
     },
     {
       "name": "stroke-miterlimit",
-      
       "required": false,
       "description": [
         {
@@ -154,7 +146,6 @@
     },
     {
       "name": "stroke-opacity",
-      
       "required": false,
       "description": [
         {
@@ -165,7 +156,6 @@
     },
     {
       "name": "stroke-width",
-      
       "required": false,
       "description": [
         {
@@ -176,7 +166,6 @@
     },
     {
       "name": "transform",
-      
       "required": false,
       "description": [
         {
@@ -187,7 +176,6 @@
     },
     {
       "name": "id",
-      
       "required": false,
       "description": [
         {
@@ -198,7 +186,6 @@
     },
     {
       "name": "cx",
-      
       "required": false,
       "description": [
         {
@@ -209,7 +196,6 @@
     },
     {
       "name": "cy",
-      
       "required": false,
       "description": [
         {
@@ -220,7 +206,6 @@
     },
     {
       "name": "r",
-      
       "required": false,
       "description": [
         {

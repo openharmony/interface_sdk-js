@@ -5,7 +5,9 @@
       "name": "v4.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": "Root node of the grid layout container. Grid-row and gird-col are used for grid layout."
@@ -14,7 +16,6 @@
   "attributes": [
     {
       "name": "columns",
-      
       "required": false,
       "description": [
         {
@@ -93,9 +94,9 @@
     {
       "name": "id",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -106,9 +107,9 @@
         {
           "name": "Unique ID of a component.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -116,9 +117,9 @@
     {
       "name": "style",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -129,9 +130,9 @@
         {
           "name": "Style declaration of a component.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -139,9 +140,9 @@
     {
       "name": "class",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -152,9 +153,9 @@
         {
           "name": "Style class of a component, which is used to refer to a style table.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -162,9 +163,9 @@
     {
       "name": "ref",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -175,16 +176,15 @@
         {
           "name": "Used to register reference information of child elements or child components. The reference information is registered with the parent component on $refs.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "disabled",
-      
       "required": false,
       "version": [
         {
@@ -208,7 +208,6 @@
     },
     {
       "name": "focusable",
-      
       "required": false,
       "version": [
         {
@@ -232,7 +231,6 @@
     },
     {
       "name": "data-*",
-      
       "required": false,
       "version": [
         {
@@ -248,7 +246,6 @@
     },
     {
       "name": "click-effect",
-      
       "required": false,
       "version": [
         {
@@ -275,7 +272,6 @@
     },
     {
       "name": "voicelabel",
-      
       "required": false,
       "version": [
         {
@@ -291,7 +287,6 @@
     },
     {
       "name": "subscriptflag",
-      
       "required": false,
       "version": [
         {
@@ -318,7 +313,6 @@
     },
     {
       "name": "subscriptlabel",
-      
       "required": false,
       "version": [
         {
@@ -334,7 +328,6 @@
     },
     {
       "name": "scenelabel",
-      
       "required": false,
       "version": [
         {
@@ -367,7 +360,6 @@
     },
     {
       "name": "accessibilitygroup",
-      
       "required": false,
       "version": [
         {
@@ -391,7 +383,6 @@
     },
     {
       "name": "accessibilitytext",
-      
       "required": false,
       "version": [
         {
@@ -407,7 +398,6 @@
     },
     {
       "name": "accessibilitydescription",
-      
       "required": false,
       "version": [
         {
@@ -423,7 +413,6 @@
     },
     {
       "name": "accessibilityimportance",
-      
       "required": false,
       "version": [
         {
@@ -440,9 +429,9 @@
     {
       "name": "for",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -453,9 +442,9 @@
         {
           "name": "Expands the current element based on the configured data list.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -463,9 +452,9 @@
     {
       "name": "tid",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -476,9 +465,9 @@
         {
           "name": "The tid attribute accelerates the for loop and improves the re-rendering efficiency when data in a loop changes.\nThe tid attribute specifies the unique ID of each element in the array. If it is not specified, the index of each element in the array is used as the ID. For example, tid=\"id\" indicates that the id attribute of each element is its unique ID.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "string"
@@ -486,9 +475,9 @@
     {
       "name": "if",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -499,9 +488,9 @@
         {
           "name": "Whether the element is added or removed.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "enum",
@@ -516,7 +505,6 @@
     },
     {
       "name": "dir",
-      
       "version": [
         {
           "name": "v6.0"
@@ -544,9 +532,9 @@
     {
       "name": "elif",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -567,9 +555,9 @@
     {
       "name": "else",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -582,9 +570,9 @@
     {
       "name": "show",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "required": false,
       "version": [
         {
@@ -595,9 +583,9 @@
         {
           "name": "Whether the element is displayed or hidden.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ],
       "type": "enum",
@@ -614,7 +602,6 @@
   "events": [
     {
       "name": "touchstart",
-      
       "version": [
         {
           "name": "v4.0"
@@ -628,7 +615,6 @@
     },
     {
       "name": "touchmove",
-      
       "version": [
         {
           "name": "v4.0"
@@ -642,7 +628,6 @@
     },
     {
       "name": "touchcancel",
-      
       "version": [
         {
           "name": "v4.0"
@@ -656,7 +641,6 @@
     },
     {
       "name": "touchend",
-      
       "version": [
         {
           "name": "v4.0"
@@ -671,9 +655,9 @@
     {
       "name": "click",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -683,18 +667,18 @@
         {
           "name": "A component is clicked.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "longpress",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -704,18 +688,18 @@
         {
           "name": "A component is long pressed.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "doubleclick",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -725,18 +709,18 @@
         {
           "name": "A component is double clicked.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchstart",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -746,18 +730,18 @@
         {
           "name": "The pinch starts.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchupdate",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -767,18 +751,18 @@
         {
           "name": "The pinch updates.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchend",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -788,18 +772,18 @@
         {
           "name": "The pinch ends.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "pinchcancel",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v4.0"
@@ -809,18 +793,18 @@
         {
           "name": "The pinch is interrupted.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "drag",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -830,18 +814,18 @@
         {
           "name": "The duration of drag.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragstart",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -851,18 +835,18 @@
         {
           "name": "The drag starts.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragend",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -872,18 +856,18 @@
         {
           "name": "The drag ends.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragenter",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -893,18 +877,18 @@
         {
           "name": "The drag enters.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragover",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -914,18 +898,18 @@
         {
           "name": "The drag overs.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "dragleave",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -935,18 +919,18 @@
         {
           "name": "The drag leaves.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "drop",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v7.0"
@@ -956,15 +940,14 @@
         {
           "name": "The drag drops.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "focus",
-      
       "version": [
         {
           "name": "v4.0"
@@ -978,7 +961,6 @@
     },
     {
       "name": "blur",
-      
       "version": [
         {
           "name": "v4.0"
@@ -992,7 +974,6 @@
     },
     {
       "name": "key",
-      
       "version": [
         {
           "name": "v4.0"
@@ -1007,9 +988,9 @@
     {
       "name": "swipe",
       "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ],
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v5.0"
@@ -1019,15 +1000,14 @@
         {
           "name": "A user quickly swipes on a component.",
           "syscap": [
-    "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite"
-  ]
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ]
         }
       ]
     },
     {
       "name": "attached",
-      
       "version": [
         {
           "name": "v6.0"
@@ -1041,7 +1021,6 @@
     },
     {
       "name": "detached",
-      
       "version": [
         {
           "name": "v6.0"
@@ -1055,7 +1034,6 @@
     },
     {
       "name": "accessibility",
-      
       "version": [
         {
           "name": "v4.0"

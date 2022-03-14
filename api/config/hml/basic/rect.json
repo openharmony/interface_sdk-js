@@ -5,7 +5,9 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": ""
@@ -259,4 +261,3 @@
   "unSupportSubComponentsRestriction": [],
   "parentComponentsRestriction": []
 }
-

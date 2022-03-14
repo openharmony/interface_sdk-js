@@ -5,7 +5,9 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
       "name": "Draw text along a path."
@@ -14,7 +16,6 @@
   "attributes": [
     {
       "name": "id",
-      
       "required": false,
       "description": [
         {
@@ -25,7 +26,6 @@
     },
     {
       "name": "path",
-      
       "required": false,
       "description": [
         {
@@ -36,7 +36,6 @@
     },
     {
       "name": "opacity",
-      
       "required": false,
       "description": [
         {
@@ -47,7 +46,6 @@
     },
     {
       "name": "font-size",
-      
       "required": false,
       "description": [
         {
@@ -58,7 +56,6 @@
     },
     {
       "name": "fill",
-      
       "required": false,
       "description": [
         {
@@ -69,7 +66,6 @@
     },
     {
       "name": "stroke",
-      
       "required": false,
       "description": [
         {
@@ -80,7 +76,6 @@
     },
     {
       "name": "stroke-width",
-      
       "required": false,
       "description": [
         {
@@ -91,7 +86,6 @@
     },
     {
       "name": "stroke-opacity",
-      
       "required": false,
       "description": [
         {
@@ -102,7 +96,6 @@
     },
     {
       "name": "startOffset",
-      
       "required": false,
       "description": [
         {
@@ -113,7 +106,6 @@
     },
     {
       "name": "fill-opacity",
-      
       "required": false,
       "description": [
         {

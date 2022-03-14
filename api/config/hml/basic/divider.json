@@ -136,7 +136,6 @@
     },
     {
       "name": "disabled",
-      
       "required": false,
       "version": [
         {
@@ -160,7 +159,6 @@
     },
     {
       "name": "focusable",
-      
       "required": false,
       "version": [
         {
@@ -184,7 +182,6 @@
     },
     {
       "name": "data-*",
-      
       "required": false,
       "version": [
         {
@@ -200,7 +197,6 @@
     },
     {
       "name": "click-effect",
-      
       "required": false,
       "version": [
         {
@@ -227,7 +223,6 @@
     },
     {
       "name": "voicelabel",
-      
       "required": false,
       "version": [
         {
@@ -243,7 +238,6 @@
     },
     {
       "name": "subscriptflag",
-      
       "required": false,
       "version": [
         {
@@ -270,7 +264,6 @@
     },
     {
       "name": "subscriptlabel",
-      
       "required": false,
       "version": [
         {
@@ -286,7 +279,6 @@
     },
     {
       "name": "scenelabel",
-      
       "required": false,
       "version": [
         {
@@ -319,7 +311,6 @@
     },
     {
       "name": "accessibilitygroup",
-      
       "required": false,
       "version": [
         {
@@ -343,7 +334,6 @@
     },
     {
       "name": "accessibilitytext",
-      
       "required": false,
       "version": [
         {
@@ -359,7 +349,6 @@
     },
     {
       "name": "accessibilitydescription",
-      
       "required": false,
       "version": [
         {
@@ -375,7 +364,6 @@
     },
     {
       "name": "accessibilityimportance",
-      
       "required": false,
       "version": [
         {
@@ -468,7 +456,6 @@
     },
     {
       "name": "dir",
-      
       "version": [
         {
           "name": "v6.0"
