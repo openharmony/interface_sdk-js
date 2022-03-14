@@ -14,10 +14,10 @@
  */
 
 /**
- * Defines style option for progress component.
+ * Defines style options for progress component.
  * @since 8
  */
-declare interface ProgressStyleOption {
+declare interface ProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    * @since 8
@@ -106,7 +106,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    * Called when the style of progress bar is set.
    * @since 8
    */
-  style(value: ProgressStyleOption): ProgressAttribute;
+  style(value: ProgressStyleOptions): ProgressAttribute;
 }
 
 declare const Progress: ProgressInterface;

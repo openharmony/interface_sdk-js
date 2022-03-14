@@ -97,10 +97,10 @@ declare class TextInputController {
 }
 
 /**
- * Defines the option of TextInput.
+ * Defines the options of TextInput.
  * @since 7
  */
-declare interface TextInputOption {
+declare interface TextInputOptions {
   /**
    * The place holder text string.
    * @since 7
@@ -129,7 +129,7 @@ interface TextInputInterface {
    * Called when writing a single line of text.
    * @since 7
    */
-  (value?: TextInputOption): TextInputAttribute;
+  (value?: TextInputOptions): TextInputAttribute;
 }
 
 /**
@@ -168,10 +168,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Called when judging whether the text editing has changed.
+   * Called when judging whether the text editing change finished.
    * @since 7
+   * @deprecated since 8
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   * @since 8
+   */
+  onEditChange(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
    * Called when submitted.

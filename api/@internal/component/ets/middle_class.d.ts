@@ -132,14 +132,14 @@ declare class TSButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @systemapi
    * @since 8
    */
-  createWithChild(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+  createWithChild(label?: ResourceStr, options?: ButtonOptions): ButtonAttribute;
   /**
    * Used for TS compiler.
    * @ignore
    * @systemapi
    * @since 8
    */
-  createWithLabel(label?: ResourceStr, options?: ButtonOption): ButtonAttribute;
+  createWithLabel(label?: ResourceStr, options?: ButtonOptions): ButtonAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -239,7 +239,7 @@ declare class TSCheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options?: CheckboxOption): CheckboxAttribute;
+  create(options?: CheckboxOptions): CheckboxAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -269,7 +269,7 @@ declare class TSCheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribu
    * @systemapi
    * @since 8
    */
-  create(options?: CheckboxGroupOption): CheckboxGroupAttribute;
+  create(options?: CheckboxGroupOptions): CheckboxGroupAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -299,7 +299,7 @@ declare class TSCircleAttribute extends CommonShapeMethod<CircleAttribute> {
    * @systemapi
    * @since 8
    */
-  create(value?: CircleOption): CircleAttribute;
+  create(value?: CircleOptions): CircleAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -412,7 +412,7 @@ declare class TSDataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options: DataPanelOption): DataPanelAttribute;
+  create(options: DataPanelOptions): DataPanelAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -442,7 +442,7 @@ declare class TSDatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options?: DatePickerOption): DatePickerAttribute;
+  create(options?: DatePickerOptions): DatePickerAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -518,7 +518,7 @@ declare class TSFlexAttribute extends CommonMethod<FlexAttribute> {
    * @systemapi
    * @since 8
    */
-  create(value?: FlexOption): FlexAttribute;
+  create(value?: FlexOptions): FlexAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -696,7 +696,7 @@ declare class TSGridContainerAttribute extends ColumnAttribute {
    * @systemapi
    * @since 8
    */
-  create(value?: GridContainerOption): GridContainerAttribute;
+  create(value?: GridContainerOptions): GridContainerAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1300,7 +1300,7 @@ declare class TSRadioAttribute extends CommonMethod<RadioAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options: RadioOption): RadioAttribute;
+  create(options: RadioOptions): RadioAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1509,7 +1509,7 @@ declare class TSScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
    * @systemapi
    * @since 8
    */
-  create(value: ScrollBarOption): ScrollBarAttribute;
+  create(value: ScrollBarOptions): ScrollBarAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1574,7 +1574,7 @@ declare class TSSelectAttribute extends CommonMethod<SelectAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options: Array<SelectOption>): SelectAttribute;
+  create(options: Array<SelectOptions>): SelectAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1664,7 +1664,7 @@ declare class TSSliderAttribute extends CommonMethod<SliderAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options?: SliderOption): SliderAttribute;
+  create(options?: SliderOptions): SliderAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1920,7 +1920,7 @@ declare class TSTextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @systemapi
    * @since 8
    */
-  create(value?: TextAreaOption): TextAreaAttribute;
+  create(value?: TextAreaOptions): TextAreaAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1973,7 +1973,7 @@ declare class TSTextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @systemapi
    * @since 8
    */
-  create(value?: TextInputOption): TextInputAttribute;
+  create(value?: TextInputOptions): TextInputAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -1996,7 +1996,7 @@ declare class TSTextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options?: TextPickerOption): TextPickerAttribute;
+  create(options?: TextPickerOptions): TextPickerAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -2026,7 +2026,7 @@ declare class TSTextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @systemapi
    * @since 8
    */
-  create(options?: TextTimerOption): TextTimerAttribute;
+  create(options?: TextTimerOptions): TextTimerAttribute;
   /**
    * Used for TS compiler.
    * @ignore
@@ -2247,7 +2247,7 @@ declare class TSPanGestureInterface {
           direction?: PanDirection;
           distance?: number;
         }
-      | PanGestureOption,
+      | PanGestureOptions,
   ): PanGestureInterface;
   /**
    * Used for TS compiler.

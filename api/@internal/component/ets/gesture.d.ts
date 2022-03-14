@@ -317,10 +317,10 @@ interface LongPressGestureInterface {
 }
 
 /**
- * Defines the PanGesture option.
+ * Defines the PanGesture options.
  * @since 7
  */
-declare class PanGestureOption {
+declare class PanGestureOptions {
   /**
    * Constructor parameters.
    * @since 7
@@ -355,7 +355,7 @@ interface PanGestureInterface {
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGestureInterface;
+  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions): PanGestureInterface;
 
   /**
    * Pan gesture recognition success callback.

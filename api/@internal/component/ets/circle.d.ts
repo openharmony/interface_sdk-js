@@ -14,10 +14,10 @@
  */
 
 /**
- * Defines circle option for Circle component.
+ * Defines circle options for Circle component.
  * @since 7
  */
-declare interface CircleOption {
+declare interface CircleOptions {
   /**
    * Defines the width property.
    * @since 7
@@ -40,13 +40,13 @@ interface CircleInterface {
    * use new function to set the value.
    * @since 7
    */
-  new (value?: CircleOption): CircleAttribute;
+  new (value?: CircleOptions): CircleAttribute;
 
   /**
    * Set the value..
    * @since 7
    */
-  (value?: CircleOption): CircleAttribute;
+  (value?: CircleOptions): CircleAttribute;
 }
 
 /**

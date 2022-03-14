@@ -101,7 +101,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    */
   showControlButton(value: boolean): SideBarContainerAttribute;
   /**
-   * Callback onChange function when sidebar style of showing has changed
+   * Trigger callback when sidebar style of showing change finished.
    * @since 8
    */
   onChange(callback: (value: boolean) => void): SideBarContainerAttribute;

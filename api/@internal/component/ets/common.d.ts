@@ -194,7 +194,7 @@ declare function $rawfile(value: string): Resource;
 
 /**
  * global getContentStorage function
- * @since 8
+ * @since 9
  */
 declare function getContentStorage(value: any): ContentStorage;
 
@@ -255,10 +255,10 @@ declare interface AnimateParam {
 }
 
 /**
- * Defines the motion path option.
+ * Defines the motion path options.
  * @since 7
  */
-declare interface MotionPathOption {
+declare interface MotionPathOptions {
   /**
    * The path info.
    * @since 7
@@ -285,7 +285,7 @@ declare interface MotionPathOption {
  * Defines the shard transition function params.
  * @since 7
  */
-declare interface sharedTransitionOption {
+declare interface sharedTransitionOptions {
   /**
    * Animation duration, in ms.
    * @since 7
@@ -305,7 +305,7 @@ declare interface sharedTransitionOption {
    * The motion path info.
    * @since 7
    */
-  motionPath?: MotionPathOption;
+  motionPath?: MotionPathOptions;
   /**
    * Z index info.
    * @since 7
@@ -319,10 +319,10 @@ declare interface sharedTransitionOption {
 }
 
 /**
- * Defines the option of translate.
+ * Defines the options of translate.
  * @since 7
  */
-declare interface TranslateOption {
+declare interface TranslateOptions {
   /**
    * The param of x direction.
    * @since 7
@@ -341,10 +341,10 @@ declare interface TranslateOption {
 }
 
 /**
- * Defines the option of scale.
+ * Defines the options of scale.
  * @since 7
  */
-declare interface ScaleOption {
+declare interface ScaleOptions {
   /**
    * The param of x direction.
    * @since 7
@@ -372,7 +372,7 @@ declare interface ScaleOption {
   centerY?: number | string;
 }
 
-declare interface RotateOption {
+declare interface RotateOptions {
   /**
    * The param of x direction.
    * @since 7
@@ -409,7 +409,7 @@ declare interface RotateOption {
  * Defines the param of transition.
  * @since 7
  */
-declare interface TransitionOption {
+declare interface TransitionOptions {
   /**
    * Defines the param of type.
    * @since 7
@@ -424,17 +424,17 @@ declare interface TransitionOption {
    * Defines the param of translate.
    * @since 7
    */
-  translate?: TransitionOption;
+  translate?: TransitionOptions;
   /**
    * Defines the param of scale.
    * @since 7
    */
-  scale?: ScaleOption;
+  scale?: ScaleOptions;
   /**
    * Defines the param of rotate.
    * @since 7
    */
-  rotate?: RotateOption;
+  rotate?: RotateOptions;
 }
 
 /**
@@ -890,7 +890,7 @@ declare interface KeyEvent {
  * Component State Styels.
  * @since 8
  */
-declare interface StateStyels {
+declare interface StateStyles {
   /**
    * Defines normal state styles.
    * @since 8
@@ -926,7 +926,7 @@ declare interface StateStyels {
  * Defines the popup options.
  * @since 7
  */
-declare interface PopupOption {
+declare interface PopupOptions {
   /**
    * Information in the pop-up window.
    * @since 7
@@ -983,10 +983,10 @@ declare interface PopupOption {
 }
 
 /**
- * Defines the custom popup option.
+ * Defines the custom popup options.
  * @since 8
  */
-declare interface CustomPopupOption {
+declare interface CustomPopupOptions {
   /**
    * builder of popup
    * @since 8
@@ -1076,7 +1076,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the touchable of the current component
-   * @since 8
+   * @since 7
    */
   touchable(value: boolean): T;
 
@@ -1135,7 +1135,7 @@ declare class CommonMethod<T> {
    * width:Border width;color:Border color;radius:Border radius;
    * @since 7
    */
-  border(value: BorderOption): T;
+  border(value: BorderOptions): T;
 
   /**
    * Border style
@@ -1216,13 +1216,6 @@ declare class CommonMethod<T> {
   onBlur(event: () => void): T;
 
   /**
-   * Trigger a event when focus move.
-   * @since 8
-   * @systemapi
-   */
-  onFocusMove(event: (direction?: FocusDirection) => void): T;
-
-  /**
    * animation
    * @since 7
    */
@@ -1232,7 +1225,7 @@ declare class CommonMethod<T> {
    * Transition parameter
    * @since 7
    */
-  transition(value: TransitionOption): T;
+  transition(value: TransitionOptions): T;
 
   /**
    * Bind gesture recognition.
@@ -1336,13 +1329,13 @@ declare class CommonMethod<T> {
    * When this parameter is set together with slide, slide takes effect by default.
    * @since 7
    */
-  translate(value: TranslateOption): T;
+  translate(value: TranslateOptions): T;
 
   /**
    * Sets the zoom effect during page transition. The value is the start point of entry and end point of exit.
    * @since 7
    */
-  scale(value: ScaleOption): T;
+  scale(value: ScaleOptions): T;
 
   /**
    * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
@@ -1362,7 +1355,7 @@ declare class CommonMethod<T> {
    * The values are the start point during insertion and the end point during deletion.
    * @since 7
    */
-  rotate(value: RotateOption): T;
+  rotate(value: RotateOptions): T;
 
   /**
    * Sets the transformation matrix for the current component.
@@ -1383,7 +1376,7 @@ declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
-   * This callback is triggered when the size or position of this component has changed.
+   * This callback is triggered when the size or position of this component change finished.
    * @param event event callback.
    * @since 8
    */
@@ -1435,7 +1428,7 @@ declare class CommonMethod<T> {
    * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
    * @since 7
    */
-  sharedTransition(id: string, options?: sharedTransitionOption): T;
+  sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
   /**
    * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
@@ -1580,7 +1573,7 @@ declare class CommonMethod<T> {
    * rotatble:Whether to follow the path for rotation.
    * @since 7
    */
-  motionPath(value: MotionPathOption): T;
+  motionPath(value: MotionPathOptions): T;
 
   /**
    * Add a shadow effect to the current component
@@ -1630,7 +1623,7 @@ declare class CommonMethod<T> {
    * Popup control
    * @since 7
    */
-  bindPopup(show: boolean, popup: PopupOption | CustomPopupOption): T;
+  bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
   /**
    * Menu control
@@ -1648,7 +1641,7 @@ declare class CommonMethod<T> {
    * Sets styles for component state.
    * @since 8
    */
-  stateStyles(value: StateStyels): T;
+  stateStyles(value: StateStyles): T;
 
   /**
    * id for distrubte identification.

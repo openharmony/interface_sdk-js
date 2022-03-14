@@ -36,10 +36,10 @@ declare enum SelectStatus {
 }
 
 /**
- * Defines the option of CheckboxGroup.
+ * Defines the options of CheckboxGroup.
  * @since 8
  */
-declare interface CheckboxGroupOption {
+declare interface CheckboxGroupOptions {
   /**
    * Setting the group of CheckboxGroup.
    * @since 8
@@ -48,7 +48,7 @@ declare interface CheckboxGroupOption {
 }
 
 /**
- * Defines the option of CheckboxGroupResult.
+ * Defines the options of CheckboxGroupResult.
  * @since 8
  */
 declare interface CheckboxGroupResult {
@@ -73,7 +73,7 @@ interface CheckboxGroupInterface {
    * Called when the CheckboxGroup component is used.
    * @since 8
    */
-  (options?: CheckboxGroupOption): CheckboxGroupAttribute;
+  (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
 
 /**
