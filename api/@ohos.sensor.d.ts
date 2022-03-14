@@ -503,7 +503,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
@@ -512,7 +512,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
