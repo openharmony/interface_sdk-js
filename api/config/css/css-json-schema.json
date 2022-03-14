@@ -13,7 +13,6 @@
             "SystemCapability.ArkUI.ArkUI.Full",
             "SystemCapability.ArkUI.ArkUI.Lite"
           ],
-          
           "syntax": {
             "type": "array",
             "description": "语法",
@@ -117,7 +116,10 @@
             "type": "string",
             "description": "指令名称"
           },
-          
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ],
           "version": {
             "type": "array",
             "description": "版本",
@@ -158,7 +160,10 @@
             "type": "string",
             "description": "伪类名称"
           },
-          
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
+          ],
           "version": {
             "type": "array",
             "description": "版本",
