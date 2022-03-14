@@ -106,7 +106,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
-   * @since 8
+   * @since 7
    */
   chainAnimation(value: boolean): ListAttribute;
 

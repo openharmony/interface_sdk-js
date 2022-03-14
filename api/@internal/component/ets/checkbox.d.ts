@@ -14,10 +14,10 @@
  */
 
 /**
- * Defines the option of Checkbox.
+ * Defines the options of Checkbox.
  * @since 8
  */
-declare interface CheckboxOption {
+declare interface CheckboxOptions {
   /**
    * Current name of Checkbox.
    * @since 8
@@ -41,7 +41,7 @@ interface CheckboxInterface {
    * Called when the Checkbox component is used.
    * @since 8
    */
-  (options?: CheckboxOption): CheckboxAttribute;
+  (options?: CheckboxOptions): CheckboxAttribute;
 }
 
 /**

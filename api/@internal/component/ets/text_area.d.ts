@@ -31,10 +31,10 @@ declare class TextAreaController {
 }
 
 /**
- * Defines the option of TextArea.
+ * Defines the options of TextArea.
  * @since 7
  */
-declare interface TextAreaOption {
+declare interface TextAreaOptions {
   /**
    * The place holder text string.
    * @since 7
@@ -63,7 +63,7 @@ interface TextAreaInterface {
    * Called when writing multiple lines of text.
    * @since 7
    */
-  (value?: TextAreaOption): TextAreaAttribute;
+  (value?: TextAreaOptions): TextAreaAttribute;
 }
 
 /**

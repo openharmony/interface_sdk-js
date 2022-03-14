@@ -274,13 +274,7 @@ declare enum MouseAction {
    * Triggered when the mouse is Hovered.
    * @since 8
    */
-  Hover,
-
-  /**
-   * Triggered when the mouse status is None.
-   * @since 8
-   */
-  None,
+  Hover
 }
 
 /**
@@ -611,42 +605,6 @@ declare enum Direction {
    * @since 7
    */
   Auto,
-}
-
-/**
- * Sets the horizontal layout of elements.
- * @since 8
- */
-declare enum FocusDirection {
-  /**
-   * From the key up.
-   * @since 8
-   */
-  Up,
-
-  /**
-   * From the key down.
-   * @since 8
-   */
-  Down,
-
-  /**
-   * From the key left.
-   * @since 8
-   */
-  Left,
-
-  /**
-   * From the key right.
-   * @since 8
-   */
-  Right,
-
-  /**
-   * From the key tab.
-   * @since 8
-   */
-  Tab,
 }
 
 /**
@@ -1395,7 +1353,7 @@ declare enum HoverEffect {
    * Highlight effect
    * @since 8
    */
-  Board,
+  Highlight,
 
   /**
    * None effect
