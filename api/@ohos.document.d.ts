@@ -27,7 +27,6 @@ export default document;
 declare namespace document {
     export { choose };
     export { show };
-    export { create };
 }
 
 /**
@@ -63,19 +62,3 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
  */
 declare function show(uri: string, type: string): Promise<void>;
 declare function show(uri: string, type: string, callback: AsyncCallback<void>): void;
-
-/**
- * create.
- *
- * @note N/A
- * @sysCap N/A
- * @since 7
- * @permission N/A
- * @function create
- * @param {string} name - name.
- * @param {AsyncCallback<void>} [callback] - callback.
- * @returns {void | Promise<void>} no callback return Promise otherwise return void
- * @throws {TypedError} Parameter check failed
- */
-declare function create(name: string): Promise<string>;
-declare function create(name: string, callback: AsyncCallback<string>): void;
