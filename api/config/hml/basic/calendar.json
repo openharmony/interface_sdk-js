@@ -5,47 +5,41 @@
       "name": "v3.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
-      "name": "The <calendar> component is used to create a calendar component. ",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "The <calendar> component is used to create a calendar component. "
     }
   ],
   "attributes": [
     {
       "name": "date",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar date.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar date."
         }
       ],
       "type": "object"
     },
     {
       "name": "dateadapter",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar date.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar date."
         }
       ],
       "type": "string"
     },
     {
       "name": "vertical",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar swipe direction.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar swipe direction."
         }
       ],
       "type": "enum",
@@ -60,12 +54,10 @@
     },
     {
       "name": "showholiday",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar to show holiday.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar to show holiday."
         }
       ],
       "type": "enum",
@@ -80,12 +72,10 @@
     },
     {
       "name": "showlunar",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar to show lunar.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar to show lunar."
         }
       ],
       "type": "enum",
@@ -100,12 +90,10 @@
     },
     {
       "name": "type",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar type.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar type."
         }
       ],
       "type": "enum",
@@ -120,36 +108,30 @@
     },
     {
       "name": "offdays",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar offdays.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar offdays."
         }
       ],
       "type": "string"
     },
     {
       "name": "workdays",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar workdays.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar workdays."
         }
       ],
       "type": "string"
     },
     {
       "name": "holidays",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "setting calendar holidays.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "setting calendar holidays."
         }
       ],
       "type": "string"
@@ -158,21 +140,17 @@
   "events": [
     {
       "name": "selectedchange",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "description": [
         {
-          "name": "Triggered when the select date.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Triggered when the select date."
         }
       ]
     },
     {
       "name": "goto",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "description": [
         {
-          "name": "Triggered when the jump to a certain month.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Triggered when the jump to a certain month."
         }
       ]
     }
