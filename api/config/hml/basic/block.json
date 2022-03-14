@@ -13,7 +13,7 @@
   ],
   "attributes": [
     {
-      "name": "for" ,
+      "name": "for",
       "required": false,
       "description": [
         {
@@ -23,7 +23,7 @@
       "type": "string"
     },
     {
-      "name": "if" ,
+      "name": "if",
       "required": false,
       "description": [
         {

@@ -13,7 +13,7 @@
   ],
   "attributes": [
     {
-      "name": "attributeName" ,
+      "name": "attributeName",
       "required": false,
       "description": [
         {
@@ -23,7 +23,7 @@
       "type": "string"
     },
     {
-      "name": "path" ,
+      "name": "path",
       "required": true,
       "description": [
         {
@@ -33,7 +33,7 @@
       "type": "string"
     },
     {
-      "name": "rotate" ,
+      "name": "rotate",
       "required": false,
       "description": [
         {
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "name": "begin" ,
+      "name": "begin",
       "required": false,
       "description": [
         {
@@ -64,7 +64,7 @@
       "type": "string"
     },
     {
-      "name": "dur" ,
+      "name": "dur",
       "required": false,
       "description": [
         {
@@ -74,7 +74,7 @@
       "type": "string"
     },
     {
-      "name": "end" ,
+      "name": "end",
       "required": false,
       "description": [
         {
@@ -84,7 +84,7 @@
       "type": "string"
     },
     {
-      "name": "repeatCount" ,
+      "name": "repeatCount",
       "required": false,
       "description": [
         {
@@ -94,7 +94,7 @@
       "type": "number"
     },
     {
-      "name": "fill" ,
+      "name": "fill",
       "required": false,
       "description": [
         {
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "name": "calcMode" ,
+      "name": "calcMode",
       "required": false,
       "description": [
         {
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "name": "keyTimes" ,
+      "name": "keyTimes",
       "required": false,
       "description": [
         {
@@ -146,7 +146,7 @@
       "type": "string"
     },
     {
-      "name": "keySplines" ,
+      "name": "keySplines",
       "required": false,
       "description": [
         {
@@ -156,7 +156,7 @@
       "type": "string"
     },
     {
-      "name": "from" ,
+      "name": "from",
       "required": false,
       "description": [
         {
@@ -166,7 +166,7 @@
       "type": "string"
     },
     {
-      "name": "to" ,
+      "name": "to",
       "required": false,
       "description": [
         {
@@ -176,7 +176,7 @@
       "type": "string"
     },
     {
-      "name": "keyPoints" ,
+      "name": "keyPoints",
       "required": true,
       "description": [
         {
