@@ -45,8 +45,8 @@ export declare function requestAnimationFrame(handler: Function): number;
 
 /**
  * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
- * @devices tv, phone, tablet, wearable
  * @since 3
  */
 export declare function cancelAnimationFrame(requestId: number): void;
