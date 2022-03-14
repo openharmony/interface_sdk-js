@@ -95,7 +95,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
@@ -106,7 +106,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
@@ -340,7 +340,7 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEART_RATE
+     * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
