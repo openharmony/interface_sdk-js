@@ -53,6 +53,12 @@ declare enum SliderChangeMode {
    * @since 7
    */
   End,
+
+  /**
+   * Click the slider.
+   * @since 8
+   */
+  Click,
 }
 
 /**
