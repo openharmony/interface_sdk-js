@@ -15,26 +15,12 @@
             "type": "string",
             "description": "版本号例如:V3.0"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          }
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"]
         },
         "required": ["name"]
       }
     },
-    "supportedDevices": {
-      "type": "array",
-      "description": "本字段非必填,如果为空，表示该属性支持所有的设备类型",
-      "items": {
-        "type": "string",
-        "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-      }
-    },
+    "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
     "description": {
       "type": "array",
       "items": {
@@ -44,14 +30,7 @@
             "type": "string",
             "description": "属性的描述文档"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          }
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"]
         },
         "required": ["name"]
       }
@@ -66,14 +45,7 @@
             "type": "string",
             "description": "属性名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
           "required": {
             "type": "boolean",
             "description": "表示属性是否为组件的必填属性"
@@ -87,14 +59,7 @@
                   "type": "string",
                   "description": "属性的描述文档"
                 },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
-                }
+                "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"]
               },
               "required": ["name"]
             }
@@ -113,14 +78,7 @@
                   "type": "string",
                   "description": "属性值"
                 },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
-                }
+                "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"]
               },
               "required": ["name"]
             }
@@ -139,14 +97,7 @@
             "type": "string",
             "description": "事件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
           "description": {
             "type": "array",
             "items": {
@@ -156,14 +107,7 @@
                   "type": "string",
                   "description": "事件的描述文档"
                 },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
-                }
+                "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"]
               }
             }
           }
@@ -185,14 +129,7 @@
             "type": "string",
             "description": "支持的子组件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
           "level": {
             "type": "number"
           }
@@ -210,14 +147,7 @@
             "type": "string",
             "description": "不支持的子组件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
           "level": {
             "type": "number"
           }
@@ -235,14 +165,7 @@
             "type": "string",
             "description": "支持的父组件的组件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
+          "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
           "level": {
             "type": "number",
             "description": "本字段非必填,取值范围大于等于1，只有标签补齐时需要联想出对应子组件时需要填此字段，如果level为n+1时，level为n的组件有且只有一个(n>1)"
