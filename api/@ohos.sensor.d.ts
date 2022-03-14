@@ -128,7 +128,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEALTH_DATA
+     * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
@@ -530,7 +530,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.HEALTH_DATA
+     * @permission ohos.permission.READ_HEALTH_DATA 
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
