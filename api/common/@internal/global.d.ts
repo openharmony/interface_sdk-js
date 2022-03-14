@@ -36,6 +36,33 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
+ * Sets a timer after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called after the timer goes off. For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string. For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param delay Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns Returns the timer ID.
+ * @since 3
+ */
+export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
+
+/**
+ * Sets a vsync after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called when the vsync trigger.
+ * @since 3
+ */
+export declare function requestAnimationFrame(handler: Function): number;
+
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ * @devices tv, phone, tablet, wearable
+ * @since 3
+ */
+export declare function cancelAnimationFrame(requestId: number): void;
+
+/**
  * Cancels the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @param intervalID Indicates the timer ID returned by "setInterval()".
