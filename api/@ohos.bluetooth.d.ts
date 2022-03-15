@@ -18,19 +18,20 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
+ * @import import bluetooth frome '@ohos.bluetooth';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
-  /**
-   * Obtains the Bluetooth status of a device.
-   *
-   * @return Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
-   * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
-   * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
-   * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
-   * @since 7
-   * @permission ohos.permission.USE_BLUETOOTH
-   */
+    /**
+     * Obtains the Bluetooth status of a device.
+     *
+     * @return Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
+     * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
+     * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
+     * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
+     * @since 7
+     * @permission ohos.permission.USE_BLUETOOTH
+     */
     function getState(): BluetoothState;
 
     /**
@@ -120,6 +121,16 @@ declare namespace bluetooth {
      * @permission ohos.permission.USE_BLUETOOTH
      */
     function getPairedDevices(): Array<string>;
+
+    /**
+     * Obtains the connection state of profile.
+     *
+     * @param profileId The profile id.
+     * @return Returns the connection state.
+     * @since 8
+     * @permission ohos.permission.USE_BLUETOOTH
+     */
+    function getProfileConnState(profileId: ProfileId): ProfileConnectionState;
 
     /**
      * Sets the confirmation of pairing with a certain device.
@@ -336,6 +347,134 @@ declare namespace bluetooth {
      */
     function off(type: "sppRead", clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
+    /**
+     * Obtains the instance of profile.
+     *
+     * @param profileId The profile id..
+     * @return Returns instance of profile.
+     * @since 8
+     */
+    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
+
+    /**
+     * Base interface of profile.
+     */
+    interface BaseProfile {
+        /**
+         * Obtains the connected devices list of profile.
+         *
+         * @return Returns the address of connected devices list.
+         * @since 8
+         * @permission ohos.permission.USE_BLUETOOTH
+         */
+        getConnectionDevices(): Array<string>;
+
+        /**
+         * Obtains the profile state of device.
+         *
+         * @param device The address of bluetooth device.
+         * @return Returns {@link ProfileConnectionState} of device.
+         * @since 8
+         * @permission ohos.permission.USE_BLUETOOTH
+         */
+        getDeviceState(device: string): ProfileConnectionState;
+    }
+
+    /**
+     * Manager a2dp source profile.
+     */
+    interface A2dpSourceProfile extends BaseProfile {
+        /**
+         * Connect to device with a2dp.
+         *
+         * @param device The address of the remote device to connect.
+         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @since 8
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         */
+        connect(device: string): boolean;
+
+        /**
+         * Disconnect to device with a2dp.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 8
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 8
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 8
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+
+        /**
+         * Obtains the playing state of device.
+         *
+         * @param device The address of the remote device.
+         * @return Returns {@link PlayingState} of the remote device.
+         *
+         */
+        getPlayingState(device: string): PlayingState;
+    }
+
+    /**
+     * Manager handsfree AG profile.
+     */
+    interface HandsFreeAudioGatewayProfile extends BaseProfile {
+        /**
+         * Connect to device with hfp.
+         *
+         * @param device The address of the remote device to connect.
+         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @since 8
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         */
+        connect(device: string): boolean;
+
+        /**
+         * Disconnect to device with hfp.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 8
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 8
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 8
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    }
+
     namespace BLE {
         /**
          * create a JavaScript Gatt server instance.
@@ -411,7 +550,6 @@ declare namespace bluetooth {
      * Manages GATT server. Before calling an Gatt server method, you must use {@link createGattServer} to create an GattServer instance.
      */
     interface GattServer {
-
         /**
          * Starts BLE advertising.
          *
@@ -781,9 +919,9 @@ declare namespace bluetooth {
         /** The UUID of the {@link GattService} instance to which the characteristic belongs */
         serviceUuid: string;
         /** The UUID of a BLECharacteristic instance */
-         characteristicUuid: string;
+        characteristicUuid: string;
         /** The value of a BLECharacteristic instance */
-         characteristicValue: ArrayBuffer;
+        characteristicValue: ArrayBuffer;
         /** The list of {@link BLEDescriptor} contained in the characteristic */
         descriptors: Array<BLEDescriptor>;
     }
@@ -1305,6 +1443,39 @@ declare namespace bluetooth {
         HEALTH_ANKLE_PROSTHESIS = 0x0934,
         HEALTH_GENERIC_HEALTH_MANAGER = 0x0938,
         HEALTH_PERSONAL_MOBILITY_DEVICE = 0x093C,
+    }
+
+    /**
+     * Profile state change parameters.
+     *
+     * @since 8
+     */
+    interface StateChangeParam {
+        /** The address of device */
+        deviceId: string;
+
+        /** Profile state value */
+        state: ProfileConnectionState;
+    }
+
+    /**
+     * The enum of a2dp playing state.
+     *
+     * @since 8
+     */
+    enum PlayingState {
+        STATE_NOT_PLAYING,
+        STATE_PLAYING,
+    }
+
+    /**
+     * The enum of profile id.
+     *
+     * @since 8
+     */
+    enum ProfileId {
+        PROFILE_A2DP_SOURCE = 1,
+        PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4,
     }
 }
 
