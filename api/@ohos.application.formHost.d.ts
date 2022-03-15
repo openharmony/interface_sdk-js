@@ -52,11 +52,13 @@ declare namespace formHost {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
+     * @param isReleaseCache Indicates whether or not release cache
      * @return -
      * @permission ohos.permission.REQUIRE_FORM
      */
     function releaseForm(formId: string, callback: AsyncCallback<void>): void;
-    function releaseForm(formId: string): Promise<void>;
+    function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
+    function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
     /**
      * Requests for form update.
