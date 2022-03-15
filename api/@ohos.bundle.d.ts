@@ -587,33 +587,33 @@ declare namespace bundle {
 
   /**
    * Obtains the label of a specified ability.
-   * 
+   *
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
    * @param abilityName Indicates the ability name.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    * @return Returns the label representing the label of the specified ability.
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
-   
+
   /**
     * Obtains the icon of a specified ability.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application to which the ability belongs.
     * @param abilityName Indicates the ability name.
     * @return Returns the PixelMap object representing the icon of the specified ability.
-    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
-   
+
   /**
     * Checks whether a specified ability is enabled.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param info Indicates information about the ability to check.
@@ -621,10 +621,10 @@ declare namespace bundle {
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
-   
+
   /**
     * Checks whether a specified application is enabled.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application.
