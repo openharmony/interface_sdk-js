@@ -200,7 +200,7 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
     function enableLocation(callback: AsyncCallback<boolean>) : void;
@@ -212,7 +212,7 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
     function disableLocation(callback: AsyncCallback<boolean>) : void;
