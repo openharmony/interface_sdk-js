@@ -45,13 +45,6 @@ declare namespace hichecker {
     const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
 
     /**
-    * The process rule check slow event.
-    * @since 8
-    * @syscap SystemCapability.HiviewDFX.HiChecker
-    */
-    const RULE_CHECK_SLOW_EVENT: 4294967296n; // 1 << 32
-
-    /**
     * The process rule check ability connection leak.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
