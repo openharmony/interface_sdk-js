@@ -115,4 +115,25 @@ export interface HapModuleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly installationFree: boolean;
+
+  /**
+    * @default Indicates main elementName of the module
+    * @since 8
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly mainElementName: string;
+
+  /**
+    * @default Obtains configuration information about extension ability
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
+  /**
+    * @default Indicates the metadata of ability
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * 
+    */
+  readonly metadata: Array<Metadata>;
 }
