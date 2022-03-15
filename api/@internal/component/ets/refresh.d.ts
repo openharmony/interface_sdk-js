@@ -62,6 +62,7 @@ interface RefreshInterface {
 }
 
 /**
+ * Defines the refresh attibute functions.
  * @since 8
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {

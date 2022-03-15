@@ -263,7 +263,6 @@ declare class WebResourceRequest {
   isRedirect(): boolean;
 }
 
-
 /**
  * Defines the web resource response.
  * @since 8

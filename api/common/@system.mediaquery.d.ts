@@ -14,28 +14,29 @@
  */
 
 /**
+ * Defines the MediaQuery event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 3
  */
 export interface MediaQueryEvent {
   /**
+   * The result of match result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   matches: boolean;
 }
 
 /**
+ * Defines the MediaQuery list info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 3
  */
 export interface MediaQueryList {
   /**
    * Serialized media query condition.
    * This parameter is read-only.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   media?: string;
@@ -44,7 +45,6 @@ export interface MediaQueryList {
    * Whether the query is successful. True if the query condition is matched successfully, false otherwise.
    * This parameter is read-only.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   matches?: boolean;
@@ -52,7 +52,6 @@ export interface MediaQueryList {
   /**
    * Called when the matches value changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   onchange?: (matches: boolean) => void;
@@ -61,7 +60,6 @@ export interface MediaQueryList {
    * Adds a listening function to MediaQueryList.
    * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   addListener(callback: (event: MediaQueryEvent) => void): void;
@@ -69,21 +67,21 @@ export interface MediaQueryList {
   /**
    * Removes a listening function from MediaQueryList.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
    * @since 3
    */
   removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
 
 /**
+ * Defines the mediaqurey interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 3
  */
 export default class MediaQuery {
   /**
    * Queries a media item and returns a MediaQueryList object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @devices tv, phone, tablet, wearable
+   * @since 3
    */
   static matchMedia(condition: string): MediaQueryList;
 }

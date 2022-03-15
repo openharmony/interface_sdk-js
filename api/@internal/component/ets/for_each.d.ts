@@ -14,7 +14,7 @@
  */
 
 /**
- * looping
+ * looping function.
  * @since 7
  */
 interface ForEachInterface {
@@ -29,8 +29,4 @@ interface ForEachInterface {
   ): ForEachInterface;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
 declare const ForEach: ForEachInterface;

@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare sliderstyle
  * @since 7
@@ -23,7 +22,7 @@ declare enum SliderStyle {
    * The slider is on the slide rail.
    * @since 7
    */
-  OutSet = 0,
+  OutSet,
 
   /**
    * The slider is in the slide rail.
@@ -41,7 +40,7 @@ declare enum SliderChangeMode {
    * Start dragging the slider.
    * @since 7
    */
-  Begin = 0,
+  Begin,
 
   /**
    * Drag the slider.
@@ -54,13 +53,19 @@ declare enum SliderChangeMode {
    * @since 7
    */
   End,
+
+  /**
+   * Click the slider.
+   * @since 8
+   */
+  Click,
 }
 
 /**
- * Defines the option of Slider.
+ * Defines the options of Slider.
  * @since 7
  */
-declare interface SliderOption {
+declare interface SliderOptions {
   /**
    * Current value of Slider.
    * @since 7
@@ -113,7 +118,7 @@ interface SliderInterface {
    * Called when the slider bar component is used.
    * @since 7
    */
-  (options?: SliderOption): SliderAttribute;
+  (options?: SliderOptions): SliderAttribute;
 }
 
 /**

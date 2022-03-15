@@ -150,28 +150,99 @@ declare interface Area {
    * Defines the local position.
    * @since 8
    */
-  pos: Position;
+  position: Position;
 
   /**
    * Defines the global position.
    * @since 8
    */
-  globalPos: Position;
+  globalPosition: Position;
 }
 
 /**
  * Defines the position.
- * @since 8
+ * @since 7
  */
 declare interface Position {
   /**
    * Coordinate x of the Position.
-   * @since 8
+   * @since 7
    */
-  x: Length;
+  x?: Length;
   /**
    * Coordinate y of the Position.
-   * @since 8
+   * @since 7
    */
-  y: Length;
+  y?: Length;
+}
+
+/**
+ * Defines the constrain size options.
+ * @since 7
+ */
+declare interface ConstraintSizeOptions {
+  /**
+   * Defines the min width.
+   * @since 7
+   */
+  minWidth?: Length;
+  /**
+   * Defines the max width.
+   * @since 7
+   */
+  maxWidth?: Length;
+  /**
+   * Defines the min height.
+   * @since 7
+   */
+  minHeight?: Length;
+  /**
+   * Defines the max height.
+   * @since 7
+   */
+  maxHeight?: Length;
+}
+
+/**
+ * Defines the size options.
+ * @since 7
+ */
+declare interface SizeOptions {
+  /**
+   * Defines the width.
+   * @since 7
+   */
+  width?: Length;
+  /**
+   * Defines the height.
+   * @since 7
+   */
+  height?: Length;
+}
+
+/**
+ * Defines the options of border.
+ * @since 7
+ */
+declare interface BorderOptions {
+  /**
+   * Defines the border width.
+   * @since 7
+   */
+  width?: Length;
+  /**
+   * Defines the border color.
+   * @since 7
+   */
+  color?: ResourceColor;
+  /**
+   * Defines the border radius.
+   * @since 7
+   */
+  radius?: Length;
+  /**
+   * Defines the border style.
+   * @since 7
+   */
+  style?: BorderStyle;
 }

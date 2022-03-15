@@ -29,8 +29,8 @@ declare class TextClockController {
    */
   start();
   /**
-   *  Provides a stop event for textclock.
-   *  @since 8
+   * Provides a stop event for textclock.
+   * @since 8
    */
   stop();
 }
@@ -47,7 +47,7 @@ interface TextClockInterface {
    * Where a negative value indicates the eastern time zone, for example, -8.
    * @since 8
    */
-  (options?: {timeZoneOffset?: number, controller?: TextClockController}): TextClockAttribute;
+  (options?: { timeZoneOffset?: number; controller?: TextClockController }): TextClockAttribute;
 }
 
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
@@ -98,5 +98,4 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
 }
 
 declare const TextClock: TextClockInterface;
-
 declare const TextClockInstance: TextClockAttribute;

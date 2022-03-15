@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides the method of switching the cursor position.
  * @since 8
@@ -32,10 +31,10 @@ declare class TextAreaController {
 }
 
 /**
- * Defines the option of TextArea.
+ * Defines the options of TextArea.
  * @since 7
  */
-declare interface TextAreaOption {
+declare interface TextAreaOptions {
   /**
    * The place holder text string.
    * @since 7
@@ -64,7 +63,7 @@ interface TextAreaInterface {
    * Called when writing multiple lines of text.
    * @since 7
    */
-  (value?: TextAreaOption): TextAreaAttribute;
+  (value?: TextAreaOptions): TextAreaAttribute;
 }
 
 /**
@@ -134,7 +133,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called when the input changes.
-   * @devices phone, tablet, car.
    * @since 7
    */
   onChange(callback: (value: string) => void): TextAreaAttribute;

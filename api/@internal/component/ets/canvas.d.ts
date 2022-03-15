@@ -1061,7 +1061,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param settings Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @since 8
    */
-  constructor(width: number, height: number,settings?: RenderingContextSettings);
+  constructor(width: number, height: number, settings?: RenderingContextSettings);
 }
 
 /**
@@ -1116,5 +1116,6 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    */
   onReady(event: () => void): CanvasAttribute;
 }
+
 declare const Canvas: CanvasInterface;
 declare const CanvasInstance: CanvasAttribute;

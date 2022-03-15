@@ -15,10 +15,10 @@
 
 
 /**
- * Defines the option of CustomDialogController.
+ * Defines the options of CustomDialogController.
  * @since 7
  */
-declare interface CustomDialogControllerOption {
+declare interface CustomDialogControllerOptions {
   /**
    * Custom builder function.
    * @since 7
@@ -71,7 +71,7 @@ declare class CustomDialogController {
    * The constructor transfers parameter settings.
    * @since 7
    */
-  constructor(value: CustomDialogControllerOption);
+  constructor(value: CustomDialogControllerOptions);
 
   /**
    * Display the content of the customized pop-up window. If the content has been displayed, it does not take effect.

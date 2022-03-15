@@ -50,10 +50,10 @@ declare enum SizeType {
 }
 
 /**
- * Defines the option of GridContainer.
+ * Defines the options of GridContainer.
  * @since 7
  */
-declare interface GridContainerOption {
+declare interface GridContainerOptions {
   /**
    * Sets the total number of columns in the current layout.
    * @since 7
@@ -88,7 +88,7 @@ interface GridContainerInterface {
    * Defines the constructor of GridContainer.
    * @since 7
    */
-  (value?: GridContainerOption): GridContainerAttribute;
+  (value?: GridContainerOptions): GridContainerAttribute;
 }
 
 /**

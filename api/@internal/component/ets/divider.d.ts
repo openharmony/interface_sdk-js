@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides a divider component to separate different content blocks/content elements.
  * @since 7
@@ -57,5 +56,5 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   lineCap(value: LineCapStyle): DividerAttribute;
 }
 
-declare const Divider: DividerInterface
+declare const Divider: DividerInterface;
 declare const DividerInstance: DividerAttribute;
