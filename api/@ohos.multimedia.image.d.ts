@@ -265,7 +265,7 @@ declare namespace image {
   interface ImageInfo {
     /**
      * Indicates image dimensions specified by a {@link Size} interface.
-     * @since 7
+     * @since 6
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     size: Size;
