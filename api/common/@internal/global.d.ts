@@ -36,6 +36,22 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
+ * Sets a vsync after which a function will be executed.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param handler Indicates the function to be called when the vsync trigger.
+ * @since 3
+ */
+export declare function requestAnimationFrame(handler: Function): number;
+
+/**
+ * Cancels the vsync callback set by "requestAnimationFrame()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param requestId Indicates the vsync callback ID returned by "requestAnimationFrame()".
+ * @since 3
+ */
+export declare function cancelAnimationFrame(requestId: number): void;
+
+/**
  * Cancels the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @param intervalID Indicates the timer ID returned by "setInterval()".

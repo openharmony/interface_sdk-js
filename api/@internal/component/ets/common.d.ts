@@ -1783,6 +1783,24 @@ declare class CustomComponent {
    * @since 7
    */
   aboutToDisappear?(): void;
+
+  /**
+   * onPageShow Method
+   * @since 7
+   */
+  onPageShow?(): void;
+
+  /**
+   * onPageHide Method
+   * @since 7
+   */
+  onPageHide?(): void;
+
+  /**
+   * onBackPress Method
+   * @since 7
+   */
+  onBackPress?(): void;
 }
 
 /**
