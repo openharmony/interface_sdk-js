@@ -17,10 +17,8 @@ import { AsyncCallback, Callback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
-import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
-import { ShortcutInfo } from './bundle/shortcutInfo';
 import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
@@ -416,18 +414,6 @@ declare namespace bundle {
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
 
   /**
-   * Obtains information about the shortcuts of the application.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @return Returns a list of ShortcutInfo objects containing shortcut information about the application.
-   * @permission ohos.permission.MANAGE_SHORTCUTS
-   */
-  function getAllShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
-  function getAllShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
-
-  /**
    * get module usage record list in descending order of lastLaunchTime.
    *
    * @since 7
@@ -500,28 +486,28 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
    * @param abilityName Indicates the ability name.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
    * @return Returns the label representing the label of the specified ability.
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
-   
+
   /**
     * Obtains the icon of a specified ability.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application to which the ability belongs.
     * @param abilityName Indicates the ability name.
     * @return Returns the PixelMap object representing the icon of the specified ability.
-    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED, ohos.permission.GET_BUNDLE_INFO
     */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
-   
+
   /**
     * Checks whether a specified ability is enabled.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param info Indicates information about the ability to check.
@@ -529,10 +515,10 @@ declare namespace bundle {
     */ 
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
-   
+
   /**
     * Checks whether a specified application is enabled.
-    * 
+    *
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application.
