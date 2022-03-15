@@ -39,6 +39,16 @@ declare class XComponentController {
    * @systemapi
    */
   getXComponentContext();
+
+  /**
+   * set the surface size created by XComponent.
+   * @since 8
+   * @systemapi
+   */
+  setXComponentSurfaceSize(value: {
+    surfaceWidth: number;
+    surfaceHeight: number;
+  });
 }
 
 /**
