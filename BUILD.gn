@@ -59,6 +59,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",
     "api/@internal/component/ets/grid_container.d.ts",
+    "api/@internal/component/ets/hyperlink.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
     "api/@internal/component/ets/index-full.d.ts",
@@ -174,6 +175,7 @@ ohos_copy("internal_full") {
     "api/common/@internal/global.d.ts",
     "api/common/@internal/index.d.ts",
     "api/common/@internal/viewmodel.d.ts",
+    "api/common/@internal/featureability.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
@@ -186,6 +188,7 @@ ohos_copy("internal_lite") {
     "api/liteWearable/@internal/global.d.ts",
     "api/liteWearable/@internal/index.d.ts",
     "api/liteWearable/@internal/viewmodel.d.ts",
+    "api/liteWearable/@internal/featureability.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
