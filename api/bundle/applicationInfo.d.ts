@@ -15,7 +15,6 @@
 
 import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData'
-import { Metadata } from './metadata'
 
 /**
  * @name Obtains configuration information about an application

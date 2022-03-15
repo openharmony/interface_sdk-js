@@ -15,7 +15,6 @@
 
 import { ApplicationInfo } from './applicationInfo';
 import { CustomizeData } from './customizeData'
-import { Metadata } from './metadata'
 import bundle from './../@ohos.bundle';
 
 /**
@@ -217,7 +216,7 @@ export interface AbilityInfo {
   readonly metaData: Array<CustomizeData>;
 
   /**
-    * @default Indicates the metadata of ability
+    * @default Indicates whether the ability is enabled
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */

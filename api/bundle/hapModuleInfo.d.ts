@@ -14,8 +14,6 @@
  */
 
 import { AbilityInfo } from "./abilityInfo";
-import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
-import { Metadata } from './metadata'
 
 /**
  * @name Obtains configuration information about an module.
