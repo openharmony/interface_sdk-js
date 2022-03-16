@@ -155,6 +155,10 @@ export interface DisableAlertBeforeBackPageOptions {
   complete?: () => void;
 }
 
+type ParamsInterface = {
+  [key: string]: Object;
+};
+
 /**
  * Defines the Router interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
@@ -191,7 +195,7 @@ export default class Router {
    * @returns Page params.
    * @since 7
    */
-  static getParams(): Object;
+  static getParams(): ParamsInterface;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.

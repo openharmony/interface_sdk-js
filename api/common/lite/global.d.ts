@@ -52,6 +52,16 @@ export declare function clearInterval(intervalID?: number): void;
 export declare function clearTimeout(timeoutID?: number): void;
 
 /**
+ * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
+ * After obtaining the instance, you can call the function with the same name on the Java side.
+ * @param name Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
+ * @returns A promise object is returned. The resolve callback is the object of PA. The reject callback returns the object containing code and error data.
+ * @since 5
+ * @deprecated since 8
+ */
+export declare function createLocalParticleAbility(name?: string): any;
+
+/**
  * Conditional compilation for rich equipment
  */
 export declare const STANDARD: string;
@@ -60,3 +70,9 @@ export declare const STANDARD: string;
  * Conditional compilation for lite equipment
  */
 export declare const LITE: string;
+
+/**
+ * Defining syscap function.
+ * @since 8
+ */
+export declare function canIUse(syscap: string): boolean;

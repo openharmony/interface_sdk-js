@@ -5,35 +5,31 @@
       "name": "v3.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
-      "name": "'Logic control block.",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "'Logic control block."
     }
   ],
   "attributes": [
     {
       "name": "for",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Expands the current element based on the configured data list.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Expands the current element based on the configured data list."
         }
       ],
       "type": "string"
     },
     {
       "name": "if",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Whether the element is added or removed.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Whether the element is added or removed."
         }
       ],
       "type": "enum",

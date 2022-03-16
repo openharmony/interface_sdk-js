@@ -44,6 +44,7 @@
 /// <reference path="./grid.d.ts" />
 /// <reference path="./gridItem.d.ts" />
 /// <reference path="./grid_container.d.ts" />
+/// <reference path="./hyperlink.d.ts" />
 /// <reference path="./image.d.ts" />
 /// <reference path="./image_animator.d.ts" />
 /// <reference path="./lazy_for_each.d.ts" />
