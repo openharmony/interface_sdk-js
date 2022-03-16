@@ -75,7 +75,7 @@ declare namespace geolocation {
      * @param request Indicates the cached GNSS locations request parameters.
      * @param callback Indicates the callback for reporting the cached GNSS locations.
      */
-    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLoactionsRequest, callback: Callback<Array<Location>>) : void;
+    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>) : void;
 
     /**
      * unsubscribe to cache GNSS locations update messages
@@ -200,7 +200,7 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
     function enableLocation(callback: AsyncCallback<boolean>) : void;
@@ -212,7 +212,7 @@ declare namespace geolocation {
      * @since 7
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
     function disableLocation(callback: AsyncCallback<boolean>) : void;
@@ -309,7 +309,7 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Gnss
      * @permission ohos.permission.LOCATION
      */
-    export interface CachedGnssLoactionsRequest {
+    export interface CachedGnssLocationsRequest {
         reportingPeriodSec: number;
         wakeUpCacheQueueFull: boolean;
     }
