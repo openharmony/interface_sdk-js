@@ -14,7 +14,7 @@
  */
 
  /**
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
 export declare class console {

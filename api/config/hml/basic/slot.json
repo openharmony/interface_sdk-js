@@ -5,28 +5,21 @@
       "name": "v1.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": [
-    "phone",
-    "tablet",
-    "tv",
-    "wearable"
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
   ],
   "description": [
     {
-      "name": "slot component allow developer to distribute the content of custom component",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "slot component allow developer to distribute the content of custom component"
     }
   ],
   "attributes": [
     {
       "name": "name",
-      "supportedDevices": [],
       "required": false,
       "description": [
         {
-          "name": "Specify insert name",
-          "supportedDevices": []
+          "name": "Specify insert name"
         }
       ],
       "type": "string"
@@ -34,7 +27,6 @@
   ],
   "supportedSubComponents": false,
   "supportedSubComponentsRestriction": [],
-
   "events": [],
   "unSupportSubComponentsRestriction": [],
   "parentComponentsRestriction": []

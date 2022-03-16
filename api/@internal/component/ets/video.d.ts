@@ -98,7 +98,7 @@ declare interface VideoOptions {
 
   /**
    * preview uri of video.
-   * @since 8
+   * @since 7
    */
   previewUri?: string | PixelMap | Resource;
 
@@ -143,6 +143,18 @@ declare class VideoController {
    * @since 7
    */
   setCurrentTime(value: number);
+
+  /**
+   * Provides a full screen playback method.
+   * @since 7
+   */
+  requestFullscreen(value: boolean);
+
+  /**
+   * Provides a method to exit full screen playback.
+   * @since 7
+   */
+  exitFullscreen();
 
   /**
    * Provide the progress method of video playback.
@@ -216,6 +228,11 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   onFinish(event: () => void): VideoAttribute;
 
+  /**
+   * Called when the video enters and exits the full screen.
+   * @since 7
+   */
+  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): VideoAttribute;
   /**
    * Called when the video preparation is complete.
    * @since 7

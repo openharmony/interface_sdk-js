@@ -2,12 +2,8 @@
   "properties": [
     {
       "name": "column-span",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -34,12 +30,8 @@
     },
     {
       "name": "fill",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -66,12 +58,8 @@
     },
     {
       "name": "fill-opacity",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -98,12 +86,8 @@
     },
     {
       "name": "fill-rule",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -130,12 +114,8 @@
     },
     {
       "name": "opacity",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -162,12 +142,8 @@
     },
     {
       "name": "stroke-dasharray",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -194,12 +170,8 @@
     },
     {
       "name": "stroke-dashoffset",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -226,12 +198,8 @@
     },
     {
       "name": "stroke-linejoin",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -258,12 +226,8 @@
     },
     {
       "name": "stroke-linecap",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -290,12 +254,8 @@
     },
     {
       "name": "stroke-miterlimit",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -322,12 +282,8 @@
     },
     {
       "name": "stroke-opacity",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -354,12 +310,8 @@
     },
     {
       "name": "transform",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -386,12 +338,8 @@
     },
     {
       "name": "x",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -419,12 +367,8 @@
     },
     {
       "name": "y",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -452,12 +396,8 @@
     },
     {
       "name": "viewBox",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -484,12 +424,8 @@
     },
     {
       "name": "rx",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -517,12 +453,8 @@
     },
     {
       "name": "ry",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -550,12 +482,8 @@
     },
     {
       "name": "cx",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -583,12 +511,8 @@
     },
     {
       "name": "cy",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -616,12 +540,8 @@
     },
     {
       "name": "r",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -649,12 +569,8 @@
     },
     {
       "name": "d",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -681,12 +597,8 @@
     },
     {
       "name": "x1",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -714,12 +626,8 @@
     },
     {
       "name": "y1",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -747,12 +655,8 @@
     },
     {
       "name": "x2",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -780,12 +684,8 @@
     },
     {
       "name": "y2",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -813,12 +713,8 @@
     },
     {
       "name": "points",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -845,12 +741,8 @@
     },
     {
       "name": "dx",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -878,12 +770,8 @@
     },
     {
       "name": "dy",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -911,12 +799,8 @@
     },
     {
       "name": "stroke",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -943,12 +827,8 @@
     },
     {
       "name": "startOffset",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -976,12 +856,8 @@
     },
     {
       "name": "attributeName",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1008,12 +884,8 @@
     },
     {
       "name": "begin",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1040,12 +912,8 @@
     },
     {
       "name": "dur",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1072,12 +940,8 @@
     },
     {
       "name": "end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1104,12 +968,8 @@
     },
     {
       "name": "repeatCount",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1137,12 +997,8 @@
     },
     {
       "name": "calcMode",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1172,12 +1028,8 @@
     },
     {
       "name": "keyTimes",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1204,12 +1056,8 @@
     },
     {
       "name": "keySplines",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1236,12 +1084,8 @@
     },
     {
       "name": "from",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1268,12 +1112,8 @@
     },
     {
       "name": "to",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1300,12 +1140,8 @@
     },
     {
       "name": "values",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1332,12 +1168,8 @@
     },
     {
       "name": "type",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -1368,7 +1200,10 @@
     },
     {
       "name": "width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1381,19 +1216,12 @@
       ],
       "description": [
         {
-          "name": "Component width. If this attribute is not set, the width required for the element content is used",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Component width. If this attribute is not set, the width required for the element content is used"
         },
         {
           "name": "Component width. If this attribute is not set, default value 0 is used",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1408,7 +1236,10 @@
     },
     {
       "name": "height",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1421,19 +1252,12 @@
       ],
       "description": [
         {
-          "name": "Component height. If this attribute is not set, the height required for the element content is used",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Component height. If this attribute is not set, the height required for the element content is used"
         },
         {
           "name": "Component height. If this attribute is not set, default value 0 is used",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1448,22 +1272,18 @@
     },
     {
       "name": "padding",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
-          "name": "<length>{1,4} || <percentage>{1,4}",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length>{1,4} || <percentage>{1,4}"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1474,19 +1294,12 @@
       ],
       "description": [
         {
-          "name": "The attribute can have one to four values: 1. If you set a value, it specifies the padding for four sides; 2. If you set two values, the first value specifies the top and bottom padding, and the second value specifies the left and right padding; 3. If you set three values, the first value specifies the top padding, the second value specifies the left and right padding, and the third value specifies the bottom padding; 4. If you set four values, they respectively specify the padding for top, right, bottom, and left sides (in clockwise order)",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "The attribute can have one to four values: 1. If you set a value, it specifies the padding for four sides; 2. If you set two values, the first value specifies the top and bottom padding, and the second value specifies the left and right padding; 3. If you set three values, the first value specifies the top padding, the second value specifies the left and right padding, and the third value specifies the bottom padding; 4. If you set four values, they respectively specify the padding for top, right, bottom, and left sides (in clockwise order)"
         },
         {
           "name": "Shorthand attribute to set all padding attributes",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1495,43 +1308,32 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-left",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1550,43 +1352,32 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-top",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1605,43 +1396,32 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-right",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1660,43 +1440,32 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-bottom",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1715,49 +1484,31 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-start",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1776,49 +1527,31 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "padding-end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length> || <percentage>"
         },
         {
           "name": "<length>",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -1837,28 +1570,24 @@
           "name": [
             "length",
             "percentage"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "length"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "margin",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length>{1,4} || <percentage>{1,4}"
@@ -1885,7 +1614,10 @@
     },
     {
       "name": "margin-left",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1912,7 +1644,10 @@
     },
     {
       "name": "margin-top",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1939,7 +1674,10 @@
     },
     {
       "name": "margin-right",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1966,7 +1704,10 @@
     },
     {
       "name": "margin-bottom",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1993,12 +1734,8 @@
     },
     {
       "name": "margin-start",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -2026,12 +1763,8 @@
     },
     {
       "name": "margin-end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -2059,12 +1792,8 @@
     },
     {
       "name": "border",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -2093,12 +1822,8 @@
     },
     {
       "name": "border-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2131,12 +1856,8 @@
     },
     {
       "name": "border-left-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2169,12 +1890,8 @@
     },
     {
       "name": "border-top-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2207,12 +1924,8 @@
     },
     {
       "name": "border-right-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2245,12 +1958,8 @@
     },
     {
       "name": "border-bottom-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2283,12 +1992,8 @@
     },
     {
       "name": "border-image-source",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2431,12 +2136,8 @@
     },
     {
       "name": "border-image",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -2467,12 +2168,8 @@
     },
     {
       "name": "border-left",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2501,12 +2198,8 @@
     },
     {
       "name": "border-top",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2535,12 +2228,8 @@
     },
     {
       "name": "border-right",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2569,12 +2258,8 @@
     },
     {
       "name": "border-bottom",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2603,7 +2288,10 @@
     },
     {
       "name": "border-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v3.0"
@@ -2616,19 +2304,12 @@
       ],
       "syntax": [
         {
-          "name": "<length>",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "<length>"
         },
         {
           "name": "<line-width>{1,4}",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -2642,12 +2323,8 @@
     },
     {
       "name": "border-left-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2674,12 +2351,8 @@
     },
     {
       "name": "border-top-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2706,12 +2379,8 @@
     },
     {
       "name": "border-right-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2738,12 +2407,8 @@
     },
     {
       "name": "border-bottom-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2770,7 +2435,10 @@
     },
     {
       "name": "border-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v3.0"
@@ -2796,12 +2464,8 @@
     },
     {
       "name": "border-left-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2828,12 +2492,8 @@
     },
     {
       "name": "border-top-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2860,12 +2520,8 @@
     },
     {
       "name": "border-right-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2892,12 +2548,8 @@
     },
     {
       "name": "border-bottom-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2924,7 +2576,10 @@
     },
     {
       "name": "border-radius",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "version": [
         {
           "name": "v3.0"
@@ -2932,19 +2587,12 @@
       ],
       "description": [
         {
-          "name": "Attribute to set the radius of round borders of an element. This attribute cannot be used to set the width, color, or style of a specific border. To set the width or color, you need to set border-width, border-color, or border-style for all the borders at the same time.",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Attribute to set the radius of round borders of an element. This attribute cannot be used to set the width, color, or style of a specific border. To set the width or color, you need to set border-width, border-color, or border-style for all the borders at the same time."
         },
         {
           "name": "Attribute to set the radius of round borders of an element",
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -2963,12 +2611,8 @@
     },
     {
       "name": "border-top-left-radius",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -2995,12 +2639,8 @@
     },
     {
       "name": "border-top-right-radius",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3027,12 +2667,8 @@
     },
     {
       "name": "border-bottom-left-radius",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3059,12 +2695,8 @@
     },
     {
       "name": "border-bottom-right-radius",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3091,12 +2723,8 @@
     },
     {
       "name": "mask-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3123,14 +2751,10 @@
     },
     {
       "name": "mask-image",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
-      "values":[
+      "values": [
         {
           "name": "url()"
         },
@@ -3158,19 +2782,15 @@
     },
     {
       "name": "mask-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
           "name": "[ contain | cover | auto | <length> | <percentage> ]"
         }
       ],
-     "values": [
+      "values": [
         {
           "name": "contain"
         },
@@ -3203,12 +2823,8 @@
     },
     {
       "name": "mask-position",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3237,12 +2853,8 @@
     },
     {
       "name": "background",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3264,7 +2876,10 @@
     },
     {
       "name": "background-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<color>"
@@ -3290,12 +2905,8 @@
     },
     {
       "name": "background-image",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -3317,12 +2928,8 @@
     },
     {
       "name": "background-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3362,12 +2969,8 @@
     },
     {
       "name": "background-repeat",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3394,12 +2997,8 @@
     },
     {
       "name": "background-position",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3428,12 +3027,9 @@
     },
     {
       "name": "opacity",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
       ],
       "syntax": [
         {
@@ -3460,37 +3056,26 @@
     },
     {
       "name": "display",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "values": [
         {
           "name": "flex",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         },
         {
-          "name": "grid",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "grid"
         },
         {
           "name": "none",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ],
@@ -3514,12 +3099,8 @@
     },
     {
       "name": "visibility",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -3551,12 +3132,8 @@
     },
     {
       "name": "flex",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3583,12 +3160,8 @@
     },
     {
       "name": "flex-grow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3615,12 +3188,8 @@
     },
     {
       "name": "flex-shrink",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3647,12 +3216,8 @@
     },
     {
       "name": "flex-basis",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3679,14 +3244,10 @@
     },
     {
       "name": "align-self",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
-     "values": [
+      "values": [
         {
           "name": "stretch"
         },
@@ -3730,12 +3291,8 @@
     },
     {
       "name": "position",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -3768,7 +3325,10 @@
     },
     {
       "name": "left",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3795,7 +3355,10 @@
     },
     {
       "name": "top",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3822,12 +3385,8 @@
     },
     {
       "name": "right",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3855,12 +3414,8 @@
     },
     {
       "name": "bottom",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3888,12 +3443,8 @@
     },
     {
       "name": "start",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3921,12 +3472,8 @@
     },
     {
       "name": "end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -3954,12 +3501,8 @@
     },
     {
       "name": "transform-origin",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -3996,12 +3539,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4010,12 +3547,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4024,22 +3555,10 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
-          "name": "translate()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "translate()"
         },
         {
           "name": "translate3d()",
@@ -4047,12 +3566,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4067,22 +3580,10 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
-          "name": "scale()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "scale()"
         },
         {
           "name": "scale3d()",
@@ -4090,31 +3591,13 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
-          "name": "scaleX()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "scaleX()"
         },
         {
-          "name": "scaleY()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "scaleY()"
         },
         {
           "name": "scaleZ()",
@@ -4122,12 +3605,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4139,31 +3616,13 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
-          "name": "rotateX('angle')",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "rotateX('angle')"
         },
         {
-          "name": "rotateY('angle')",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "rotateY('angle')"
         },
         {
           "name": "rotateZ()",
@@ -4171,12 +3630,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4185,12 +3638,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4199,12 +3646,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4213,12 +3654,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
@@ -4227,12 +3662,6 @@
             {
               "name": "v6.0"
             }
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         }
       ],
@@ -4382,21 +3811,14 @@
           "name": [
             "number",
             "enum"
-          ],
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
           ]
         },
         {
           "name": [
             "enum"
           ],
-          "supportedDevices": [
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
@@ -4413,13 +3835,7 @@
           "name": "linear"
         },
         {
-          "name": "ease",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "ease"
         },
         {
           "name": "ease-in"
@@ -4431,94 +3847,34 @@
           "name": "ease-in-out"
         },
         {
-          "name": "fast-out-slow-in",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "fast-out-slow-in"
         },
         {
-          "name": "linear-out-slow-in",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "linear-out-slow-in"
         },
         {
-          "name": "fast-out-linear-in",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "fast-out-linear-in"
         },
         {
-          "name": "friction",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "friction"
         },
         {
-          "name": "extreme-deceleration",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "extreme-deceleration"
         },
         {
-          "name": "sharp",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "sharp"
         },
         {
-          "name": "rhythm",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "rhythm"
         },
         {
-          "name": "smooth",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "smooth"
         },
         {
-          "name": "cubic-bezier()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "cubic-bezier()"
         },
         {
-          "name": "steps()",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "steps()"
         }
       ],
       "version": [
@@ -4590,12 +3946,8 @@
     },
     {
       "name": "shared-transition-effect",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -4625,12 +3977,8 @@
     },
     {
       "name": "shared-transition-name",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -4652,12 +4000,8 @@
     },
     {
       "name": "shared-transition-timing-function",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -4684,12 +4028,8 @@
     },
     {
       "name": "transition-enter",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -4711,12 +4051,8 @@
     },
     {
       "name": "transition-exit",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -4738,12 +4074,8 @@
     },
     {
       "name": "transition-duration",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -4765,12 +4097,8 @@
     },
     {
       "name": "transition-timing-function",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -4797,7 +4125,10 @@
     },
     {
       "name": "flex-direction",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "column | row"
@@ -4831,7 +4162,10 @@
     },
     {
       "name": "flex-wrap",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "nowrap | wrap"
@@ -4865,7 +4199,10 @@
     },
     {
       "name": "justify-content",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "flex-start | flex-end | center | space-between | space-around"
@@ -4908,25 +4245,16 @@
     },
     {
       "name": "align-items",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "values": [
         {
-          "name": "stretch",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "stretch"
         },
         {
-          "name": "baseline",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "baseline"
         },
         {
           "name": "flex-start"
@@ -4963,12 +4291,8 @@
           "name": "color"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -4995,12 +4319,8 @@
           "name": "length"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5027,12 +4347,8 @@
           "name": "length"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5059,12 +4375,8 @@
           "name": "color"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5091,12 +4403,8 @@
           "name": "length"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5123,12 +4431,8 @@
           "name": "length"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5155,12 +4459,8 @@
           "name": "length"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5187,12 +4487,8 @@
           "name": "number"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5219,12 +4515,8 @@
           "name": "color"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -5246,47 +4538,41 @@
     },
     {
       "name": "clip-path",
-      "supportedDevices":[
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "[<geometry-box> || <basic-shape> ] | none"
         }
       ],
       "values": [
-          {
-            "name": "border-box"
-          },
-          {
-            "name": "margin-box"
-          },
-          {
-            "name": "padding-box"
-          },
-          {
-            "name": "content-box"
-          },
-          {
-            "name": "inset()"
-          },
-          {
-            "name": "circle()"
-          },
-          {
-            "name": "ellipse()"
-          },
-          {
-            "name": "polygon()"
-          },
-          {
-            "name": "path()"
-          }
+        {
+          "name": "border-box"
+        },
+        {
+          "name": "margin-box"
+        },
+        {
+          "name": "padding-box"
+        },
+        {
+          "name": "content-box"
+        },
+        {
+          "name": "inset()"
+        },
+        {
+          "name": "circle()"
+        },
+        {
+          "name": "ellipse()"
+        },
+        {
+          "name": "polygon()"
+        },
+        {
+          "name": "path()"
+        }
       ],
-      "version":[
+      "version": [
         {
           "name": "v6.0"
         }
@@ -5306,12 +4592,8 @@
     },
     {
       "name": "animation-direction",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5321,19 +4603,19 @@
       "values": [
         {
           "name": "normal",
-          "description":"The animation is looped forward."
+          "description": "The animation is looped forward."
         },
         {
           "name": "reverse",
-          "description":"Animation reverse loop"
+          "description": "Animation reverse loop"
         },
         {
           "name": "alternate",
-          "description":"The animation is played alternately and cyclically, with odd times playing forward and even times playing backward."
+          "description": "The animation is played alternately and cyclically, with odd times playing forward and even times playing backward."
         },
         {
           "name": "alternate-reverse",
-          "description":"The animation is played alternately in reverse rotation, odd times of reverse playback, even times of forward playback."
+          "description": "The animation is played alternately in reverse rotation, odd times of reverse playback, even times of forward playback."
         }
       ],
       "version": [
@@ -5356,12 +4638,8 @@
     },
     {
       "name": "animation-play-state",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5371,11 +4649,11 @@
       "values": [
         {
           "name": "paused",
-          "description":"The animation status is paused."
+          "description": "The animation status is paused."
         },
         {
           "name": "running",
-          "description":"The animation status is Play."
+          "description": "The animation status is Play."
         }
       ],
       "version": [
@@ -5398,12 +4676,8 @@
     },
     {
       "name": "transition",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5423,12 +4697,8 @@
     },
     {
       "name": "overscroll-effect",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5438,11 +4708,11 @@
       "values": [
         {
           "name": "spring",
-          "description":"Elastic physical action, sliding to the edge can continue to slide for a distance based on initial speed or touch events, and spring back when you release the hand"
+          "description": "Elastic physical action, sliding to the edge can continue to slide for a distance based on initial speed or touch events, and spring back when you release the hand"
         },
         {
           "name": "fade",
-          "description":"Fading physical dynamic effect, slide to the edge to show a wave-like fade, according to the speed and sliding distance changes the fade will also send certain changes;"
+          "description": "Fading physical dynamic effect, slide to the edge to show a wave-like fade, according to the speed and sliding distance changes the fade will also send certain changes;"
         },
         {
           "name": "none",
@@ -5476,13 +4746,7 @@
       ],
       "values": [
         {
-          "name": "center",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "center"
         },
         {
           "name": "flex-start"
@@ -5491,22 +4755,10 @@
           "name": "flex-end"
         },
         {
-          "name": "space-between",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "space-between"
         },
         {
-          "name": "space-around",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "space-around"
         }
       ],
       "version": [
@@ -5529,12 +4781,8 @@
     },
     {
       "name": "grid-template-columns",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5561,12 +4809,8 @@
     },
     {
       "name": "grid-template-rows",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5593,12 +4837,8 @@
     },
     {
       "name": "grid-columns-gap",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5625,12 +4865,6 @@
     },
     {
       "name": "grid-rows-gap",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<length>"
@@ -5656,12 +4890,8 @@
     },
     {
       "name": "grid-row-start",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5688,12 +4918,8 @@
     },
     {
       "name": "grid-row-end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5720,12 +4946,8 @@
     },
     {
       "name": "grid-column-start",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5752,12 +4974,8 @@
     },
     {
       "name": "grid-column-end",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5784,12 +5002,8 @@
     },
     {
       "name": "grid-auto-flow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5811,12 +5025,8 @@
     },
     {
       "name": "columns",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5843,12 +5053,8 @@
     },
     {
       "name": "item-extent",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5876,12 +5082,8 @@
     },
     {
       "name": "fade-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5908,12 +5110,8 @@
     },
     {
       "name": "indicator-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5940,12 +5138,8 @@
     },
     {
       "name": "indicator-selected-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -5972,12 +5166,8 @@
     },
     {
       "name": "indicator-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6004,12 +5194,8 @@
     },
     {
       "name": "indicator-top",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6037,12 +5223,8 @@
     },
     {
       "name": "indicator-left",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6070,12 +5252,8 @@
     },
     {
       "name": "indicator-right",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6103,12 +5281,8 @@
     },
     {
       "name": "indicator-bottom",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6136,12 +5310,8 @@
     },
     {
       "name": "progress-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6168,12 +5338,8 @@
     },
     {
       "name": "object-fit",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6222,12 +5388,6 @@
     },
     {
       "name": "object-position",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "<string>"
@@ -6305,12 +5465,8 @@
     },
     {
       "name": "word-break",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6351,12 +5507,8 @@
     },
     {
       "name": "overflow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6397,12 +5549,8 @@
     },
     {
       "name": "match-text-direction",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6437,12 +5585,8 @@
     },
     {
       "name": "fit-original-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6552,12 +5696,8 @@
     },
     {
       "name": "secondary-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6584,12 +5724,6 @@
     },
     {
       "name": "scale-width",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<length>"
@@ -6615,12 +5749,8 @@
     },
     {
       "name": "scale-number",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6772,7 +5902,10 @@
     },
     {
       "name": "font-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length>"
@@ -6798,12 +5931,8 @@
     },
     {
       "name": "allow-scale",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -6838,7 +5967,10 @@
     },
     {
       "name": "letter-spacing",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "<length>"
@@ -6914,12 +6046,8 @@
     },
     {
       "name": "font-style",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -6949,12 +6077,8 @@
     },
     {
       "name": "font-weight",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7061,12 +6185,8 @@
     },
     {
       "name": "text-decoration",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "values": [
         {
@@ -7102,71 +6222,42 @@
     },
     {
       "name": "text-align",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
       ],
       "values": [
         {
           "name": "left",
           "description": "The text is left-aligned",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         },
         {
           "name": "center",
           "description": "The text is center-aligned",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         },
         {
           "name": "right",
           "description": "The text is right-aligned",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         },
         {
           "name": "start",
-          "description": "The text is aligned with the direction in which the text is written",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "description": "The text is aligned with the direction in which the text is written"
         },
         {
           "name": "end",
-          "description": "The text in aligned with the opposite direction in which the text is written",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "description": "The text in aligned with the opposite direction in which the text is written"
         }
       ],
       "version": [
@@ -7194,12 +6285,8 @@
           "name": "<length>"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -7226,10 +6313,6 @@
           "name": "<length>"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "phone"
-      ],
       "version": [
         {
           "name": "v5.0"
@@ -7250,12 +6333,9 @@
     },
     {
       "name": "text-overflow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
       ],
       "syntax": [
         {
@@ -7292,7 +6372,10 @@
     },
     {
       "name": "text-overflow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "[ clip | ellipsis | <string> ]{1,2}"
@@ -7415,7 +6498,10 @@
     },
     {
       "name": "font-family",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full",
+        "SystemCapability.ArkUI.ArkUI.Lite"
+      ],
       "syntax": [
         {
           "name": "[ clip | ellipsis | <string> ]{1,2}"
@@ -7449,12 +6535,8 @@
     },
     {
       "name": "max-lines",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7486,12 +6568,8 @@
     },
     {
       "name": "min-font-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7518,12 +6596,8 @@
     },
     {
       "name": "max-font-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7550,12 +6624,8 @@
     },
     {
       "name": "font-size-step",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7582,12 +6652,8 @@
     },
     {
       "name": "prefer-font-sizes",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7614,12 +6680,8 @@
     },
     {
       "name": "adapt-height",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7646,18 +6708,14 @@
       ],
       "restrictions": [
         {
-          "name": ["enum"]
+          "name": [
+            "enum"
+          ]
         }
       ]
     },
     {
       "name": "star-background",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "<string>"
@@ -7683,12 +6741,6 @@
     },
     {
       "name": "star-foreground",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "<string>"
@@ -7714,12 +6766,6 @@
     },
     {
       "name": "star-secondary",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "<url>"
@@ -7750,12 +6796,6 @@
     },
     {
       "name": "rtl-flip",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "[ true | false ]"
@@ -7789,12 +6829,8 @@
     },
     {
       "name": "line-cap",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7835,12 +6871,8 @@
     },
     {
       "name": "placeholder-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7867,12 +6899,8 @@
     },
     {
       "name": "text-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7899,12 +6927,8 @@
     },
     {
       "name": "text-decoration-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7931,12 +6955,8 @@
     },
     {
       "name": "icon-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7963,12 +6983,8 @@
     },
     {
       "name": "icon-height",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -7995,14 +7011,8 @@
     },
     {
       "name": "block-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8029,12 +7039,8 @@
     },
     {
       "name": "texton-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8061,12 +7067,8 @@
     },
     {
       "name": "textoff-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8093,12 +7095,8 @@
     },
     {
       "name": "text-padding",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8175,12 +7173,8 @@
     },
     {
       "name": "focus-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8207,12 +7201,8 @@
     },
     {
       "name": "focus-font-size",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8244,10 +7234,6 @@
           "name": "<color>"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "phone"
-      ],
       "version": [
         {
           "name": "v5.0"
@@ -8273,10 +7259,6 @@
           "name": "<length>"
         }
       ],
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "phone"
-      ],
       "version": [
         {
           "name": "v5.0"
@@ -8297,12 +7279,8 @@
     },
     {
       "name": "colors",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8329,12 +7307,8 @@
     },
     {
       "name": "weights",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8361,12 +7335,8 @@
     },
     {
       "name": "src",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8398,12 +7368,8 @@
     },
     {
       "name": "min-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8431,12 +7397,8 @@
     },
     {
       "name": "min-height",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8464,12 +7426,8 @@
     },
     {
       "name": "max-width",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8497,12 +7455,8 @@
     },
     {
       "name": "max-height",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8530,12 +7484,8 @@
     },
     {
       "name": "box-shadow",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8562,12 +7512,8 @@
     },
     {
       "name": "filter",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8599,12 +7545,8 @@
     },
     {
       "name": "backdrop-filter",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8636,12 +7578,8 @@
     },
     {
       "name": "window-filter",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8673,12 +7611,8 @@
     },
     {
       "name": "display-index",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8705,12 +7639,8 @@
     },
     {
       "name": "flex-weight",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8737,12 +7667,8 @@
     },
     {
       "name": "aspect-ratio",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8769,12 +7695,8 @@
     },
     {
       "name": "caret-color",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "syntax": [
         {
@@ -8803,14 +7725,8 @@
   "atDirectives": [
     {
       "name": "@import",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8820,27 +7736,17 @@
       "description": [
         {
           "name": "Includes content of another file.",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "@keyframes",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8850,25 +7756,17 @@
       "description": [
         {
           "name": "Defines set of animation key frames.",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable",
-            "liteWearable",
-            "smartVision"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full",
+            "SystemCapability.ArkUI.ArkUI.Lite"
           ]
         }
       ]
     },
     {
       "name": "@font-face",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8877,24 +7775,14 @@
       ],
       "description": [
         {
-          "name": "Allows for linking to fonts that are automatically activated when needed. This permits authors to work around the limitation of 'web-safe' fonts, allowing for consistent rendering independent of the fonts available in a given user's environment.",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Allows for linking to fonts that are automatically activated when needed. This permits authors to work around the limitation of 'web-safe' fonts, allowing for consistent rendering independent of the fonts available in a given user's environment."
         }
       ]
     },
     {
       "name": "@media",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8903,13 +7791,7 @@
       ],
       "description": [
         {
-          "name": "Defines a stylesheet for a particular media type",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Defines a stylesheet for a particular media type"
         }
       ]
     }
@@ -8917,14 +7799,8 @@
   "pseudoClasses": [
     {
       "name": ":active",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable",
-        "liteWearable",
-        "smartVision"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8933,24 +7809,14 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is being activated by the user",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Represents an element that is being activated by the user"
         }
       ]
     },
     {
       "name": ":checked",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8959,24 +7825,14 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is checked or toggled to an on state",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Represents an element that is checked or toggled to an on state"
         }
       ]
     },
     {
       "name": ":hover",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -8985,24 +7841,14 @@
       ],
       "description": [
         {
-          "name": " Represents the element when the mouse is hovering",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": " Represents the element when the mouse is hovering"
         }
       ]
     },
     {
       "name": ":waiting",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -9011,24 +7857,14 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is waiting for operation finished",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Represents an element that is waiting for operation finished"
         }
       ]
     },
     {
       "name": ":disabled",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -9037,24 +7873,14 @@
       ],
       "description": [
         {
-          "name": "Represents any disabled element",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Represents any disabled element"
         }
       ]
     },
     {
       "name": ":focus",
-      "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -9063,13 +7889,7 @@
       ],
       "description": [
         {
-          "name": "Represents an element that has received focus",
-          "supportedDevices": [
-            "tv",
-            "phone",
-            "tablet",
-            "wearable"
-          ]
+          "name": "Represents an element that has received focus"
         }
       ]
     }

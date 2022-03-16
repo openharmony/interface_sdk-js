@@ -5,229 +5,191 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
-      "name": "",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": ""
     }
   ],
   "attributes": [
     {
       "name": "fill",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
     },
     {
       "name": "fill-opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "number"
     },
     {
       "name": "fill-rule",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "enum",
       "options": [
         {
-          "name": "nonzero",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "nonzero"
         },
         {
-          "name": "evenodd",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "evenodd"
         }
       ]
     },
     {
       "name": "opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "number"
     },
     {
       "name": "stroke",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "color"
     },
     {
       "name": "stroke-dasharray",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
     },
     {
       "name": "stroke-dashoffset",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
     },
     {
       "name": "stroke-linejoin",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "enum",
       "options": [
         {
-          "name": "bevel",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "bevel"
         },
         {
-          "name": "miter",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "miter"
         },
         {
-          "name": "round",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "round"
         }
       ]
     },
     {
       "name": "stroke-linecap",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "enum",
       "options": [
         {
-          "name": "butt",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "butt"
         },
         {
-          "name": "round",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "round"
         },
         {
-          "name": "square",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "square"
         }
       ]
     },
     {
       "name": "stroke-miterlimit",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "number"
     },
     {
       "name": "stroke-opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "number"
     },
     {
       "name": "stroke-width",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
     },
     {
       "name": "transform",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
     },
     {
       "name": "id",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Unique ID of a component.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Unique ID of a component."
         }
       ],
       "type": "string"
     },
     {
       "name": "points",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "string"
@@ -237,19 +199,15 @@
   "supportedSubComponents": true,
   "supportedSubComponentsRestriction": [
     {
-      "name": "animate",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "animate"
     },
     {
-      "name": "animateTransform",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "animateTransform"
     },
     {
-      "name": "animateMotion",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "animateMotion"
     }
   ],
   "unSupportSubComponentsRestriction": [],
   "parentComponentsRestriction": []
 }
-

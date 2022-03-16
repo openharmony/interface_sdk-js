@@ -5,131 +5,111 @@
       "name": "v7.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": ["phone", "tablet", "tv","wearable"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full"
+  ],
   "description": [
     {
-      "name": "Draw text along a path.",
-      "supportedDevices": ["phone", "tablet", "tv","wearable"]
+      "name": "Draw text along a path."
     }
   ],
   "attributes": [
     {
       "name": "id",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Unique identification of the component.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Unique identification of the component."
         }
       ],
       "type": "string"
     },
     {
       "name": "path",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Sets the shape of the path.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Sets the shape of the path."
         }
       ],
       "type": "string"
     },
     {
       "name": "opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": ""
         }
       ],
       "type": "number"
     },
     {
       "name": "font-size",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Sets the size of the text.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Sets the size of the text."
         }
       ],
       "type": "length"
     },
     {
       "name": "fill",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Font fill color.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Font fill color."
         }
       ],
       "type": "color"
     },
     {
       "name": "stroke",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Draws the font border and specifies the color.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Draws the font border and specifies the color."
         }
       ],
       "type": "color"
     },
     {
       "name": "stroke-width",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Font border width.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Font border width."
         }
       ],
       "type": "number"
     },
     {
       "name": "stroke-opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Font border transparency.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Font border transparency."
         }
       ],
       "type": "number"
     },
     {
       "name": "startOffset",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Sets the starting offset of the text along the path.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Sets the starting offset of the text along the path."
         }
       ],
       "type": "string"
     },
     {
       "name": "fill-opacity",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "Font fill transparency.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "Font fill transparency."
         }
       ],
       "type": "number"
