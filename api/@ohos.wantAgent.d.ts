@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -100,6 +100,16 @@ declare namespace wantAgent {
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
+
+  /**
+   * Obtains the {@link OperationType} of a {@link WantAgent}.
+   *
+   * @since 9
+   * @param agent Indicates the {@link WantAgent} whose {@link OperationType} is to be obtained.
+   * @return Returns the {@link OperationType} of the {@link WantAgent}.
+   */
+  function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
+  function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
    * Enumerates flags for using a WantAgent.
