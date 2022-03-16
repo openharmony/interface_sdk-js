@@ -855,244 +855,324 @@ declare namespace audio {
      */
     setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
     /**
-     * Obtains volume of a stream. This method uses an asynchronous callback to return the execution result.
+     * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
-     * Obtains the volume of a stream. This method uses a promise to return the execution result.
+     * Obtains the volume of a stream. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
-     * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the execution result.
+     * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the minimum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
-     * Obtains the minimum volume allowed for a stream. This method uses a promise to return the execution result.
+     * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the minimum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the execution result.
+     * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the maximum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
-     * Obtains the maximum volume allowed for a stream. This method uses a promise to return the execution result.
+     * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the maximum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
-     * Obtains the audio devices of a specified flag. This method uses an asynchronous callback to return the execution result.
+     * Obtains the audio devices with a specific flag. This method uses an asynchronous callback to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @param callback Callback used to return the device list.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
-     * Obtains the audio devices with a specified flag. This method uses a promise to return the execution result.
+     * Obtains the audio devices with a specific flag. This method uses a promise to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @return Promise used to return the device list.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
-     * Sets the stream to mute. This method uses an asynchronous callback to return the execution result.
+     * Mutes a stream. This method uses an asynchronous callback to return the result.
+     * @param volumeType Audio stream type.
+     * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the stream to mute. This method uses a promise to return the execution result.
+     * Mutes a stream. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
     /**
-     * Checks whether the stream is muted. This method uses an asynchronous callback to return the execution result.
+     * Checks whether a stream is muted. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the mute status of the stream. The value true means that the stream is
+     * muted, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
-     * Checks whether the stream is muted. This method uses a promise to return the execution result.
+     * Checks whether a stream is muted. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the mute status of the stream. The value true means that the stream is muted,
+     * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
-     * Checks whether the stream is active. This method uses an asynchronous callback to return the execution result.
+     * Checks whether a stream is active. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the active status of the stream. The value true means that the stream is
+     * active, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
-     * Checks whether the stream is active. This method uses a promise to return the execution result.
+     * Checks whether a stream is active. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the active status of the stream. The value true means that the stream is active,
+     * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
-     * Mute/Unmutes the microphone. This method uses an asynchronous callback to return the execution result.
+     * Mutes or unmutes the microphone. This method uses an asynchronous callback to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      */
     setMicrophoneMute(mute: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Mute/Unmutes the microphone. This method uses a promise to return the execution result.
+     * Mutes or unmutes the microphone. This method uses a promise to return the result.
+     * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      */
     setMicrophoneMute(mute: boolean): Promise<void>;
     /**
-     * Checks whether the microphone is muted. This method uses an asynchronous callback to return the execution result.
+     * Checks whether the microphone is muted. This method uses an asynchronous callback to return the query result.
+     * @param Callback used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
-     * Checks whether the microphone is muted. This method uses a promise to return the execution result.
+     * Checks whether the microphone is muted. This method uses a promise to return the query result.
+     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
+     * muted, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
      */
     isMicrophoneMute(): Promise<boolean>;
     /**
-     * Sets the ringer mode. This method uses an asynchronous callback to return the execution result.
+     * Sets the ringer mode. This method uses an asynchronous callback to return the result.
+     * @param mode Ringer mode.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
     setRingerMode(mode: AudioRingMode, callback: AsyncCallback<void>): void;
     /**
-     * Sets the ringer mode. This method uses a promise to return the execution result.
+     * Sets the ringer mode. This method uses a promise to return the result.
+     * @param mode Ringer mode.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
     setRingerMode(mode: AudioRingMode): Promise<void>;
     /**
-     * Gets the ringer mode. This method uses an asynchronous callback to return the execution result.
+     * Obtains the ringer mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the ringer mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
-     * Gets the ringer mode. This method uses a promise to return the execution result.
+     * Obtains the ringer mode. This method uses a promise to return the query result.
+     * @return Promise used to return the ringer mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getRingerMode(): Promise<AudioRingMode>;
     /**
-     * Sets the audio parameter. This method uses an asynchronous callback to return the execution result.
+     * Sets an audio parameter. This method uses an asynchronous callback to return the result.
+     * @param key Key of the audio parameter to set.
+     * @param value Value of the audio parameter to set.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      */
     setAudioParameter(key: string, value: string, callback: AsyncCallback<void>): void;
     /**
-     * Sets the audio parameter. This method uses a promise to return the execution result.
+     * Sets an audio parameter. This method uses a promise to return the result.
+     * @param key Key of the audio parameter to set.
+     * @param value Value of the audio parameter to set.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      */
     setAudioParameter(key: string, value: string): Promise<void>;
     /**
-     * Gets the audio parameter. This method uses an asynchronous callback to return the execution result.
+     * Obtains the value of an audio parameter. This method uses an asynchronous callback to return the query result.
+     * @param key Key of the audio parameter whose value is to be obtained.
+     * @param callback Callback used to return the value of the audio parameter.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getAudioParameter(key: string, callback: AsyncCallback<string>): void;
     /**
-     * Gets the audio parameter. This method uses a promise to return the execution result.
+     * Obtains the value of an audio parameter. This method uses a promise to return the query result.
+     * @param key Key of the audio parameter whose value is to be obtained.
+     * @return Promise used to return the value of the audio parameter.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getAudioParameter(key: string): Promise<string>;
     /**
-     * Activates the device. This method uses an asynchronous callback to return the execution result.
+     * Sets a device to the active state. This method uses an asynchronous callback to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Activates the device. This method uses a promise to return the execution result.
+     * Sets a device to the active state. This method uses a promise to return the result.
+     * @param deviceType Audio device type.
+     * @param active Active status to set. The value true means to set the device to the active status, and false
+     * means the opposite.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     setDeviceActive(deviceType: ActiveDeviceType, active: boolean): Promise<void>;
     /**
-     * Checks whether the device is active. This method uses an asynchronous callback to return the execution result.
+     * Checks whether a device is active. This method uses an asynchronous callback to return the query result.
+     * @param deviceType Audio device type.
+     * @param callback Callback used to return the active status of the device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     isDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback<boolean>): void;
     /**
-     * Checks whether the device is active. This method uses a promise to return the execution result.
+     * Checks whether a device is active. This method uses a promise to return the query result.
+     * @param deviceType Audio device type.
+     * @return Promise used to return the active status of the device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
     /**
-     * Subscribes volume change event callback, only for system
-     * @return VolumeEvent callback.
+     * Listens for system volume change events. This method uses a callback to get volume change events.
+     * @param callback Callback used to get the system volume change event.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
     /**
-     * Monitors ringer mode change
+     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
+     * @param callback Callback used to get the updated ringer mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
     on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
     /**
-     * Sets the audio scene mode to change audio strategy.
-     * This method uses an asynchronous callback to return the execution result.
+     * Sets the audio scene mode to change audio strategies. This method uses an asynchronous callback to return the
+     * result.
+     * @param scene Audio scene mode.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
     setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
     /**
-     * Sets the audio scene mode to change audio strategy. This method uses a promise to return the execution result.
+     * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
+     * @param scene Audio scene mode.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
     setAudioScene(scene: AudioScene): Promise<void>;
     /**
-     * Obtains the system audio scene mode. This method uses an asynchronous callback to return the execution result.
+     * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
+     * @param callback Callback used to return the audio scene mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getAudioScene(callback: AsyncCallback<AudioScene>): void;
     /**
-     * Obtains the system audio scene mode. This method uses a promise to return the execution result.
+     * Obtains the audio scene mode. This method uses a promise to return the query result.
+     * @return Promise used to return the audio scene mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     getAudioScene(): Promise<AudioScene>;
     /**
-     * Monitors device changes
+     * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param callback Callback used to obtain the device update details.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * Cancels the listening of device change events.
+     * UnSubscribes to device change events.
+     * @param callback Callback used to obtain the device update details.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1101,21 +1181,21 @@ declare namespace audio {
     /**
      * Listens for audio interruption events. When the audio of an application is interrupted by another application,
      * the callback is invoked to notify the former application.
-     * @since 7
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @param type Type of the event to listen for. Only the interrupt event is supported.
      * @param interrupt Parameters of the audio interruption event type.
      * @param callback Callback invoked for the audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback<InterruptAction>): void;
 
     /**
      * Cancels the listening of audio interruption events.
-     * @since 7
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @param type Type of the event to listen for. Only the interrupt event is supported.
      * @param interrupt Input parameters of the audio interruption event.
      * @param callback Callback invoked for the audio interruption event.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
   }
@@ -1127,13 +1207,13 @@ declare namespace audio {
    */
   interface AudioDeviceDescriptor {
     /**
-     * Audio device role
+     * Audio device role.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceRole: DeviceRole;
     /**
-     * Audio device type
+     * Audio device type.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1141,33 +1221,33 @@ declare namespace audio {
   }
 
   /**
-   * A queue of AudioDeviceDescriptor, which is read-only.
+   * Array of AudioDeviceDescriptors, which is read-only.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
 
   /**
-   * Audio volume event
+   * Describes the volume event received by the app when the volume is changed.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    */
   interface VolumeEvent {
     /**
-     * volumeType of current stream
+     * Volume type of the current stream.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     volumeType: AudioVolumeType;
     /**
-     * volume level
+     * Volume level.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     volume: number;
     /**
-     * updateUi show volume change in Ui
+     * Whether to show the volume change in UI.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1265,223 +1345,244 @@ declare namespace audio {
   }
 
   /**
-   * Provides functions for applications for audio playback.
+   * Provides audio playback APIs.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   interface AudioRenderer {
     /**
-     * Gets audio state.
+     * Defines the current render state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     readonly state: AudioState;
     /**
-     * Gets audio renderer info.
-     * @return AudioRendererInfo value
+     * Obtains the renderer information provided while creating a renderer instance. This method uses an asynchronous
+     * callback to return the result.
+     * @param callback Callback used to return the renderer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRendererInfo(callback: AsyncCallback<AudioRendererInfo>): void;
     /**
-     * Gets audio renderer info.
-     * @return AudioRendererInfo value
+     * Obtains the renderer information provided while creating a renderer instance. This method uses a promise to
+     * return the result.
+     * @return Promise used to return the renderer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRendererInfo(): Promise<AudioRendererInfo>;
     /**
-     * Gets audio stream info.
-     * @return AudioStreamInfo value
+     * Obtains the renderer stream information. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
-     * Gets audio stream info.
-     * @return AudioStreamInfo value
+     * Obtains the renderer stream information. This method uses a promise to return the result.
+     * @return Promise used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
     /**
-     * Starts audio rendering. This method uses an asynchronous callback to return the execution result.
+     * Starts the renderer. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     start(callback: AsyncCallback<void>): void;
     /**
-     * Starts audio rendering. This method uses a promise to return the execution result.
+     * Starts the renderer. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     start(): Promise<void>;
     /**
-     * Render audio data. This method uses an asynchronous callback to return the execution result.
+     * Writes the buffer. This method uses an asynchronous callback to return the result.
+     * @param buffer Buffer to be written.
+     * @param callback Returns the number of bytes written if the operation is successful; returns an error code
+     * otherwise.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     write(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
     /**
-     * Render audio data. This method uses a promise to return the execution result.
+     * Writes the buffer. This method uses a promise to return the result.
+     * @param buffer Buffer to be written.
+     * @return Returns the number of bytes written if the operation is successful; returns an error code otherwise.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     write(buffer: ArrayBuffer): Promise<number>;
     /**
-     * Obtains the current timestamp. This method uses an asynchronous callback to return the execution result.
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
+     * asynchronous callback to return the result.
+     * @param callback Callback used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
-     * Obtains the current timestamp. This method uses a promise to return the execution result.
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
+     * promise to return the result.
+     * @return Promise used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getAudioTime(): Promise<number>;
     /**
-     * Drain renderer buffer. This method uses an asynchronous callback to return the execution result.
+     * Drains the playback buffer. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     drain(callback: AsyncCallback<void>): void;
     /**
-     * Drain renderer buffer. This method uses a promise to return the execution result.
+     * Drains the playback buffer. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     drain(): Promise<void>;
     /**
-     * Pauses audio rendering. This method uses an asynchronous callback to return the execution result.
+     * Pauses rendering. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     pause(callback: AsyncCallback<void>): void;
     /**
-     * Pauses audio rendering. This method uses a promise to return the execution result.
+     * Pauses rendering. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     pause(): Promise<void>;
     /**
-     * Stops audio rendering. This method uses an asynchronous callback to return the execution result.
+     * Stops rendering. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     stop(callback: AsyncCallback<void>): void;
     /**
-     * Stops audio rendering. This method uses a promise to return the execution result.
+     * Stops rendering. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     stop(): Promise<void>;
     /**
-     * Releases resources. This method uses an asynchronous callback to return the execution result.
+     * Releases the renderer. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     release(callback: AsyncCallback<void>): void;
     /**
-     * Releases resources. This method uses a promise to return the execution result.
+     * Releases the renderer. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     release(): Promise<void>;
     /**
-     * Obtains a reasonable minimum buffer size for renderer, however, the renderer can
-     * accept other read sizes as well. This method uses an asynchronous callback to return the execution result.
+     * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses an asynchronous callback to
+     * return the result.
+     * @param callback Callback used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getBufferSize(callback: AsyncCallback<number>): void;
     /**
-     * Obtains a reasonable minimum buffer size for renderer, however, the renderer can
-     * accept other read sizes as well. This method uses a promise to return the execution result.
+     * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses a promise to return the result.
+     * @return Promise used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getBufferSize(): Promise<number>;
     /**
-     * Set the render rate. This method uses an asynchronous callback to return the execution result.
+     * Sets the render rate. This method uses an asynchronous callback to return the result.
+     * @param rate Audio render rate.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     setRenderRate(rate: AudioRendererRate, callback: AsyncCallback<void>): void;
     /**
-     * Set the render rate. This method uses a promise to return the execution result.
+     * Sets the render rate. This method uses a promise to return the result.
+     * @param rate Audio render rate.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     setRenderRate(rate: AudioRendererRate): Promise<void>;
     /**
-     * Obtains the current render rate. This method uses an asynchronous callback to return the execution result.
+     * Obtains the current render rate. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the audio render rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
     /**
-     * Obtains the current render rate. This method uses a promise to return the execution result.
+     * Obtains the current render rate. This method uses a promise to return the result.
+     * @return Promise used to return the audio render rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(): Promise<AudioRendererRate>;
     /**
-     * Subscribes for audio interrupt event callback.
-     * @param type Event type.
-     * @return InterruptEvent callback.
+     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
+     * triggered when audio playback is interrupted.
+     * @param callback Callback used to listen for interrupt callback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**
-     * Subscribes mark reach event callback.
-     * @param type Event type.
-     * @param frame Mark reach frame count.
-     * @return Mark reach event callback.
+     * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
+     * the callback is invoked.
+     * @param frame Number of frames to trigger the event. The value must be greater than 0.
+     * @param callback Callback invoked when the event is triggered.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @initial
      */
     on(type: "markReach", frame: number, callback: (position: number) => {}): void;
     /**
-     * Unsubscribes mark reach event callback.
+     * Unsubscribes from mark reached events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @initial
      */
     off(type: "markReach"): void;
     /**
-     * Subscribes period reach event callback.
-     * @param type Event type.
-     * @param frame Period reach frame count.
-     * @return Period reach event callback.
+     * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
+     * the callback is invoked.
+     * @param frame Period during which frame rendering is listened. The value must be greater than 0.
+     * @param callback Callback invoked when the event is triggered.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @initial
      */
     on(type: "periodReach", frame: number, callback: (position: number) => {}): void;
     /**
-     * Unsubscribes period reach event callback.
+     * Unsubscribes from period reached events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @initial
      */
     off(type: "periodReach"): void;
     /**
      * Subscribes audio state change event callback.
-     * @param type Event type.
-     * @param callback Callback used to listen for the audio state change event
-     * @return AudioState
+     * @param callback Callback invoked when state change.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @initial
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
   }
 
   /**
-   * Enum for source type.
+   * Enumerates source types.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
@@ -1499,7 +1600,7 @@ declare namespace audio {
      */
     SOURCE_TYPE_MIC = 0,
     /**
-     * Voice communication source.
+     * Voice communication source type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -1507,19 +1608,19 @@ declare namespace audio {
   }
 
   /**
-   * Interface for audio capturer info.
+   * Describes audio capturer information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   interface AudioCapturerInfo {
     /**
-     * Audio source type
+     * Audio source type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     source: SourceType;
     /**
-     * Audio capturer flags
+     * Audio capturer flags.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -1527,19 +1628,19 @@ declare namespace audio {
   }
 
   /**
-   * Interface for audio capturer options.
+   * Describes audio capturer configuration options.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
   interface AudioCapturerOptions {
     /**
-     * Audio stream info.
+     * Stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     streamInfo: AudioStreamInfo;
     /**
-     * Audio capturer info.
+     * Capturer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -1547,171 +1648,183 @@ declare namespace audio {
   }
 
   /**
-   * Provides functions for applications to manage audio capturing.
+   * Provides APIs for audio recording.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
   interface AudioCapturer {
     /**
-     * Gets capture state.
+     * Defines the current capture state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     readonly state: AudioState;
     /**
-     * Gets audio capturer info.
-     * @return AudioCapturerInfo value
+     * Obtains the capturer information provided while creating a capturer instance. This method uses an asynchronous
+     * callback to return the result.
+     * @param callback Callback used to return the capturer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getCapturerInfo(callback: AsyncCallback<AudioCapturerInfo>): void;
     /**
-     * Gets audio capturer info.
-     * @return AudioCapturerInfo value
+     * Obtains the capturer information provided while creating a capturer instance. This method uses a promise to
+     * return the result.
+     * @return Promise used to return the capturer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getCapturerInfo(): Promise<AudioCapturerInfo>;
 
     /**
-     * Gets audio stream info.
-     * @return AudioStreamInfo value
+     * Obtains the capturer stream information. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
-     * Gets audio stream info.
-     * @return AudioStreamInfo value
+     * Obtains the capturer stream information. This method uses a promise to return the result.
+     * @return Promise used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getStreamInfo(): Promise<AudioStreamInfo>;
 
     /**
-     * Starts audio capturing. This method uses an asynchronous callback to return the execution result.
+     * Starts capturing. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     start(callback: AsyncCallback<void>): void;
     /**
-     * Starts audio capturing. This method uses a promise to return the execution result.
+     * Starts capturing. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     start(): Promise<void>;
 
     /**
-     * Capture audio data. This method uses an asynchronous callback to return the execution result.
+     * Reads the buffer from the audio capturer. This method uses an asynchronous callback to return the result.
+     * @param size Number of bytes to read.
+     * @param isBlockingRead Whether the read operation should be blocked.
+     * @param callback Callback used to return the buffer.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void;
     /**
-     * Capture audio data. This method uses a promise to return the execution result.
+     * Reads the buffer from the audio capturer. This method uses a promise to return the result.
+     * @param size Number of bytes to read.
+     * @param isBlockingRead Whether the read operation should be blocked.
+     * @return Returns the buffer data read if the operation is successful; returns an error code otherwise.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
     /**
-     * Obtains the current timestamp. This method uses an asynchronous callback to return the execution result.
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses an
+     * asynchronous callback to return the result.
+     * @param callback Callback used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getAudioTime(callback: AsyncCallback<number>): void;
     /**
-     * Obtains the current timestamp. This method uses a promise to return the execution result.
+     * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
+     * promise to return the result.
+     * @return Promise used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getAudioTime(): Promise<number>;
 
     /**
-     * Stops audio capturing. This method uses an asynchronous callback to return the execution result.
+     * Stops capturing. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     stop(callback: AsyncCallback<void>): void;
     /**
-     * Stops audio capturing. This method uses a promise to return the execution result.
+     * Stops capturing. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     stop(): Promise<void>;
 
     /**
-     * Releases a capture resources. This method uses an asynchronous callback to return the execution result.
+     * Releases the capturer. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     release(callback: AsyncCallback<void>): void;
     /**
-     * Releases a capture resources. This method uses a promise to return the execution result.
+     * Releases the capturer. This method uses a promise to return the result.
+     * @return Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     release(): Promise<void>;
 
     /**
-     * Obtains a reasonable minimum buffer size for capturer, however, the capturer can
-     * accept other read sizes as well. This method uses an asynchronous callback to return the execution result.
+     * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses an asynchronous callback to
+     * return the result.
+     * @param callback Callback used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getBufferSize(callback: AsyncCallback<number>): void;
     /**
-     * Obtains a reasonable minimum buffer size for capturer, however, the capturer can
-     * accept other read sizes as well. This method uses a promise to return the execution result.
+     * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
+     * @return Promise used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     getBufferSize(): Promise<number>;
 
     /**
-     * Subscribes mark reach event callback.
-     * @param type Event type.
-     * @param frame Mark reach frame count.
-     * @return Mark reach event callback.
+     * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
+     * the callback is invoked.
+     * @param frame Number of frames to trigger the event. The value must be greater than 0.
+     * @param callback Callback invoked when the event is triggered.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @initial
      */
     on(type: "markReach", frame: number, callback: (position: number) => {}): void;
     /**
-     * Unsubscribes mark reach event callback.
+     * Unsubscribes from the mark reached events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @initial
      */
     off(type: "markReach"): void;
 
     /**
-     * Subscribes period reach event callback.
-     * @param type Event type.
-     * @param frame Period reach frame count.
-     * @return Period reach event callback.
+     * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
+     * the callback is invoked.
+     * @param frame Period during which frame capturing is listened. The value must be greater than 0.
+     * @param callback Callback invoked when the event is triggered.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @initial
      */
     on(type: "periodReach", frame: number, callback: (position: number) => {}): void;
     /**
-     * Unsubscribes period reach event callback.
+     * Unsubscribes from period reached events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @initial
      */
     off(type: "periodReach"): void;
 
     /**
      * Subscribes audio state change event callback.
-     * @param type Event type.
-     * @param callback Callback used to listen for the audio state change event
-     * @return AudioState
+     * @param callback Callback used to listen for the audio state change event.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @initial
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
   }
