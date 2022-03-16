@@ -60,3 +60,9 @@ export declare const STANDARD: string;
  * Conditional compilation for lite equipment
  */
 export declare const LITE: string;
+
+/**
+ * Defining syscap function.
+ * @since 8
+ */
+export declare function canIUse(syscap: string): boolean;

@@ -53,7 +53,7 @@ export declare function cancelAnimationFrame(requestId: number): void;
 
 /**
  * Cancels the interval set by " setInterval()".
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @since 3
  */
@@ -61,7 +61,7 @@ export declare function clearInterval(intervalID?: number): void;
 
 /**
  * Cancels the timer set by "setTimeout()".
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @since 3
  */
