@@ -199,7 +199,7 @@ export interface AsyncCallback<T> {
  * @since 6
  * @FAModelOnly
  */
-export function getResourceManager(callback: AsyncCallback<ResourceManager>);
+export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
 
 /**
  * Obtains the ResourceManager object of the specified application.
@@ -209,7 +209,7 @@ export function getResourceManager(callback: AsyncCallback<ResourceManager>);
  * @since 6
  * @FAModelOnly
  */
-export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>);
+export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
 
 /**
  * Obtains the ResourceManager object of the current application.
@@ -243,7 +243,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
      * @since 6
      */
-    getString(resId: number, callback: AsyncCallback<string>);
+    getString(resId: number, callback: AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
@@ -261,7 +261,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
      * @since 6
      */
-    getStringArray(resId: number, callback: AsyncCallback<Array<string>>);
+    getStringArray(resId: number, callback: AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
@@ -279,7 +279,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained media file content.
      * @since 6
      */
-    getMedia(resId: number, callback: AsyncCallback<Uint8Array>);
+    getMedia(resId: number, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
@@ -298,7 +298,7 @@ export interface ResourceManager {
      *                 resource.
      * @since 6
      */
-   getMediaBase64(resId: number, callback: AsyncCallback<string>);
+   getMediaBase64(resId: number, callback: AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
@@ -315,7 +315,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained device capability.
      * @since 6
      */
-    getDeviceCapability(callback: AsyncCallback<DeviceCapability>);
+    getDeviceCapability(callback: AsyncCallback<DeviceCapability>): void;
 
     /**
      * Obtains the device capability in Promise mode.
@@ -332,7 +332,7 @@ export interface ResourceManager {
      *                 configuration.
      * @since 6
      */
-    getConfiguration(callback: AsyncCallback<Configuration>);
+    getConfiguration(callback: AsyncCallback<Configuration>): void;
 
     /**
      * Obtains the device configuration in Promise mode.
@@ -352,7 +352,7 @@ export interface ResourceManager {
      *                 string represented by the ID string corresponding to the specified number.
      * @since 6
      */
-    getPluralString(resId: number, num: number, callback: AsyncCallback<string>);
+    getPluralString(resId: number, num: number, callback: AsyncCallback<string>): void;
 
     /**
      * Obtains the singular-plural character string represented by the ID string corresponding to
@@ -373,7 +373,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the raw file resource.
      * @since 8
      */
-    getRawFile(path: string, callback: AsyncCallback<Uint8Array>);
+    getRawFile(path: string, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
@@ -391,7 +391,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @since 8
      */
-    getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>);
+    getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
      /**
       * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
