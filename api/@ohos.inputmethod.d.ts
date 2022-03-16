@@ -19,7 +19,7 @@ import {AsyncCallback} from './basic';
  * inputmethod
  *
  * @since 8
- * @syscap SystemCapability.MiscServices.InputMethod
+ * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
 declare namespace inputMethod {
     const MAX_TYPE_NUM: number
