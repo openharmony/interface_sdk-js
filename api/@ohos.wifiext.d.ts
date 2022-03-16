@@ -85,6 +85,7 @@ declare namespace wifiext {
      * The power model enumeration.
      *
      * @since 8
+     * @syscap SystemCapability.Communication.WiFi.HotspotExt
      */
      export enum PowerModel {
         /** Sleeping model. */
