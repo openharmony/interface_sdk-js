@@ -645,7 +645,7 @@ declare namespace rpc {
          * @param sequenceableArray Sequenceable array to read.
          * @since 8
          */
-        readSequenceableArray(sequenceableArray Sequenceable[]): void;
+        readSequenceableArray(sequenceableArray: Sequenceable[]): void;
 
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
@@ -741,7 +741,7 @@ declare namespace rpc {
 
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -774,7 +774,7 @@ declare namespace rpc {
      * <p> SendRequestResult object contains four members,
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 8
      */
@@ -807,7 +807,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -920,7 +920,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -937,7 +937,7 @@ declare namespace rpc {
 
     /** 
      * @since 7
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      */
     interface DeathRecipient {
@@ -950,7 +950,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -1022,7 +1022,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -1150,7 +1150,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -1288,7 +1288,7 @@ declare namespace rpc {
     }
 
     /** 
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
@@ -1412,7 +1412,7 @@ declare namespace rpc {
      * including creating, closing, mapping, and unmapping an Ashmem object,
      * reading data from and writing data to an Ashmem object,
      * obtaining the Ashmem size, and setting Ashmem protection.
-     * @sysCap SystemCapability.Communication.IPC.Core
+     * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 8
      */
