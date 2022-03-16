@@ -65,19 +65,6 @@ declare namespace abilityManager {
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
-
-     /**
-      * Get information about running extensions
-      *
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      * @param upperLimit Get the maximum limit of the number of messages
-      * @systemapi Hide this for inner system use.
-      * @return Returns the array of {@link ExtensionRunningInfo}.
-      * @permission ohos.permission.GET_RUNNING_INFO
-      */
-    function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
-    function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 }
 
 export default abilityManager;
