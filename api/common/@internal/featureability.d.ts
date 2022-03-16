@@ -15,6 +15,7 @@
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface Result {
   /**
@@ -32,6 +33,7 @@ export interface Result {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SubscribeMessageResponse {
   /**
@@ -61,6 +63,7 @@ export interface SubscribeMessageResponse {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface CallAbilityParam {
   /**
@@ -106,6 +109,7 @@ export interface CallAbilityParam {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SubscribeAbilityEventParam {
   /**
@@ -145,6 +149,7 @@ export interface SubscribeAbilityEventParam {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SendMessageOptions {
   /**
@@ -194,6 +199,7 @@ export interface SendMessageOptions {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SubscribeMessageOptions {
   /**
@@ -211,6 +217,7 @@ export interface SubscribeMessageOptions {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface RequestParams {
   /**
@@ -221,6 +228,7 @@ export interface RequestParams {
 
   /**
    * Ability name, which is case sensitive.
+   * @since 5
    */
   abilityName?: string;
 
@@ -265,6 +273,7 @@ export interface RequestParams {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface FinishWithResultParams {
   /**
@@ -282,6 +291,7 @@ export interface FinishWithResultParams {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export declare class FeatureAbility {
   /**
@@ -289,6 +299,7 @@ export declare class FeatureAbility {
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result of whether to call Ability's interface successfully.
    * @since 5
+   * @deprecated since 8
    */
   static startAbility(request: RequestParams): Promise<Result>;
 
@@ -297,6 +308,7 @@ export declare class FeatureAbility {
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result of the data FA returned.
    * @since 5
+   * @deprecated since 8
    */
   static startAbilityForResult(request: RequestParams): Promise<Result>;
 
@@ -305,6 +317,7 @@ export declare class FeatureAbility {
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
+   * @deprecated since 8
    */
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 
@@ -314,6 +327,7 @@ export declare class FeatureAbility {
    * @param flag Default 0, get the information list of all devices in the network.
    * @returns A Promise object is returned, which contains the result whether the device information list is obtained successfully.
    * @since 5
+   * @deprecated since 8
    */
   static getDeviceList(flag: number): Promise<Result>;
 
@@ -323,6 +337,7 @@ export declare class FeatureAbility {
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
+   * @deprecated since 8
    */
   static callAbility(param: CallAbilityParam): Promise<string>;
 
@@ -330,6 +345,7 @@ export declare class FeatureAbility {
    * Start FA migration.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
+   * @deprecated since 8
    */
   static continueAbility(): Promise<Result>;
 
@@ -339,6 +355,7 @@ export declare class FeatureAbility {
    * @param func Indicates the event reporting callback.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
+   * @deprecated since 8
    */
   static subscribeAbilityEvent(param: SubscribeAbilityEventParam, func: Function): Promise<string>;
 
@@ -347,6 +364,7 @@ export declare class FeatureAbility {
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
+   * @deprecated since 8
    */
   static unsubscribeAbilityEvent(param: SubscribeAbilityEventParam): Promise<string>;
 
@@ -354,6 +372,7 @@ export declare class FeatureAbility {
    * Sends messages to the destination device.
    * @param options Options.
    * @since 5
+   * @deprecated since 8
    */
   static sendMsg(options: SendMessageOptions): void;
 
@@ -361,12 +380,14 @@ export declare class FeatureAbility {
    * Listens for messages sent from other devices.
    * @param options Options.
    * @since 5
+   * @deprecated since 8
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
 
   /**
    * Cancels the listening for messages sent from other devices.
    * @since 5
+   * @deprecated since 8
    */
   static unsubscribeMsg(): void;
 }

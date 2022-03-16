@@ -15,6 +15,7 @@
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SubscribeMessageResponse {
   /**
@@ -44,6 +45,7 @@ export interface SubscribeMessageResponse {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SendMessageOptions {
   /**
@@ -93,6 +95,7 @@ export interface SendMessageOptions {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export interface SubscribeMessageOptions {
   /**
@@ -110,12 +113,14 @@ export interface SubscribeMessageOptions {
 
 /**
  * @since 5
+ * @deprecated since 8
  */
 export declare class FeatureAbility {
   /**
    * Sends messages to the destination device.
    * @param options Options.
    * @since 5
+   * @deprecated since 8
    */
   static sendMsg(options: SendMessageOptions): void;
 
@@ -123,12 +128,14 @@ export declare class FeatureAbility {
    * Listens for messages sent from other devices.
    * @param options Options.
    * @since 5
+   * @deprecated since 8
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
 
   /**
    * Cancels the listening for messages sent from other devices.
    * @since 5
+   * @deprecated since 8
    */
   static unsubscribeMsg(): void;
 }
