@@ -24,33 +24,50 @@ declare namespace audio {
 
   /**
    * Obtains an AudioManager instance.
+   * @return AudioManager object.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   function getAudioManager(): AudioManager;
 
   /**
-   * Creates a AudioCapturer instance.
-   * @param options All options used for audio capturer.
-   * @return AudioCapturer instance.
+   * Obtains an AudioCapturer instance. This method uses an asynchronous callback to return the capturer instance.
+   * @param options Capturer configurations.
+   * @param callback Callback used to return the audio capturer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
+
+  /**
+   * Obtains an AudioCapturer instance. This method uses a promise to return the capturer instance.
+   * @param options Capturer configurations.
+   * @return Promise used to return the audio capturer instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   */
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
   /**
-   * Creates a AudioRenderer instance.
-   * @param options All options used for audio renderer.
-   * @return AudioRenderer instance.
+   * Obtains an AudioRenderer instance. This method uses an asynchronous callback to return the renderer instance.
+   * @param options Renderer configurations.
+   * @param callback Callback used to return the audio renderer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
+
+  /**
+   * Obtains an AudioRenderer instance. This method uses a promise to return the renderer instance.
+   * @param options Renderer configurations.
+   * @return Promise used to return the audio renderer instance.
+   * @since 8
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   */
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
   /**
-   * Enumerates the rendering states of the current device.
+   * Enumerates the audio states.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
@@ -62,7 +79,7 @@ declare namespace audio {
      */
     STATE_INVALID = -1,
     /**
-     * Create New instance state.
+     * Create new instance state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -106,25 +123,25 @@ declare namespace audio {
    */
   enum AudioVolumeType {
     /**
-     * Audio streams for voice calls
+     * Audio streams for voice calls.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_CALL = 0,
     /**
-     * Audio streams for ring tones
+     * Audio streams for ringtones.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     RINGTONE = 2,
     /**
-     * Audio streams for media purpose
+     * Audio streams for media purpose.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     MEDIA = 3,
     /**
-     * Audio stream for voice assistant
+     * Audio stream for voice assistant.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -138,19 +155,19 @@ declare namespace audio {
    */
   enum DeviceFlag {
     /**
-     * Output devices
+     * Output devices.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     OUTPUT_DEVICES_FLAG = 1,
     /**
-     * Input devices
+     * Input devices.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     INPUT_DEVICES_FLAG = 2,
     /**
-     * All devices
+     * All devices.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -164,13 +181,13 @@ declare namespace audio {
    */
   enum DeviceRole {
     /**
-     * Input role
+     * Input role.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     INPUT_DEVICE = 1,
     /**
-     * Output role
+     * Output role.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -184,13 +201,13 @@ declare namespace audio {
    */
   enum DeviceType {
     /**
-     * Invalid device
+     * Invalid device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     INVALID = 0,
     /**
-     * A pair of built-in earpieces.
+     * Built-in earpiece.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -214,19 +231,19 @@ declare namespace audio {
      */
     WIRED_HEADPHONES = 4,
     /**
-     * Bluetooth device using the synchronous connection oriented link (SCO)
+     * Bluetooth device using the synchronous connection oriented link (SCO).
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     BLUETOOTH_SCO = 7,
     /**
-     * Bluetooth device using advanced audio distribution profile (A2DP)
+     * Bluetooth device using advanced audio distribution profile (A2DP).
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     BLUETOOTH_A2DP = 8,
     /**
-     * Built-in microphone
+     * Built-in microphone.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -240,19 +257,19 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates Active device types.
+   * Enumerates the active device types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
    */
    enum ActiveDeviceType {
     /**
-     * Speaker
+     * Speaker.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     SPEAKER = 2,
     /**
-     * Bluetooth device using the synchronous connection oriented link (SCO)
+     * Bluetooth device using the SCO link.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -260,25 +277,25 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates Audio Ringer modes
+   * Enumerates ringer modes.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Communication
    */
   enum AudioRingMode {
     /**
-     * Silent mode
+     * Silent mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     RINGER_MODE_SILENT = 0,
     /**
-     * Vibration mode
+     * Vibration mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
     RINGER_MODE_VIBRATE = 1,
     /**
-     * Normal mode
+     * Normal mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
@@ -286,7 +303,7 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the sample format.
+   * Enumerates the audio sample formats.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
@@ -304,19 +321,19 @@ declare namespace audio {
      */
     SAMPLE_FORMAT_U8 = 0,
     /**
-     * Signed 16 low-end format.
+     * Signed 16 bit integer, little endian.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     SAMPLE_FORMAT_S16LE = 1,
     /**
-     * Signed 24 low-end format.
+     * Signed 24 bit integer, little endian.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     SAMPLE_FORMAT_S24LE = 2,
     /**
-     * Signed 32 low-end format.
+     * Signed 32 bit integer, little endian.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -330,13 +347,13 @@ declare namespace audio {
    */
   enum AudioChannel {
     /**
-     * First channel.
+     * Channel 1.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     CHANNEL_1 = 0x1 << 0,
     /**
-     * Second channel.
+     * Channel 2.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -430,7 +447,7 @@ declare namespace audio {
      */
     ENCODING_TYPE_INVALID = -1,
     /**
-     * Raw pcm type.
+     * PCM encoding.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -514,31 +531,31 @@ declare namespace audio {
   }
 
   /**
-   * Interface for audio stream info
+   * Describes audio stream information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   interface AudioStreamInfo {
     /**
-     * Audio sampling rate
+     * Sampling rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     samplingRate: AudioSamplingRate;
     /**
-     * Audio channels
+     * Audio channels.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     channels: AudioChannel;
     /**
-     * Audio sample format
+     * Audio sample format.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     sampleFormat: AudioSampleFormat;
     /**
-     * Audio encoding type
+     * Audio encoding type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -546,25 +563,25 @@ declare namespace audio {
   }
 
   /**
-   * Interface for audio renderer info
+   * Describes audio renderer information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   interface AudioRendererInfo {
     /**
-     * Audio content type
+     * Content type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     content: ContentType;
     /**
-     * Audio stream usage
+     * Stream usage.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     usage: StreamUsage;
     /**
-     * Audio renderer flags
+     * Audio renderer flags.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -572,19 +589,19 @@ declare namespace audio {
   }
 
   /**
-   * Interface for audio renderer options
+   * Describes audio renderer configuration options.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   interface AudioRendererOptions {
     /**
-     * Audio stream info
+     * Stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     streamInfo: AudioStreamInfo;
     /**
-     * Audio renderer info
+     * Renderer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -592,25 +609,25 @@ declare namespace audio {
   }
 
   /**
-   * Enum for audio renderer rate
+   * Enumerates the audio renderer rates.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   enum AudioRendererRate {
     /**
-     * Normal rate
+     * Normal rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     RENDER_RATE_NORMAL = 0,
     /**
-     * Double rate
+     * Double rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     RENDER_RATE_DOUBLE = 1,
     /**
-     * Half rate
+     * Half rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -618,20 +635,20 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates audio interruption event types.
+   * Enumerates the interrupt types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   enum InterruptType {
     /**
-     * An audio interruption event starts.
+     * Audio playback interruption started.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_TYPE_BEGIN = 1,
 
     /**
-     * An audio interruption event ends.
+     * Audio playback interruption ended.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -639,47 +656,47 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the types of hints for audio interruption.
+   * Enumerates the interrupt hints.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   enum InterruptHint {
     /**
-     * Audio no interrupt.
+     * None.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_HINT_NONE = 0,
     /**
-     * Audio resumed.
+     * Resume the playback.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_HINT_RESUME = 1,
 
     /**
-     * Audio paused.
+     * Paused/Pause the playback.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_HINT_PAUSE = 2,
 
     /**
-     * Audio stopped.
+     * Stopped/Stop the playback.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_HINT_STOP = 3,
 
     /**
-     * Audio ducking. (In ducking, the audio volume is reduced, but not silenced.)
+     * Ducked the playback. (In ducking, the audio volume is reduced, but not silenced.)
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_HINT_DUCK = 4,
 
     /**
-     * Audio unducking.
+     * Unducked the playback.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -687,50 +704,48 @@ declare namespace audio {
   }
 
   /**
-   * Interrupt force type.
-   * @since 8
+   * Enumerates the interrupt force types.
+   * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
-   * @systemapi
    */
   enum InterruptForceType {
     /**
-     * Force type, system change audio state.
-     * @since 8
+     * Forced action taken by system.
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_FORCE = 0,
     /**
-     * Share type, application change audio state.
-     * @since 8
+     * Share type, application can choose to take action or ignore.
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     INTERRUPT_SHARE
   }
 
   /**
-   * Interrupt events
-   * @since 8
+   * Describes the interrupt event received by the app when playback is interrupted.
+   * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
   interface InterruptEvent {
     /**
-     * Interrupt event type, begin or end
-     * @since 8
+     * Indicates whether the interruption has started or finished.
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     eventType: InterruptType;
 
     /**
-     * Interrupt force type, force or share
-     * @since 8
+     * Indicates whether the action is taken by system or to be taken by the app.
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     forceType: InterruptForceType;
 
     /**
-     * Interrupt hint type. In force type, the audio state already changed,
-     * but in share mode, only provide a hint for application to decide.
-     * @since 8
+     * Indicates the kind of action.
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     hintType: InterruptHint;
@@ -814,20 +829,26 @@ declare namespace audio {
   }
 
   /**
-   * Manages audio volume and audio device information.
+   * Implements audio volume and audio device management.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   interface AudioManager {
     /**
-     * Sets volume for a stream. This method uses an asynchronous callback to return the execution result.
+     * Sets the volume for a stream. This method uses an asynchronous callback to return the result.
+     * @param volumeType Audio stream type.
+     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param callback Callback used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      */
     setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
     /**
-     * Sets volume for a stream. This method uses a promise to return the execution result.
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @return Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -1409,9 +1430,8 @@ declare namespace audio {
      * Subscribes for audio interrupt event callback.
      * @param type Event type.
      * @return InterruptEvent callback.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @systemapi
      */
     on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**
