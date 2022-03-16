@@ -27,53 +27,81 @@ declare interface DataChangeListener {
   /**
    * Data added.
    * @since 7
+   * @deprecated since 8
    */
   onDataAdded(index: number): void;
 
   /**
+   * Data added.
+   * @since 8
+   */
+  onDataAdd(index: number): void;
+
+  /**
    * Data moved.
    * @since 7
+   * @deprecated since 8
    */
   onDataMoved(from: number, to: number): void;
 
   /**
+   * Data moved.
+   * @since 8
+   */
+  onDataMove(from: number, to: number): void;
+
+  /**
    * Data deleted.
    * @since 7
+   * @deprecated since 8
    */
   onDataDeleted(index: number): void;
 
   /**
-   * Data changed.
+   * Data deleted.
+   * @since 8
+   */
+  onDataDelete(index: number): void;
+
+  /**
+   * Call when has data change.
    * @since 7
+   * @deprecated since 8
    */
   onDataChanged(index: number): void;
+
+  /**
+   * Call when has data change.
+   * @since 8
+   */
+  onDataChange(index: number): void;
 }
 
 /**
- * Data  changed.
+ * Developers need to implement this interface to provide data to LazyForEach component.
  * @since 7
  */
 declare interface IDataSource {
   /**
-   * Total count.
+   * Total data count.
    * @since 7
    */
   totalCount(): number;
 
   /**
-   * get  data.
+   * Return the data of index.
    * @since 7
    */
   getData(index: number): any;
 
   /**
-   * register Data Change Listener
+   * Register data change listener.
    * @since 7
    */
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
-   * unregister Data Change Listener
+   * Unregister data change listener.
    * @since 7
    */
   unregisterDataChangeListener(listener: DataChangeListener): void;
@@ -95,7 +123,4 @@ interface LazyForEachInterface {
   ): LazyForEachInterface;
 }
 
-/**
- * @since 7
- */
 declare const LazyForEach: LazyForEachInterface;

@@ -18,125 +18,130 @@ import { WebGLContextAttributes, WebGLRenderingContext } from "../webgl/webgl";
 import { WebGL2RenderingContext } from "../webgl/webgl2";
 
 /**
+ * Defines the foucs param.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 3
  */
 export interface FocusParamObj {
   /**
-   * @devices tv, phone, tablet, wearable
+   * Whether needs to focus.
+   * @since 3
    */
   focus: boolean;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface RectObj {
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   width: number;
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   height: number;
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   left: number;
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   top: number;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface ContextAttrOptions {
+  /**
+   * @since 6
+   */
   antialias: boolean;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface AnimateStyle {
   /**
    * Width value applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   width: number;
   /**
    * Height value applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   height: number;
   /**
    * left offset applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   left: number;
   /**
    * top offset applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   top: number;
   /**
    * right offset applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   right: number;
   /**
    * bottom offset applied to the component after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   bottom: number;
   /**
    * Background color applied to the component after the animation is executed.
    * The default value is none.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   backgroundColor: string;
   /**
    * Opacity applied to the component. The value ranges from 0 to 1.
    * The default value is 1.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   opacity: number;
   /**
    * The value format is "x y", in percentage or pixels.
    * The first value indicates the horizontal position, and the second value indicates the vertical position.
    * If only one value is specified, the other value is 50% by default.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   backgroundPosition: string;
   /**
    * Origin position of the transformed element.
    * The first value indicates the x-axis position. The value can be left, center, right, a length, or percentage.
    * The second value indicates the y-axis position. The value can be top, center, bottom, a length, or a percentage.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   transformOrigin: string;
   /**
    * Transformation type applied to an element.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   transform: "none" | TransformObject;
   /**
    * The value of offset must be within (0.0,1.0] and sorted in ascending order if it is provided.
    * If there are only two frames, offset can be left empty.
    * If there are more than two frames, offset is mandatory.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   offset?: number;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface TransformObject {
   /**
@@ -147,15 +152,9 @@ export interface TransformObject {
    * @param scaleY the scale value for y-axis
    * @param translateX the translate value for x-axis
    * @param translateY the translate value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
-  matrix(
-    scaleX: number,
-    skewX: number,
-    skewY: number,
-    scaleY: number,
-    translateX: number,
-    translateY: number): void;
+  matrix(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
   /**
    * Defines a 3D transformation using a 4x4 matrix of 16 values.
    * @param n00 the value of the 0 row and 0 column of the 4x4 matrix
@@ -174,17 +173,31 @@ export interface TransformObject {
    * @param n31 the value of the 3 row and 1 column of the 4x4 matrix
    * @param n32 the value of the 3 row and 2 column of the 4x4 matrix
    * @param n33 the value of the 3 row and 3 column of the 4x4 matrix
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
-  matrix3d(n00: number, n01: number, n02: number, n03: number,
-           n10: number, n11: number, n12: number, n13: number,
-           n20: number, n21: number, n22: number, n23: number,
-           n30: number, n31: number, n32: number, n33: number): void;
+  matrix3d(
+    n00: number,
+    n01: number,
+    n02: number,
+    n03: number,
+    n10: number,
+    n11: number,
+    n12: number,
+    n13: number,
+    n20: number,
+    n21: number,
+    n22: number,
+    n23: number,
+    n30: number,
+    n31: number,
+    n32: number,
+    n33: number,
+  ): void;
   /**
    * Defines 2D transformations for translation of the X and Y axes
    * @param x the translate value for x-axis
    * @param y the translate value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   translate(x: number, y: number): void;
   /**
@@ -192,32 +205,32 @@ export interface TransformObject {
    * @param x the translate value for x-axis
    * @param y the translate value for y-axis
    * @param z the translate value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   translate3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for translation of the X axes
    * @param x the translate value for x-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   translateX(x: number): void;
   /**
    * Defines 2D transformations for translation of the Y axes
    * @param y the translate value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   translateY(y: number): void;
   /**
    * Defines 3D transformations for translation of the Z axes
    * @param z the translate value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   translateZ(z: number): void;
   /**
    * Defines 2D transformations for scaling of the X and Y axes
    * @param x the scale value for x-axis
    * @param y the scale value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scale(x: number, y: number): void;
   /**
@@ -225,31 +238,31 @@ export interface TransformObject {
    * @param x the scale value for x-axis
    * @param y the scale value for y-axis
    * @param z the scale value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   scale3d(x: number, y: number, z: number): void;
   /**
    * Defines 2D transformations for scaling of the X axes
    * @param x the scale value for x-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scaleX(x: number): void;
   /**
    * Defines 2D transformations for scaling of the Y axes
    * @param y the scale value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scaleY(y: number): void;
   /**
    * Defines 3D transformations for scaling of the Z axes
    * @param z the scale value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   scaleZ(z: number): void;
   /**
    * Define the 2D rotation and specify the angle in the parameters.
    * @param angle the rotate value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rotate(angle: number): void;
   /**
@@ -258,63 +271,63 @@ export interface TransformObject {
    * @param y the vector value of the y-axis
    * @param z the vector value of the z-axis
    * @param angle the rotate value for x&y&z vector.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   rotate3d(x: number, y: number, z: number, angle: number): void;
   /**
    * Defines 3D transformations for rotating of the X axes.
    * @param x the scale value for x-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rotateX(angle: number): void;
   /**
    * Defines 3D transformations for rotating of the Y axes.
    * @param y the scale value for y-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rotateY(angle: number): void;
   /**
    * Defines 3D transformations for rotating of the Z axes.
    * @param z the scale value for z-axis
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   rotateZ(angle: number): void;
   /**
    * Defines the 2D skew transition along the X and Y axes.
    * @param xAngle the angle of inclination along the x axis.
    * @param yAngle the angle of inclination along the y axis.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   skew(xAngle: number, yAngle: number): void;
   /**
    * Defines the 2D skew transition along the X axes.
    * @param angle the angle of inclination along the x axis.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   skewX(angle: number): void;
   /**
    * Defines the 2D skew transition along the Y axes.
    * @param angle the angle of inclination along the y axis.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   skewY(angle: number): void;
   /**
    * Defines a perspective view for the 3D transformation element.
    * @param n the vertical distance from the observation point to the component plane.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   perspective(verticalDistance: number): void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface AnimateOptions {
   /**
    * Duration of the animation, in milliseconds.
    * The default value is 0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   duration: number;
 
@@ -336,28 +349,28 @@ export interface AnimateOptions {
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
    * The default value is ease.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   easing: string;
 
   /**
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   delay: number;
 
   /**
    * Number of times the animation will be played. number indicates a fixed number of playback operations, and Infinity indicates an unlimited number of playback operations.
    * The default value is 1.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   iterations: number | string;
 
   /**
    * The animation playback mode.
    * The default value is "normal".
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
@@ -365,24 +378,24 @@ export interface AnimateOptions {
    * Whether to resume to the initial state after the animation is executed.
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   fill: "none" | "forwards" | "backwards" | "both";
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface AnimationResult {
   /**
    * Read-only attribute, which indicates whether the animation playback is complete.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   finished: boolean;
   /**
    * Read-only attribute, which indicates whether an animation is waiting for the completion of other asynchronous operations (for example, start an animation with a delay).
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   pending: boolean;
   /**
@@ -391,64 +404,64 @@ export interface AnimationResult {
    * running: The animation is running.
    * paused: The animation is paused.
    * finished: Animation playback ends.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   playstate: string;
   /**
    * Animation start time. This attribute is similar to that of delay in the options parameters.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   startTime: number;
   /**
    * Starts the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   play(): void;
   /**
    * Ends the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   finish(): void;
   /**
    * Pauses the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   pause(): void;
   /**
    * Cancels the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   reverse(): void;
   /**
    * The animation is started.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   onstart: () => void;
   /**
    * The animation is finished.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   onfinish: () => void;
   /**
    * The animation is canceled.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   oncancel: () => void;
   /**
    * The animation is repeated.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   onrepeat: () => void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface Element {
   /**
@@ -457,7 +470,7 @@ export interface Element {
    * If focus is set to false, the focus is canceled for the component.
    * This attribute can be defaulted to true.
    * @param obj { focus: true | false }
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   focus(obj?: FocusParamObj): void;
 
@@ -467,7 +480,7 @@ export interface Element {
    * If focus is set to false, the crown event focus is canceled.
    * This attribute can be defaulted to true.
    * @param obj { focus: true | false }
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rotation(obj?: FocusParamObj): void;
 
@@ -476,39 +489,38 @@ export interface Element {
    * @param keyframes keyframes is used to describe key frame parameters of the animation.
    * @param options Options. is used to describe animation parameters.
    * @returns This method returns the animation object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  animate(
-    keyframes: Array<AnimateStyle>,
-    options: AnimateOptions
-  ): AnimationResult;
+  animate(keyframes: Array<AnimateStyle>, options: AnimateOptions): AnimationResult;
 
   /**
    * Obtains the size and position of the element.
    * @returns RectObj the size position of the element.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   getBoundingClientRect(): RectObj;
 
   /**
    * Obtains attributes of the element.
    * @returns attributes of the element in json string.
-   * @devices tv, phone, tablet, wearable
+   * @since 8
+   * @systemapi
    */
   getInspector(): string;
 
   /**
    * If 0.5 is returned, 50% of the current component is visible.
    * @param radios Scope of Monitoring components.
+   * @since 6
    */
-  createIntersectionObserver(param: {ratios: Array<number>}): observer;
+  createIntersectionObserver(param: { ratios: Array<number> }): observer;
 
-   /**
+  /**
    * Adds a node to the end of the child node list of the current node.
    * @param child Subnode object to be added
    * @since 8
    */
-  addChild(child: Element): void
+  addChild(child: Element): void;
 
   /**
    * Sets the value of an attribute on a specified element. If the attribute already exists, update the value. Otherwise, a new attribute is added with the specified name and value.
@@ -516,7 +528,7 @@ export interface Element {
    * @param value attribute value¡¢
    * @since 8
    */
-  setAttribute(name: string, value: string): void
+  setAttribute(name: string, value: string): void;
 
   /**
    * Sets a style value on a specified element. If the style exists and the style value is valid, the setting is successful. Otherwise, the setting is invalid.
@@ -525,20 +537,24 @@ export interface Element {
    * @returns If the setting is successful, true is returned. If the setting fails, false is returned.
    * @since 8
    */
-  setStyle(name: string, value: string): boolean
+  setStyle(name: string, value: string): boolean;
 }
 
 /**
+ * Defines the observer interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 6
  */
 export interface observer {
   /**
    * Turn on the listener.
+   * @since 6
    */
   observe(callback: string): void;
 
   /**
    * Turn off the listenerr.
+   * @since 6
    */
   unobserve(): void;
 }
@@ -546,85 +562,86 @@ export interface observer {
 /**
  * animation element
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface AnimationElement extends Element {
   /**
    * Starts the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   play(): void;
   /**
    * Ends the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   finish(): void;
   /**
    * Pauses the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   pause(): void;
   /**
    * Cancels the animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   reverse(): void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface ScrollParam {
   /**
    * Offset for scrolling in the horizontal direction, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   dx?: number;
 
   /**
    * Offset for scrolling in the vertical direction, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   dy?: number;
 
   /**
    * Whether a sliding animation is displayed when scroll position is changed.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   smooth?: boolean;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface CurrentOffsetResultValue {
   /**
    * Scrolling offset in the x-axis, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   x: number;
 
   /**
    * Scrolling offset in the y-axis, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   y: number;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+ * @since 4
  */
 export interface ListScrollToOptions {
   /**
    * specified position.
+   * @since 4
    */
   index: number;
 }
@@ -632,19 +649,18 @@ export interface ListScrollToOptions {
 /**
  * The <list> component provides a list container.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
  */
 export interface ListElement extends Element {
   /**
    * Scrolls the list to the position of the item at the specified index.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   scrollTo(position: ListScrollToOptions): void;
 
   /**
    * Scrolls the list for a certain distance.
    * This method applies only to smart TVs.
-   * @devices tv
+   * @since 4
    */
   scrollBy(data: ScrollParam): void;
 
@@ -652,7 +668,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to the top.
    * If smooth is set to true, the list is smoothly scrolled to the top.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scrollTop(param: { smooth: boolean }): void;
 
@@ -660,7 +676,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to the bottom.
    * If smooth is set to true, the list is smoothly scrolled to the bottom.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scrollBottom(param: { smooth: boolean }): void;
 
@@ -670,7 +686,7 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled to another page.
    * If smooth is set to true, the list is smoothly scrolled to another page.
    * @param params
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scrollPage(params: { reverse: boolean; smooth: boolean }): void;
 
@@ -680,14 +696,14 @@ export interface ListElement extends Element {
    * If smooth is set to false (default value), the list is directly scrolled.
    * If smooth is set to true, the list is smoothly scrolled.
    * @param params
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scrollArrow(params: { reverse: boolean; smooth: boolean }): void;
 
   /**
    * Collapses a group.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   collapseGroup(param: {
     /**
@@ -700,7 +716,7 @@ export interface ListElement extends Element {
   /**
    * Expands a group.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   expandGroup(param: {
     /**
@@ -712,7 +728,7 @@ export interface ListElement extends Element {
 
   /**
    * Returns the offset of the current scrolling. The return value type is Object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   currentOffset(): CurrentOffsetResultValue;
 }
@@ -720,12 +736,12 @@ export interface ListElement extends Element {
 /**
  * The <swiper> component provides a swiper container.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface SwiperElement extends Element {
   /**
    * Scrolls the child component to the position at the specified index.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   swipeTo(position: {
     /**
@@ -736,45 +752,46 @@ export interface SwiperElement extends Element {
 
   /**
    * Shows the next child component.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   showNext(): void;
 
   /**
    * Shows the previous child component.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   showPrevious(): void;
 }
 
 /**
- * @devices tv, phone, tablet, wearable
+ * @since 6
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  */
 export interface CameraTakePhotoOptions {
   /**
    * Picture quality.
+   * @since 6
    */
   quality: "high" | "normal" | "low";
 
   /**
    * Callback function for successful interface invocation.
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   success?: (result: Object) => void;
 
   /**
    * Callback function for interface invocation failure.
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   fail?: (result: Object) => void;
 
   /**
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   complete?: (result: Object) => void;
 }
@@ -782,13 +799,13 @@ export interface CameraTakePhotoOptions {
 /**
  * The <camera> component provides preview and photographing functions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface CameraElement extends Element {
   /**
    * Take photos with specified parameters.
    * @param options the parameters of camera.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   takePhoto(options: CameraTakePhotoOptions): void;
 }
@@ -796,12 +813,12 @@ export interface CameraElement extends Element {
 /**
  * The <web> component is a container for displaying web page content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet
+ * @since 6
  */
 export interface WebElement extends Element {
   /**
    * Reload the web page content
-   * @devices tv, phone, tablet
+   * @since 6
    */
   reload(): void;
 }
@@ -809,17 +826,17 @@ export interface WebElement extends Element {
 /**
  * The <dialog> component is a custom pop-up container.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface DialogElement extends Element {
   /**
    * Shows a dialog box.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   show(): void;
   /**
    * Closes a dialog box.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   close(): void;
 }
@@ -827,27 +844,27 @@ export interface DialogElement extends Element {
 /**
  * The <image-animator> component is used to provide an image frame animator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface ImageAnimatorElement extends Element {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   resume(): void;
   /**
@@ -855,7 +872,7 @@ export interface ImageAnimatorElement extends Element {
    * Playing
    * Paused
    * Stopped
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   getState(): "Playing" | "Paused" | "Stopped";
 }
@@ -864,18 +881,18 @@ export interface ImageAnimatorElement extends Element {
  * The <marquee> component inserts scrolling text, which is displayed in a single line by default.
  * When the text length exceeds the display area of the component, the marquee effect is displayed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface MarqueeElement extends Element {
   /**
    * Starts scrolling.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   start(): void;
 
   /**
    * Stops scrolling.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   stop(): void;
 }
@@ -883,7 +900,7 @@ export interface MarqueeElement extends Element {
 /**
  * The <menu> component provides menus as temporary pop-up windows to display operations that can be performed by users.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet
+ * @since 4
  */
 export interface MenuElement extends Element {
   /**
@@ -895,7 +912,7 @@ export interface MenuElement extends Element {
    * When the visible space on the right is insufficient, the menu is moved leftward.
    * When the visible space in the lower part is insufficient, the menu is moved upward.
    * @param position
-   * @devices tv, phone, tablet
+   * @since 4
    */
   show(position: { x: number; y: number }): void;
 }
@@ -903,7 +920,7 @@ export interface MenuElement extends Element {
 /**
  * The <chart> component displays line charts, gauge charts, and bar charts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface ChartElement extends Element {
   /**
@@ -911,7 +928,7 @@ export interface ChartElement extends Element {
    * The target sequence is specified based on serial, which is the subscript of the datasets array and starts from 0.
    * datasets[index].data is not updated. Only line charts support this attribute.
    * The value is incremented by 1 based on the horizontal coordinate and is related to the xAxis min/max setting.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   append(params: {
     /**
@@ -928,14 +945,14 @@ export interface ChartElement extends Element {
 /**
  * The <input> component provides an interactive interface to receive user input, which is displayed in a single line by default.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface InputElement extends Element {
   /**
    * Obtains or loses the focus of a component.
    * When the component type is set to text, email, date, time, number, or password, the input method can be displayed or collapsed.
    * @param param If focus is not passed, the default value true is used.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   focus(param: { focus: boolean }): void;
 
@@ -943,13 +960,13 @@ export interface InputElement extends Element {
    * Displays the error message.
    * This attribute is available when the component type is set to text, email, date, time, number, or password.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   showError(param: { error: string }): void;
 
   /**
    * Deletes the previous character at the cursor position.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   delete(): void;
 }
@@ -957,7 +974,7 @@ export interface InputElement extends Element {
 /**
  * The <button> component includes capsule, circle, text, arc, and download buttons.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface ButtonElement extends Element {
   /**
@@ -967,7 +984,7 @@ export interface ButtonElement extends Element {
    * NOTE
    * The text displayed on the progress bar is changed based on the value.
    * @param param
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   setProgress(param: { progress: number }): void;
 }
@@ -975,13 +992,13 @@ export interface ButtonElement extends Element {
 /**
  * The <textarea> component provides an interactive interface to receive user input, which is displayed in multiple lines by default.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet
+ * @since 4
  */
 export interface TextAreaElement extends Element {
   /**
    * Obtains or loses the focus of a component, which can display or collapse the input method.
    * @param param If focus is not passed, the default value true is used.
-   * @devices tv, phone, tablet
+   * @since 4
    */
   focus(param: { focus: boolean }): void;
 }
@@ -989,12 +1006,12 @@ export interface TextAreaElement extends Element {
 /**
  * The <picker> component supports common, date, time, and multi-column text selectors.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet
+ * @since 4
  */
 export interface PickerElement extends Element {
   /**
    * Displays the picker.
-   * @devices tv, phone, tablet
+   * @since 4
    */
   show(): void;
 }
@@ -1002,59 +1019,59 @@ export interface PickerElement extends Element {
 /**
  * The <video> component provides a video player.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet
+ * @since 4
  */
 export interface VideoElement extends Element {
   /**
    * Requests to start playing a video.
-   * @devices tv, phone, tablet
+   * @since 4
    */
   start(): void;
 
   /**
    * Requests to pause a video.
-   * @devices tv, phone, tablet
+   * @since 4
    */
   pause(): void;
 
   /**
    * Specifies the video playing position.
    * @param param
-   * @devices tv, phone, tablet
+   * @since 4
    */
   setCurrentTime(param: { currenttime: number }): void;
 
   /**
    * Requests to enter the full screen mode.
    * @param param
-   * @devices tv, phone, tablet
+   * @since 4
    */
   requestFullscreen(param: { screenOrientation: "default" }): void;
 
   /**
    * Requests to exit the full screen mode.
-   * @devices tv, phone, tablet
+   * @since 4
    */
   exitFullscreen(): void;
 
   /**
    * Requests to stop playing a video.
-   * @devices tv, phone, tablet
+   * @since 6
    */
   stop(): void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface TextMetrics {
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   width: number;
   /**
-   * @devices tv, phone, tablet, wearable
+   * @since 8
    */
   height: number;
 }
@@ -1063,11 +1080,13 @@ export interface TextMetrics {
  * Provides a 2D rendering context for the drawing surface of the < Canvas > element.
  * It is used to draw shapes, text, images and other objects.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
  */
 export interface OffscreenCanvasRenderingContext2D {
   /**
    * Gets the dotted spacing of a line.
    * Returns the current line segment style array containing an even number of non-negative numbers.
+   * @since 7
    */
   getLineDash: Array<number>;
 
@@ -1076,6 +1095,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Paint color used to fill the area.
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
+   * @since 7
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
@@ -1084,12 +1104,14 @@ export interface OffscreenCanvasRenderingContext2D {
    * Color of the stroke paint.
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
+   * @since 7
    */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
    * Sets the dotted spacing of a line.
    * @param segments A set of numbers describing the length of alternating drawn line segments and spacing (coordinate space units).
+   * @since 7
    */
   setLineDash(segments: Array<number>): void;
 
@@ -1100,6 +1122,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dy The top left corner of the image is the Y-axis coordinates on the target canvas.
    * @param dw Image The width drawn on the target canvas.
    * @param dh Image The height drawn on the target canvas.
+   * @since 7
    */
   drawImage(image: Image, dx: number, dy: number, dw: number, dh: number): void;
 
@@ -1114,21 +1137,35 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sy The upper-left Y-axis coordinates of the image's rectangular (clipped) selection box that need to be drawn into the target context.
    * @param sw The width of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
    * @param sh The height of the image's rectangular (clipped) selection box that needs to be drawn into the target context.
+   * @since 7
    */
-  drawImage(image: Image, sx: number, sy: number, sw: number, sh: number,dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(
+    image: Image,
+    sx: number,
+    sy: number,
+    sw: number,
+    sh: number,
+    dx: number,
+    dy: number,
+    dw: number,
+    dh: number,
+  ): void;
 
   /**
    * Creates a drawing path.
+   * @since 7
    */
   beginPath(): void;
 
   /**
    * Crop the current canvas.
+   * @since 7
    */
   clip(): void;
 
   /**
    * Fills the current canvas with color.
+   * @since 7
    */
   fill(): void;
 
@@ -1137,6 +1174,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x The X coordinate of the detection point.
    * @param y The Y coordinate of the detection point.
    * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
+   * @since 7
    */
   isPointInPath(x: number, y: number): boolean;
 
@@ -1147,6 +1185,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y coordinate of the detection point.
    * @param fillRule This algorithm determines whether a point is in or out of the path.
    * @returns boolean Return true if the detection point is contained within the current or specified path Otherwise return false.
+   * @since 7
    */
   isPointInPath(path: Path2D, x: number, y: number): boolean;
 
@@ -1155,6 +1194,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x The X coordinate of the detection point.
    * @param y The Y coordinate of the detection point.
    * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
+   * @since 7
    */
   isPointInStroke(x: number, y: number): boolean;
 
@@ -1164,17 +1204,20 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x The X coordinate of the detection point.
    * @param y The Y coordinate of the detection point.
    * @returns boolean A Boolean value that returns true when the point is on the line of the path, false otherwise.
+   * @since 7
    */
   isPointInStroke(path: Path2D, x: number, y: number): boolean;
 
   /**
    * Stroke draws the current path.
+   * @since 7
    */
   stroke(): void;
 
   /**
    * Stroke draws the current path.
    * @param path The object of Path2D.
+   * @since 7
    */
   stroke(path: Path2D): void;
 
@@ -1187,6 +1230,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y1 Y-coordinate of the end point.
    * @param r1 The radius of End Circle.
    * @returns RadialGradient object.
+   * @since 7
    */
   createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
@@ -1195,6 +1239,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param image The CanvasImageSource object that is the source of the duplicate image.
    * @param repetition Specify how to repeat images.
    * @returns CanvasPattern An opaque object that describes a schema.
+   * @since 7
    */
   createPattern(image: Image, repetition: string): CanvasPattern;
 
@@ -1205,6 +1250,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x1 X-coordinate of the end point.
    * @param y1 Y-coordinate of the end point.
    * @returns LinearGradient object.
+   * @since 7
    */
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
@@ -1213,6 +1259,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sw The width of the new object.
    * @param sh The height of the new object.
    * @returns ImageData New ImageData object with width and height specified.
+   * @since 7
    */
   createImageData(sw: number, sh: number): ImageData;
 
@@ -1220,6 +1267,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Create an ImageData object.
    * @param imagedata Copy an object of the same width and height from an existing ImageData object The image itself is not allowed to be copied.
    * @returns ImageData New ImageData object with width and height specified.
+   * @since 7
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -1227,6 +1275,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    * @param path another created Path2D object.
    * @returns the object of Path2D.
+   * @since 7
    */
   createPath2D(path?: Path2D): Path2D;
 
@@ -1234,6 +1283,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    * @param cmds a string defined using the SVG path command.
    * @returns the object of Path2D.
+   * @since 7
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -1244,6 +1294,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
    * @returns ImageData An ImageData object that contains the rectangular ImageData given by the canvas.
+   * @since 7
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -1252,6 +1303,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param imagedata An array object containing pixel values.
    * @param dx The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
    * @param dy The offset of the position of the source image data in the target canvas (the Y-axis offset).
+   * @since 7
    */
   putImageData(imagedata: ImageData, dx: number, dy: number): void;
 
@@ -1264,8 +1316,17 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dirtyY In the source image data, the position of the upper left corner of the rectangular region Default is the top left corner (y coordinate) of the entire image data.
    * @param dirtyWidth In the source image data, the width of a rectangular region. Default is the width of the image data.
    * @param dirtyHeight In the source image data, the height of a rectangular region. Default is the height of the image data.
+   * @since 7
    */
-  putImageData(imagedata: ImageData, dx: number, dy: number, dirtyX: number, dirtyY: number, dirtyWidth: number, dirtyHeight: number): void;
+  putImageData(
+    imagedata: ImageData,
+    dx: number,
+    dy: number,
+    dirtyX: number,
+    dirtyY: number,
+    dirtyWidth: number,
+    dirtyHeight: number,
+  ): void;
 
   /**
    * Draw an arc.
@@ -1275,6 +1336,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param startAngle The starting point of the arc, in the X-axis direction, is calculated in radians.
    * @param endAngle The end point of an arc, expressed in radians.
    * @param anticlockwise An optional Boolean value. If true, the arc is drawn counterclockwise, and otherwise clockwise.
+   * @since 7
    */
   arc(radius: number, x: number, y: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
 
@@ -1285,6 +1347,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y1 The y-coordinate of the first control point.
    * @param x2 The X-axis coordinates of the second control point.
    * @param y2 The Y-axis coordinates of the second control point.
+   * @since 7
    */
   arcTo(x1: number, x2: number, y1: number, y2: number, radius: number): void;
 
@@ -1296,11 +1359,13 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param cp2y The Y-axis coordinates of the second control point.
    * @param x The x-coordinate of the end point.
    * @param y The y-coordinate of the end point
+   * @since 7
    */
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Closing the current path.
+   * @since 7
    */
   closePath(): void;
 
@@ -1308,6 +1373,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Draw a straight line.
    * @param x The X-axis coordinates at the end of the line.
    * @param y The Y-axis coordinates at the end of the line.
+   * @since 7
    */
   lineTo(x: number, y: number): void;
 
@@ -1321,13 +1387,24 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param startAngle The starting point Angle to be plotted, measured from the X-axis, is expressed in radians.
    * @param endAngle The Angle, expressed in radians, at which the ellipse will be drawn.
    * @param anticlockwise If true, the ellipse is drawn counterclockwise (counterclockwise) and clockwise otherwise.
+   * @since 7
    */
-  ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, anticlockwise?: boolean): void;
+  ellipse(
+    x: number,
+    y: number,
+    radiusX: number,
+    radiusY: number,
+    rotation: number,
+    startAngle: number,
+    endAngle: number,
+    anticlockwise?: boolean,
+  ): void;
 
   /**
    * Moves the current canvas to the specified coordinate point.
    * @param x The x axis.
    * @param y The y axis.
+   * @since 7
    */
   moveTo(x: number, y: number): void;
 
@@ -1337,8 +1414,9 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis of the end point.
    * @param cpx The X-axis coordinates of the control points.
    * @param cpy The y-coordinate of the control point.
+   * @since 7
    */
-  quadraticCurveTo(cpx: number, cpy: number,x: number, y: number): void;
+  quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
   /**
    * Draw a rectangle.
@@ -1346,6 +1424,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis coordinates at the beginning of the rectangle.
    * @param w The width of a rectangle.
    * @param h The height of a rectangle.
+   * @since 7
    */
   rect(x: number, y: number, w: number, h: number): void;
 
@@ -1355,6 +1434,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis coordinates at the beginning of the rectangle.
    * @param w The width of a rectangle.
    * @param h The height of a rectangle.
+   * @since 7
    */
   clearRect(x: number, y: number, w: number, h: number): void;
 
@@ -1364,6 +1444,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis coordinates at the beginning of the rectangle.
    * @param w The width of a rectangle.
    * @param h The height of a rectangle.
+   * @since 7
    */
   fillRect(x: number, y: number, w: number, h: number): void;
 
@@ -1373,6 +1454,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis coordinates at the beginning of the rectangle.
    * @param w The width of the rectangle. Positive values on the right, negative values on the left.
    * @param h The height of the rectangle. Positive values are down, negative values are up.
+   * @since 7
    */
   strokeRect(x: number, y: number, w: number, h: number): void;
 
@@ -1382,13 +1464,15 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param y The Y-axis coordinates of the starting point of the text.
    * @param x The X-axis coordinates of the starting point of the text.
    * @param maxWidth Maximum width to draw.
+   * @since 7
    */
-  fillText(text: string, y: number, x: number/*, maxWidth?: number*/): void;
+  fillText(text: string, y: number, x: number /*, maxWidth?: number*/): void;
 
   /**
    * Returns a TextMetrics object used to obtain the width of specified text.
    * @param text Text to be measured.
    * @returns Object that contains the text width. You can obtain the width by TextMetrics.width.
+   * @since 7
    */
   measureText(text: string): TextMetrics;
 
@@ -1398,17 +1482,20 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param x X-coordinate of the lower left corner of the text stroke.
    * @param y Y-coordinate of the lower left corner of the text stroke.
    * @param maxWidth Maximum width to draw.
+   * @since 7
    */
-  strokeText(text: string, x: number, y: number/*, maxWidth?: number*/): void;
+  strokeText(text: string, x: number, y: number /*, maxWidth?: number*/): void;
 
   /**
    * Resets the current matrix transformation effect.
+   * @since 7
    */
   resetTransform(): void;
 
   /**
    * Adds a rotation effect to the current canvas.
    * @param angle The radian of clockwise rotation.
+   * @since 7
    */
   rotate(angle: number): void;
 
@@ -1416,6 +1503,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * Adds a zoom effect to the current canvas.
    * @param x The horizontal scaling factor.
    * @param y The scaling factor in the vertical direction.
+   * @since 7
    */
   scale(x: number, y: number): void;
 
@@ -1427,6 +1515,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param d Vertical scaling.
    * @param e The level of mobile.
    * @param f Vertical movement.
+   * @since 7
    */
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -1438,6 +1527,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param d Vertical scaling.
    * @param e The level of mobile.
    * @param f Vertical movement.
+   * @since 7
    */
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
@@ -1445,16 +1535,19 @@ export interface OffscreenCanvasRenderingContext2D {
    * Adds a pan effect to the current canvas.
    * @param x Horizontal movement distance.
    * @param y Vertical movement.
+   * @since 7
    */
   translate(x: number, y: number): void;
 
   /**
    * Restores the configuration information of the last saved canvas context.
+   * @since 7
    */
   restore(): void;
 
   /**
    * Saves configuration information for the current canvas context.
+   * @since 7
    */
   save(): void;
 }
@@ -1463,6 +1556,7 @@ export interface OffscreenCanvasRenderingContext2D {
  * CanvasRenderingContext2D allows you to draw rectangles, text, images, and other objects on a canvas.
  * You can call getContext('2d') on canvas to obtain a CanvasRenderingContext2D object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface CanvasRenderingContext2D {
   /**
@@ -1471,7 +1565,7 @@ export interface CanvasRenderingContext2D {
    * @param y Y-coordinate of the upper left corner of the rectangle.
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   fillRect(x: number, y: number, width: number, height: number): void;
 
@@ -1480,7 +1574,7 @@ export interface CanvasRenderingContext2D {
    * Paint color used to fill the area.
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   fillStyle?: string | CanvasGradient | CanvasPattern;
 
@@ -1490,7 +1584,7 @@ export interface CanvasRenderingContext2D {
    * @param y Y-coordinate of the upper left corner of the rectangle.
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   clearRect(x: number, y: number, width: number, height: number): void;
 
@@ -1500,7 +1594,7 @@ export interface CanvasRenderingContext2D {
    * @param y Y-coordinate of the upper left corner of the rectangle stroke.
    * @param width Width of the rectangle stroke.
    * @param height Height of the rectangle stroke.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   strokeRect(x: number, y: number, width: number, height: number): void;
 
@@ -1509,7 +1603,7 @@ export interface CanvasRenderingContext2D {
    * @param text Text to draw.
    * @param x X-coordinate of the lower left corner of the text.
    * @param y Y-coordinate of the lower left corner of the text.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   fillText(text: string, x: number, y: number): void;
 
@@ -1518,7 +1612,7 @@ export interface CanvasRenderingContext2D {
    * @param text Text stroke to draw.
    * @param x X-coordinate of the lower left corner of the text stroke.
    * @param y Y-coordinate of the lower left corner of the text stroke.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   strokeText(text: string, x: number, y: number): void;
 
@@ -1526,13 +1620,13 @@ export interface CanvasRenderingContext2D {
    * Returns a TextMetrics object used to obtain the width of specified text.
    * @param text Text to be measured.
    * @returns Object that contains the text width. You can obtain the width by TextMetrics.width.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   measureText(text: string): TextMetrics;
 
   /**
    * Sets the width of a line.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   lineWidth?: number;
 
@@ -1541,26 +1635,26 @@ export interface CanvasRenderingContext2D {
    * Color of the stroke paint.
    * Canvas gradient object used by the paint. You can call createLinearGradient() to create a CanvasGradient object.
    * Canvas pattern. You can call createPattern() to create a CanvasPattern object.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   strokeStyle?: string | CanvasGradient | CanvasPattern;
 
   /**
    * Draws a border stroke.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   stroke(): void;
 
   /**
    * Draws a path stroke.
    * @param path The object of Path2D.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   stroke(path: Path2D): void;
 
   /**
    * Creates a drawing path.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   beginPath(): void;
 
@@ -1568,7 +1662,7 @@ export interface CanvasRenderingContext2D {
    * Moves a drawing path to a target position on the canvas.
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   moveTo(x: number, y: number): void;
 
@@ -1576,13 +1670,13 @@ export interface CanvasRenderingContext2D {
    * Connects the current point to a target position using a straight line.
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   lineTo(x: number, y: number): void;
 
   /**
    * Draws a closed path.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   closePath(): void;
 
@@ -1593,7 +1687,7 @@ export interface CanvasRenderingContext2D {
    * round: The endpoints of the line are rounded.
    * square: The endpoints of the line are in square,
    * and each end of the line is added with a rectangle whose length is the same as the line thickness and whose width is half of the line thickness.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   lineCap: string;
 
@@ -1603,14 +1697,14 @@ export interface CanvasRenderingContext2D {
    * round: The intersection part is a sector. The radius of a rounded corner is equal to the line width.
    * bevel: The intersection part is a triangle. The rectangular corner of each line is independent.
    * miter (default): The intersection part has a miter corner by extending the outside edges of the lines until they meet. You can view the effect of this attribute in miterLimit.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   lineJoin: string;
 
   /**
    * Sets the maximum miter length. The miter length is the distance between the inner corner and the outer corner where two lines meet.
    * Maximum miter length. The default value is 10.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   miterLimit: number;
 
@@ -1619,7 +1713,7 @@ export interface CanvasRenderingContext2D {
    * Font style.
    * The default value is 10px sans-serif in tv, phone, tablet, wearable.
    * The default value is 30px SourceHanSansSC-Regular in smartVision.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   font: string;
 
@@ -1633,14 +1727,14 @@ export interface CanvasRenderingContext2D {
    * end: The text is aligned with the end bound. Can't be supported by smartVision.
    * NOTE
    * In the ltr layout mode, the value start equals to left. In the rtl layout mode, the value start equals to right.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   textAlign: "left" | "right" | "center" | "start" | "end";
 
   /**
    * Sets whether an image is smooth.
    * default value is true.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   imageSmoothingEnabled: boolean;
 
@@ -1653,7 +1747,7 @@ export interface CanvasRenderingContext2D {
    * middle: The text baseline is in the middle of the text bounding box.
    * ideographic: The text baseline is the ideographic baseline. If a character exceeds the alphabetic baseline, the ideographic baseline is located at the bottom of the excessive character.
    * bottom: The text baseline is at the bottom of the text bounding box. Its difference from the ideographic baseline is that the ideographic baseline does not consider letters in the next line.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   textBaseline: string;
 
@@ -1664,14 +1758,9 @@ export interface CanvasRenderingContext2D {
    * @param x1 X-coordinate of the end point.
    * @param y1 Y-coordinate of the end point.
    * @returns LinearGradient object.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
-  createLinearGradient(
-    x0: number,
-    y0: number,
-    x1: number,
-    y1: number
-  ): CanvasGradient;
+  createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
    * Creates a radial gradient color.
@@ -1682,23 +1771,16 @@ export interface CanvasRenderingContext2D {
    * @param y1 Y-coordinate of the end point.
    * @param r1 The radius of End Circle.
    * @returns RadialGradient object.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
-  createRadialGradient(
-    x0: number,
-    y0: number,
-    r0: number,
-    x1: number,
-    y1: number,
-    r1: number
-  ): CanvasGradient;
+  createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient;
 
   /**
    * Creates a pattern for image filling based on a specified source image and repetition mode.
    * @param image Source image.
    * @param repetition Repetition mode. The value can be "repeat", "repeat-x", "repeat-y", or "no-repeat".
    * @returns Pattern of image filling.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   createPattern(image: Image, repetition: string): object;
 
@@ -1706,7 +1788,7 @@ export interface CanvasRenderingContext2D {
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    * @param path another created Path2D object.
    * @returns the object of Path2D.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   createPath2D(path?: Path2D): Path2D;
 
@@ -1714,7 +1796,7 @@ export interface CanvasRenderingContext2D {
    * Creates a path that is later used by the CanvasRenderingContext2D object.
    * @param cmds a string defined using the SVG path command.
    * @returns the object of Path2D.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   createPath2D(cmds?: string): Path2D;
 
@@ -1726,16 +1808,9 @@ export interface CanvasRenderingContext2D {
    * @param cp2y Y-coordinate of the second parameter of the bezier curve.
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  bezierCurveTo(
-    cp1x: number,
-    cp1y: number,
-    cp2x: number,
-    cp2y: number,
-    x: number,
-    y: number
-  ): void;
+  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Draws a quadratic curve on the canvas.
@@ -1743,7 +1818,7 @@ export interface CanvasRenderingContext2D {
    * @param cpy Y-coordinate of the bezier curve parameter.
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -1755,16 +1830,9 @@ export interface CanvasRenderingContext2D {
    * @param startAngle Start radian of the arc.
    * @param endAngel End radian of the arc.
    * @param anticlockwise Whether to draw the arc counterclockwise.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  arc(
-    x: number,
-    y: number,
-    radius: number,
-    startAngle: number,
-    endAngel: number,
-    anticlockwise?: boolean
-  ): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -1773,7 +1841,7 @@ export interface CanvasRenderingContext2D {
    * @param x2 X-coordinate of the second point on the arc.
    * @param y2 Y-coordinate of the second point on the arc.
    * @param radius Radius of the arc.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -1788,7 +1856,7 @@ export interface CanvasRenderingContext2D {
    * @param endAngle End Point Angle for Ellipse Drawing.
    * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   ellipse(
     x: number,
@@ -1798,7 +1866,7 @@ export interface CanvasRenderingContext2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number
+    anticlockwise?: number,
   ): void;
 
   /**
@@ -1807,26 +1875,26 @@ export interface CanvasRenderingContext2D {
    * @param y Y-coordinate of the upper left corner of the rectangle.
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rect(x: number, y: number, width: number, height: number): void;
 
   /**
    * Fills the area inside a closed path.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   fill(): void;
 
   /**
    * Sets a path as the clipping path.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   clip(): void;
 
   /**
    * Rotates a canvas clockwise around its coordinate axes.
    * @param rotate Clockwise rotation angle. You can use Math.PI / 180 to convert the angle to radian.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rotate(rotate: number): void;
 
@@ -1834,7 +1902,7 @@ export interface CanvasRenderingContext2D {
    * Scales a canvas based on scaling factors.
    * @param x Horizontal scale factor.
    * @param y Vertical scale factor.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   scale(x: number, y: number): void;
 
@@ -1849,16 +1917,9 @@ export interface CanvasRenderingContext2D {
    * @param scaleY Y-axis scale.
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  transform(
-    scaleX: number,
-    skewX: number,
-    skewY: number,
-    scaleY: number,
-    translateX: number,
-    translateY: number
-  ): void;
+  transform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void;
 
   /**
    * Uses same parameters as the transform() function to reset the existing transformation matrix and create a new transformation matrix.
@@ -1868,7 +1929,7 @@ export interface CanvasRenderingContext2D {
    * @param scaleY Y-axis scale.
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   setTransform(
     scaleX: number,
@@ -1876,14 +1937,14 @@ export interface CanvasRenderingContext2D {
     skewY: number,
     scaleY: number,
     translateX: number,
-    translateY: number
+    translateY: number,
   ): void;
 
   /**
    * Moves the origin of the coordinate system.
    * @param x X-axis translation.
    * @param y Y-axis translation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   translate(x: number, y: number): void;
 
@@ -1891,7 +1952,7 @@ export interface CanvasRenderingContext2D {
    * Sets the alpha value.
    * Global alpha value to set.
    * The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   globalAlpha: number;
 
@@ -1902,15 +1963,9 @@ export interface CanvasRenderingContext2D {
    * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  drawImage(
-    image: Image,
-    dx: number,
-    dy: number,
-    dWidth: number,
-    dHeight: number
-  ): void;
+  drawImage(image: Image, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
    * Draws an image.
@@ -1923,7 +1978,7 @@ export interface CanvasRenderingContext2D {
    * @param dy Y-coordinate of the upper left corner of the drawing area on the canvas.
    * @param dWidth Width of the drawing area.
    * @param dHeight Height of the drawing area.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   drawImage(
     image: Image,
@@ -1934,18 +1989,18 @@ export interface CanvasRenderingContext2D {
     dx: number,
     dy: number,
     dWidth: number,
-    dHeight: number
+    dHeight: number,
   ): void;
 
   /**
    * Restores the saved drawing context.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   restore: () => void;
 
   /**
    * Saves the current drawing context.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   save: () => void;
 
@@ -1954,14 +2009,14 @@ export interface CanvasRenderingContext2D {
    * @param width Width of the ImageData object.
    * @param height Height of the ImageData object.
    * @returns Returns the newly created FunctionCallable object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   createImageData(width: number, height: number): ImageData;
   /**
    * Creates an ImageData object.
    * @param imagedata ImageData object with the same width and height copied from the original ImageData object.
    * @returns Returns the newly created FunctionCallable object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   createImageData(imagedata: ImageData): ImageData;
 
@@ -1972,7 +2027,7 @@ export interface CanvasRenderingContext2D {
    * @param sw Width of the output area.
    * @param sh Height of the output area.
    * @returns ImageData object that contains pixels in the specified area on the canvas.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
@@ -1981,7 +2036,7 @@ export interface CanvasRenderingContext2D {
    * @param imageData ImageData object with pixels to put onto the canvas.
    * @param dx X-axis offset of the rectangle area on the canvas.
    * @param dy Y-axis offset of the rectangle area on the canvas.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   putImageData(imageData: ImageData, dx: number, dy: number): void;
 
@@ -1994,7 +2049,7 @@ export interface CanvasRenderingContext2D {
    * @param dirtyY Y-axis offset of the upper left corner of the rectangle area relative to that of the source image.
    * @param dirtyWidth Width of the rectangle area to cop the source image.
    * @param dirtyHeight Height of the rectangle area to cop the source image.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   putImageData(
     imageData: ImageData,
@@ -2003,27 +2058,27 @@ export interface CanvasRenderingContext2D {
     dirtyX: number,
     dirtyY: number,
     dirtyWidth: number,
-    dirtyHeight: number
+    dirtyHeight: number,
   ): void;
 
   /**
    * Sets the dash line style.
    * @param segments Interval of alternate line segments and the length of spacing.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   setLineDash(segments: Array<number>): void;
 
   /**
    * Obtains the dash line style.
    * @returns Interval of alternate line segments and the length of spacing.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   getLineDash(): Array<number>;
 
   /**
    * Sets the dash line offset.
    * Dash line offset. The value is a float number starting from 0.0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   lineDashOffset: number;
 
@@ -2040,40 +2095,40 @@ export interface CanvasRenderingContext2D {
    * lighter Displays both the new drawing and the existing drawing.
    * copy Displays the new drawing and neglects the existing drawing.
    * xor Combines the new drawing and existing drawing using the XOR operation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   globalCompositeOperation: string;
 
   /**
    * Sets the shadow blur degree.
    * Shadow blur degree. A larger value indicates a more blurred shadow. The value is of the float type, and the default value is 0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   shadowBlur: number;
 
   /**
    * Sets the shadow color.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   shadowColor: string;
 
   /**
    * Sets the x-axis shadow offset relative to the original object.
    * X-axis shadow offset relative to the original object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   shadowOffsetX: number;
 
   /**
    * Sets the y-axis shadow offset relative to the original object.
    * Y-axis shadow offset relative to the original object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   shadowOffsetY: number;
 
   /**
    * Draws the Bitmap to the current canvas.
-   * @devices tv, phone, tablet, wearable
+   * @since 7
    */
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 }
@@ -2081,7 +2136,7 @@ export interface CanvasRenderingContext2D {
 /**
  * You can create a gradient object on the canvas by calling CanvasRenderingContext2D.createLinearGradient().
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface CanvasGradient {
   /**
@@ -2089,20 +2144,20 @@ export interface CanvasGradient {
    * @param offset Proportion of the distance between the color stop and the start point to the total length.
    * The value ranges from 0 to 1.
    * @param color Sets the gradient color.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
   addColorStop(offset: number, color: string): void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 4
  */
 export interface Path2D {
   /**
    * Add another path to current path.
    * @param path another created Path2D object.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   addPath(path: Path2D): void;
 
@@ -2114,7 +2169,7 @@ export interface Path2D {
    * @param scaleY Y-axis scale.
    * @param translateX X-axis translation.
    * @param translateY Y-axis translation.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   setTransform(
     scaleX: number,
@@ -2122,12 +2177,12 @@ export interface Path2D {
     skewY: number,
     scaleY: number,
     translateX: number,
-    translateY: number
+    translateY: number,
   ): void;
 
   /**
    * Draws a closed path.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   closePath(): void;
 
@@ -2135,7 +2190,7 @@ export interface Path2D {
    * Moves a drawing path to a target position on the canvas.
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   moveTo(x: number, y: number): void;
 
@@ -2143,7 +2198,7 @@ export interface Path2D {
    * Connects the current point to a target position using a straight line.
    * @param x X-coordinate of the target position.
    * @param y Y-coordinate of the target position.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   lineTo(x: number, y: number): void;
 
@@ -2155,16 +2210,9 @@ export interface Path2D {
    * @param cp2y Y-coordinate of the second parameter of the bezier curve.
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  bezierCurveTo(
-    cp1x: number,
-    cp1y: number,
-    cp2x: number,
-    cp2y: number,
-    x: number,
-    y: number
-  ): void;
+  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
    * Draws a quadratic curve on the canvas.
@@ -2172,7 +2220,7 @@ export interface Path2D {
    * @param cpy Y-coordinate of the bezier curve parameter.
    * @param x End point x-coordinate of the bezier curve.
    * @param y End point y-coordinate of the bezier curve.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void;
 
@@ -2184,16 +2232,9 @@ export interface Path2D {
    * @param startAngle Start radian of the arc.
    * @param endAngel End radian of the arc.
    * @param anticlockwise Whether to draw the arc counterclockwise.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
-  arc(
-    x: number,
-    y: number,
-    radius: number,
-    startAngle: number,
-    endAngel: number,
-    anticlockwise?: boolean
-  ): void;
+  arc(x: number, y: number, radius: number, startAngle: number, endAngel: number, anticlockwise?: boolean): void;
 
   /**
    * Draws an arc based on the radius and points on the arc.
@@ -2202,7 +2243,7 @@ export interface Path2D {
    * @param x2 X-coordinate of the second point on the arc.
    * @param y2 Y-coordinate of the second point on the arc.
    * @param radius Radius of the arc.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
@@ -2217,7 +2258,7 @@ export interface Path2D {
    * @param endAngle End Point Angle for Ellipse Drawing.
    * @param anticlockwise Indicates whether to draw an ellipse counterclockwise.
    * 0: clockwise; 1: counterclockwise. The default value is 0.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   ellipse(
     x: number,
@@ -2227,7 +2268,7 @@ export interface Path2D {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    anticlockwise?: number
+    anticlockwise?: number,
   ): void;
 
   /**
@@ -2236,7 +2277,7 @@ export interface Path2D {
    * @param y Y-coordinate of the upper left corner of the rectangle.
    * @param width Width of the rectangle.
    * @param height Height of the rectangle.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   rect(x: number, y: number, width: number, height: number): void;
 }
@@ -2246,6 +2287,7 @@ export interface Path2D {
  * You can control each pixel to draw on the canvas.
  * <canvas> offers a variety of functions for drawing paths, rectangles, circles, text, and allows for adding images to it.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface CanvasElement extends Element {
   /**
@@ -2254,9 +2296,9 @@ export interface CanvasElement extends Element {
    * The return value is a 2D drawing object that provides specific 2D drawing operations.
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
-   * @devices tv, phone, tablet, wearable, smartVision
+   * @since 4
    */
-  getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D;
+  getContext(type: "2d", options?: ContextAttrOptions): CanvasRenderingContext2D;
 
   /**
    * Obtains the context of webgl canvas drawing.
@@ -2264,7 +2306,7 @@ export interface CanvasElement extends Element {
    * The return value is a webgl drawing object that provides specific webgl drawing operations.
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   getContext(type: "webgl", options?: WebGLContextAttributes): WebGLRenderingContext;
 
@@ -2274,7 +2316,7 @@ export interface CanvasElement extends Element {
    * The return value is a webgl2 drawing object that provides specific webgl2 drawing operations.
    * @param type identifier defining the drawing context associated to the canvas.
    * @param options use this context attributes to creating rendering context.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   getContext(type: "webgl2", options?: WebGLContextAttributes): WebGL2RenderingContext;
 
@@ -2284,76 +2326,76 @@ export interface CanvasElement extends Element {
    * @param quality A Number between 0 and 1 indicating image quality if the type option
    * is image/jpeg or image/webp. If this argument is anything else,
    * the default value for image quality is used. Other arguments are ignored.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   toDataURL(type?: string, quality?: number): string;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface ScrollOptions {
   /**
    * Scroll to the target position of the page. Unit: px
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   position: number;
 
   /**
    * Duration of the scrolling animation, in ms.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   duration: number;
 
   /**
    * The selector for current scroll.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   id?: string;
 
   /**
    * The timing function for current scroll animation.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   timingFunction?: string;
 
   /**
    * Callback function for successful interface invocation.
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   success?: (result: Object) => void;
 
   /**
    * Callback function for interface invocation failure.
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   fail?: (result: Object) => void;
 
   /**
    * Callback function at the end of the interface invoking (executed both successfully and unsuccessfully).
    * @param result the request execution result.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   complete?: (result: Object) => void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface ScrollOffset {
   /**
    * Scrolling offset in the x-axis, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   x: number;
 
   /**
    * Scrolling offset in the y-axis, in px.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   y: number;
 }
@@ -2361,35 +2403,37 @@ export interface ScrollOffset {
 /**
  * The <div> component provides a div container.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @devices tv, phone, tablet, wearable
+ * @since 6
  */
 export interface DivElement extends Element {
   /**
    * Scrolls the div for a certain distance.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   scrollBy(data: ScrollParam): void;
 
   /**
    * Returns the offset of the current scrolling. The return value type is Object.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   getScrollOffset(): ScrollOffset;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface Application {
   /**
    * Object that is exposed in the app.js file and obtained by this.$app.$def.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $def: any;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface ViewModel {
   $app: Application;
@@ -2401,7 +2445,7 @@ export interface ViewModel {
    * @returns Content.
    * There are two types of placeholders available:Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', { name: 'Hello world' }).
    * Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world'].
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   $t(path: string, params?: object | Array<any>): string;
 
@@ -2412,7 +2456,7 @@ export interface ViewModel {
    * @param path Resource file path.
    * @param count Value.
    * @returns Content.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $tc(path: string, count: number): string;
 
@@ -2420,7 +2464,7 @@ export interface ViewModel {
    * Replace the resource path based on the DPI of the current device: this.$r('image.tv').
    * @param path Resource file path.
    * @returns Content.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $r(path: string): string;
 
@@ -2429,7 +2473,7 @@ export interface ViewModel {
    * Usage: this.$set('key',value): Add an attribute.
    * @param key
    * @param value
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $set(key: string, value: any): void;
 
@@ -2437,7 +2481,7 @@ export interface ViewModel {
    * Deletes an attribute.
    * Usage:this.$delete('key'): Delete an attribute.
    * @param key
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $delete(key: string): void;
 
@@ -2448,10 +2492,10 @@ export interface ViewModel {
    * this.$element('xxx'): Obtain the component whose ID is xxx.
    * this.$element(): Obtain the root component.
    * @param id Component ID.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $element(
-    id?: string
+    id?: string,
   ): AnimationElement &
     CanvasElement &
     object &
@@ -2473,13 +2517,13 @@ export interface ViewModel {
 
   /**
    * Obtains the root ViewModel instance.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $root(): ViewModel & object;
 
   /**
    * Obtains the parent ViewModel instance.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $parent(): ViewModel & object;
 
@@ -2487,7 +2531,7 @@ export interface ViewModel {
    * Obtains the ViewModel instance of a custom child component with a specified ID.
    * Usage:this.$child('xxx'): Obtain the ViewModel instance of a custom child component whose ID is xxx.
    * @param id Component ID.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $child(id: string): ViewModel & object;
 
@@ -2495,13 +2539,13 @@ export interface ViewModel {
    * Listens for attribute changes. If the value of the data attribute changes, the bound event is triggered.
    * @param data Attribute.
    * @param callback Function name.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $watch(data: string, callback: string): void;
 
   /**
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   $refs: ElementReferences;
 
@@ -2509,20 +2553,21 @@ export interface ViewModel {
    * Custom events.
    * @param event The name of event.
    * @param params The params of event.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   $emit(event: string, params?: object): void;
 
   /**
    * Scroll the page to the destination.
    * @param options The properties of event.
-   * @devices tv, phone, tablet, wearable
+   * @since 6
    */
   scrollTo(options: ScrollOptions): void;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface ElementReferences {
   [k: string]: AnimationElement &
@@ -2547,47 +2592,56 @@ export interface ElementReferences {
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export declare class Locate {
   /**
    * language, such as 'zh'.
+   * @since 4
    */
   language: string;
 
   /**
    * country or regin, such ass 'CN'.
+   * @since 4
    */
   countryOrRegion: string;
 
   /**
    * text layout direction, ltr or rtl.
+   * @since 4
    */
   dir: "ltr" | "rtl";
 
   /**
    * The Unicode locale key set defined by the locale. If this locale does not have a specific key set, an empty set is
    * returned. For example: {"nu": "arab"}, which means that the numbers in the current environment use Arabic numbers.
+   * @since 5
    */
   unicodeSetting: object;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 6
  */
 export declare class Configuration {
   /**
    * Internationalization related information, such as language, country, text layout direction, etc.
+   * @since 6
    */
   locate: Locate;
 
   /**
    * The magnification of the current system font.
+   * @since 6
    */
   fontScale: number;
 }
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 4
  */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
@@ -2595,42 +2649,42 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
    * For a function, the return value must be an object.
    * Set the value of data to the return value of the function during page initialization.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   data?: Data;
 
   /**
    * Listens for page initialization.
    * Called when page initialization is complete. This function is called only once in a lifecycle.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onInit?(): void;
 
   /**
    * Listens for page creation.
    * Called when a page is created. This function is called only once in a lifecycle.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onReady?(): void;
 
   /**
    * Listens for page display.
    * Called when the page is displayed.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onShow?(): void;
 
   /**
    * Listens for page hiding.
    * Called when the page disappears.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onHide?(): void;
 
   /**
    * Listens for page destruction.
    * Called when the page is destroyed.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onDestroy?(): void;
 
@@ -2640,79 +2694,90 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * @returns true means that the page processes the return logic.
    * false means that the default return logic is used.
    * If no value is returned, the default return logic is used.
-   * @devices tv, phone, tablet, wearable
+   * @since 4
    */
   onBackPress?(): boolean;
 
   /**
    * Listens for page active.
    * Called when the page is activing.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onActive?(): void;
 
   /**
    * Listens for page inactive.
    * Called when the page is paused.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onInactive?(): void;
 
   /**
    * This callback is triggered when a new request is received when the FA has started.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onNewRequest?(): void;
 
   /**
    * Callback when FA initiates a migration, in this callback, the application can decide whether
    * to migrate according to the current state.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onStartContinuation?(): boolean;
 
   /**
    * For the callback of saving state data, the developer needs to fill in the parameter object
    * the data to be migrated to the target device.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onSaveData?(value: object): void;
 
   /**
    * The callback to restore the data saved by the onSaveData method when the migration was initiated.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onRestoreData?(value: object): void;
 
   /**
    * The callback for the completion of the migration, which is triggered on the calling side, indicates
    * the result of the application migration to the target device.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 5
    */
   onCompleteContinuation?(code: number): void;
 
   /**
    * This callback is triggered when the corresponding system configuration changes, such as system font size,
    * language region, etc.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 6
    */
   onConfigurationUpdated?(configuration: Configuration): void;
 
   /**
    * Listens for application creation.
    * Called when the application is created.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
+   * @since 4
    */
   onCreate?(): void;
 }
 
+/**
+ * Used for ide.
+ * @systemapi
+ * @hide
+ * @since 4
+ */
 type DefaultData<T> = object;
-type CombinedOptions<T extends ViewModel, Data> = object &
-  Options<T, Data> &
-  ThisType<T & ViewModel & Data>;
+/**
+ * Used for ide.
+ * @systemapi
+ * @hide
+ * @since 4
+ */
+type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & ThisType<T & ViewModel & Data>;
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @hide
+ * @since 4
  */
-export declare function extendViewModel<T extends ViewModel, Data>(
-  options: CombinedOptions<T, Data>
-): ViewModel & Data;
+export declare function extendViewModel<T extends ViewModel, Data>(options: CombinedOptions<T, Data>): ViewModel & Data;

@@ -171,12 +171,5 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   onFinish(event: () => void): ImageAttribute;
 }
 
-/**
- * @devices phone, tablet, car
- * @since 7
- */
 declare const Image: ImageInterface;
-/**
- * @since 7
- */
 declare const ImageInstance: ImageAttribute;

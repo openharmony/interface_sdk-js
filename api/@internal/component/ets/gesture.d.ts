@@ -17,30 +17,6 @@
  * Creating an Object
  * @since 7
  */
-declare enum GestureDirection {
-  /**
-   * Sliding in all directions.
-   * @since 7
-   */
-  All,
-
-  /**
-   * Sliding horizontally.
-   * @since 7
-   */
-  Horizontal,
-
-  /**
-   * Sliding Vertical
-   * @since 7
-   */
-  Vertical,
-}
-
-/**
- * Creating an Object
- * @since 7
- */
 declare enum PanDirection {
   /**
    * Default.
@@ -341,10 +317,10 @@ interface LongPressGestureInterface {
 }
 
 /**
- * Defines the PanGesture option.
+ * Defines the PanGesture options.
  * @since 7
  */
-declare class PanGestureOption {
+declare class PanGestureOptions {
   /**
    * Constructor parameters.
    * @since 7
@@ -379,7 +355,7 @@ interface PanGestureInterface {
    * Set the value.
    * @since 7
    */
-  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOption): PanGestureInterface;
+  (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions): PanGestureInterface;
 
   /**
    * Pan gesture recognition success callback.

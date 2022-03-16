@@ -44,10 +44,10 @@ declare class TextTimerController {
 }
 
 /**
- * Defines the option of TextTimer.
+ * Defines the options of TextTimer.
  * @since 8
  */
-interface TextTimerOption {
+interface TextTimerOptions {
   /**
    * Sets whether to countdown.The default value is false.
    * @since 8
@@ -77,7 +77,7 @@ interface TextTimerInterface {
    * Defines the TextTimer constructor.
    * @since 8
    */
-  (options?: TextTimerOption): TextTimerAttribute;
+  (options?: TextTimerOptions): TextTimerAttribute;
 }
 
 /**
@@ -91,10 +91,10 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 8
    */
   format(value: string): TextTimerAttribute;
-   /**
-    * Called when the font color is set.
-    * @since 8
-    */
+  /**
+   * Called when the font color is set.
+   * @since 8
+   */
   fontColor(value: ResourceColor): TextTimerAttribute;
   /**
    * Called when the font size is set.
@@ -106,15 +106,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 8
    */
   fontStyle(value: FontStyle): TextTimerAttribute;
-   /**
-    * Called when the fontWeight is set
-    * @since 8
-    */
+  /**
+   * Called when the fontWeight is set
+   * @since 8
+   */
   fontWeight(value: number | FontWeight | string): TextTimerAttribute;
-   /**
-    * Called when the fontFamily is set
-    * @since 8
-    */
+  /**
+   * Called when the fontFamily is set
+   * @since 8
+   */
   fontFamily(value: ResourceStr): TextTimerAttribute;
   /**
    * Called when the timer value is returned.

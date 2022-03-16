@@ -52,8 +52,9 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   /**
    * Index bar selection callback.
    * @since 7
+   * @deprecated since 8
    */
-  onSelected(event: (index: number) => void): AlphabetIndexerAttribute;
+  onSelected(callback: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
    * Definitions color.
@@ -122,28 +123,34 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
   alignStyle(value: IndexerAlign): AlphabetIndexerAttribute;
 
   /**
+   * Index bar selection callback.
+   * @since 8
+   */
+  onSelect(callback: (index: number) => void): AlphabetIndexerAttribute;
+
+  /**
    * Index bar selection callback and return the strings which display on pop-up.
    * @since 8
    */
-  onRequestPopupData(event: (index: number) => Array<string>): AlphabetIndexerAttribute;
+  onRequestPopupData(callback: (index: number) => Array<string>): AlphabetIndexerAttribute;
 
   /**
    * Pop-up selection callback.
    * @since 8
    */
-  onPopupSelected(event: (index: number) => void): AlphabetIndexerAttribute;
+  onPopupSelect(callback: (index: number) => void): AlphabetIndexerAttribute;
 
   /**
-   * Select the index.
+   * Sets the selected index.
    * @since 8
    */
-  selectedIndex(index: number): AlphabetIndexerAttribute;
+  selected(index: number): AlphabetIndexerAttribute;
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
    * @since 8
    */
-  popupPosition(value: {offsetX: number, offsetY: number}): AlphabetIndexerAttribute;
+  popupPosition(value: Position): AlphabetIndexerAttribute;
 }
 
 declare const AlphabetIndexer: AlphabetIndexerInterface;

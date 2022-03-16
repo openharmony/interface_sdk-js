@@ -14,10 +14,10 @@
  */
 
 /**
- * Defines style option for progress component.
+ * Defines style options for progress component.
  * @since 8
  */
-declare interface ProgressStyleOption {
+declare interface ProgressStyleOptions {
   /**
    * Defines the strokeWidth property.
    * @since 8
@@ -44,35 +44,30 @@ declare interface ProgressStyleOption {
 declare enum ProgressStyle {
   /**
    * Linear progress bar style.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Linear,
 
   /**
    * Ring progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Ring,
 
   /**
    * Eclipse progress bar.
-   * @devices phone, tablet, car.
    * @since 7
    */
   Eclipse,
 
   /**
    * ScaleRing progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   ScaleRing,
 
   /**
    * Capsule progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Capsule,
@@ -91,6 +86,7 @@ interface ProgressInterface {
 }
 
 /**
+ * Defines the progress attibute functions.
  * @since 7
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
@@ -110,7 +106,7 @@ declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
    * Called when the style of progress bar is set.
    * @since 8
    */
-  style(value: ProgressStyleOption): ProgressAttribute;
+  style(value: ProgressStyleOptions): ProgressAttribute;
 }
 
 declare const Progress: ProgressInterface;

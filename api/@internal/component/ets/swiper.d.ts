@@ -38,7 +38,7 @@ declare class SwiperController {
 
   /**
    * Called when need to stop the swiper animation.
-   * @since 8
+   * @since 7
    */
   finishAnimation(callback?: () => void);
 }
@@ -128,6 +128,7 @@ declare interface IndicatorStyle {
 }
 
 /**
+ * Defines the swiper attibute functions.
  * @since 7
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {

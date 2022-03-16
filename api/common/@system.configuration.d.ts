@@ -15,13 +15,12 @@
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @devices tv, phone, tablet, wearable, liteWearable
+ * @since 3
  */
 export interface LocaleResponse {
   /**
    * Current language of the application. Example: zh.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @devices tv, phone, tablet, wearable, liteWearable
    * @since 3
    */
   language: string;
@@ -29,7 +28,6 @@ export interface LocaleResponse {
   /**
    * Country or region. Example: CN.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @devices tv, phone, tablet, wearable, liteWearable
    * @since 3
    */
   countryOrRegion: string;
@@ -39,7 +37,6 @@ export interface LocaleResponse {
    * ltr: The text direction is from left to right.
    * rtl: The text direction is from right to left.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @devices tv, phone, tablet, wearable, liteWearable
    * @since 3
    */
   dir: "ltr" | "rtl";
@@ -47,13 +44,13 @@ export interface LocaleResponse {
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @devices tv, phone, tablet, wearable, liteWearable
+ * @since 3
  */
 export default class Configuration {
   /**
    * Obtains the current locale of the application, which is the same as the system locale.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @devices tv, phone, tablet, wearable, liteWearable
+   * @since 3
    */
   static getLocale(): LocaleResponse;
 }

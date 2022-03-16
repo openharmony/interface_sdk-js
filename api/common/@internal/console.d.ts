@@ -15,42 +15,36 @@
 
  /**
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @devices tv, phone, tablet, wearable, liteWearable, smartVision
  * @since 3
  */
 export declare class console {
   /**
    * Prints "debug" logs.
    * @param message Text to print.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static debug(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "log" logs.
    * @param message Text to print.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static log(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "info" logs.
    * @param message Text to print.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static info(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "warn" logs.
    * @param message Text to print.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static warn(message: string, ...arguments: any[]): void;
 
   /**
    * Prints "error" logs.
    * @param message Text to print.
-   * @devices tv, phone, tablet, wearable, liteWearable, smartVision
    */
   static error(message: string, ...arguments: any[]): void;
 }

@@ -59,6 +59,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",
     "api/@internal/component/ets/grid_container.d.ts",
+    "api/@internal/component/ets/hyperlink.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
     "api/@internal/component/ets/index-full.d.ts",
@@ -73,7 +74,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/page_transition.d.ts",
     "api/@internal/component/ets/panel.d.ts",
     "api/@internal/component/ets/path.d.ts",
-    "api/@internal/component/ets/piece.d.ts",
     "api/@internal/component/ets/polygon.d.ts",
     "api/@internal/component/ets/polyline.d.ts",
     "api/@internal/component/ets/progress.d.ts",
@@ -90,7 +90,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/search.d.ts",
     "api/@internal/component/ets/select.d.ts",
     "api/@internal/component/ets/shape.d.ts",
-    "api/@internal/component/ets/sheet.d.ts",
     "api/@internal/component/ets/sidebar.d.ts",
     "api/@internal/component/ets/slider.d.ts",
     "api/@internal/component/ets/span.d.ts",
@@ -107,6 +106,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/text_input.d.ts",
     "api/@internal/component/ets/text_picker.d.ts",
     "api/@internal/component/ets/text_timer.d.ts",
+    "api/@internal/component/ets/time_picker.d.ts",
     "api/@internal/component/ets/toggle.d.ts",
     "api/@internal/component/ets/units.d.ts",
     "api/@internal/component/ets/video.d.ts",
@@ -172,6 +172,7 @@ ohos_declaration_template("ohos_declaration_common") {
 ohos_copy("internal_full") {
   sources = [
     "api/common/@internal/console.d.ts",
+    "api/common/@internal/featureability.d.ts",
     "api/common/@internal/global.d.ts",
     "api/common/@internal/index.d.ts",
     "api/common/@internal/viewmodel.d.ts",
@@ -184,6 +185,7 @@ ohos_copy("internal_full") {
 ohos_copy("internal_lite") {
   sources = [
     "api/liteWearable/@internal/console.d.ts",
+    "api/liteWearable/@internal/featureability.d.ts",
     "api/liteWearable/@internal/global.d.ts",
     "api/liteWearable/@internal/index.d.ts",
     "api/liteWearable/@internal/viewmodel.d.ts",

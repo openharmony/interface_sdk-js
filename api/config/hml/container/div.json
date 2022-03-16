@@ -5,37 +5,34 @@
       "name": "v3.0"
     }
   ],
-  "syscap": ["SystemCapability.ArkUI.ArkUI.Full", "SystemCapability.ArkUI.ArkUI.Lite"],
-  "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
+  "syscap": [
+    "SystemCapability.ArkUI.ArkUI.Full",
+    "SystemCapability.ArkUI.ArkUI.Lite"
+  ],
   "description": [
     {
-      "name": "The <div> component is a basic container that is used as the root node of the page structure or is used to group the content.",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"]
+      "name": "The <div> component is a basic container that is used as the root node of the page structure or is used to group the content."
     }
   ],
   "attributes": [
     {
       "name": "shareid",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
+      ],
       "required": false,
       "description": [
         {
           "name": "Used for the transition of shared elements and takes effect only when it is configured. This attribute cannot be modified after being set. list-item, image, text, button, label components are supported for the transition of shared elements.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
+          ]
         }
       ],
       "type": "string"
     },
     {
       "name": "id",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -44,29 +41,13 @@
       ],
       "description": [
         {
-          "name": "Unique ID of a component.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Unique ID of a component."
         }
       ],
       "type": "string"
     },
     {
       "name": "style",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -75,29 +56,13 @@
       ],
       "description": [
         {
-          "name": "Style declaration of a component.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Style declaration of a component."
         }
       ],
       "type": "string"
     },
     {
       "name": "class",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -106,29 +71,13 @@
       ],
       "description": [
         {
-          "name": "Style class of a component, which is used to refer to a style table.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Style class of a component, which is used to refer to a style table."
         }
       ],
       "type": "string"
     },
     {
       "name": "ref",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -137,26 +86,15 @@
       ],
       "description": [
         {
-          "name": "Used to register reference information of child elements or child components. The reference information is registered with the parent component on $refs.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Used to register reference information of child elements or child components. The reference information is registered with the parent component on $refs."
         }
       ],
       "type": "string"
     },
     {
       "name": "disabled",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -167,11 +105,8 @@
       "description": [
         {
           "name": "Whether a component is disabled. If it is disabled, it cannot respond to user interaction.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -187,11 +122,8 @@
     },
     {
       "name": "focusable",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -202,11 +134,8 @@
       "description": [
         {
           "name": "Whether a component can gain focus. When focusable is set to true, the component can respond to focus events and key events. If a key event or click event is set for the component, this attribute is set to true automatically.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -222,11 +151,8 @@
     },
     {
       "name": "data-*",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -237,11 +163,8 @@
       "description": [
         {
           "name": "Attribute set for a component to facilitate data storage and reading.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -249,11 +172,8 @@
     },
     {
       "name": "click-effect",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -264,11 +184,8 @@
       "description": [
         {
           "name": "Click effect complying with spring physics. Available values are as follows:\nspring-small: The button icon scales down to 90% of its size when it is selected. This is appropriate for small icons.\nspring-medium: The component scales down to 95% of its size when it is selected. This is appropriate for medium-sized components.spring-large: The button icon scales down and up by 95% of its size, which is appropriate to large icons.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -287,11 +204,8 @@
     },
     {
       "name": "voicelabel",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -302,11 +216,8 @@
       "description": [
         {
           "name": "Voice label. When a voice label is triggered, the click event of the component is triggered.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -314,11 +225,8 @@
     },
     {
       "name": "subscriptflag",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -329,11 +237,8 @@
       "description": [
         {
           "name": "Voice subscript switch. Available values are as follows:\nauto: For the <image> and <list-item> components, if subscriptflag is set to auto, the voice subscript is turned on. For other components, if subscriptflag is set to auto, the voice subscript is turned off.\non: Turn on the voice subscript.\noff: Turn off the voice subscript.If no customized subscript is set, the subscript is automatically accumulated from 1.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -352,11 +257,8 @@
     },
     {
       "name": "subscriptlabel",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -367,11 +269,8 @@
       "description": [
         {
           "name": "Custom subscript. After it is set, the subscript is displayed in the way you specified. To make this attribute take effect, you need to turn on the voice subscript.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -379,11 +278,8 @@
     },
     {
       "name": "scenelabel",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -394,11 +290,8 @@
       "description": [
         {
           "name": "Available values are as follows:\nvideo: Video scenario. For example, to watch a video, a user can say the voiceLabel (usually the video name), play voiceLabel, see voiceLabel, or watch voiceLabel, etc.\naudio: Music scenario. For example, to listen to a song, a user can say the voiceLabel (usually the song name), play voiceLabel, or listen voiceLabel, etc.\npage: Page scenario. For example, to go to a page, a user can say the voiceLabel (usually the page name), switch to voiceLabel, go to voiceLabel, or jump to voiceLabel, etc.\nswitch: Switch scenario. For example, to turn on or turn off a switch, a user can say the voiceLabel (usually the switch name), turn on voiceLabel, open voiceLabel, turn off voiceLabel, close voiceLabel, etc.common: Common scenario, which is triggered by the voiceLabel.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -423,11 +316,8 @@
     },
     {
       "name": "accessibilitygroup",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -438,11 +328,8 @@
       "description": [
         {
           "name": "Accessibility group. If this attribute is set to true, the component and all its child components form an entire selectable component, and the accessibility service will no longer available for the content of its child components.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -458,11 +345,8 @@
     },
     {
       "name": "accessibilitytext",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -473,11 +357,8 @@
       "description": [
         {
           "name": "Accessibility text. If a component does not contain text information, it will not be read when the component is selected by the screen reader. In this case, the screen reader user cannot know which component is selected. To solve this problem, you can set this attribute for components without text information. When the component is selected by the screen reader, the specified accessibility text will be read, informing the user which component is selected. If a component with this attribute set contains text information, only the accessibility text will be read.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -485,11 +366,8 @@
     },
     {
       "name": "accessibilitydescription",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -500,11 +378,8 @@
       "description": [
         {
           "name": "Accessibility description. You can specify further explanation of the current component, for example, possible operation consequences, especially those cannot be learned from component attributes and accessibility text. You can set a detailed description text for the attribute of the component to help users understand the operation to be performed. If a component contains both text information and the accessibility description, the text is read first and then the accessibility description, when the component is selected.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -512,11 +387,8 @@
     },
     {
       "name": "accessibilityimportance",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "required": false,
       "version": [
@@ -527,11 +399,8 @@
       "description": [
         {
           "name": "Accessibility importance, which is used to decide whether a component can be identified by the accessibility service. The value can be auto, yes, no, or no-hide-descendants. The last value forces the screen reader to ignore the current component and all its subcomponents.\nyes: The current component is selectable for the accessibility service.no: The current component is not selectable for the accessibility service.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -539,14 +408,6 @@
     },
     {
       "name": "for",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -555,29 +416,13 @@
       ],
       "description": [
         {
-          "name": "Expands the current element based on the configured data list.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Expands the current element based on the configured data list."
         }
       ],
       "type": "string"
     },
     {
       "name": "tid",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -586,29 +431,13 @@
       ],
       "description": [
         {
-          "name": "The tid attribute accelerates the for loop and improves the re-rendering efficiency when data in a loop changes.\nThe tid attribute specifies the unique ID of each element in the array. If it is not specified, the index of each element in the array is used as the ID. For example, tid=\"id\" indicates that the id attribute of each element is its unique ID.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The tid attribute accelerates the for loop and improves the re-rendering efficiency when data in a loop changes.\nThe tid attribute specifies the unique ID of each element in the array. If it is not specified, the index of each element in the array is used as the ID. For example, tid=\"id\" indicates that the id attribute of each element is its unique ID."
         }
       ],
       "type": "string"
     },
     {
       "name": "if",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -617,15 +446,7 @@
       ],
       "description": [
         {
-          "name": "Whether the element is added or removed.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Whether the element is added or removed."
         }
       ],
       "type": "enum",
@@ -640,11 +461,8 @@
     },
     {
       "name": "dir",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -655,11 +473,8 @@
       "description": [
         {
           "name": "Sets the element layout mode. The rtl, ltr, and auto attributes can be set.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ],
@@ -678,14 +493,6 @@
     },
     {
       "name": "elif",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -705,14 +512,6 @@
     },
     {
       "name": "else",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -724,14 +523,6 @@
     },
     {
       "name": "show",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "required": false,
       "version": [
         {
@@ -740,15 +531,7 @@
       ],
       "description": [
         {
-          "name": "Whether the element is displayed or hidden.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "Whether the element is displayed or hidden."
         }
       ],
       "type": "enum",
@@ -765,7 +548,6 @@
   "events": [
     {
       "name": "reachstart",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
       "version": [
         {
           "name": "v6.0"
@@ -773,14 +555,12 @@
       ],
       "description": [
         {
-          "name": "Event callback triggered when the page slides to the beginning point. This event is triggered only when flex-direction:row is used.",
-          "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"]
+          "name": "Event callback triggered when the page slides to the beginning point. This event is triggered only when flex-direction:row is used."
         }
       ]
     },
     {
       "name": "reachend",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
       "version": [
         {
           "name": "v6.0"
@@ -788,14 +568,12 @@
       ],
       "description": [
         {
-          "name": "Event callback triggered when the page slides to the end point. This event is triggered only when flex-direction:row is used.",
-          "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"]
+          "name": "Event callback triggered when the page slides to the end point. This event is triggered only when flex-direction:row is used."
         }
       ]
     },
     {
       "name": "reachtop",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
       "version": [
         {
           "name": "v6.0"
@@ -803,14 +581,12 @@
       ],
       "description": [
         {
-          "name": "Event callback triggered when the page slides to the topmost point. This event is triggered only when flex-direction:column is used.",
-          "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"]
+          "name": "Event callback triggered when the page slides to the topmost point. This event is triggered only when flex-direction:column is used."
         }
       ]
     },
     {
       "name": "reachbottom",
-      "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"],
       "version": [
         {
           "name": "v6.0"
@@ -818,18 +594,14 @@
       ],
       "description": [
         {
-          "name": "Event callback triggered when the page slides to the bottom point. This event is triggered only when flex-direction:column is used.",
-          "supportedDevices": ["phone", "tablet", "tv", "liteWearable", "wearable", "smartVision"]
+          "name": "Event callback triggered when the page slides to the bottom point. This event is triggered only when flex-direction:column is used."
         }
       ]
     },
     {
       "name": "touchstart",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -839,22 +611,16 @@
       "description": [
         {
           "name": "The tapping starts",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "touchmove",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -864,22 +630,16 @@
       "description": [
         {
           "name": "The tapping moves.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "touchcancel",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -889,22 +649,16 @@
       "description": [
         {
           "name": "The tapping is interrupted.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "touchend",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -914,25 +668,14 @@
       "description": [
         {
           "name": "The tapping ends.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "click",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -940,28 +683,12 @@
       ],
       "description": [
         {
-          "name": "A component is clicked.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "A component is clicked."
         }
       ]
     },
     {
       "name": "longpress",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -969,28 +696,12 @@
       ],
       "description": [
         {
-          "name": "A component is long pressed.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "A component is long pressed."
         }
       ]
     },
     {
       "name": "doubleclick",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -998,28 +709,12 @@
       ],
       "description": [
         {
-          "name": "A component is double clicked.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "A component is double clicked."
         }
       ]
     },
     {
       "name": "pinchstart",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -1027,28 +722,12 @@
       ],
       "description": [
         {
-          "name": "The pinch starts.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The pinch starts."
         }
       ]
     },
     {
       "name": "pinchupdate",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -1056,28 +735,12 @@
       ],
       "description": [
         {
-          "name": "The pinch updates.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The pinch updates."
         }
       ]
     },
     {
       "name": "pinchend",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -1085,28 +748,12 @@
       ],
       "description": [
         {
-          "name": "The pinch ends.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The pinch ends."
         }
       ]
     },
     {
       "name": "pinchcancel",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v4.0"
@@ -1114,28 +761,12 @@
       ],
       "description": [
         {
-          "name": "The pinch is interrupted.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The pinch is interrupted."
         }
       ]
     },
     {
       "name": "drag",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1143,28 +774,12 @@
       ],
       "description": [
         {
-          "name": "The duration of drag.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The duration of drag."
         }
       ]
     },
     {
       "name": "dragstart",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1172,28 +787,12 @@
       ],
       "description": [
         {
-          "name": "The drag starts.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag starts."
         }
       ]
     },
     {
       "name": "dragend",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1201,28 +800,12 @@
       ],
       "description": [
         {
-          "name": "The drag ends.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag ends."
         }
       ]
     },
     {
       "name": "dragenter",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1230,28 +813,12 @@
       ],
       "description": [
         {
-          "name": "The drag enters.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag enters."
         }
       ]
     },
     {
       "name": "dragover",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1259,28 +826,12 @@
       ],
       "description": [
         {
-          "name": "The drag overs.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag overs."
         }
       ]
     },
     {
       "name": "dragleave",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1288,28 +839,12 @@
       ],
       "description": [
         {
-          "name": "The drag leaves.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag leaves."
         }
       ]
     },
     {
       "name": "drop",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -1317,25 +852,14 @@
       ],
       "description": [
         {
-          "name": "The drag drops.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "The drag drops."
         }
       ]
     },
     {
       "name": "focus",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1345,22 +869,16 @@
       "description": [
         {
           "name": "A component gains focus. The <span> component cannot gain focus.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "blur",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1370,22 +888,16 @@
       "description": [
         {
           "name": "A component loses focus. The <span> component cannot lose focus.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "key",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1395,25 +907,14 @@
       "description": [
         {
           "name": "A user presses a key on the remote control. Available return values are as follows:\ntrue: returned if the page processes the key event.\nfalse: returned if the default logic is used to process the key event.\nIf no value is returned, false is used as the return value.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "swipe",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "liteWearable",
-        "wearable",
-        "smartVision"
-      ],
       "version": [
         {
           "name": "v5.0"
@@ -1421,25 +922,14 @@
       ],
       "description": [
         {
-          "name": "A user quickly swipes on a component.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "liteWearable",
-            "wearable",
-            "smartVision"
-          ]
+          "name": "A user quickly swipes on a component."
         }
       ]
     },
     {
       "name": "attached",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1449,22 +939,16 @@
       "description": [
         {
           "name": "The current component is mounted to the render tree.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "detached",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1474,22 +958,16 @@
       "description": [
         {
           "name": "The current component is removed from the render tree.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]
     },
     {
       "name": "accessibility",
-      "supportedDevices": [
-        "phone",
-        "tablet",
-        "tv",
-        "wearable"
+      "syscap": [
+        "SystemCapability.ArkUI.ArkUI.Full"
       ],
       "version": [
         {
@@ -1499,11 +977,8 @@
       "description": [
         {
           "name": "Event dispatched by the accessibility service.",
-          "supportedDevices": [
-            "phone",
-            "tablet",
-            "tv",
-            "wearable"
+          "syscap": [
+            "SystemCapability.ArkUI.ArkUI.Full"
           ]
         }
       ]

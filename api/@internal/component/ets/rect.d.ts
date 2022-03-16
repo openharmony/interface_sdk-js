@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Provides an interface for drawing rectangles.
  * @since 7

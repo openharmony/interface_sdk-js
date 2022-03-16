@@ -33,10 +33,10 @@ declare enum DataPanelType {
 }
 
 /**
- * Defines the option of DataPanel.
+ * Defines the options of DataPanel.
  * @since 7
  */
-declare interface DataPanelOption {
+declare interface DataPanelOptions {
   /**
    * Current data value. the max length is 9.
    * @since 7
@@ -65,7 +65,7 @@ interface DataPanelInterface {
    * Return a DataPanel.
    * @since 7
    */
-  (options: DataPanelOption): DataPanelAttribute;
+  (options: DataPanelOptions): DataPanelAttribute;
 }
 
 /**

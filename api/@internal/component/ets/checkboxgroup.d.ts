@@ -36,19 +36,19 @@ declare enum SelectStatus {
 }
 
 /**
- * Defines the option of CheckboxGroup.
+ * Defines the options of CheckboxGroup.
  * @since 8
  */
-declare interface CheckboxGroupOption {
+declare interface CheckboxGroupOptions {
   /**
    * Setting the group of CheckboxGroup.
    * @since 8
    */
-   group?: string;
+  group?: string;
 }
 
 /**
- * Defines the option of CheckboxGroupResult.
+ * Defines the options of CheckboxGroupResult.
  * @since 8
  */
 declare interface CheckboxGroupResult {
@@ -56,12 +56,12 @@ declare interface CheckboxGroupResult {
    * Checkbox name.
    * @since 8
    */
-   name: Array<string>;
+  name: Array<string>;
   /**
    * Set the group of status.
    * @since 8
    */
-   status: SelectStatus;
+  status: SelectStatus;
 }
 
 /**
@@ -73,7 +73,7 @@ interface CheckboxGroupInterface {
    * Called when the CheckboxGroup component is used.
    * @since 8
    */
-  (options?: CheckboxGroupOption): CheckboxGroupAttribute;
+  (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
 
 /**
@@ -85,13 +85,13 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * setting whether all checkbox is selected.
    * @since 8
    */
-   selectAll(value: boolean): CheckboxGroupAttribute;
+  selectAll(value: boolean): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
+  selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.

@@ -41,7 +41,7 @@ declare enum ButtonType {
  * Defines the button options.
  * @since 7
  */
-declare interface ButtonOption {
+declare interface ButtonOptions {
   /**
    * Describes the button style.
    * @since 7
@@ -70,13 +70,13 @@ interface ButtonInterface {
    * Create Button with Text child.
    * @since 7
    */
-  (options: ButtonOption): ButtonAttribute;
+  (options: ButtonOptions): ButtonAttribute;
 
   /**
    * Create Button with inner text label.
    * @since 7
    */
-  (label: ResourceStr, options?: ButtonOption): ButtonAttribute;
+  (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
 
 /**
@@ -127,5 +127,5 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontFamily(value: string | Resource): ButtonAttribute;
 }
 
-declare const Button: ButtonInterface
+declare const Button: ButtonInterface;
 declare const ButtonInstance: ButtonAttribute;

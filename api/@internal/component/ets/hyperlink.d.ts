@@ -14,27 +14,30 @@
  */
 
 /**
- * Ellipse drawing.
+ * Defines the hyperlink interface.
  * @since 7
  */
-interface EllipseInterface {
+interface HyperlinkInterface {
   /**
-   * use new function to set the value.
+   * Return to get Hyperlink.
+   * adress: Web page redirected by the hyperlink component.
+   * content: Hyperlinks in the hyperlink component display text.
    * @since 7
    */
-  new (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
-
-  /**
-   * Set the value.
-   * @since 7
-   */
-  (value?: { width?: string | number; height?: string | number }): EllipseAttribute;
+  (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
 
 /**
+ * Defines the hyperlink attibute functions
  * @since 7
  */
-declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
+declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
+  /**
+   * Set Color
+   * @since 7
+   */
+  color(value: Color | number | string | Resource): HyperlinkAttribute;
+}
 
-declare const Ellipse: EllipseInterface;
-declare const EllipseInstance: EllipseAttribute;
+declare const Hyperlink: HyperlinkInterface;
+declare const HyperlinkInterface: HyperlinkAttribute;

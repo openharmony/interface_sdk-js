@@ -36,7 +36,7 @@ declare enum SeekMode {
    */
   ClosestKeyframe,
 
-   /**
+  /**
    * Seek to frames closest the time point.
    * @since 8
    */
@@ -48,67 +48,69 @@ declare enum SeekMode {
  * @since 8
  */
 declare enum PlaybackSpeed {
-    /**
-     * 0.75x speed playback.
-     * @since 8
-     */
-    Speed_Forward_0_75_X,
-  
-    /**
-     * 1.00x speed playback.
-     * @since 8
-     */
-    Speed_Forward_1_00_X,
-  
-    /**
-     * 1.25x speed playback.
-     * @since 8
-     */
-    Speed_Forward_1_25_X,
-  
-    /**
-     * 1.75x speed playback.
-     * @since 8
-     */
-    Speed_Forward_1_75_X,
-  
-    /**
-     * 2.00x speed playback.
-     * @since 8
-     */
-    Speed_Forward_2_00_X,
-  }
-  
   /**
-   * @since 7
+   * 0.75x speed playback.
+   * @since 8
    */
-  interface VideoOption {
-    /**
-     * src of video.
-     * @since 7
-     */
-    src?: string | Resource;
-  
-    /**
-     * playback rate of video.
-     * @since 7
-     */
-    currentProgressRate?: number | string | PlaybackSpeed;
-  
-    /**
-     * preview uri of video.
-     * @since 8
-     */
-    previewUri?: string | PixelMap | Resource;
-  
-    /**
-     * controller of video.
-     * @since 7
-     */
-    controller?: VideoController;
-  }
+  Speed_Forward_0_75_X,
+
+  /**
+   * 1.00x speed playback.
+   * @since 8
+   */
+  Speed_Forward_1_00_X,
+
+  /**
+   * 1.25x speed playback.
+   * @since 8
+   */
+  Speed_Forward_1_25_X,
+
+  /**
+   * 1.75x speed playback.
+   * @since 8
+   */
+  Speed_Forward_1_75_X,
+
+  /**
+   * 2.00x speed playback.
+   * @since 8
+   */
+  Speed_Forward_2_00_X,
+}
 
 /**
+ * Defines the video options.
+ * @since 7
+ */
+declare interface VideoOptions {
+  /**
+   * src of video.
+   * @since 7
+   */
+  src?: string | Resource;
+
+  /**
+   * playback rate of video.
+   * @since 7
+   */
+  currentProgressRate?: number | string | PlaybackSpeed;
+
+  /**
+   * preview uri of video.
+   * @since 7
+   */
+  previewUri?: string | PixelMap | Resource;
+
+  /**
+   * controller of video.
+   * @since 7
+   */
+  controller?: VideoController;
+}
+
+/**
+ * Defines the video controller.
  * @since 7
  */
 declare class VideoController {
@@ -132,7 +134,7 @@ declare class VideoController {
 
   /**
    * Provides an event to stop playback.
-   * @since 6
+   * @since 7
    */
   stop();
 
@@ -143,6 +145,18 @@ declare class VideoController {
   setCurrentTime(value: number);
 
   /**
+   * Provides a full screen playback method.
+   * @since 7
+   */
+  requestFullscreen(value: boolean);
+
+  /**
+   * Provides a method to exit full screen playback.
+   * @since 7
+   */
+  exitFullscreen();
+
+  /**
    * Provide the progress method of video playback.
    * @since 8
    */
@@ -150,6 +164,7 @@ declare class VideoController {
 }
 
 /**
+ * Defines the video interface.
  * @since 7
  */
 interface VideoInterface {
@@ -157,10 +172,11 @@ interface VideoInterface {
    * Set the value.
    * @since 7
    */
-  (value: VideoOption): VideoAttribute;
+  (value: VideoOptions): VideoAttribute;
 }
 
 /**
+ * Defines the video attribute functions.
  * @since 7
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
@@ -212,6 +228,11 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    */
   onFinish(event: () => void): VideoAttribute;
 
+  /**
+   * Called when the video enters and exits the full screen.
+   * @since 7
+   */
+  onFullscreenChange(callback: (event?: { fullscreen: boolean }) => void): VideoAttribute;
   /**
    * Called when the video preparation is complete.
    * @since 7

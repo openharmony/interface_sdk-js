@@ -102,6 +102,21 @@
       ]
     },
     {
+      "name": "animationduration",
+      "version": [
+        {
+          "name": "v6.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "Sets the animation duration of the proportion-type circular chart, in ms."
+        }
+      ],
+      "type": "string"
+    },
+    {
       "name": "percent",
       "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "required": false,

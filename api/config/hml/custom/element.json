@@ -6,34 +6,28 @@
     }
   ],
   "syscap": ["SystemCapability.ArkUI.ArkUI.Full"],
-  "supportedDevices": ["phone", "tablet", "tv", "wearable"],
   "description": [
     {
-      "name": "custom component.",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+      "name": "custom component."
     }
   ],
   "attributes": [
     {
       "name": "name",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": false,
       "description": [
         {
-          "name": "custom component name.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "custom component name."
         }
       ],
       "type": "string"
     },
     {
       "name": "src",
-      "supportedDevices": ["phone", "tablet", "tv", "wearable"],
       "required": true,
       "description": [
         {
-          "name": "custom component path.",
-          "supportedDevices": ["phone", "tablet", "tv", "wearable"]
+          "name": "custom component path."
         }
       ],
       "type": "url"

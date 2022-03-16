@@ -14,21 +14,21 @@
  */
 
 /**
- * Defines the option of Checkbox.
+ * Defines the options of Checkbox.
  * @since 8
  */
-declare interface CheckboxOption {
+declare interface CheckboxOptions {
   /**
    * Current name of Checkbox.
    * @since 8
    */
-   name?: string;
+  name?: string;
 
   /**
    * Sets the group of Checkbox.
    * @since 8
    */
-   group?: string;
+  group?: string;
 }
 
 /**
@@ -41,7 +41,7 @@ interface CheckboxInterface {
    * Called when the Checkbox component is used.
    * @since 8
    */
-  (options?: CheckboxOption): CheckboxAttribute;
+  (options?: CheckboxOptions): CheckboxAttribute;
 }
 
 /**
@@ -53,13 +53,13 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * setting whether checkbox is selected.
    * @since 8
    */
-   select(value: boolean): CheckboxAttribute;
+  select(value: boolean): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.
    * @since 8
    */
-   selectedColor(value: ResourceColor): CheckboxAttribute;
+  selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
    * Called when the selection status changes.
