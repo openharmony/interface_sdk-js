@@ -60,6 +60,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/grid.d.ts",
     "api/@internal/component/ets/gridItem.d.ts",
     "api/@internal/component/ets/grid_container.d.ts",
+    "api/@internal/component/ets/hyperlink.d.ts",
     "api/@internal/component/ets/image.d.ts",
     "api/@internal/component/ets/image_animator.d.ts",
     "api/@internal/component/ets/index-full.d.ts",
@@ -165,6 +166,7 @@ ohos_copy("internal_full") {
   sources = [
     "api/common/full/console.d.ts",
     "api/common/full/dom.d.ts",
+    "api/common/full/featureability.d.ts",
     "api/common/full/global.d.ts",
     "api/common/full/index.d.ts",
     "api/common/full/viewmodel.d.ts",
@@ -177,6 +179,7 @@ ohos_copy("internal_full") {
 ohos_copy("internal_lite") {
   sources = [
     "api/common/lite/console.d.ts",
+    "api/common/lite/featureability.d.ts",
     "api/common/lite/global.d.ts",
     "api/common/lite/index.d.ts",
     "api/common/lite/viewmodel.d.ts",
