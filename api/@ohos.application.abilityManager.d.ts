@@ -31,6 +31,7 @@ declare namespace abilityManager {
      * @name AbilityState
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi Hide this for inner system use.
      * @permission N/A
      */
     export enum AbilityState {
