@@ -231,14 +231,14 @@ declare namespace formInfo {
      *
      * @name FormStateInfo
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      */
     interface FormStateInfo {
         /**
          * Obtains the form state.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         formState: FormState;
 
@@ -246,7 +246,7 @@ declare namespace formInfo {
          * Obtains the want form .
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         want: Want;
     }
@@ -256,14 +256,14 @@ declare namespace formInfo {
      *
      * @name FormState
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      */
     enum FormState {
         /**
          * Indicates that the form status is unknown due to an internal error.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         UNKNOWN = -1,
 
@@ -271,7 +271,7 @@ declare namespace formInfo {
          * Indicates that the form is in the default state.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         DEFAULT = 0,
 
@@ -279,7 +279,7 @@ declare namespace formInfo {
          * Indicates that the form is ready.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         READY = 1,
     }
@@ -289,7 +289,7 @@ declare namespace formInfo {
      *
      * @name FormParam
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      */
     enum FormParam {
         /**
@@ -301,7 +301,7 @@ declare namespace formInfo {
          * }.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          * @systemapi hide for inner use.
          */
         IDENTITY_KEY = "ohos.extra.param.key.form_identity",
@@ -315,7 +315,7 @@ declare namespace formInfo {
          * }.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         DIMENSION_KEY = "ohos.extra.param.key.form_dimension",
 
@@ -328,7 +328,7 @@ declare namespace formInfo {
          * }.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         NAME_KEY = "ohos.extra.param.key.form_name",
 
@@ -343,7 +343,7 @@ declare namespace formInfo {
          * This constant is mandatory.
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         MODULE_NAME_KEY = "ohos.extra.param.key.module_name",
 
@@ -356,7 +356,7 @@ declare namespace formInfo {
          * }
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         WIDTH_KEY = "ohos.extra.param.key.form_width",
 
@@ -369,7 +369,7 @@ declare namespace formInfo {
          * }
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         HEIGHT_KEY = "ohos.extra.param.key.form_height",
 
@@ -382,7 +382,7 @@ declare namespace formInfo {
          * }
          *
          * @since 8
-         * @sysCap SystemCapability.Ability.Form
+         * @syscap SystemCapability.Ability.Form
          */
         TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
     }
