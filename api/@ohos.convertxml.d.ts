@@ -17,7 +17,6 @@
  * The convertxml module provides utilities for converting XML text to Javascript object.
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @devices phone, tablet
  * @import import convertXml from '@ohos.convertxml';
  * @permission N/A
  */
