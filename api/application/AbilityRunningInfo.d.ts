@@ -21,6 +21,7 @@ import abilityManager from '../@ohos.application.abilityManager';
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi hide this for inner system use
  * @permission N/A
  */
 export interface AbilityRunningInfo {
@@ -28,6 +29,7 @@ export interface AbilityRunningInfo {
     * @default ability element name
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     ability: ElementName;
 
@@ -35,6 +37,7 @@ export interface AbilityRunningInfo {
     * @default process id
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     pid: number;
 
@@ -42,6 +45,7 @@ export interface AbilityRunningInfo {
     * @default user id
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     uid: number;
 
@@ -49,6 +53,7 @@ export interface AbilityRunningInfo {
     * @default the name of the process
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     processName: string;
 
@@ -56,6 +61,7 @@ export interface AbilityRunningInfo {
     * @default ability start time
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     startTime: number;
 
@@ -63,6 +69,7 @@ export interface AbilityRunningInfo {
     * @default Enumerates state of the ability state info
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     abilityState: abilityManager.AbilityState;
 }
