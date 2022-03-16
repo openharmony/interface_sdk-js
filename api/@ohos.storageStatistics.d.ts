@@ -39,22 +39,6 @@ declare namespace storageStatistics {
    */
   function getFreeSizeOfVolume(volumeUuid: string, callback: AsyncCallback<number>): void;
   function getFreeSizeOfVolume(volumeUuid: string): Promise<number>;
-
- /**
-   * Get the bundlestat 
-   * 
-   * @since 9
-   * @systemapi
-   */
-
- export interface BundleStats {
-  appSize: number;
-  cacheSize: number;
-  dataSize: number;
-}
-  function getBundleStats(packageName: string,  callback: AsyncCallback<BundleStats>): void;
-  function getBundleStats(packageName: string): Promise<BundleStats>;
-
 }
 
 export default storageStatistics;
