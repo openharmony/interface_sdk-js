@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -218,4 +218,21 @@ export interface CommonEventSubscriber {
    * @return Returns the commonEvent subscribe information
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
+
+  /**
+   * finish the current ordered common event.
+   *
+   * @since 9
+   * @param callback Indicate the callback function after the ordered common event is finished.
+   * @return -
+   */
+  finishCommonEvent(callback: AsyncCallback<void>): void;
+
+  /**
+   * finish the current ordered common event.
+   *
+   * @since 9
+   * @return -
+   */
+  finishCommonEvent(): Promise<void>;
 }
