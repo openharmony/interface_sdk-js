@@ -19,7 +19,7 @@ import { AbilityInfo } from "../bundle/abilityInfo";
 import { DataAbilityResult } from "../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../ability/dataAbilityOperation";
 import dataAbility from "../@ohos.data.dataAbility";
-import formBindingData from "../@ohos.ability.formBindingData";
+import formBindingData from "../@ohos.application.formBindingData";
 import formInfo from "../@ohos.application.formInfo";
 import rdb from "../@ohos.data.rdb";
 import rpc from "../@ohos.rpc";

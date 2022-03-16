@@ -20,7 +20,7 @@ import formBindingData from "./@ohos.application.formBindingData";
  * interface of formProvider.
  *
  * @name formProvider
- * @since 9
+ * @since 8
  * @syscap SystemCapability.Ability.Form
  */
 declare namespace formProvider {
