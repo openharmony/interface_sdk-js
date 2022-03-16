@@ -18,7 +18,7 @@ export default document;
 
 /**
  * document
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 6
  * @devices phone, tablet, tv, wearable, car
  * @import import document from '@ohos.document';
@@ -33,7 +33,7 @@ declare namespace document {
  * choose.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 6
  * @permission N/A
  * @function choose
@@ -50,7 +50,7 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
  * show.
  *
  * @note N/A
- * @sysCap N/A
+ * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 6
  * @permission N/A
  * @function show
