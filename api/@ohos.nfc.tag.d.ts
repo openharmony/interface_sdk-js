@@ -21,7 +21,7 @@ import { NfcATag, NfcBTag, NfcFTag, NfcVTag } from './tag/nfctech';
  * @import import tag from '@ohos.nfc.tag';
  *
  * @since 7
- * @sysCap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Core
  */
 declare namespace tag {
   /** Indicates an NFC-A tag. */
