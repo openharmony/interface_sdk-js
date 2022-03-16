@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -57,7 +57,7 @@ declare namespace notification {
    * @param userId of subscriber receiving the notification
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * 
+   *
    */
    function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
    function publish(request: NotificationRequest, userId: number): Promise<void>;
@@ -833,6 +833,29 @@ declare namespace notification {
      * The device is in use, reminder
      */
     ACTIVE_REMIND = 3,
+  }
+
+  /**
+   * Notification source type
+   *
+   * @since 8
+   * @systemapi Hide this for inner system use.
+   */
+  export enum SourceType {
+    /**
+     * General notification
+     */
+    TYPE_NORMAL = 0,
+
+    /**
+     * Continuous notification
+     */
+    TYPE_CONTINUOUS = 1,
+
+    /**
+     * Scheduled notification
+     */
+    TYPE_TIMER = 2,
   }
 }
 
