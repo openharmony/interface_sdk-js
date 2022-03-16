@@ -21,6 +21,7 @@ import bundle from '../@ohos.bundle';
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi hide this for inner system use
  * @permission N/A
  */
 export interface ExtensionRunningInfo {
@@ -28,6 +29,7 @@ export interface ExtensionRunningInfo {
     * @default Indicates the extension of the extension info
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     extension: ElementName;
 
@@ -35,6 +37,7 @@ export interface ExtensionRunningInfo {
     * @default process id
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     pid: number;
 
@@ -42,6 +45,7 @@ export interface ExtensionRunningInfo {
     * @default user id
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     uid: number;
 
@@ -49,6 +53,7 @@ export interface ExtensionRunningInfo {
     * @default the name of the process
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     processName: string;
 
@@ -56,6 +61,7 @@ export interface ExtensionRunningInfo {
     * @default ability start time
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     startTime: number;
 
@@ -63,6 +69,7 @@ export interface ExtensionRunningInfo {
     * @default All package names under the current process
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     clientPackage: Array<String>;
 
@@ -70,6 +77,7 @@ export interface ExtensionRunningInfo {
     * @default Enumerates types of the entension info
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi hide this for inner system use
     */
     type: bundle.ExtensionAbilityType;
 }
