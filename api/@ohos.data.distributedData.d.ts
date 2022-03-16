@@ -579,7 +579,7 @@ declare namespace distributedData {
         securityLevel?: SecurityLevel;
         /**
          * Indicates schema object 
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @permission N/A
@@ -610,7 +610,7 @@ declare namespace distributedData {
          * Indicates the root json object.
          * 
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
 		root: FieldNode;  
@@ -618,7 +618,7 @@ declare namespace distributedData {
          * Indicates the string array of json.
          * 
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         indexes: Array<string>;    
@@ -626,7 +626,7 @@ declare namespace distributedData {
          * Indicates the mode of schema.
          * 
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         mode: number;
@@ -634,7 +634,7 @@ declare namespace distributedData {
          * Indicates the skipsize of schema.
          * 
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
         skip: number;
@@ -680,7 +680,7 @@ declare namespace distributedData {
          * Indicates the default value of fieldnode.
          * 
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          */
          default: string;
@@ -688,7 +688,7 @@ declare namespace distributedData {
           * Indicates the nullable of database field.
           * 
           * @note N/A
-          * @since 9
+          * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
          nullable: boolean;
@@ -696,7 +696,7 @@ declare namespace distributedData {
           * Indicates the type of value.
           * 
           * @note N/A
-          * @since 9
+          * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
           */
          type: number;
