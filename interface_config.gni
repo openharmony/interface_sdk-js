@@ -12,11 +12,10 @@
 # limitations under the License.
 
 common_api_src = [
-  "//interface/sdk-js/api/@ohos.wifi.d.ts",
-  "//interface/sdk-js/api/common/@system.app.d.ts",
-  "//interface/sdk-js/api/common/@system.configuration.d.ts",
-  "//interface/sdk-js/api/common/@system.file.d.ts",
-  "//interface/sdk-js/api/common/@system.mediaquery.d.ts",
-  "//interface/sdk-js/api/common/@system.prompt.d.ts",
-  "//interface/sdk-js/api/common/@system.router.d.ts",
+  "//interface/sdk-js/api/@system.app.d.ts",
+  "//interface/sdk-js/api/@system.configuration.d.ts",
+  "//interface/sdk-js/api/@system.file.d.ts",
+  "//interface/sdk-js/api/@system.mediaquery.d.ts",
+  "//interface/sdk-js/api/@system.prompt.d.ts",
+  "//interface/sdk-js/api/@system.router.d.ts",
 ]
