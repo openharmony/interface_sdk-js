@@ -17,7 +17,7 @@ import { Callback } from './basic';
 
 /**
  * systemScreenLock
- * @syscap SystemCapability.Miscservices.ScreenLock
+ * @syscap SystemCapability.MiscServices.ScreenLock
  * @since 7
  */
 declare namespace screenLock {
