@@ -14,6 +14,78 @@
  */
 
 /**
+ * Defines the option of Progress.
+ * @since 7
+ */
+ declare interface ProgressOptions {
+  /**
+   * Sets the value of Progress.
+   * @since 7
+   */
+  value: number;
+
+  /**
+   * Sets the total of Progress.
+   * @since 7
+   */
+  total?: number;
+
+  /**
+   * Sets the style of Progress.
+   * @since 7
+   * @deprecated since 8
+   */
+  style?: ProgressStyle
+
+  /**
+   * Sets the type of Progress.
+   * @since 8
+   */
+  type?: ProgressType
+}
+
+/**
+ * Type of progress bar
+ * @since 8
+ */
+declare enum ProgressType {
+  /**
+   * Linear progress bar style.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Linear,
+
+  /**
+   * Ring progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Ring,
+
+  /**
+   * Eclipse progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Eclipse,
+
+  /**
+   * ScaleRing progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  ScaleRing,
+
+  /**
+   * Capsule progress bar.
+   * @devices phone, tablet, car.
+   * @since 8
+   */
+  Capsule,
+}
+
+/**
  * Defines style options for progress component.
  * @since 8
  */
@@ -82,7 +154,7 @@ interface ProgressInterface {
    * Called when the progress bar is set.
    * @since 7
    */
-  (object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
+  (options: ProgressOptions): ProgressAttribute;
 }
 
 /**
