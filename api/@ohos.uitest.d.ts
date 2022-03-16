@@ -19,13 +19,33 @@
  * @since 8
  */
  enum MatchPattern{
-   /**Equals to a string.*/
+   /**
+    * Equals to a string.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    EQUALS = 0,
-   /**Contains a substring.*/
+   /**
+    * Contains a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    CONTAINS = 1,
-   /**StartsWith a substring.*/
+   /**
+    * StartsWith a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test	
+    */
    STARTS_WITH = 2,
-   /**EndsWith a substring.*/
+   /**
+    * EndsWith a substring.
+    * @syscap SystemCapability.Test.UiTest
+    * @since 8
+    * @test
+    */
    ENDS_WITH = 3
 }
 
