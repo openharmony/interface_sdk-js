@@ -16,13 +16,11 @@
 /**
  * Defines XComponentController
  * @since 8
- * @systemapi
  */
 declare class XComponentController {
   /**
    * constructor.
    * @since 8
-   * @systemapi
    */
   constructor();
 
@@ -36,14 +34,12 @@ declare class XComponentController {
   /**
    * get the context of native XComponent.
    * @since 8
-   * @systemapi
    */
   getXComponentContext();
 
   /**
    * set the surface size created by XComponent.
    * @since 8
-   * @systemapi
    */
   setXComponentSurfaceSize(value: {
     surfaceWidth: number;
@@ -54,13 +50,11 @@ declare class XComponentController {
 /**
  * Defines XComponent.
  * @since 8
- * @systemapi
  */
 interface XComponentInterface {
   /**
    * Constructor parameters
    * @since 8
-   * @systemapi
    */
   (value: { id: string; type: string; libraryname?: string; controller?: XComponentController }): XComponentAttribute;
 }
@@ -68,20 +62,17 @@ interface XComponentInterface {
 /**
  * Defines XComponentAttribute.
  * @since 8
- * @systemapi
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
    * Called when judging whether the xcomponent surface is created.
    * @since 8
-   * @systemapi
    */
   onLoad(callback: (event?: object) => void): XComponentAttribute;
 
   /**
    * Called when judging whether the xcomponent is destroyed.
    * @since 8
-   * @systemapi
    */
   onDestroy(event: () => void): XComponentAttribute;
 }
