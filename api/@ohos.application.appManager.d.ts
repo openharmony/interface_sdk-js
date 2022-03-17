@@ -94,7 +94,6 @@ declare namespace appManager {
     *
     * @since 8
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @systemapi Hide this for inner system use.
     * @return Returns the array of {@link ProcessRunningInfo}.
     * @permission ohos.permission.GET_RUNNING_INFO
     */
