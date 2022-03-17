@@ -58,20 +58,18 @@ declare namespace media {
 
   /**
    * Creates an VideoRecorder instance.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @param callback Callback used to return AudioPlayer instance if the operation is successful; returns null otherwise.
-   * @systemapi
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
   /**
    * Creates an VideoRecorder instance.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @return A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
-   * @systemapi
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
 
@@ -610,23 +608,21 @@ declare namespace media {
 
   /**
   * Describes video recorder states.
-  * @since 8
+  * @since 9
   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-  * @systemapi
   */
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
   /**
    * Manages and record video. Before calling an VideoRecorder method, you must use createVideoRecorder()
    * to create an VideoRecorder instance.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-   * @systemapi
    */
   interface VideoRecorder {
     /**
      * Prepares for recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param config Recording parameters.
      * @param callback A callback instance used to return when prepare completed.
@@ -634,7 +630,7 @@ declare namespace media {
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
      * Prepares for recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param config Recording parameters.
      * @return A Promise instance used to return when prepare completed.
@@ -642,84 +638,84 @@ declare namespace media {
     prepare(config: VideoRecorderConfig): Promise<void>;
     /**
      * get input surface.it must be called between prepare completed and start.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback Callback used to return the input surface id in string.
      */
     getInputSurface(callback: AsyncCallback<string>): void;
     /**
      * get input surface. it must be called between prepare completed and start.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return the input surface id in string.
      */
     getInputSurface(): Promise<string>;
     /**
      * Starts video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when start completed.
      */
     start(callback: AsyncCallback<void>): void;
     /**
      * Starts video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when start completed.
      */
     start(): Promise<void>;
     /**
      * Pauses video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when pause completed.
      */
     pause(callback: AsyncCallback<void>): void;
     /**
      * Pauses video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when pause completed.
      */
     pause(): Promise<void>;
     /**
      * Resumes video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when resume completed.
      */
     resume(callback: AsyncCallback<void>): void;
     /**
      * Resumes video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when resume completed.
      */
     resume(): Promise<void>;
     /**
      * Stops video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when stop completed.
      */
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when stop completed.
      */
     stop(): Promise<void>;
     /**
      * Releases resources used for video recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when release completed.
      */
     release(callback: AsyncCallback<void>): void;
     /**
       * Releases resources used for video recording.
-      * @since 8
+      * @since 9
       * @syscap SystemCapability.Multimedia.Media.VideoRecorder
       * @return A Promise instance used to return when release completed.
       */
@@ -728,7 +724,7 @@ declare namespace media {
      * Resets video recording.
      * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
      * you must call prepare() to set the recording configurations for another recording.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when reset completed.
      */
@@ -737,14 +733,14 @@ declare namespace media {
       * Resets video recording.
       * Before resetting video recording, you must call stop() to stop recording. After video recording is reset,
       * you must call prepare() to set the recording configurations for another recording.
-      * @since 8
+      * @since 9
       * @syscap SystemCapability.Multimedia.Media.VideoRecorder
       * @return A Promise instance used to return when reset completed.
       */
     reset(): Promise<void>;
     /**
      * Listens for video recording error events.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param type Type of the video recording error event to listen for.
      * @param callback Callback used to listen for the video recording error event.
@@ -753,7 +749,7 @@ declare namespace media {
 
     /**
      * video recorder state.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
      readonly state: VideoRecordState;
@@ -1211,77 +1207,76 @@ declare namespace media {
 
   /**
    * Provides the video recorder profile definitions.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-   * @systemapi
    */
   interface VideoRecorderProfile {
     /**
      * Indicates the audio bit rate.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly audioBitrate: number;
 
     /**
      * Indicates the number of audio channels.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly audioChannels: number;
 
     /**
      * Indicates the audio encoding format.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly audioCodec: CodecMimeType;
 
     /**
      * Indicates the audio sampling rate.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly audioSampleRate: number;
 
     /**
      * Indicates the output file format.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly fileFormat: ContainerFormatType;
 
     /**
      * Indicates the video bit rate.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly videoBitrate: number;
 
     /**
      * Indicates the video encoding format.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly videoCodec: CodecMimeType;
 
     /**
      * Indicates the video width.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly videoFrameWidth: number;
 
     /**
      * Indicates the video height.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly videoFrameHeight: number;
 
     /**
      * Indicates the video frame rate.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     readonly videoFrameRate: number;
@@ -1289,21 +1284,20 @@ declare namespace media {
 
   /**
    * Enumerates audio source type for recorder.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
-   * @systemapi
    */
   enum AudioSourceType {
     /**
      * default audio source type.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
     */
     AUDIO_SOURCE_TYPE_DEFAULT = 0,
     /**
      * source type mic.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
     */
     AUDIO_SOURCE_TYPE_MIC = 1,
@@ -1311,21 +1305,20 @@ declare namespace media {
 
   /**
    * Enumerates video source type for recorder.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
-   * @systemapi
    */
   enum VideoSourceType {
     /**
      * surface raw data.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     VIDEO_SOURCE_TYPE_SURFACE_YUV = 0,
     /**
      * surface ES data.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
     */
     VIDEO_SOURCE_TYPE_SURFACE_ES = 1,
@@ -1333,48 +1326,47 @@ declare namespace media {
 
   /**
    * Provides the video recorder configuration definitions.
-   * @since 8
+   * @since 9
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-   * @systemapi
    */
   interface VideoRecorderConfig {
     /**
      * audio source type, details see @AudioSourceType .
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     audioSourceType: AudioSourceType;
     /**
      * video source type, details see @VideoSourceType .
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     videoSourceType: VideoSourceType;
     /**
      * video recorder profile, can get by "getVideoRecorderProfile", details see @VideoRecorderProfile .
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
-    profile:VideoRecorderProfile;
+    profile: VideoRecorderProfile;
     /**
      * video output uri.support two kind of uri now.
      * format like: scheme + "://" + "context".
      * file:  file://path
      * fd:    fd://fd
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     url: string;
     /**
      * Sets the video rotation angle in output file, and for the file to playback. mp4 support.
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     rotation?: number;
     /**
      * geographical location information.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     location?: Location;
