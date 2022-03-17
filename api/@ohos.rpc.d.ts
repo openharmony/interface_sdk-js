@@ -964,7 +964,7 @@ declare namespace rpc {
          *
          * @param syncFlags Specifies whether the SendRequest is called synchronously (default) or asynchronously.
          * @param waitTime Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
-         * @since 8
+         * @since 7
          */
         constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
 
@@ -972,7 +972,7 @@ declare namespace rpc {
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @return Returns whether the SendRequest is called synchronously or asynchronously.
-         * @since 8
+         * @since 7
          */
         getFlags(): number;
 
@@ -980,7 +980,7 @@ declare namespace rpc {
          * Sets the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @param flags Indicates the call flag, which can be synchronous or asynchronous.
-         * @since 8
+         * @since 7
          */
         setFlags(flags: number): void;
 
@@ -988,7 +988,7 @@ declare namespace rpc {
          * Obtains the maximum wait time for this RPC call.
          *
          * @return Returns maximum wait time obtained.
-         * @since 8
+         * @since 7
          */
         getWaitTime(): number;
 
@@ -996,7 +996,7 @@ declare namespace rpc {
          * Sets the maximum wait time for this RPC call.
          *
          * @param waitTime Indicates maximum wait time to set.
-         * @since 8
+         * @since 7
          */
         setWaitTime(waitTime: number): void;
     }
@@ -1006,7 +1006,7 @@ declare namespace rpc {
          * A constructor to create a RemoteObject instance.
          *
          * @param descriptor Specifies interface descriptor.
-         * @since 8
+         * @since 7
          */
         constructor(descriptor: string);
 
