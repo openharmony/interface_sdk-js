@@ -18,7 +18,7 @@ import {AsyncCallback} from './basic';
 /**
  * inputmethod
  *
- * @since 8
+ * @since 6
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
 declare namespace inputMethod {
