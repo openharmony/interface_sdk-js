@@ -645,7 +645,7 @@ declare namespace rpc {
          * @param sequenceableArray Sequenceable array to read.
          * @since 8
          */
-        readSequenceableArray(sequenceableArray Sequenceable[]): void;
+        readSequenceableArray(sequenceableArray: Sequenceable[]): void;
 
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageParcel} object.
@@ -657,7 +657,6 @@ declare namespace rpc {
         /**
          * Reads {@link IRemoteObject} objects from this {@link MessageParcel} object.
          * @return An array of {@link IRemoteObject} objects obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readRemoteObjectArray(): IRemoteObject[];
@@ -665,7 +664,6 @@ declare namespace rpc {
         /**
          * Closes the specified file descriptor.
          * @param fd File descriptor to be closed.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         static closeFileDescriptor(fd: number): void;
@@ -674,7 +672,6 @@ declare namespace rpc {
          * Duplicates the specified file descriptor.
          * @param fd File descriptor to be duplicated.
          * @return A duplicated file descriptor.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         static dupFileDescriptor(fd: number) :number;
@@ -683,7 +680,6 @@ declare namespace rpc {
          * Checks whether this {@link MessageParcel} object contains a file descriptor.
          * @return Returns true if the {@link MessageParcel} object contains a file descriptor;
          * returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         containFileDescriptors(): boolean;
@@ -692,7 +688,6 @@ declare namespace rpc {
          * Writes a file descriptor to this {@link MessageParcel} object.
          * @param fd File descriptor to wrote.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeFileDescriptor(fd: number): boolean;
@@ -700,7 +695,6 @@ declare namespace rpc {
         /**
          * Reads a file descriptor from this {@link MessageParcel} object.
          * @return File descriptor obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readFileDescriptor(): number;
@@ -709,7 +703,6 @@ declare namespace rpc {
          * Writes an anonymous shared memory object to this {@link MessageParcel} object.
          * @param ashmem Anonymous shared memory object to wrote.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeAshmem(ashmem: Ashmem): boolean;
@@ -717,7 +710,6 @@ declare namespace rpc {
         /**
          * Reads the anonymous shared memory object from this {@link MessageParcel} object.
          * @return Anonymous share object obtained.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readAshmem(): Ashmem;
@@ -725,7 +717,6 @@ declare namespace rpc {
         /**
          * Obtains the maximum amount of raw data that can be sent in a time.
          * @return 128 MB.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         getRawDataCapacity(): number;
@@ -735,7 +726,6 @@ declare namespace rpc {
          * @param rawData Raw data to wrote.
          * @param size Size of the raw data, in bytes.
          * @return Returns true if the operation is successful; returns false otherwise.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         writeRawData(rawData: number[], size: number): boolean;
@@ -744,12 +734,16 @@ declare namespace rpc {
          * Reads raw data from this {@link MessageParcel} object.
          * @param size Size of the raw data to read.
          * @return Raw data obtained, in bytes.
-         * @device phone, tablet, tv, wearable, car
          * @since 8
          */
         readRawData(size: number): number[];
     }
 
+     /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface Sequenceable {
         /**
          * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
@@ -779,6 +773,7 @@ declare namespace rpc {
      * <p> SendRequestResult object contains four members,
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
+     * @syscap SystemCapability.Communication.IPC.Core
      * @since 8
      * @import import rpc from '@ohos.rpc'
      */
@@ -810,6 +805,11 @@ declare namespace rpc {
         reply: MessageParcel;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface IRemoteObject {
         /**
          * Queries the description of an interface.
@@ -918,6 +918,11 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface IRemoteBroker {
         /**
          * Obtains a proxy or remote object. This method must be implemented by its derived classes.
@@ -929,6 +934,11 @@ declare namespace rpc {
         asObject(): IRemoteObject;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     interface DeathRecipient {
         /**
          * Called to perform subsequent operations when a death notification of the remote object is received.
@@ -938,24 +948,33 @@ declare namespace rpc {
         onRemoteDied(): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class MessageOption {
         /**
          * Indicates synchronous call.
+         * @since 7
          */
         TF_SYNC = 0;
 
         /**
          * Indicates asynchronous call.
+         * @since 7
          */
         TF_ASYNC = 1;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
+         * @since 7
          */
         TF_ACCEPT_FDS = 0x10;
 
         /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+         * @since 7
          */
         TF_WAIT_TIME  = 4;
 
@@ -964,7 +983,7 @@ declare namespace rpc {
          *
          * @param syncFlags Specifies whether the SendRequest is called synchronously (default) or asynchronously.
          * @param waitTime Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
-         * @since 8
+         * @since 7
          */
         constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
 
@@ -972,7 +991,7 @@ declare namespace rpc {
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @return Returns whether the SendRequest is called synchronously or asynchronously.
-         * @since 8
+         * @since 7
          */
         getFlags(): number;
 
@@ -980,7 +999,7 @@ declare namespace rpc {
          * Sets the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @param flags Indicates the call flag, which can be synchronous or asynchronous.
-         * @since 8
+         * @since 7
          */
         setFlags(flags: number): void;
 
@@ -988,7 +1007,7 @@ declare namespace rpc {
          * Obtains the maximum wait time for this RPC call.
          *
          * @return Returns maximum wait time obtained.
-         * @since 8
+         * @since 7
          */
         getWaitTime(): number;
 
@@ -996,17 +1015,22 @@ declare namespace rpc {
          * Sets the maximum wait time for this RPC call.
          *
          * @param waitTime Indicates maximum wait time to set.
-         * @since 8
+         * @since 7
          */
         setWaitTime(waitTime: number): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class RemoteObject implements IRemoteObject {
         /**
          * A constructor to create a RemoteObject instance.
          *
          * @param descriptor Specifies interface descriptor.
-         * @since 8
+         * @since 7
          */
         constructor(descriptor: string);
 
@@ -1124,19 +1148,27 @@ declare namespace rpc {
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class RemoteProxy implements IRemoteObject {
         /**
          * Indicates the message code for a Ping operation.
+         * @since 7
          */
         PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
 
         /**
          * Indicates the message code for a dump operation.
+         * @since 7
          */
         DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
 
         /**
          * Indicates the message code for a transmission.
+         * @since 7
          */
         INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
 
@@ -1144,6 +1176,7 @@ declare namespace rpc {
          * Indicates the minimum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         * @since 7
          */
         MIN_TRANSACTION_ID = 0x1;
 
@@ -1151,6 +1184,7 @@ declare namespace rpc {
          * Indicates the maximum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         * @since 7
          */
         MAX_TRANSACTION_ID = 0x00FFFFFF;
 
@@ -1252,6 +1286,11 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 7
+     */
     class IPCSkeleton {
         /**
          * Obtains a local {@link IRemoteObject} reference of a registered service.
@@ -1372,6 +1411,8 @@ declare namespace rpc {
      * including creating, closing, mapping, and unmapping an Ashmem object,
      * reading data from and writing data to an Ashmem object,
      * obtaining the Ashmem size, and setting Ashmem protection.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
      * @since 8
      */
     class Ashmem {
