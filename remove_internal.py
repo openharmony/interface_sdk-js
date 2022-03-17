@@ -18,7 +18,7 @@ def copy_files(input_path, output_path):
         dst = os.path.join(output_path, file)
         if os.path.isdir(src) and (not file in remove_list):
             shutil.copytree(src, dst, dirs_exist_ok=True)
-        elif os.path.isfile(src) and (not file.startswith('@system')):
+        elif os.path.isfile(src):
             shutil.copy(src, dst)
 
 
