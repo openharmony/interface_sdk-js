@@ -40,7 +40,6 @@ declare enum Sticky {
 
 /**
  * Declare whether the ListItem element is editable.
- * @devices phone, tablet
  * @since 7
  */
 declare enum EditMode {

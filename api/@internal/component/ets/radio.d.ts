@@ -44,7 +44,6 @@ interface RadioInterface {
 }
 
 /**
- * @devices phone, tablet, car
  * @since 8
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
