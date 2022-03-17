@@ -34,7 +34,7 @@ declare namespace volumeManager {
   id: string;
   uuid: string;
   description: string;
-  removeAble: boolean;
+  removAble: boolean;
   state: number;
   path: string;
 }
