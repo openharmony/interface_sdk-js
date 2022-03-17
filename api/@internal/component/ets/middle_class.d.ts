@@ -1247,7 +1247,7 @@ declare class TSProgressAttribute extends CommonMethod<ProgressAttribute> {
    * @systemapi
    * @since 8
    */
-  create(object: { value: number; total?: number; style?: ProgressStyle }): ProgressAttribute;
+  create(options: ProgressOptions): ProgressAttribute;
   /**
    * Used for TS compiler.
    * @ignore
