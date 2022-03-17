@@ -20,7 +20,6 @@ export default document;
  * document
  * @syscap SystemCapability.FileManagement.FileManagerService
  * @since 6
- * @devices phone, tablet, tv, wearable, car
  * @import import document from '@ohos.document';
  * @permission N/A
  */
