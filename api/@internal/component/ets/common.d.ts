@@ -193,12 +193,6 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
- * global getContentStorage function
- * @since 9
- */
-declare function getContentStorage(value: any): ContentStorage;
-
-/**
  * Defines the context mock object.
  * @since 8
  * @systemapi
