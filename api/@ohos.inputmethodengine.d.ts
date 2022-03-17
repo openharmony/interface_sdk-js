@@ -68,13 +68,9 @@ declare namespace inputMethodEngine {
 
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
-        on(type: 'keyboardShow', callback: () => void): void;
+        on(type: 'keyboardShow|keyboardHide', callback: () => void): void;
 
-        off(type: 'keyboardShow', callback: () => void): void;
-
-        on(type: 'keyboardHide', callback: () => void): void;
-
-        off(type: 'keyboardHide', callback: () => void): void;
+        off(type: 'keyboardShow|keyboardHide', callback?: () => void): void;
     }
 
     interface TextInputClient {
@@ -104,13 +100,9 @@ declare namespace inputMethodEngine {
     }
 
     interface KeyboardDelegate {
-        on(type: 'keyDown', callback: (event: KeyEvent) => boolean): void;
+        on(type: 'keyDown|keyUp', callback: (event: KeyEvent) => boolean): void;
 
-        off(type: 'keyDown', callback?: (event: KeyEvent) => boolean): void;
-
-        on(type: 'keyUp', callback: (event: KeyEvent) => boolean): void;
-
-        off(type: 'keyUp', callback?: (event: KeyEvent) => boolean): void;
+        off(type: 'keyDown|keyUp', callback?: (event: KeyEvent) => boolean): void;
 
         on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
@@ -128,6 +120,11 @@ declare namespace inputMethodEngine {
     interface EditorAttribute {
         readonly inputPattern: number;
         readonly enterKeyType: number;
+    }
+
+    interface KeyEvent {
+        readonly keyCode: number;
+        readonly keyAction: number;
     }
 }
 
