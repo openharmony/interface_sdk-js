@@ -193,19 +193,6 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
- * Defines the context mock object.
- * @since 8
- * @systemapi
- */
-declare type Context = any;
-
-/**
- * global getContext function
- * @since 8
- */
-declare function getContext(value: any): Context;
-
-/**
  * Defines the animate function params.
  * @since 7
  */
