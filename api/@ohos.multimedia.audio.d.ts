@@ -704,54 +704,6 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the interrupt force types.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Renderer
-   */
-  enum InterruptForceType {
-    /**
-     * Forced action taken by system.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    INTERRUPT_FORCE = 0,
-    /**
-     * Share type, application can choose to take action or ignore.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    INTERRUPT_SHARE
-  }
-
-  /**
-   * Describes the interrupt event received by the app when playback is interrupted.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Audio.Renderer
-   */
-  interface InterruptEvent {
-    /**
-     * Indicates whether the interruption has started or finished.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    eventType: InterruptType;
-
-    /**
-     * Indicates whether the action is taken by system or to be taken by the app.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    forceType: InterruptForceType;
-
-    /**
-     * Indicates the kind of action.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    hintType: InterruptHint;
-  }
-
-  /**
    * Enumerates interrupt action types.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1534,14 +1486,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(): Promise<AudioRendererRate>;
-    /**
-     * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
-     * triggered when audio playback is interrupted.
-     * @param callback Callback used to listen for interrupt callback.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     */
-    on(type: 'interrupt', callback: Callback<InterruptEvent>): void;
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
