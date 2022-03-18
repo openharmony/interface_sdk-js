@@ -52,20 +52,6 @@ declare namespace router {
   /**
    * @since 8
    */
-  interface BackRouterOptions {
-
-    /**
-     * Returns to the page of the specified path.
-     * If the page with the specified path does not exist in the page stack, router.back() is called by default.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    path?: string;
-  }
-
-  /**
-   * @since 8
-   */
   interface RouterState {
 
     /**
@@ -119,7 +105,7 @@ declare namespace router {
    * @param options Options.
    * @since 8
    */
-  function back(options: BackRouterOptions):void;
+  function back(options?: RouterOptions ):void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
