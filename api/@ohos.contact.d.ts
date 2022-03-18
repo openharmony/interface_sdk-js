@@ -26,7 +26,7 @@ declare namespace contact {
   /**
    * Creates a contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.WRITE_CONTACTS}
    *
    * @param contact Indicates the contact information.
    * @return Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
@@ -36,9 +36,21 @@ declare namespace contact {
   function addContact(contact: Contact): Promise<number>;
 
   /**
+   * Select contact.
+   *
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
+   *
+   * @return Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @syscap SystemCapability.Applications.ContactsData, SystemCapability.Applications.Contacts
+   */
+  function selectContact(callback: AsyncCallback<Array<Contact>>): void;
+  function selectContact(): Promise<Array<Contact>>;
+
+  /**
    * Deletes a specified contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.WRITE_CONTACTS}
    *
    * @param key Indicates the unique query key of a contact to delete.
    * @return Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
@@ -49,7 +61,7 @@ declare namespace contact {
   /**
    * Queries a specified contact of specified attributes.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param key Indicates the unique query key of a contact.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
@@ -65,7 +77,7 @@ declare namespace contact {
   /**
    * Queries contacts with query conditions.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
@@ -80,7 +92,7 @@ declare namespace contact {
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param email Indicates the email address.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
@@ -96,7 +108,7 @@ declare namespace contact {
   /**
    * Queries contacts by a phone number, holder, and contact attribute.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}.
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param phoneNumber Indicates the phone number. Only full match is supported, and wildcards are not supported.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
@@ -113,7 +125,7 @@ declare namespace contact {
   /**
    * Queries contact groups.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @return Returns the contact group list.
@@ -125,7 +137,7 @@ declare namespace contact {
   /**
    * Queries contact holders.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @return Returns the {@code Holder} list object.
    */
@@ -135,7 +147,7 @@ declare namespace contact {
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param id Indicates the contact ID.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
@@ -148,7 +160,7 @@ declare namespace contact {
   /**
    * Queries information about "my card".
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @return Returns information about "my card".
@@ -160,7 +172,7 @@ declare namespace contact {
   /**
    * Updates specified attributes of a contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.WRITE_CONTACTS}
    *
    * @param contact Indicates the contact whose information is to update.
    * @param attrs Indicates the contact attributes to update. If this parameter is null,
@@ -174,7 +186,7 @@ declare namespace contact {
   /**
    * Checks whether the contact ID is in the local phone book.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param id Indicates the contact ID.
    * @return Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
@@ -184,6 +196,8 @@ declare namespace contact {
 
   /**
    * Checks whether the contact ID is of "my card".
+   *
+   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS}
    *
    * @param id Indicates the contact ID.
    * @return Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
