@@ -424,7 +424,7 @@ declare interface TransitionOptions {
    * Defines the param of translate.
    * @since 7
    */
-  translate?: TransitionOptions;
+  translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7
