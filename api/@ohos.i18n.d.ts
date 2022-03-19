@@ -89,6 +89,7 @@ export function getSystemLanguage(): string;
 /**
  * Set the language currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param language The language to be used.
  * @since 7
@@ -108,6 +109,7 @@ export function getSystemRegion(): string;
 /**
  * Set the region currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param region The region to be used.
  * @since 7
@@ -127,6 +129,7 @@ export function getSystemLocale(): string;
 /**
  * Set the locale currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param locale The locale to be used.
  * @since 7
@@ -244,7 +247,7 @@ export class Calendar {
      * @param date Date object used to set the time and date.
      * @since 8
      */
-    setTime(date: Date);
+    setTime(date: Date): void;
 
     /**
      * set the time.
@@ -253,7 +256,7 @@ export class Calendar {
      * @param time Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
      * @since 8
      */
-     setTime(time: number);
+     setTime(time: number): void;
 
     /**
      * Set the time
@@ -267,7 +270,7 @@ export class Calendar {
      * @param second the second field of the calendar, ranges from 0 to 59.
      * @since 8
      */
-    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number);
+    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number): void;
 
     /**
      * Set the timezone of this calendar.
@@ -276,7 +279,7 @@ export class Calendar {
      * @param timezone The id of a timezone.
      * @since 8
      */
-    setTimeZone(timezone: string);
+    setTimeZone(timezone: string): void;
 
     /**
      * Get the timezone id of this calendar instance.
@@ -303,7 +306,7 @@ export class Calendar {
      * @param value Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @since 8
      */
-    setFirstDayOfWeek(value: number);
+    setFirstDayOfWeek(value: number): void;
 
     /**
      * Get the minimal days of a week, which is needed for the first day of a year.
@@ -321,7 +324,7 @@ export class Calendar {
      * @param value The value to be set.
      * @since 8
      */
-    setMinimalDaysInFirstWeek(value: number);
+    setMinimalDaysInFirstWeek(value: number): void;
 
     /**
      * Get the associated value with the field.
@@ -508,7 +511,7 @@ export class IndexUtil {
      * @param locale The locale whose index characters are to be added.
      * @since 8
      */
-    addLocale(locale: string);
+    addLocale(locale: string): void;
 
     /**
      * Get corresponding index of the input text.
@@ -621,6 +624,7 @@ export class Character {
 /**
  * set 24-hour system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param option represent the boolean to be set.
  * @return Returns a boolean represent whether setting 24-hour system success.
