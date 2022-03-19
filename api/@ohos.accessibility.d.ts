@@ -15,7 +15,6 @@
 
 import { AsyncCallback } from './basic';
 import { Callback } from './basic';
-import { AbilityInfo } from './bundle/abilityInfo';
 
 /**
  * Accessibility
