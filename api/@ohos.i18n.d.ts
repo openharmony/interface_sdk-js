@@ -89,6 +89,7 @@ export function getSystemLanguage(): string;
 /**
  * Set the language currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param language The language to be used.
  * @since 7
@@ -108,6 +109,7 @@ export function getSystemRegion(): string;
 /**
  * Set the region currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param region The region to be used.
  * @since 7
@@ -127,6 +129,7 @@ export function getSystemLocale(): string;
 /**
  * Set the locale currently used by the system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param locale The locale to be used.
  * @since 7
@@ -244,7 +247,7 @@ export class Calendar {
      * @param date Date object used to set the time and date.
      * @since 8
      */
-    setTime(date: Date);
+    setTime(date: Date): void;
 
     /**
      * set the time.
@@ -253,7 +256,7 @@ export class Calendar {
      * @param time Indicates the elapsed milliseconds from 1970.1.1 00:00:00 GMT.
      * @since 8
      */
-     setTime(time: number);
+     setTime(time: number): void;
 
     /**
      * Set the time
@@ -267,7 +270,7 @@ export class Calendar {
      * @param second the second field of the calendar, ranges from 0 to 59.
      * @since 8
      */
-    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number);
+    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number): void;
 
     /**
      * Set the timezone of this calendar.
@@ -276,7 +279,7 @@ export class Calendar {
      * @param timezone The id of a timezone.
      * @since 8
      */
-    setTimeZone(timezone: string);
+    setTimeZone(timezone: string): void;
 
     /**
      * Get the timezone id of this calendar instance.
@@ -303,7 +306,7 @@ export class Calendar {
      * @param value Indicates the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      * @since 8
      */
-    setFirstDayOfWeek(value: number);
+    setFirstDayOfWeek(value: number): void;
 
     /**
      * Get the minimal days of a week, which is needed for the first day of a year.
@@ -321,7 +324,7 @@ export class Calendar {
      * @param value The value to be set.
      * @since 8
      */
-    setMinimalDaysInFirstWeek(value: number);
+    setMinimalDaysInFirstWeek(value: number): void;
 
     /**
      * Get the associated value with the field.
@@ -364,7 +367,7 @@ export class Calendar {
  * @param locale The locale to be used.
  * @return Returns true representing the locale is an RTL locale
  *
- * @since 8
+ * @since 7
  */
 export function isRTL(locale: string): boolean;
 
@@ -387,7 +390,7 @@ export function isRTL(locale: string): boolean;
 export class BreakIterator {
     /**
      * Obtains the current position of the BreakIterator instance.
-     *
+     * 
      * @syscap SystemCapability.Global.I18n
      * @return Returns the current position of the BreakIterator instance.
      * @since 8
@@ -474,6 +477,17 @@ export class BreakIterator {
 }
 
 /**
+ * Get IndexUtil object.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param locale Indicates a character string containing the locale information, including
+ *               the language and optionally the script and region, for the NumberFormat object.
+ * @return Returns IndexUtil object.
+ * @since 8
+ */
+export function getInstance(locale?:string): IndexUtil;
+
+/**
  * Sequence text can be grouped under the specified area,
  * and grouping index with different lengths can be specified.
  *
@@ -481,17 +495,6 @@ export class BreakIterator {
  * @since 8
  */
 export class IndexUtil {
-    /**
-     * Get IndexUtil object.
-     *
-     * @syscap SystemCapability.Global.I18n
-     * @param locale Indicates a character string containing the locale information, including
-     *               the language and optionally the script and region, for the NumberFormat object.
-     * @return Returns IndexUtil object.
-     * @since 8
-     */
-    getInstance(locale?:string): IndexUtil;
-
     /**
      * Get a list of labels for use as a UI index
      *
@@ -508,7 +511,7 @@ export class IndexUtil {
      * @param locale The locale whose index characters are to be added.
      * @since 8
      */
-    addLocale(locale: string);
+    addLocale(locale: string): void;
 
     /**
      * Get corresponding index of the input text.
@@ -614,17 +617,18 @@ export class Character {
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns a boolean represent whether system is 24-hour system.
- * @since 8
+ * @since 7
  */
  export function is24HourClock(): boolean;
 
 /**
  * set 24-hour system.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param option represent the boolean to be set.
  * @return Returns a boolean represent whether setting 24-hour system success.
- * @since 8
+ * @since 7
  */
   export function set24HourClock(option: boolean): boolean;
 
@@ -633,7 +637,7 @@ export class Character {
  *
  * @syscap SystemCapability.Global.I18n
  * @param language the language to be added.
- * @param index the position of preferred language list to be inserted.
+ * @param index the position of preferred language list to be inserted. 
  * @return Returns a boolean represent whether language added success.
  * @since 8
  */
@@ -666,4 +670,62 @@ export function getPreferredLanguageList(): Array<string>;
  * @since 8
  */
 export function getFirstPreferredLanguage(): string;
+
+/**
+ * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
+ * 
+ * @syscap SystemCapability.Global.I18n
+ * @param zoneID TimeZone ID used to create TimeZone Object.
+ * @return Returns a TimeZone object corresponds to zoneID.
+ * @since 7
+ */
+export function getTimeZone(zoneID?: string): TimeZone;
+
+/**
+ * Provides the API for accessing TimeZone name, rawOffset and offset information.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 7
+ */
+export class TimeZone {
+    /**
+     * Get the id of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represents the timezone id.
+     * @since 7
+     */
+    getID(): string;
+
+    /**
+     * Get the displayName of the TimeZone Object under the locale.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @param locale the locale tag use to display timezone object's name.
+     * @param isDST wether conside daylight saving time when display timezone object's name.
+     * @return Returns a string represents the display name.
+     * @since 7
+     */
+    getDisplayName(locale?: string, isDST?: boolean): string;
+
+    /**
+     * Get the raw offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a number represents the raw offset.
+     * @since 7
+     */
+    getRawOffset(): number;
+
+    /**
+     * Get the offset of the TimeZone object.
+     * 
+     * @syscap SystemCapability.Global.I18n
+     * @date Indicates a date use to compute offset.
+     * @return Returns a number represents the offset with date.
+     * @since 7
+     */
+    getOffset(date?: number): number;
 }
+}
+export default i18n;
