@@ -152,9 +152,20 @@ export default class Context extends BaseContext {
      switchArea(mode: AreaMode): void;
 }
 
+/**
+     * File area mode
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
 export enum AreaMode {
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
     EL1 = 0,
-    EL2 = 1,
-    EL3 = 2,
-    EL4 = 3
+    /**
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    EL2 = 1
 }
