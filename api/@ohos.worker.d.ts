@@ -67,7 +67,7 @@ export interface Event {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-interface ErrorEvent extends Event {
+ export interface ErrorEvent extends Event {
   /**
    * Information about the exception.
    * @since 7
@@ -109,7 +109,7 @@ interface ErrorEvent extends Event {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-declare interface MessageEvent<T = Object> extends Event {
+ export interface MessageEvent<T> extends Event {
   /**
    * Data transferred when an exception occurs.
    * @since 7
@@ -160,7 +160,7 @@ type MessageType = "message" | "messageerror";
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-declare interface EventTarget {
+ export interface EventTarget {
   /**
    * Adds an event listener to the worker.
    * @param type  Type of the event to listen for.
@@ -231,7 +231,7 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
-declare interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
+ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   /**
    * The onmessage attribute of parentPort specifies the event handler
    * to be called then the worker thread receives a message sent by
