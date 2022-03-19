@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
@@ -260,7 +261,7 @@ declare namespace rdb {
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
         /**
-         * Registers a observer for the database. When data in the distributed database changes,
+         * Registers an observer for the database. When data in the distributed database changes,
          * the callback will be invoked.
          *
          * @note N/A
