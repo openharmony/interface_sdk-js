@@ -74,7 +74,7 @@ declare enum HitTestType {
    * The edit text.
    * @since 8
    */
-  Edit,
+  EditText,
 
   /**
    * The email address.
@@ -86,13 +86,13 @@ declare enum HitTestType {
    * The HTML::a tag with src=http.
    * @since 8
    */
-  Http,
+  HttpAnchor,
 
   /**
    * The HTML::a tag with src=http + HTML::img.
    * @since 8
    */
-  HttpImg,
+  HttpAnchorImg,
 
   /**
    * The HTML::img tag.
@@ -470,7 +470,7 @@ declare class WebController {
    * Load the given URL
    * @since 8
    */
-  loadUrl(options: { url: string | Resource; headers?: Array<{ key: string; value: string }> });
+  loadUrl(options: { url: string | Resource; headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
@@ -488,7 +488,7 @@ declare class WebController {
    * Registers the JavaScript object and method list.
    * @since 8
    */
-  registerJavaScriptProxy(options: { obj: object; name: string; methodList: Array<string> });
+  registerJavaScriptProxy(options: { object: object; name: string; methodList: Array<string> });
 
   /**
    * Deletes a registered JavaScript object with given name.
@@ -626,7 +626,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   javaScriptProxy(javaScriptProxy: {
-    obj: object;
+    object: object;
     name: string;
     methodList: Array<string>;
     controller: WebController;
