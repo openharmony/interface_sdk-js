@@ -33,11 +33,7 @@ declare namespace window {
     /**
      * System alert.
      */
-    TYPE_SYSTEM_ALERT,
-    /**
-     * System gesture.
-     */
-    TYPE_SYSTEM_GESTURE
+    TYPE_SYSTEM_ALERT
   }
 
   /**
@@ -271,7 +267,7 @@ declare namespace window {
 
     /**
      * The dimbehind value of window.
-     * @since 6
+     * @since 7
      */
     dimBehindValue: number
 
@@ -681,7 +677,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    on(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    on(type: 'keyboardHeightChange', callback: Callback<number>): void;
 
     /**
      * unregister the callback of keyboardHeightChange
@@ -689,7 +685,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-    off(type: 'keyboardHeightChange', callback: AsyncCallback<number>): void;
+    off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.
