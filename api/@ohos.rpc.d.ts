@@ -1436,7 +1436,7 @@ declare namespace rpc {
         PROT_READ = 1;
 
         /**
-         * The mapped memory is writeable.
+         * The mapped memory is writable.
          * @since 8
          */
         PROT_WRITE = 2;
