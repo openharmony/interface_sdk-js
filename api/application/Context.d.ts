@@ -83,13 +83,13 @@ export default class Context extends BaseContext {
     databaseDir : string;
 
     /**
-     * Indicates app storage dir.
+     * Indicates app preferences dir.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    storageDir : string;
+    preferencesDir : string;
 
     /**
      * Indicates app bundle code dir.
