@@ -1117,7 +1117,7 @@ declare namespace wifi {
     /**
      * The state of the supplicant enumeration.
      *
-     * @since 7
+     * @since 6
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
      */
@@ -1162,7 +1162,7 @@ declare namespace wifi {
     /**
      * The state of Wi-Fi connection enumeration.
      *
-     * @since 7
+     * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     export enum ConnState {
