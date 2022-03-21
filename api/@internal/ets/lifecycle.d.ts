@@ -13,18 +13,18 @@
  * limitations under the License.
  */
 
-import { Want } from "../ability/want";
-import { ResultSet } from "../data/rdb/resultSet";
-import { AbilityInfo } from "../bundle/abilityInfo";
-import { DataAbilityResult } from "../ability/dataAbilityResult";
-import { DataAbilityOperation } from "../ability/dataAbilityOperation";
-import dataAbility from "../@ohos.data.dataAbility";
-import formBindingData from "../@ohos.application.formBindingData";
-import formInfo from "../@ohos.application.formInfo";
-import rdb from "../@ohos.data.rdb";
-import rpc from "../@ohos.rpc";
-import resourceManager from "../@ohos.resourceManager";
-import { PacMap } from "../ability/dataAbilityHelper";
+import { Want } from "../../ability/want";
+import { ResultSet } from "../../data/rdb/resultSet";
+import { AbilityInfo } from "../../bundle/abilityInfo";
+import { DataAbilityResult } from "../../ability/dataAbilityResult";
+import { DataAbilityOperation } from "../../ability/dataAbilityOperation";
+import dataAbility from "../../@ohos.data.dataAbility";
+import formBindingData from "../../@ohos.application.formBindingData";
+import formInfo from "../../@ohos.application.formInfo";
+import rdb from "../../@ohos.data.rdb";
+import rpc from "../../@ohos.rpc";
+import resourceManager from "../../@ohos.resourceManager";
+import { PacMap } from "../../ability/dataAbilityHelper";
 
 /**
  * interface of form lifecycle.
