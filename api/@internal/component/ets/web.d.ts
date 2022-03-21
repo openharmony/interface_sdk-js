@@ -469,7 +469,7 @@ declare class WebController {
    * Load the given URL
    * @since 8
    */
-  loadUrl(options: { url: string; headers?: Array<Header> });
+  loadUrl(options: { url: string | Resource; headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
