@@ -52,6 +52,13 @@ declare namespace storageStatistics {
   cacheSize: number;
   dataSize: number;
 }
+ 
+/**
+   * Get the bundlestat 
+   * 
+   * @since 9
+   * @systemapi
+   */
   function getBundleStats(packageName: string,  callback: AsyncCallback<BundleStats>): void;
   function getBundleStats(packageName: string): Promise<BundleStats>;
 
