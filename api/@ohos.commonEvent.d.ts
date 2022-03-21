@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
 import { CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -19,7 +20,7 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * the defination for commonevent
+ * Common event defination
  * @name commonEvent
  * @since 7
  * @syscap SystemCapability.Notification.CommonEvent
@@ -66,7 +67,7 @@ declare namespace commonEvent {
    * @since 8
    * @param event Specified the names of the common events.
    * @param userId Specified the user to receive the common events.
-   * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
+   * @param options Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
    *
@@ -75,10 +76,10 @@ declare namespace commonEvent {
   function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
-   * create the CommonEventSubscriber for the SubscriberInfo.
+   * creates a CommonEventSubscriber for the SubscriberInfo.
    *
    * @since 7
-   * @param subscribeInfo Indicate the information of the subscriber.
+   * @param subscribeInfo Indicates the information of the subscriber.
    * @param callback Specified callback method.
    * @return -
    */
@@ -88,7 +89,7 @@ declare namespace commonEvent {
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
    * @since 7
-   * @param subscribeInfo Indicate the information of the subscriber.
+   * @param subscribeInfo Indicates the information of the subscriber.
    * @return Returns common event subscriber object
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
@@ -104,7 +105,7 @@ declare namespace commonEvent {
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
-   * unsubscribe an ordered, sticky, or standard common event.
+   * unsubscribe from an ordered, sticky, or standard common event.
    *
    * @since 7
    * @param subscriber Indicate the subscriber of the common event.
