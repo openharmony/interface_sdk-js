@@ -36,21 +36,21 @@ declare namespace systemTime {
      * @since 8
      */
     function getCurrentTime(isNano?: boolean, callback: AsyncCallback<number>): void;
-    function getCurrentTime(isNano?: boolean,): Promise<number>;
+    function getCurrentTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
      * @since 8
      */
     function getRealActiveTime(isNano?: boolean, callback: AsyncCallback<number>): void;
-    function getRealActiveTime(isNano?: boolean, ): Promise<number>;
+    function getRealActiveTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      * @since 8
      */
     function getRealTime(isNano?: boolean, callback: AsyncCallback<number>): void;
-    function getRealTime(isNano?: boolean, ): Promise<number>;
+    function getRealTime(isNano?: boolean): Promise<number>;
 
     /**
      * Sets the system time.
