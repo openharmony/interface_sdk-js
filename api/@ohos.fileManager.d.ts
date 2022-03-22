@@ -29,7 +29,7 @@ declare namespace filemanager {
  * listFile.
  *
  * @note N/A
- * @syscap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  * @permission N/A
  * @function listFile
@@ -51,7 +51,7 @@ declare function listFile(path: string, type: string, options?: {dev?: DevInfo, 
  * getRoot.
  *
  * @note N/A
- * @syscap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  * @permission N/A
  * @function getRoot
@@ -69,7 +69,7 @@ declare function getRoot(options?: {dev?: DevInfo}, callback: AsyncCallback<File
  * createFile.
  *
  * @note N/A
- * @syscap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  * @permission N/A
  * @function createFile
@@ -88,7 +88,7 @@ declare function createFile(path: string, filename: string, options?: {dev?: Dev
 /**
  * FileInfo
  * @note N/A
- * @syscap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  * @permission N/A
  * @systemapi
@@ -129,7 +129,7 @@ declare interface FileInfo {
 /**
  * DevInfo
  * @note N/A
- * @syscap SystemCapability.FileManagement.FileManagerService
+ * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  * @permission N/A
  * @systemapi
