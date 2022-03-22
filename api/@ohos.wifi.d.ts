@@ -357,7 +357,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -370,7 +370,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -381,7 +381,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -392,7 +392,7 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if Wi-Fi hotspot is enabled; returns {@code false} otherwise.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
      */
@@ -408,7 +408,7 @@ declare namespace wifi {
      *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
      * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.SET_WIFI_INFO, ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
@@ -419,7 +419,7 @@ declare namespace wifi {
      *
      * @return Returns the configuration of an existing or enabled Wi-Fi hotspot.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
@@ -432,7 +432,7 @@ declare namespace wifi {
      *
      * @return Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION, ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -669,7 +669,7 @@ declare namespace wifi {
      *
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
     function on(type: "hotspotStateChange", callback: Callback<number>): void;
@@ -680,7 +680,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
     function off(type: "hotspotStateChange", callback?: Callback<number>): void;
@@ -690,7 +690,7 @@ declare namespace wifi {
      *
      * @return Returns StationInfo
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -702,7 +702,7 @@ declare namespace wifi {
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -713,7 +713,7 @@ declare namespace wifi {
      *
      * @return Returns {@link #StationInfo} object
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -724,7 +724,7 @@ declare namespace wifi {
      *
      * @return Returns {@link #StationInfo} object
      * @since 7
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      */
@@ -1059,7 +1059,7 @@ declare namespace wifi {
      *
      * @since 7
      * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      */
     interface HotspotConfig {
         /** The SSID of the Wi-Fi hotspot */
@@ -1083,7 +1083,7 @@ declare namespace wifi {
      *
      * @since 7
      * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.AP
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
      */
     interface StationInfo {
         /** the network name of the Wi-Fi client */
