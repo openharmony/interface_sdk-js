@@ -36,7 +36,7 @@
  *
  * @deprecated
  * @since 7
- * @syscap SystemCapability.Developtools.Bytrace
+ * @syscap SystemCapability.HiviewDFX.HiTrace
  */
 declare namespace bytrace {
   /**
