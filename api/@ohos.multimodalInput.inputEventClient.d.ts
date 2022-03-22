@@ -17,7 +17,7 @@
  * Global Key Event Injection
  *
  * @since 8
- * @syscap SystemCapability.MultimodalInput.Input.InputEventClient
+ * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @import import inputEventClient from '@ohos.multimodalInput.inputEventClient';
  * @systemapi hide for inner use
  * @permission N/A
@@ -27,7 +27,7 @@ declare namespace inputEventClient {
     /**
      * Defines event of key that user want to inject.
      *
-     * @syscap SystemCapability.MultimodalInput.Input.InputEventClient
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @param isPressed The status of key.
      * @param keyCode The keyCode value of key.
@@ -45,7 +45,7 @@ declare namespace inputEventClient {
      * Inject system keys.
      *
      * @since 8
-     * @syscap SystemCapability.MultimodalInput.Input.InputEventClient
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @permission N/A
      * @param KeyEvent the key event to be injected.
