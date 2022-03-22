@@ -19,7 +19,7 @@ import {AsyncCallback} from './basic';
  * inputmethodengine
  *
  * @since 8
- * @syscap SystemCapability.MiscServices.InputMethodFramework
+ * @syscap SystemCapability.Miscservices.InputMethodFramework
  */
 declare namespace inputMethodEngine {
     const ENTER_KEY_TYPE_UNSPECIFIED: number;
