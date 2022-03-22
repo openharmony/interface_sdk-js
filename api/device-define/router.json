@@ -1,6 +1,7 @@
 {
   "SysCaps": [
     "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.PowerManager.PowerManager.Lite",
     "SystemCapability.PowerManager.BatteryManager.Lite",
     "SystemCapability.Customization.ConfigPolicy",
