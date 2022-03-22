@@ -19,7 +19,7 @@ import { AsyncCallback, BusinessError } from './basic';
  * The interface of system parameters class.
  *
  * @since 6
- * @syscap SystemCapability.Startup.SysInfo
+ * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
  */
 declare namespace systemParameter {
@@ -29,6 +29,7 @@ declare namespace systemParameter {
      * @param key Key of the system attribute.
      * @param def Default value.
      * @return if the parameter is empty or doesn't exist, empty string will be returned.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function getSync(key: string, def?: string): string;
@@ -38,6 +39,7 @@ declare namespace systemParameter {
      *
      * @param key Key of the system attribute.
      * @param callback Callback function.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function get(key: string, callback: AsyncCallback<string>): void;
@@ -48,6 +50,7 @@ declare namespace systemParameter {
      * @param key Key of the system attribute.
      * @param def Default value.
      * @param callback Callback function.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function get(key: string, def: string, callback: AsyncCallback<string>): void;
@@ -58,6 +61,7 @@ declare namespace systemParameter {
      * @param key Key of the system attribute.
      * @param def Default value.
      * @return Promise, which is used to obtain the result asynchronously.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function get(key: string, def?: string): Promise<string>;
@@ -67,6 +71,7 @@ declare namespace systemParameter {
      *
      * @param key Key of the system attribute.
      * @param value System attribute value to set.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function setSync(key: string, value: string): void;
@@ -77,6 +82,7 @@ declare namespace systemParameter {
      * @param key Key of the system attribute.
      * @param value System attribute value to set.
      * @param callback Callback function.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function set(key: string, value: string, callback: AsyncCallback<void>): void;
@@ -87,6 +93,7 @@ declare namespace systemParameter {
      * @param key Key of the system attribute.
      * @param value Default value.
      * @return Promise, which is used to obtain the result asynchronously.
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
     function set(key: string, value: string): Promise<void>;
