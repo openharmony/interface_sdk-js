@@ -32,7 +32,7 @@ declare namespace wifiext {
      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-     * @syscap SystemCapability.Communication.WiFi.HotspotExt
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
      function enableHotspot(): boolean;
 
@@ -42,7 +42,7 @@ declare namespace wifiext {
       * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
       * @since 8
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-      * @syscap SystemCapability.Communication.WiFi.HotspotExt
+      * @syscap SystemCapability.Communication.WiFi.AP.Extension
       */
      function disableHotspot(): boolean;
 
@@ -53,7 +53,7 @@ declare namespace wifiext {
      *
      * @since 8
      * @permission ohos.permission.GET_WIFI_INFO
-     * @syscap SystemCapability.Communication.WiFi.HotspotExt
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
      function getSupportedPowerModel(): Promise<Array<PowerModel>>;
      function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
@@ -65,7 +65,7 @@ declare namespace wifiext {
      *
      * @since 8
      * @permission ohos.permission.GET_WIFI_INFO
-     * @syscap SystemCapability.Communication.WiFi.HotspotExt
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
     function getPowerModel (): Promise<PowerModel>;
     function getPowerModel (callback: AsyncCallback<PowerModel>): void;
@@ -77,7 +77,7 @@ declare namespace wifiext {
      *
      * @since 8
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-     * @syscap SystemCapability.Communication.WiFi.HotspotExt
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
     function setPowerModel(model: PowerModel) : boolean
 
@@ -85,7 +85,7 @@ declare namespace wifiext {
      * The power model enumeration.
      *
      * @since 8
-     * @syscap SystemCapability.Communication.WiFi.HotspotExt
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
      export enum PowerModel {
         /** Sleeping model. */
