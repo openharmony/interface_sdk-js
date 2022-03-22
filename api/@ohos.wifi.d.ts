@@ -757,7 +757,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function on(type: "p2pConnectionChange", callback: AsyncCallback<WifiP2pLinkedInfo>): void;
+    function on(type: "p2pConnectionChange", callback: Callback<WifiP2pLinkedInfo>): void;
 
     /**
      * Unsubscribe P2P connection change events.
@@ -766,7 +766,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function off(type: "p2pConnectionChange", callback?: AsyncCallback<WifiP2pLinkedInfo>): void;
+    function off(type: "p2pConnectionChange", callback?: Callback<WifiP2pLinkedInfo>): void;
 
     /**
      * Subscribe P2P local device change events.
@@ -776,7 +776,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
-    function on(type: "p2pDeviceChange", callback: AsyncCallback<WifiP2pDevice>): void;
+    function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
 
     /**
      * Unsubscribe P2P local device change events.
@@ -786,7 +786,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
      */
-    function off(type: "p2pDeviceChange", callback?: AsyncCallback<WifiP2pDevice>): void;
+    function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
 
     /**
      * Subscribe P2P peer device change events.
@@ -796,7 +796,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO, ohos.permission.LOCATION
      */
-    function on(type: "p2pPeerDeviceChange", callback: AsyncCallback<WifiP2pDevice[]>): void;
+    function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
 
     /**
      * Unsubscribe P2P peer device change events.
@@ -805,7 +805,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
      */
-    function off(type: "p2pPeerDeviceChange", callback?: AsyncCallback<WifiP2pDevice[]>): void;
+    function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
 
     /**
      * Subscribe P2P persistent group change events.
