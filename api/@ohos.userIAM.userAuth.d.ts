@@ -18,7 +18,7 @@ import { AsyncCallback } from './basic';
 /**
  * User authentication
  * @since 6
- * @syscap SystemCapability.UserIAM.UserAuth
+ * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @permission ohos.permission.ACCESS_BIOMETRIC
  */
 declare namespace userAuth {
@@ -105,7 +105,7 @@ declare namespace userAuth {
     interface Authenticator {
         /**
          * Execute authentication.
-         * @syscap SystemCapability.UserIAM.UserAuth
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @param type Indicates the authentication type.
          * @param level Indicates the security level.
          * @return Returns authentication result, which is specified by AuthenticationResult.
@@ -117,7 +117,7 @@ declare namespace userAuth {
 
     /**
      * Get Authenticator instance.
-     * @syscap SystemCapability.UserIAM.UserAuth
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @return Returns an Authenticator.
      * @deprecated since 8
      */
