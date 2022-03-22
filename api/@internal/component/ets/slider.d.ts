@@ -158,28 +158,24 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
 
   /**
    * Called when setting whether to display step size.
-   * @devices phone, tablet, car
    * @since 7
    */
   showSteps(value: boolean): SliderAttribute;
 
   /**
    * Called when the percentage of bubble prompt is set when sliding.
-   * @devices phone, tablet, car
    * @since 7
    */
   showTips(value: boolean): SliderAttribute;
 
   /**
    * Called when the thickness of track is set.
-   * @devices phone, tablet, car
    * @since 8
    */
   trackThickness(value: Length): SliderAttribute;
 
   /**
    * Called when the selection value changes.
-   * @devices phone, tablet, car
    * @since 7
    */
   onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;

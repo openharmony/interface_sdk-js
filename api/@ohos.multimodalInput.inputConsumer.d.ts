@@ -21,6 +21,7 @@ import { Callback } from './basic';
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
+ * @systemapi hide for inner use
  * @permission N/A
  */
 
@@ -29,6 +30,7 @@ declare namespace inputConsumer {
      * Defines event of key that user want to subscribe or unsubscribe.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
      * @param preKeys The pre-keys that want to subscribe or unsubscribe.
      * @param finalKey The post position key that want to subscribe or unsubscribe.
      * @param isFinalKeyDown The final key press down or up.
@@ -46,6 +48,7 @@ declare namespace inputConsumer {
      *
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
      * @permission N/A
      * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
@@ -58,6 +61,7 @@ declare namespace inputConsumer {
      *
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
      * @permission N/A
      * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.

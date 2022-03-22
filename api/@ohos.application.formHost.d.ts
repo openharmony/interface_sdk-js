@@ -194,7 +194,7 @@ declare namespace formHost {
      * new update from service.</p>
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @return Returns the number of invalid forms deleted by the Form Manager Service
      * @permission ohos.permission.REQUIRE_FORM.
@@ -209,7 +209,7 @@ declare namespace formHost {
      * new update from service.</p>
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param want Indicates want of the form.
      * @return Returns form state {@link FormStateInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED.
@@ -224,7 +224,7 @@ declare namespace formHost {
      * new update from service.</p>
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
      * @return -
      */
@@ -237,7 +237,7 @@ declare namespace formHost {
      * new update from service.</p>
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param type Indicates event type.
      * @return -
      */
@@ -249,7 +249,7 @@ declare namespace formHost {
      * <p>You can use this method to notify form visible state.</p>
      *
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isVisible Indicates whether visible.
      * @return -
@@ -265,7 +265,7 @@ declare namespace formHost {
      *
      * @devices phone, tablet, tv, wearable, car
      * @since 8
-     * @sysCap SystemCapability.Ability.Form
+     * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
      * @param isEnableUpdate Indicates whether enable update.
      * @return -

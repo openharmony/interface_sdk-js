@@ -140,34 +140,29 @@ declare interface Configuration {
 
 /**
  * Defines the data type of the interface restriction.
- * @devices phone, tablet, car
  * @since 8
  */
 declare interface Rectangle {
   /**
    * x:Horizontal coordinate
-   * @devices phone, tablet, car
    * @since 8
    */
   x?: Length;
 
   /**
    * y:Vertical axis coordinate.
-   * @devices phone, tablet, car
    * @since 8
    */
   y?: Length;
 
   /**
    * Sets the width of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   width?: Length;
 
   /**
    * Sets the height of the current touchRect.
-   * @devices phone, tablet, car
    * @since 8
    */
   height?: Length;
