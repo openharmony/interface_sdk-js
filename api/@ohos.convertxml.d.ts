@@ -142,7 +142,7 @@ declare namespace xml {
         /**
          * To convert XML text to JavaScript object.
          * @since 8
-         * @syscap SystemCapability.Utils.Lang.
+         * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
          * @param option Option Inputted by user to set.
          * @return Returns a JavaScript object converting from XML text.
