@@ -774,8 +774,8 @@ declare namespace rpc {
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since 8
      * @import import rpc from '@ohos.rpc'
+     * @since 8
      */
     interface SendRequestResult {
         /**
@@ -935,9 +935,9 @@ declare namespace rpc {
     }
 
     /** 
+     * @since 7
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
-     * @since 7
      */
     interface DeathRecipient {
         /**

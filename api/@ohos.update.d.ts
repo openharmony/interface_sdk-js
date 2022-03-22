@@ -18,9 +18,9 @@ import { AsyncCallback, BussinessError } from "./basic";
 /**
  * A static class to do update for device.
  *
- * @devices all
  * @since 6
- * @Syscap SystemCapability.Updater.Raw
+ * @syscap SystemCapability.Update.UpdateService
+ * @systemapi hide for inner use.
  */
 declare namespace update {
     /**
@@ -311,9 +311,9 @@ declare namespace update {
     /**
      * A static class to do update for the specified device.
      *
-     * @devices all
      * @since 6
-     * @Syscap SystemCapability.Updater.Raw
+     * @syscap SystemCapability.Update.UpdateService
+     * @systemapi hide for inner use.
      */
     export interface Updater {
         /**
@@ -376,9 +376,18 @@ declare namespace update {
          * Reboot to clean cache.
          *
          * @since 6
+	 * @deprecated since 8
          */
         rebootAndCleanCache(callback: AsyncCallback<number>): void;
         rebootAndCleanCache(): Promise<number>;
+	
+	/**
+         * Reboot and clean user data.
+         *
+         * @since 8
+         */
+        rebootAndCleanUserData(callback: AsyncCallback<number>): void;
+        rebootAndCleanUserData(): Promise<number>;
 
         /**
          * verify update package.

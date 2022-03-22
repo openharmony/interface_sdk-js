@@ -44,6 +44,7 @@ declare namespace formProvider {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
+     * @param FormBindingData Indicates the form data
      * @return -
      */
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
