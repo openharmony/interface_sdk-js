@@ -272,9 +272,6 @@ declare namespace connection {
     prefixLength: number;
   }
 
-  /**
-   * @since 7
-   */
   export interface NetAddress {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
