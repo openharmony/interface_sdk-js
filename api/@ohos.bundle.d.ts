@@ -292,6 +292,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @return Returns the IBundleInstaller interface.
    * @permission ohos.permission.INSTALL_BUNDLE
+   * @systemapi Hide this for inner system use
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
@@ -347,15 +348,15 @@ declare namespace bundle {
    *
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundlelFlag Indicates the flag used to specify information contained in the BundleInfo that will be
+   * @param bundleFlag Indicates the flag used to specify information contained in the BundleInfo that will be
    *              returned.
    * @param userId Indicates the user id.
    * @return Returns a list of BundleInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    */
-  function getAllBundleInfo(bundlelFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>) : void;
-  function getAllBundleInfo(bundlelFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>) : void;
-  function getAllBundleInfo(bundlelFlag: BundleFlag, userId?: number) : Promise<Array<BundleInfo>>;
+  function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>) : void;
+  function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>) : void;
+  function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number) : Promise<Array<BundleInfo>>;
 
   /**
    * Obtains information about all installed applications of a specified user.
