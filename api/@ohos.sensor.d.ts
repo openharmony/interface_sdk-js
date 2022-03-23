@@ -95,7 +95,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
@@ -106,7 +106,7 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
@@ -503,7 +503,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
@@ -512,7 +512,7 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission ohos.permission.GRYOSCOPE
+     * @permission ohos.permission.GYROSCOPE
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
