@@ -20,7 +20,7 @@ import { AsyncCallback, BusinessError } from './basic';
  *
  * @since 6
  * @syscap SystemCapability.Startup.SystemInfo
- * @hide
+ * @systemapi Hide this for inner system use.
  */
 declare namespace systemParameter {
     /**
