@@ -21,7 +21,7 @@ import bundle from './../@ohos.bundle';
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @systemapi Hide this for inner system use
  */
 export interface InstallParam {
   /**
@@ -51,7 +51,7 @@ export interface InstallParam {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @systemapi Hide this for inner system use
  */
 export interface InstallStatus {
 
@@ -75,7 +75,7 @@ export interface InstallStatus {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @systemapi Hide this for inner system use
  */
 export interface BundleInstaller {
   /**
