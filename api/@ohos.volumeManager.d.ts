@@ -38,6 +38,12 @@ declare namespace volumeManager {
   state: number;
   path: string;
 }
+/**
+   * Get All Volumes
+   * 
+   * @since 9
+   * @systemapi
+   */
 function getAllVolumes(callback: AsyncCallback<Array<Volume>>): void;
 function getAllVolumes(): Promise<Array<Volume>>;
 
