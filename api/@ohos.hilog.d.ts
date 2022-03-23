@@ -16,7 +16,7 @@
 /**
 * Provides interfaces to generate system logs.
 *
-* @since 8
+* @since 7
 * @syscap SystemCapability.HiviewDFX.HiLog
 */
 
@@ -28,7 +28,7 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function debug(domain: number, tag: string, format: string, ...args: any[]) : void;
@@ -39,7 +39,7 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function info(domain: number, tag: string, format: string, ...args: any[]) : void;
@@ -50,7 +50,7 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function warn(domain: number, tag: string, format: string, ...args: any[]) : void;
@@ -61,7 +61,7 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function error(domain: number, tag: string, format: string, ...args: any[]) : void;
@@ -72,7 +72,7 @@ declare namespace hilog {
    * @param tag Identifies the log tag.
    * @param format Indicates the log format string.
    * @param args Indicates the log parameters.
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function fatal(domain: number, tag: string, format: string, ...args: any[]) : void;
@@ -82,14 +82,14 @@ declare namespace hilog {
    * @param domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF
    * @param tag Identifies the log tag.
    * @param level log level
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   function isLoggable(domain: number, tag: string, level: LogLevel) : boolean;
   /**
    * Log level define
    *
-   * @since 8
+   * @since 7
    * @syscap SystemCapability.HiviewDFX.HiLog
    */
   enum LogLevel {
