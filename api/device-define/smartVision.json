@@ -10,6 +10,7 @@
     "SystemCapability.HiviewDFX.HiLogLite",
     "SystemCapability.HiviewDFX.HiviewLite",
     "SystemCapability.Update.UpdateService",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.Startup.SystemInfo"
