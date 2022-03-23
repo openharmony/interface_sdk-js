@@ -36,7 +36,7 @@
  *
  * @deprecated
  * @since 7
- * @syscap SystemCapability.Developtools.Bytrace
+ * @syscap SystemCapability.HiviewDFX.HiTrace
  */
 declare namespace bytrace {
   /**
@@ -49,7 +49,7 @@ declare namespace bytrace {
    *
    * @deprecated
    * @since 7
-   * @syscap SystemCapability.Developtools.Bytrace
+   * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the task name.
    * @param taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
    * @param expectedTime Indicates the expected time required for completing the task, in milliseconds.
@@ -64,7 +64,7 @@ declare namespace bytrace {
    *
    * @deprecated
    * @since 7
-   * @syscap SystemCapability.Developtools.Bytrace
+   * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the task name. It must be the same whith the {@code name} of startTrace.
    * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
    * {@code taskId} of startTrace.
@@ -76,7 +76,7 @@ declare namespace bytrace {
    *
    * @deprecated
    * @since 7
-   * @syscap SystemCapability.Developtools.Bytrace
+   * @syscap SystemCapability.HiviewDFX.HiTrace
    * @param name Indicates the name used to identify the count.
    * @param count Indicates the number of the count.
    */
