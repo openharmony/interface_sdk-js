@@ -20,7 +20,7 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  *
  * @since 7
  * @devices phone, tablet, tv, wearable, car
- * @syscap SystemCapability.Applictaions.settings.Core
+ * @syscap SystemCapability.Applications.settings.Core
  * @import import settings from '@ohos.settings'
  * @permission N/A
  */
