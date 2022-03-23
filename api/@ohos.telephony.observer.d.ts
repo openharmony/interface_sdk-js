@@ -107,6 +107,9 @@ declare namespace observer {
   function on(type: 'cellularDataConnectionStateChange', options: { slotId: number },
     callback: Callback<{ state: DataConnectState, network: RatType }>): void;
 
+  /**
+   * @since 7
+   */
   function off(type: 'cellularDataConnectionStateChange',
     callback?: Callback<{ state: DataConnectState, network: RatType }>): void;
 
@@ -123,6 +126,9 @@ declare namespace observer {
   function on(type: 'cellularDataFlowChange', options: { slotId: number },
     callback: Callback<DataFlowType>): void;
 
+  /**
+   * @since 7
+   */
   function off(type: 'cellularDataFlowChange', callback?: Callback<DataFlowType>): void;
 
   /**
@@ -156,6 +162,9 @@ declare namespace observer {
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
   function on(type: 'simStateChange', options: { slotId: number }, callback: Callback<SimStateData>): void;
 
+  /**
+   * @since 7
+   */
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
   /**
