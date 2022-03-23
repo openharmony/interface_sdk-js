@@ -24,11 +24,11 @@
     "SystemCapability.Communication.NetStack",
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Communication.WiFi.STA",
-    "SystemCapability.Communication.WiFi.AP",
+    "SystemCapability.Communication.WiFi.AP.Core",
     "SystemCapability.Communication.WiFi.P2P",
     "SystemCapability.Communication.Bluetooth.Core",
     "SystemCapability.Communication.Bluetooth.Lite",
-    "SystemCapability.Location.Location.Base",
+    "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Geocoder",
     "SystemCapability.Location.Location.Geofence",
     "SystemCapability.Location.Location.Gnss",
@@ -109,9 +109,7 @@
     "SystemCapability.Account.OsAccount",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.UserIAM.UserAuth.Core",
-    "SystemCapability.UserIAM.AuthExecutorManager",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
-    "SystemCapability.UserIAM.UserIdm",
     "SystemCapability.UserIAM.UserAuth.FaceAuth",
     "SystemCapability.Miscservices.InputMethodFramework",
     "SystemCapability.Miscservices.Pasteboard",
@@ -149,6 +147,9 @@
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
-    "SystemCapability.Applications.ContactsData"
+    "SystemCapability.Applications.ContactsData",
+    "SystemCapability.Applications.Contacts",
+    "SystemCapability.Applications.settings.Core",
+    "SystemCapability.Test.UiTest"
   ]
 }
