@@ -17,7 +17,7 @@ import { Want } from './ability/want';
 
 /**
  * systemPasteboard
- * @syscap SystemCapability.Miscservices.Pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
  * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
