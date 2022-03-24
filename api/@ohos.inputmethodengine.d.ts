@@ -19,7 +19,7 @@ import {AsyncCallback} from './basic';
  * inputmethodengine
  *
  * @since 8
- * @syscap SystemCapability.MiscServices.InputMethodFramework
+ * @syscap SystemCapability.Miscservices.InputMethodFramework
  */
 declare namespace inputMethodEngine {
     const ENTER_KEY_TYPE_UNSPECIFIED: number;
@@ -58,7 +58,7 @@ declare namespace inputMethodEngine {
     function createKeyboardDelegate(): KeyboardDelegate;
 
     interface KeyboardController {
-        hideKeyboard(callbakc: AsyncCallback<void>): void;
+        hideKeyboard(callback: AsyncCallback<void>): void;
 
         hideKeyboard(): Promise<void>;
     }
@@ -86,15 +86,15 @@ declare namespace inputMethodEngine {
 
         deleteBackward(length: number): Promise<boolean>;
 
-        InsertText(text: string, callback: AsyncCallback<boolean>): void;
+        insertText(text: string, callback: AsyncCallback<boolean>): void;
 
-        InsertText(text: string): Promise<boolean>;
+        insertText(text: string): Promise<boolean>;
 
         getForward(length: number, callback: AsyncCallback<string>): void;
 
         getForward(length: number): Promise<string>;
 
-        getEditorAttribute(lcallback: AsyncCallback<EditorAttribute>): void;
+        getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
     }
