@@ -19,7 +19,7 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  * the subscriber of common event
  * @name CommonEventSubscriber
  * @since 7
- * @syscap SystemCapability.Notification.commonEvent
+ * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
  */
 export interface CommonEventSubscriber {
