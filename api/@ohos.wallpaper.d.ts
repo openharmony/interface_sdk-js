@@ -17,7 +17,7 @@ import image from './@ohos.multimedia.image'
 
 /**
  * System wallpaper
- * @syscap SystemCapability.Miscservices.Wallpaper
+ * @syscap SystemCapability.MiscServices.Wallpaper
  * @import import wallpaper from '@ohos.wallpaper';
  * @since 7
  */
