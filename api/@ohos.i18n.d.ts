@@ -635,6 +635,7 @@ export class Character {
 /**
  * Add one language to preferred language List.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param language the language to be added.
  * @param index the position of preferred language list to be inserted. 
@@ -646,6 +647,7 @@ export function addPreferredLanguage(language: string, index?: number): boolean;
 /**
  * Remove one language from preferred language list.
  *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param index the position of removed language in preferred language list.
  * @return Returns a boolean represent whether removed success.
