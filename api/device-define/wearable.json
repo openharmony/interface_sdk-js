@@ -102,7 +102,7 @@
     "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.UserIAM.UserAuth.FaceAuth",
-    "SystemCapability.Miscservices.Time",
+    "SystemCapability.MiscServices.Time",
     "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",

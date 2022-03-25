@@ -97,7 +97,7 @@
     "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.UserIAM.UserAuth.FaceAuth",
-    "SystemCapability.Miscservices.Time",
+    "SystemCapability.MiscServices.Time",
     "SystemCapability.FileManagement.StorageService.Backup",
     "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.FileManagement.StorageService.Volume",
