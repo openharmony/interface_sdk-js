@@ -19,7 +19,6 @@
  * @since 8
  * @syscap SystemCapability.Global.ResourceManager
  *
- * @permission N/A
  */
  export interface RawFileDescriptor {
   /**
