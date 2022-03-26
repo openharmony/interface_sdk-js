@@ -25,8 +25,6 @@ declare namespace call {
   /**
    * Makes a call.
    *
-   * <p>Applications must have the {@code ohos.permission.PLACE_CALL} permission to call this method.
-   *
    * @param phoneNumber Indicates the called number.
    * @param options Indicates additional information carried in the call.
    * @param callback Returns {@code true} if the call request is successful; returns {@code false} otherwise.
@@ -75,7 +73,7 @@ declare namespace call {
    *
    * <p>If an incoming call is ringing, the phone stops ringing. Otherwise, this method does not function.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE or System App
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -134,6 +132,7 @@ declare namespace call {
 
   /**
    * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.ANSWER_CALL
    * @since 7
    */
   function answer(callId: number, callback: AsyncCallback<void>): void;
