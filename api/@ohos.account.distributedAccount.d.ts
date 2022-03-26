@@ -45,7 +45,7 @@ declare namespace distributedAccount {
          *
          * @since 7
          * @return The distributed information of the current OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
          */
         queryOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
         queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
