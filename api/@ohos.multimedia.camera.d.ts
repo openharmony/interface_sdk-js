@@ -102,6 +102,7 @@ declare namespace camera {
      * @param callback Callback used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @permission ohos.permission.CAMERA
      */
     createCameraInput(cameraId: string, callback: AsyncCallback<CameraInput>): void;
 
@@ -111,6 +112,7 @@ declare namespace camera {
      * @return Promise used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @permission ohos.permission.CAMERA
      */
     createCameraInput(cameraId: string): Promise<CameraInput>;
 
@@ -121,6 +123,7 @@ declare namespace camera {
      * @param callback Callback used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @permission ohos.permission.CAMERA
      */
     createCameraInput(position: CameraPosition, type: CameraType, callback: AsyncCallback<CameraInput>): void;
 
@@ -131,6 +134,7 @@ declare namespace camera {
      * @return Promise used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @permission ohos.permission.CAMERA
      */
     createCameraInput(position: CameraPosition, type: CameraType): Promise<CameraInput>;
 
