@@ -21,7 +21,6 @@ import rdb from './@ohos.data.rdb';
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @import import data_dataAbility from '@ohos.data.dataAbility';
- * @permission N/A
  */
 declare namespace dataAbility {
     /**
@@ -42,7 +41,6 @@ declare namespace dataAbility {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_dataAbility from '@ohos.data.dataAbility';
-     * @permission N/A
      */
     class DataAbilityPredicates {
         /**
@@ -385,7 +383,6 @@ declare namespace dataAbility {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValueType = number | string | boolean;
 }
