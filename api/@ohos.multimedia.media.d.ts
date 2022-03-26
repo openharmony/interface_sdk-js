@@ -282,7 +282,7 @@ declare namespace media {
      * local:fd://XXX, file://XXX. network:http://xxx
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.INTERNET
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.INTERNET
      */
     src: string;
 
@@ -626,6 +626,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param config Recording parameters.
      * @param callback A callback instance used to return when prepare completed.
+     * @permission ohos.permission.MICROPHONE
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
@@ -634,6 +635,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param config Recording parameters.
      * @return A Promise instance used to return when prepare completed.
+     * @permission ohos.permission.MICROPHONE
      */
     prepare(config: VideoRecorderConfig): Promise<void>;
     /**

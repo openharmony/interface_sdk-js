@@ -277,7 +277,7 @@ declare namespace mediaLibrary {
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback no value will be returned.
      */
     commitModify(callback: AsyncCallback<void>): void;
@@ -285,14 +285,14 @@ declare namespace mediaLibrary {
      * Modify meta data where the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      */
     commitModify(): Promise<void>;
     /**
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
      */
@@ -301,7 +301,7 @@ declare namespace mediaLibrary {
      * Open the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      */
     open(mode: string): Promise<number>;
@@ -309,7 +309,7 @@ declare namespace mediaLibrary {
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      * @param callback no value will be returned.
      */
@@ -318,7 +318,7 @@ declare namespace mediaLibrary {
      * Close the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA | ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      */
     close(fd: number): Promise<void>;
@@ -351,7 +351,7 @@ declare namespace mediaLibrary {
      * Set favorite for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
      */
@@ -360,7 +360,7 @@ declare namespace mediaLibrary {
      * Set favorite for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite ture is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
@@ -383,7 +383,7 @@ declare namespace mediaLibrary {
      * Set trash for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      * @param callback Callback used to return, No value is returned.
      */
@@ -392,7 +392,7 @@ declare namespace mediaLibrary {
      * Set trash for the file when the file is located.
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      */
     trash(isTrash: boolean): Promise<void>;
@@ -750,7 +750,7 @@ declare namespace mediaLibrary {
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback, no value will be returned.
      */
     commitModify(callback: AsyncCallback<void>): void;
@@ -758,7 +758,7 @@ declare namespace mediaLibrary {
      * Modify the meta data for the album
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      */
     commitModify(): Promise<void>;
     /**
@@ -896,7 +896,7 @@ declare namespace mediaLibrary {
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
@@ -907,7 +907,7 @@ declare namespace mediaLibrary {
      * Create File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
@@ -918,7 +918,7 @@ declare namespace mediaLibrary {
      * Delete File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri FileAsset's URI
      * @param callback no value returned
      * @systemapi
@@ -928,7 +928,7 @@ declare namespace mediaLibrary {
      * Delete File Asset
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA, ohos.permission.WRITE_MEDIA
+     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
      * @return A Promise instance, no value returned
      * @systemapi
