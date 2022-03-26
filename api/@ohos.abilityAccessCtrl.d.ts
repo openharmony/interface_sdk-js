@@ -45,7 +45,7 @@ import { AsyncCallback } from "./basic";
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @param permissionFlag Flag of permission state.
-         * @oermission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */
@@ -57,7 +57,7 @@ import { AsyncCallback } from "./basic";
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
          * @param permissionFlag Flag of permission state.
-         * @oermission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */
@@ -69,7 +69,7 @@ import { AsyncCallback } from "./basic";
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @return Return permission flag.
-         * @oermission ohos.permission.GET_SENSITIVE_PERMISSIONS/ohos.permission.GRANT_SENSITIVE_PERMISSIONS/ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi hid this for inner system use
          * @since 8
          */
