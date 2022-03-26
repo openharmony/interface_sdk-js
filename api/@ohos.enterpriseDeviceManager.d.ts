@@ -29,8 +29,6 @@ declare namespace enterpriseDeviceManager {
    * @name EnterpriseInfo
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @import NA
-   * @permission NA
    */
   export interface EnterpriseInfo {
     name: string;
@@ -41,8 +39,6 @@ declare namespace enterpriseDeviceManager {
    * @name AdminType
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @import NA
-   * @permission NA
    */
   export enum AdminType {
     ADMIN_TYPE_NORMAL = 0x00,

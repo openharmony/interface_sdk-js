@@ -20,7 +20,6 @@ import { Want } from "./../ability/want";
  * @name Offers set settings policies on the devices.
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @permission NA
  */
 export interface DeviceSettingsManager {
 
