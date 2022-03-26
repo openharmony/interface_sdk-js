@@ -50,6 +50,7 @@ export interface GeolocationResponse {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @permission ohos.permission.LOCATION
  */
 export interface GetLocationOption {
   /**
@@ -124,6 +125,7 @@ export interface GetLocationTypeOption {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @permission ohos.permission.LOCATION
  */
 export interface SubscribeLocationOption {
   /**
@@ -152,6 +154,7 @@ export interface SubscribeLocationOption {
 export default class Geolocation {
   /**
    * Obtains the geographic location.
+   * @permission ohos.permission.LOCATION
    * @param options Options.
    */
   static getLocation(options?: GetLocationOption): void;
@@ -164,12 +167,14 @@ export default class Geolocation {
 
   /**
    * Listens to the geographical location. If this method is called multiple times, the last call takes effect.
+   * @permission ohos.permission.LOCATION
    * @param options Options.
    */
   static subscribe(options: SubscribeLocationOption): void;
 
   /**
    * Cancels listening to the geographical location.
+   * @permission ohos.permission.LOCATION
    */
   static unsubscribe(): void;
 
