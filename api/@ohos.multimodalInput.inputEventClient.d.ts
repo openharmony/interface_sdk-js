@@ -20,7 +20,6 @@
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @import import inputEventClient from '@ohos.multimodalInput.inputEventClient';
  * @systemapi hide for inner use
- * @permission N/A
  */
 
 declare namespace inputEventClient {
@@ -47,7 +46,6 @@ declare namespace inputEventClient {
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
-     * @permission N/A
      * @param KeyEvent the key event to be injected.
      */
     function injectEvent({KeyEvent: KeyEvent}): void;
