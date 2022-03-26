@@ -805,7 +805,7 @@ declare namespace settings {
    * @param value Indicates the value of the character string.
    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. SystemApi
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;

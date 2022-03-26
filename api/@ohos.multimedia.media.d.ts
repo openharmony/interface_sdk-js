@@ -831,6 +831,7 @@ declare namespace media {
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @param callback A callback instance used to return when prepare completed.
+     * @permission ohos.permission.MICROPHONE
      */
     prepare(callback: AsyncCallback<void>): void;
      /**
@@ -838,6 +839,7 @@ declare namespace media {
       * @since 8
       * @syscap SystemCapability.Multimedia.Media.VideoPlayer
       * @return A Promise instance used to return when prepare completed.
+      * @permission ohos.permission.MICROPHONE
       */
     prepare(): Promise<void>;
     /**

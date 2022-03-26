@@ -40,8 +40,6 @@ declare namespace connection {
   /**
    * Obtains the data network that is activated by default.
    *
-   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   *
    * @param callback Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
@@ -52,8 +50,6 @@ declare namespace connection {
   /**
    * Obtains the list of data networks that are activated.
    *
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
-   *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    */
@@ -62,8 +58,6 @@ declare namespace connection {
 
   /**
    * Queries the connection properties of a network.
-   *
-   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
@@ -74,8 +68,6 @@ declare namespace connection {
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
-   *
-   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
@@ -171,20 +163,11 @@ declare namespace connection {
     netId: number;
 
     /**
-     * Binds a TCPSocket or UDPSocket to the current network. All data flows from
-     * the socket will use this network, without being subject to {@link setAppNet}.
-     * Before using this method, ensure that the socket is disconnected.
-     *
-     * @param socketParam Indicates the TCPSocket or UDPSocket object.
-     */
-    bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
-    bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
-
-    /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
      * @param callback Returns the NetAddress list.
+     * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -194,6 +177,7 @@ declare namespace connection {
      *
      * @param host Indicates the host name or the domain.
      * @return Returns the first NetAddress.
+     * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
     getAddressByName(host: string): Promise<NetAddress>;
@@ -272,9 +256,6 @@ declare namespace connection {
     prefixLength: number;
   }
 
-  /**
-   * @since 7
-   */
   export interface NetAddress {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4

@@ -976,7 +976,7 @@ declare namespace rpc {
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
          * @since 7
          */
-        TF_WAIT_TIME  = 8;
+        TF_WAIT_TIME  = 4;
 
         /**
          * A constructor used to create a MessageOption instance.
