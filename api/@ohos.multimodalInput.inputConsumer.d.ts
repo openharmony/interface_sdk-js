@@ -22,7 +22,6 @@ import { Callback } from './basic';
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @systemapi hide for inner use
- * @permission N/A
  */
 
 declare namespace inputConsumer {
@@ -49,7 +48,6 @@ declare namespace inputConsumer {
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @permission N/A
      * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
@@ -62,7 +60,6 @@ declare namespace inputConsumer {
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
-     * @permission N/A
      * @param type type of the inputevent about input which is to be subscribed.
      * @param keyOption the key events about input which is to be subscribed.
      * @param callback callback function, receive reported data.
