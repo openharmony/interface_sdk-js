@@ -15,27 +15,26 @@
 
 import { AsyncCallback } from './basic';
 import { Callback } from './basic';
-import { AbilityInfo } from './bundle/abilityInfo';
 
 /**
  * Accessibility
  * @name Accessibility
  * @since 7
- * @syscap SystemCapability.Barrierfree.Accessibility.Core
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @import basic,abilityInfo
  */
 declare namespace accessibility {
 
   /**
    * The type of the Ability app.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual';
 
   /**
    * The action that the ability can execute.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
@@ -50,7 +49,7 @@ declare namespace accessibility {
    * @note announcement
    * @note notificationChange
    * @note textTraversedAtMove
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
@@ -60,14 +59,14 @@ declare namespace accessibility {
   /**
    * The change type of the windowsChange event.
    * @note It's used when received the {@code windowsChange} event.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus';
 
   /**
    * The type of the ability state.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type AbilityState = 'enable' | 'disable' | 'install';
@@ -80,7 +79,7 @@ declare namespace accessibility {
    * windowContent: Describes the capability to search for the content of the active window.
    * filterKeyEvents: Describes the capability to request to filter key events.
    * fingerprintGesture: Describes the capability to request to fingerprint gesture.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type Capability = 'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture';
@@ -88,7 +87,7 @@ declare namespace accessibility {
   /**
    * The granularity of text move.
    * @note The granularity of text move.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph';
@@ -97,7 +96,7 @@ declare namespace accessibility {
    * Checks whether accessibility ability is enabled.
    * @since 7
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
   */
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
@@ -107,7 +106,7 @@ declare namespace accessibility {
    * Checks touch browser ability (which is used by talkback) is enabled.
    * @since 7
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Vision
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
   */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
@@ -118,7 +117,7 @@ declare namespace accessibility {
    * @since 7
    * @param abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns the list of abilityInfos.
   */
   function getAbilityLists(abilityType: AbilityType, stateType: AbilityState,
@@ -131,7 +130,7 @@ declare namespace accessibility {
    * @since 7
    * @param event The object of the accessibility {@code EventInfo} .
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if success ; returns {@code false} otherwise.
    */
   function sendEvent(event: EventInfo, callback: AsyncCallback<void>): void;
@@ -142,7 +141,7 @@ declare namespace accessibility {
    * @since 7
    * @param type state event type.
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
@@ -152,7 +151,7 @@ declare namespace accessibility {
    * @since 7
    * @param type state event type.
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Vision
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
@@ -162,7 +161,7 @@ declare namespace accessibility {
    * @since 7
    * @param type state event type
    * @param callback Asynchronous callback interface.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Core
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
@@ -178,7 +177,7 @@ declare namespace accessibility {
 
   /**
    * Get the captions manager.
-   * @syscap SystemCapability.Barrierfree.Accessibility.Hearing
+   * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    * @return Returns the captions manager.
    */
@@ -186,7 +185,7 @@ declare namespace accessibility {
 
    /**
     * Indicates the captions manager.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Hearing
+    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
     * @since 8
     */
    interface CaptionsManager {
@@ -219,20 +218,20 @@ declare namespace accessibility {
  
    /**
     * Indicates the edge type of the captions font.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Hearing
+    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
     * @since 8
     */
    type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow';
    /**
     * Indicates the font family of captions.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Hearing
+    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
     * @since 8
     */
    type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
      'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
    /**
     * Indicates the style of captions.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Hearing
+    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
     * @since 8
     */
    interface CaptionsStyle {
@@ -264,7 +263,7 @@ declare namespace accessibility {
 
    /**
     * Indicates the info of accessibility.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Core
+    * @syscap SystemCapability.BarrierFree.Accessibility.Core
     * @since 7
     */
   interface AccessibilityAbilityInfo {
@@ -312,7 +311,7 @@ declare namespace accessibility {
 
   /**
     * Indicates the info of events.
-    * @syscap SystemCapability.Barrierfree.Accessibility.Core
+    * @syscap SystemCapability.BarrierFree.Accessibility.Core
     * @since 7
     */
   class EventInfo {

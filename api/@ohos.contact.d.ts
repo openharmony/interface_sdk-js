@@ -26,22 +26,31 @@ declare namespace contact {
   /**
    * Creates a contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param contact Indicates the contact information.
    * @return Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @permision ohos.permission.WRITE_CONTACTS
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
   function addContact(contact: Contact): Promise<number>;
 
   /**
-   * Deletes a specified contact.
+   * Select contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
+   * @return Returns the contact list which user select;
+   * returns empty contact list if user not select.
+   * @syscap SystemCapability.Applications.ContactsData, SystemCapability.Applications.Contacts
+   * @permission ohos.permission.READ_CONTACTS
+   */
+  function selectContact(callback: AsyncCallback<Array<Contact>>): void;
+  function selectContact(): Promise<Array<Contact>>;
+
+  /**
+   * Deletes a specified contact.
    *
    * @param key Indicates the unique query key of a contact to delete.
    * @return Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
+   * @permision ohos.permission.WRITE_CONTACTS
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
   function deleteContact(key: string): Promise<void>;
@@ -49,12 +58,11 @@ declare namespace contact {
   /**
    * Queries a specified contact of specified attributes.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param key Indicates the unique query key of a contact.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @return Returns the specified contact.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
@@ -65,11 +73,10 @@ declare namespace contact {
   /**
    * Queries contacts with query conditions.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @return Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -80,12 +87,11 @@ declare namespace contact {
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param email Indicates the email address.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @return Returns a {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -96,13 +102,12 @@ declare namespace contact {
   /**
    * Queries contacts by a phone number, holder, and contact attribute.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}.
-   *
    * @param phoneNumber Indicates the phone number. Only full match is supported, and wildcards are not supported.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @param attrs Indicates the contact attribute. If this parameter is null,
    * all attributes will be used for matching.
    * @return Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -113,10 +118,9 @@ declare namespace contact {
   /**
    * Queries contact groups.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @return Returns the contact group list.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
@@ -125,9 +129,8 @@ declare namespace contact {
   /**
    * Queries contact holders.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @return Returns the {@code Holder} list object.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
   function queryHolders(): Promise<Array<Holder>>;
@@ -135,11 +138,10 @@ declare namespace contact {
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param id Indicates the contact ID.
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @return Returns the query key of the contact.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryKey(id: number, callback: AsyncCallback<string>): void;
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
@@ -148,10 +150,9 @@ declare namespace contact {
   /**
    * Queries information about "my card".
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @return Returns information about "my card".
+   * @permission ohos.permission.READ_CONTACTS
    */
   function queryMyCard(callback: AsyncCallback<Contact>): void;
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
@@ -160,12 +161,11 @@ declare namespace contact {
   /**
    * Updates specified attributes of a contact.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param contact Indicates the contact whose information is to update.
    * @param attrs Indicates the contact attributes to update. If this parameter is null,
    * all available attributes will be updated.
    * @return Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @permision ohos.permission.WRITE_CONTACTS
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
@@ -174,10 +174,9 @@ declare namespace contact {
   /**
    * Checks whether the contact ID is in the local phone book.
    *
-   * <p>Permissions required: {@code ohos.permission.READ_CONTACTS} and {@code ohos.permission.WRITE_CONTACTS}
-   *
    * @param id Indicates the contact ID.
    * @return Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
   function isLocalContact(id: number): Promise<boolean>;
@@ -187,6 +186,7 @@ declare namespace contact {
    *
    * @param id Indicates the contact ID.
    * @return Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
+   * @permission ohos.permission.READ_CONTACTS
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
   function isMyCard(id: number): Promise<boolean>;

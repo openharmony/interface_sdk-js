@@ -127,8 +127,6 @@ declare namespace sim {
    * <p>The ICCID is a unique identifier of a SIM card. It consists of 20 digits
    * and is recorded in the EFICCID file of the SIM card.
    *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
-   *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the ICCID; returns an empty string if no SIM card is inserted.
@@ -141,8 +139,6 @@ declare namespace sim {
 
   /**
    * Obtains the alpha identifier of the voice mailbox of the SIM card in a specified slot.
-   *
-   * <p>Only applications with the {@code ohos.permission.GET_TELEPHONY_STATE} permission can call this method.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
@@ -157,8 +153,6 @@ declare namespace sim {
 
   /**
    * Obtains the voice mailbox number of the SIM card in a specified slot.
-   *
-   * <p>Only applications with the {@code ohos.permission.GET_TELEPHONY_STATE} permission can call this method.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
@@ -183,8 +177,6 @@ declare namespace sim {
    * Obtains the MSISDN of the SIM card in a specified slot.
    * The MSISDN is recorded in the EFMSISDN file of the SIM card.
    *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
-   *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the MSISDN; returns an empty string if no SIM card is inserted or
@@ -199,8 +191,6 @@ declare namespace sim {
   /**
    * Obtains the Group Identifier Level 1 (GID1) of the SIM card in a specified slot.
    * The GID1 is recorded in the EFGID1 file of the SIM card.
-   *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
