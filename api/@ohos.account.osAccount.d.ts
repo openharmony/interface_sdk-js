@@ -69,7 +69,7 @@ declare namespace osAccount {
          * @since 7
          * @param localId Indicates the local ID of the OS account.
          * @return Returns {@code true} if the OS account is activated; returns {@code false} otherwise.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
          */
         isOsAccountActived(localId: number, callback: AsyncCallback<boolean>): void;
         isOsAccountActived(localId: number): Promise<boolean>;
@@ -121,7 +121,7 @@ declare namespace osAccount {
          * @param localId Indicates the local ID of the OS account.
          * @return Returns {@code true} if the OS account has been verified successfully;
          *         returns {@code false} otherwise.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
          */
         isOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
         isOsAccountVerified(localId?: number): Promise<boolean>;
@@ -169,6 +169,7 @@ declare namespace osAccount {
          * @param localId Indicates the local ID of the OS account.
          * @param localName Indicates the local name to set for the OS account.
          * @return void.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          * @systemapi Hide this for inner system use.
          */
         setOsAccountName(localId: number, localName: string, callback: AsyncCallback<void>): void;
@@ -241,6 +242,7 @@ declare namespace osAccount {
          * @since 7
          * @return Returns a list of OS accounts.
          * @systemapi Hide this for inner system use.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          */
         queryAllCreatedOsAccounts(callback: AsyncCallback<Array<OsAccountInfo>>): void;
         queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
@@ -298,7 +300,7 @@ declare namespace osAccount {
          * @since 7
          * @param localId Indicates the local ID of the OS account.
          * @return Returns the OS account information; returns {@code null} if the query fails.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS/ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
          * @systemapi Hide this for inner system use.
          */
         queryOsAccountById(localId: number, callback: AsyncCallback<OsAccountInfo>): void;
@@ -325,7 +327,7 @@ declare namespace osAccount {
          *
          * @since 7
          * @return Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
          */
         getDistributedVirtualDeviceId(callback: AsyncCallback<string>): void;
         getDistributedVirtualDeviceId(): Promise<string>;
