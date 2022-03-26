@@ -27,7 +27,6 @@ declare namespace sms {
    *
    * <p>If the length of an SMS message exceeds the maximum length allowed (140 bytes),
    *     the SMS message is split into multiple segments for processing.
-   * <p>Applications must have the {@code ohos.permission.SEND_MESSAGES} permission to call this method.
    *
    * @param content Indicates the short message content, which cannot be {@code null}.
    * @param callback Returns a list of split segments, which can be combined into a complete SMS message;
@@ -59,8 +58,6 @@ declare namespace sms {
    *
    * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
    * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
-   * <p>You need to obtain the following permission before calling this method:
-   * {@code ohos.permission.SEND_MESSAGES}
    *
    * @param options Indicates the parameters and callback for sending the SMS message.
    * @permission ohos.permission.SEND_MESSAGES
@@ -93,8 +90,6 @@ declare namespace sms {
   /**
    * Sets the address for the Short Message Service Center (SMSC) based on a specified slot ID.
    *
-   * <p><b>Permissions: </b>{@link ohos.security.SystemPermission#SET_TELEPHONY_STATE}
-   *
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param smscAddr Indicates the SMSC address.
    * @permission ohos.permission.SET_TELEPHONY_STATE
@@ -106,8 +101,6 @@ declare namespace sms {
 
   /**
    * Obtains the SMSC address based on a specified slot ID.
-   *
-   * <p><b>Permissions: </b>{@link ohos.security.SystemPermission#GET_TELEPHONY_STATE}
    *
    * @param slotId Indicates the ID of the slot holding the SIM card for sending SMS messages.
    * @param callback Returns the SMSC address.
@@ -128,7 +121,7 @@ declare namespace sms {
   function hasSmsCapability(): boolean;
 
   /**
-   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -136,7 +129,7 @@ declare namespace sms {
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
   /**
-   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -144,7 +137,7 @@ declare namespace sms {
   function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
 
   /**
-   * @permission ohos.permission.RECEIVE_SMS,ohos.permission.SEND_MESSAGES
+   * @permission ohos.permission.RECEIVE_SMS and ohos.permission.SEND_MESSAGES
    * @systemapi Hide this for inner system use.
    * @since 7
    */

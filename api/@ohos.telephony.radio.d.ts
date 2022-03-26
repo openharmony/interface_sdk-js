@@ -28,8 +28,6 @@ declare namespace radio {
    * Obtains radio access technology (RAT) of the registered network. The system
    * returns RAT of the packet service (PS) and circuit service (CS) domain.
    *
-   * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
-   *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns an integer indicating the RAT in use. The values are as follows:
@@ -56,8 +54,6 @@ declare namespace radio {
 
   /**
    * Obtains the network state of the registered network.
-   *
-   * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
@@ -137,8 +133,6 @@ declare namespace radio {
   /**
    * Obtains the IMEI of a specified card slot of the device.
    *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
-   *
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
    * @param callback Returns the IMEI; returns an empty string if the IMEI does not exist.
@@ -152,8 +146,6 @@ declare namespace radio {
 
   /**
    * Obtains the MEID of a specified card slot of the device.
-   *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
    *
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
@@ -172,8 +164,6 @@ declare namespace radio {
    * <p>If the device is registered with a 3GPP-compliant network, the international mobile equipment identity
    * (IMEI) is returned. If the device is registered with a 3GPP2-compliant network, the mobile equipment identifier
    * (MEID) is returned.
-   *
-   * <p>Requires Permission: {@code ohos.permission.GET_TELEPHONY_STATE}.
    *
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
