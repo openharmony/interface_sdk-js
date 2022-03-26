@@ -16,8 +16,6 @@ import { AsyncCallback } from './basic';
 
 /**
  * upload and download
- * @syscap SystemCapability.MiscServices.Download
- * @since 7
  * 
  * @import request from '@ohos.request';
  * @permission {@code ohos.permission.INTERNET}
@@ -27,7 +25,7 @@ declare namespace request {
   /**
    * Bit flag indicating download is allowed when using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
+   * @since 6
    * @permission {@code ohos.permission.INTERNET}
    */
   const NETWORK_MOBILE: number;
@@ -35,7 +33,7 @@ declare namespace request {
   /**
   * Bit flag indicating download is allowed when using the WLAN.
   * @syscap SystemCapability.MiscServices.Download
-  * @since 7
+  * @since 6
   * @permission {@code ohos.permission.INTERNET}
   */
   const NETWORK_WIFI: number;
@@ -226,29 +224,159 @@ declare namespace request {
    */
   function upload(config: UploadConfig): Promise<UploadTask>;
 
+  /**
+   * DownloadConfig data Structure
+   *
+   * @name DownloadConfig
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   * @permission {@code ohos.permission.INTERNET}
+   */
   interface DownloadConfig {
-    url: string; // Resource address.
-    header?: Object; // Adds an HTTP or HTTPS header to be included with the download request.
-    enableMetered?: boolean; // Allows download under a metered connection.
-    enableRoaming?: boolean; // Allows download in a roaming network.
-    description?: string; // Sets the description of a download session.
-    networkType?: number; // Sets the network type allowed for download.
-    filePath?: string; // Sets the path for downloads.
-    title?: string; // Sets a download session title.
+    /**
+     * Resource address.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    url: string;
+    /**
+     * Adds an HTTP or HTTPS header to be included with the download request.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    header?: Object;
+    /**
+     * Allows download under a metered connection.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    enableMetered?: boolean;
+    /**
+     * Allows download in a roaming network.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    enableRoaming?: boolean;
+    /**
+     * Sets the description of a download session.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    description?: string;
+    /**
+     * Sets the network type allowed for download.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    networkType?: number;
+    /**
+     * Sets the path for downloads.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    filePath?: string;
+    /**
+     * Sets a download session title.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    title?: string;
   }
 
+  /**
+   * DownloadInfo data Structure
+   *
+   * @name DownloadInfo
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 7
+   * @permission {@code ohos.permission.INTERNET}
+   */
   interface DownloadInfo {
-    description: string; // the description of a file to be downloaded.
-    downloadedBytes: number; // the real-time downloads size (in bytes).
-    downloadId: number; // the ID of a file to be downloaded.
-    failedReason: number; // a download failure cause, which can be any DownloadSession.ERROR_* constant.
-    fileName: string; // the name of a file to be downloaded.
-    filePath: string; // the URI of a stored file.
-    pausedReason: number; // the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
-    status: number; // the download status code, which can be any DownloadSession.SESSION_* constant.
-    targetURI: string; // the URI of files to be downloaded.
-    downloadTitle: string; // the title of a file to be downloaded.
-    downloadTotalBytes: number; // the total size of files to be downloaded (in bytes).
+    /**
+     * the description of a file to be downloaded.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    description: string;
+    /**
+     * the real-time downloads size (in bytes).
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */	
+    downloadedBytes: number;
+    /**
+     * the ID of a file to be downloaded.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    downloadId: number;
+    /**
+     * a download failure cause, which can be any DownloadSession.ERROR_* constant.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    failedReason: number;
+    /**
+     * the name of a file to be downloaded.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    fileName: string;
+    /**
+     * the URI of a stored file.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    filePath: string;
+    /**
+     * the reason why a session is paused, which can be any DownloadSession.PAUSED_* constant.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    pausedReason: number;
+    /**
+     * the download status code, which can be any DownloadSession.SESSION_* constant.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    status: number;
+    /**
+     * the URI of files to be downloaded.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    targetURI: string;
+    /**
+     * the title of a file to be downloaded.
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    downloadTitle: string;
+    /**
+     * the total size of files to be downloaded (in bytes).
+     *
+     * @since 7
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    downloadTotalBytes: number;
   }
 
   interface DownloadTask {
@@ -426,24 +554,114 @@ declare namespace request {
     queryMimeType(): Promise<string>;
   }
 
+  /**
+   * File data Structure
+   *
+   * @name File
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   * @permission {@code ohos.permission.INTERNET}
+   */
   interface File {
-    filename: string; // When multipart is submitted, the file name in the request header.
-    name: string; // When multipart is submitted, the name of the form item. The default is file.
-    uri: string; // The local storage path of the file (please refer to the storage directory definition for path usage).
-    type: string; // The content type of the file is obtained by default according to the suffix of the file name or path.
+    /**
+     * When multipart is submitted, the file name in the request header.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    filename: string;
+    /**
+     * When multipart is submitted, the name of the form item. The default is file.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    name: string;
+    /**
+     * The local storage path of the file (please refer to the storage directory definition for path usage).
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    uri: string;
+    /**
+     * The content type of the file is obtained by default according to the suffix of the file name or path.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    type: string;
   }
 
+  /**
+   * RequestData data Structure
+   *
+   * @name RequestData
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   * @permission {@code ohos.permission.INTERNET}
+   */
   interface RequestData {
-    name: string; // Represents the name of the form element.
-    value: string; // Represents the value of the form element.
+    /**
+     * Represents the name of the form element.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    name: string;
+    /**
+     * Represents the value of the form element.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    value: string;
   }
 
+  /**
+   * UploadConfig data Structure
+   *
+   * @name UploadConfig
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Upload
+   * @permission {@code ohos.permission.INTERNET}
+   */
   interface UploadConfig {
-    url: string; // Resource address.
-    header: Object; // Adds an HTTP or HTTPS header to be included with the upload request.
-    method: string; // Request method: POST, PUT. The default POST.
-    files: Array<File>; // A list of files to be uploaded. Please use multipart/form-data to submit.
-    data: Array<RequestData>; // The requested form data.
+    /**
+     * Resource address.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    url: string;
+    /**
+     * Adds an HTTP or HTTPS header to be included with the upload request.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    header: Object;
+    /**
+     * Request method: POST, PUT. The default POST.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    method: string;
+    /**
+     * A list of files to be uploaded. Please use multipart/form-data to submit.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    files: Array<File>;
+    /**
+     * The requested form data.
+     *
+     * @since 6
+     * @permission {@code ohos.permission.INTERNET}
+     */
+    data: Array<RequestData>;
   }
 
   interface UploadTask {
