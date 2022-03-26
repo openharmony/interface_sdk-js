@@ -51,7 +51,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>,
@@ -62,7 +61,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>,
@@ -73,7 +71,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>,
@@ -84,7 +81,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>,
@@ -117,7 +113,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>,
@@ -139,7 +134,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>,
@@ -161,7 +155,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>,
@@ -172,7 +165,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>,
@@ -183,7 +175,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>,
@@ -216,7 +207,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>,
@@ -227,7 +217,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>,
@@ -238,7 +227,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>,
@@ -249,7 +237,6 @@ declare namespace sensor {
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
@@ -277,7 +264,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
@@ -286,7 +272,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
@@ -295,7 +280,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>): void;
@@ -304,7 +288,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>): void;
@@ -331,7 +314,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HALL}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>): void;
@@ -349,7 +331,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>): void;
@@ -367,7 +348,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
@@ -376,7 +356,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
@@ -385,7 +364,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>): void;
@@ -412,7 +390,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>): void;
@@ -421,7 +398,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
@@ -430,7 +406,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
@@ -439,7 +414,6 @@ declare namespace sensor {
      * Subscribe to sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
@@ -467,7 +441,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
@@ -476,7 +449,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
@@ -485,7 +457,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_BAROMETER}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>): void;
@@ -494,7 +465,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_GRAVITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback<GravityResponse>): void;
@@ -521,7 +491,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HALL}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback<HallResponse>): void;
@@ -539,7 +508,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_HUMIDITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback<HumidityResponse>): void;
@@ -557,7 +525,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
@@ -566,7 +533,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
@@ -575,7 +541,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ORIENTATION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>): void;
@@ -602,7 +567,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_PROXIMITY}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>): void;
@@ -611,7 +575,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
@@ -620,7 +583,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
@@ -629,7 +591,6 @@ declare namespace sensor {
      * Unsubscribe to sensor data.
      * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_WEAR_DETECTION}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @permission N/A
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
