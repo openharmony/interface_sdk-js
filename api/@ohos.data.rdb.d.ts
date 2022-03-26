@@ -23,7 +23,6 @@ import Context from "./application/Context";
  * @since 7
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @import import data_rdb from '@ohos.data.rdb';
- * @permission N/A
  */
 declare namespace rdb {
     /**
@@ -63,7 +62,6 @@ declare namespace rdb {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SyncMode {
         /**
@@ -72,7 +70,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SYNC_MODE_PUSH = 0,
 
@@ -82,7 +79,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SYNC_MODE_PULL = 1,
     }
@@ -93,7 +89,6 @@ declare namespace rdb {
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import N/A
-     * @permission N/A
      */
     enum SubscribeType {
         /**
@@ -101,7 +96,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import N/A
-         * @permission N/A
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
     }
@@ -114,7 +108,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     interface RdbStore {
         /**
@@ -290,7 +283,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValueType = number | string | boolean;
 
@@ -300,7 +292,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     type ValuesBucket = {
         [key: string]: ValueType | Uint8Array | null;
@@ -312,7 +303,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     interface StoreConfig {
         name: string;
@@ -324,7 +314,6 @@ declare namespace rdb {
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
-     * @permission N/A
      */
     class RdbPredicates {
         /**
