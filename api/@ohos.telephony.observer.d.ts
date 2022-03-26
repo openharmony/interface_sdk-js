@@ -40,9 +40,6 @@ declare namespace observer {
   /**
    * Called when the network state corresponding to a monitored {@code slotId} updates.
    *
-   * <p>Applications must have the {@code ohos.permission.GET_NETWORK_INFO} permission
-   * to register this event.
-   *
    * @param type networkStateChange
    * @param options including slotId Indicates the ID of the target card slot.
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
@@ -70,9 +67,6 @@ declare namespace observer {
 
   /**
    * Called back when the cell information corresponding to a monitored {@code slotId} updates.
-   *
-   * <p>Applications must have the {@code ohos.permission.LOCATION} permission
-   * to register this event.
    *
    * @param type cellInfoChange
    * @param options including slotId Indicates the ID of the target card slot.
@@ -140,7 +134,7 @@ declare namespace observer {
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including state Indicates the call state, and number Indicates the called number.
    *   The value of number is an empty string if the application does not have
-   *     the {@code ohos.permission#READ_CALL_LOG READ_CALL_LOG} permission.
+   *     the ohos.permission.READ_CALL_LOG permission.
    */
   function on(type: 'callStateChange', callback: Callback<{ state: CallState, number: string }>): void;
   function on(type: 'callStateChange', options: { slotId: number },
