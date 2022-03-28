@@ -21,7 +21,6 @@ import { AsyncCallback } from './basic';
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
- * @permission N/A
  */
 
 declare namespace inputDevice {
@@ -66,7 +65,6 @@ declare namespace inputDevice {
      *
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @permission N/A
      * @param callback callback function, receive reported data
      */
     function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
@@ -77,7 +75,6 @@ declare namespace inputDevice {
      *
      * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @permission N/A
      * @param deviceId ID of the input device whose information is to be obtained.
      * @param callback callback function, receive reported data
      */
