@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
+ * @since 8
+ */
 declare enum MessageLevel {
   /**
    * Debug level.
@@ -46,7 +50,7 @@ declare enum MessageLevel {
 }
 
 /**
- * Defines the mixed mode.
+ * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
  * @since 8
  */
 declare enum MixedMode {
@@ -69,6 +73,10 @@ declare enum MixedMode {
   None,
 }
 
+/**
+ * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+ * @since 8
+ */
 declare enum HitTestType {
   /**
    * The edit text.
@@ -113,14 +121,14 @@ declare enum HitTestType {
   Phone,
 
   /**
-   * Other unknown hit test.
+   * Other unknown HitTest.
    * @since 8
    */
   Unknown,
 }
 
 /**
- * Defines the cache mode interface.
+ * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
  * @since 8
  */
 declare enum CacheMode {
@@ -168,51 +176,56 @@ declare class JsResult {
 }
 
 /**
- * Defines the console message.
+ * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
 declare class ConsoleMessage {
   /**
    * Constructor.
+   * @param message The console message.
+   * @param sourceId The Web source file's path and name.
+   * @param lineNumber The line number of the console message.
+   * @param messageLevel The console log level.
+   *
    * @since 8
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
   /**
-   * Get the message of a console message.
-   *
+   * Gets the message of a console message.
    * @return Return the message of a console message.
+   *
    * @since 8
    */
   getMessage(): string;
 
   /**
-   * Get the source id of a console message.
+   * Gets the Web source file's path and name of a console message.
+   * @return Return the Web source file's path and name of a console message.
    *
-   * @return Return the source id of a console message.
    * @since 8
    */
   getSourceId(): string;
 
   /**
-   * Get the line number of a console message.
-   *
+   * Gets the line number of a console message.
    * @return Return the line number of a console message.
+   *
    * @since 8
    */
   getLineNumber(): number;
 
   /**
-   * Get the message level of a console message.
-   *
+   * Gets the message level of a console message.
    * @return Return the message level of a console message, which can be {@link MessageLevel}.
+   *
    * @since 8
    */
   getMessageLevel(): MessageLevel;
 }
 
 /**
- * Defines the web resource request.
+ * Defines the Web resource request.
  * @since 8
  */
 declare class WebResourceRequest {
@@ -223,41 +236,41 @@ declare class WebResourceRequest {
   constructor();
 
   /**
-   * Get request headers.
-   *
+   * Gets request headers.
    * @return Return the request headers
+   *
    * @since 8
    */
   getRequestHeader(): Array<Header>;
 
   /**
-   * Get the request url.
+   * Gets the request URL.
+   * @return Return the request URL.
    *
-   * @return Return the request url.
    * @since 8
    */
   getRequestUrl(): string;
 
   /**
    * Check whether the request is associated with gesture.
-   *
    * @return Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   *
    * @since 8
    */
   isRequestGesture(): boolean;
 
   /**
    * Check whether the request is for getting the main frame.
+   * @return Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
    *
-   * @return Return {@code true} if the request is associated with gesturefor getting the main frame; return {@code false} otherwise.
    * @since 8
    */
   isMainFrame(): boolean;
 
   /**
    * Check whether the request redirects.
-   *
    * @return Return {@code true} if the request redirects; return {@code false} otherwise.
+   *
    * @since 8
    */
   isRedirect(): boolean;
@@ -265,7 +278,7 @@ declare class WebResourceRequest {
 
 
 /**
- * Defines the web resource response.
+ * Defines the Web resource response.
  * @since 8
  */
  declare class WebResourceResponse {
@@ -276,75 +289,74 @@ declare class WebResourceRequest {
   constructor();
 
   /**
-   * Get the response data.
-   *
+   * Gets the response data.
    * @return Return the response data.
+   *
    * @since 8
    */
   getResponseData(): string;
 
   /**
-   * Get the response encoding.
-   *
+   * Gets the response encoding.
    * @return Return the response encoding.
+   *
    * @since 8
    */
   getResponseEncoding(): string;
 
   /**
-   * Get the response mime type.
+   * Gets the response MIME type.
+   * @return Return the response MIME type.
    *
-   * @return Return the response mime type.
    * @since 8
    */
   getResponseMimeType(): string;
 
   /**
-   * Get the reason message.
-   *
+   * Gets the reason message.
    * @return Return the reason message.
+   *
    * @since 8
    */
   getReasonMessage(): string;
 
   /**
-   * Get the response headers.
+   * Gets the response headers.
    * @return Return the response headers.
+   *
    * @since 8
    */
   getResponseHeader() : Array<Header>;
 
   /**
-   * Get the response code.
-   *
+   * Gets the response code.
    * @return Return the response code.
+   *
    * @since 8
    */
   getResponseCode(): number;
 }
 
 /**
- * Defines the web resource header.
+ * Defines the Web's request/response header.
  * @since 8
  */
  declare interface Header {
   /**
-   * Get the key of the web header.
-   *
+   * Gets the key of the request/response header.
    * @since 8
    */
   headerKey: string;
 
   /**
-   * Get the value of the web header.
-   *
+   * Gets the value of the request/response header.
    * @since 8
    */
   headerValue: string;
 }
 
 /**
- * Defines the web resource error.
+ * Defines the Web resource error.
  * @since 8
  */
 declare class WebResourceError {
@@ -355,17 +367,17 @@ declare class WebResourceError {
   constructor();
 
   /**
-   * Get the info of the web resource error.
+   * Gets the info of the Web resource error.
+   * @return Return the info of the Web resource error.
    *
-   * @return Return the info of the web resource error.
    * @since 8
    */
   getErrorInfo(): string;
 
   /**
-   * Get the code of the web resource error.
+   * Gets the code of the Web resource error.
+   * @return Return the code of the Web resource error.
    *
-   * @return Return the code of the web resource error.
    * @since 8
    */
   getErrorCode(): number;
@@ -384,17 +396,17 @@ declare class JsGeolocation {
 
   /**
    * Report the geolocation permission status from users.
-   *
    * @param origin The origin that ask for the geolocation permission.
    * @param allow The geolocation permission status.
    * @param retain Whether to allow the geolocation permission status to be saved to the system.
+   *
    * @since 8
    */
   invoke(origin: string, allow: boolean, retain: boolean): void;
 }
 
 /**
- * Defines the js web cookie.
+ * Defines the Web cookie.
  * @since 8
  */
 declare class WebCookie {
@@ -418,10 +430,10 @@ declare class WebCookie {
 }
 
 /**
- * Defines the web controller.
+ * Defines the Web controller.
  * @since 8
  */
-declare class WebController {
+ declare class WebController {
   /**
    * Constructor.
    * @since 8
@@ -449,28 +461,34 @@ declare class WebController {
   zoom(factor: number): void;
 
   /**
-   * Clear the history in the Web.
+   * Clears the history in the Web.
    * @since 8
    */
   clearHistory(): void;
 
   /**
-   * Means to load a piece of code and execute JS code in the context of the currently displayed page
+   * Loads a piece of code and execute JS code in the context of the currently displayed page.
+   * @param options The options with a piece of code and a callback.
+   *
    * @since 8
    */
-  runJavaScript(options: { script: string; callback?: (result: string) => void });
+  runJavaScript(options: { script: string, callback?: (result: string) => void });
 
   /**
-   * Indicates that a piece of code is loaded
+   * Loads the data or URL.
+   * @param options The options with the data or URL and other information.
+   *
    * @since 8
    */
-  loadData(options: { data: string; mimeType: string; encoding: string; baseUrl?: string; historyUrl?: string });
+  loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
   /**
-   * Load the given URL
+   * Loads the given URL.
+   * @param options The options with the URL and other information.
+   *
    * @since 8
    */
-  loadUrl(options: { url: string | Resource; headers?: Array<Header> });
+  loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
@@ -486,162 +504,183 @@ declare class WebController {
 
   /**
    * Registers the JavaScript object and method list.
+   * @param options The option with the JavaScript object and method list.
+   *
    * @since 8
    */
-  registerJavaScriptProxy(options: { object: object; name: string; methodList: Array<string> });
+  registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
   /**
    * Deletes a registered JavaScript object with given name.
+   * @param name The name of a registered JavaScript object to be deleted.
+   *
    * @since 8
    */
   deleteJavaScriptRegister(name: string);
 
   /**
-   * Get the type of hit test.
+   * Gets the type of HitTest.
    * @since 8
    */
   getHitTest(): HitTestType;
 
   /**
-   * Get the request focus.
+   * Gets the request focus.
    * @since 8
    */
   requestFocus();
 
   /**
-   * Check whether the web page can go back
+   * Checks whether the web page can go back.
    * @since 8
    */
   accessBackward(): boolean;
 
   /**
-   * Check whether the web page can go forward
+   * Checks whether the web page can go forward.
    * @since 8
    */
   accessForward(): boolean;
 
   /**
-   * Check whether the web page can go back or forward the given number of steps
+   * Checks whether the web page can go back or forward the given number of steps.
+   * @param step The number of steps.
+   *
    * @since 8
    */
   accessStep(step: number): boolean;
 
   /**
-   * Go back in the history of the web
+   * Goes back in the history of the web page.
    * @since 8
    */
   backward();
 
   /**
-   * Go forward in the history of the web
+   * Goes forward in the history of the web page.
    * @since 8
    */
   forward();
 }
 
 /**
- * Defines the web options.
+ * Defines the Web options.
  * @since 8
  */
 declare interface WebOptions {
   /**
-   * Set the address of the web page to be displayed.
+   * Sets the address of the web page to be displayed.
    * @since 8
    */
   src: string | Resource;
   /**
-   * Set the controller of the web.
+   * Sets the controller of the Web.
    * @since 8
    */
   controller: WebController;
 }
 
 /**
- * Defines the web interface.
+ * Defines the Web interface.
  * @since 8
  */
 interface WebInterface {
   /**
-   * Set Value.
+   * Sets Value.
    * @since 8
    */
   (value: WebOptions): WebAttribute;
 }
 
 /**
- * Defines the web attribute functions.
+ * Defines the Web attribute functions.
  * @since 8
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
-   * Set whether WebView allows JavaScript scripts to execute
+   * Sets whether the Web allows JavaScript scripts to execute.
+   * @param javaScriptAccess {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
+   *
    * @since 8
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Enable or disable local file system access in WebView
+   * Sets whether enable local file system access in Web.
+   * @param fileAccess {@code true} means enable local file system access in Web; {@code false} otherwise.
+   *
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * Whether to allow image resources to be loaded from the network
+   * Sets whether to allow image resources to be loaded from the network.
+   * @param onlineImageAccess {@code true} means the Web can allow image resources to be loaded from the network;
+   * {@code false} otherwise.
+   *
    * @since 8
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
-   * Setting Whether to Enable the DOM Storage API Permission
+   * Sets whether to enable the DOM Storage API permission.
+   * @param domStorageAccess {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
+   *
    * @since 8
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
   /**
-   * Set whether WebView should automatically load image resources
+   * Sets whether the Web can automatically load image resources.
+   * @param imageAccess {@code true} means the Web can automatically load image resources; {@code false} otherwise.
+   *
    * @since 8
    */
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Whether to load HTTP and HTTPS content
+   * Sets how to load HTTP and HTTPS content.
+   * @param mixedMode The mixed mode, which can be {@link MixedMode}.
+   *
    * @since 8
    */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
-   * Sets whether the WebView supports zooming using on-screen controls or gestures
+   * Sets whether the Web supports zooming using gestures.
+   * @param zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
+   *
    * @since 8
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
   /**
-   * Indicates whether to allow access to geographical locations
+   * Sets whether to allow access to geographical locations.
+   * @param geolocationAccess {@code true} means the Web allows access to geographical locations; {@code false} otherwise.
+   *
    * @since 8
    */
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
 
   /**
-   * Inject the arkUI JS object into H5 and invoke the function of the object in H5.
+   * Injects the JavaScript object into window and invoke the function in window.
+   * @param javaScriptProxy The JavaScript object to be injected.
+   *
    * @since 8
    */
-  javaScriptProxy(javaScriptProxy: {
-    object: object;
-    name: string;
-    methodList: Array<string>;
-    controller: WebController;
-  }): WebAttribute;
+  javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
+    controller: WebController }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
-   * @param password {@code ture} means the Web can save the password; {@code false} otherwise.
+   * @param password {@code true} means the Web can save the password; {@code false} otherwise.
    *
    * @since 8
    */
   password(password: boolean): WebAttribute;
 
   /**
-   * Sets the mode of cache in the Web.
+   * Sets the mode of cache in Web.
    * @param cacheMode The cache mode, which can be {@link CacheMode}.
    *
    * @since 8
@@ -650,7 +689,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether the Web should save the table data.
-   * @param tableData {@code ture} means the Web can save the table data; {@code false} otherwise.
+   * @param tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    *
    * @since 8
    */
@@ -658,7 +697,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether the Web access meta 'viewport' in HTML.
-   * @param wideViewModeAccess {@code ture} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
+   * @param wideViewModeAccess {@code true} means the Web access meta 'viewport' in HTML; {@code false} otherwise.
    *
    * @since 8
    */
@@ -666,7 +705,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether the Web access overview mode.
-   * @param overviewModeAccess {@code ture} means the Web access overview mode; {@code false} otherwise.
+   * @param overviewModeAccess {@code true} means the Web access overview mode; {@code false} otherwise.
    *
    * @since 8
    */
@@ -682,7 +721,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether the Web access the database.
-   * @param databaseAccess {@code ture} means the Web access the database; {@code false} otherwise.
+   * @param databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
    *
    * @since 8
    */
@@ -697,113 +736,118 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
-   * Triggered at the end of web page loading
+   * Triggered at the end of web page loading.
+   * @param callback The triggered function at the end of web page loading.
+   *
    * @since 8
    */
   onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
 
   /**
-   * Triggered at the begin of web page loading
+   * Triggered at the begin of web page loading.
+   * @param callback The triggered function at the begin of web page loading.
+   *
    * @since 8
    */
   onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
 
   /**
-   * Triggered when the page loading progress changes
+   * Triggered when the page loading progress changes.
+   * @param callback The triggered function when the page loading progress changes.
+   *
    * @since 8
    */
   onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
 
   /**
-   * Triggered when the title of the main application document changes
+   * Triggered when the title of the main application document changes.
+   * @param callback The triggered function when the title of the main application document changes.
+   *
    * @since 8
    */
   onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
 
   /**
-   * Hide prompt to ask for the geolocation permission.
+   * Triggered when requesting to hide the geolocation.
+   * @param callback The triggered function when requesting to hide the geolocation permission.
+   *
    * @since 8
    */
   onGeolocationHide(callback: () => void): WebAttribute;
 
   /**
-   * Show prompt to ask for the geolocation permission.
+   * Triggered when requesting to show the geolocation permission.
+   * @param callback The triggered function when requesting to show the geolocation permission.
    *
-   * @param origin the origin of the resource to get geolocation.
-   * @param geolocation callback to report geolocation.
    * @since 8
    */
-  onGeolocationShow(callback: (event?: { origin: string; geolocation: JsGeolocation }) => void): WebAttribute;
+  onGeolocationShow(callback: (event?: { origin: string, geolocation: JsGeolocation }) => void): WebAttribute;
 
   /**
-   * Get WebView focus callback event
+   * Triggered when the Web gets the focus.
+   * @param callback The triggered function when the Web gets the focus.
+   *
    * @since 8
    */
-  onRequestSelected(event: () => void): WebAttribute;
+  onRequestSelected(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the web page wants to display a JavaScript alert() dialog.
-   *
+   * Triggered when the Web wants to display a JavaScript alert() dialog.
    * @param callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   *
    * @since 8
    */
-  onAlert(callback: (event?: { url: string; message: string; result: JsResult }) => boolean): WebAttribute;
+  onAlert(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   *
+   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
    * @param callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   *
    * @since 8
    */
-  onBeforeUnload(callback: (event?: { url: string; message: string; result: JsResult }) => boolean): WebAttribute;
+  onBeforeUnload(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
-   *
    * @param callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
+   *
    * @since 8
    */
-  onConfirm(callback: (event?: { url: string; message: string; result: JsResult }) => boolean): WebAttribute;
+  onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.
-   *
    * @param callback The triggered function when the web page receives a JavaScript console message.
+   *
    * @since 8
    */
   onConsole(callback: (event?: { message: ConsoleMessage }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading error.
-   *
    * @param callback The triggered function when the web page receives a web resource loading error.
+   *
    * @since 8
    */
-  onErrorReceive(callback: (event?: { request: WebResourceRequest; error: WebResourceError }) => void): WebAttribute;
+  onErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceError }) => void): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
-   *
    * @param callback The triggered function when the web page receives a web resource loading HTTP error.
+   *
    * @since 8
    */
-  onHttpErrorReceive(
-    callback: (event?: { request: WebResourceRequest; response: WebResourceResponse }) => void,
-  ): WebAttribute;
+  onHttpErrorReceive(callback: (event?: { request: WebResourceRequest,
+    response: WebResourceResponse }) => void): WebAttribute;
 
   /**
-   * Triggered when download start
+   * Triggered when starting to download.
+   * @param callback The triggered function when starting to download.
+   *
    * @since 8
    */
-  onDownloadStart(
-    callback: (event?: {
-      url: string;
-      userAgent: string;
-      contentDisposition: string;
-      mimetype: string;
-      contentLength: number;
-    }) => void,
-  ): WebAttribute;
+  onDownloadStart(callback: (event?: { url: string, userAgent: string, contentDisposition: string, mimetype: string,
+    contentLength: number }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page refreshes accessed history.
@@ -811,29 +855,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    */
-  onRefreshAccessedHistory(callback: (event?: { url: string; refreshed: boolean }) => void): WebAttribute;
+  onRefreshAccessedHistory(callback: (event?: { url: string, refreshed: boolean }) => void): WebAttribute;
 
   /**
-   * Triggered when the url is about to be loaded.
-   * @param callback The triggered callback when the url is about to be loaded.
-   * @return Returns {@code ture} to let the load stop; return {@code false} to let the load continue.
+   * Triggered when the URL loading is intercepted.
+   * @param callback The triggered callback when the URL loading is intercepted.
    *
    * @since 8
    */
   onUrlLoadIntercept(callback: (event?: { data: string | WebResourceRequest }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the Web page receives the ssl Error.
-   * @param callback The triggered callback when the Web page receives the ssl Error.
+   * Triggered when the Web page receives an ssl Error.
+   * @param callback The triggered callback when the Web page receives an ssl Error.
    *
    * @since 8
    */
-  onSslErrorReceive(callback: (event?: { handler: Function; error: object }) => void): WebAttribute;
+  onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
   /**
-   * Triggered when the render process is exited.
-   * @param callback The triggered when the render process is exited.
-   * @return Returns {@code ture} to handle the situation; return {@code false} to kill the render process.
+   * Triggered when the render process exits.
+   * @param callback The triggered when the render process exits.
    *
    * @since 8
    */
@@ -842,11 +884,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the file selector shows.
    * @param callback The triggered when the file selector shows.
-   * @return Returns {@code ture} to handle the situation; return {@code false} to use default handling.
    *
    * @since 8
    */
-  onFileSelectorShow(callback: (event?: { callback: Function; fileSelector: object }) => void): WebAttribute;
+  onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
