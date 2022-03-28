@@ -68,9 +68,9 @@ declare namespace inputMethodEngine {
 
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
-        on(type: 'keyboardShow|keyboardHide', callback: () => void): void;
+        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
 
-        off(type: 'keyboardShow|keyboardHide', callback?: () => void): void;
+        off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
     }
 
     interface TextInputClient {
@@ -94,21 +94,25 @@ declare namespace inputMethodEngine {
 
         getForward(length: number): Promise<string>;
 
+        getBackward(length: number, callback: AsyncCallback<string>): void;
+
+        getBackward(length: number): Promise<string>;
+
         getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
     }
 
     interface KeyboardDelegate {
-        on(type: 'keyDown|keyUp', callback: (event: KeyEvent) => boolean): void;
+        on(type: 'keyDown'|'keyUp', callback: (event: KeyEvent) => boolean): void;
 
-        off(type: 'keyDown|keyUp', callback?: (event: KeyEvent) => boolean): void;
+        off(type: 'keyDown'|'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
         on(type: 'cursorContextChange', callback: (x: number, y: number, height: number) => void): void;
 
         off(type: 'cursorContextChange', callback?: (x: number, y: number, height: number) => void): void;
 
-        on(type: 'selectionChange', callback: (oldBegine: number, oldEnd: number, newBegine: number, newEnd: number) => void): void;
+        on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
         off(type: 'selectionChange', callback?: (oldBegine: number, oldEnd: number, newBegine: number, newEnd: number) => void): void;
 
