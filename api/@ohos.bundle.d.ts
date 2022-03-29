@@ -20,7 +20,6 @@ import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
-import { ModuleUsageRecord } from './bundle/moduleUsageRecord';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
 
@@ -503,18 +502,6 @@ declare namespace bundle {
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
-
-  /**
-   * get module usage record list in descending order of lastLaunchTime.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param maxNum the return size of the records, must be in range of 1 to 1000.
-   * @return Returns ability usage record list.
-   * @systemapi hide this for inner system use
-   */
-  function getModuleUsageRecords(maxNum: number, callback: AsyncCallback<Array<ModuleUsageRecord>>): void;
-  function getModuleUsageRecords(maxNum: number): Promise<Array<ModuleUsageRecord>>;
 
   /**
    * Clears cache data of a specified application.
