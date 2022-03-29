@@ -30,7 +30,7 @@ export interface Configuration {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    language: string;
+    language?: string;
 
     /**
      * Indicates the current colorMode of the application.
@@ -38,7 +38,7 @@ export interface Configuration {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    colorMode: ConfigurationConstant.ColorMode;
+    colorMode?: ConfigurationConstant.ColorMode;
 
     /**
      * Indicates the screen direction of the current device.
@@ -46,7 +46,7 @@ export interface Configuration {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
-     direction: ConfigurationConstant.Direction;
+     direction?: ConfigurationConstant.Direction;
 
     /**
      * Indicates the screen density of the current device.
@@ -54,7 +54,7 @@ export interface Configuration {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    screenDensity: ConfigurationConstant.ScreenDensity;
+    screenDensity?: ConfigurationConstant.ScreenDensity;
 
     /**
      * Indicates the displayId of the current device.
@@ -62,5 +62,5 @@ export interface Configuration {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    displayId: number;
+    displayId?: number;
 }
