@@ -22,12 +22,21 @@ import {AsyncCallback} from './basic';
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
 declare namespace inputMethod {
+    /**
+	 * @since 8
+	 */
     const MAX_TYPE_NUM: number
 
+    /**
+	 * @since 8
+	 */
     function getInputMethodSetting(): InputMethodSetting;
 
     function getInputMethodController(): InputMethodController;
 
+    /**
+	 * @since 8
+	 */
     interface InputMethodSetting {
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -44,6 +53,9 @@ declare namespace inputMethod {
         stopInput(): Promise<boolean>;
     }
 
+    /**
+	 * @since 8
+	 */
     interface InputMethodProperty {
         readonly packageName: string;
         readonly methodId: string;
