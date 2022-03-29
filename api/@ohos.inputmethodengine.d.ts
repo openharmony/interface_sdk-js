@@ -114,7 +114,7 @@ declare namespace inputMethodEngine {
 
         on(type: 'selectionChange', callback: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
-        off(type: 'selectionChange', callback?: (oldBegine: number, oldEnd: number, newBegine: number, newEnd: number) => void): void;
+        off(type: 'selectionChange', callback?: (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void): void;
 
         on(type: 'textChange', callback: (text: string) => void): void;
 
