@@ -45,7 +45,7 @@ declare namespace filemanager {
  * @systemapi
  */
 declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}): Promise<FileInfo[]>;
-declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}, AsyncCallback<FileInfo[]>): void;
+declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}, callback: AsyncCallback<FileInfo[]>): void;
 
 /**
  * getRoot.
