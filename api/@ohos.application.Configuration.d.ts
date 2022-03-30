@@ -30,7 +30,7 @@ export interface Configuration {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    language: string;
+    language?: string;
 
     /**
      * Indicates the current colorMode of the application.
@@ -38,5 +38,5 @@ export interface Configuration {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityBase
      */
-    colorMode: ConfigurationConstant.ColorMode;
+    colorMode?: ConfigurationConstant.ColorMode;
 }
