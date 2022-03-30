@@ -18,16 +18,30 @@ import {AsyncCallback} from './basic';
 /**
  * inputmethod
  *
- * @since 6
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
 declare namespace inputMethod {
+    /**
+     * keyboard max number
+     * @since 8
+     */
     const MAX_TYPE_NUM: number
 
+    /**
+     * input method setting
+     * @since 8
+     */
     function getInputMethodSetting(): InputMethodSetting;
 
+    /**
+     * input method controller
+     * @since 6
+     */
     function getInputMethodController(): InputMethodController;
 
+    /**
+     * @since 8
+     */
     interface InputMethodSetting {
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -38,12 +52,19 @@ declare namespace inputMethod {
         displayOptionalInputMethod(): Promise<void>;
     }
 
+    /**
+     * @since 6
+     */
     interface InputMethodController {
         stopInput(callback: AsyncCallback<boolean>): void;
 
         stopInput(): Promise<boolean>;
     }
 
+    /**
+     * input method info
+     * @since 8
+     */
     interface InputMethodProperty {
         readonly packageName: string;
         readonly methodId: string;
