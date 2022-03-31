@@ -32,8 +32,8 @@ declare namespace systemCapability {
    * @return system capability string.
    * @param callback indicates the system capability string result.
    */
-  function getSystemCapability(callback: Callback<string>): void;
-  function getSystemCapability(): Promise<string>;
+  function querySystemCapability(callback: Callback<string>): void;
+  function querySystemCapability(): Promise<string>;
 }
 
 export default systemCapability;
