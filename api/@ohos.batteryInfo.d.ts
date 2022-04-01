@@ -72,6 +72,46 @@ declare namespace batteryInfo {
     const isBatteryPresent: boolean;
 
     /**
+     * Obtain the battery charge level of a device.
+     * @since 9
+     */
+    const batteryLevel: BatteryLevel;
+
+    /**
+     * Estimate the remaining time to fully charge.
+     * @since 9
+     */
+    const estimateRemainingChargeTime: number;
+
+    /**
+     * Battery total energy of the current device.
+     * @since 9
+     * @systemapi
+     */
+    const totalEnergy: number;
+
+    /**
+     * Battery average current of the current device.
+     * @since 9
+     * @systemapi
+     */
+    const averageCurrent: number;
+
+    /**
+     * Battery immediate current of the current device.
+     * @since 9
+     * @systemapi
+     */
+
+    const nowCurrent: number;
+    /**
+     * Battery remaining energy of the current device.
+     * @since 9
+     * @systemapi
+     */
+    const remainingEnergy: number;
+
+    /**
      * Indicates the charger type of a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -166,6 +206,70 @@ declare namespace batteryInfo {
          * @since 6
          */
         DEAD
+    }
+
+    /**
+     * Etra key code of common event COMMON_EVENT_BATTERY_CHANGED.
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @since 9
+     */
+    export enum CommonEventExtraCode {
+        /**
+         * Extra code of charge (SoC).
+         * @since 9
+         */
+        EXTRA_CODE_SOC = 0,
+        /**
+         * Extra code of voltage.
+         * @since 9
+         */
+        EXTRA_CODE_VOLTAGE,
+        /**
+         * Extra code of temperature.
+         * @since 9
+         */
+        EXTRA_CODE_TEMPERATURE,
+        /**
+         * Extra code of healthState.
+         * @since 9
+         */
+        EXTRA_CODE_HEALTH_STATE,
+        /**
+         * Extra code of pluggedType.
+         * @since 9
+         */
+        EXTRA_CODE_PLUGGED_TYPE,
+        /**
+         * Extra code of maxCurrent.
+         * @since 9
+         */
+        EXTRA_CODE_MAX_CURRENT,
+        /**
+         * Extra code of maxVoltage.
+         * @since 9
+         */
+        EXTRA_CODE_MAX_VOLTAGE,
+        /**
+         * Extra code of chargeState.
+         * @since 9
+         */
+        EXTRA_CODE_CHARGE_STATE,
+        /**
+         * Extra code of chargeCounter.
+         * @since 9
+         */
+        EXTRA_CODE_CHARGE_COUNTER,
+        /**
+         * Extra code of if battery is present.
+         * @since 9
+         */
+        EXTRA_CODE_PRESENT,
+        /**
+         * Extra code of technology.
+         * @since 9
+         */
+        EXTRA_CODE_TECHNOLOGY
     }
 }
 export default batteryInfo;

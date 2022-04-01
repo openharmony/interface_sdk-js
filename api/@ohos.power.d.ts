@@ -54,6 +54,68 @@ declare namespace power {
    */
   function isScreenOn(callback: AsyncCallback<boolean>): void;
   function isScreenOn(): Promise<boolean>;
+
+  /**
+   * Tyr to wakeup the device and let screen on.
+   *
+   * @param detail Indicates the detail information who request wakeup.
+   * @systemapi
+   * @since 9
+   */
+  function wakeupDevice(detail: string, callback: AsyncCallback<void>): void;
+  function wakeupDevice(detail: string): Promise<void>;
+
+  /**
+   * Tyr to suspend the device and let screen off.
+   *
+   * @systemapi
+   * @since 9
+   */
+  function suspendDevice(void);
+
+  /**
+   * Get the power mode of the device.
+   *
+   * @return Returns the power mode of current device.
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @since 9
+   */
+  function getPowerMode(callback: AsyncCallback<DevicePowerMode>): void;
+  function getPowerMode(): Promise<DevicePowerMode>;
+
+  /**
+   * To set the power mode of current device.
+   *
+   * @param mode Indicates power mode to set.
+   * @permission ohos.permission.POWER_OPTIMIZATION
+   * @since 9
+   */
+  function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
+  function setPowerMode(mode: DevicePowerMode): Promise<void>;
+
+  /**
+   * Indicates the power mode of a device.
+   *
+   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @since 9
+   */
+  export enum DevicePowerMode {
+	/**
+	 * Normal power mode
+	 * @since 9
+	 */
+	NORMAL_MODE,
+	/**
+	 * Power save mode
+	 * @since 9
+	 */
+	POWER_SAVE_MODE,
+	/**
+	 * Extreme power save mode
+	 * @since 9
+	 */
+	EXTREME_SAVE_MODE
+  }
 }
 export default power;
 
