@@ -14,10 +14,11 @@
  */
 
 import { AsyncCallback } from '../basic';
-import { Ability } from '../@ohos.application.Ability'
-import { AbilityMonitor } from './abilityMonitor'
-import { Context } from '../app/context'
-import { ShellCmdResult } from './shellCmdResult'
+import Ability from '../@ohos.application.Ability';
+import { AbilityMonitor } from './abilityMonitor';
+import { Context } from '../app/context';
+import Want from "../@ohos.application.Want";
+import { ShellCmdResult } from './shellCmdResult';
 
 /**
  * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
@@ -91,6 +92,17 @@ export interface AbilityDelegator {
     getCurrentTopAbility(): Promise<Ability>
 
     /**
+     * Start a new ability.
+     *
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the ability to start
+     * @return -
+     */
+    startAbility(want: Want, callback: AsyncCallback<void>): void;
+    startAbility(want: Want): Promise<void>;
+
+    /**
      * Invoke the Ability.onForeground() callback of a specified ability without changing its lifecycle state.
      *
      * @since 9
@@ -137,12 +149,11 @@ export interface AbilityDelegator {
     executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
     /**
-     * Prints log information to the unit testing console.
+     * Finish the test and print log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
      * @param msg Log information
      * @param code Result code
      */
