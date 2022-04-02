@@ -66,7 +66,7 @@ declare namespace power {
   function wakeupDevice(detail: string): Promise<void>;
 
   /**
-   * Tyr to suspend the device and let screen off.
+   * Try to suspend the device and let screen off.
    *
    * @systemapi
    * @since 9
@@ -76,7 +76,7 @@ declare namespace power {
   /**
    * Get the power mode of the device.
    *
-   * @return Returns the power mode of current device.
+   * @return Returns the power mode {@link DevicePowerMode} of current device .
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @since 9
    */
@@ -86,7 +86,7 @@ declare namespace power {
   /**
    * To set the power mode of current device.
    *
-   * @param mode Indicates power mode to set.
+   * @param mode Indicates power mode {@link DevicePowerMode} to set.
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @systemapi
    * @since 9
