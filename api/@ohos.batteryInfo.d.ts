@@ -72,40 +72,41 @@ declare namespace batteryInfo {
     const isBatteryPresent: boolean;
 
     /**
-     * Obtain the battery charge level of a device.
+     * Obtain the battery state level of a device.
      * @since 9
      */
-    const batteryLevel: BatteryLevel;
+    const batteryStateLevel: BatteryStateLevel;
 
     /**
-     * Estimate the remaining time to fully charge.
+     * Estimate the remaining time to fully charge, in ms.
      * @since 9
      */
     const estimateRemainingChargeTime: number;
 
     /**
-     * Battery total energy of the current device.
+     * Battery total energy of the current device, in mAh.
      * @since 9
      * @systemapi
      */
     const totalEnergy: number;
 
     /**
-     * Battery average current of the current device.
+     * Battery average current of the current device, in mA.
      * @since 9
      * @systemapi
      */
     const averageCurrent: number;
 
     /**
-     * Battery immediate current of the current device.
+     * Battery immediate current of the current device, in mA.
      * @since 9
      * @systemapi
      */
 
     const nowCurrent: number;
+
     /**
-     * Battery remaining energy of the current device.
+     * Battery remaining energy of the current device, in mAh.
      * @since 9
      * @systemapi
      */
@@ -209,67 +210,101 @@ declare namespace batteryInfo {
     }
 
     /**
+     * Indicates the battery charge level status of a device.
+     *
+     * @syscap SystemCapability.PowerManager.BatteryManager.Core
+     * @since 9
+     */
+    export enum BatteryStateLevel {
+        /**
+         * The battery is in unknow level state.
+         * @since 9
+         */
+        LEVEL_NONE,
+        /**
+         * The battery is in high level state.
+         * @since 9
+         */
+        LEVEL_HIGH,
+        /**
+         * The battery is in normal level state.
+         * @since 9
+         */
+        LEVEL_NORMAL,
+        /**
+         * The battery is in low level state.
+         * @since 9
+         */
+        LEVEL_LOW,
+        /**
+         * The battery is in emergency low level state.
+         * @since 9
+         */
+        LEVEL_EMERGENCY
+    }
+
+    /**
      * Etra key code of common event COMMON_EVENT_BATTERY_CHANGED.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
-    export enum CommonEventExtraCode {
+    export enum CommonEventBatteryChangedCode {
         /**
          * Extra code of charge (SoC).
          * @since 9
          */
-        EXTRA_CODE_SOC = 0,
+        EXTRA_SOC = 0,
         /**
          * Extra code of voltage.
          * @since 9
          */
-        EXTRA_CODE_VOLTAGE,
+        EXTRA_VOLTAGE,
         /**
          * Extra code of temperature.
          * @since 9
          */
-        EXTRA_CODE_TEMPERATURE,
+        EXTRA_TEMPERATURE,
         /**
          * Extra code of healthState.
          * @since 9
          */
-        EXTRA_CODE_HEALTH_STATE,
+        EXTRA_HEALTH_STATE,
         /**
          * Extra code of pluggedType.
          * @since 9
          */
-        EXTRA_CODE_PLUGGED_TYPE,
+        EXTRA_PLUGGED_TYPE,
         /**
          * Extra code of maxCurrent.
          * @since 9
          */
-        EXTRA_CODE_MAX_CURRENT,
+        EXTRA_MAX_CURRENT,
         /**
          * Extra code of maxVoltage.
          * @since 9
          */
-        EXTRA_CODE_MAX_VOLTAGE,
+        EXTRA_MAX_VOLTAGE,
         /**
          * Extra code of chargeState.
          * @since 9
          */
-        EXTRA_CODE_CHARGE_STATE,
+        EXTRA_CHARGE_STATE,
         /**
          * Extra code of chargeCounter.
          * @since 9
          */
-        EXTRA_CODE_CHARGE_COUNTER,
+        EXTRA_CHARGE_COUNTER,
         /**
          * Extra code of if battery is present.
          * @since 9
          */
-        EXTRA_CODE_PRESENT,
+        EXTRA_PRESENT,
         /**
          * Extra code of technology.
          * @since 9
          */
-        EXTRA_CODE_TECHNOLOGY
+        EXTRA_TECHNOLOGY
     }
 }
 export default batteryInfo;

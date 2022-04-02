@@ -56,7 +56,7 @@ declare namespace power {
   function isScreenOn(): Promise<boolean>;
 
   /**
-   * Tyr to wakeup the device and let screen on.
+   * Try to wakeup the device and let screen on.
    *
    * @param detail Indicates the detail information who request wakeup.
    * @systemapi
@@ -88,6 +88,7 @@ declare namespace power {
    *
    * @param mode Indicates power mode to set.
    * @permission ohos.permission.POWER_OPTIMIZATION
+   * @systemapi
    * @since 9
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
@@ -100,6 +101,11 @@ declare namespace power {
    * @since 9
    */
   export enum DevicePowerMode {
+	/**
+	 * Performance power mode
+	 * @since 9
+	 */
+	PERFORMANCE_MODE,
 	/**
 	 * Normal power mode
 	 * @since 9
