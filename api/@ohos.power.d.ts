@@ -62,8 +62,7 @@ declare namespace power {
    * @systemapi
    * @since 9
    */
-  function wakeupDevice(detail: string, callback: AsyncCallback<void>): void;
-  function wakeupDevice(detail: string): Promise<void>;
+  function wakeupDevice(detail: string): void;
 
   /**
    * Try to suspend the device and let screen off.
