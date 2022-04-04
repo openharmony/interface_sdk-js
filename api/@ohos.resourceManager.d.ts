@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import Context from './application/Context';
 import { RawFileDescriptor } from './global/rawFileDescriptor';
 
 /**
