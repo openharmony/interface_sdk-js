@@ -25,6 +25,7 @@ import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
 import { ContentStorage } from '../@internal/component/ets/state_management';
+import image from '../@ohos.multimedia.image';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -209,6 +210,19 @@ export default class AbilityContext extends Context {
      */
      setMissionLabel(label: string, callback:AsyncCallback<void>): void;
      setMissionLabel(label: string): Promise<void>;
+
+    /**
+     * Set mission icon of current ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param icon The icon of ability that showed in recent missions.
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     */
+      setMissionIcon(icon: image.PixelMap, callback:AsyncCallback<void>): void;
+      setMissionIcon(icon: image.PixelMap): Promise<void>;
 
      /**
      * Requests certain permissions from the system.
