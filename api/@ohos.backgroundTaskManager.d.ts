@@ -172,7 +172,7 @@ declare namespace backgroundTaskManager {
 
         /**
          * background continuous calculate mode, for example 3D render.
-         * only supported in portable computer device
+         * only supported in particular device
          *
          * @since 8
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
