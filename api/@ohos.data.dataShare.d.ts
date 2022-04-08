@@ -29,7 +29,6 @@ declare namespace dataShare {
      * @param want Indicates The element parameter of the service ability.
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
-     * @systemapi Hide this for inner system use.
      */
     function createDataShareHelper(context: Context, want: Want, uri: string): DataShareHelper;
 
@@ -37,7 +36,6 @@ declare namespace dataShare {
      * DataShareHelper
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @systemapi Hide this for inner system use.
      */
     interface DataShareHelper {
         /**
@@ -48,7 +46,6 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the callback when dataChange.
          * @return -
-         * @systemapi Hide this for inner system use.
          */
         on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -60,7 +57,6 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the registered callback.
          * @return -
-         * @systemapi Hide this for inner system use.
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -71,7 +67,6 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
          * @return Returns the index of the inserted data record.
-         * @systemapi Hide this for inner system use.
          */
         insert(uri: string, value: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
         insert(uri: string, value: rdb.ValuesBucket): Promise<number>;
@@ -83,7 +78,6 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records deleted.
-         * @systemapi Hide this for inner system use.
          */
         delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
         delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -97,7 +91,6 @@ declare namespace dataShare {
          * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the query result.
-         * @systemapi Hide this for inner system use.
          */
         query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
         query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
@@ -110,7 +103,6 @@ declare namespace dataShare {
          * @param value Indicates the data to update. This parameter can be null.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records updated.
-         * @systemapi Hide this for inner system use.
          */
         update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
         update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -123,7 +115,6 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param values Indicates the data records to insert.
          * @return Returns the number of data records inserted.
-         * @systemapi Hide this for inner system use.
          */
         batchInsert(uri: string, values: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
         batchInsert(uri: string, values: Array<rdb.ValuesBucket>): Promise<number>;
@@ -134,7 +125,6 @@ declare namespace dataShare {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the path of the data to operate.
          * @return Returns the MIME type that matches the data specified by uri.
-         * @systemapi Hide this for inner system use.
          */
         getType(uri: string, callback: AsyncCallback<string>): void;
         getType(uri: string): Promise<string>;
@@ -149,7 +139,6 @@ declare namespace dataShare {
          *                       <p>2. "image/*": Obtains files whose main type is image of any subtype.
          *                       <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
          * @return Returns the matched MIME types. If there is no match, {@code null} is returned.
-         * @systemapi Hide this for inner system use.
          */
         getFileTypes(uri: string,  mimeTypeFilter:string, callback: AsyncCallback<Array<string>>): void;
         getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
@@ -168,7 +157,6 @@ declare namespace dataShare {
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
          * @see #denormalizeUri
-         * @systemapi Hide this for inner system use.
          */
         normalizeUri(uri: string, callback: AsyncCallback<string>): void;
         normalizeUri(uri: string): Promise<string>;
@@ -184,7 +172,6 @@ declare namespace dataShare {
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
          * @see #normalizeUri
-         * @systemapi Hide this for inner system use.
          */
         denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
         denormalizeUri(uri: string): Promise<string>;
@@ -195,7 +182,6 @@ declare namespace dataShare {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
          * @return -
-         * @systemapi Hide this for inner system use.
          */
         notifyChange(uri: string, callback: AsyncCallback<void>): void;
         notifyChange(uri: string): Promise<void>;
