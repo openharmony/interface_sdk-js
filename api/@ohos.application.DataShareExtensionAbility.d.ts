@@ -33,7 +33,7 @@ export default class DataShareExtensionAbility {
      * Opens a file in a specified remote path.
      *
      * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider.
      * @param uri Indicates the path of the file to open.
      * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
      *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
