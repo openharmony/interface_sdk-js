@@ -36,8 +36,25 @@ declare namespace dataShare {
      * DataShareHelper
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @StageModelOnly
      */
     interface DataShareHelper {
+         /**
+         * Opens a file in a specified remote path.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @param uri Indicates the path of the file to open.
+         * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
+         *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
+         *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
+         *             any existing data, or "rwt" for read and write access that truncates any existing file.
+         * @param callback Indicates the callback when openfile success
+         * @return Returns the file descriptor.
+         * @StageModelOnly
+         */
+        openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
+        openFile(uri: string, mode: string): Promise<number>;
         /**
          * Registers an observer to observe data specified by the given uri.
          * @since 9
@@ -46,6 +63,7 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the callback when dataChange.
          * @return -
+         * @StageModelOnly
          */
         on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -57,6 +75,7 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the registered callback.
          * @return -
+         * @StageModelOnly
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -67,6 +86,7 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
          * @return Returns the index of the inserted data record.
+         * @StageModelOnly
          */
         insert(uri: string, value: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
         insert(uri: string, value: rdb.ValuesBucket): Promise<number>;
@@ -78,6 +98,7 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records deleted.
+         * @StageModelOnly
          */
         delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
         delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -91,6 +112,7 @@ declare namespace dataShare {
          * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the query result.
+         * @StageModelOnly
          */
         query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
         query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
@@ -103,6 +125,7 @@ declare namespace dataShare {
          * @param value Indicates the data to update. This parameter can be null.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records updated.
+         * @StageModelOnly
          */
         update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
         update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -115,6 +138,7 @@ declare namespace dataShare {
          * @param uri Indicates the path of the data to operate.
          * @param values Indicates the data records to insert.
          * @return Returns the number of data records inserted.
+         * @StageModelOnly
          */
         batchInsert(uri: string, values: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
         batchInsert(uri: string, values: Array<rdb.ValuesBucket>): Promise<number>;
@@ -125,6 +149,7 @@ declare namespace dataShare {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the path of the data to operate.
          * @return Returns the MIME type that matches the data specified by uri.
+         * @StageModelOnly
          */
         getType(uri: string, callback: AsyncCallback<string>): void;
         getType(uri: string): Promise<string>;
@@ -139,6 +164,7 @@ declare namespace dataShare {
          *                       <p>2. "image/*": Obtains files whose main type is image of any subtype.
          *                       <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
          * @return Returns the matched MIME types. If there is no match, {@code null} is returned.
+         * @StageModelOnly
          */
         getFileTypes(uri: string,  mimeTypeFilter:string, callback: AsyncCallback<Array<string>>): void;
         getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
@@ -157,6 +183,7 @@ declare namespace dataShare {
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
          * @see #denormalizeUri
+         * @StageModelOnly
          */
         normalizeUri(uri: string, callback: AsyncCallback<string>): void;
         normalizeUri(uri: string): Promise<string>;
@@ -172,6 +199,7 @@ declare namespace dataShare {
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
          * @see #normalizeUri
+         * @StageModelOnly
          */
         denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
         denormalizeUri(uri: string): Promise<string>;
@@ -182,6 +210,7 @@ declare namespace dataShare {
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
          * @return -
+         * @StageModelOnly
          */
         notifyChange(uri: string, callback: AsyncCallback<void>): void;
         notifyChange(uri: string): Promise<void>;
