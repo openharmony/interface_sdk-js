@@ -51,35 +51,30 @@
 declare enum ProgressType {
   /**
    * Linear progress bar style.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Linear,
 
   /**
    * Ring progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Ring,
 
   /**
    * Eclipse progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Eclipse,
 
   /**
    * ScaleRing progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   ScaleRing,
 
   /**
    * Capsule progress bar.
-   * @devices phone, tablet, car.
    * @since 8
    */
   Capsule,
