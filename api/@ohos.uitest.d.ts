@@ -223,7 +223,6 @@
       /**
        * Get the text attribute value.
        * @syscap SystemCapability.Test.UiTest
-       * @devices phone,tablet,tv,wearable,car
        * @since 8
        * @test
        */
