@@ -15,24 +15,7 @@
             "type": "string",
             "description": "版本号例如:V3.0"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          }
-        },
         "required": ["name"]
-      }
-    },
-    "supportedDevices": {
-      "type": "array",
-      "description": "本字段非必填,如果为空，表示该属性支持所有的设备类型",
-      "items": {
-        "type": "string",
-        "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
       }
     },
     "description": {
@@ -43,14 +26,6 @@
           "name": {
             "type": "string",
             "description": "属性的描述文档"
-          },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
           }
         },
         "required": ["name"]
@@ -66,14 +41,6 @@
             "type": "string",
             "description": "属性名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
           "required": {
             "type": "boolean",
             "description": "表示属性是否为组件的必填属性"
@@ -86,14 +53,6 @@
                 "name": {
                   "type": "string",
                   "description": "属性的描述文档"
-                },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
                 }
               },
               "required": ["name"]
@@ -112,14 +71,6 @@
                 "name": {
                   "type": "string",
                   "description": "属性值"
-                },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
                 }
               },
               "required": ["name"]
@@ -139,14 +90,6 @@
             "type": "string",
             "description": "事件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
           "description": {
             "type": "array",
             "items": {
@@ -155,14 +98,6 @@
                 "name": {
                   "type": "string",
                   "description": "事件的描述文档"
-                },
-                "supportedDevices": {
-                  "type": "array",
-                  "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-                  "items": {
-                    "type": "string",
-                    "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-                  }
                 }
               }
             }
@@ -185,14 +120,6 @@
             "type": "string",
             "description": "支持的子组件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
           "level": {
             "type": "number"
           }
@@ -210,14 +137,6 @@
             "type": "string",
             "description": "不支持的子组件名称"
           },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
-          },
           "level": {
             "type": "number"
           }
@@ -234,14 +153,6 @@
           "name": {
             "type": "string",
             "description": "支持的父组件的组件名称"
-          },
-          "supportedDevices": {
-            "type": "array",
-            "description": "本字段非必填,如果为空，表示该属性继承属性支持的设备类型",
-            "items": {
-              "type": "string",
-              "enum": ["tv", "phone", "tablet", "wearable", "liteWearable", "smartVision"]
-            }
           },
           "level": {
             "type": "number",
