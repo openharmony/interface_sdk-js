@@ -152,8 +152,7 @@ declare namespace formHost {
     /**
      * Checks whether the system is ready.
      *
-     * <p>You can use this method to obtain the system is ready
-     * new update from service.</p>
+     * <p>You can use this method to obtain the system is ready.</p>
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
@@ -190,8 +189,7 @@ declare namespace formHost {
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
      *
-     * <p>You can use this method to delete invalid forms of the application
-     * new update from service.</p>
+     * <p>You can use this method to delete invalid forms of the application.</p>
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
@@ -205,8 +203,7 @@ declare namespace formHost {
     /**
      * Obtains the Form state.
      *
-     * <p>You can use this method to obtains the form state
-     * new update from service.</p>
+     * <p>You can use this method to obtains the form state.</p>
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
@@ -220,8 +217,7 @@ declare namespace formHost {
     /**
      * Listens to the event of uninstall form.
      *
-     * <p>You can use this method to listen to the event of uninstall form
-     * new update from service.</p>
+     * <p>You can use this method to listen to the event of uninstall form.</p>
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
@@ -233,8 +229,7 @@ declare namespace formHost {
     /**
      * Cancels listening to the event of uninstall form.
      *
-     * <p>You can use this method to cancel listening to the event of uninstall form
-     * new update from service.</p>
+     * <p>You can use this method to cancel listening to the event of uninstall form.</p>
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
@@ -263,7 +258,6 @@ declare namespace formHost {
      *
      * <p>You can use this method to notify form enable update state.</p>
      *
-     * @devices phone, tablet, tv, wearable, car
      * @since 8
      * @syscap SystemCapability.Ability.Form
      * @param formIds Indicates the specify form id.
