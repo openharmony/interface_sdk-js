@@ -359,6 +359,33 @@ declare namespace bundle {
   }
 
   /**
+   * @name UpgradeFlag
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   */
+  export enum UpgradeFlag {
+    /**
+     * @default Indicates module not need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     NOT_UPGRADE = 0,
+    /**
+     * @default Indicates single module need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     SINGLE_UPGRADE = 1,
+    /**
+     * @default Indicates relation module need to be upgraded
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+     RELATION_UPGRADE = 2,
+  }
+
+  /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
    *
    * @since 7
@@ -620,6 +647,32 @@ declare namespace bundle {
     */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
   function isApplicationEnabled(bundleName: string): Promise<boolean>;
+
+  /**
+    * Set the module wether need upgrade
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @param isNeedUpdate Indicates isNeedUpdate of the application.
+    * @systemapi Hide this for inner system use
+    */
+  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
+  function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag): Promise<void>;
+
+  /**
+    * Checks whether a specified module is removable.
+    *
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    * @param bundleName Indicates the bundle name of the application.
+    * @param moduleName Indicates the module name of the application.
+    * @returns Returns true if the module is removable; returns false otherwise.
+    * @systemapi Hide this for inner system use
+    */
+  function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
+  function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 }
 
 export default bundle;
