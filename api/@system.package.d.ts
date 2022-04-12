@@ -70,6 +70,7 @@ export default class Package {
      * Checks whethers an application exists, or whether a native application has been installed.
      * @param options Options
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
      */
     static hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }
