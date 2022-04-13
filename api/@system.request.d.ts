@@ -267,9 +267,6 @@ export interface OnDownloadCompleteOptions {
   complete?: () => void;
 }
 
-/**
- * @devices tv, phone, tablet, wearable
- */
 export default class Request {
   /**
    * Upload files.
