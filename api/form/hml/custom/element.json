@@ -5,34 +5,28 @@
       "name": "v3.0"
     }
   ],
-  "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
   "description": [
     {
-      "name": "custom component.",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+      "name": "custom component."
     }
   ],
   "attributes": [
     {
       "name": "name",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "required": false,
       "description": [
         {
-          "name": "custom component name.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "custom component name."
         }
       ],
       "type": "string"
     },
     {
       "name": "src",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "required": true,
       "description": [
         {
-          "name": "custom component path.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "custom component path."
         }
       ],
       "type": "url"

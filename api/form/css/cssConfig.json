@@ -2,7 +2,6 @@
   "properties": [
     {
       "name": "column-span",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -38,8 +37,7 @@
       ],
       "description": [
         {
-          "name": "Component width. If this attribute is not set, the width required for the element content is used",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Component width. If this attribute is not set, the width required for the element content is used"
         }
       ],
       "restrictions": [
@@ -62,8 +60,7 @@
       ],
       "description": [
         {
-          "name": "Component height. If this attribute is not set, the height required for the element content is used",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Component height. If this attribute is not set, the height required for the element content is used"
         }
       ],
       "restrictions": [
@@ -76,8 +73,7 @@
       "name": "padding",
       "syntax": [
         {
-          "name": "<length>{1,4} || <percentage>{1,4}",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length>{1,4} || <percentage>{1,4}"
         }
       ],
       "version": [
@@ -87,14 +83,12 @@
       ],
       "description": [
         {
-          "name": "The attribute can have one to four values: 1. If you set a value, it specifies the padding for four sides; 2. If you set two values, the first value specifies the top and bottom padding, and the second value specifies the left and right padding; 3. If you set three values, the first value specifies the top padding, the second value specifies the left and right padding, and the third value specifies the bottom padding; 4. If you set four values, they respectively specify the padding for top, right, bottom, and left sides (in clockwise order)",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "The attribute can have one to four values: 1. If you set a value, it specifies the padding for four sides; 2. If you set two values, the first value specifies the top and bottom padding, and the second value specifies the left and right padding; 3. If you set three values, the first value specifies the top padding, the second value specifies the left and right padding, and the third value specifies the bottom padding; 4. If you set four values, they respectively specify the padding for top, right, bottom, and left sides (in clockwise order)"
         }
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
@@ -102,8 +96,7 @@
       "name": "padding-left",
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -118,8 +111,7 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
@@ -127,8 +119,7 @@
       "name": "padding-top",
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -143,8 +134,7 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
@@ -152,8 +142,7 @@
       "name": "padding-right",
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -168,8 +157,7 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
@@ -177,8 +165,7 @@
       "name": "padding-bottom",
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -193,18 +180,15 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
     {
       "name": "padding-start",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -219,18 +203,15 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
     {
       "name": "padding-end",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
-          "name": "<length> || <percentage>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length> || <percentage>"
         }
       ],
       "version": [
@@ -245,8 +226,7 @@
       ],
       "restrictions": [
         {
-          "name": ["length", "percentage"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["length", "percentage"]
         }
       ]
     },
@@ -367,7 +347,6 @@
     },
     {
       "name": "margin-start",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -391,7 +370,6 @@
     },
     {
       "name": "margin-end",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -415,7 +393,6 @@
     },
     {
       "name": "border",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<line-width> || <line-style> || <color>"
@@ -439,7 +416,6 @@
     },
     {
       "name": "border-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -469,12 +445,6 @@
     },
     {
       "name": "border-image-source",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "version": [
         {
           "name": "v7.0"
@@ -612,12 +582,6 @@
     },
     {
       "name": "border-image",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<line-source> || <line-slice> || <line-width> || <line-outset> || <line-repeat>"
@@ -647,11 +611,6 @@
     },
     {
       "name": "object-position",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet"
-      ],
       "syntax": [
         {
           "name": "<string>"
@@ -729,7 +688,6 @@
     },
     {
       "name": "border-left-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -759,7 +717,6 @@
     },
     {
       "name": "border-top-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -789,7 +746,6 @@
     },
     {
       "name": "border-right-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -819,7 +775,6 @@
     },
     {
       "name": "border-bottom-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -849,7 +804,6 @@
     },
     {
       "name": "border-left",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -873,7 +827,6 @@
     },
     {
       "name": "border-top",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -897,7 +850,6 @@
     },
     {
       "name": "border-right",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -921,7 +873,6 @@
     },
     {
       "name": "border-bottom",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -957,8 +908,7 @@
       ],
       "syntax": [
         {
-          "name": "<length>",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "<length>"
         }
       ],
       "restrictions": [
@@ -969,7 +919,6 @@
     },
     {
       "name": "border-left-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -993,7 +942,6 @@
     },
     {
       "name": "border-top-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1017,7 +965,6 @@
     },
     {
       "name": "border-right-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1041,7 +988,6 @@
     },
     {
       "name": "border-bottom-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1088,7 +1034,6 @@
     },
     {
       "name": "border-left-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1112,7 +1057,6 @@
     },
     {
       "name": "border-top-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1136,7 +1080,6 @@
     },
     {
       "name": "border-right-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1160,7 +1103,6 @@
     },
     {
       "name": "border-bottom-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1191,8 +1133,7 @@
       ],
       "description": [
         {
-          "name": "Attribute to set the radius of round borders of an element. This attribute cannot be used to set the width, color, or style of a specific border. To set the width or color, you need to set border-width, border-color, or border-style for all the borders at the same time.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Attribute to set the radius of round borders of an element. This attribute cannot be used to set the width, color, or style of a specific border. To set the width or color, you need to set border-width, border-color, or border-style for all the borders at the same time."
         }
       ],
       "syntax": [
@@ -1208,7 +1149,6 @@
     },
     {
       "name": "border-top-left-radius",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1232,7 +1172,6 @@
     },
     {
       "name": "border-top-right-radius",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1256,7 +1195,6 @@
     },
     {
       "name": "border-bottom-left-radius",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1280,7 +1218,6 @@
     },
     {
       "name": "border-bottom-right-radius",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1304,12 +1241,6 @@
     },
     {
       "name": "align-self",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "values": [
         {
           "name": "stretch"
@@ -1354,12 +1285,6 @@
     },
     {
       "name": "start",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1386,12 +1311,6 @@
     },
     {
       "name": "end",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -1423,12 +1342,6 @@
           "name": "number"
         }
       ],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "version": [
         {
           "name": "v6.0"
@@ -1454,12 +1367,6 @@
           "name": "color"
         }
       ],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "version": [
         {
           "name": "v6.0"
@@ -1480,12 +1387,6 @@
     },
     {
       "name": "clip-path",
-      "supportedDevices":[
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "[<geometry-box> || <basic-shape> ] | none"
@@ -1540,12 +1441,6 @@
     },
     {
       "name": "mask-image",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "values":[
         {
           "name": "url()"
@@ -1574,12 +1469,6 @@
     },
     {
       "name": "mask-size",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "[ contain | cover | auto | <length> | <percentage> ]"
@@ -1618,12 +1507,6 @@
     },
     {
       "name": "mask-position",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "[ <bg-position> | <length> | <percentage> ]"
@@ -1651,7 +1534,6 @@
     },
     {
       "name": "background",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1693,7 +1575,6 @@
     },
     {
       "name": "background-image",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -1712,7 +1593,6 @@
     },
     {
       "name": "background-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "contain"
@@ -1747,7 +1627,6 @@
     },
     {
       "name": "background-repeat",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<repeat-style>#"
@@ -1771,7 +1650,6 @@
     },
     {
       "name": "background-position",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<bg-position>#"
@@ -1795,7 +1673,6 @@
     },
     {
       "name": "opacity",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -1821,12 +1698,10 @@
       "name": "display",
       "values": [
         {
-          "name": "flex",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "flex"
         },
         {
-          "name": "none",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "none"
         }
       ],
       "version": [
@@ -1847,7 +1722,6 @@
     },
     {
       "name": "visibility",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "visible",
@@ -1876,7 +1750,6 @@
     },
     {
       "name": "flex",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -1900,7 +1773,6 @@
     },
     {
       "name": "flex-grow",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -1924,7 +1796,6 @@
     },
     {
       "name": "flex-shrink",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -1948,7 +1819,6 @@
     },
     {
       "name": "flex-basis",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -1972,7 +1842,6 @@
     },
     {
       "name": "position",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "fixed"
@@ -2048,7 +1917,6 @@
     },
     {
       "name": "right",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -2072,7 +1940,6 @@
     },
     {
       "name": "bottom",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -2096,7 +1963,6 @@
     },
     {
       "name": "transform-origin",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "0px 0px"
@@ -2125,8 +1991,7 @@
       "name": "transform",
       "values": [
         {
-          "name": "translate()",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "translate()"
         },
         {
           "name": "translateX()"
@@ -2135,27 +2000,22 @@
           "name": "translateY()"
         },
         {
-          "name": "scale()",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "scale()"
         },
         {
-          "name": "scaleX()",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "scaleX()"
         },
         {
-          "name": "scaleY()",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "scaleY()"
         },
         {
           "name": "rotate()"
         },
         {
-          "name": "rotateX('angle')",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "rotateX('angle')"
         },
         {
-          "name": "rotateY('angle')",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "rotateY('angle')"
         }
       ],
       "syntax": [
@@ -2275,8 +2135,7 @@
       ],
       "restrictions": [
         {
-          "name": ["number", "enum"],
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": ["number", "enum"]
         }
       ]
     },
@@ -2292,8 +2151,7 @@
           "name": "linear"
         },
         {
-          "name": "ease",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "ease"
         },
         {
           "name": "ease-in"
@@ -2305,40 +2163,31 @@
           "name": "ease-in-out"
         },
         {
-          "name": "fast-out-slow-in",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "fast-out-slow-in"
         },
         {
-          "name": "linear-out-slow-in",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "linear-out-slow-in"
         },
         {
-          "name": "fast-out-linear-in",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "fast-out-linear-in"
         },
         {
-          "name": "friction",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "friction"
         },
         {
-          "name": "extreme-deceleration",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "extreme-deceleration"
         },
         {
-          "name": "sharp",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "sharp"
         },
         {
-          "name": "rhythm",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "rhythm"
         },
         {
-          "name": "smooth",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "smooth"
         },
         {
-          "name": "cubic-bezier",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "cubic-bezier"
         }
       ],
       "version": [
@@ -2390,7 +2239,6 @@
     },
     {
       "name": "shared-transition-effect",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "exchange"
@@ -2417,7 +2265,6 @@
     },
     {
       "name": "shared-transition-name",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -2436,7 +2283,6 @@
     },
     {
       "name": "shared-transition-timing-function",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "friction"
@@ -2460,7 +2306,6 @@
     },
     {
       "name": "transition-enter",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -2479,7 +2324,6 @@
     },
     {
       "name": "transition-exit",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -2498,7 +2342,6 @@
     },
     {
       "name": "transition-duration",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -2517,7 +2360,6 @@
     },
     {
       "name": "transition-timing-function",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "friction"
@@ -2648,8 +2490,7 @@
       "name": "align-items",
       "values": [
         {
-          "name": "stretch",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "stretch"
         },
         {
           "name": "flex-start"
@@ -2689,8 +2530,7 @@
       ],
       "values": [
         {
-          "name": "center",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "center"
         },
         {
           "name": "flex-start"
@@ -2699,12 +2539,10 @@
           "name": "flex-end"
         },
         {
-          "name": "space-between",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "space-between"
         },
         {
-          "name": "space-around",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "space-around"
         }
       ],
       "version": [
@@ -2725,7 +2563,6 @@
     },
     {
       "name": "grid-template-columns",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -2749,7 +2586,6 @@
     },
     {
       "name": "grid-template-rows",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -2773,7 +2609,6 @@
     },
     {
       "name": "grid-columns-gap",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -2797,7 +2632,6 @@
     },
     {
       "name": "grid-rows-gap",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -2821,7 +2655,6 @@
     },
     {
       "name": "grid-row-start",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -2845,7 +2678,6 @@
     },
     {
       "name": "grid-row-end",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -2869,7 +2701,6 @@
     },
     {
       "name": "grid-column-start",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -2893,7 +2724,6 @@
     },
     {
       "name": "grid-column-end",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -2917,7 +2747,6 @@
     },
     {
       "name": "grid-auto-flow",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -2940,12 +2769,6 @@
         {
           "name": "color"
         }
-      ],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
       ],
       "version": [
         {
@@ -2972,12 +2795,6 @@
           "name": "length"
         }
       ],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "version": [
         {
           "name": "v6.0"
@@ -3003,12 +2820,6 @@
           "name": "length"
         }
       ],
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "version": [
         {
           "name": "v6.0"
@@ -3029,7 +2840,6 @@
     },
     {
       "name": "divider-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3053,7 +2863,6 @@
     },
     {
       "name": "divider-height",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -3077,7 +2886,6 @@
     },
     {
       "name": "divider-length",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -3101,7 +2909,6 @@
     },
     {
       "name": "divider-origin",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -3125,7 +2932,6 @@
     },
     {
       "name": "columns",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -3149,7 +2955,6 @@
     },
     {
       "name": "item-extent",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3173,7 +2978,6 @@
     },
     {
       "name": "fade-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3197,7 +3001,6 @@
     },
     {
       "name": "indicator-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3221,7 +3024,6 @@
     },
     {
       "name": "indicator-selected-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3245,7 +3047,6 @@
     },
     {
       "name": "indicator-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -3269,7 +3070,6 @@
     },
     {
       "name": "indicator-top",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3293,7 +3093,6 @@
     },
     {
       "name": "indicator-left",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3317,7 +3116,6 @@
     },
     {
       "name": "indicator-right",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3341,7 +3139,6 @@
     },
     {
       "name": "indicator-bottom",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length> || <percentage>"
@@ -3365,7 +3162,6 @@
     },
     {
       "name": "progress-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3389,7 +3185,6 @@
     },
     {
       "name": "object-fit",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "fill | contain | cover | none | scale-down"
@@ -3435,7 +3230,6 @@
     },
     {
       "name": "match-text-direction",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "true | false"
@@ -3467,7 +3261,6 @@
     },
     {
       "name": "fit-original-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "true | false"
@@ -3591,7 +3384,6 @@
     },
     {
       "name": "secondary-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -3615,7 +3407,6 @@
     },
     {
       "name": "scale-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -3639,7 +3430,6 @@
     },
     {
       "name": "scale-number",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -3801,7 +3591,6 @@
     },
     {
       "name": "allow-scale",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "[ true | false ]"
@@ -3856,7 +3645,6 @@
     },
     {
       "name": "font-style",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "normal"
@@ -3883,7 +3671,6 @@
     },
     {
       "name": "font-weight",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<font-weight-absolute>{1,2}"
@@ -3954,7 +3741,6 @@
     },
     {
       "name": "text-decoration",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "underline",
@@ -3987,32 +3773,26 @@
     },
     {
       "name": "text-align",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "values": [
         {
           "name": "left",
-          "description": "The text is left-aligned",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "description": "The text is left-aligned"
         },
         {
           "name": "center",
-          "description": "The text is center-aligned",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "description": "The text is center-aligned"
         },
         {
           "name": "right",
-          "description": "The text is right-aligned",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "description": "The text is right-aligned"
         },
         {
           "name": "start",
-          "description": "The text is aligned with the direction in which the text is written",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "description": "The text is aligned with the direction in which the text is written"
         },
         {
           "name": "end",
-          "description": "The text in aligned with the opposite direction in which the text is written",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "description": "The text in aligned with the opposite direction in which the text is written"
         }
       ],
       "version": [
@@ -4038,7 +3818,6 @@
           "name": "<length>"
         }
       ],
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -4057,7 +3836,6 @@
     },
     {
       "name": "text-overflow",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "[ clip | ellipsis | <string> ]{1,2}"
@@ -4235,12 +4013,6 @@
     },
     {
       "name": "text-decoration-color",
-      "supportedDevices": [
-        "tv",
-        "phone",
-        "tablet",
-        "wearable"
-      ],
       "syntax": [
         {
           "name": "<color>"
@@ -4319,7 +4091,6 @@
     },
     {
       "name": "max-lines",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "[<string> | <number>]"
@@ -4348,7 +4119,6 @@
     },
     {
       "name": "min-font-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4372,7 +4142,6 @@
     },
     {
       "name": "max-font-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4396,7 +4165,6 @@
     },
     {
       "name": "font-size-step",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4420,7 +4188,6 @@
     },
     {
       "name": "prefer-font-sizes",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4444,7 +4211,6 @@
     },
     {
       "name": "adapt-height",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "true | false"
@@ -4476,7 +4242,6 @@
     },
     {
       "name": "star-background",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -4500,7 +4265,6 @@
     },
     {
       "name": "star-foreground",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -4524,7 +4288,6 @@
     },
     {
       "name": "star-secondary",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<url>"
@@ -4553,7 +4316,6 @@
     },
     {
       "name": "rtl-flip",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "[ true | false ]"
@@ -4585,7 +4347,6 @@
     },
     {
       "name": "line-cap",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "[ butt | square | round ]"
@@ -4623,7 +4384,6 @@
     },
     {
       "name": "placeholder-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4647,7 +4407,6 @@
     },
     {
       "name": "text-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4671,7 +4430,6 @@
     },
     {
       "name": "icon-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4695,7 +4453,6 @@
     },
     {
       "name": "icon-height",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4719,7 +4476,6 @@
     },
     {
       "name": "block-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4743,7 +4499,6 @@
     },
     {
       "name": "texton-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4767,7 +4522,6 @@
     },
     {
       "name": "textoff-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4791,7 +4545,6 @@
     },
     {
       "name": "text-padding",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4861,7 +4614,6 @@
     },
     {
       "name": "focus-color",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4885,7 +4637,6 @@
     },
     {
       "name": "focus-font-size",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -4909,7 +4660,6 @@
     },
     {
       "name": "colors",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<color>"
@@ -4933,7 +4683,6 @@
     },
     {
       "name": "weights",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -4957,7 +4706,6 @@
     },
     {
       "name": "src",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<url>#"
@@ -4986,7 +4734,6 @@
     },
     {
       "name": "min-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -5010,7 +4757,6 @@
     },
     {
       "name": "min-height",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -5034,7 +4780,6 @@
     },
     {
       "name": "max-width",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -5058,7 +4803,6 @@
     },
     {
       "name": "max-height",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<length>"
@@ -5082,7 +4826,6 @@
     },
     {
       "name": "box-shadow",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -5106,7 +4849,6 @@
     },
     {
       "name": "filter",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -5130,7 +4872,6 @@
     },
     {
       "name": "backdrop-filter",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -5154,7 +4895,6 @@
     },
     {
       "name": "window-filter",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<string>"
@@ -5178,7 +4918,6 @@
     },
     {
       "name": "display-index",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -5202,7 +4941,6 @@
     },
     {
       "name": "flex-weight",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -5226,7 +4964,6 @@
     },
     {
       "name": "aspect-ratio",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "syntax": [
         {
           "name": "<number>"
@@ -5298,7 +5035,6 @@
   "atDirectives": [
     {
       "name": "@import",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5306,14 +5042,12 @@
       ],
       "description": [
         {
-          "name": "Includes content of another file.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Includes content of another file."
         }
       ]
     },
     {
       "name": "@keyframes",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5321,14 +5055,12 @@
       ],
       "description": [
         {
-          "name": "Defines set of animation key frames.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Defines set of animation key frames."
         }
       ]
     },
     {
       "name": "@font-face",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5336,14 +5068,12 @@
       ],
       "description": [
         {
-          "name": "Allows for linking to fonts that are automatically activated when needed. This permits authors to work around the limitation of 'web-safe' fonts, allowing for consistent rendering independent of the fonts available in a given user's environment.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Allows for linking to fonts that are automatically activated when needed. This permits authors to work around the limitation of 'web-safe' fonts, allowing for consistent rendering independent of the fonts available in a given user's environment."
         }
       ]
     },
     {
       "name": "@media",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5351,8 +5081,7 @@
       ],
       "description": [
         {
-          "name": "Defines a stylesheet for a particular media type.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Defines a stylesheet for a particular media type."
         }
       ]
     }
@@ -5360,7 +5089,6 @@
   "pseudoClasses": [
     {
       "name": ":active",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5368,14 +5096,12 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is being activated by the user.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Represents an element that is being activated by the user."
         }
       ]
     },
     {
       "name": ":checked",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5383,14 +5109,12 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is checked or toggled to an on state..",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Represents an element that is checked or toggled to an on state.."
         }
       ]
     },
     {
       "name": ":waiting",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5398,14 +5122,12 @@
       ],
       "description": [
         {
-          "name": "Represents an element that is waiting for operation finished.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Represents an element that is waiting for operation finished."
         }
       ]
     },
     {
       "name": ":disabled",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5413,14 +5135,12 @@
       ],
       "description": [
         {
-          "name": "Represents any disabled element.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Represents any disabled element."
         }
       ]
     },
     {
       "name": ":focus",
-      "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"],
       "version": [
         {
           "name": "v3.0"
@@ -5428,8 +5148,7 @@
       ],
       "description": [
         {
-          "name": "Represents an element that has received focus.",
-          "supportedDevices": ["phone", "tablet", "wearable", "tv", "car"]
+          "name": "Represents an element that has received focus."
         }
       ]
     }
