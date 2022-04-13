@@ -78,4 +78,11 @@ export interface NotificationSlot {
    * Obtains the vibration style of notifications in this notification slot.
    */
   vibrationValues?: Array<number>;
+
+  /**
+   * Read-only enabled status in this notification slot.
+   *
+   * @since 9
+   */
+  readonly enabled?: boolean;
 }
