@@ -105,7 +105,7 @@ declare namespace window {
      * the content color of the navigation bar
      * @since 8
      */
-     navigationBarContentColor?: string;
+    navigationBarContentColor?: string;
   }
 
   /**
@@ -264,12 +264,6 @@ declare namespace window {
      * @since 6
      */
     brightness: number
-
-    /**
-     * The dimbehind value of window.
-     * @since 7
-     */
-    dimBehindValue: number
 
     /**
      * Whether keep screen on.
@@ -613,13 +607,13 @@ declare namespace window {
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
 
-      /**
+    /**
      * Loads content
      * @param path path of the page to which the content will be loaded
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
-       loadContent(path: string): Promise<void>;
+    loadContent(path: string): Promise<void>;
 
     /**
      * Checks whether the window is displayed
@@ -754,22 +748,6 @@ declare namespace window {
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the dimBehind of window.
-     * @param dimBehindValue the specified dimBehind.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets the dimBehind of window.
-     * @param dimBehind the specified dimBehind.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setDimBehind(dimBehindValue: number): Promise<void>;
-
-    /**
      * Sets whether focusable or not.
      * @param isFocusable can be focus if true, or can not be focus if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -800,22 +778,6 @@ declare namespace window {
      * @since 6
      */
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets whether outside can be touch or not.
-     * @param touchable outside can be touch if true, or not if false.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setOutsideTouchable(touchable: boolean): Promise<void>;
-
-    /**
-     * Sets whether outside can be touch or not.
-     * @param touchable outside can be touch if true, or not if false.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 7
-     */
-    setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Sets whether is private mode or not.
