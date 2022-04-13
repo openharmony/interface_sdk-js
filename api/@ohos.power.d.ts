@@ -70,7 +70,7 @@ declare namespace power {
    * @systemapi
    * @since 9
    */
-  function suspendDevice(void);
+  function suspendDevice(): void;
 
   /**
    * Get the power mode of the device.

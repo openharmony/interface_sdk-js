@@ -81,7 +81,7 @@ declare namespace batteryInfo {
      * Estimate the remaining time to fully charge, in ms.
      * @since 9
      */
-    const estimateRemainingChargeTime: number;
+    const estimatedRemainingChargeTime: number;
 
     /**
      * Battery total energy of the current device, in mAh.
