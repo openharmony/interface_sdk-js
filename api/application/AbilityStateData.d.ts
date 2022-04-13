@@ -25,7 +25,7 @@ export default class AbilityStateData {
     /**
      * The module name.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
