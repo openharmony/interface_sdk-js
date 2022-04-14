@@ -30,14 +30,13 @@
           "items": {
             "type": "string",
             "enum": [
-              "phone",
+              "default",
               "tv",
               "tablet",
               "wearable",
               "liteWearable",
               "car",
               "smartVision",
-              "pc",
               "router"
             ]
           }
