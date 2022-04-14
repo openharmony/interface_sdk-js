@@ -284,11 +284,17 @@ declare namespace bundle {
      */
     WALLPAPER = 8,
     /**
+     * @default Indicates extension info with type of backup
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    BACKUP = 9,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    UNSPECIFIED = 9,
+    UNSPECIFIED = 20,
   }
 
   /**
