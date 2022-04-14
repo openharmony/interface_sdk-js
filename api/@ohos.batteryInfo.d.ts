@@ -251,7 +251,7 @@ declare namespace batteryInfo {
      */
     export enum CommonEventBatteryChangedCode {
         /**
-         * Extra code of charge (SoC).
+         * Extra code of state of charge (SoC).
          * @since 9
          */
         EXTRA_SOC = 0,

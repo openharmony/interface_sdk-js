@@ -96,7 +96,7 @@ declare namespace power {
   /**
    * Indicates the power mode of a device.
    *
-   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
   export enum DevicePowerMode {
@@ -104,22 +104,22 @@ declare namespace power {
 	 * Performance power mode
 	 * @since 9
 	 */
-	PERFORMANCE_MODE,
+	MODE_PERFORMANCE,
 	/**
 	 * Normal power mode
 	 * @since 9
 	 */
-	NORMAL_MODE,
+	MODE_NORMAL,
 	/**
 	 * Power save mode
 	 * @since 9
 	 */
-	POWER_SAVE_MODE,
+	MODE_POWER_SAVE,
 	/**
 	 * Extreme power save mode
 	 * @since 9
 	 */
-	EXTREME_SAVE_MODE
+	MODE_EXTREME_POWER_SAVE
   }
 }
 export default power;
