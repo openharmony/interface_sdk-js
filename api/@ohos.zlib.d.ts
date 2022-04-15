@@ -105,3 +105,4 @@ declare namespace zlib {
    */
   function unzipFile(inFile:string, outFile:string, options: Options): Promise<void>;
 }
+export default zlib;
