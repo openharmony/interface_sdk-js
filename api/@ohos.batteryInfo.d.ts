@@ -220,6 +220,11 @@ declare namespace batteryInfo {
          */
         LEVEL_FULL,
         /**
+         * The battery is in high capacity level.
+         * @since 9
+         */
+        LEVEL_HIGH,
+        /**
          * The battery is in normal capacity level.
          * @since 9
          */
