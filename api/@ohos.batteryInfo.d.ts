@@ -72,10 +72,10 @@ declare namespace batteryInfo {
     const isBatteryPresent: boolean;
 
     /**
-     * Obtain the battery state level of a device.
+     * Obtain the battery capacity level of a device.
      * @since 9
      */
-    const batteryStateLevel: BatteryStateLevel;
+    const batteryCapacityLevel: BatteryCapacityLevel;
 
     /**
      * Estimate the remaining time to fully charge, in ms.
@@ -203,37 +203,37 @@ declare namespace batteryInfo {
     }
 
     /**
-     * Indicates the battery charge level status of a device.
+     * Indicates the battery capacity level a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
-    export enum BatteryStateLevel {
+    export enum BatteryCapacityLevel {
         /**
-         * The battery is in unknow level state.
+         * The battery is in unknow capacity level.
          * @since 9
          */
         LEVEL_NONE,
         /**
-         * The battery is in high level state.
+         * The battery is in full capacity level.
          * @since 9
          */
-        LEVEL_HIGH,
+        LEVEL_FULL,
         /**
-         * The battery is in normal level state.
+         * The battery is in normal capacity level.
          * @since 9
          */
         LEVEL_NORMAL,
         /**
-         * The battery is in low level state.
+         * The battery is in low capacity level.
          * @since 9
          */
         LEVEL_LOW,
         /**
-         * The battery is in emergency low level state.
+         * The battery is in critical low capacity level.
          * @since 9
          */
-        LEVEL_EMERGENCY
+        LEVEL_CRITICAL
     }
 
     /**
