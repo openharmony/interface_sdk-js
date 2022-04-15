@@ -108,7 +108,7 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        has(key: string, callback: AsyncCallback<boolean>): boolean;
+        has(key: string, callback: AsyncCallback<boolean>): void;
         has(key: string): Promise<boolean>;
 
         /**
@@ -177,7 +177,7 @@ declare namespace preferences {
          * @throws BusinessError if invoked failed
          * @since 9
          */
-        off(type: 'change', callback: Callback<{ key: string }>): void;
+        off(type: 'change', callback?: Callback<{ key: string }>): void;
     }
 
     /**
