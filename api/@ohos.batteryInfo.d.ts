@@ -91,13 +91,6 @@ declare namespace batteryInfo {
     const totalEnergy: number;
 
     /**
-     * Battery average current of the current device, in mA.
-     * @since 9
-     * @systemapi
-     */
-    const averageCurrent: number;
-
-    /**
      * Battery immediate current of the current device, in mA.
      * @since 9
      * @systemapi
