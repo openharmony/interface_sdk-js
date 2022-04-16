@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import image from "../@ohos.multimedia.image";
+
 /**
  * MissionListener registered by app.
  *
@@ -62,4 +64,15 @@
      * @return -
      */
     onMissionMovedToFront(mission: number): void;
+
+    /**
+     * Called by system when mission icon has changed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission whose icon has changed.
+     * @param icon Indicates the icon of the mission whose icon has changed.
+     * @return -
+     */
+     onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
 }
