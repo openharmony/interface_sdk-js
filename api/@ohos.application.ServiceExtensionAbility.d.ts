@@ -121,6 +121,18 @@ export default class ServiceExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-     onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdated(config: Configuration): void;
+
+    /**
+     * Called when dump client information is required.
+     * It is recommended that developers don't DUMP sensitive information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param params Indicates the params from command.
+     * @return The dump info array.
+     * @StageModelOnly
+     */
+    dump(params: Array<string>): Array<string>;
 }
 
