@@ -427,7 +427,8 @@ declare namespace bluetooth {
          *
          * @param device The address of the remote device.
          * @return Returns {@link PlayingState} of the remote device.
-         *
+         * @since 8
+         * @permission ohos.permission.USE_BLUETOOTH
          */
         getPlayingState(device: string): PlayingState;
     }
