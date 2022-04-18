@@ -17,7 +17,7 @@ import { AsyncCallback, Callback } from './basic.d.ts';
 /**
 * Provides interfaces to get system capability.
 *
-* @since 8
+* @since 9
 * @syscap SystemCapability.Developtools.Syscap
 * @systemapi
 */
@@ -26,7 +26,7 @@ declare namespace systemCapability {
   /**
    * Get System Capability.
    *
-   * @since 8
+   * @since 9
    * @systemapi
    * @syscap SystemCapability.Developtools.Syscap
    * @return system capability string.
