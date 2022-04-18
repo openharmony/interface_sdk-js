@@ -480,7 +480,7 @@ export interface NumberOptions {
      * Indicates the unit display format.
      *
      * @syscap SystemCapability.Global.I18n
-     * @since 6
+     * @since 8
      */
     unitUsage: string
 
