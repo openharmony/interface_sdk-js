@@ -560,13 +560,13 @@ declare class WebCookie {
    * Sets the cookie.
    * @since 8
    */
-  setCookie(url: string, value: string);
+  setCookie(url: string, value: string): boolean;
 
   /**
    * Saves the cookies.
    * @since 8
    */
-  saveCookieSync();
+  saveCookieSync(): boolean;
 }
 
 /**
