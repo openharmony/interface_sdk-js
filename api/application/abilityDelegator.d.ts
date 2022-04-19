@@ -94,7 +94,7 @@ export interface AbilityDelegator {
     /**
      * Start a new ability.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the ability to start
      * @return -
