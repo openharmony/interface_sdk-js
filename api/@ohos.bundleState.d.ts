@@ -23,7 +23,7 @@ import { AsyncCallback } from './basic';
  * the usage history and states of bundles in a specified period.
  * The system stores the query result in a {@link BundleStateInfo} or {@link BundleActiveState} instance and
  * then returns it to you.
- * 
+ *
  * @since 7
  */
 declare namespace bundleState {
@@ -79,13 +79,99 @@ declare namespace bundleState {
         /**
          * Merges a specified {@link BundleActiveInfo} object with this {@link BundleActiveInfo} object.
          * The bundle name of both objects must be the same.
-         * 
+         *
          * @since 7
          * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
          * @param toMerge Indicates the {@link BundleActiveInfo} object to merge.
          * if the bundle names of the two {@link BundleActiveInfo} objects are different.
          */
         merge(toMerge: BundleStateInfo): void;
+    }
+
+    /**
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     */
+    interface BundleActiveFormInfo {
+        /**
+         * the form name.
+         */
+        formName: string;
+        /**
+         * the form dimension.
+         */
+        formDimension: number;
+        /**
+         * the form id.
+         */
+        formId: number;
+        /**
+         * the last time when the form was accessed, in milliseconds..
+         */
+        formLastUsedTime: number;
+        /**
+         * the click count of module.
+         */
+        count: number;
+    }
+
+    /**
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     */
+    interface BundleActiveModuleInfo {
+        /**
+         * the device id of module.
+         */
+        deviceId?: string;
+        /**
+         * the bundle name.
+         */
+        bundleName: string;
+        /**
+         * the module name.
+         */
+        moduleName: string;
+        /**
+         * the main ability name of module.
+         */
+        abilityName?: string;
+        /**
+         * the label id of application.
+         */
+        appLabelId?: number;
+        /**
+         * the label id of module.
+         */
+        labelId?: number;
+        /**
+         * the description id of application.
+         */
+        descriptionId?: number;
+        /**
+         * the ability id of main ability.
+         */
+        abilityLableId?: number;
+        /**
+         * the description id of main ability.
+         */
+        abilityDescriptionId?: number;
+        /**
+         * the icon id of main ability.
+         */
+        abilityIconId?: number;
+        /**
+         * the launch count of module.
+         */
+        launchedCount: number;
+        /**
+         * the last time when the module was accessed, in milliseconds.
+         */
+        lastModuleUsedTime: number;
+        /**
+         * the form usage record list of current module.
+         */
+        formRecords: Array<BundleActiveFormInfo>;
     }
 
     /**
@@ -134,7 +220,7 @@ declare namespace bundleState {
 
     /**
      * Queries the usage priority group of the calling application.
-     * 
+     *
      * <p>The priority defined in a priority group restricts the resource usage of an application,
      * for example, restricting the running of background tasks. </p>
      *
@@ -155,7 +241,7 @@ declare namespace bundleState {
 
     /**
      * Queries usage information about each bundle within a specified period.
-     * 
+     *
      * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
      *
      * @since 7
@@ -171,7 +257,7 @@ declare namespace bundleState {
 
     /**
      * Declares interval type.
-     * 
+     *
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
@@ -244,6 +330,20 @@ declare namespace bundleState {
      */
     function queryCurrentBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
     function queryCurrentBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
+
+    /**
+     * Queries recently module usage records.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @systemapi Hide this for inner system use.
+     * @param maxNum Indicates max record number in result, max value is 1000, default value is 1000.
+     * @return Returns the {@link BundleActiveModuleInfo} object Array containing the usage data of the modules.
+     */
+    function getRecentlyUsedModules(maxNum?: number, callback: AsyncCallback<Array<BundleActiveModuleInfo>>): void;
+    function getRecentlyUsedModules(maxNum?: number): Promise<Array<BundleActiveModuleInfo>>;
 }
 
 export default bundleState;
+
