@@ -32,6 +32,8 @@ declare namespace inputDevice {
 
     type AxisType = 'NULL';
 
+    type KeyboardType = 'alphabetic_keyboard' | 'digital_keyboard' | 'handwriting_pen' | 'remote_control' | 'no_keyboard' | 'unknown_device';
+
     /**
      * Defines the monitor for input device events.
      * 
@@ -139,6 +141,26 @@ declare namespace inputDevice {
      */
     function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>, callback: Callback<Array<KeystrokeAbility>>): void;
     function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>): Promise<Array<KeystrokeAbility>>;
+
+    /**
+     * 设置鼠标移动速度
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param mouseSpeed 鼠标移动速度。
+     */
+    function setMouseSpeed(mouseSpeed: number): void;
+
+    /**
+     * 获取指定设备id的键盘类型
+     *
+     * @since 8
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param deviceId 指定的设备id。
+     * @return 返回键盘类型。
+     */
+    function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
+    function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 }
 
 export default inputDevice;
