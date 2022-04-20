@@ -100,14 +100,14 @@ declare namespace preferences {
         get(key: string, defValue: ValueType): Promise<ValueType>;
 
         /**
-        * Obtains all the keys of a preferences in an array.
+        * Obtains all the keys and values of a preferences in an object.
         *
-        * @return Returns the keys in an array.
+        * @return Returns the values and keys in an object.
         * @throws BusinessError if invoked failed
         * @since 9
         */
-        getAllKeys(callback: AsyncCallback<Array<string>>): void;
-        getAllKeys(): Promise<Array<string>>;
+        getAll(callback: AsyncCallback<Object>): void;
+        getAll(): Promise<Object>;
 
         /**
          * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
