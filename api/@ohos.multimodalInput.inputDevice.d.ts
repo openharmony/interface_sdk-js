@@ -172,6 +172,17 @@ declare namespace inputDevice {
      */
     function setPointerVisible(visible: boolean, callback: Callback<void>): void;
     function setPointerVisible(visible: boolean): Promise<void>;
+
+    /**
+     * 设置鼠标样式
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param iconId 鼠标样式id。
+     * @return callback function, receive reported data
+     */
+    function setMouseIcon(iconId: number, callback: Callback<boolean>): void;
+    function setMouseIcon(iconId: number): Promise<boolean>;
 }
 
 export default inputDevice;
