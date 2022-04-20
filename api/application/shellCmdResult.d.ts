@@ -28,7 +28,7 @@ export interface ShellCmdResult {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    stdResult: String;
+    stdResult: string;
 
     /**
      * shell cmd exec result.
