@@ -154,7 +154,7 @@ declare namespace inputDevice {
     /**
      * 获取指定设备id的键盘类型
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param deviceId 指定的设备id。
      * @return 返回键盘类型。
