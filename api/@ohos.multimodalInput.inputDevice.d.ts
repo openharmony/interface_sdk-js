@@ -161,6 +161,17 @@ declare namespace inputDevice {
      */
     function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
     function getKeyboardType(deviceId: number): Promise<KeyboardType>;
+
+    /**
+     * Sets whether the pointer icon is visible.
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param visible Whether the pointer icon is visible. The value **true** indicates that the pointer icon is visible, and the value **false** indicates the opposite.
+     * @return callback function, receive reported data
+     */
+    function setPointerVisible(visible: boolean, callback: Callback<void>): void;
+    function setPointerVisible(visible: boolean): Promise<void>;
 }
 
 export default inputDevice;
