@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (C) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,20 +13,55 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { Callback } from "./basic";
 
  /**
  * The input device management module is configured to obtain an ID and device information of an input device.
  *
- * @since 8
+ * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  */
 
 declare namespace inputDevice {
+    type EventType = 'add' | 'remove';
+
+    type ChangeType = 'changed';
+
     type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
     type AxisType = 'NULL';
+
+    /**
+     * Defines the monitor for input device events.
+     * 
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param type Type of the input device event. The options are add and remove.
+     * @param deviceId ID of the input device for the reported input device event.
+     */
+    interface DeviceMonitor{
+        (type: EventType, deviceId: number): void;
+    }
+
+    /**
+     * Starts monitoring for an input device event.
+     * 
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param type Type of the input device event, which is **changed**.
+     * @param monitor Callback for the input device event.
+     */
+    function on(type: ChangeType, monitor: Callback<DeviceMonitor>): void;
+
+    /**
+     * Stops monitoring for an input device event.
+     * 
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param type Type of the input device event, which is **changed**.
+     * @param monitor Callback for the input device event.
+     */
+    function off(type: ChangeType, monitor?: Callback<DeviceMonitor>): void;
 
     /**
      * Defines axis information about events that can be reported by an input device.
@@ -63,23 +98,47 @@ declare namespace inputDevice {
     /**
      * Obtains the IDs of all input devices.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param callback callback function, receive reported data
      */
-    function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
+    function getDeviceIds(callback: Callback<Array<number>>): void;
     function getDeviceIds(): Promise<Array<number>>;
 
     /**
      * Obtain the information about an input device.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param deviceId ID of the input device whose information is to be obtained.
      * @param callback callback function, receive reported data
      */
-    function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+    function getDevice(deviceId: number, callback: Callback<InputDeviceData>): void;
     function getDevice(deviceId: number): Promise<InputDeviceData>;
+
+    /**
+     * Defines whether the specified data structure is supported a key code.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param keyCode Key code.
+     * @param isSupport Whether the data structure is supported by the key code. The value **true** indicates that the data structure is supported by the key code, and the value **false** indicates the opposite.
+     */
+    interface KeystrokeAbility {
+        keyCode: number;
+        isSupport: boolean;
+    }
+
+    /**
+     * Checks whether the specified key codes of an input device are supported.
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @param deviceId ID of the input device.
+     * @param keyCodes Key codes of the input device.
+     * @return Returns a result indicating whether the specified key codes are supported.
+     */
+    function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>, callback: Callback<Array<KeystrokeAbility>>): void;
+    function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>): Promise<Array<KeystrokeAbility>>;
 }
 
 export default inputDevice;
