@@ -209,7 +209,7 @@ declare namespace formHost {
      * @syscap SystemCapability.Ability.Form
      * @param want Indicates want of the form.
      * @return Returns form state {@link FormStateInfo}
-     * @permission ohos.permission.GET_BUNDLE_INFO and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED.
+     * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED.
      */
     function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
     function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
