@@ -95,7 +95,6 @@ declare namespace power {
 
   /**
    * Power mode of a device.
-   *
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
