@@ -16,13 +16,13 @@
 import { Callback, AsyncCallback } from "./basic";
 import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 
- /**
- * The input device management module is configured to obtain an ID and device information of an input device.
- *
- * @since 8
- * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
- */
+/**
+* The input device management module is configured to obtain an ID and device information of an input device.
+*
+* @since 8
+* @syscap SystemCapability.MultimodalInput.Input.InputDevice
+* @import import inputDevice from '@ohos.multimodalInput.inputDevice';
+*/
 
 declare namespace inputDevice {
     type ChangedType = 'add' | 'remove';
@@ -40,7 +40,7 @@ declare namespace inputDevice {
         RemoteControl = 5,
     }
 
-    enum PointerStyle {}
+    enum PointerStyle { }
 
     /**
      * Defines the listener for input device events.
@@ -49,7 +49,7 @@ declare namespace inputDevice {
      * @param type Type of the input device event. The options are add and remove.
      * @param deviceId ID of the input device for the reported input device event.
      */
-    interface DeviceListener{
+    interface DeviceListener {
         (type: ChangedType, deviceId: number): void;
     }
 
@@ -96,17 +96,17 @@ declare namespace inputDevice {
         /**
          * @since 8
          */
-        axis : AxisType;
+        axis: AxisType;
 
         /**
          * @since 8
          */
-        max : number;
+        max: number;
 
         /**
          * @since 8
          */
-        min : number;
+        min: number;
 
         /**
          * @since 9
@@ -152,12 +152,12 @@ declare namespace inputDevice {
         /**
          * @since 8
          */
-        sources : Array<SourceType>;
+        sources: Array<SourceType>;
 
         /**
          * @since 8
          */
-        axisRanges : Array<AxisRange>;
+        axisRanges: Array<AxisRange>;
 
         /**
          * @since 9
