@@ -13,57 +13,65 @@
 * limitations under the License.
 */
 
-import { Callback } from "./basic";
+import { Callback, AsyncCallback } from "./basic";
+import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 
  /**
  * The input device management module is configured to obtain an ID and device information of an input device.
  *
- * @since 9
+ * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  */
 
 declare namespace inputDevice {
-    type EventType = 'add' | 'remove';
-
-    type ChangeType = 'changed';
+    type ChangedType = 'add' | 'remove';
 
     type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
-    type AxisType = 'NULL';
+    type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'positionX' | 'positionY' | 'pressure' | 'toolX' | 'toolY';
 
-    type KeyboardType = 'alphabetic_keyboard' | 'digital_keyboard' | 'handwriting_pen' | 'remote_control' | 'no_keyboard' | 'unknown_device';
+    enum KeyboardType {
+        None = 0,
+        Unknown = 1,
+        AlphabeticKeyboard = 2,
+        DigitalKeyboard = 3,
+        HandwritingPen = 4,
+        RemoteControl = 5,
+    }
+
+    enum PointerStyle {}
 
     /**
-     * Defines the monitor for input device events.
+     * Defines the listener for input device events.
      * 
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param type Type of the input device event. The options are add and remove.
      * @param deviceId ID of the input device for the reported input device event.
      */
-    interface DeviceMonitor{
-        (type: EventType, deviceId: number): void;
+    interface DeviceListener{
+        (type: ChangedType, deviceId: number): void;
     }
 
     /**
-     * Starts monitoring for an input device event.
+     * Starts listening for an input device event.
      * 
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param type Type of the input device event, which is **changed**.
-     * @param monitor Callback for the input device event.
+     * @param type Type of the input device event, which is **change**.
+     * @param listener Callback for the input device event.
      */
-    function on(type: ChangeType, monitor: Callback<DeviceMonitor>): void;
+    function on(type: "change", listener: DeviceListener): void;
 
     /**
-     * Stops monitoring for an input device event.
+     * Stops listening for an input device event.
      * 
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param type Type of the input device event, which is **changed**.
-     * @param monitor Callback for the input device event.
+     * @param type Type of the input device event, which is **change**.
+     * @param listener Callback for the input device event.
      */
-    function off(type: ChangeType, monitor?: Callback<DeviceMonitor>): void;
+    function off(type: "change", listener?: DeviceListener): void;
 
     /**
      * Defines axis information about events that can be reported by an input device.
@@ -75,12 +83,45 @@ declare namespace inputDevice {
      * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
      * @param max Maximum value of the data reported on this axis.
      * @param min Minimum value of the data reported on this axis.
+     * @param fuzz fuzz value of the data reported on this axis.
+     * @param flat flat value of the data reported on this axis.
+     * @param resolution resolution value of the data reported on this axis.
      */
     interface AxisRange {
+        /**
+         * @since 8
+         */
         source: SourceType;
+
+        /**
+         * @since 8
+         */
         axis : AxisType;
+
+        /**
+         * @since 8
+         */
         max : number;
-        min: number;
+
+        /**
+         * @since 8
+         */
+        min : number;
+
+        /**
+         * @since 9
+         */
+        fuzz: number;
+
+        /**
+         * @since 9
+         */
+        flat: number;
+
+        /**
+         * @since 9
+         */
+        resolution: number;
     }
 
     /**
@@ -89,46 +130,86 @@ declare namespace inputDevice {
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param name Name of the input device.
      * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
+     * @param axisRanges
+     * @param bus 总线
+     * @param product 产品
+     * @param vendor 厂商
+     * @param version 版本
+     * @param phys 物理名称
+     * @param uniq 唯一标识
      */
     interface InputDeviceData {
+        /**
+         * @since 8
+         */
         id: number;
+
+        /**
+         * @since 8
+         */
         name: string;
+
+        /**
+         * @since 8
+         */
         sources : Array<SourceType>;
+
+        /**
+         * @since 8
+         */
         axisRanges : Array<AxisRange>;
+
+        /**
+         * @since 9
+         */
+        bus: number;
+
+        /**
+         * @since 9
+         */
+        product: number;
+
+        /**
+         * @since 9
+         */
+        vendor: number;
+
+        /**
+         * @since 9
+         */
+        version: number;
+
+        /**
+         * @since 9
+         */
+        phys: string;
+
+        /**
+         * @since 9
+         */
+        uniq: string;
     }
 
     /**
      * Obtains the IDs of all input devices.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param callback callback function, receive reported data
      */
-    function getDeviceIds(callback: Callback<Array<number>>): void;
+    function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
     function getDeviceIds(): Promise<Array<number>>;
 
     /**
      * Obtain the information about an input device.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param deviceId ID of the input device whose information is to be obtained.
      * @param callback callback function, receive reported data
      */
-    function getDevice(deviceId: number, callback: Callback<InputDeviceData>): void;
+    function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
     function getDevice(deviceId: number): Promise<InputDeviceData>;
-
-    /**
-     * Defines whether the specified data structure is supported a key code.
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param keyCode Key code.
-     * @param isSupport Whether the data structure is supported by the key code. The value **true** indicates that the data structure is supported by the key code, and the value **false** indicates the opposite.
-     */
-    interface KeystrokeAbility {
-        keyCode: number;
-        isSupport: boolean;
-    }
 
     /**
      * Checks whether the specified key codes of an input device are supported.
@@ -136,30 +217,30 @@ declare namespace inputDevice {
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @param deviceId ID of the input device.
-     * @param keyCodes Key codes of the input device.
+     * @param keys Key codes of the input device. 最多一次查询5个按键码
      * @return Returns a result indicating whether the specified key codes are supported.
      */
-    function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>, callback: Callback<Array<KeystrokeAbility>>): void;
-    function getKeystrokeAbility(deviceId: number, keyCodes: Array<number>): Promise<Array<KeystrokeAbility>>;
+    function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<Map<number, boolean>>>): void;
+    function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<Map<number, boolean>>>;
 
     /**
-     * 设置鼠标移动速度
+     * 设置光标移动速度
      *
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param mouseSpeed 鼠标移动速度。
+     * @param speed 光标移动速度。
      */
-    function setMouseSpeed(mouseSpeed: number): void;
+    function setPointerSpeed(speed: number): void;
 
     /**
-     * 获取指定设备id的键盘类型
+     * 查询输入设备的键盘类型
      *
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param deviceId 指定的设备id。
+     * @param deviceId 输入设备标识。
      * @return 返回键盘类型。
      */
-    function getKeyboardType(deviceId: number, callback: Callback<KeyboardType>): void;
+    function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
     function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
     /**
@@ -170,7 +251,7 @@ declare namespace inputDevice {
      * @param visible Whether the pointer icon is visible. The value **true** indicates that the pointer icon is visible, and the value **false** indicates the opposite.
      * @return callback function, receive reported data
      */
-    function setPointerVisible(visible: boolean, callback: Callback<void>): void;
+    function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
     function setPointerVisible(visible: boolean): Promise<void>;
 
     /**
@@ -178,11 +259,11 @@ declare namespace inputDevice {
      *
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param iconId 鼠标样式id。
+     * @param pointerStyle 鼠标样式id。
      * @return callback function, receive reported data
      */
-    function setMouseIcon(iconId: number, callback: Callback<boolean>): void;
-    function setMouseIcon(iconId: number): Promise<boolean>;
+    function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<boolean>): void;
+    function setPointerStyle(pointerStyle: PointerStyle): Promise<boolean>;
 }
 
 export default inputDevice;
