@@ -34,7 +34,7 @@ declare namespace inputMonitor {
 
     /**
      * Callback used to receive mouse input events. If **true** is returned, the mouse input is consumed, and the system performs the closing operation.
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      */
@@ -55,7 +55,7 @@ declare namespace inputMonitor {
 
     /**
      * Listens for mouse input events.
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
@@ -77,7 +77,7 @@ declare namespace inputMonitor {
 
     /**
      * Cancels listening for mouse input events.
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
