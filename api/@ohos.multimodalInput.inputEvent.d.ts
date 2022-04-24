@@ -24,18 +24,18 @@
 */
 
 export declare interface InputEvent {
-	// 事件id，服务端生成，全局唯一
-	readonly id: number;
+  // 事件id，服务端生成，全局唯一
+  readonly id: number;
 
-	// 上报输入事件的设备id, 整型数字，>=0 有效
-	deviceId: number;
+  // 上报输入事件的设备id, 整型数字，>=0 有效
+  deviceId: number;
 
-	// 事件发生事件
-	actionTime: number;
+  // 事件发生事件
+  actionTime: number;
 
-	// 目标屏幕id, 整型数字，>=0 有效
-	screenId: number;
+  // 目标屏幕id, 整型数字，>=0 有效
+  screenId: number;
 
-	// 目标窗口id, 整型数字, >=0 有效
-	windowId: number;
+  // 目标窗口id, 整型数字, >=0 有效
+  windowId: number;
 }

@@ -23,68 +23,68 @@ import { AsyncCallback } from "./basic";
  * @import import distributedInput from '@ohos.multimodalInput.distributedInput',
  */
 declare namespace distributedInput {
-    enum InputAbility {
-        Mouse = 0,
-        Keyboard = 1,
-        Touchscreen = 2,
-        Touchpad = 3,
-    }
+  enum InputAbility {
+    Mouse = 0,
+    Keyboard = 1,
+    Touchscreen = 2,
+    Touchpad = 3,
+  }
 
-    /**
-     * 查询分布式设备输入能力
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-     * @param deviceId 表示查询分布式输入能力的那台设备的ID.
-     * @return -
-     */
-    function getRemoteInputAbility(deviceId: number, callback: AsyncCallback<Array<InputAbility>>): void;
-    function getRemoteInputAbility(deviceId: number): Promise<Array<InputAbility>>;
+  /**
+   * 查询分布式设备输入能力
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param deviceId 表示查询分布式输入能力的那台设备的ID.
+   * @return -
+   */
+  function getRemoteInputAbility(deviceId: number, callback: AsyncCallback<Array<InputAbility>>): void;
+  function getRemoteInputAbility(deviceId: number): Promise<Array<InputAbility>>;
 
-    /**
-     * 准备分布式
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-     * @param deviceId 表示准备分布式的那台设备的ID.
-     * @return -
-     */
-    function prepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
-    function prepareRemoteInput(deviceId: number): Promise<void>;
+  /**
+   * 准备分布式
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @return -
+   */
+  function prepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
+  function prepareRemoteInput(deviceId: number): Promise<void>;
 
-    /**
-     * 取消准备分布式
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-     * @param deviceId 表示准备分布式的那台设备的ID.
-     * @return -
-     */
-    function unprepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
-    function unprepareRemoteInput(deviceId: number): Promise<void>;
+  /**
+   * 取消准备分布式
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @return -
+   */
+  function unprepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
+  function unprepareRemoteInput(deviceId: number): Promise<void>;
 
-    /**
-     * 停止分布式
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-     * @param deviceId 表示准备分布式的那台设备的ID.
-     * @return -
-     */
-    function stopRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
-    function stopRemoteInput(deviceId: number): Promise<void>;
+  /**
+   * 停止分布式
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @return -
+   */
+  function stopRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
+  function stopRemoteInput(deviceId: number): Promise<void>;
 
-    /**
-     * 鼠标位置设定
-     * 
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-     * @param mouseX x坐标
-     * @param mouseY y坐标
-     * @return -
-     */
-    function setPointerLocation(mouseX: number, mouseY: number, callback: AsyncCallback<void>): void;
-    function setPointerLocation(deviceId: number, mouseY: number): Promise<void>;
+  /**
+   * 鼠标位置设定
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param mouseX x坐标
+   * @param mouseY y坐标
+   * @return -
+   */
+  function setPointerLocation(mouseX: number, mouseY: number, callback: AsyncCallback<void>): void;
+  function setPointerLocation(deviceId: number, mouseY: number): Promise<void>;
 }
 
 export default distributedInput;
