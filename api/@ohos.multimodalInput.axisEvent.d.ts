@@ -25,67 +25,66 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 
 export enum Action {
-	// 取消
-	Cancel = 0,
-	// 鼠标关联的轴事件开始
-	AxisBegin = 4,
-	// 鼠标关联的轴事件更新
-	AxisUpdate = 5,
-	// 鼠标关联的轴事件结束
-	AxisEnd = 6,
+  // 取消
+  Cancel = 0,
+  // 鼠标关联的轴事件开始
+  AxisBegin = 4,
+  // 鼠标关联的轴事件更新
+  AxisUpdate = 5,
+  // 鼠标关联的轴事件结束
+  AxisEnd = 6,
 }
 
 export enum Axis {
-	// 垂直滚动轴
-	ScrollVertical = 0,
-	// 水平滚动轴
-	ScrollHorizontal = 1,
-	// 捏合轴
-	Pinch = 2,
+  // 垂直滚动轴
+  ScrollVertical = 0,
+  // 水平滚动轴
+  ScrollHorizontal = 1,
+  // 捏合轴
+  Pinch = 2,
 }
 
 export interface AxisValue {
-
-	// 轴类型
-	axis: Axis;
-	// 轴的值
-	value: number
+  // 轴类型
+  axis: Axis;
+  // 轴的值
+  value: number
 }
 
 export declare interface MouseEvent extends InputEvent {
-	// 轴事件动作
-	action: Action;
+  // 轴事件动作
+  action: Action;
 
-	// 轴的数据
-	axes: AxisValue[],
+  // 轴的数据
+  axes: AxisValue[],
 
-	// 当前处于按下状态的按键列表
-	pressedKeys: KeyCode[],
+  // 当前处于按下状态的按键列表
+  pressedKeys: KeyCode[],
 
-	// 当前ctrlKey是否处于按下状态
-	readonly ctrlKey: boolean
+  // 当前ctrlKey是否处于按下状态
+  readonly ctrlKey: boolean
 
-	// 当前altKey是否处于按下状态
-	readonly altKey: boolean
+  // 当前altKey是否处于按下状态
+  readonly altKey: boolean
 
-	// 当前shiftKey是否处于按下状态
-	readonly shiftKey: boolean
+  // 当前shiftKey是否处于按下状态
+  readonly shiftKey: boolean
 
-	// 当前metaKey是否处于按下状态
-	readonly metaKey: boolean
+  // 当前metaKey是否处于按下状态
+  readonly metaKey: boolean
 
-	// 当前fnKey是否处于按下状态
-	readonly fnKey: boolean
+  // 当前fnKey是否处于按下状态
+  readonly fnKey: boolean
 
-	// 当前capsLock是否处于激活状态
-	capsLock: boolean
+  // 当前capsLock是否处于激活状态
+  capsLock: boolean
 
-	// 当前numLock是否处于激活状态
-	numLock: boolean
+  // 当前numLock是否处于激活状态
+  numLock: boolean
 
-	// 当前scrollLock是否处于激活状态
-	scrollLock: boolean
-	
-	// 指定按键是否处于按下状态
-	isKeyDown(keyCode: KeyCode): boolean
+  // 当前scrollLock是否处于激活状态
+  scrollLock: boolean
+
+  // 指定按键是否处于按下状态
+  isKeyDown(keyCode: KeyCode): boolean
 }

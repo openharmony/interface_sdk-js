@@ -25,57 +25,57 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 
 export enum Action {
-	// 取消
-	Cancel = 0,
-	// 按钮按下
-	Down = 1,
-	// 按钮抬起
-	Up = 2,
+  // 取消
+  Cancel = 0,
+  // 按钮按下
+  Down = 1,
+  // 按钮抬起
+  Up = 2,
 }
 
 export interface Key {
-	// 按键码
-	code: KeyCode;
-	// 按下时间
-	pressedTime: number;
-	// 按键所属设备
-	deviceId: number;
+  // 按键码
+  code: KeyCode;
+  // 按下时间
+  pressedTime: number;
+  // 按键所属设备
+  deviceId: number;
 }
 
 export declare interface KeyEvent extends InputEvent {
-	// 按键动作
-	action: Action;
+  // 按键动作
+  action: Action;
 
-	// 本次发生变化的按键
-	key: Key;
+  // 本次发生变化的按键
+  key: Key;
 
-	// unideCode编码
-	unicodeChar: number;
+  // unideCode编码
+  unicodeChar: number;
 
-	// 当前处于按下状态的按键列表
-	keys: Key[];
+  // 当前处于按下状态的按键列表
+  keys: Key[];
 
-	// 当前ctrlKey是否处于按下状态
-	readonly ctrlKey: boolean
+  // 当前ctrlKey是否处于按下状态
+  readonly ctrlKey: boolean
 
-	// 当前altKey是否处于按下状态
-	readonly altKey: boolean
+  // 当前altKey是否处于按下状态
+  readonly altKey: boolean
 
-	// 当前shiftKey是否处于按下状态
-	readonly shiftKey: boolean
+  // 当前shiftKey是否处于按下状态
+  readonly shiftKey: boolean
 
-	// 当前metaKey是否处于按下状态
-	readonly metaKey: boolean
+  // 当前metaKey是否处于按下状态
+  readonly metaKey: boolean
 
-	// 当前fnKey是否处于按下状态
-	readonly fnKey: boolean
+  // 当前fnKey是否处于按下状态
+  readonly fnKey: boolean
 
-	// 当前capsLock是否处于激活状态
-	capsLock: boolean
+  // 当前capsLock是否处于激活状态
+  capsLock: boolean
 
-	// 当前numLock是否处于激活状态
-	numLock: boolean
+  // 当前numLock是否处于激活状态
+  numLock: boolean
 
-	// 当前scrollLock是否处于激活状态
-	scrollLock: boolean
+  // 当前scrollLock是否处于激活状态
+  scrollLock: boolean
 }
