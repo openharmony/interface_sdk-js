@@ -29,35 +29,35 @@ declare namespace inputDevice {
 
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'positionX' | 'positionY' | 'pressure' | 'toolX' | 'toolY';
+  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor';
 
   enum KeyboardType {
-    None = 0,
-    Unknown = 1,
-    AlphabeticKeyboard = 2,
-    DigitalKeyboard = 3,
-    HandwritingPen = 4,
-    RemoteControl = 5,
+    NONE = 0,
+    UNKNOWN = 1,
+    ALPHABETIC_KEYBOARD = 2,
+    DIGITAL_KEYBOARD = 3,
+    HANDWRITING_PEN = 4,
+    REMOTE_CONTROL = 5,
   }
 
   enum PointerStyle {
-    NormalSelect,
-    HelpSelect,
-    WorkingInBackground,
-    Busy,
-    PrecisionSelect,
-    NextSelect,
-    Handwriting,
-    Unavailable,
-    VeticalResize,
-    HorizontalResize,
-    DiagonalResize1,
-    DiagonalResize2,
-    Move,
-    AlternateSelect,
-    LinkSelect,
-    LocationSelect,
-    PersonSelect,
+    NORMAL_SELECT,
+    HELP_SELECT,
+    WORKING_IN_BACKGROUND,
+    BUSY,
+    PRECISION_SELECT,
+    NEXT_SELECT,
+    HANDWRITING,
+    UNAVAILABLE,
+    VETICAL_RESIZE,
+    HORIZONTAL_RESIZE,
+    DIAGONAL_RESIZE_1,
+    DIAGONAL_RESIZE_2,
+    MOVE,
+    ALTERNATE_SELECT,
+    LINK_SELECT,
+    LOCATION_SELECT,
+    PERSON_SELECT,
   }
 
   /**
@@ -153,8 +153,8 @@ declare namespace inputDevice {
    * @param product 产品
    * @param vendor 厂商
    * @param version 版本
-   * @param phys 物理名称
-   * @param uniq 唯一标识
+   * @param phys 物理路径
+   * @param uniq 唯一标识符
    */
   interface InputDeviceData {
     /**
@@ -238,8 +238,8 @@ declare namespace inputDevice {
    * @param keys Key codes of the input device. 最多一次查询5个按键码
    * @return Returns a result indicating whether the specified key codes are supported.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<Map<number, boolean>>>): void;
-  function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<Map<number, boolean>>>;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
    * 设置光标移动速度
@@ -248,7 +248,17 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param speed 光标移动速度。
    */
-  function setPointerSpeed(speed: number): void;
+  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setPointerSpeed(speed: number): Promise<void>;
+
+  /**
+   * 获取光标移动速度
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   */
+  function getPointerSpeed(callback: AsyncCallback<number>): void;
+  function getPointerSpeed(): Promise<number>;
 
   /**
    * 查询输入设备的键盘类型
@@ -273,6 +283,16 @@ declare namespace inputDevice {
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
+   * 获取光标是否可见
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @return callback function, receive reported data
+   */
+  function isPointerVisible(callback: AsyncCallback<boolean>): void;
+  function isPointerVisible(): Promise<boolean>;
+
+  /**
    * 设置鼠标样式
    *
    * @since 9
@@ -282,6 +302,28 @@ declare namespace inputDevice {
    */
   function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<boolean>): void;
   function setPointerStyle(pointerStyle: PointerStyle): Promise<boolean>;
+
+/**
+   * 获取鼠标样式
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @return callback function, receive reported data
+   */
+  function getPointerStyle(callback: AsyncCallback<PointerStyle>): void;
+  function getPointerStyle(): Promise<PointerStyle>;
+
+  /**
+   * 鼠标位置设定
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param x x坐标
+   * @param y y坐标
+   * @return -
+   */
+   function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
+   function setPointerLocation(x: number, y: number): Promise<void>;
 }
 
 export default inputDevice;

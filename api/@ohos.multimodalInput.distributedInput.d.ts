@@ -24,10 +24,10 @@ import { AsyncCallback } from "./basic";
  */
 declare namespace distributedInput {
   enum InputAbility {
-    Mouse = 0,
-    Keyboard = 1,
-    Touchscreen = 2,
-    Touchpad = 3,
+    MOUSE = 0,
+    KEYBOARD = 1,
+    TOUCH_SCREEN = 2,
+    TOUCH_PAD = 3,
   }
 
   /**
@@ -73,18 +73,6 @@ declare namespace distributedInput {
    */
   function stopRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
   function stopRemoteInput(deviceId: number): Promise<void>;
-
-  /**
-   * 鼠标位置设定
-   * 
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param mouseX x坐标
-   * @param mouseY y坐标
-   * @return -
-   */
-  function setPointerLocation(mouseX: number, mouseY: number, callback: AsyncCallback<void>): void;
-  function setPointerLocation(deviceId: number, mouseY: number): Promise<void>;
 }
 
 export default distributedInput;

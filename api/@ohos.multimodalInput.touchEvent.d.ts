@@ -23,51 +23,54 @@ import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 * @permission N/A
 */
 
-export enum Action {
+export declare enum Action {
   // 触摸取消
-  Cancel = 0,
+  CANCEL = 0,
 
   // 触摸按下
-  Down = 1,
+  DOWN = 1,
 
   // 触摸移动
-  Move = 2,
+  MOVE = 2,
 
   // 触摸抬起
-  Up = 3,
+  UP = 3,
 }
 
-export enum ToolType {
+export declare enum ToolType {
   // 手指
-  Finger = 0,
+  FINGER = 0,
 
   // 笔
-  Pen = 1,
+  PEN = 1,
 
-  Rubber = 2,
+  RUBBER = 2,
 
-  Brush = 3,
+  BRUSH = 3,
 
-  Pencil = 4,
+  PENCIL = 4,
 
-  Airbrush = 5,
+  AIRBRUSH = 5,
 
-  Mouse = 6,
+  MOUSE = 6,
 
-  Lens = 7,
+  LENS = 7,
 }
 
-export enum SourceType {
+export declare enum SourceType {
   // 触摸屏
-  TouchScreen = 0,
+  TOUCH_SCREEN = 0,
 
   // 手写笔
-  Pen = 1,
+  PEN = 1,
+
+  // 触摸板
+  TOUCH_PAD = 2,
 }
 
-export interface Touch {
+export declare interface Touch {
   // 指针标识，整型 >= 0 有效
-  readonly id: number;
+  id: number;
 
   // 按下时刻的时间戳
   pressedTime: number;
@@ -110,6 +113,12 @@ export interface Touch {
 
   // 工具区域高度
   toolHeight: number;
+
+  // 输入设备上的x坐标
+  rawX: number;
+
+  //输入设备上的y坐标
+  rawY: number;
 
   // 工具类型
   toolType: ToolType;

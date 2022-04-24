@@ -24,16 +24,16 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 * @permission N/A
 */
 
-export enum Action {
+export declare enum Action {
   // 取消
-  Cancel = 0,
+  CANCEL = 0,
   // 按钮按下
-  Down = 1,
+  DOWN = 1,
   // 按钮抬起
-  Up = 2,
+  UP = 2,
 }
 
-export interface Key {
+export declare interface Key {
   // 按键码
   code: KeyCode;
   // 按下时间
@@ -56,26 +56,26 @@ export declare interface KeyEvent extends InputEvent {
   keys: Key[];
 
   // 当前ctrlKey是否处于按下状态
-  readonly ctrlKey: boolean
+  ctrlKey: boolean;
 
   // 当前altKey是否处于按下状态
-  readonly altKey: boolean
+  altKey: boolean;
 
   // 当前shiftKey是否处于按下状态
-  readonly shiftKey: boolean
+  shiftKey: boolean;
 
   // 当前logoKey是否处于按下状态
-  readonly logoKey: boolean
+  logoKey: boolean;
 
   // 当前fnKey是否处于按下状态
-  readonly fnKey: boolean
+  fnKey: boolean;
 
   // 当前capsLock是否处于激活状态
-  capsLock: boolean
+  capsLock: boolean;
 
   // 当前numLock是否处于激活状态
-  numLock: boolean
+  numLock: boolean;
 
   // 当前scrollLock是否处于激活状态
-  scrollLock: boolean
+  scrollLock: boolean;
 }

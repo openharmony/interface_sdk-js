@@ -25,7 +25,7 @@
 
 export declare interface InputEvent {
   // 事件id，服务端生成，全局唯一
-  readonly id: number;
+  id: number;
 
   // 上报输入事件的设备id, 整型数字，>=0 有效
   deviceId: number;
