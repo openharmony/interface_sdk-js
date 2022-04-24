@@ -40,7 +40,25 @@ declare namespace inputDevice {
     RemoteControl = 5,
   }
 
-  enum PointerStyle { }
+  enum PointerStyle {
+    NormalSelect,
+    HelpSelect,
+    WorkingInBackground,
+    Busy,
+    PrecisionSelect,
+    NextSelect,
+    Handwriting,
+    Unavailable,
+    VeticalResize,
+    HorizontalResize,
+    DiagonalResize1,
+    DiagonalResize2,
+    Move,
+    AlternateSelect,
+    LinkSelect,
+    LocationSelect,
+    PersonSelect,
+  }
 
   /**
    * Defines the listener for input device events.

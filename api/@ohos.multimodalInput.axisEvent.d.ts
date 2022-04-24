@@ -70,8 +70,8 @@ export declare interface MouseEvent extends InputEvent {
   // 当前shiftKey是否处于按下状态
   readonly shiftKey: boolean
 
-  // 当前metaKey是否处于按下状态
-  readonly metaKey: boolean
+  // 当前logoKey是否处于按下状态
+  readonly logoKey: boolean
 
   // 当前fnKey是否处于按下状态
   readonly fnKey: boolean
