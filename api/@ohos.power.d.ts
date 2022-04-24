@@ -39,7 +39,7 @@ declare namespace power {
    *
    * <p>This method requires the ohos.permission.REBOOT permission.
    *
-   * @param reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
+   * @param reason Indicates the restart reason. For example, "updater" means to enter the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @permission ohos.permission.REBOOT
    * @since 7
@@ -56,16 +56,16 @@ declare namespace power {
   function isScreenOn(): Promise<boolean>;
 
   /**
-   * Try to wakeup the device and let screen on.
+   * Wakes up the device to turn on the screen.
    *
-   * @param detail Indicates the detail information who request wakeup.
+   * @param detail Indicates the detailed wakeup information.
    * @systemapi
    * @since 9
    */
   function wakeupDevice(detail: string): void;
 
   /**
-   * Try to suspend the device and let screen off.
+   * Suspends the device to turn off the screen.
    *
    * @systemapi
    * @since 9
@@ -73,9 +73,9 @@ declare namespace power {
   function suspendDevice(): void;
 
   /**
-   * Get the power mode of the device.
+   * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
    *
-   * @return Returns the power mode {@link DevicePowerMode} of current device .
+   * @return Returns the power mode of current device .
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @since 9
    */
@@ -83,9 +83,9 @@ declare namespace power {
   function getPowerMode(): Promise<DevicePowerMode>;
 
   /**
-   * To set the power mode of current device.
+   * Sets the power mode of current device. For details, see {@link DevicePowerMode}.
    *
-   * @param mode Indicates power mode {@link DevicePowerMode} to set.
+   * @param mode Indicates the power mode to set.
    * @permission ohos.permission.POWER_OPTIMIZATION
    * @systemapi
    * @since 9
@@ -94,8 +94,7 @@ declare namespace power {
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
   /**
-   * Indicates the power mode of a device.
-   *
+   * Power mode of a device.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -123,4 +122,3 @@ declare namespace power {
   }
 }
 export default power;
-
