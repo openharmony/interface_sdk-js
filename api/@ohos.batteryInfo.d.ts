@@ -95,7 +95,6 @@ declare namespace batteryInfo {
      * @since 9
      * @systemapi
      */
-
     const nowCurrent: number;
 
     /**
