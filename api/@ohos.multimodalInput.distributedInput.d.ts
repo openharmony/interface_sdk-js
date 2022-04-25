@@ -25,16 +25,16 @@ import { AsyncCallback } from "./basic";
 declare namespace distributedInput {
   enum InputAbility {
     // 鼠标
-    Mouse = 0,
+    MOUSE = 0,
 
-    // 按键
-    Keyboard = 1,
+    // 键盘
+    KEYBOARD = 1,
 
     // 触摸屏
-    Touchscreen = 2,
+    TOUCH_SCREEN = 2,
 
     // 触摸板
-    Touchpad = 3,
+    TOUCH_PAD = 3,
   }
 
   /**
