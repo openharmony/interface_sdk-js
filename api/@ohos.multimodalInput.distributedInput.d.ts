@@ -71,8 +71,8 @@ declare namespace distributedInput {
    * @param deviceId 表示准备分布式的那台设备的ID.
    * @return -
    */
-  function stopRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
-  function stopRemoteInput(deviceId: number): Promise<void>;
+  function stopRemoteInput(deviceId: number, inputAbilities: Array<InputAbility>, callback: AsyncCallback<void>): void;
+  function stopRemoteInput(deviceId: number, iputAbilities: Array<InputAbility>): Promise<void>;
 }
 
 export default distributedInput;
