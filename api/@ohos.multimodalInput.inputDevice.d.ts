@@ -300,8 +300,8 @@ declare namespace inputDevice {
    * @param pointerStyle 鼠标样式id。
    * @return callback function, receive reported data
    */
-  function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<boolean>): void;
-  function setPointerStyle(pointerStyle: PointerStyle): Promise<boolean>;
+  function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+  function setPointerStyle(pointerStyle: PointerStyle): Promise<void>;
 
 /**
    * 获取鼠标样式
