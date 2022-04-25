@@ -32,31 +32,75 @@ declare namespace inputDevice {
   type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor';
 
   enum KeyboardType {
+    // 无按键
     NONE = 0,
+  
+    // 未知按键
     UNKNOWN = 1,
+  
+    // 字母键盘
     ALPHABETIC_KEYBOARD = 2,
+  
+    // 数字按键
     DIGITAL_KEYBOARD = 3,
+  
+    // 手写笔
     HANDWRITING_PEN = 4,
+  
+    // 遥控器
     REMOTE_CONTROL = 5,
-  }
+    }
 
   enum PointerStyle {
+    // 正常选择
     NORMAL_SELECT,
+
+    // 协助选择
     HELP_SELECT,
+
+    // 后台运行
     WORKING_IN_BACKGROUND,
+
+    // 忙碌
     BUSY,
+
+    // 精确选择
     PRECISION_SELECT,
+
+    // 下一步
     NEXT_SELECT,
+
+    // 手写
     HANDWRITING,
+
+    // 不可用
     UNAVAILABLE,
+
+    // 垂直调整
     VERTICAL_RESIZE,
+
+    // 水平调整
     HORIZONTAL_RESIZE,
+
+    // 正向对角线调整
     DIAGONAL_RESIZE_1,
+
+    // 负向对角线调整
     DIAGONAL_RESIZE_2,
+
+    // 移动
     MOVE,
+
+    // 备选
     ALTERNATE_SELECT,
+
+    // 链接
     LINK_SELECT,
+
+    // 位置
     LOCATION_SELECT,
+
+    // 人物
     PERSON_SELECT,
   }
 

@@ -39,22 +39,27 @@ export declare enum Action {
 
 export declare enum ToolType {
   // 手指
-  FINGER = 0,
+  Finger = 0,
 
   // 笔
-  PEN = 1,
+  Pen = 1,
 
-  RUBBER = 2,
+  // 橡皮擦
+  Rubber = 2,
 
-  BRUSH = 3,
+  // 笔刷
+  Brush = 3,
 
-  PENCIL = 4,
+  // 铅笔
+  Pencil = 4,
 
-  AIRBRUSH = 5,
+  // 气笔
+  Airbrush = 5,
 
-  MOUSE = 6,
+  // 鼠标
+  Mouse = 6,
 
-  LENS = 7,
+  Lens = 7,
 }
 
 export declare enum SourceType {

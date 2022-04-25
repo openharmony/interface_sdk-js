@@ -30,7 +30,7 @@ export declare interface InputEvent {
   // 上报输入事件的设备id, 整型数字，>=0 有效
   deviceId: number;
 
-  // 事件发生事件
+  // 事件发生时间
   actionTime: number;
 
   // 目标屏幕id, 整型数字，>=0 有效
