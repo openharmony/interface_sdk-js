@@ -220,6 +220,7 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param tables the tables name you want to set
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
         setDistributedTables(tables: Array<string>): Promise<void>;
@@ -233,8 +234,8 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param device Indicates the remote device.
          * @param table Indicates the local table name.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @return the distributed table name.
-
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
         obtainDistributedTableName(device: string, table: string): Promise<string>;
@@ -248,7 +249,7 @@ declare namespace rdb {
          * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
          * @param predicates Constraint synchronized data and devices.
          * @param callback Indicates the callback used to send the synchronization result to the caller.
-
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
@@ -262,6 +263,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the observer of data change events in the distributed database.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -273,6 +275,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the data change observer already registered .
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
