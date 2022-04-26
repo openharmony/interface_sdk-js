@@ -289,6 +289,7 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
     BACKUP = 9,
+    WINDOW = 10,
     /**
      * @default Indicates extension info with type of unspecified
      * @since 9
