@@ -59,5 +59,16 @@ export default class WindowExtensionAbility {
      * @StageModelOnly
      */
     onDisconnect(want: Want): void;
+
+    /**
+     * Called back when window is created.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     */
+    onWindowReady(window: Window): void;
 }
 
