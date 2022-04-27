@@ -23,7 +23,7 @@ import { AsyncCallback } from "./basic";
  * @import import distributedInput from '@ohos.multimodalInput.distributedInput',
  */
 declare namespace distributedInput {
-  enum InputAbility {
+  enum InputSource {
     // 鼠标
     MOUSE = 0,
 
@@ -45,8 +45,8 @@ declare namespace distributedInput {
    * @param deviceId 表示查询分布式输入能力的那台设备的ID.
    * @return -
    */
-  function getRemoteInputAbility(deviceId: number, callback: AsyncCallback<Array<InputAbility>>): void;
-  function getRemoteInputAbility(deviceId: number): Promise<Array<InputAbility>>;
+  function getRemoteInputAbility(deviceId: number, callback: AsyncCallback<Array<InputSource>>): void;
+  function getRemoteInputAbility(deviceId: number): Promise<Array<InputSource>>;
 
   /**
    * 准备分布式
@@ -78,8 +78,8 @@ declare namespace distributedInput {
    * @param deviceId 表示开始分布式的那台设备的id
    * @return -
    */
-  function startRemoteInput(deviceId: number, inputAbilities: Array<InputAbility>, callback: AsyncCallback<void>): void;
-  function startRemoteInput(deviceId: number, iputAbilities: Array<InputAbility>): Promise<void>;
+  function startRemoteInput(deviceId: number, inputSources: Array<InputSource>, callback: AsyncCallback<void>): void;
+  function startRemoteInput(deviceId: number, inputSources: Array<InputSource>): Promise<void>;
 
   /**
    * 停止分布式
@@ -89,8 +89,8 @@ declare namespace distributedInput {
    * @param deviceId 表示停止分布式的那台设备的id
    * @return -
    */
-  function stopRemoteInput(deviceId: number, inputAbilities: Array<InputAbility>, callback: AsyncCallback<void>): void;
-  function stopRemoteInput(deviceId: number, iputAbilities: Array<InputAbility>): Promise<void>;
+  function stopRemoteInput(deviceId: number, inputSources: Array<InputSource>, callback: AsyncCallback<void>): void;
+  function stopRemoteInput(deviceId: number, inputSources: Array<InputSource>): Promise<void>;
 }
 
 export default distributedInput;
