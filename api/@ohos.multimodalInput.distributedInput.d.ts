@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -71,11 +71,22 @@ declare namespace distributedInput {
   function unprepareRemoteInput(deviceId: number): Promise<void>;
 
   /**
+   * 开始分布式
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param deviceId 表示开始分布式的那台设备的id
+   * @return -
+   */
+  function startRemoteInput(deviceId: number, inputAbilities: Array<InputAbility>, callback: AsyncCallback<void>): void;
+  function startRemoteInput(deviceId: number, iputAbilities: Array<InputAbility>): Promise<void>;
+
+  /**
    * 停止分布式
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @param deviceId 表示停止分布式的那台设备的id
    * @return -
    */
   function stopRemoteInput(deviceId: number, inputAbilities: Array<InputAbility>, callback: AsyncCallback<void>): void;
