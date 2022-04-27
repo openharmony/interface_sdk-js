@@ -102,6 +102,9 @@ declare namespace inputDevice {
 
     // 人物
     PERSON_SELECT,
+
+    // 自定义
+    CUSTOM,
   }
 
   /**

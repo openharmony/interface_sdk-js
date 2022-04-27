@@ -75,7 +75,7 @@ export declare enum Button {
 
 export declare enum Axis {
   // 垂直滚动轴
-  SCEOLL_VERTICAL = 0,
+  SCROLL_VERTICAL = 0,
 
   // 水平滚动轴
   SCROLL_HORIZONTAL = 1,
