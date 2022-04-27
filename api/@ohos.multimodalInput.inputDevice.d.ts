@@ -326,8 +326,8 @@ declare namespace inputDevice {
    * @param visible Whether the pointer icon is visible. The value **true** indicates that the pointer icon is visible, and the value **false** indicates the opposite.
    * @return callback function, receive reported data
    */
-  function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
-  function setPointerVisible(visible: boolean): Promise<void>;
+  function setPointerVisibility(visible: boolean, callback: AsyncCallback<void>): void;
+  function setPointerVisibility(visible: boolean): Promise<void>;
 
   /**
    * 获取光标是否可见
