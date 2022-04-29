@@ -115,7 +115,8 @@ declare namespace inputDevice {
    * @param deviceId ID of the input device for the reported input device event.
    */
   interface DeviceListener {
-    (type: ChangedType, deviceId: number): void;
+    type: ChangedType;
+    deviceId: number;
   }
 
   /**
@@ -124,9 +125,9 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @param listener Callback for the input device event.
+   * @return Callback for the input device event.
    */
-  function on(type: "change", listener: DeviceListener): void;
+   function on(type: "change", listener: Callback<DeviceListener>): void;
 
   /**
    * Stops listening for an input device event.
@@ -134,9 +135,9 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @param listener Callback for the input device event.
+   * @return Callback for the input device event.
    */
-  function off(type: "change", listener?: DeviceListener): void;
+  function off(type: "change", listener?: Callback<DeviceListener>): void;
 
   /**
    * Defines axis information about events that can be reported by an input device.
