@@ -146,6 +146,13 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     VOICE_ASSISTANT = 9,
+    /**
+     * Audio stream for all common.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    ALL = 100,
   }
 
   /**
@@ -338,6 +345,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     SAMPLE_FORMAT_S32LE = 3,
+    /**
+     * Signed 32 bit float, little endian.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SAMPLE_FORMAT_F32LE = 4,
   }
 
   /**
