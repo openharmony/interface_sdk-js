@@ -14,6 +14,7 @@
  */
 
 import formBindingData from './@ohos.application.formBindingData';
+import formInfo from "./@ohos.application.formInfo";
 import FormExtensionContext from "./application/FormExtensionContext";
 import Want from './@ohos.application.Want';
 import { Configuration } from './@ohos.application.Configuration';
@@ -122,4 +123,19 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
+
+    /**
+     * Called to return a {@link FormState} object.
+     *
+     * <p>You must override this callback if you want this ability to return the actual form state. Otherwise,
+     * this method returns {@link FormState#DEFAULT} by default.</p>
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want Indicates the description of the form for which the {@link formInfo#FormState} is obtained.
+     *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
+     * @return Returns the {@link formInfo#FormState} object.
+     * @StageModelOnly
+     */
+    onAcquireFormState?(want: Want): formInfo.FormState;
 }
