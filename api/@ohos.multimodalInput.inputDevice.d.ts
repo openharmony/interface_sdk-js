@@ -341,27 +341,6 @@ declare namespace inputDevice {
   function isPointerVisible(): Promise<boolean>;
 
   /**
-   * 设置鼠标样式
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param pointerStyle 鼠标样式id。
-   * @return callback function, receive reported data
-   */
-  function setPointerStyle(pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
-  function setPointerStyle(pointerStyle: PointerStyle): Promise<void>;
-
-/**
-   * 获取鼠标样式
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @return callback function, receive reported data
-   */
-  function getPointerStyle(callback: AsyncCallback<PointerStyle>): void;
-  function getPointerStyle(): Promise<PointerStyle>;
-
-  /**
    * 鼠标位置设定
    * 
    * @since 9
