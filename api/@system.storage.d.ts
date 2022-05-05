@@ -23,7 +23,7 @@
 export interface GetStorageOptions {
   /**
    * Content index.
-   * For liteWearable and smartVision, the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * @since 3
    * @deprecated since 6
    * @FAModelOnly
@@ -74,7 +74,7 @@ export interface GetStorageOptions {
 export interface SetStorageOptions {
   /**
    * Index of the stored content to be modified.
-   * For liteWearable and smartVision, the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * @since 3
    * @deprecated since 6
    * @FAModelOnly
@@ -82,7 +82,7 @@ export interface SetStorageOptions {
   key: string;
 
   /**
-   * Target storage content. If the content is an empty string, the data item with the key as the index will be deleted.
+   * Target storage content.
    * @since 3
    * @deprecated since 6
    * @FAModelOnly
@@ -157,7 +157,7 @@ export interface ClearStorageOptions {
 export interface DeleteStorageOptions {
   /**
    * Content index.
-   * For liteWearable and smartVision, the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
+   * the value contains a maximum of 32 characters and cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
    * @since 3
    * @deprecated since 6
    * @FAModelOnly
