@@ -417,14 +417,14 @@ declare namespace window {
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
-   * @systemapi Minimize or restore all app windows for inner system use.
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
-   * @systemapi Minimize or restore all app windows for inner system use.
+   * @systemapi Hide this for inner system use.
    * @since 9
    */
   function toggleShownStateForAllAppWindows(): Promise<void>;
