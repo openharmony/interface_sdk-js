@@ -14,6 +14,7 @@
 */
 
 import { ErrorCallback, AsyncCallback, Callback } from './basic';
+import audio from "./@ohos.multimedia.audio";
 
 /**
  * @name media
@@ -187,6 +188,32 @@ declare namespace media {
     CACHED_DURATION = 4,
   }
 
+  interface AVFileDescriptor {
+    /**
+     * The file descriptor of audio or video source from file system. The caller
+     * is responsible to close the file descriptor.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    fd: number
+
+    /**
+     * The offset into the file where the data to be readed, in bytes. Defaultly,
+     * the offset is zero.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    offset?: number
+
+    /**
+     * The length in bytes of the data to be readed. Defaultly, the length is the
+     * rest of bytes in the file from the offset.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    length?: number
+  }
+
   /**
    * Describes audio playback states.
    * @since 6
@@ -228,7 +255,7 @@ declare namespace media {
      * @since 7
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
-     reset(): void;
+    reset(): void;
 
     /**
      * Jumps to the specified playback position.
@@ -264,7 +291,6 @@ declare namespace media {
     * get all track infos in MediaDescription, should be called after data loaded callback..
     * @since 8
     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-    * @param index  track index.
     * @return A Promise instance used to return the track info in MediaDescription.
     */
     getTrackDescription() : Promise<Array<MediaDescription>>;
@@ -277,6 +303,7 @@ declare namespace media {
      * @param callback Callback used to listen for the buffering update event, return BufferingInfoType and the value.
      */
     on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void;
+
     /**
      * Audio media URI. Mainstream audio formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
@@ -287,11 +314,27 @@ declare namespace media {
     src: string;
 
     /**
+     * Audio file descriptor. Mainstream audio formats are supported.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    fdSrc: AVFileDescriptor;
+
+    /**
      * Whether to loop audio playback. The value true means to loop playback.
      * @since 6
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
     loop: boolean;
+
+    /**
+     * Describes audio renderer information. Set it before calling the {@link #play()} in the
+     * first time in order for the audio renderer info to become effective thereafter. For more
+     * information, refer to {@link #audio.AudioRendererInfo}.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    audioRendererInfo ?: audio.AudioRendererInfo;
 
     /**
      * Current playback position.
@@ -331,6 +374,15 @@ declare namespace media {
      * @param callback Callback used to listen for the playback event.
      */
     on(type: 'timeUpdate', callback: Callback<number>): void;
+
+    /**
+     * Listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the playback event return audio interrupt info.
+     */
+    on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void;
 
     /**
      * Listens for playback error events.
@@ -915,7 +967,7 @@ declare namespace media {
      * @param callback A callback instance used to return when seek completed
      * and return the seeking position result.
      */
-     seek(timeMs: number, mode:SeekMode, callback: AsyncCallback<number>): void;
+    seek(timeMs: number, mode:SeekMode, callback: AsyncCallback<number>): void;
      /**
       * Jumps to the specified playback position.
       * @since 8
@@ -968,7 +1020,6 @@ declare namespace media {
     * get all track infos in MediaDescription, should be called after data loaded callback..
     * @since 8
     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-    * @param index  track index.
     * @return A Promise instance used to return the track info in MediaDescription.
     */
     getTrackDescription() : Promise<Array<MediaDescription>>;
@@ -980,6 +1031,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     url: string;
+
+    /**
+     * Video file descriptor. Mainstream video formats are supported.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    fdSrc: AVFileDescriptor;
 
     /**
      * Whether to loop video playback. The value true means to loop playback.
@@ -1041,6 +1099,24 @@ declare namespace media {
     setSpeed(speed:number): Promise<number>;
 
     /**
+     * set video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param type playback speed, see @VideoScaleType.
+     * @param callback Callback used to ensure that set the scale type completed.
+     */
+    setVideoScaleType(type:VideoScaleType, callback: AsyncCallback<void>): void;
+
+    /**
+     * set video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param type playback speed, see @VideoScaleType.
+     * @return A Promise instance used to ensure that set the scale type completed.
+     */
+    setVideoScaleType(type:VideoScaleType): Promise<void>;
+
+    /**
      * Listens for video playback completed events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -1077,6 +1153,15 @@ declare namespace media {
     on(type: 'videoSizeChanged', callback: (width: number, height: number) => void): void;
 
     /**
+     * Listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the playback event return audio interrupt info.
+     */
+    on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void;
+
+    /**
      * Listens for playback error events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
@@ -1084,6 +1169,32 @@ declare namespace media {
      * @param callback Callback used to listen for the playback error event.
      */
     on(type: 'error', callback: ErrorCallback): void;
+  }
+
+  /**
+   * Enumerates video scale type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+   * @import import media from '@ohos.multimedia.media'
+   */
+  enum VideoScaleType {
+    /**
+     * The content is stretched to the fit the display surface rendering area. When
+     * the aspect ratio of the content is not same as the display surface, the aspect
+     * of the content is not maintained. This is the default scale type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    VIDEO_SCALE_TYPE_FIT = 0,
+
+    /**
+     * The content is stretched to the fit the display surface rendering area. When
+     * the aspect ratio of the content is not the same as the display surface, content's
+     * aspect ratio is maintained and the content is cropped to fit the display surface.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     */
+    VIDEO_SCALE_TYPE_FIT_CROP
   }
 
   /**
@@ -1468,6 +1579,13 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     AUDIO_FLAC = 'audio/flac',
+
+    /**
+     * opus codec MIME type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.Core
+     */
+    AUDIO_OPUS = 'audio/opus',
   }
 }
 export default media;
