@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { MouseEvent } from "./@ohos.multimodalInput.mouseEvent"
 import { Callback } from './basic';
+import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 
 /**
  * Global input event listener
