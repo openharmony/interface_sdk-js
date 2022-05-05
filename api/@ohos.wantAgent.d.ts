@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback , Callback} from './basic';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 import { WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo } from './wantAgent/triggerInfo';
 

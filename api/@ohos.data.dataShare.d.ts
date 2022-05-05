@@ -14,7 +14,7 @@
 */
 
 import { AsyncCallback } from './basic';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from './application/Context';
 import dataAbility from './@ohos.data.dataAbility';

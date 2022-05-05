@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Want } from './want';
+import Want from '../@ohos.application.Want';
 
 /**
  * @since 7

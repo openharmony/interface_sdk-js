@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Want } from '../ability/want';
+import Want from '../@ohos.application.want';
 import wantAgent from '../@ohos.wantAgent'
 
 /**
