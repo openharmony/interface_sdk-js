@@ -25,128 +25,208 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 
 export declare enum Action {
-  // 取消
+  /**
+   * cancel
+   */
   CANCEL = 0,
 
-  // 鼠标移动
+  /**
+   * mouse move
+   */
   MOVE = 1,
 
-  // 鼠标按钮按下
+  /**
+   * the mouse button is down
+   */
   BUTTON_DOWN = 2,
 
-  // 鼠标按钮抬起
+  /**
+   * Mouse button up
+   */
   BUTTON_UP = 3,
 
-  // 鼠标关联的轴事件开始
+  /**
+   * mouse associated axis event begins
+   */
   AXIS_BEGIN = 4,
 
-  // 鼠标关联的轴事件更新
+  /**
+   * mouse associated axis events updated
+   */
   AXIS_UPDATE = 5,
 
-  // 鼠标关联的轴事件结束
+  /**
+   * mouse associated axis event ends
+   */
   AXIS_END = 6,
 }
 
 export declare enum Button {
-  // 鼠标左键
+  /**
+   * the left mouse button
+   */
   LEFT = 0,
 
-  // 鼠标中键
+  /**
+   * the middle mouse button
+   */
   MIDDLE = 1,
 
-  // 鼠标右键
+  /**
+   * the right mouse button
+   */
   RIGHT = 2,
 
-  // 鼠标侧边键
+  /**
+   * side mouse button
+   */
   SIDE = 3,
 
-  // 鼠标扩展键
+  /**
+   * mouse extension button
+   */
   EXTRA = 4,
 
-  // 鼠标前进键
+  /**
+   * mouse forward button
+   */
   FORWARD = 5,
 
-  // 鼠标后退键
+  /**
+   * mouse back button
+   */
   BACK = 6,
 
-  // 鼠标任务键
+  /**
+   * mouse task button
+   */
   TASK = 7
 }
 
 export declare enum Axis {
-  // 垂直滚动轴
+  /**
+   * scroll vertical
+   */
   SCROLL_VERTICAL = 0,
 
-  // 水平滚动轴
+  /**
+   * scroll horizontal
+   */
   SCROLL_HORIZONTAL = 1,
 
-  // 捏合轴
+  /**
+   * pinch
+   */
   PINCH = 2,
 }
 
 export declare interface AxisValue {
-  // 轴类型
+  /**
+   * axis type
+   */
   axis: Axis;
 
-  // 轴的值
+  /**
+   * The value of the axis
+   */
   value: number
 }
 
 export declare interface MouseEvent extends InputEvent {
-  // 鼠标事件动作
+  /**
+   * mouse event action
+   */
   action: Action;
 
-  // 鼠标光标在屏幕中的x坐标
+  /**
+   * the x coordinate of the mouse cursor in the screen
+   */
   screenX: number;
 
-  // 鼠标光标在屏幕中的y坐标
+  /**
+   * the y coordinate of the mouse cursor in the screen
+   */
   screenY: number;
 
-  // 鼠标归属窗口的x坐标
+  /**
+   * the x coordinate of the mouse window
+   */
   windowX: number;
 
-  // 鼠标归属窗口的y坐标
+  /**
+   * the y coordinate of the mouse window
+   */
   windowY: number;
 
-  // 相对上次上报鼠标位置的相对X偏移，在屏幕边缘位置时，该值可能小于两次鼠标上报的坐标差
+  /**
+   * the relative X offset from the last mouse position reported. At the edge of the screen,
+   * this value may be less than the coordinate difference reported by the two mice
+   */
   rawDeltaX: number;
 
-  // 相对上次上报鼠标位置的相对Y偏移，在屏幕边缘位置时，该值可能小于两次鼠标上报的坐标差
+  /**
+   * the relative Y offset from the last mouse position reported. At the edge of the screen,
+   * this value may be less than the coordinate difference reported by the two mice
+   */
   rawDeltaY: number;
 
-  // 按钮按下/抬起时的按钮
+  /**
+   * a button to press or up
+   */
   button: Button;
 
-  // 当前处于按下状态的按钮
+  /**
+   * the button that is currently in the pressed state
+   */
   pressedButtons: Button[];
 
-  // 当前action为AxisBegin/AxisUpdate/AxisEnd时，相关的轴的数据
+  /**
+   * The current action for AxisBegin/AxisUpdate/AxisEnd, the axis of the relevant data
+   */
   axes: AxisValue[];
 
-  // 当前处于按下状态的按键列表
+  /**
+   * list of keys that are currently in the pressed state
+   */
   pressedKeys: KeyCode[];
 
-  // 当前ctrlKey是否处于按下状态
+  /**
+   * whether ctrlKey is in down state
+   */
   ctrlKey: boolean;
 
-  // 当前altKey是否处于按下状态
+  /**
+   * whether altKey is in down state
+   */
   altKey: boolean;
 
-  // 当前shiftKey是否处于按下状态
+  /**
+   * whether shiftKey is in down state
+   */
   shiftKey: boolean;
 
-  // 当前logoKey是否处于按下状态
+  /**
+   * whether logoKey is in down state
+   */
   logoKey: boolean;
 
-  // 当前fnKey是否处于按下状态
+  /**
+   * whether fnKey is in down state
+   */
   fnKey:boolean
   
-  // 当前capsLock是否处于激活状态
+  /**
+   * whether capsLock is in the active state.
+   */
   capsLock:boolean
   
-  // 当前numLock是否处于激活状态
+  /**
+   * whether numLock is in the active state.
+   */
   numLock:boolean
   
-  // 当前scrollLock是否处于激活状态
+  /**
+   * whether scrollLock is in the active state.
+   */
   scrollLock:boolean
 }

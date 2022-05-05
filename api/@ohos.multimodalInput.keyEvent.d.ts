@@ -24,57 +24,97 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 
 export declare enum Action {
-  // 取消
+  /**
+   * cancel
+   */
   CANCEL = 0,
-  // 按钮按下
+
+  /**
+   * down
+   */
   DOWN = 1,
-  // 按钮抬起
+
+  /**
+   * up
+   */
   UP = 2,
 }
 
 export declare interface Key {
-  // 按键码
+  /**
+   * the key code
+   */
   code: KeyCode;
-  // 按下时间
+
+  /**
+   * press the time
+   */
   pressedTime: number;
-  // 按键所属设备
+
+  /**
+   * button Owning device
+   */
   deviceId: number;
 }
 
 export declare interface KeyEvent extends InputEvent {
-  // 按键动作
+  /**
+   * the key action
+   */
   action: Action;
 
-  // 本次发生变化的按键
+  /**
+   * the keys that change this time
+   */
   key: Key;
 
-  // unideCode编码
+  /**
+   * unideCode coding
+   */
   unicodeChar: number;
 
-  // 当前处于按下状态的按键列表
+  /**
+   * list of keys that are currently in the pressed state
+   */
   keys: Key[];
 
-  // 当前ctrlKey是否处于按下状态
+  /**
+   * whether ctrlKey is in down state
+   */
   ctrlKey: boolean;
 
-  // 当前altKey是否处于按下状态
+  /**
+   * whether altKey is in down state
+   */
   altKey: boolean;
 
-  // 当前shiftKey是否处于按下状态
+  /**
+   * whether shiftKey is in down state
+   */
   shiftKey: boolean;
 
-  // 当前logoKey是否处于按下状态
+  /**
+   * whether logoKey is in down state
+   */
   logoKey: boolean;
 
-  // 当前fnKey是否处于按下状态
+  /**
+   * whether fnKey is in down state
+   */
   fnKey: boolean;
 
-  // 当前capsLock是否处于激活状态
+  /**
+   * whether the current capsLock is activated
+   */
   capsLock: boolean;
 
-  // 当前numLock是否处于激活状态
+  /**
+   * whether the current numLock is activated
+   */
   numLock: boolean;
 
-  // 当前scrollLock是否处于激活状态
+  /**
+   * whether the current scrollLock is activated
+   */
   scrollLock: boolean;
 }

@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 
 /**
- * 分布式输入管理模块，用于提供分布式能力的接口调用
+ * Distributed input management module for interface calls with distributed capabilities.
  * 
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
@@ -24,69 +24,77 @@ import { AsyncCallback } from "./basic";
  */
 declare namespace distributedInput {
   enum InputSource {
-    // 鼠标
+    /**
+     * mouse
+     */
     MOUSE = 0,
 
-    // 键盘
+    /**
+     * keyboard
+     */
     KEYBOARD = 1,
 
-    // 触摸屏
+    /**
+     * touch screen
+     */
     TOUCH_SCREEN = 2,
 
-    // 触摸板
+    /**
+     * touch pad
+     */
     TOUCH_PAD = 3,
   }
 
   /**
-   * 查询分布式设备输入能力
+   * Example Query the input capability of a distributed device.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示查询分布式输入能力的那台设备的ID.
+   * @param deviceId Represents the ID of the device that queries the distributed input capability.
    * @return -
    */
   function getRemoteInputAbility(deviceId: number, callback: AsyncCallback<Array<InputSource>>): void;
   function getRemoteInputAbility(deviceId: number): Promise<Array<InputSource>>;
 
   /**
-   * 准备分布式
+   * Prepare for distribution.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @param deviceId Indicates the ID of the device to be distributed.
    * @return -
    */
   function prepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
   function prepareRemoteInput(deviceId: number): Promise<void>;
 
   /**
-   * 取消准备分布式
+   * Cancel ready distributed.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示准备分布式的那台设备的ID.
+   * @param deviceId Indicates the ID of the device to be distributed.
    * @return -
    */
   function unprepareRemoteInput(deviceId: number, callback: AsyncCallback<void>): void;
   function unprepareRemoteInput(deviceId: number): Promise<void>;
 
   /**
-   * 开始分布式
+   * Start distributed.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示开始分布式的那台设备的id
+   * @param deviceId Represents the ID of the device that started the distribution.
    * @return -
    */
   function startRemoteInput(deviceId: number, inputSources: Array<InputSource>, callback: AsyncCallback<void>): void;
   function startRemoteInput(deviceId: number, inputSources: Array<InputSource>): Promise<void>;
 
   /**
-   * 停止分布式
+   * Stop distribution.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param deviceId 表示停止分布式的那台设备的id
+   * @param deviceId Indicates the ID of the device that stopped distribution.
    * @return -
    */
   function stopRemoteInput(deviceId: number, inputSources: Array<InputSource>, callback: AsyncCallback<void>): void;

@@ -32,78 +32,126 @@ declare namespace inputDevice {
   type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor';
 
   enum KeyboardType {
-    // 无按键
+    /**
+     * none
+     */
     NONE = 0,
   
-    // 未知按键
+    /**
+     * unknown
+     */
     UNKNOWN = 1,
   
-    // 字母键盘
+    /**
+     * alphabetic keyboard
+     */
     ALPHABETIC_KEYBOARD = 2,
   
-    // 数字按键
+    /**
+     * digital keyboard
+     */
     DIGITAL_KEYBOARD = 3,
   
-    // 手写笔
+    /**
+     * handwriting pen
+     */
     HANDWRITING_PEN = 4,
   
-    // 遥控器
+    /**
+     * remote control
+     */
     REMOTE_CONTROL = 5,
     }
 
   enum PointerStyle {
-    // 正常选择
+    /**
+     * normal select
+     */
     NORMAL_SELECT,
 
-    // 协助选择
+    /**
+     * help select
+     */
     HELP_SELECT,
 
-    // 后台运行
+    /**
+     * working in background.
+     */
     WORKING_IN_BACKGROUND,
 
-    // 忙碌
+    /**
+     * busy
+     */
     BUSY,
 
-    // 精确选择
+    /**
+     * precision select
+     */
     PRECISION_SELECT,
 
-    // 下一步
+    /**
+     * next select
+     */
     NEXT_SELECT,
 
-    // 手写
+    /**
+     * handwriting
+     */
     HANDWRITING,
 
-    // 不可用
+    /**
+     * unavailable
+     */
     UNAVAILABLE,
 
-    // 垂直调整
+    /**
+     * vertical resize
+     */
     VERTICAL_RESIZE,
 
-    // 水平调整
+    /**
+     * horizontal resize
+     */
     HORIZONTAL_RESIZE,
 
-    // 正向对角线调整
+    /**
+     * diagonal resize 1
+     */
     DIAGONAL_RESIZE_1,
 
-    // 负向对角线调整
+    /**
+     * diagonal resize 2
+     */
     DIAGONAL_RESIZE_2,
 
-    // 移动
+    /**
+     * move
+     */
     MOVE,
 
-    // 备选
+    /**
+     * alternate select
+     */
     ALTERNATE_SELECT,
 
-    // 链接
+    /**
+     * link
+     */
     LINK_SELECT,
 
-    // 位置
+    /**
+     * location
+     */
     LOCATION_SELECT,
 
-    // 人物
+    /**
+     * person
+     */
     PERSON_SELECT,
 
-    // 自定义
+    /**
+     * custom
+     */
     CUSTOM,
   }
 
@@ -197,12 +245,12 @@ declare namespace inputDevice {
    * @param name Name of the input device.
    * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
    * @param axisRanges
-   * @param bus 总线
-   * @param product 产品
-   * @param vendor 厂商
-   * @param version 版本
-   * @param phys 物理路径
-   * @param uniq 唯一标识符
+   * @param bus bus
+   * @param product product
+   * @param vendor vendor
+   * @param version version
+   * @param phys physical path
+   * @param uniq unique identifier
    */
   interface InputDeviceData {
     /**
@@ -283,24 +331,24 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
-   * @param keys Key codes of the input device. 最多一次查询5个按键码
+   * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
    * @return Returns a result indicating whether the specified key codes are supported.
    */
   function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
-   * 设置光标移动速度
+   * Set the speed of cursor movement.
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param speed 光标移动速度。
+   * @param speed Speed of cursor movement.
    */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
-   * 获取光标移动速度
+   * Gets the cursor movement speed.
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -309,23 +357,23 @@ declare namespace inputDevice {
   function getPointerSpeed(): Promise<number>;
 
   /**
-   * 查询输入设备的键盘类型
+   * Query the keyboard type of the input device.
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param deviceId 输入设备标识。
-   * @return 返回键盘类型。
+   * @param deviceId input device id.
+   * @return Returns the keyboard type.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
   /**
-   * 鼠标位置设定
+   * Mouse position setting.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x x坐标
-   * @param y y坐标
+   * @param x x coordinate
+   * @param y y coordinate
    * @return -
    */
    function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;

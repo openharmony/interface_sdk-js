@@ -24,13 +24,24 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 * @permission N/A
 */
 export declare enum Action {
-  // 取消
+  /**
+   * cancel
+   */
   CANCEL = 0,
-  // 鼠标关联的轴事件开始
+
+  /**
+   * axis begin
+   */
   AXIS_BEGIN = 4,
-  // 鼠标关联的轴事件更新
+
+  /**
+   * axis update
+   */
   AXIS_UPDATE = 5,
-  // 鼠标关联的轴事件结束
+
+  /**
+   * axis end
+   */
   AXIS_END = 6,
 }
 
@@ -43,13 +54,19 @@ export declare enum Action {
 * @permission N/A
 */
 export declare enum Axis {
-  // 垂直滚动轴
+  /**
+   * scroll vertical
+   */
   SCROLL_VERTICAL = 0,
 
-  // 水平滚动轴
+  /**
+   * scroll horizontal
+   */
   SCROLL_HORIZONTAL = 1,
 
-  // 捏合轴
+  /**
+   * pinch
+   */
   PINCH = 2,
 }
 
@@ -62,9 +79,14 @@ export declare enum Axis {
 * @permission N/A
 */
 export declare interface AxisValue {
-  // 轴类型
+  /**
+   * axis
+   */
   axis: Axis;
-  // 轴的值
+
+  /**
+   * value
+   */
   value: number
 }
 
@@ -77,36 +99,58 @@ export declare interface AxisValue {
 * @permission N/A
 */
 export declare interface MouseEvent extends InputEvent {
-  // 轴事件动作
+  /**
+   * mouse action
+   */
   action: Action;
 
-  // 轴的数据
+  /**
+   * axes data
+   */
   axes: AxisValue[];
 
-  // 当前处于按下状态的按键列表
+  /**
+   * List of keys that are currently in the pressed state.
+   */
   pressedKeys: KeyCode[];
 
-  // 当前ctrlKey是否处于按下状态
+  /**
+   * whether ctrlKey is in pressed state.
+   */
   readonly ctrlKey: boolean;
 
-  // 当前altKey是否处于按下状态
+  /**
+   * whether altKey is in pressed state.
+   */
   readonly altKey: boolean;
 
-  // 当前shiftKey是否处于按下状态
+  /**
+   * whether shiftKey is in pressed state.
+   */
   readonly shiftKey: boolean;
 
-  // 当前logoKey是否处于按下状态
+  /**
+   * whether logoKey is in pressed state.
+   */
   readonly logoKey: boolean;
 
-  // 当前fnKey是否处于按下状态
+  /**
+   * whether fnKey is in pressed state.
+   */
   readonly fnKey: boolean;
 
-  // 当前capsLock是否处于激活状态
+  /**
+   * whether capsLock is in the active state.
+   */
   capsLock: boolean;
 
-  // 当前numLock是否处于激活状态
+  /**
+   * whether numLock is in the active state.
+   */
   numLock: boolean;
 
-  // 当前scrollLock是否处于激活状态
+  /**
+   * whether scrollLock is in the active state.
+   */
   scrollLock: boolean;
 }
