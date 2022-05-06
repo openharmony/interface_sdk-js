@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './basic';
 import { Callback } from './basic';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
 import { Context } from './app/context';

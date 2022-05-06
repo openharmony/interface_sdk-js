@@ -15,7 +15,7 @@
 
 import { AsyncCallback, Callback } from "./basic";
 import { DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
-import { Want } from "./ability/want";
+import Want from "./@ohos.application.want";
 
 /**
  * enterprise device manager.
