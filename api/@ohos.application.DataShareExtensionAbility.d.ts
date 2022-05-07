@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
-import DataShareResultSet from './@ohos.data.DataShareResultSet';
+import { DataShareAbstractResultSet } from './@ohos.data.DataShareResultSet';
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
 import { DataShareValuesBucket } from './@ohos.data.DataShareValuesBucket';
 
@@ -142,7 +142,7 @@ export default class DataShareExtensionAbility {
      * @StageModelOnly
      */
     query?(uri: string, columns: Array<string>, predicates: DataSharePredicates,
-        callback: AsyncCallback<DataShareResultSet>): void;
+        callback: AsyncCallback<DataShareAbstractResultSet>): void;
 
     /**
      * Obtains the MIME type matching the data specified by the URI of the data share. This method should be

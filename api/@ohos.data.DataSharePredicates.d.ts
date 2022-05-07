@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { ValueType } from './@ohos.data.DataShareValuesBucket';
+
 /**
  * Manages relational database configurations.
  *
@@ -434,10 +436,3 @@ export default class DataSharePredicates {
      */
     setTableName(name:string): DataSharePredicates;
 }
-/**
- * Indicates possible value types
- * @since 9
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @permission N/A
- */
-type ValueType = number | string | boolean;
