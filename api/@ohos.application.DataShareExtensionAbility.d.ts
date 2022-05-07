@@ -14,11 +14,11 @@
  */
 
 import { AsyncCallback } from "./basic";
-import { ResultSet } from './data/rdb/resultSet';
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
-import dataAbility from './@ohos.data.dataAbility';
-import rdb from './@ohos.data.rdb';
+import DataShareResultSet from './@ohos.data.DataShareResultSet';
+import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import { DataShareValuesBucket } from './@ohos.data.DataShareValuesBucket';
 
 /**
  * class of datashare extension ability.
@@ -95,7 +95,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the index of the newly inserted data record.
      * @StageModelOnly
      */
-    insert?(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
+    insert?(uri: string, valueBucket: DataShareValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
      * Updates one or more data records in the database. This method should be implemented by a data share.
@@ -110,7 +110,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records updated.
      * @StageModelOnly
      */
-    update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates,
+    update?(uri: string, valueBucket: DataShareValuesBucket, predicates: DataSharePredicates,
         callback: AsyncCallback<number>): void;
 
     /**
@@ -125,7 +125,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records deleted.
      * @StageModelOnly
      */
-    delete?(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
+    delete?(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
      * Queries one or more data records in the database. This method should be implemented by a data share.
@@ -141,8 +141,8 @@ export default class DataShareExtensionAbility {
      * @return Returns the queried data.
      * @StageModelOnly
      */
-    query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates,
-        callback: AsyncCallback<ResultSet>): void;
+    query?(uri: string, columns: Array<string>, predicates: DataSharePredicates,
+        callback: AsyncCallback<DataShareResultSet>): void;
 
     /**
      * Obtains the MIME type matching the data specified by the URI of the data share. This method should be
@@ -170,7 +170,8 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records inserted.
      * @StageModelOnly
      */
-    batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert?(uri: string, valueBuckets: Array<DataShareValuesBucket>,
+        callback: AsyncCallback<number>): void;
 
     /**
      * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be

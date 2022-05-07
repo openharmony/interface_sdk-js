@@ -14,11 +14,11 @@
 */
 
 import { AsyncCallback } from './basic';
-import Want from './@ohos.application.want';
-import { ResultSet } from './data/rdb/resultSet';
+import { Want } from './ability/want';
 import Context from './application/Context';
-import dataAbility from './@ohos.data.dataAbility';
-import rdb from './@ohos.data.rdb';
+import DataShareResultSet from './@ohos.data.DataShareResultSet';
+import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import { DataShareValuesBucket } from './@ohos.data.DataShareValuesBucket';
 
 declare namespace dataShare {
     /**
@@ -88,8 +88,8 @@ declare namespace dataShare {
          * @return Returns the index of the inserted data record.
          * @StageModelOnly
          */
-        insert(uri: string, value: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
-        insert(uri: string, value: rdb.ValuesBucket): Promise<number>;
+        insert(uri: string, value: DataShareValuesBucket, callback: AsyncCallback<number>): void;
+        insert(uri: string, value: DataShareValuesBucket): Promise<number>;
 
         /**
          * Deletes one or more data records from the database.
@@ -100,8 +100,8 @@ declare namespace dataShare {
          * @return Returns the number of data records deleted.
          * @StageModelOnly
          */
-        delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
-        delete(uri: string, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+        delete(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+        delete(uri: string, predicates: DataSharePredicates): Promise<number>;
 
 
         /**
@@ -114,8 +114,8 @@ declare namespace dataShare {
          * @return Returns the query result.
          * @StageModelOnly
          */
-        query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
-        query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
+        query(uri: string, columns: Array<string>, predicates: DataSharePredicates, callback: AsyncCallback<DataShareResultSet>): void;
+        query(uri: string, columns: Array<string>, predicates: DataSharePredicates): Promise<DataShareResultSet>;
 
         /**
          * Updates data records in the database.
@@ -127,8 +127,8 @@ declare namespace dataShare {
          * @return Returns the number of data records updated.
          * @StageModelOnly
          */
-        update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
-        update(uri: string, value: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates): Promise<number>;
+        update(uri: string, value: DataShareValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+        update(uri: string, value: DataShareValuesBucket, predicates: DataSharePredicates): Promise<number>;
 
 
         /**
@@ -140,8 +140,8 @@ declare namespace dataShare {
          * @return Returns the number of data records inserted.
          * @StageModelOnly
          */
-        batchInsert(uri: string, values: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
-        batchInsert(uri: string, values: Array<rdb.ValuesBucket>): Promise<number>;
+        batchInsert(uri: string, values: Array<DataShareValuesBucket>, callback: AsyncCallback<number>): void;
+        batchInsert(uri: string, values: Array<DataShareValuesBucket>): Promise<number>;
 
         /**
          * Obtains the MIME type of the date specified by the given uri.
@@ -170,7 +170,7 @@ declare namespace dataShare {
         getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
 
         /**
-         * Converts the given {@code uri} that refers to the Data ability into a normalized {@link ohos.utils.net.Uri}.
+         * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
          * A normalized uri can be used across devices, persisted, backed up, and restored.
          * <p>To transfer a normalized uri from another environment to the current environment, you should call this
          * method again to re-normalize the uri for the current environment or call {@link #denormalizeUri(Uri)}
@@ -178,7 +178,7 @@ declare namespace dataShare {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to normalize.
-         * @return Returns the normalized {@code Uri} object if the Data ability supports uri normalization;
+         * @return Returns the normalized {@code Uri} object if the DataShare supports uri normalization;
          * returns {@code null} otherwise.
          * @throws DataShareRemoteException Throws this exception if the remote process exits.
          * @throws NullPointerException Throws this exception if {@code uri} is null.
