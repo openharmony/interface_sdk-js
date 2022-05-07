@@ -36,12 +36,12 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    * Called when the component connected with ability.
    * @since 9
    */
-  onConnected(callback: () => void): AbilityComponentAttribute;
+  onConnect(callback: () => void): AbilityComponentAttribute;
   /**
    * Called when the component onDisconnected with ability.
    * @since 9
    */
-   onConnected(callback: () => void): AbilityComponentAttribute;
+   onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
 declare const abilityComponent: AbilityComponentInterface;
