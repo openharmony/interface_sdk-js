@@ -674,6 +674,15 @@ export function getPreferredLanguageList(): Array<string>;
 export function getFirstPreferredLanguage(): string;
 
 /**
+ * Get the preferred language of App.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @return Returns a string represent the preferred language of App.
+ * @since 9
+ */
+ export function getAppPreferredLanguage(): string;
+
+/**
  * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
  * 
  * @syscap SystemCapability.Global.I18n
