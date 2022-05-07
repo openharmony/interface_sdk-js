@@ -18,7 +18,7 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
- * @import import bluetooth frome '@ohos.bluetooth';
+ * @import import bluetooth from '@ohos.bluetooth'
  * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
