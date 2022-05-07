@@ -63,6 +63,21 @@ declare namespace notification {
    function publish(request: NotificationRequest, userId: number): Promise<void>;
 
   /**
+   * Publishes a representative notification.
+   *
+   * @since 9
+   * @param request a notification.
+   * @param representativeBundle bundle name of the representative
+   * @param userId userid of the representative
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   *
+   */
+    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
+    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
+
+  /**
    * Cancels a notification with the specified ID.
    *
    * @param id of the notification to cancel, which must be unique in the application.
@@ -79,6 +94,20 @@ declare namespace notification {
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
+
+  /**
+   * Cancels a representative notification.
+   *
+   * @since 9
+   * @param id ID of the notification to cancel, which must be unique in the application.
+   * @param representativeBundle bundle name of the representative
+   * @param userId userid of the representative
+   * @param callback callback function
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   */
+  function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
+  function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
 
   /**
    * Cancels all notifications of the current application.
@@ -678,6 +707,26 @@ declare namespace notification {
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
   function getDeviceRemindType(): Promise<DeviceRemindType>;
+
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @since 9
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
+   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
+
+   /**
+    * Obtains whether the application slot is enabled.
+    *
+    * @since 9
+    * @systemapi Hide this for inner system use.
+    * @permission ohos.permission.NOTIFICATION_CONTROLLER
+    */
+   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
+   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
    * Describes a BundleOption.
