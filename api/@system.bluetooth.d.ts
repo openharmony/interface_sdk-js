@@ -64,8 +64,10 @@ export interface SubscribeBLEFoundOptions {
 }
 
 /**
- * @syscap SystemCapability.Communication.Bluetooth.Lite
+ * Provides methods to manage BLE scan.
  * @since 6
+ * @import import bluetooth from '@system.bluetooth'
+ * @syscap SystemCapability.Communication.Bluetooth.Lite
  */
 export default class Bluetooth {
   /**
