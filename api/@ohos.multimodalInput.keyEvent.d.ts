@@ -20,7 +20,6 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
 * @import import KeyEvent from '@ohos.multimodalInput.keyEvent';
-* @permission N/A
 */
 
 export declare enum Action {

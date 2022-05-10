@@ -20,7 +20,6 @@ import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
 * @import import {PointerEvent, Pointer, PointerAction} from '@ohos.multimodalInput.ToucEvent';
-* @permission N/A
 */
 
 export declare enum Action {
