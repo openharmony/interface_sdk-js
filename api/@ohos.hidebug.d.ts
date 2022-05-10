@@ -68,6 +68,24 @@ declare namespace hidebug {
     function getSharedDirty() : bigint;
 
     /**
+     * Obtains the size of the private dirty memory of a process.
+     * @param -
+     * @return Returns the size of the private dirty memory.
+     * @since 9
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     */
+     function getPrivateDirty() : bigint;
+
+    /**
+     * Obtains the cpu usage percent of a process.
+     * @param -
+     * @return Returns the cpu usage of a process.
+     * @since 9
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     */
+     function getCpuUsage() : number;
+
+    /**
      * Start CPU Profiling.
      * The input parameter is a user-defined file name, excluding the file suffix.
      * The generated file is in the files folder under the application directory.
@@ -103,5 +121,16 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
     function dumpHeapData(filename : string) : void;
+
+    /**
+     * Get a debugging dump of a system service by service id.
+     * Not for use by third-party applications for permission.
+     * 
+     * @param serviceid Indicates the id of the service ability .
+     * @return - errcode returned from SA dump function.
+     * @since 9
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     */
+    function getServiceDump(serviceid : number) : number;
 }
 export default hidebug;
