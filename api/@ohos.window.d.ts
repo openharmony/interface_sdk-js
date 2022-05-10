@@ -14,7 +14,7 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './app/context';
-import { ContentStorage } from './@internal/component/ets/stateManagement'
+import { LocalStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -588,7 +588,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
@@ -597,7 +597,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage): Promise<void>;
+    loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
      * Loads content
@@ -867,7 +867,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
@@ -875,7 +875,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+    loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
