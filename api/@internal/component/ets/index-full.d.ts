@@ -99,3 +99,4 @@
 /// <reference path="./xcomponent.d.ts" />
 /// <reference path="./inspector.d.ts" />
 /// <reference path="./sidebar.d.ts" />
+/// <reference path="./ability_component.d.ts" />
