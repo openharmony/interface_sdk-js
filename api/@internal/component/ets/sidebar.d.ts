@@ -107,21 +107,30 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
   /**
    * Sets the length of sidebar.
-   * @since 8
+   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
+   * @since 9
    */
-  sideBarWidth(value: number): SideBarContainerAttribute;
+  sideBarWidth(value: Length): SideBarContainerAttribute;
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
-   * @since 8
+   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
+   * @since 9
    */
-  minSideBarWidth(value: number): SideBarContainerAttribute;
+  minSideBarWidth(value: Length): SideBarContainerAttribute;
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
-   * @since 8
+   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
+   * @since 9
    */
-  maxSideBarWidth(value: number): SideBarContainerAttribute;
+  maxSideBarWidth(value: Length): SideBarContainerAttribute;
+  /**
+   * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
+   * default value is true.
+   * @since 9
+   */
+  autoHide(value: boolean): SideBarContainerAttribute;
 }
 
 declare const SideBarContainer: SideBarContainerInterface;
