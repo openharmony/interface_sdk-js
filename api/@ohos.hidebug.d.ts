@@ -126,11 +126,11 @@ declare namespace hidebug {
      * Get a debugging dump of a system service by service id.
      * Not for use by third-party applications for permission.
      * 
-     * @param serviceid Indicates the id of the service ability .
-     * @return - errcode returned from SA dump function.
+     * @param serviceid Indicates the id of the service ability.
+     * @return - sa dumped file name return.
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
-    function getServiceDump(serviceid : number) : number;
+    function getServiceDump(serviceid : number) : string;
 }
 export default hidebug;
