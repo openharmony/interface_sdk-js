@@ -65,6 +65,27 @@ declare namespace window {
     FLOATING
   }
 
+   /**
+   * Describes the mode of window layout
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum WindowLayoutMode {
+    /**
+     * CASCADE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_CASCADE,
+    /**
+     * TILE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_TILE
+  }
+
   /**
    * Properties of status bar and navigation bar, it couldn't update automatically
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -379,6 +400,50 @@ declare namespace window {
    * @since 8
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number): Promise<void>;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(): Promise<void>;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * register the callback of systemBarTintChange
