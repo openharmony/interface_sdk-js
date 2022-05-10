@@ -29,7 +29,10 @@ declare namespace inputDevice {
 
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor';
+  /**
+   * @since 9
+   */
+  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor' | 'NULL';
 
   enum KeyboardType {
     /**
