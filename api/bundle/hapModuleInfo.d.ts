@@ -136,4 +136,10 @@ export interface HapModuleInfo {
     * 
     */
   readonly metadata: Array<Metadata>;
+  /**
+    * @default Indicates the hash value of the module
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly hashValue: string;
 }
