@@ -1200,7 +1200,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
-        off(event:'syncComplete', observer?: Callback<ChangeNotification>): void;
+        off(event:'syncComplete', observer?: Callback<Array<[string, number]>>): void;
 
         /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
