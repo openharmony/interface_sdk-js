@@ -290,6 +290,12 @@ declare namespace bundle {
      */
     BACKUP = 9,
     /**
+     * @default Indicates extension info with type of window
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    WINDOW = 10,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
