@@ -18,7 +18,7 @@ import { Want } from './ability/want';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
-import { DataShareValuesBucket } from './@ohos.data.DataShareValuesBucket';
+import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 declare namespace dataShare {
     /**
@@ -30,7 +30,8 @@ declare namespace dataShare {
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
      */
-    function createDataShareHelper(context: Context, want: Want, uri: string): DataShareHelper;
+    function createDataShareHelper(context: Context, want: Want, uri: string, callback: AsyncCallback<DataShareHelper>): void;
+    function createDataShareHelper(context: Context, want: Want, uri: string): Promise<DataShareHelper>;
 
     /**
      * DataShareHelper
@@ -55,6 +56,7 @@ declare namespace dataShare {
          */
         openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
         openFile(uri: string, mode: string): Promise<number>;
+
         /**
          * Registers an observer to observe data specified by the given uri.
          * @since 9
@@ -88,8 +90,8 @@ declare namespace dataShare {
          * @return Returns the index of the inserted data record.
          * @StageModelOnly
          */
-        insert(uri: string, value: DataShareValuesBucket, callback: AsyncCallback<number>): void;
-        insert(uri: string, value: DataShareValuesBucket): Promise<number>;
+        insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
+        insert(uri: string, value: ValuesBucket): Promise<number>;
 
         /**
          * Deletes one or more data records from the database.
@@ -103,14 +105,13 @@ declare namespace dataShare {
         delete(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
         delete(uri: string, predicates: DataSharePredicates): Promise<number>;
 
-
         /**
          * Queries data in the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the path of data to query.
-         * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @return Returns the query result.
          * @StageModelOnly
          */
@@ -127,9 +128,8 @@ declare namespace dataShare {
          * @return Returns the number of data records updated.
          * @StageModelOnly
          */
-        update(uri: string, value: DataShareValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(uri: string, value: DataShareValuesBucket, predicates: DataSharePredicates): Promise<number>;
-
+        update(uri: string, value: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+        update(uri: string, value: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
 
         /**
          * Inserts multiple data records into the database.
@@ -140,8 +140,8 @@ declare namespace dataShare {
          * @return Returns the number of data records inserted.
          * @StageModelOnly
          */
-        batchInsert(uri: string, values: Array<DataShareValuesBucket>, callback: AsyncCallback<number>): void;
-        batchInsert(uri: string, values: Array<DataShareValuesBucket>): Promise<number>;
+        batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+        batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
 
         /**
          * Obtains the MIME type of the date specified by the given uri.

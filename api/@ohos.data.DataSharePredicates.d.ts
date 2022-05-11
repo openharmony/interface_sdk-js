@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ValueType } from './@ohos.data.DataShareValuesBucket';
+import { ValueType } from './@ohos.data.ValuesBucket';
 
 /**
  * Manages relational database configurations.
@@ -314,18 +314,7 @@ export default class DataSharePredicates {
     limit(total: number, offset: number): DataSharePredicates;
 
     /**
-     * Configures DataSharePredicates to specify the start position of the returned result.
-     *
-     * @note Use this method together with limit(int).
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @param rowOffset Indicates the start position of the returned result. The value is a positive integer.
-     * @return Returns the SQL query statement with the specified AbsPredicates.
-     */
-    offsetAs(rowOffset: number): DataSharePredicates;
-
-    /**
-     * Configures DataSharePredicates to group query results by specified columns.
+     * Configures {@code DataSharePredicates} to group query results by specified columns.
      *
      * @note N/A
      * @since 9
@@ -336,7 +325,7 @@ export default class DataSharePredicates {
     groupBy(fields: Array<string>): DataSharePredicates;
 
     /**
-     * Configures DataSharePredicates to specify the index column.
+     * Configures {@code DataSharePredicates} to specify the index column.
      *
      * @note Before using this method, you need to create an index column.
      * @since 9
@@ -347,7 +336,7 @@ export default class DataSharePredicates {
     indexedBy(field: string): DataSharePredicates;
 
     /**
-     * Configures DataSharePredicates to match the specified field whose data type is ValueType array and values
+     * Configures {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
      *
      * @note N/A
@@ -384,44 +373,13 @@ export default class DataSharePredicates {
     prefixKey(prefix: string): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} Sets a specified index
-     * that will be preferentially used for DataSharePredicates.
-     * @note N/A
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @param index Indicates the index to set.
-     * @return Returns the query object.
-     */
-    setSuggestIndex(index: string): DataSharePredicates;
-
-    /**
-     * Configures {@code DataSharePredicates} Specify all remote devices which connect to local device
-     * when syncing distributed database.
-     * @note N/A
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @return Returns DataSharePredicates that matches the specified field.
-     */
-    inAllDevices(): DataSharePredicates;
-
-    /**
-     * Configures {@code DataSharePredicates} Specify remote devices when syncing distributed database.
-     * when syncing distributed database.
-     * @note N/A
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @param devices The remote device ID within the specified network.
-     * @return Returns the predicate that matches the specified field.
-     */
-    inDevices(devices: Array<string>): DataSharePredicates;
-
-    /**
-     * Configures {@code DataSharePredicates} Public query reset.
+     * Configures {@code DataSharePredicates} to match the specified value whose key is within a given range.
      *
      * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @return Returns the reset query object.
+     * @param keys Represents the key names.
+     * @return Returns the query object.
      */
-    reset(): DataSharePredicates;
+    inKeys(keys: Array<string>): DataSharePredicates;
 }
