@@ -637,7 +637,7 @@ declare class LocalStorage {
    * add property if not property with given name
    * @since 9
    */
-  setOrCreate<T>(propName: string, newValue: T): boolean;
+  setOrCreate<T>(propName: string, newValue?: T): boolean;
 
   /**
    * create and return a 'link' (two-way sync) to named property
