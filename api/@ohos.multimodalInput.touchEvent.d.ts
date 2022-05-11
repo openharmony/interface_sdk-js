@@ -164,13 +164,11 @@ export declare interface Touch {
   /**
    * the center point y of the tool area
    */
-  // 工具区域的中心点Y
   toolY: number;
 
   /**
    * tool area width
    */
-  // 工具区域宽度
   toolWidth: number;
 
   /**
