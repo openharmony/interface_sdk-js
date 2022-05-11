@@ -1190,7 +1190,7 @@ declare namespace distributedData {
 
         /**
          *        
-         * Unegisters a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
+         * Unregister a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
          * {@code KvStoreObserver} will be invoked.
          * @note N/A
          * @since 8
