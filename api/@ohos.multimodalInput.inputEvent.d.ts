@@ -35,7 +35,6 @@ export declare interface InputEvent {
   /**
    * Time of event.
    */
-  // 事件发生时间
   actionTime: number;
 
   /**
