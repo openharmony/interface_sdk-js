@@ -213,8 +213,8 @@ export default class DataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name in the database table.
-     * @param low Indicates the minimum value to match with DataSharePredicates}.
-     * @param high Indicates the maximum value to match with DataSharePredicates}.
+     * @param low Indicates the minimum value to match with DataSharePredicates.
+     * @param high Indicates the maximum value to match with DataSharePredicates.
      * @return Returns the SQL query statement with the specified DataSharePredicates.
      */
     notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
@@ -341,7 +341,7 @@ export default class DataSharePredicates {
      * @note Before using this method, you need to create an index column.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @param indexName Indicates the name of the index column.
+     * @param field Indicates the name of the index column.
      * @return Returns DataSharePredicates with the specified index column.
      */
     indexedBy(field: string): DataSharePredicates;
@@ -424,15 +424,4 @@ export default class DataSharePredicates {
      * @return Returns the reset query object.
      */
     reset(): DataSharePredicates;
-
-    /**
-     * Configures {@code DataSharePredicates} Set a table name.
-     *
-     * @note N/A
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @param name Table name.
-     * @return Returns the query object.
-     */
-    setTableName(name:string): DataSharePredicates;
 }

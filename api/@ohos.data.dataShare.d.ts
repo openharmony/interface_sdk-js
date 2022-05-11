@@ -114,8 +114,8 @@ declare namespace dataShare {
          * @return Returns the query result.
          * @StageModelOnly
          */
-        query(uri: string, columns: Array<string>, predicates: DataSharePredicates, callback: AsyncCallback<DataShareResultSet>): void;
-        query(uri: string, columns: Array<string>, predicates: DataSharePredicates): Promise<DataShareResultSet>;
+        query(uri: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
+        query(uri: string, predicates: DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
 
         /**
          * Updates data records in the database.
