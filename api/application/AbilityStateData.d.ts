@@ -23,6 +23,15 @@
  */
 export default class AbilityStateData {
     /**
+     * The module name.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    moduleName: string;
+
+    /**
      * The bundle name.
      *
      * @since 8

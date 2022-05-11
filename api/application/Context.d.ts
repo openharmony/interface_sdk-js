@@ -17,6 +17,7 @@ import { ApplicationInfo } from "../bundle/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
+import ApplicationContext from "./ApplicationContext";
 
 /**
  * The base context of an ability or an application. It allows access to
@@ -139,7 +140,7 @@ export default class Context extends BaseContext {
      * @return application context
      * @StageModelOnly
      */
-    getApplicationContext(): Context;
+    getApplicationContext(): ApplicationContext;
 
     /**
      * Switch file area
