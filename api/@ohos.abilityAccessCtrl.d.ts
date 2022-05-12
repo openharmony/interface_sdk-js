@@ -231,7 +231,7 @@ import { AsyncCallback } from "./basic";
         lastAccessTime: number;
 
         /**
-         * The last access time
+         * The last reject time
          */
         lastRejectTime: number;
 
