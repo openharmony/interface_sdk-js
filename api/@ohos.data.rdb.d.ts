@@ -187,8 +187,8 @@ declare namespace rdb {
          * @param predicates Indicates the specified delete condition by the instance object of RdbPredicates.
          * @return Returns the number of affected rows.
          */
-         delete(name: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-         delete(name: string, predicates: DataSharePredicates): Promise<number>;
+        delete(name: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+        delete(name: string, predicates: DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database based on specified conditions.
