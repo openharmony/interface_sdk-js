@@ -74,6 +74,17 @@ import { AsyncCallback } from "./basic";
          * @since 8
          */
         getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
+
+        /**
+         * Queries the access records of sensitive permission.
+         * @param request The request of permission used records.
+         * @return Return the reponse of permission used records.
+         * @permission ohos.permission.PERMISSION_USED_STATS.
+         * @systemapi hid this for inner system use
+         * @since 9
+         */
+         getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
+         getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
     }
   
     /**
@@ -90,6 +101,150 @@ import { AsyncCallback } from "./basic";
          */
         PERMISSION_GRANTED = 0,
     }
-  }
 
-  export default abilityAccessCtrl;
+    /**
+     * PermissionUsageFlag.
+     * @since 9
+     */
+    enum PermissionUsageFlag {
+        /**
+         * permission used summary
+         */
+        FLAG_PERMISSION_USAGE_SUMMARY = 0,
+        /**
+         * permission used detail
+         */
+        FLAG_PERMISSION_USAGE_DETAIL = 1,
+    }
+
+    /**
+     * Provides request of querying permission used records.
+     * @since 9
+     */
+    interface PermissionUsedRequest {
+        /**
+         * The device id
+         */
+        deviceId: string;
+
+        /**
+         * The bundle name
+         */
+        bundleName: string;
+
+        /**
+         * The list of permision name
+         */ 
+        permissionList: Array<string>;
+
+        /**
+         * The begin time
+         */
+        beginTimeMillis: number;
+
+        /**
+         * The end time
+         */
+        endTimeMillis: number;
+
+        /**
+         * The permission usage flag
+         */
+        flag: PermissionUsageFlag;
+    }
+
+    /**
+     * Provides response of querying permission used records.
+     * @since 9
+     */
+    interface PermissionUsedResponse {
+        /**
+         * The begin time 
+         */
+        beginTimeMillis: number;
+
+        /**
+         * The end time
+         */
+        endTimeMillis: number;
+
+        /**
+         * The list of permision used records
+         */ 
+        permissionRecords: Array<PermissionUsedRecord>;
+    }
+
+    /**
+     * PermissionUsedRecord.
+     * @since 9
+     */
+     interface PermissionUsedRecord {
+        /**
+        * The permission name 
+        */
+        permissionName: string;
+
+        /**
+        * The list of bundle used records
+        */ 
+        bundleRecords: Array<BundleUsedRecord>;
+    }
+
+    /**
+     * BundleUsedRecord.
+     * @since 9
+     */
+     interface BundleUsedRecord {
+        /**
+         * The device id 
+         */
+        deviceId: string;
+
+        /**
+         * The bundle name 
+         */
+        bundleName: string;
+
+        /**
+         * The access counts in the foreground
+         */
+        accessCountFg: number;
+
+        /**
+         * The reject counts in the foreground
+         */
+        rejectCountFg: number;
+
+        /**
+         * The access counts in the background
+         */
+        accessCountBg: number;
+
+        /**
+         * The reject counts in the background
+         */
+        rejectCountBg: number;
+
+        /**
+         * The list of access records in the foreground
+         */
+        accessRecordFg: Array<number>;
+
+        /**
+         * The list of  access records in the foreground
+         */
+         rejectRecordFg: Array<number>;
+
+        /**
+         * The list of  access records in the background
+         */
+        accessRecordBg: Array<number>;
+
+        /**
+         * The list of  access records in the background
+         */
+        rejectRecordBg: Array<number>;
+    }
+}
+
+export default abilityAccessCtrl;
