@@ -18,7 +18,7 @@ import { AsyncCallback, Callback } from "./basic";
 /**
  * Provides methods to operate or manage Bluetooth.
  * @since 7
- * @import import bluetooth frome '@ohos.bluetooth';
+ * @import import bluetooth from '@ohos.bluetooth'
  * @syscap SystemCapability.Communication.Bluetooth.Core
  */
 declare namespace bluetooth {
@@ -357,6 +357,15 @@ declare namespace bluetooth {
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
 
     /**
+     * Obtains the instance of profile.
+     *
+     * @param profileId The profile id..
+     * @return Returns instance of profile.
+     * @since 9
+     */
+    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile;
+
+    /**
      * Base interface of profile.
      */
     interface BaseProfile {
@@ -472,6 +481,51 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 8
+         */
+        off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
+    }
+
+    /**
+     * Manager hid host profile.
+     */
+    interface HidHostProfile extends BaseProfile {
+        /**
+         * Connect to device with hid host.
+         *
+         * @param device The address of the remote device to connect.
+         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        connect(device: string): boolean;
+
+        /**
+         * Disconnect to device with hid host.
+         *
+         * @param device The address of the remote device to disconnect.
+         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @since 9
+         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @systemapi Hide this for inner system use.
+         */
+        disconnect(device: string): boolean;
+
+        /**
+         * Subscribe the event reported when the profile connection state changes .
+         *
+         * @param type Type of the profile connection state changes event to listen for .
+         * @param callback Callback used to listen for event.
+         * @since 9
+         */
+        on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
+
+        /**
+         * Unsubscribe the event reported when the profile connection state changes.
+         *
+         * @param type Type of the profile connection state changes event to listen for.
+         * @param callback Callback used to listen for event.
+         * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
@@ -1471,12 +1525,22 @@ declare namespace bluetooth {
 
     /**
      * The enum of profile id.
-     *
-     * @since 8
      */
     enum ProfileId {
+        /**
+         * @since 8
+         */
         PROFILE_A2DP_SOURCE = 1,
+
+        /**
+         * @since 8
+         */
         PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4,
+
+        /**
+         * @since 9
+         */
+        PROFILE_HID_HOST = 6,
     }
 }
 

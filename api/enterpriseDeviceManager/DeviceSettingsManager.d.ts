@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./../basic";
-import { Want } from "./../ability/want";
+import Want from "./../@ohos.application.want";
 
 /**
  * @name Offers set settings policies on the devices.

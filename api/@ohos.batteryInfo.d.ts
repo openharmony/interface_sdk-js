@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -72,13 +72,13 @@ declare namespace batteryInfo {
     const isBatteryPresent: boolean;
 
     /**
-     * Obtain the battery capacity level of a device.
+     * Battery capacity level of the current device.
      * @since 9
      */
     const batteryCapacityLevel: BatteryCapacityLevel;
 
     /**
-     * Estimate the remaining time to fully charge, in ms.
+     * Estimated remaining time for the current device to be fully charged, in ms.
      * @since 9
      */
     const estimatedRemainingChargeTime: number;
@@ -95,7 +95,6 @@ declare namespace batteryInfo {
      * @since 9
      * @systemapi
      */
-
     const nowCurrent: number;
 
     /**
@@ -106,7 +105,7 @@ declare namespace batteryInfo {
     const remainingEnergy: number;
 
     /**
-     * Indicates the charger type of a device.
+     * Charger type of a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
@@ -135,7 +134,7 @@ declare namespace batteryInfo {
     }
 
     /**
-     * Indicates the battery charging status of a device.
+     * Battery charging status of a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
@@ -164,7 +163,7 @@ declare namespace batteryInfo {
     }
 
     /**
-     * Indicates the battery health status of a device.
+     * Battery health status of a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6
@@ -203,7 +202,7 @@ declare namespace batteryInfo {
     }
 
     /**
-     * Indicates the battery capacity level a device.
+     * Battery capacity level of a device.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
@@ -306,4 +305,3 @@ declare namespace batteryInfo {
     }
 }
 export default batteryInfo;
-

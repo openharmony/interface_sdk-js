@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 
 /**
  * systemPasteboard

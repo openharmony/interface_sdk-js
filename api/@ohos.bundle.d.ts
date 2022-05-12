@@ -18,7 +18,7 @@ import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
-import { Want } from './ability/want';
+import Want from './@ohos.application.want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
@@ -290,6 +290,12 @@ declare namespace bundle {
      */
     BACKUP = 9,
     /**
+     * @default Indicates extension info with type of window
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    WINDOW = 10,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -417,7 +423,7 @@ declare namespace bundle {
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
-   
+
   /**
    * Obtains information about the current ability.
    *
@@ -679,6 +685,48 @@ declare namespace bundle {
     */
   function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
+
+  /**
+   * Obtains information about the current ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the AbilityInfo object for the current ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
+
+  /**
+   * Obtains the label of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @return Returns the label representing the label of the specified ability.
+   */
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
+ 
+  /**
+   * Obtains the icon of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the PixelMap object representing the icon of the specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
 }
 
 export default bundle;

@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 import { Configuration } from './@ohos.application.Configuration';
 import { AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import { ElementName }  from './bundle/elementName';
 
 /**
  * The class of an ability manager.
@@ -79,6 +80,17 @@ declare namespace abilityManager {
       */
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
     function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
+
+    /**
+     * Get the top ability information of the display.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi Hide this for inner system use.
+     * @return Returns the {@link ElementName} info of the top ability.
+     */
+   function getTopAbility(): Promise<ElementName>;
+   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 }
 
 export default abilityManager;

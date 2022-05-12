@@ -21,7 +21,7 @@ import BaseContext from '../application/BaseContext';
 import { HapModuleInfo } from '../bundle/hapModuleInfo';
 import { AppVersionInfo } from './appVersionInfo';
 import { AbilityInfo } from '../bundle/abilityInfo';
-import { DisplayOrientation } from '../@ohos.bundle';
+import bundle from '../@ohos.bundle';
 
 
 /**
@@ -102,8 +102,8 @@ export interface Context extends BaseContext {
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    getDisplayOrientation(callback: AsyncCallback<DisplayOrientation>): void
-    getDisplayOrientation(): Promise<DisplayOrientation>;
+    getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void
+    getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
     
     /**
     * Sets the display orientation of the current ability.
@@ -111,8 +111,8 @@ export interface Context extends BaseContext {
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     */
-    setDisplayOrientation(orientation: DisplayOrientation, callback: AsyncCallback<void>): void
-    setDisplayOrientation(orientation: DisplayOrientation): Promise<void>;
+    setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback<void>): void
+    setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
     
     /**
     * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state.

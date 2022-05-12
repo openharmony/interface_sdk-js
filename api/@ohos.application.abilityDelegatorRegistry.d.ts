@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AbilityDelegator } from './application/abilityDelegator'
-import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'
+import { AbilityDelegator } from './application/abilityDelegator';
+import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered

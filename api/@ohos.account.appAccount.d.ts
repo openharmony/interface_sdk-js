@@ -14,7 +14,7 @@
  */
 
 import {AsyncCallback} from "./basic";
-import {Want} from "./ability/want";
+import Want from "./@ohos.application.want";
 
 /**
  * This module provides the capability to manage application accounts.

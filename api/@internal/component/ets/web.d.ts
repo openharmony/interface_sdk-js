@@ -543,8 +543,6 @@ declare class JsGeolocation {
   invoke(origin: string, allow: boolean, retain: boolean): void;
 }
 
-
-
 /**
  * Defines the Web cookie.
  * @since 8
@@ -557,6 +555,53 @@ declare class WebCookie {
   constructor();
 
   /**
+   * Get whether cookies can be send or accepted.
+   * @return true if can send and accept cookies else false.
+   * 
+   * @since 9
+   */
+  isCookieAllowed(): boolean;
+
+  /**
+   * Get whether third party cookies can be send or accepted.
+   * @return true if can send and accept third party cookies else false.
+   * 
+   * @since 9
+   */
+  isThirdPartyCookieAllowed(): boolean;
+
+  /**
+   * Get whether file scheme cookies can be send or accepted.
+   * @return true if can send and accept else false.
+   * @since 9
+   */
+  isFileURICookieAllowed(): boolean;
+
+  /**
+   * Set whether cookies can be send or accepted.
+   * @param accept whether can send and accept cookies
+   * 
+   * @since 9
+   */
+  putAcceptCookieEnabled(accept: boolean): void;
+
+  /**
+   * Set whether third party cookies can be send or accepted.
+   * @param accept true if can send and accept else false.
+   *  
+   * @since 9
+   */
+  putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+  /**
+   * Set whether file scheme cookies can be send or accepted.
+   * @param accept true if can send and accept else false.
+   * 
+   * @since 9
+   */
+  putAcceptFileURICookieEnabled(accept: boolean): void;  
+
+  /**
    * Sets the cookie.
    * @since 8
    */
@@ -567,6 +612,45 @@ declare class WebCookie {
    * @since 8
    */
   saveCookieSync(): boolean;
+
+  /**
+   * Gets all cookies for the given URL.
+   * 
+   * @param url the URL for which the cookies are requested.
+   * @return the cookie value for the given URL.
+   * 
+   * @since 9
+   */
+  getCookie(url: string): string;
+
+  /**
+   * Check whether exists any cookies.
+   * 
+   * @return true if exists cookies else false;
+   * @since 9
+   */
+  existCookie(): boolean;
+
+  /**
+   * Delete all cookies.
+   * 
+   * @since 9
+   */
+  deleteEntireCookie(): void;
+
+  /**
+   * Delete session cookies.
+   * 
+   * @since 9
+   */
+  deleteSessionCookie(): void;
+
+  /**
+   * Delete all expired cookies.
+   * 
+   * @since 9
+   */
+  deleteExpiredCookie(): void;
 }
 
 /**
@@ -889,6 +973,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
+
+  /**
+   * Enables debugging of web contents.
+   * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.

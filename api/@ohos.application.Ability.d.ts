@@ -18,7 +18,7 @@ import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
 import { Configuration } from './@ohos.application.Configuration';
-import rpc from '/@ohos.rpc';
+import rpc from './@ohos.rpc';
 
 /**
  * The prototype of the listener function interface registered by the Caller.
@@ -279,14 +279,26 @@ export default class Ability {
      */
     onNewWant(want: Want): void;
 
-     /**
-      * Called when the system configuration is updated.
-      *
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-      * @param config Indicates the updated configuration.
-      * @return -
-      * @StageModelOnly
-      */
+    /**
+     * Called when the system configuration is updated.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param config Indicates the updated configuration.
+     * @return -
+     * @StageModelOnly
+     */
     onConfigurationUpdated(config: Configuration): void;
+
+    /**
+     * Called when dump client information is required.
+     * It is recommended that developers don't DUMP sensitive information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param params Indicates the params from command.
+     * @return The dump info array.
+     * @StageModelOnly
+     */
+    dump(params: Array<string>): Array<string>;
 }
