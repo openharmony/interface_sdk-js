@@ -126,19 +126,6 @@ declare namespace rdb {
         insert(name: string, values: ValuesBucket): Promise<number>;
 
         /**
-         * Inserts a row of data into the target table.
-         *
-         * @note N/A
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param name Indicates the target table.
-         * @param values Indicates the row of data to be inserted into the table.
-         * @return Returns the row ID if the operation is successful; returns -1 otherwise.
-         */
-        insert(name: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
-        insert(name: string, values: ValuesBucket): Promise<number>;
-
-        /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
          * @note N/A
