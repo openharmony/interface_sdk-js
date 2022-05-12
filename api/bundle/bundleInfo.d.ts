@@ -64,6 +64,13 @@ export interface ReqPermissionDetail {
   reason: string;
 
   /**
+    * @default Indicates the reason id of this required permissions
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  reasonId: number;
+
+  /**
     * @default Indicates the used scene of this required permissions
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
