@@ -18,7 +18,7 @@ import { ApplicationInfo } from './bundle/applicationInfo';
 import { BundleInfo } from './bundle/bundleInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
-import Want from './@ohos.application.want';
+import { Want } from './ability/want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { PermissionDef } from  './bundle/PermissionDef';
 import image from './@ohos.multimedia.image';
