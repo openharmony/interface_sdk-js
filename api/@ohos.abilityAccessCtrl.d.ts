@@ -135,7 +135,7 @@ import { AsyncCallback } from "./basic";
         /**
          * The list of permision name
          */ 
-        permissionList: Array<string>;
+        permNames: Array<string>;
 
         /**
          * The begin time
@@ -226,22 +226,32 @@ import { AsyncCallback } from "./basic";
         rejectCountBg: number;
 
         /**
+         * The last access time
+         */
+        lastAccessTime: number;
+
+        /**
+         * The last access time
+         */
+        lastRejectTime: number;
+
+        /**
          * The list of access records in the foreground
          */
         accessRecordFg: Array<number>;
 
         /**
-         * The list of  access records in the foreground
+         * The list of reject records in the foreground
          */
-         rejectRecordFg: Array<number>;
+        rejectRecordFg: Array<number>;
 
         /**
-         * The list of  access records in the background
+         * The list of access records in the background
          */
         accessRecordBg: Array<number>;
 
         /**
-         * The list of  access records in the background
+         * The list of reject records in the background
          */
         rejectRecordBg: Array<number>;
     }
