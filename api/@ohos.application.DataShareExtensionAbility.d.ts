@@ -168,8 +168,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records inserted.
      * @StageModelOnly
      */
-    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>,
-        callback: AsyncCallback<number>): void;
+    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>,callback: AsyncCallback<number>): void;
 
     /**
      * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be
