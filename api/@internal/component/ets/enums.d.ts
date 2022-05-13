@@ -1414,4 +1414,28 @@ declare enum Placement {
    * @since 8
    */
   BottomRight,
+
+  /**
+   * LeftTop placement
+   * @since 9
+   */
+  LeftTop,
+
+  /**
+   * LeftBottom placement
+   * @since 9
+   */
+  LeftBottom,
+
+  /**
+   * RightTop placement
+   * @since 9
+   */
+  RightTop,
+
+  /**
+   * RightBottom placement
+   * @since 9
+   */
+  RightBottom,
 }
