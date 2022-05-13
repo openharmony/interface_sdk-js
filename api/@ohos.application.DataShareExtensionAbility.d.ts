@@ -140,7 +140,8 @@ export default class DataShareExtensionAbility {
      * @return Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
-    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<Object>): void;
+    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>, 
+        callback: AsyncCallback<Object>): void;
 
     /**
      * Obtains the MIME type matching the data specified by the URI of the data share. This method should be
