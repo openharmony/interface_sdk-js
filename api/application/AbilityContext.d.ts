@@ -246,4 +246,14 @@ export default class AbilityContext extends Context {
      */
     restoreWindowStage(localStorage: LocalStorage) : void;
 
+    /**
+     * check to see ability is in terminating state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return Returns true when ability is in terminating state, else returns false.
+     * @StageModelOnly
+     */
+    isTerminating(): boolean;
+
 }
