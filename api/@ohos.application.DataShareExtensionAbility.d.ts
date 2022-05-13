@@ -48,7 +48,24 @@ export default class DataShareExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-    onCreate?(want: Want): void;
+    onCreate?(want: Want, callback: AsyncCallback<void>): void;
+
+    /**
+     * Obtains the MIME type of files. This method should be implemented by a data share.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+     * @param uri Indicates the path of the files to obtain.
+     * @param mimeTypeFilter Indicates the MIME type of the files to obtain. This parameter cannot be set to {@code
+     *     null}.
+     *     <p>1. "&ast;/*": Obtains all types supported by a data share.
+     *     <p>2. "image/*": Obtains files whose main type is image of any subtype.
+     *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
+     * @systemapi Hide this for inner system use.
+     * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
+     * @StageModelOnly
+     */
+    getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
 
     /**
      * Opens a file in a specified remote path.
@@ -64,8 +81,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the file descriptor.
      * @StageModelOnly
      */
-    openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
-    openFile(uri: string, mode: string): Promise<number>;
+    openFile?(uri: string, mode: string, callback: AsyncCallback<number>): void;
 
     /**
      * Inserts a data record into the database. This method should be implemented by a data share.
@@ -79,6 +95,22 @@ export default class DataShareExtensionAbility {
      * @StageModelOnly
      */
     insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
+
+    /**
+     * Updates one or more data records in the database. This method should be implemented by a data share.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+     * @param uri Indicates the database table storing the data to update.
+     * @param valueBucket Indicates the data to update. This parameter can be null.
+     * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
+     *        default.
+     * @systemapi Hide this for inner system use.
+     * @return Returns the number of data records updated.
+     * @StageModelOnly
+     */
+    update?(uri: string, valueBucket: ValuesBucket, predicates: DataSharePredicates,
+        callback: AsyncCallback<number>): void;
 
     /**
      * Deletes one or more data records. This method should be implemented by a data share.
@@ -105,40 +137,10 @@ export default class DataShareExtensionAbility {
      * @param columns Indicates the columns to be queried, in array, for example, {"name","age"}. You should define
      *                the processing logic when this parameter is null.
      * @systemapi Hide this for inner system use.
-     * @return Returns the queried data.
+     * @return Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
     query?(uri: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<Object>): void;
-
-    /**
-     * Updates one or more data records in the database. This method should be implemented by a data share.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the database table storing the data to update.
-     * @param valueBucket Indicates the data to update. This parameter can be null.
-     * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
-     *        default.
-     * @systemapi Hide this for inner system use.
-     * @return Returns the number of data records updated.
-     * @StageModelOnly
-     */
-    update?(uri: string, valueBucket: ValuesBucket, predicates: DataSharePredicates,
-        callback: AsyncCallback<number>): void;
-
-    /**
-     * Inserts multiple data records into the database. This method should be implemented by a data share.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the position where the data is to insert.
-     * @param valueBuckets Indicates the data to insert.
-     * @systemapi Hide this for inner system use.
-     * @return Returns the number of data records inserted.
-     * @StageModelOnly
-     */
-    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>,
-        callback: AsyncCallback<number>): void;
 
     /**
      * Obtains the MIME type matching the data specified by the URI of the data share. This method should be
@@ -156,21 +158,18 @@ export default class DataShareExtensionAbility {
     getType?(uri: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the MIME type of files. This method should be implemented by a data share.
+     * Inserts multiple data records into the database. This method should be implemented by a data share.
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the path of the files to obtain.
-     * @param mimeTypeFilter Indicates the MIME type of the files to obtain. This parameter cannot be set to {@code
-     *     null}.
-     *     <p>1. "&ast;/*": Obtains all types supported by a data share.
-     *     <p>2. "image/*": Obtains files whose main type is image of any subtype.
-     *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
+     * @param uri Indicates the position where the data is to insert.
+     * @param valueBuckets Indicates the data to insert.
      * @systemapi Hide this for inner system use.
-     * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
+     * @return Returns the number of data records inserted.
      * @StageModelOnly
      */
-    getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
+    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>,
+        callback: AsyncCallback<number>): void;
 
     /**
      * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be
