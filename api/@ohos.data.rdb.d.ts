@@ -146,7 +146,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param name Indicates the target table.
          * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param predicates Indicates the specified update condition by the instance object of RdbPredicates.
+         * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          */
         update(name: string, values: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -171,7 +171,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param name Indicates the target table.
-         * @param predicates Indicates the specified delete condition by the instance object of RdbPredicates.
+         * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          */
         delete(name: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -196,7 +196,8 @@ declare namespace rdb {
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param predicates Indicates the specified query condition by the instance object of RdbPredicates.
+         * @param name Indicates the target table.
+         * @param predicates Indicates the specified query condition by the instance object of DataSharePredicates.
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          */
