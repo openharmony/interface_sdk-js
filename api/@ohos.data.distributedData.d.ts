@@ -14,6 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+import ValuesBucket from './@ohos.data.DatashareValuesBucket';
+import Predicates from './@ohos.data.DatasharePredicates';
+import DataShareResultSet from './@ohos.data.DataShareResultSet';
 
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
@@ -1133,6 +1136,21 @@ declare namespace distributedData {
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
+         /**
+         * Writes a value of the valuesbucket type into the {@code KvStore} database.
+         * 
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param value Indicates the datasharePredicates.
+         * Spaces before and after the key will be cleared.
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        put(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
+        put(value: Array<ValuesBucket>): Promise<void>;
+
         /**
          * Deletes the key-value pair based on a specified key.
          *
@@ -1148,6 +1166,21 @@ declare namespace distributedData {
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
 
+         /**
+         * Deletes the key-value pair based on a specified key.
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the datasharePredicates.
+         * Spaces before and after the key will be cleared.
+         *  @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        delete(predicates: Predicates, callback: AsyncCallback<void>);
+        delete(predicates: Predicates): Promise<void>;
+        
         /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
          * {@code KvStoreObserver} will be invoked.
@@ -1364,7 +1397,7 @@ declare namespace distributedData {
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
         getResultSet(keyPrefix: string): Promise<KvStoreResultSet>;
-
+        
         /**
          * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
          * 
@@ -1377,6 +1410,21 @@ declare namespace distributedData {
          */
         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
         getResultSet(query: Query): Promise<KvStoreResultSet>;
+
+         /**
+         * Obtains the KvStoreResultSet object matching the specified Predicate object..
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the key.
+         * Spaces before and after the key will be cleared.
+         *  @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+        getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+        getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
 
         /**
          * Closes a {@code KvStoreResultSet} object returned by getResultSet.
@@ -1424,12 +1472,14 @@ declare namespace distributedData {
          * @param deviceIdList Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
          * @param allowedDelayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @param query Indicates the {@code Query} object. 
          * @throws Throws this exception if any of the following errors
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * occurs: {@code INVALID_ARGUMENT}, 
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
          sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+         sync(deviceIdList: string[], query: Query, mode: SyncMode, allowedDelayMs?: number): void;
 
          /**
           * Register Synchronizes SingleKvStore databases callback.
@@ -1598,6 +1648,21 @@ declare namespace distributedData {
          getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
          /**
+         * Obtains the KvStoreResultSet object matching the specified Predicate object..
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the key.
+         * Spaces before and after the key will be cleared.
+         *  @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
+         getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+         
+         /**
           * Closes a {@code KvStoreResultSet} object returned by getResultSet.
           * 
           * @note N/A
@@ -1667,6 +1732,7 @@ declare namespace distributedData {
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
+        sync(deviceIdList: string[], query: Query, mode: SyncMode, allowedDelayMs?: number): void;
 
         /**
          * Register Synchronizes DeviceKVStore databases callback.
