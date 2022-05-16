@@ -178,4 +178,11 @@ export interface ApplicationInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly entityType: string;
+
+  /**
+    * @default Indicates fingerprint of the certificate
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly fingerprint: string;
 }
