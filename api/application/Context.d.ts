@@ -120,6 +120,16 @@ export default class Context extends BaseContext {
     eventHub: EventHub;
 
     /**
+     * Indicates file area.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @hide
+     */
+    area: AreaMode;
+
+    /**
      * Create a bundle context
      *
      * @since 9
@@ -141,25 +151,15 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      */
     getApplicationContext(): ApplicationContext;
-
-    /**
-     * Switch file area
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param mode file area.
-     * @StageModelOnly
-     */
-     switchArea(mode: AreaMode): void;
 }
 
 /**
-     * File area mode
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     */
+ * File area mode
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @StageModelOnly
+ */
 export enum AreaMode {
     /**
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
