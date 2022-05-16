@@ -15,11 +15,11 @@
 import { InputEvent } from "./@ohos.multimodalInput.inputEvent"
 import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 /**
-* KeyEvent
+* Action
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import KeyEvent from '@ohos.multimodalInput.keyEvent';
+* @import import {Action} from '@ohos.multimodalInput.keyEvent';
 */
 export declare enum Action {
   /**
@@ -38,6 +38,13 @@ export declare enum Action {
   UP = 2,
 }
 
+/**
+* Key
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {Key} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare interface Key {
   /**
    * the key code
@@ -55,6 +62,13 @@ export declare interface Key {
   deviceId: number;
 }
 
+/**
+* KeyEvent
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {KeyEvent} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare interface KeyEvent extends InputEvent {
   /**
    * the key action

@@ -15,13 +15,12 @@
 import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 
 /**
-* TouchEvent
+* Action
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {PointerEvent, Pointer, PointerAction} from '@ohos.multimodalInput.ToucEvent';
+* @import import {Action} from '@ohos.multimodalInput.ToucEvent';
 */
-
 export declare enum Action {
   /**
    * touch to cancel
@@ -44,6 +43,13 @@ export declare enum Action {
   UP = 3,
 }
 
+/**
+* ToolType
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {ToolType} from '@ohos.multimodalInput.ToucEvent';
+*/
 export declare enum ToolType {
   /**
    * finger
@@ -83,6 +89,13 @@ export declare enum ToolType {
   LENS = 7,
 }
 
+/**
+* SourceType
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {SourceType} from '@ohos.multimodalInput.ToucEvent';
+*/
 export declare enum SourceType {
   /**
    * touch screen
@@ -100,6 +113,13 @@ export declare enum SourceType {
   TOUCH_PAD = 2,
 }
 
+/**
+* Touch
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {Touch} from '@ohos.multimodalInput.ToucEvent';
+*/
 export declare interface Touch {
   /**
    * pointer identifier, integer data, data greater than or equal to 0.
@@ -192,7 +212,13 @@ export declare interface Touch {
   toolType: ToolType;
 }
 
-
+/**
+* TouchEvent
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {TouchEvent} from '@ohos.multimodalInput.ToucEvent';
+*/
 export declare interface TouchEvent extends InputEvent {
   /**
    * touch action

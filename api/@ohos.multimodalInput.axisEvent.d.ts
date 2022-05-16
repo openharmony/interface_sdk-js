@@ -20,7 +20,7 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {MouseEvent} from '@ohos.multimodalInput.mouseEvent';
+* @import import {Action} from '@ohos.multimodalInput.mouseEvent';
 */
 export declare enum Action {
   /**
@@ -49,7 +49,7 @@ export declare enum Action {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {MouseEvent} from '@ohos.multimodalInput.mouseEvent';
+* @import import {Axis} from '@ohos.multimodalInput.mouseEvent';
 */
 export declare enum Axis {
   /**
@@ -73,7 +73,7 @@ export declare enum Axis {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {MouseEvent} from '@ohos.multimodalInput.mouseEvent';
+* @import import {AxisValue} from '@ohos.multimodalInput.mouseEvent';
 */
 export declare interface AxisValue {
   /**

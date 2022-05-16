@@ -16,13 +16,12 @@ import { InputEvent } from "./@ohos.multimodalInput.inputEvent"
 import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 
 /**
-* MouseEvent
+* Action
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {MouseEvent} from '@ohos.multimodalInput.mouseEvent';
+* @import import {Action} from '@ohos.multimodalInput.mouseEvent';
 */
-
 export declare enum Action {
   /**
    * cancel
@@ -60,6 +59,13 @@ export declare enum Action {
   AXIS_END = 6,
 }
 
+/**
+* Button
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {Button} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare enum Button {
   /**
    * the left mouse button
@@ -102,6 +108,13 @@ export declare enum Button {
   TASK = 7
 }
 
+/**
+* Axis
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {Axis} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare enum Axis {
   /**
    * scroll vertical
@@ -119,6 +132,13 @@ export declare enum Axis {
   PINCH = 2,
 }
 
+/**
+* AxisValue
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {AxisValue} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare interface AxisValue {
   /**
    * axis type
@@ -131,6 +151,13 @@ export declare interface AxisValue {
   value: number
 }
 
+/**
+* MouseEvent
+*
+* @since 9
+* @syscap SystemCapability.MultimodalInput.Input.Core
+* @import import {MouseEvent} from '@ohos.multimodalInput.mouseEvent';
+*/
 export declare interface MouseEvent extends InputEvent {
   /**
    * mouse event action

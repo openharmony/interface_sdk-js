@@ -18,7 +18,7 @@
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {KeyCode}} from '@ohos.multimodalInput.keyCode',
+* @import import {KeyCode} from '@ohos.multimodalInput.keyCode',
 */
 
 export declare enum KeyCode {
