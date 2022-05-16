@@ -17,7 +17,6 @@ import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
-import { ValueType, ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -321,6 +320,26 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    }
+
+    /**
+     * Indicates possible value types
+     *
+     * @since 7
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @import import data_rdb from '@ohos.data.rdb';
+     */
+    type ValueType = number | string | boolean;
+
+    /**
+     * Values in buckets are stored in key-value pairs
+     *
+     * @since 7
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @import import data_rdb from '@ohos.data.rdb';
+     */
+    type ValuesBucket = {
+        [key: string]: ValueType | Uint8Array | null;
     }
 
     /**
