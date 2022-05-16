@@ -138,7 +138,7 @@ declare namespace rdb {
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
         /**
-         * Updates data in the database based on a a specified instance object of rdbPredicates.
+         * Updates data in the database based on a a specified instance object of DataSharePredicates.
          *
          * @note N/A
          * @since 9
@@ -164,7 +164,7 @@ declare namespace rdb {
         delete(predicates: RdbPredicates): Promise<number>;
 
         /**
-         * Deletes data from the database based on a specified instance object of rdbPredicates.
+         * Deletes data from the database based on a specified instance object of DataSharePredicates.
          *
          * @note N/A
          * @since 9
