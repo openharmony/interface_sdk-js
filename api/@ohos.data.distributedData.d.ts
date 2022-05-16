@@ -1197,6 +1197,18 @@ declare namespace distributedData {
         on(event: 'dataChange', type: SubscribeType, observer: Callback<ChangeNotification>): void;
 
         /**
+         * Subscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
+         * 
+         * @note N/A
+         * @since 7
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         */
+        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+		
+        /**
          * Unsubscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
          *
          * @note N/A
@@ -1208,32 +1220,6 @@ declare namespace distributedData {
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
         off(event:'dataChange', observer?: Callback<ChangeNotification>): void;
-
-        /**
-         * Subscribes from the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
-         * 
-         * @note N/A
-         * @since 7
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
-
-        /**
-         *        
-         * Unregister a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
-         * {@code KvStoreObserver} will be invoked.
-         * @note N/A
-         * @since 8
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-        off(event:'syncComplete',  syncCallback?: Callback<Array<[string, number]>>): void;
 
         /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
