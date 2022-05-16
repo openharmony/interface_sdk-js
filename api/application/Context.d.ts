@@ -111,6 +111,15 @@ export default class Context extends BaseContext {
     distributedFilesDir: string;
 
     /**
+     * Indicates event hub.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    eventHub: EventHub;
+
+    /**
      * Indicates file area.
      *
      * @since 9
