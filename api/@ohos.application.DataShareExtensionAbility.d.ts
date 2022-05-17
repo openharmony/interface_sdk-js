@@ -102,14 +102,14 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the database table storing the data to update.
-     * @param valueBucket Indicates the data to update. This parameter can be null.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
      *        default.
+     * @param valueBucket Indicates the data to update. This parameter can be null.
      * @systemapi Hide this for inner system use.
      * @return Returns the number of data records updated.
      * @StageModelOnly
      */
-    update?(uri: string, valueBucket: ValuesBucket, predicates: DataSharePredicates,
+    update?(uri: string, predicates: DataSharePredicates, valueBucket: ValuesBucket,
         callback: AsyncCallback<number>): void;
 
     /**
@@ -140,7 +140,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
-    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>, 
+    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>,
         callback: AsyncCallback<Object>): void;
 
     /**
@@ -169,7 +169,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records inserted.
      * @StageModelOnly
      */
-    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>,callback: AsyncCallback<number>): void;
+    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
     /**
      * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be
