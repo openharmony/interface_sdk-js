@@ -21,7 +21,6 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @import import data_dataShare from '@ohos.data.dataShare';
- * @permission N/A
  */
 export default class DataSharePredicates {
     /**
@@ -195,7 +194,6 @@ export default class DataSharePredicates {
     /**
      * Restricts the value of the field to the range between low value and high value.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name.
@@ -209,7 +207,6 @@ export default class DataSharePredicates {
      * Configures DataSharePredicates to match the specified field whose data type is int and value is
      * out of a given range.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name in the database table.
@@ -222,7 +219,6 @@ export default class DataSharePredicates {
     /**
      * Restricts the value of the field to be greater than the specified value.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name.
@@ -234,7 +230,6 @@ export default class DataSharePredicates {
     /**
      * Restricts the value of the field to be smaller than the specified value.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name.
@@ -246,7 +241,6 @@ export default class DataSharePredicates {
     /**
      * Restricts the value of the field to be greater than or equal to the specified value.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name.
@@ -258,7 +252,6 @@ export default class DataSharePredicates {
     /**
      * Restricts the value of the field to be smaller than or equal to the specified value.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name.
@@ -271,7 +264,6 @@ export default class DataSharePredicates {
      * Restricts the ascending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name for sorting the return list.
@@ -283,7 +275,6 @@ export default class DataSharePredicates {
      * Restricts the descending order of the return list. When there are several orders,
      * the one close to the head has the highest priority.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name for sorting the return list.
@@ -294,7 +285,6 @@ export default class DataSharePredicates {
     /**
      * Restricts each row of the query result to be unique.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @return Returns the SQL query statement with the specified DataSharePredicates.
@@ -304,7 +294,6 @@ export default class DataSharePredicates {
     /**
      * Construct a query object to specify the number of results and the starting position.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param total Represents the specified number of results.
@@ -316,7 +305,6 @@ export default class DataSharePredicates {
     /**
      * Configures {@code DataSharePredicates} to group query results by specified columns.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param fields Indicates the specified columns by which query results are grouped.
@@ -339,7 +327,6 @@ export default class DataSharePredicates {
      * Configures {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name in the database table.
@@ -352,7 +339,6 @@ export default class DataSharePredicates {
      * Configures {@code DataSharePredicates} to match the specified field whose data type is String array and values
      * are out of a given range.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param field Indicates the column name in the database table.
@@ -364,7 +350,6 @@ export default class DataSharePredicates {
     /**
      * Configures {@code DataSharePredicates} Creates a query condition using the specified key prefix.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param prefix Represents the specified key prefix.
@@ -375,7 +360,6 @@ export default class DataSharePredicates {
     /**
      * Configures {@code DataSharePredicates} to match the specified value whose key is within a given range.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param keys Represents the key names.
