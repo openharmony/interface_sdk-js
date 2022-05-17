@@ -1645,6 +1645,21 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
+         getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+
+         /**
+         * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
+         *
+         * @note N/A
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param predicates Indicates the key.
+         * Spaces before and after the key will be cleared.
+         *  @throws Throws this exception if any of the following errors 
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
+         * {@code DB_ERROR}.
+         */
          getResultSet(deviceId: string, predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
          getResultSet(deviceId: string, predicates: Predicates): Promise<KvStoreResultSet>;
          
