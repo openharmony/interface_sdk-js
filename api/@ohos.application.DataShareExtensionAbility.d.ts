@@ -14,11 +14,10 @@
  */
 
 import { AsyncCallback } from "./basic";
-import { ResultSet } from './data/rdb/resultSet';
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
-import dataAbility from './@ohos.data.dataAbility';
-import rdb from './@ohos.data.rdb';
+import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * class of datashare extension ability.
@@ -29,22 +28,6 @@ import rdb from './@ohos.data.rdb';
  * @StageModelOnly
  */
 export default class DataShareExtensionAbility {
-    /**
-     * Opens a file in a specified remote path.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the path of the file to open.
-     * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
-     *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
-     *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
-     *             any existing data, or "rwt" for read and write access that truncates any existing file.
-     * @param callback Indicates the callback when openfile success
-     * @return Returns the file descriptor.
-     * @StageModelOnly
-     */
-    openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
-    openFile(uri: string, mode: string): Promise<number>;
     /**
      * Indicates datashare extension ability context.
      *
@@ -65,7 +48,7 @@ export default class DataShareExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-    onCreate?(want: Want): void;
+    onCreate?(want: Want, callback: AsyncCallback<void>): void;
 
     /**
      * Obtains the MIME type of files. This method should be implemented by a data share.
@@ -85,6 +68,22 @@ export default class DataShareExtensionAbility {
     getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
 
     /**
+     * Opens a file in a specified remote path.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+     * @param uri Indicates the path of the file to open.
+     * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
+     *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
+     *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
+     *             any existing data, or "rwt" for read and write access that truncates any existing file.
+     * @param callback Indicates the callback when openfile success
+     * @return Returns the file descriptor.
+     * @StageModelOnly
+     */
+    openFile?(uri: string, mode: string, callback: AsyncCallback<number>): void;
+
+    /**
      * Inserts a data record into the database. This method should be implemented by a data share.
      *
      * @since 9
@@ -95,7 +94,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the index of the newly inserted data record.
      * @StageModelOnly
      */
-    insert?(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
+    insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
 
     /**
      * Updates one or more data records in the database. This method should be implemented by a data share.
@@ -103,14 +102,14 @@ export default class DataShareExtensionAbility {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the database table storing the data to update.
-     * @param valueBucket Indicates the data to update. This parameter can be null.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be updated by
      *        default.
+     * @param valueBucket Indicates the data to update. This parameter can be null.
      * @systemapi Hide this for inner system use.
      * @return Returns the number of data records updated.
      * @StageModelOnly
      */
-    update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates,
+    update?(uri: string, predicates: DataSharePredicates, valueBucket: ValuesBucket,
         callback: AsyncCallback<number>): void;
 
     /**
@@ -125,24 +124,25 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records deleted.
      * @StageModelOnly
      */
-    delete?(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
+    delete?(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
      * Queries one or more data records in the database. This method should be implemented by a data share.
      *
+     * @note Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the database table storing the data to query.
-     * @param columns Indicates the columns to be queried, in array, for example, {"name","age"}. You should define
-     *                the processing logic when this parameter is null.
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be queried by
      *                   default.
+     * @param columns Indicates the columns to be queried, in array, for example, {"name","age"}. You should define
+     *                the processing logic when this parameter is null.
      * @systemapi Hide this for inner system use.
-     * @return Returns the queried data.
+     * @return Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
-    query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates,
-        callback: AsyncCallback<ResultSet>): void;
+    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>,
+        callback: AsyncCallback<Object>): void;
 
     /**
      * Obtains the MIME type matching the data specified by the URI of the data share. This method should be
@@ -170,7 +170,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records inserted.
      * @StageModelOnly
      */
-    batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
     /**
      * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be
