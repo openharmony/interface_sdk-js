@@ -121,13 +121,13 @@ declare namespace dataShare {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @param uri Indicates the path of data to update.
-         * @param value Indicates the data to update. This parameter can be null.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param value Indicates the data to update. This parameter can be null.
          * @return Returns the number of data records updated.
          * @StageModelOnly
          */
-        update(uri: string, value: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(uri: string, value: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
+        update(uri: string, predicates: DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
+        update(uri: string, predicates: DataSharePredicates, value: ValuesBucket): Promise<number>;
 
         /**
          * Inserts multiple data records into the database.

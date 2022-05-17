@@ -129,6 +129,7 @@ export default class DataShareExtensionAbility {
     /**
      * Queries one or more data records in the database. This method should be implemented by a data share.
      *
+     * @note Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the database table storing the data to query.
