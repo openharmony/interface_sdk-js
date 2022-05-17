@@ -32,7 +32,6 @@ declare namespace rdb {
      * You can set parameters of the RDB store as required. In general, this method is recommended
      * to obtain a rdb store.
      *
-     * @note N/A
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param context Indicates the context of application or capability.
@@ -47,7 +46,6 @@ declare namespace rdb {
     /**
      * Deletes the database with a specified name.
      *
-     * @note N/A
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @param context Indicates the context of application or capability.
@@ -62,7 +60,6 @@ declare namespace rdb {
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import N/A
      */
     enum SyncMode {
         /**
@@ -70,7 +67,6 @@ declare namespace rdb {
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @import N/A
          */
         SYNC_MODE_PUSH = 0,
 
@@ -79,7 +75,6 @@ declare namespace rdb {
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @import N/A
          */
         SYNC_MODE_PULL = 1,
     }
@@ -89,14 +84,12 @@ declare namespace rdb {
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @import N/A
      */
     enum SubscribeType {
         /**
          * Subscription to remote data changes
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @import N/A
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
     }
@@ -114,7 +107,6 @@ declare namespace rdb {
         /**
          * Inserts a row of data into the target table.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param table Indicates the target table.
@@ -127,7 +119,6 @@ declare namespace rdb {
         /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
@@ -140,7 +131,6 @@ declare namespace rdb {
         /**
          * Updates data in the database based on a a specified instance object of DataSharePredicates.
          *
-         * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param table Indicates the target table.
@@ -154,7 +144,6 @@ declare namespace rdb {
         /**
          * Deletes data from the database based on a specified instance object of rdbPredicates.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param predicates Indicates the specified delete condition by the instance object of RdbPredicates.
@@ -166,7 +155,6 @@ declare namespace rdb {
         /**
          * Deletes data from the database based on a specified instance object of DataSharePredicates.
          *
-         * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param table Indicates the target table.
@@ -179,7 +167,6 @@ declare namespace rdb {
         /**
          * Queries data in the database based on specified conditions.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param predicates Indicates the specified query condition by the instance object of RdbPredicates.
@@ -192,7 +179,6 @@ declare namespace rdb {
         /**
          * Queries data in the database based on specified conditions.
          *
-         * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param table Indicates the target table.
@@ -206,7 +192,6 @@ declare namespace rdb {
         /**
          * Queries data in the database based on SQL statement.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param sql Indicates the SQL statement to execute.
@@ -219,7 +204,6 @@ declare namespace rdb {
         /**
          * Executes an SQL statement that contains specified parameters but returns no value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param sql Indicates the SQL statement to execute.
@@ -231,7 +215,6 @@ declare namespace rdb {
         /**
          * beginTransaction before excute your sql
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
@@ -240,7 +223,6 @@ declare namespace rdb {
         /**
          * commit the the sql you have excuted.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
@@ -249,7 +231,6 @@ declare namespace rdb {
         /**
          * roll back the sql you have already excuted
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
@@ -258,7 +239,6 @@ declare namespace rdb {
         /**
          * Set table to be distributed table.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param tables the tables name you want to set
@@ -271,7 +251,6 @@ declare namespace rdb {
          * Obtain distributed table name of specified remote device according to local table name.
          * When query remote device database, distributed table name is needed.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param device Indicates the remote device.
@@ -285,7 +264,6 @@ declare namespace rdb {
         /**
          * Sync data between devices
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
@@ -300,7 +278,6 @@ declare namespace rdb {
          * Registers an observer for the database. When data in the distributed database changes,
          * the callback will be invoked.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
@@ -312,7 +289,6 @@ declare namespace rdb {
         /**
          * Remove specified observer of specified type from the database.
          *
-         * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
@@ -365,7 +341,6 @@ declare namespace rdb {
          * A parameterized constructor used to create an RdbPredicates instance.
          * name Indicates the table name of the database.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
@@ -550,7 +525,6 @@ declare namespace rdb {
         /**
          * Restricts the value of the field to the range between low value and high value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
@@ -564,7 +538,6 @@ declare namespace rdb {
          * Configures RdbPredicates to match the specified field whose data type is int and value is
          * out of a given range.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
@@ -577,7 +550,6 @@ declare namespace rdb {
         /**
          * Restricts the value of the field to be greater than the specified value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
@@ -589,7 +561,6 @@ declare namespace rdb {
         /**
          * Restricts the value of the field to be smaller than the specified value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
@@ -601,7 +572,6 @@ declare namespace rdb {
         /**
          * Restricts the value of the field to be greater than or equal to the specified value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
@@ -613,7 +583,6 @@ declare namespace rdb {
         /**
          * Restricts the value of the field to be smaller than or equal to the specified value.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name.
@@ -626,7 +595,6 @@ declare namespace rdb {
          * Restricts the ascending order of the return list. When there are several orders,
          * the one close to the head has the highest priority.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name for sorting the return list.
@@ -638,7 +606,6 @@ declare namespace rdb {
          * Restricts the descending order of the return list. When there are several orders,
          * the one close to the head has the highest priority.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name for sorting the return list.
@@ -649,7 +616,6 @@ declare namespace rdb {
         /**
          * Restricts each row of the query result to be unique.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the SQL query statement with the specified RdbPredicates.
@@ -659,7 +625,6 @@ declare namespace rdb {
         /**
          * Restricts the max number of return records.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param value Indicates the max length of the return list.
@@ -681,7 +646,6 @@ declare namespace rdb {
         /**
          * Configures RdbPredicates to group query results by specified columns.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param fields Indicates the specified columns by which query results are grouped.
@@ -704,7 +668,6 @@ declare namespace rdb {
          * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
          * are within a given range.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
@@ -717,7 +680,6 @@ declare namespace rdb {
          * Configures RdbPredicates to match the specified field whose data type is ValueType array and values
          * are out of a given range.
          *
-         * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param field Indicates the column name in the database table.
