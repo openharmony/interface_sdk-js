@@ -20,9 +20,10 @@ declare const Component: ClassDecorator;
 
 /**
  * Defining Entry ClassDecorator.
- * @since 7
+ * Only API 9 and later support parameters.
+ * @since 9
  */
-declare const Entry: ClassDecorator;
+declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
 
 /**
  * Defining Observed ClassDecorator.
@@ -120,6 +121,25 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  */
 declare const CustomDialog: ClassDecorator;
 
+/**
+ * Defining LocalStorageLink PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageLink: (value: string) => PropertyDecorator;
+
+/**
+ * Defining LocalStorageProp PropertyDecorator.
+ * @since 9
+ */
+declare const LocalStorageProp: (value: string) => PropertyDecorator;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare function getContext(component?: Object): Object;
+ 
 /**
  * Defines the data type of the interface restriction.
  * @since 7

@@ -290,6 +290,12 @@ declare namespace bundle {
      */
     BACKUP = 9,
     /**
+     * @default Indicates extension info with type of window
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    WINDOW = 10,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -417,7 +423,7 @@ declare namespace bundle {
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
   function getBundleInstaller(): Promise<BundleInstaller>;
-   
+
   /**
    * Obtains information about the current ability.
    *
@@ -589,9 +595,9 @@ declare namespace bundle {
    * @return Returns a list of ExtensionInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    */
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
-  function queryExtensionAbilityInfosByWant(want: Want, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, callback: AsyncCallback<Array<ExtensionAbilityInfo>>): void;
+  function queryExtensionAbilityInfos(want: Want, extensionType: number, extensionFlags: number, userId?: number): Promise<Array<ExtensionAbilityInfo>>;
 
   /**
    * Get the permission details by permissionName.
@@ -679,6 +685,48 @@ declare namespace bundle {
     */
   function isModuleRemovable(bundleName: string, moduleName: string, callback: AsyncCallback<boolean>): void;
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
+
+  /**
+   * Obtains information about the current ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the AbilityInfo object for the current ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
+  function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
+
+  /**
+   * Obtains the label of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @return Returns the label representing the label of the specified ability.
+   */
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
+  function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
+ 
+  /**
+   * Obtains the icon of a specified ability.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application to which the ability belongs.
+   * @param moduleName Indicates the module name.
+   * @param abilityName Indicates the ability name.
+   * @return Returns the PixelMap object representing the icon of the specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
 }
 
 export default bundle;

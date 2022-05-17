@@ -14,7 +14,7 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './app/context';
-import { ContentStorage } from './@internal/component/ets/stateManagement'
+import { LocalStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -63,6 +63,27 @@ declare namespace window {
     PRIMARY,
     SECONDARY,
     FLOATING
+  }
+
+   /**
+   * Describes the mode of window layout
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum WindowLayoutMode {
+    /**
+     * CASCADE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_CASCADE,
+    /**
+     * TILE
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    WINDOW_LAYOUT_MODE_TILE
   }
 
   /**
@@ -381,6 +402,50 @@ declare namespace window {
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
   /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * minimize all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeAll(id: number): Promise<void>;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+
+  /**
+   * Toggle shown state for all app windows. Minimize or restore all app windows.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function toggleShownStateForAllAppWindows(): Promise<void>;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the layout mode of a window.
+   * @param mode the layout mode of a window.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+
+  /**
    * register the callback of systemBarTintChange
    * @param type: 'systemBarTintChange'
    * @systemapi Hide this for inner system use.
@@ -588,7 +653,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
@@ -597,7 +662,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage): Promise<void>;
+    loadContent(path: string, storage: LocalStorage): Promise<void>;
 
     /**
      * Loads content
@@ -810,6 +875,15 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Dump window client information.
+     * Called in the dump callback of ability is the typical usage scenario.
+     * @since 9
+     * @param params Indicates the params from command.
+     * @return The dump info array.
+     */
+    dump(params: Array<string>): Array<string>;
   }
   /**
    * window stage callback event type
@@ -867,7 +941,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage: ContentStorage, callback: AsyncCallback<void>): void;
+    loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded
@@ -875,7 +949,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    loadContent(path: string, storage?: ContentStorage): Promise<void>;
+    loadContent(path: string, storage?: LocalStorage): Promise<void>;
     /**
      * Loads content
      * @param path path of the page to which the content will be loaded

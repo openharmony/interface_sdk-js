@@ -16,7 +16,7 @@
 import { AsyncCallback } from '../basic';
 import Ability from '../@ohos.application.Ability';
 import { AbilityMonitor } from './abilityMonitor';
-import { Context } from '../app/context';
+import { Context } from './Context';
 import Want from "../@ohos.application.Want";
 import { ShellCmdResult } from './shellCmdResult';
 

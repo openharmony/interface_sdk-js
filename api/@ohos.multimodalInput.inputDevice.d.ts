@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,73 +13,282 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
+import { Callback, AsyncCallback } from "./basic";
+import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 
- /**
- * The input device management module is configured to obtain an ID and device information of an input device.
- *
- * @since 8
- * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
- */
+/**
+* The input device management module is configured to obtain an ID and device information of an input device.
+*
+* @since 8
+* @syscap SystemCapability.MultimodalInput.Input.InputDevice
+* @import import inputDevice from '@ohos.multimodalInput.inputDevice';
+*/
 
 declare namespace inputDevice {
-    type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
+  type ChangedType = 'add' | 'remove';
 
-    type AxisType = 'NULL';
+  type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
+  /**
+   * @since 9
+   */
+  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor' | 'NULL';
+
+  enum KeyboardType {
     /**
-     * Defines axis information about events that can be reported by an input device.
-     * For example, a touchscreen may report information such as x, y, and pressure,
-     * which indicate the x-axis coordinate, y-axis coordinate, and pressure, respectively.
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param source Input source type of the axis. For example, if a mouse reports an x-axis event, the source of the x-axis is the mouse.
-     * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
-     * @param max Maximum value of the data reported on this axis.
-     * @param min Minimum value of the data reported on this axis.
+     * none
      */
-    interface AxisRange {
-        source: SourceType;
-        axis : AxisType;
-        max : number;
-        min: number;
+    NONE = 0,
+  
+    /**
+     * unknown
+     */
+    UNKNOWN = 1,
+  
+    /**
+     * alphabetic keyboard
+     */
+    ALPHABETIC_KEYBOARD = 2,
+  
+    /**
+     * digital keyboard
+     */
+    DIGITAL_KEYBOARD = 3,
+  
+    /**
+     * handwriting pen
+     */
+    HANDWRITING_PEN = 4,
+  
+    /**
+     * remote control
+     */
+    REMOTE_CONTROL = 5,
     }
 
+  /**
+   * Defines the listener for input device events.
+   * 
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param type Type of the input device event. The options are add and remove.
+   * @param deviceId ID of the input device for the reported input device event.
+   */
+  interface DeviceListener {
+    type: ChangedType;
+    deviceId: number;
+  }
+
+  /**
+   * Starts listening for an input device event.
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param type Type of the input device event, which is **change**.
+   * @return Callback for the input device event.
+   */
+   function on(type: "change", listener: Callback<DeviceListener>): void;
+
+  /**
+   * Stops listening for an input device event.
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param type Type of the input device event, which is **change**.
+   * @return Callback for the input device event.
+   */
+  function off(type: "change", listener?: Callback<DeviceListener>): void;
+
+  /**
+   * Defines axis information about events that can be reported by an input device.
+   * For example, a touchscreen may report information such as x, y, and pressure,
+   * which indicate the x-axis coordinate, y-axis coordinate, and pressure, respectively.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param source Input source type of the axis. For example, if a mouse reports an x-axis event, the source of the x-axis is the mouse.
+   * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
+   * @param max Maximum value of the data reported on this axis.
+   * @param min Minimum value of the data reported on this axis.
+   * @param fuzz fuzz value of the data reported on this axis.
+   * @param flat flat value of the data reported on this axis.
+   * @param resolution resolution value of the data reported on this axis.
+   */
+  interface AxisRange {
     /**
-     * Defines the information about an input device.
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param name Name of the input device.
-     * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
+     * @since 8
      */
-    interface InputDeviceData {
-        id: number;
-        name: string;
-        sources : Array<SourceType>;
-        axisRanges : Array<AxisRange>;
-    }
+    source: SourceType;
 
     /**
-     * Obtains the IDs of all input devices.
-     *
      * @since 8
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param callback callback function, receive reported data
      */
-    function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
-    function getDeviceIds(): Promise<Array<number>>;
+    axis: AxisType;
 
     /**
-     * Obtain the information about an input device.
-     *
      * @since 8
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @param deviceId ID of the input device whose information is to be obtained.
-     * @param callback callback function, receive reported data
      */
-    function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
-    function getDevice(deviceId: number): Promise<InputDeviceData>;
+    max: number;
+
+    /**
+     * @since 8
+     */
+    min: number;
+
+    /**
+     * @since 9
+     */
+    fuzz: number;
+
+    /**
+     * @since 9
+     */
+    flat: number;
+
+    /**
+     * @since 9
+     */
+    resolution: number;
+  }
+
+  /**
+   * Defines the information about an input device.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param name Name of the input device.
+   * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
+   * @param axisRanges
+   * @param bus bus
+   * @param product product
+   * @param vendor vendor
+   * @param version version
+   * @param phys physical path
+   * @param uniq unique identifier
+   */
+  interface InputDeviceData {
+    /**
+     * @since 8
+     */
+    id: number;
+
+    /**
+     * @since 8
+     */
+    name: string;
+
+    /**
+     * @since 8
+     */
+    sources: Array<SourceType>;
+
+    /**
+     * @since 8
+     */
+    axisRanges: Array<AxisRange>;
+
+    /**
+     * @since 9
+     */
+    bus: number;
+
+    /**
+     * @since 9
+     */
+    product: number;
+
+    /**
+     * @since 9
+     */
+    vendor: number;
+
+    /**
+     * @since 9
+     */
+    version: number;
+
+    /**
+     * @since 9
+     */
+    phys: string;
+
+    /**
+     * @since 9
+     */
+    uniq: string;
+  }
+
+  /**
+   * Obtains the IDs of all input devices.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param callback callback function, receive reported data
+   */
+  function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
+  function getDeviceIds(): Promise<Array<number>>;
+
+  /**
+   * Obtain the information about an input device.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId ID of the input device whose information is to be obtained.
+   * @param callback callback function, receive reported data
+   */
+  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+  function getDevice(deviceId: number): Promise<InputDeviceData>;
+
+  /**
+   * Checks whether the specified key codes of an input device are supported.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId ID of the input device.
+   * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
+   * @return Returns a result indicating whether the specified key codes are supported.
+   */
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
+
+  /**
+   * Set the speed of cursor movement.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param speed Speed of cursor movement.
+   */
+  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
+  function setPointerSpeed(speed: number): Promise<void>;
+
+  /**
+   * Gets the cursor movement speed.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   */
+  function getPointerSpeed(callback: AsyncCallback<number>): void;
+  function getPointerSpeed(): Promise<number>;
+
+  /**
+   * Query the keyboard type of the input device.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId input device id.
+   * @return Returns the keyboard type.
+   */
+  function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
+  function getKeyboardType(deviceId: number): Promise<KeyboardType>;
+
+  /**
+   * Mouse position setting.
+   * 
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
+   * @param x x coordinate
+   * @param y y coordinate
+   * @return -
+   */
+   function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
+   function setPointerLocation(x: number, y: number): Promise<void>;
 }
 
 export default inputDevice;

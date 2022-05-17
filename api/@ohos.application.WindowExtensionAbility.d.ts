@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,75 +13,62 @@
  * limitations under the License.
  */
 
+import rpc from "./@ohos.rpc";
+import ExtensionContext from "./application/ExtensionContext";
+import Want from './@ohos.application.Want';
+
 /**
- * The ability or extension state data.
+ * class of window extension ability.
  *
- * @since 8
+ * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
- * @permission N/A
+ * @StageModelOnly
  */
-export default class AbilityStateData {
+export default class WindowExtensionAbility {
     /**
-     * The module name.
+     * Indicates window extension ability context.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
+     * @StageModelOnly
      */
-    moduleName: string;
+    context: ExtensionContext;
 
     /**
-     * The bundle name.
+     * Called back when a window extension is first connected to an ability.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates connection information about the Window ability.
      * @systemapi hide for inner use.
+     * @return Returns the proxy of the Window ability.
+     * @StageModelOnly
      */
-    bundleName: string;
+    onConnect(want: Want): rpc.RemoteObject;
 
     /**
-     * The ability name.
+     * Called back when all abilities connected to a window extension are disconnected.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates disconnection information about the window extension.
      * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
      */
-    abilityName: string;
+    onDisconnect(want: Want): void;
 
     /**
-     * The pid.
+     * Called back when window is created.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
      */
-    pid: number;
-
-    /**
-     * The uid.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    uid: number;
-
-    /**
-     * The application state.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    state: number;
-
-    /**
-     * The ability type, page or service and so on.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     */
-    abilityType: number;
+    onWindowReady(window: Window): void;
 }
+
