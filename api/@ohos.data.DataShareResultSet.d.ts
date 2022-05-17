@@ -20,14 +20,12 @@
  *
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @import N/A
  */
 export enum DataType {
     /**
      * Indicates that the data type is null.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @import N/A
      */
     TYPE_NULL = 0,
 
@@ -35,7 +33,6 @@ export enum DataType {
      * Indicates that the data type is long.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @import N/A
      */
     TYPE_LONG = 1,
 
@@ -43,7 +40,6 @@ export enum DataType {
      * Indicates that the data type is double.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @import N/A
      */
     TYPE_DOUBLE = 2,
 
@@ -51,7 +47,6 @@ export enum DataType {
      * Indicates that the data type is byte string.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @import N/A
      * */
     TYPE_STRING = 3,
 
@@ -59,7 +54,6 @@ export enum DataType {
      * Indicates that the data type is blob.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @import N/A
      * */
     TYPE_BLOB = 4
 }
@@ -93,7 +87,6 @@ export default interface DataShareResultSet {
     /**
      * Obtains the number of rows in the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      */
@@ -104,7 +97,6 @@ export default interface DataShareResultSet {
      *
      * If the result set is closed by calling the close method, true will be returned.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      */
@@ -113,7 +105,6 @@ export default interface DataShareResultSet {
     /**
      * Go to the first row of the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @return Returns true if the result set is moved successfully;
@@ -124,7 +115,6 @@ export default interface DataShareResultSet {
     /**
      * Go to the last row of the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @return Returns true if the result set is moved successfully;
@@ -135,7 +125,6 @@ export default interface DataShareResultSet {
     /**
      * Go to the next row of the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @return Returns true if the result set is moved successfully;
@@ -146,7 +135,6 @@ export default interface DataShareResultSet {
     /**
      * Go to the previous row of the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @return Returns true if the result set is moved successfully;
@@ -158,7 +146,6 @@ export default interface DataShareResultSet {
      * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
      * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param offset Indicates the offset relative to the current position.
@@ -170,7 +157,6 @@ export default interface DataShareResultSet {
     /**
      * Go to the specified row of the result set.
      *
-     * @note N/A
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @param position Indicates the index of the specified row, which starts from 1.
