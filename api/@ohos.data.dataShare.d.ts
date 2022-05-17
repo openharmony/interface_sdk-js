@@ -14,7 +14,6 @@
 */
 
 import { AsyncCallback } from './basic';
-import Want from './@ohos.application.want';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from './application/Context';
 import dataAbility from './@ohos.data.dataAbility';
@@ -26,11 +25,10 @@ declare namespace dataShare {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @param context Indicates the application context.
-     * @param want Indicates The element parameter of the service ability.
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
      */
-    function createDataShareHelper(context: Context, want: Want, uri: string): DataShareHelper;
+    function createDataShareHelper(context: Context, uri: string): DataShareHelper;
 
     /**
      * DataShareHelper
