@@ -1617,8 +1617,8 @@ declare namespace distributedData {
           * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
           * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
           */
-         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
-         getResultSet(query: Query): Promise<KvStoreResultSet>;
+         getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
          /**
           * Obtains the {@code KvStoreResultSet} object matching a specified device ID and {@code Query} object.
