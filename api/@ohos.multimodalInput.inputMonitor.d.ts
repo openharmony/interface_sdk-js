@@ -12,8 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import { Callback } from './basic';
+import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+
 /**
- * Global Input Event Listener
+ * Global input event listener
  * System API, available only to system processes
  * @since 7
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
@@ -23,7 +27,7 @@
  */
 declare namespace inputMonitor {
     /**
-     * Callback function of the touch input event. If true is returned, the touch input is consumed by the monitor (the system performs the closing action).
+     * Callback used to receive touch input events. If **true** is returned, the touch input is consumed, and the system performs the closing operation.
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
@@ -31,27 +35,49 @@ declare namespace inputMonitor {
     interface TouchEventReceiver {
         (touchEvent:TouchEvent): Boolean;
     }
-	
+
     /**
-     * Listening for touch input events
+     * Listens for touch input events.
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type register event type
-     * @param receiver callback function, receive reported data
+     * @param type Event type.
+     * @param receiver Callback used to receive the reported data.
      */
     function on(type:"touch", receiver:TouchEventReceiver):void;
 
     /**
-     * Cancels listening for touch input events
+     * Listens for mouse input events.
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+     * @systemapi hide for inner use
+     * @permission ohos.permission.INPUT_MONITORING
+     * @param type Event type.
+     * @param receiver Callback used to receive the reported data.
+     */
+    function on(type:"mouse", receiver:Callback<MouseEvent>):void;
+
+    /**
+     * Cancels listening for touch input events.
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
-     * @param type register event type
-     * @param receiver callback function, receive reported data
+     * @param type Event type.
+     * @param receiver Callback used to receive the reported data.
      */
     function off(type:"touch", receiver?:TouchEventReceiver):void;
+
+    /**
+     * Cancels listening for mouse input events.
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+     * @systemapi hide for inner use
+     * @permission ohos.permission.INPUT_MONITORING
+     * @param type Event type.
+     * @param receiver Callback used to receive the reported data.
+     */
+    function off(type:"mouse", receiver?:Callback<MouseEvent>):void;
 }
 export default inputMonitor;
