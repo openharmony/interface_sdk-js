@@ -62,7 +62,7 @@ declare namespace formProvider {
      * @param formInfos Indicates where info results will be stored.
      * @return -
      */
-    function GetFormsInfo(formInfos: Array<formInfo.FormInfo>): Promise<void>;
-    function GetFormsInfo(formInfos: Array<formInfo.FormInfo>, callback: AsyncCallback<void>): void;   
+    function GetFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+    function GetFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 }
 export default formProvider;
