@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from  './app/context';
+import { Context } from  './application/BaseContext';
 import { LocalStorage } from './@internal/component/ets/stateManagement'
 /**
  * Window manager.
