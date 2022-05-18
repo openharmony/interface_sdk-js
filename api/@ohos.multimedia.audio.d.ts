@@ -531,6 +531,20 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the focus type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum FocusType {
+    /**
+     * Recording type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    FOCUS_TYPE_RECORDING = 0,
+  }
+
+  /**
    * Describes audio stream information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
