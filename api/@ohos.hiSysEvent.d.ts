@@ -158,7 +158,7 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    */
-  interface ListenerRule {
+  interface WatchRule {
     /**
      * The domain of the event.
      */
@@ -181,14 +181,19 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition listener for system event information.
+   * Definition wathcer for system event information.
    *
    * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    */
-  interface Listener{
+  interface Watcher{
     /**
+     * rule of filter system event
+     */
+     rules: WatchRule[];
+
+     /**
      * receive system event.
      *
      * @since 9
@@ -253,35 +258,62 @@ declare namespace hiSysEvent {
     names: string[];
   }
 
+  /**
+   * Definition query result handler
+   *
+   * @since 9
+   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @systemapi hide for inner use
+   */
   interface Querier {
+    /**
+     * handle query result, the query result will be send in serval times.
+     *
+     * @since 9
+     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @systemapi hide for inner use
+     * @param {SysEventInfo[]} infos system event information of query result.
+     * @param {number[]} seqs sequeue of infos.
+     * @return {void} return void.
+     */
     onQuery: (infos: SysEventInfo[], seqs: number[]) => void;
+
+    /**
+     * notify Querier execute query has finished.
+     *
+     * @since 9
+     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @systemapi hide for inner use
+     * @param {number} reason 0 success, 1 fail.
+     * @param {number} total the total number of query result.
+     * @return {void} return void.
+     */
     onComplete: (reason: number, total: number) => void;
   }
 
   /**
-   * add listener to watch system event
+   * add watcher to watch system event
    *
    * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {ListenerRule[]} rules rule of filter system event
-   * @param {Listener} listener listener of receive system event
+   * @param {Watcher} watcher watch system event
    * @return {number} 0 success, 1 fail
    */
-  function addListener(rules: ListenerRule[], listener: Listener): number;
+  function addWatcher(watcher: Watcher): number;
 
   /**
-   * remove listener
+   * remove watcher
    *
    * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Listener} listener listener of receive system event
+   * @param {Watcher} wathcer watch system event
    * @return {number} 0 success, 1 fail
    */
-  function removeListener(listener: Listener): number;
+  function removeWatcher(wathcer: Watcher): number;
 
   /**
    * query system event
