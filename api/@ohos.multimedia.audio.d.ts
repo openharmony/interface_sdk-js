@@ -1233,13 +1233,14 @@ declare namespace audio {
     createInterrupt(callback: AsyncCallback<Interrupt>): Interrupt;
     /**
      * Request independent interrupt event.
+     * @param focusType The focus type.
      * @param interrupt The interrupt.
      * @param callback Callback invoked for the independent interruption event.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
-    requestIndependentInterrupt(interrupt: Interrupt, callback: AsyncCallback<boolean>): void;
+    requestIndependentInterrupt(focusType: FocusType, interrupt: Interrupt, callback: AsyncCallback<boolean>): void;
     /**
      * Abandon the requested independent interrupt event.
      * @param interrupt The interrupt.
