@@ -1224,8 +1224,6 @@ declare namespace audio {
 
     /**
      * Create the interrupt.
-     * @param usage The audio usage type.
-     * @param content The audio content type.
      * @param callback callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
