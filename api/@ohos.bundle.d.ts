@@ -713,7 +713,7 @@ declare namespace bundle {
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<string>): void;
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
- 
+
   /**
    * Obtains the icon of a specified ability.
    *
@@ -727,6 +727,33 @@ declare namespace bundle {
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Set the disposed status of a specified bundle.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
+   * @param status Indicates the disposed status.
+   * @return Returns the disposed status of a specified bundle.
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @systemapi Hide this for inner system use
+   */
+  function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
+  function setDisposedStatus(bundleName: string, status: number,): Promise<void>;
+
+  /**
+   * Obtains the disposed status of a specified bundle.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the bundle name of the application.
+   * @return Returns the disposed status of a specified bundle.
+   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
+   * @systemapi Hide this for inner system use
+   */
+  function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
+  function getDisposedStatus(bundleName: string): Promise<number>;
 }
 
 export default bundle;
