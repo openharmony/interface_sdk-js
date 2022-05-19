@@ -44,6 +44,13 @@ export interface InstallParam {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   isKeepData: boolean;
+
+  /**
+    * @default Indicates the validity period of the bundle
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  validityPeriod: number;
 }
 
 /**
