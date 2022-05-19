@@ -59,8 +59,7 @@ declare namespace formProvider {
      *
      * @since 8
      * @syscap SystemCapability.Ability.Form
-     * @param formInfos Indicates where info results will be stored.
-     * @return -
+     * @return Infos of all forms.
      */
     function GetFormsInfo(): Promise<Array<formInfo.FormInfo>>;
     function GetFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
