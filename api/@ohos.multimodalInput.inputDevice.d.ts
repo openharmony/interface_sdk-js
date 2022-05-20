@@ -249,25 +249,6 @@ declare namespace inputDevice {
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
-   * Set the speed of cursor movement.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param speed Speed of cursor movement.
-   */
-  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
-  function setPointerSpeed(speed: number): Promise<void>;
-
-  /**
-   * Gets the cursor movement speed.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   */
-  function getPointerSpeed(callback: AsyncCallback<number>): void;
-  function getPointerSpeed(): Promise<number>;
-
-  /**
    * Query the keyboard type of the input device.
    *
    * @since 9
