@@ -1226,7 +1226,6 @@ declare namespace audio {
     /**
      * Request independent interrupt event.
      * @param focusType The focus type.
-     * @param interrupt The interrupt.
      * @param callback Callback invoked for the independent interruption event.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1235,7 +1234,7 @@ declare namespace audio {
     requestIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
     /**
      * Abandon the requested independent interrupt event.
-     * @param interrupt The interrupt.
+     * @param focusType The focus type.
      * @param callback Callback invoked for the independent interruption event.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1604,7 +1603,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    setInterrupt(mode: InterruptMode, callback: AsyncCallback<void>): void;
+    setInterruptMode(mode: InterruptMode, callback: AsyncCallback<void>): void;
     /**
      * Set interrupt mode.
      * @param mode The interrupt mode.
@@ -1612,7 +1611,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    setInterrupt(mode: InterruptMode): Promise<void>;
+    setInterruptMode(mode: InterruptMode): Promise<void>;
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
