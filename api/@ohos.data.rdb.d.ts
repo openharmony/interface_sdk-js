@@ -16,7 +16,6 @@
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
-import DataSharePredicates from './@ohos.data.DataSharePredicates';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -129,19 +128,6 @@ declare namespace rdb {
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
         /**
-         * Updates data in the database based on a a specified instance object of DataSharePredicates.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
-         * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
-         * @return Returns the number of affected rows.
-         */
-        update(table: string, values: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(table: string, values: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
- 
-        /**
          * Deletes data from the database based on a specified instance object of rdbPredicates.
          *
          * @since 7
@@ -151,18 +137,6 @@ declare namespace rdb {
          */
         delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
         delete(predicates: RdbPredicates): Promise<number>;
-
-        /**
-         * Deletes data from the database based on a specified instance object of DataSharePredicates.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
-         * @return Returns the number of affected rows.
-         */
-        delete(table: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        delete(table: string, predicates: DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database based on specified conditions.
@@ -175,19 +149,6 @@ declare namespace rdb {
          */
         query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
-
-        /**
-         * Queries data in the database based on specified conditions.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param table Indicates the target table.
-         * @param predicates Indicates the specified query condition by the instance object of DataSharePredicates.
-         * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
-         * @return Returns a ResultSet object if the operation is successful;
-         */
-        query(table: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(table: string, predicates: DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
 
         /**
          * Queries data in the database based on SQL statement.
