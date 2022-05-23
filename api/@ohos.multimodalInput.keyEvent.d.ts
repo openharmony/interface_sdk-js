@@ -76,7 +76,7 @@ export declare interface KeyEvent extends InputEvent {
   action: Action;
 
   /**
-   * 本次发生变化的按键
+   * 当前发生变化的按键
    */
   key: Key;
 

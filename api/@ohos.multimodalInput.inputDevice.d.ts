@@ -253,14 +253,14 @@ declare namespace inputDevice {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param deviceId 输入设备标识。
+   * @param deviceId 指定的输入设备标识。
    * @return 键盘类型。
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
   /**
-   * 鼠标位置设定
+   * 设置鼠标位置
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice

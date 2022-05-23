@@ -122,12 +122,12 @@ export declare enum SourceType {
 */
 export declare interface Touch {
   /**
-   * 指针标识，整型 >= 0 有效
+   * 指针标识
    */
   id: number;
 
   /**
-   * 按下时刻的时间戳
+   * 按下时的时间戳
    */
   pressedTime: number;
 
