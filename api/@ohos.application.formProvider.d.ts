@@ -61,7 +61,7 @@ declare namespace formProvider {
      * @syscap SystemCapability.Ability.Form
      * @return Infos of all forms.
      */
-    function GetFormsInfo(): Promise<Array<formInfo.FormInfo>>;
-    function GetFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+    function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 }
 export default formProvider;
