@@ -1226,21 +1226,43 @@ declare namespace audio {
     /**
      * Request independent interrupt event.
      * @param focusType The focus type.
-     * @param callback Callback invoked for the independent interruption event.
+     * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
     requestIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
     /**
-     * Abandon the requested independent interrupt event.
+     * Request independent interrupt event.
      * @param focusType The focus type.
-     * @param callback Callback invoked for the independent interruption event.
+     * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
-    abandonIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+    requestIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType): Promise<void>;
+
     /**
      * Listens for independent interruption events. When the audio of an application is interrupted by another application,
      * the callback is invoked to notify the former application.
@@ -1251,6 +1273,7 @@ declare namespace audio {
      * @systemapi
      */
     on(type: 'independentInterrupt', callback: Callback<InterruptEvent>): void;
+    
      /**
       * Cancels the listening of independent interruption events.
       * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
