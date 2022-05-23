@@ -1455,17 +1455,17 @@ declare namespace distributedData {
          * @note N/A
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIdList Indicates the list of devices to which to synchronize the database.
+         * @param devices Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param allowedDelayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @param allodelayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * @param query Indicates the {@code Query} object. 
          * @throws Throws this exception if any of the following errors
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * occurs: {@code INVALID_ARGUMENT}, 
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
-         sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
-         sync(deviceIdList: string[], query: Query, mode: SyncMode, allowedDelayMs?: number): void;
+         sync(devices: string[], mode: SyncMode, allodelayMs?: number): void;
+         sync(devices: string[], query: Query, mode: SyncMode, allodelayMs?: number): void;
 
          /**
           * Register Synchronizes SingleKvStore databases callback.
@@ -1495,12 +1495,12 @@ declare namespace distributedData {
           * @note N/A
           * @since 8
           * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-          * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
+          * @param defaultDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
           * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
           * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
           */
-         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
-         setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
+         setSyncParam(defaultDelayMs: number, callback: AsyncCallback<void>): void;
+         setSyncParam(defaultDelayMs: number): Promise<void>;
 
          /**
           * Get the security level of the database.
@@ -1725,15 +1725,15 @@ declare namespace distributedData {
          * @note N/A
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIdList Indicates the list of IDs of devices whose
+         * @param devices Indicates the list of IDs of devices whose
          * {@code DeviceKVStore} databases are to be synchronized.
          * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
          * {@code PUSH_PULL}.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        sync(deviceIdList: string[], mode: SyncMode, allowedDelayMs?: number): void;
-        sync(deviceIdList: string[], query: Query, mode: SyncMode, allowedDelayMs?: number): void;
+        sync(devices: string[], mode: SyncMode, allodelayMs?: number): void;
+        sync(devices: string[], query: Query, mode: SyncMode, allodelayMs?: number): void;
 
         /**
          * Register Synchronizes DeviceKVStore databases callback.
