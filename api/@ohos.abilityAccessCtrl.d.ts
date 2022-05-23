@@ -169,9 +169,9 @@ import { AsyncCallback } from "./basic";
         endTimeMillis: number;
 
         /**
-         * The list of permision used records
+         * The list of permision used records of bundle
          */ 
-        bundleRecords: Array<PermissionUsedRecord>;
+        bundleRecords: Array<BundleUsedRecord>;
     }
 
     /**
@@ -190,7 +190,7 @@ import { AsyncCallback } from "./basic";
         bundleName: string;
 
         /**
-         * The list of bundle used records
+         * The list of permission used records
          */ 
         permissionRecords: Array<PermissionUsedRecord>;
     }
