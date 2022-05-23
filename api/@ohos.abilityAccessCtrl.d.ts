@@ -171,23 +171,7 @@ import { AsyncCallback } from "./basic";
         /**
          * The list of permision used records
          */ 
-        permissionRecords: Array<PermissionUsedRecord>;
-    }
-
-    /**
-     * PermissionUsedRecord.
-     * @since 9
-     */
-     interface PermissionUsedRecord {
-        /**
-        * The permission name 
-        */
-        permissionName: string;
-
-        /**
-        * The list of bundle used records
-        */ 
-        bundleRecords: Array<BundleUsedRecord>;
+        bundleRecords: Array<PermissionUsedRecord>;
     }
 
     /**
@@ -204,6 +188,22 @@ import { AsyncCallback } from "./basic";
          * The bundle name 
          */
         bundleName: string;
+
+        /**
+         * The list of bundle used records
+         */ 
+        permissionRecords: Array<PermissionUsedRecord>;
+    }
+
+    /**
+     * PermissionUsedRecord.
+     * @since 9
+     */
+     interface PermissionUsedRecord {
+        /**
+        * The permission name 
+        */
+        permissionName: string;
 
         /**
          * The access counts in the foreground
@@ -236,24 +236,39 @@ import { AsyncCallback } from "./basic";
         lastRejectTime: number;
 
         /**
-         * The list of access records in the foreground
+         * The last access duration
+         */
+        lastAccessDurationTime: number;
+
+         /**
+         * The list of access timestamp records in the foreground
          */
         accessRecordFg: Array<number>;
 
         /**
-         * The list of reject records in the foreground
+         * The list of reject timestamp records in the foreground
          */
         rejectRecordFg: Array<number>;
 
         /**
-         * The list of access records in the background
+         * The list of access timestamp records in the background
          */
         accessRecordBg: Array<number>;
 
         /**
-         * The list of reject records in the background
+         * The list of reject timestamp records in the background
          */
         rejectRecordBg: Array<number>;
+
+        /**
+         * The list of access duration records in the foreground
+         */
+        accessDurationFg: Array<number>;
+
+        /**
+         * The list of access duration records in the background
+         */
+        accessDurationBg: Array<number>;
     }
 }
 
