@@ -1142,7 +1142,7 @@ declare namespace distributedData {
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param value Indicates the datasharePredicates.
+         * @param value Indicates the data record to put.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1403,7 +1403,7 @@ declare namespace distributedData {
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param predicates Indicates the key.
+         * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          *  @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1639,7 +1639,7 @@ declare namespace distributedData {
          * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param predicates Indicates the key.
+         * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          *  @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1655,7 +1655,7 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param predicates Indicates the key.
-         * @param deviceId Indicates the ID of the device to which the results belong.
+         * * @param deviceId Indicates the ID of the device to which the results belong.
          * Spaces before and after the key will be cleared.
          *  @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
