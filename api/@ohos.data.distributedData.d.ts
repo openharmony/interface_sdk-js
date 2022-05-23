@@ -1457,15 +1457,15 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param allodelayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * @param query Indicates the {@code Query} object. 
          * @throws Throws this exception if any of the following errors
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * occurs: {@code INVALID_ARGUMENT}, 
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
-         sync(deviceIds: string[], mode: SyncMode, allodelayMs?: number): void;
-         sync(deviceIds: string[], query: Query, mode: SyncMode, allodelayMs?: number): void;
+         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+         sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
 
          /**
           * Register Synchronizes SingleKvStore databases callback.
@@ -1655,6 +1655,7 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param predicates Indicates the key.
+         * @param deviceId Indicates the ID of the device to which the results belong.
          * Spaces before and after the key will be cleared.
          *  @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1726,14 +1727,15 @@ declare namespace distributedData {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of IDs of devices whose
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * {@code DeviceKVStore} databases are to be synchronized.
          * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
          * {@code PUSH_PULL}.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        sync(deviceIds: string[], mode: SyncMode, allodelayMs?: number): void;
-        sync(deviceIds: string[], query: Query, mode: SyncMode, allodelayMs?: number): void;
+        sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+        sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
 
         /**
          * Register Synchronizes DeviceKVStore databases callback.
