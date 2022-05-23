@@ -1398,7 +1398,7 @@ declare namespace distributedData {
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
          /**
-         * Obtains the KvStoreResultSet object matching the specified Predicate object..
+         * Obtains the KvStoreResultSet object matching the specified Predicate object.
          *
          * @note N/A
          * @since 9
@@ -1634,7 +1634,7 @@ declare namespace distributedData {
          getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
          /**
-         * Obtains the KvStoreResultSet object matching the specified Predicate object..
+         * Obtains the KvStoreResultSet object matching the specified Predicate object.
          *
          * @note N/A
          * @since 9
