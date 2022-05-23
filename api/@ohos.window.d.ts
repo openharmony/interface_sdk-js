@@ -851,6 +851,20 @@ declare namespace window {
     off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
 
     /**
+     * touch outside callback on.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    on(type: 'touchOutside', callback: Callback<void>): void;
+
+    /**
+     * touch outside callback off.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    off(type: 'touchOutside', callback?: Callback<void>): void;
+
+    /**
      * Whether the window supports thr wide gamut setting.
      * @since 8
      */
