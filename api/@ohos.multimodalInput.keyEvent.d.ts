@@ -81,7 +81,7 @@ export declare interface KeyEvent extends InputEvent {
   key: Key;
 
   /**
-   * unideCode编码
+   * 按键对应的uniCode字符
    */
   unicodeChar: number;
 
