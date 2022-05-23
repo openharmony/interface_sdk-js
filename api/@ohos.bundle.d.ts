@@ -393,6 +393,7 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
+   * @systemapi Hide this for inner system use
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
