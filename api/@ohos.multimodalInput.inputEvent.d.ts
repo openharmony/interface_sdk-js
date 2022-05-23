@@ -23,27 +23,27 @@
 
 export declare interface InputEvent {
   /**
-   * Event ID, generated on the server and globally unique.
+   * 由服务端生成全局唯一事件id
    */
   id: number;
 
   /**
-   * Id of the device that reports the input event. The value is an integer and is greater than or equal to 0.
+   * 上报输入事件的设备id
    */
   deviceId: number;
 
   /**
-   * Time of event.
+   * 事件发生时间
    */
   actionTime: number;
 
   /**
-   * Target screen ID, integer number, valid if the value is >=0
+   * 目标屏幕id
    */
   screenId: number;
 
   /**
-   * Target window ID, integer number, valid value >=0
+   * 目标窗口id
    */
   windowId: number;
 }

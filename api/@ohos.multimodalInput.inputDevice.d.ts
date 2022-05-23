@@ -36,32 +36,32 @@ declare namespace inputDevice {
 
   enum KeyboardType {
     /**
-     * none
+     * 无按键
      */
     NONE = 0,
   
     /**
-     * unknown
+     * 未知按键
      */
     UNKNOWN = 1,
   
     /**
-     * alphabetic keyboard
+     * 字母键盘
      */
     ALPHABETIC_KEYBOARD = 2,
   
     /**
-     * digital keyboard
+     * 数字按键
      */
     DIGITAL_KEYBOARD = 3,
   
     /**
-     * handwriting pen
+     * 手写笔
      */
     HANDWRITING_PEN = 4,
   
     /**
-     * remote control
+     * 遥控器
      */
     REMOTE_CONTROL = 5,
     }
@@ -156,12 +156,12 @@ declare namespace inputDevice {
    * @param name Name of the input device.
    * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
    * @param axisRanges
-   * @param bus bus
-   * @param product product
-   * @param vendor vendor
-   * @param version version
-   * @param phys physical path
-   * @param uniq unique identifier
+   * @param bus 总线
+   * @param product 产品
+   * @param vendor 厂商
+   * @param version 版本
+   * @param phys 物理路径
+   * @param uniq 唯一标识符
    */
   interface InputDeviceData {
     /**
@@ -253,19 +253,19 @@ declare namespace inputDevice {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param deviceId input device id.
-   * @return Returns the keyboard type.
+   * @param deviceId 输入设备标识。
+   * @return 键盘类型。
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
   /**
-   * Mouse position setting.
+   * 鼠标位置设定
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x x coordinate
-   * @param y y coordinate
+   * @param x x坐标
+   * @param y y坐标
    * @return -
    */
    function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;

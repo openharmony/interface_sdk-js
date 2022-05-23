@@ -23,22 +23,22 @@ import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 */
 export declare enum Action {
   /**
-   * touch to cancel
+   * 触摸取消
    */
   CANCEL = 0,
 
   /**
-   * touch press
+   * 触摸按下
    */
   DOWN = 1,
 
   /**
-   * touch move
+   * 触摸移动
    */
   MOVE = 2,
 
   /**
-   * touch up
+   * 触摸抬起
    */
   UP = 3,
 }
@@ -52,37 +52,37 @@ export declare enum Action {
 */
 export declare enum ToolType {
   /**
-   * finger
+   * 手指
    */
   FINGER = 0,
 
   /**
-   * pen
+   * 笔
    */
   PEN = 1,
 
   /**
-   * rubber
+   * 橡皮擦
    */
   RUBBER = 2,
 
   /**
-   * brush
+   * 笔刷
    */
   BRUSH = 3,
 
   /**
-   * pencil
+   * 铅笔
    */
   PENCIL = 4,
 
   /**
-   * airbrush
+   * 气笔
    */
   AIRBRUSH = 5,
 
   /**
-   * mouse
+   * 鼠标
    */
   MOUSE = 6,
 
@@ -98,17 +98,17 @@ export declare enum ToolType {
 */
 export declare enum SourceType {
   /**
-   * touch screen
+   * 触摸屏
    */
   TOUCH_SCREEN = 0,
 
   /**
-   * pen
+   * 手写笔
    */
   PEN = 1,
 
   /**
-   * touch pad
+   * 触摸板
    */
   TOUCH_PAD = 2,
 }
@@ -122,92 +122,92 @@ export declare enum SourceType {
 */
 export declare interface Touch {
   /**
-   * pointer identifier, integer data, data greater than or equal to 0.
+   * 指针标识，整型 >= 0 有效
    */
   id: number;
 
   /**
-   * press the timestamp of the moment
+   * 按下时刻的时间戳
    */
   pressedTime: number;
 
   /**
-   * the x coordinate of the screen to which the touch position belongs
+   * 触摸位置所属的屏幕x坐标
    */
   screenX: number;
 
   /**
-   * the y coordinate of the screen to which the touch position belongs
+   * 触摸位置所属的屏幕y坐标
    */
   screenY: number;
 
   /**
-   * touch the x coordinate of the position in the window
+   * 触摸位置在窗口中的x坐标
    */
   windowX: number;
 
   /**
-   * touch the y coordinate of the position in the window
+   * 触摸位置在窗口中的y坐标
    */
   windowY: number;
 
   /**
-   * the pressure value. The range is 0.0 to 1.0, with 0.0 indicating unsupported.
+   * 压力值，取值范围是[0.0, 1.0], 0.0表示不支持
    */
   pressure: number;
 
   /**
-   * press the width of the contact area
+   * 按下接触区域的宽度
    */
   width: number;
 
   /**
-   * press the height of the contact area
+   * 按下接触区域的高度
    */
   height: number;
 
   /**
-   * relative to the YZ plane, values range from -90 to 90 inclusive, where positive values are skewed to the right
+   * 相对YZ平面的角度,取值的范围[-90, 90]，其中正值是向右倾斜。
    */
   tiltX: number;
 
   /**
-   * the Angle relative to the XZ plane ranges from -90 to 90 inclusive, where positive values are downward sloping.
+   * 相对XZ平面的角度,值的范围[-90, 90]，其中正值是向下倾斜。
    */
   tiltY: number;
 
   /**
-   * the center point x of the tool area
+   * 工具区域的中心点X
    */
   toolX: number;
 
   /**
-   * the center point y of the tool area
+   * 工具区域的中心点Y
    */
   toolY: number;
 
   /**
-   * tool area width
+   * 工具区域宽度
    */
   toolWidth: number;
 
   /**
-   * tool area height
+   * 工具区域高度
    */
   toolHeight: number;
 
   /**
-   * the x coordinate on the input device
+   * 输入设备上的x坐标
    */
   rawX: number;
 
   /**
-   * the y coordinate on the input device
+   * 输入设备上的y坐标
    */
   rawY: number;
 
   /**
-   * tool type
+   * 工具类型
    */
   toolType: ToolType;
 }
@@ -221,22 +221,22 @@ export declare interface Touch {
 */
 export declare interface TouchEvent extends InputEvent {
   /**
-   * touch action
+   * 触摸动作
    */
   action: Action;
 
   /**
-   * the current touch
+   * 当前触摸点
    */
   touch: Touch;
 
   /**
-   * all touch
+   * 所有触摸点
    */
   touches: Touch[];
 
   /**
-   * the device type of the touch source
+   * 触摸来源的设备类型
    */
   sourceType: SourceType;
 }

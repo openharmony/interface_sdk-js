@@ -24,37 +24,37 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 export declare enum Action {
   /**
-   * cancel
+   * 取消
    */
   CANCEL = 0,
 
   /**
-   * mouse move
+   * 鼠标移动
    */
   MOVE = 1,
 
   /**
-   * the mouse button is down
+   * 鼠标按钮按下
    */
   BUTTON_DOWN = 2,
 
   /**
-   * Mouse button up
+   * 鼠标按钮抬起
    */
   BUTTON_UP = 3,
 
   /**
-   * mouse associated axis event begins
+   * 鼠标关联的轴事件开始
    */
   AXIS_BEGIN = 4,
 
   /**
-   * mouse associated axis events updated
+   * 鼠标关联的轴事件更新
    */
   AXIS_UPDATE = 5,
 
   /**
-   * mouse associated axis event ends
+   * 鼠标关联的轴事件结束
    */
   AXIS_END = 6,
 }
@@ -68,42 +68,42 @@ export declare enum Action {
 */
 export declare enum Button {
   /**
-   * the left mouse button
+   * 鼠标左键
    */
   LEFT = 0,
 
   /**
-   * the middle mouse button
+   * 鼠标中键
    */
   MIDDLE = 1,
 
   /**
-   * the right mouse button
+   * 鼠标右键
    */
   RIGHT = 2,
 
   /**
-   * side mouse button
+   * 鼠标侧边键
    */
   SIDE = 3,
 
   /**
-   * mouse extension button
+   * 鼠标扩展键
    */
   EXTRA = 4,
 
   /**
-   * mouse forward button
+   * 鼠标前进键
    */
   FORWARD = 5,
 
   /**
-   * mouse back button
+   * 鼠标后退键
    */
   BACK = 6,
 
   /**
-   * mouse task button
+   * 鼠标任务键
    */
   TASK = 7
 }
@@ -117,17 +117,17 @@ export declare enum Button {
 */
 export declare enum Axis {
   /**
-   * scroll vertical
+   * 垂直滚动轴
    */
   SCROLL_VERTICAL = 0,
 
   /**
-   * scroll horizontal
+   * 水平滚动轴
    */
   SCROLL_HORIZONTAL = 1,
 
   /**
-   * pinch
+   * 捏合轴
    */
   PINCH = 2,
 }
@@ -141,12 +141,12 @@ export declare enum Axis {
 */
 export declare interface AxisValue {
   /**
-   * axis type
+   * 轴类型
    */
   axis: Axis;
 
   /**
-   * The value of the axis
+   * 轴的值
    */
   value: number
 }
@@ -160,99 +160,97 @@ export declare interface AxisValue {
 */
 export declare interface MouseEvent extends InputEvent {
   /**
-   * mouse event action
+   * 鼠标事件动作
    */
   action: Action;
 
   /**
-   * the x coordinate of the mouse cursor in the screen
+   * 鼠标光标在屏幕中的x坐标
    */
   screenX: number;
 
   /**
-   * the y coordinate of the mouse cursor in the screen
+   * 鼠标光标在屏幕中的y坐标
    */
   screenY: number;
 
   /**
-   * the x coordinate of the mouse window
+   * 鼠标归属窗口的x坐标
    */
   windowX: number;
 
   /**
-   * the y coordinate of the mouse window
+   * 鼠标归属窗口的y坐标
    */
   windowY: number;
 
   /**
-   * the relative X offset from the last mouse position reported. At the edge of the screen,
-   * this value may be less than the coordinate difference reported by the two mice
+   * X轴相对上次上报鼠标位置的偏移，在屏幕边缘位置时，该值可能小于两次鼠标上报的坐标差
    */
   rawDeltaX: number;
 
   /**
-   * the relative Y offset from the last mouse position reported. At the edge of the screen,
-   * this value may be less than the coordinate difference reported by the two mice
+   * Y轴相对上次上报鼠标位置的偏移
    */
   rawDeltaY: number;
 
   /**
-   * a button to press or up
+   * 当前按下/抬起的按钮
    */
   button: Button;
 
   /**
-   * the button that is currently in the pressed state
+   * 当前处于按下状态的按钮
    */
   pressedButtons: Button[];
 
   /**
-   * The current action for AxisBegin/AxisUpdate/AxisEnd, the axis of the relevant data
+   * 事件包含的所有轴数据
    */
   axes: AxisValue[];
 
   /**
-   * list of keys that are currently in the pressed state
+   * 当前处于按下状态的按键列表
    */
   pressedKeys: KeyCode[];
 
   /**
-   * whether ctrlKey is in down state
+   * 当前ctrlKey是否处于按下状态
    */
   ctrlKey: boolean;
 
   /**
-   * whether altKey is in down state
+   * 当前altKey是否处于按下状态
    */
   altKey: boolean;
 
   /**
-   * whether shiftKey is in down state
+   *当前shiftKey是否处于按下状态
    */
   shiftKey: boolean;
 
   /**
-   * whether logoKey is in down state
+   * 当前logoKey是否处于按下状态
    */
   logoKey: boolean;
 
   /**
-   * whether fnKey is in down state
+   * 当前fnKey是否处于按下状态
    */
   fnKey:boolean
   
   /**
-   * whether capsLock is in the active state.
+   * 当前capsLock是否处于激活状态
    */
   capsLock:boolean
   
   /**
-   * whether numLock is in the active state.
+   * 当前numLock是否处于激活状态
    */
   numLock:boolean
   
   /**
-   * whether scrollLock is in the active state.
+   * 当前scrollLock是否处于激活状态
    */
   scrollLock:boolean
 }
