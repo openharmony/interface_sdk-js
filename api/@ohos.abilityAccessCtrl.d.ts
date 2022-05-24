@@ -90,6 +90,6 @@ import { AsyncCallback } from "./basic";
          */
         PERMISSION_GRANTED = 0,
     }
-}
+  }
 
-export default abilityAccessCtrl;
+  export default abilityAccessCtrl;
