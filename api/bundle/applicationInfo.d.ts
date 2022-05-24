@@ -166,7 +166,7 @@ export interface ApplicationInfo {
 
   /**
     * @default Indicates entity type of the application
-    * @since 9
+    * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly entityType: string;
