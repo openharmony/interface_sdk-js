@@ -118,7 +118,7 @@ export interface HapModuleInfo {
 
   /**
     * @default Indicates main elementName of the module
-    * @since 8
+    * @since 9
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly mainElementName: string;
