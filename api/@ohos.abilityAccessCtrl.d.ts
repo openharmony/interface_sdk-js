@@ -295,9 +295,9 @@ import { AsyncCallback } from "./basic";
         isLockScreen: boolean;
 
         /**
-         * Access timestamp
+         * Access/reject timestamp
          */
-        accessTimestamp: number;
+        timestamp: number;
 
         /**
          * Access duration
