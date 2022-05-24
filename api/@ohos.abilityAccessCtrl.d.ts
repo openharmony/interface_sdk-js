@@ -244,12 +244,12 @@ import { AsyncCallback } from "./basic";
         permissionName: string;
 
         /**
-         * The access counts in the foreground
+         * The access counts
          */
         accessCount: number;
 
         /**
-         * The reject counts in the foreground
+         * The reject counts
          */
         rejectCount: number;
 
@@ -266,26 +266,42 @@ import { AsyncCallback } from "./basic";
         /**
          * The last access duration
          */
-        lastAccessDurationTime: number;
+        lastAccessDuration: number;
 
          /**
-         * The list of access timestamp records in the foreground
+         * The list of access timestamp records
          */
-        accessRecord: Array<UsedRecordDetail>;
+        accessRecords: Array<UsedRecordDetail>;
 
         /**
-         * The list of reject timestamp records in the foreground
+         * The list of reject timestamp records
          */
-        rejectRecord: Array<UsedRecordDetail>;
+        rejectRecords: Array<UsedRecordDetail>;
     }
 
     /**
-     * PermissionUsedRecord.
+     * UsedRecordDetail.
      * @since 9
      */
     interface UsedRecordDetail {
+        /**
+         * The status of foreground/background
+         */
         isForeground: boolean;
+
+        /**
+         * The status of lockscreen
+         */
         isLockScreen: boolean;
+
+        /**
+         * Access timestamp
+         */
+        accessTimestamp: number;
+
+        /**
+         * Access duration
+         */
         accessDuration: number;
     }
 }
