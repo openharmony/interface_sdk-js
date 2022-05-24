@@ -1405,7 +1405,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
-         *  @throws Throws this exception if any of the following errors 
+         * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
