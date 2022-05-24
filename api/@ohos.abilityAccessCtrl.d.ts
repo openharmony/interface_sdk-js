@@ -285,14 +285,9 @@ import { AsyncCallback } from "./basic";
      */
     interface UsedRecordDetail {
         /**
-         * The status of foreground/background
+         * The status
          */
-        isForeground: boolean;
-
-        /**
-         * The status of lockscreen
-         */
-        isLockScreen: boolean;
+        status: number;
 
         /**
          * Access/reject timestamp
