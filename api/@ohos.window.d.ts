@@ -33,7 +33,85 @@ declare namespace window {
     /**
      * System alert.
      */
-    TYPE_SYSTEM_ALERT
+    TYPE_SYSTEM_ALERT,
+    /**
+     * input method.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_INPUT_METHOD,
+    /**
+     * status bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_STATUS_BAR,
+    /**
+     * panel.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_PANEL,
+    /**
+     * keyguard.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_KEYGUARD,
+    /**
+     * volume.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_VOLUME_OVERLAY,
+    /**
+     * navigation bar.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_NAVIGATION_BAR,
+    /**
+     * float.
+     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @since 9
+     */
+    TYPE_FLOAT,
+    /**
+     * wallpaper.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_WALLPAPER,
+    /**
+     * desktop.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_DESKTOP,
+    /**
+     * recent.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_LAUNCHER_RECENT,
+    /**
+     * dock.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_LAUNCHER_DOCK,
+    /**
+     * voice interaction.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_VOICE_INTERACTION,
+    /**
+     * pointer.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    TYPE_POINTER
   }
 
   /**
@@ -967,6 +1045,21 @@ declare namespace window {
      * @since 9
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * disable window decoration. It must be called before loadContent.
+     * @systemapi
+     * @since 9
+     */
+     disableWindowDecor(): void;
+
+    /**
+     * Sets whether can show on lock screen or not
+     * @param showOnLockScreen can show on lock screen if true, or not if false
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+     setShowOnLockScreen(showOnLockScreen: boolean): void;
   }
 }
 
