@@ -1131,7 +1131,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    videoScaleType ?: VideoScaleType
+    videoScaleType ?: VideoScaleType;
 
     /**
      * set payback speed.
