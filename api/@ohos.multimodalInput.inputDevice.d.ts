@@ -34,41 +34,45 @@ declare namespace inputDevice {
    */
   type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor' | 'NULL';
 
+  /**
+   * @since 9
+   */
   enum KeyboardType {
     /**
      * none
      */
     NONE = 0,
-  
+
     /**
      * unknown
      */
     UNKNOWN = 1,
-  
+
     /**
      * alphabetic keyboard
      */
     ALPHABETIC_KEYBOARD = 2,
-  
+
     /**
      * digital keyboard
      */
     DIGITAL_KEYBOARD = 3,
-  
+
     /**
      * handwriting pen
      */
     HANDWRITING_PEN = 4,
-  
+
     /**
      * remote control
      */
     REMOTE_CONTROL = 5,
-    }
+  }
 
   /**
    * Defines the listener for input device events.
    * 
+   * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event. The options are add and remove.
    * @param deviceId ID of the input device for the reported input device event.
@@ -86,7 +90,7 @@ declare namespace inputDevice {
    * @param type Type of the input device event, which is **change**.
    * @return Callback for the input device event.
    */
-   function on(type: "change", listener: Callback<DeviceListener>): void;
+  function on(type: "change", listener: Callback<DeviceListener>): void;
 
   /**
    * Stops listening for an input device event.
@@ -249,25 +253,6 @@ declare namespace inputDevice {
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
-   * Set the speed of cursor movement.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param speed Speed of cursor movement.
-   */
-  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
-  function setPointerSpeed(speed: number): Promise<void>;
-
-  /**
-   * Gets the cursor movement speed.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   */
-  function getPointerSpeed(callback: AsyncCallback<number>): void;
-  function getPointerSpeed(): Promise<number>;
-
-  /**
    * Query the keyboard type of the input device.
    *
    * @since 9
@@ -277,18 +262,6 @@ declare namespace inputDevice {
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
-
-  /**
-   * Mouse position setting.
-   * 
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x x coordinate
-   * @param y y coordinate
-   * @return -
-   */
-   function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
-   function setPointerLocation(x: number, y: number): Promise<void>;
 }
 
 export default inputDevice;
