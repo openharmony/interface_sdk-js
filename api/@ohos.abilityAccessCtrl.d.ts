@@ -237,7 +237,7 @@ import { AsyncCallback } from "./basic";
      * PermissionUsedRecord.
      * @since 9
      */
-     interface PermissionUsedRecord {
+    interface PermissionUsedRecord {
         /**
         * The permission name 
         */
@@ -246,22 +246,12 @@ import { AsyncCallback } from "./basic";
         /**
          * The access counts in the foreground
          */
-        accessCountFg: number;
+        accessCount: number;
 
         /**
          * The reject counts in the foreground
          */
-        rejectCountFg: number;
-
-        /**
-         * The access counts in the background
-         */
-        accessCountBg: number;
-
-        /**
-         * The reject counts in the background
-         */
-        rejectCountBg: number;
+        rejectCount: number;
 
         /**
          * The last access time
@@ -281,32 +271,22 @@ import { AsyncCallback } from "./basic";
          /**
          * The list of access timestamp records in the foreground
          */
-        accessRecordFg: Array<number>;
+        accessRecord: Array<UsedRecordDetail>;
 
         /**
          * The list of reject timestamp records in the foreground
          */
-        rejectRecordFg: Array<number>;
+        rejectRecord: Array<UsedRecordDetail>;
+    }
 
-        /**
-         * The list of access timestamp records in the background
-         */
-        accessRecordBg: Array<number>;
-
-        /**
-         * The list of reject timestamp records in the background
-         */
-        rejectRecordBg: Array<number>;
-
-        /**
-         * The list of access duration records in the foreground
-         */
-        accessDurationFg: Array<number>;
-
-        /**
-         * The list of access duration records in the background
-         */
-        accessDurationBg: Array<number>;
+    /**
+     * PermissionUsedRecord.
+     * @since 9
+     */
+    interface UsedRecordDetail {
+        isForeground: boolean;
+        isLockScreen: boolean;
+        accessDuration: number;
     }
 }
 
