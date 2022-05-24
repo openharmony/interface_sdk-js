@@ -215,6 +215,29 @@ declare namespace media {
   }
 
   /**
+   * Provides the audio playback parameters definition.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+   */
+  interface AudioPlaybackParams {
+    /**
+     * Describes audio renderer information, refer to {@link #audio.AudioRendererInfo}. If
+     * it is not set, the default value or recent value will be used.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    audioRendererInfo ?: audio.AudioRendererInfo;
+
+    /**
+     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
+     * set, the default value or recent value will be used.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    audioInterruptMode ?: audio.InterruptMode;
+  }
+
+  /**
    * Describes audio playback states.
    * @since 6
    * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -328,22 +351,13 @@ declare namespace media {
     loop: boolean;
 
     /**
-     * Describes audio renderer information. Set it before calling the {@link #play()} in the
-     * first time in order for the audio renderer info to become effective thereafter. For more
-     * information, refer to {@link #audio.AudioRendererInfo}.
+     * audio parameters for audio playback. Set it before calling the {@link #play()} in the
+     * first time in order for the audio parameters info to become effective thereafter. For more
+     * information, refer to {@link #AudioPlaybackParams}.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
-    audioRendererInfo ?: audio.AudioRendererInfo;
-
-    /**
-     * Describes audio interrupt mode. Set it before calling the {@link #play()} in the first time
-     * in order for the audio interrupt mode to become effective thereafter. For more information,
-     * refer to {@link #audio.InterruptMode}.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     */
-    audioInterruptMode ?: audio.InterruptMode;
+    audioPlaybackParams ?: AudioPlaybackParams;
 
     /**
      * Current playback position.
@@ -870,7 +884,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @import import media from '@ohos.multimedia.media'
    */
- interface VideoPlayer {
+  interface VideoPlayer {
     /**
      * set display surface.
      * @since 8
@@ -1100,25 +1114,24 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    bitrate: number;
+    bitrate ?: number;
 
     /**
-     * Describes audio renderer information. Set it before calling the {@link #prepare()} in the
-     * first time in order for the audio renderer info to become effective thereafter. For more
-     * information, refer to {@link #audio.AudioRendererInfo}.
+     * audio parameters for audio track playback. Set it before calling the {@link #prepare()} in
+     * the first time in order for the audio parameters info to become effective thereafter. For more
+     * information, refer to {@link #AudioPlaybackParams}.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    audioRendererInfo ?: audio.AudioRendererInfo;
+    audioPlaybackParams ?: AudioPlaybackParams;
 
     /**
-     * Describes audio interrupt mode. Set it before calling the {@link #prepare()} in the first time
-     * in order for the audio interrupt mode to become effective thereafter. For more information,
-     * refer to {@link #audio.InterruptMode}.
+     * video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
+     * information, refer to {@link #VideoScaleType}
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    audioInterruptMode ?: audio.InterruptMode;
+    videoScaleType ?: VideoScaleType
 
     /**
      * set payback speed.
@@ -1136,24 +1149,6 @@ declare namespace media {
      * @return A Promise instance used to return actually speed.
      */
     setSpeed(speed:number): Promise<number>;
-
-    /**
-     * set video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @param type playback speed, see @VideoScaleType.
-     * @param callback Callback used to ensure that set the scale type completed.
-     */
-    setVideoScaleType(type:VideoScaleType, callback: AsyncCallback<void>): void;
-
-    /**
-     * set video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @param type playback speed, see @VideoScaleType.
-     * @return A Promise instance used to ensure that set the scale type completed.
-     */
-    setVideoScaleType(type:VideoScaleType): Promise<void>;
 
     /**
      * Listens for video playback completed events.
