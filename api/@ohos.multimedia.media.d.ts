@@ -340,6 +340,8 @@ declare namespace media {
      * Describes audio interrupt mode. Set it before calling the {@link #play()} in the first time
      * in order for the audio interrupt mode to become effective thereafter. For more information,
      * refer to {@link #audio.InterruptMode}.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
     audioInterruptMode ?: audio.InterruptMode;
 
@@ -1091,9 +1093,10 @@ declare namespace media {
     /**
      * the playback bitrate expressed in bits per second, only valid for HLS protocal network stream.
      * Defaulty, the player will select the appropriate bitrate according to the network connection
-     * speed. The valid bitrates gears reported by {@link #on('availablebitratesCollected')}. Set it
-     * to select a specified bitrate. If the bitrate set between the two allowed gears, the closest
-     * one gear will be effective. Read it to query the current selected bitrate after prepare finished.
+     * speed. The available bitrates list reported by {@link #on('availablebitratesCollected')}. Set
+     * it to select a specified bitrate. If the specified bitrate is not in the list of available
+     * bitrates, the player will select the minimal and closest one from the available bitrates list.
+     * Read it to query the current selected bitrate after player prepared.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
@@ -1104,7 +1107,7 @@ declare namespace media {
      * first time in order for the audio renderer info to become effective thereafter. For more
      * information, refer to {@link #audio.AudioRendererInfo}.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     audioRendererInfo ?: audio.AudioRendererInfo;
 
@@ -1112,6 +1115,8 @@ declare namespace media {
      * Describes audio interrupt mode. Set it before calling the {@link #prepare()} in the first time
      * in order for the audio interrupt mode to become effective thereafter. For more information,
      * refer to {@link #audio.InterruptMode}.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
     audioInterruptMode ?: audio.InterruptMode;
 
@@ -1201,6 +1206,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @param type Type of the playback event to listen for.
+     * @param callback Callback used to listen for the playback event return available bitrates.
      */
     on(type: 'availableBitratesCollected', callback: (bitrates: Array<number>) => void): void
 
