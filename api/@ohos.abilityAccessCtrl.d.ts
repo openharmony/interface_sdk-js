@@ -76,6 +76,44 @@ import { AsyncCallback } from "./basic";
         getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
 
         /**
+         * Add access record of sensitive permission.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be added.
+         * @param successCount Access count.
+         * @param failCount Reject account.
+         * @return NA.
+         * @permission ohos.permission.PERMISSION_USED_STATS.
+         * @systemapi hid this for inner system use
+         * @since 9
+         */
+        addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<void>;
+        addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Start using sensitive permission.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be started.
+         * @return NA.
+         * @permission ohos.permission.PERMISSION_USED_STATS.
+         * @systemapi hid this for inner system use
+         * @since 9
+         */
+        startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
+        startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+
+        /**
+         * Stop using sensitive permission.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be stopped.
+         * @return NA.
+         * @permission ohos.permission.PERMISSION_USED_STATS.
+         * @systemapi hid this for inner system use
+         * @since 9
+         */
+        stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
+        stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+
+        /**
          * Queries the access records of sensitive permission.
          * @param request The request of permission used records.
          * @return Return the reponse of permission used records.
