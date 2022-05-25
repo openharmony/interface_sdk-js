@@ -31,7 +31,6 @@ import {AsyncCallback} from './basic'
      * @since 9
      */
     function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<void>;
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
 
     /**
      * Start using sensitive permission.
@@ -42,8 +41,7 @@ import {AsyncCallback} from './basic'
      * @systemapi hid this for inner system use
      * @since 9
      */
-    function startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
-    function startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+    function startUsingPermission(tokenID: number, permissionName: string): Promise<void>;
 
     /**
      * Stop using sensitive permission.
@@ -54,8 +52,7 @@ import {AsyncCallback} from './basic'
      * @systemapi hid this for inner system use
      * @since 9
      */
-    function stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
-    function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+    function stopUsingPermission(tokenID: number, permissionName: string): Promise<void>;
 
     /**
      * Queries the access records of sensitive permission.
