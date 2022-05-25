@@ -25,34 +25,37 @@ import {AsyncCallback} from './basic'
      * @param permissionName The permission name to be added.
      * @param successCount Access count.
      * @param failCount Reject account.
-     * @return NA.
+     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hid this for inner system use
      * @since 9
      */
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<void>;
+    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<number>;
+    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<number>): void;
 
     /**
      * Start using sensitive permission.
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be started.
-     * @return NA.
+     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hid this for inner system use
      * @since 9
      */
-    function startUsingPermission(tokenID: number, permissionName: string): Promise<void>;
+    function startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
+    function startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
 
     /**
      * Stop using sensitive permission.
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be stopped.
-     * @return NA.
+     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi hid this for inner system use
      * @since 9
      */
-    function stopUsingPermission(tokenID: number, permissionName: string): Promise<void>;
+    function stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
+    function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
 
     /**
      * Queries the access records of sensitive permission.
