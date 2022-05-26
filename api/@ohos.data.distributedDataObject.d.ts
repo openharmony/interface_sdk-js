@@ -151,20 +151,6 @@ declare namespace distributedDataObject {
          */
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
         revokeSave(): Promise<RevokeSaveSuccessResponse>;
-
-        /**
-         * session id that object joined, if not joined any session, it will be undefined or empty
-         *
-         * @since 8
-         */
-        __sessionId: string;
-
-        /**
-         * version of the distributed object, valid only after joined a session, if not join any session, it is undefined data.
-         *
-         * @since 9
-         */
-        __version: number;
     }
 }
 
