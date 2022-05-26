@@ -89,6 +89,16 @@ import {AsyncCallback} from './basic'
      */
     interface PermissionUsedRequest {
         /**
+         * AccessTokenID
+         */
+        tokenId: number;
+
+        /**
+         * Distribute flag
+         */
+        isRemote: boolean;
+
+         /**
          * The device id
          */
         deviceId: string;
@@ -145,6 +155,16 @@ import {AsyncCallback} from './basic'
      * @since 9
      */
      interface BundleUsedRecord {
+        /**
+         * AccessTokenID
+         */
+        tokenId: number;
+
+        /**
+          * Distribute flag
+          */
+        isRemote: boolean;
+
         /**
          * The device id 
          */
