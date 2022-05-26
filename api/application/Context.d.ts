@@ -142,7 +142,31 @@ export default class Context extends BaseContext {
      */
     createBundleContext(bundleName: string): Context;
 
-     /**
+    /**
+     * Create a module context
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param moduleName Indicates the module name.
+     * @return application context
+     * @StageModelOnly
+     */
+    createModuleContext(moduleName: string): Context;
+
+    /**
+     * Create a module context
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     * @param bundleName Indicates the bundle name.
+     * @param moduleName Indicates the module name.
+     * @return application context
+     * @StageModelOnly
+     */
+    createModuleContext(bundleName: string, moduleName: string): Context;
+
+    /**
      * Get application context
      *
      * @since 9
