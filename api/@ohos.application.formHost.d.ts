@@ -170,7 +170,8 @@ declare namespace formHost {
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
     function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
-    function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+    function getAllFormsInfo(FormInfoType: formInfo.FormInfoType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getAllFormsInfo(FormInfoType?: formInfo.FormInfoType): Promise<Array<formInfo.FormInfo>>;
 
     /**
      * Obtains the FormInfo objects provided by a specified application on the device.
@@ -186,6 +187,35 @@ declare namespace formHost {
     function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
+    // Version #1
+    function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, formInfoType: formInfo.FormInfoType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName: string, formInfoType: formInfo.FormInfoType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName?: string, formInfoType?: formInfo.FormInfoType): Promise<Array<formInfo.FormInfo>>;
+
+    // Version #2
+    interface Options {
+        moduleName?: string;
+        formInfoType?: formInfo.FormInfoType;
+    }
+    function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+    function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>, opt?:Options): void;
+    function getFormsInfo(bundleName: string, opt?:Options): void;
+    
+    // Version #3
+    interface FormInfoRequest {
+        bundleName: string;
+        moduleName?: string;
+        formInfoType?: formInfo.FormInfoType;
+        callback?: AsyncCallback<Array<formInfo.FormInfo>>
+    }
+    function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+    function getFormsInfo(request: FormInfoRequest);
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
      *

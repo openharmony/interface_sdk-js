@@ -386,5 +386,18 @@ declare namespace formInfo {
          */
         TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
     }
+
+    /**
+     * The type of a form
+     *
+     * @name FormInfoType
+     * @since 8
+     * @syscap SystemCapability.Ability.Form
+     */
+    enum FormInfoType {
+        IS_STATIC = 0,
+        IS_DYNAMC = 1,
+        BOTH_STATIC_DYNAMIC = 2
+    }
 }
 export default formInfo;
