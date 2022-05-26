@@ -101,7 +101,7 @@ import {AsyncCallback} from './basic'
         /**
          * The list of permision name
          */ 
-        permNames: Array<string>;
+        permissionNames: Array<string>;
 
         /**
          * The begin time
