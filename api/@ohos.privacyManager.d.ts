@@ -27,7 +27,7 @@ import {AsyncCallback} from './basic'
      * @param failCount Reject account.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hid this for inner system use
+     * @systemapi hide this for inner system use
      * @since 9
      */
     function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<number>;
@@ -39,7 +39,7 @@ import {AsyncCallback} from './basic'
      * @param permissionName The permission name to be started.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hid this for inner system use
+     * @systemapi hide this for inner system use
      * @since 9
      */
     function startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
@@ -51,7 +51,7 @@ import {AsyncCallback} from './basic'
      * @param permissionName The permission name to be stopped.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hid this for inner system use
+     * @systemapi hide this for inner system use
      * @since 9
      */
     function stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
@@ -62,7 +62,7 @@ import {AsyncCallback} from './basic'
      * @param request The request of permission used records.
      * @return Return the reponse of permission used records.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hid this for inner system use
+     * @systemapi hide this for inner system use
      * @since 9
      */
     function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
@@ -104,14 +104,14 @@ import {AsyncCallback} from './basic'
         permissionNames: Array<string>;
 
         /**
-         * The begin time
+         * The begin time, in milliseconds
          */
-        beginTimeMillis: number;
+        beginTime: number;
 
         /**
-         * The end time
+         * The end time, in milliseconds
          */
-        endTimeMillis: number;
+        endTime: number;
 
         /**
          * The permission usage flag
@@ -125,14 +125,14 @@ import {AsyncCallback} from './basic'
      */
     interface PermissionUsedResponse {
         /**
-         * The begin time 
+         * The begin time, in milliseconds
          */
-        beginTimeMillis: number;
+        beginTime: number;
 
         /**
-         * The end time
+         * The end time, in milliseconds
          */
-        endTimeMillis: number;
+        endTime: number;
 
         /**
          * The list of permision used records of bundle
@@ -182,27 +182,27 @@ import {AsyncCallback} from './basic'
         rejectCount: number;
 
         /**
-         * The last access time
+         * The last access time, in milliseconds
          */
         lastAccessTime: number;
 
         /**
-         * The last reject time
+         * The last reject time, in milliseconds
          */
         lastRejectTime: number;
 
         /**
-         * The last access duration
+         * The last access duration, in milliseconds
          */
         lastAccessDuration: number;
 
          /**
-         * The list of access timestamp records
+         * The list of access records of details
          */
         accessRecords: Array<UsedRecordDetail>;
 
         /**
-         * The list of reject timestamp records
+         * The list of reject records of details
          */
         rejectRecords: Array<UsedRecordDetail>;
     }
@@ -218,12 +218,12 @@ import {AsyncCallback} from './basic'
         status: number;
 
         /**
-         * Access/reject timestamp
+         * Timestamp, in milliseconds
          */
         timestamp: number;
 
         /**
-         * Access duration
+         * Access duration, in milliseconds
          */
         accessDuration: number;
     }
