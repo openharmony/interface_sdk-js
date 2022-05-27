@@ -122,6 +122,12 @@ declare namespace screen {
      */
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
     setScreenActiveMode(modeIndex: number): Promise<void>;
+
+    /**
+     * set display density of the screen
+     */
+    setDensityDpi(densityDpi: number, callback: AsyncCallback<void>): void;
+    setDensityDpi(densityDpi: number): Promise<void>;
   }
 
   /**
