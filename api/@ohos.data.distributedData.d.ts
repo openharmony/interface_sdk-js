@@ -1775,7 +1775,7 @@ declare namespace distributedData {
          *
          * <p>This method returns immediately and sync result will be returned through asynchronous callback.
          * @note N/A
-         * @since 7
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of IDs of devices whose
          * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
