@@ -1224,7 +1224,7 @@ declare namespace distributedData {
         /**
          * UnRegister Synchronizes {@code KvStore} database callback.
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param syncCallback Indicates the callback used to send the synchronization result to caller.
          * @throws Throws this exception if any of the following errors 
@@ -1465,6 +1465,22 @@ declare namespace distributedData {
          * Synchronizes the database to the specified devices with the specified delay allowed.
          *
          * @note N/A
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param deviceIds Indicates the list of devices to which to synchronize the database.
+         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @throws Throws this exception if any of the following errors
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * occurs: {@code INVALID_ARGUMENT}, 
+         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
+         */
+         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void
+
+        /**
+         * Synchronizes the database to the specified devices with the specified delay allowed.
+         *
+         * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of devices to which to synchronize the database.
@@ -1476,7 +1492,6 @@ declare namespace distributedData {
          * occurs: {@code INVALID_ARGUMENT}, 
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
          */
-         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
          sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
 	 
         /**
@@ -1484,7 +1499,7 @@ declare namespace distributedData {
          * {@code KvStoreObserver} will be invoked.
          *
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the observer of data change events in the distributed database.
@@ -1507,7 +1522,7 @@ declare namespace distributedData {
         /**
          * Unsubscribes from the SingleKvStore database based on the specified subscribeType and {@code KvStoreObserver}.
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws Throws this exception if any of the following errors 
@@ -1760,6 +1775,23 @@ declare namespace distributedData {
          *
          * <p>This method returns immediately and sync result will be returned through asynchronous callback.
          * @note N/A
+         * @since 8
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param deviceIds Indicates the list of IDs of devices whose
+         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * {@code DeviceKVStore} databases are to be synchronized.
+         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
+         * {@code PUSH_PULL}.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @throws Throws this exception if no DeviceKVStore database is available.
+         */
+         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+
+        /**
+         * Synchronizes {@code DeviceKVStore} databases.
+         *
+         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
+         * @note N/A
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of IDs of devices whose
@@ -1771,7 +1803,6 @@ declare namespace distributedData {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-        sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
         sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
 
         /**
@@ -1791,7 +1822,7 @@ declare namespace distributedData {
          * {@code KvStoreObserver} will be invoked.
          *
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the observer of data change events in the distributed database.
@@ -1805,7 +1836,7 @@ declare namespace distributedData {
          * Unsubscribes from the DeviceKVStore database based on the specified subscribeType and {@code KvStoreObserver}.
          *
          * @note N/A
-         * @since 9
+         * @since 8
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param observer Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws Throws this exception if any of the following errors 
