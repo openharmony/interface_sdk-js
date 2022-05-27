@@ -287,6 +287,13 @@ declare namespace window {
     brightness: number
 
     /**
+     * The dimbehind value of window.
+     * @since 7
+     * @deprecated since 9
+     */
+    dimBehindValue: number
+
+    /**
      * Whether keep screen on.
      * @since 6
      */
@@ -813,6 +820,24 @@ declare namespace window {
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
+    * Sets the dimBehind of window.
+    * @param dimBehindValue the specified dimBehind.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @since 7
+    * @deprecated since 9
+    */
+    setDimBehind(dimBehindValue: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the dimBehind of window.
+     * @param dimBehind the specified dimBehind.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     * @deprecated since 9
+     */
+    setDimBehind(dimBehindValue: number): Promise<void>;
+
+    /**
      * Sets whether focusable or not.
      * @param isFocusable can be focus if true, or can not be focus if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -843,6 +868,24 @@ declare namespace window {
      * @since 6
      */
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+    * Sets whether outside can be touch or not.
+    * @param touchable outside can be touch if true, or not if false.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @since 7
+    * @deprecated since 9
+    */
+    setOutsideTouchable(touchable: boolean): Promise<void>;
+
+    /**
+     * Sets whether outside can be touch or not.
+     * @param touchable outside can be touch if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     * @deprecated since 9
+     */
+    setOutsideTouchable(touchable: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Sets whether is private mode or not.
