@@ -332,7 +332,6 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the data change observer already registered .
          * @param observer Indicates the data change observer already registered.
          */
         /**
