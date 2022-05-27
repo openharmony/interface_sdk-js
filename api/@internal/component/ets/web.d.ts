@@ -134,7 +134,7 @@ declare enum HitTestType {
 declare enum CacheMode {
   /**
    * load cache when they are available and not expired, otherwise load online.
-   * @since 8
+   * @since 9
    */
   Default,
 
@@ -159,78 +159,78 @@ declare enum CacheMode {
 
 /**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
- * @since 8
+ * @since 9
  */
 declare enum RenderExitReason {
   /**
    * Render process non-zero exit status.
-   * @since 8
+   * @since 9
    */
-  PROCESS_ABNORMAL_TERMINATION,
+  ProcessAbnormalTermination,
 
   /**
    * SIGKILL or task manager kill.
-   * @since 8
+   * @since 9
    */
-  PROCESS_WAS_KILLED,
+  ProcessWasKilled,
 
   /**
-   * SIGKILL or task manager kill.
-   * @since 8
+   * Segmentation fault.
+   * @since 9
    */
-  PROCESS_CRASHED,
+  ProcessCrashed,
 
   /**
-   * SIGKILL or task manager kill.
-   * @since 8
+   * Out of memory.
+   * @since 9
    */
-  PROCESS_OOM,
+  ProcessOom,
 
   /**
-   * SIGKILL or task manager kill.
-   * @since 8
+   * Unknown reason.
+   * @since 9
    */
-  PROCESS_EXIT_UNKNOWN,
+  ProcessExitUnknown,
 }
 
 /**
  * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
- * @since 8
+ * @since 9
  */
 declare enum FileSelectorMode {
   /**
    * Allows single file to be selected.
-   * @since 8
+   * @since 9
    */
-  FILE_OPEN_MODE,
+  FileOpenMode,
 
   /**
    * Allows multiple files to be selected.
-   * @since 8
+   * @since 9
    */
-  FILE_OPEN_MULTIPLE_MODE,
+  FileOpenMultipleMode,
 
   /**
    * Allows file folders to be selected.
-   * @since 8
+   * @since 9
    */
-  FILE_OPEN_FOLDER_MODE,
+  FileOpenFolderMode,
 
   /**
    * Allows select files to save.
-   * @since 8
+   * @since 9
    */
-  FILE_SAVE_MODE,
+  FileSaveMode,
 }
 
 /**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
- * @since 8
+ * @since 9
  */
 declare class FileSelectorParam {
   /**
    * Constructor.
-   * @since 8
+   * @since 9
    */
   constructor();
 
@@ -238,30 +238,30 @@ declare class FileSelectorParam {
     * Gets the title of this file selector.
     * @return Return the title of this file selector.
     *
-    * @since 8
+    * @since 9
     */
-  title(): string;
+  getTitle(): string;
 
   /**
     * Gets the FileSelectorMode of this file selector.
     * @return Return the FileSelectorMode of this file selector.
     *
-    * @since 8
+    * @since 9
     */
-  mode(): FileSelectorMode;
+  getMode(): FileSelectorMode;
 
   /**
     * Gets an array of acceptable MMIE type.
     * @return Return an array of acceptable MMIE type.
     *
-    * @since 8
+    * @since 9
     */
-  acceptType(): Array<string>;
+  getAcceptType(): Array<string>;
 
   /**
    * Gets whether this file selector use a live media captured value.
    * @return Return {@code true} if captured media; return {@code false} otherwise.
-   * @since 8
+   * @since 9
    */
   isCapture(): boolean;
 }
@@ -292,18 +292,18 @@ declare class JsResult {
 
 /**
  * Defines the file selector result, related to {@link onFileSelectorShow} method.
- * @since 8
+ * @since 9
  */
 declare class FileSelectorResult {
   /**
    * Constructor.
-   * @since 8
+   * @since 9
    */
   constructor();
 
    /**
     * select a list of files.
-    * @since 8
+    * @since 9
     */
   handleFileList(fileList: Array<string>): void;
 }
@@ -604,8 +604,22 @@ declare class WebCookie {
   /**
    * Sets the cookie.
    * @since 8
+   * @deprecated since 9
+   */
+  setCookie();
+
+  /**
+   * Sets the cookie.
+   * @since 9
    */
   setCookie(url: string, value: string): boolean;
+
+  /**
+   * Saves the cookies.
+   * @since 8
+   * @deprecated since 9
+   */
+  saveCookie();
 
   /**
    * Saves the cookies.
@@ -788,7 +802,7 @@ declare class WebCookie {
 
   /**
    * Gets network cookie manager
-   * @since 8
+   * @since 9
    */
   getCookieManager() : WebCookie
 }
@@ -848,7 +862,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
    * {@code false} otherwise.
    * 
-   * @since 8
+   * @since 9
    */
   fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
 
@@ -1117,6 +1131,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param callback The triggered callback when the Web page receives an ssl Error.
    *
    * @since 8
+   * @deprecated since 9
    */
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
@@ -1124,7 +1139,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the render process exits.
    * @param callback The triggered when the render process exits.
    *
-   * @since 8
+   * @since 9
    */
   onRenderExited(callback: (event?: { renderExitReason: RenderExitReason }) => void): WebAttribute;
 
@@ -1132,10 +1147,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the file selector shows.
    * @param callback The triggered when the file selector shows.
    *
-   * @since 8
+   * @since 9
    */
-  onFileSelectorShow(callback: (event?: { result: FileSelectorResult, 
-    fileSelector: FileSelectorParam }) => void): WebAttribute;
+  onShowFileSelector(callback: (event?: { result: FileSelectorResult,
+    fileSelector: FileSelectorParam }) => boolean): WebAttribute;
+  
+  /**
+   * Triggered when the render process exits.
+   * @param callback The triggered when the render process exits.
+   *
+   * @since 8
+   * @deprecated since 9
+   */
+  onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the file selector shows.
+   * @param callback The triggered when the file selector shows.
+   *
+   * @since 8
+   * @deprecated since 9
+   */
+  onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
