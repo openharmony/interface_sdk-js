@@ -1465,7 +1465,7 @@ declare namespace distributedData {
          * Synchronizes the database to the specified devices with the specified delay allowed.
          *
          * @note N/A
-         * @since 8
+         * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of devices to which to synchronize the database.
          * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
@@ -1775,7 +1775,7 @@ declare namespace distributedData {
          *
          * <p>This method returns immediately and sync result will be returned through asynchronous callback.
          * @note N/A
-         * @since 8
+         * @since 7
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param deviceIds Indicates the list of IDs of devices whose
          * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
