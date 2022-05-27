@@ -1785,7 +1785,7 @@ declare namespace distributedData {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws Throws this exception if no DeviceKVStore database is available.
          */
-         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
+        sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
 
         /**
          * Synchronizes {@code DeviceKVStore} databases.
