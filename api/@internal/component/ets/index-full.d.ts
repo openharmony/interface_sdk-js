@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -100,3 +100,4 @@
 /// <reference path="./inspector.d.ts" />
 /// <reference path="./sidebar.d.ts" />
 /// <reference path="./ability_component.d.ts" />
+/// <reference path="./remote_window.d.ts" />
