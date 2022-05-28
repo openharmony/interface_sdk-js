@@ -953,15 +953,6 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
-
-    /**
-     * Dump window client information.
-     * Called in the dump callback of ability is the typical usage scenario.
-     * @since 9
-     * @param params Indicates the params from command.
-     * @return The dump info array.
-     */
-    dump(params: Array<string>): Array<string>;
     
     /**
      * set the flag of the window is forbidden to move in split screen mode
