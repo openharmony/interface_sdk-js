@@ -1105,18 +1105,6 @@ declare namespace media {
     readonly height: number;
 
     /**
-     * the playback bitrate expressed in bits per second, only valid for HLS protocal network stream.
-     * Defaulty, the player will select the appropriate bitrate according to the network connection
-     * speed. The available bitrates list reported by {@link #on('availablebitratesCollected')}. Set
-     * it to select a specified bitrate. If the specified bitrate is not in the list of available
-     * bitrates, the player will select the minimal and closest one from the available bitrates list.
-     * Read it to query the current selected bitrate after player prepared.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     */
-    bitrate ?: number;
-
-    /**
      * audio parameters for audio track playback. Set it before calling the {@link #prepare()} in
      * the first time in order for the audio parameters info to become effective thereafter. For more
      * information, refer to {@link #AudioPlaybackParams}.
@@ -1149,6 +1137,32 @@ declare namespace media {
      * @return A Promise instance used to return actually speed.
      */
     setSpeed(speed:number): Promise<number>;
+
+    /**
+     * select a specified bitrate to playback, only valid for HLS protocal network stream. Defaulty, the
+     * player will select the appropriate bitrate according to the network connection speed. The
+     * available bitrates list reported by {@link #on('availablebitratesCollected')}. Set it to select
+     * a specified bitrate. If the specified bitrate is not in the list of available bitrates, the player
+     * will select the minimal and closest one from the available bitrates list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param bitrate the playback bitrate must be expressed in bits per second.
+     * @return A Promise instance used to return actually selected bitrate.
+     */
+    selectBitrate(bitrate: number): Promise<number>;
+
+    /**
+     * select a specified bitrate to playback, only valid for HLS protocal network stream. Defaulty, the
+     * player will select the appropriate bitrate according to the network connection speed. The
+     * available bitrates list reported by {@link #on('availablebitratesCollected')}. Set it to select
+     * a specified bitrate. If the specified bitrate is not in the list of available bitrates, the player
+     * will select the minimal and closest one from the available bitrates list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @param bitrate the playback bitrate must be expressed in bits per second.
+     * @param callback Callback used to return actually selected bitrate.
+     */
+    selectBitrate(bitrate: number, callback: AsyncCallback<number>): void;
 
     /**
      * Listens for video playback completed events.
