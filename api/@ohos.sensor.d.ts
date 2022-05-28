@@ -625,7 +625,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
+    	function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
 	function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
@@ -743,7 +743,7 @@ declare namespace sensor {
     function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
         callback: AsyncCallback<Array<number>>): void;
     function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
-    
+
     /**
      * convert a rotation vector to a normalized quaternion.
      *
