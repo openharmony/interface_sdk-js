@@ -48,12 +48,18 @@ declare namespace distributedDataObject {
      */
     interface DistributedObject {
         /**
-         * Change object session
-         *
-         * @param sessionId The sessionId to be joined, if empty, leave all session
-         * @return Operation result, true is success, false is failed
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * Change object session.
+         * @param sessionId The sessionId to be joined, if empty, leave all session.
+         * @return Operation result, true is success, false is failed.
+         * @depcreated since 9 
          * @since 8
+         */
+        /**
+         * Change object session.
+         * @param sessionId The sessionId to be joined, if empty, leave all session.
+         * @return Operation result, true is success, false is failed.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @since 9
          */
         setSessionId(sessionId?: string): boolean;
 
