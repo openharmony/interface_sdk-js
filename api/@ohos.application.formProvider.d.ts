@@ -62,9 +62,9 @@ declare namespace formProvider {
      * @return Infos of all forms.
      */
     
-    function getFormsInfo(opt: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
-    function getFormsInfo(opt?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
+    function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
     
 }
 export default formProvider;

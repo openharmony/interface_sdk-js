@@ -197,8 +197,8 @@ declare namespace formHost {
      * @return Returns the {@link FormInfo}
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      */
-    function getFormsInfo(bundleName: string, opt: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
-    function getFormsInfo(bundleName: string, opt: formInfo.FormInfoFilter): void;
+    function getFormsInfo(bundleName: string, filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(bundleName: string, filter: formInfo.FormInfoFilter): void;
 
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
