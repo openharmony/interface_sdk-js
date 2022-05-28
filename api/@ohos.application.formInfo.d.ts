@@ -388,37 +388,6 @@ declare namespace formInfo {
     }
 
     /**
-     * The type of Form the info belongs to.
-     *
-     * @name FormInfoType
-     * @since 8
-     * @syscap SystemCapability.Ability.Form
-     */
-    enum FormInfoType {
-        /**
-         * form infos from static forms.
-         * 
-         * @since 8
-         * @syscap SystemCapability.Ability.Form
-         */
-        STATIC = 0,
-        /**
-         * form infos from dynamic forms.
-         * 
-         * @since 8
-         * @syscap SystemCapability.Ability.Form
-         */
-        DYNAMIC,
-        /**
-         * form infos from static and dynamic forms.
-         * 
-         * @since 8
-         * @syscap SystemCapability.Ability.Form
-         */
-        ALL
-    }
-
-    /**
      * The optional options used as filters to ask 
      * getFormsInfo to return formInfos from only forms that match the options.
      *
@@ -427,7 +396,6 @@ declare namespace formInfo {
      * @since 8
      * @syscap SystemCapability.Ability.Form
      */
-    //TODO:
     interface FormInfoFilter {
         /**
          * optional moduleName that used to ask getFormsInfo to return
@@ -437,14 +405,6 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         moduleName?: string;
-        /**
-         * optional formInfoType that used to ask getFormsInfo to return
-         * form infos belong to the same form type.
-         *
-         * @since 8
-         * @syscap SystemCapability.Ability.Form
-         */
-        formInfoType?: formInfo.FormInfoType;
     }
 }
 export default formInfo;
