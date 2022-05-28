@@ -57,11 +57,11 @@ declare namespace formProvider {
      *
      * Client to communication with FormManagerService.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
+     * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
      * @return Infos of all forms.
      */
-    
     function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;

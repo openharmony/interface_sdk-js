@@ -185,7 +185,7 @@ declare namespace formHost {
     function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(bundleName: string, moduleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
-   
+
     /**
      * Deletes invalid forms of the application in the Form Manager Service based on the list of.
      *

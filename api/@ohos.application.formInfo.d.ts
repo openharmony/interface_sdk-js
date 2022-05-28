@@ -393,7 +393,7 @@ declare namespace formInfo {
      *
      * @name FormInfoFilter
      * 
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.Form
      */
     interface FormInfoFilter {
@@ -401,7 +401,7 @@ declare namespace formInfo {
          * optional moduleName that used to ask getFormsInfo to return
          * form infos with the same moduleName.
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.Ability.Form
          */
         moduleName?: string;
