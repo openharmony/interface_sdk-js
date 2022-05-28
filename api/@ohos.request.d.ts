@@ -112,6 +112,14 @@ declare namespace request {
   const ERROR_UNKNOWN: number;
 
   /**
+   * Indicates that the network is offline.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 7
+   * @permission ohos.permission.INTERNET
+   */
+  const ERROR_NETWORK_ERROR: number;
+
+  /**
    * Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
