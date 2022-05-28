@@ -34,30 +34,6 @@ import {AsyncCallback} from './basic'
     function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<number>): void;
 
     /**
-     * Start using sensitive permission.
-     * @param tokenID The tokenId of specified application.
-     * @param permissionName The permission name to be started.
-     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
-     * @since 9
-     */
-    function startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
-    function startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
-
-    /**
-     * Stop using sensitive permission.
-     * @param tokenID The tokenId of specified application.
-     * @param permissionName The permission name to be stopped.
-     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
-     * @since 9
-     */
-    function stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
-    function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
-
-    /**
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
      * @return Return the reponse of permission used records.
