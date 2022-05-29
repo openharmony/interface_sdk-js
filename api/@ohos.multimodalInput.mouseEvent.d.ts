@@ -24,37 +24,37 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 export declare enum Action {
   /**
-   * 取消
+   * Cancel
    */
   CANCEL = 0,
 
   /**
-   * 鼠标移动
+   * Moving of the mouse pointer
    */
   MOVE = 1,
 
   /**
-   * 鼠标按钮按下
+   * Pressing down of the mouse
    */
   BUTTON_DOWN = 2,
 
   /**
-   * 鼠标按钮抬起
+   * Lifting of the mouse button
    */
   BUTTON_UP = 3,
 
   /**
-   * 鼠标关联的轴事件开始
+   * Beginning of the axis event associated with the mouse
    */
   AXIS_BEGIN = 4,
 
   /**
-   * 鼠标关联的轴事件更新
+   * Updating of the axis event associated with the mouse
    */
   AXIS_UPDATE = 5,
 
   /**
-   * 鼠标关联的轴事件结束
+   * Ending of the axis event associated with the mouse
    */
   AXIS_END = 6,
 }
@@ -68,42 +68,42 @@ export declare enum Action {
 */
 export declare enum Button {
   /**
-   * 鼠标左键
+   * Left button on the mouse
    */
   LEFT = 0,
 
   /**
-   * 鼠标中键
+   * Middle button on the mouse
    */
   MIDDLE = 1,
 
   /**
-   * 鼠标右键
+   * Right button on the mouse
    */
   RIGHT = 2,
 
   /**
-   * 鼠标侧边键
+   * Side button on the mouse
    */
   SIDE = 3,
 
   /**
-   * 鼠标扩展键
+   * Extended button on the mouse
    */
   EXTRA = 4,
 
   /**
-   * 鼠标前进键
+   * Forward button on the mouse
    */
   FORWARD = 5,
 
   /**
-   * 鼠标后退键
+   * Back button on the mouse
    */
   BACK = 6,
 
   /**
-   * 鼠标任务键
+   * Task key on the mouse
    */
   TASK = 7
 }
@@ -117,17 +117,17 @@ export declare enum Button {
 */
 export declare enum Axis {
   /**
-   * 垂直滚动轴
+   * Vertical scroll axis
    */
   SCROLL_VERTICAL = 0,
 
   /**
-   * 水平滚动轴
+   * Horizontal scroll axis
    */
   SCROLL_HORIZONTAL = 1,
 
   /**
-   * 捏合轴
+   * Pinch axis
    */
   PINCH = 2,
 }
@@ -141,12 +141,12 @@ export declare enum Axis {
 */
 export declare interface AxisValue {
   /**
-   * 轴类型
+   * Axis type
    */
   axis: Axis;
 
   /**
-   * 轴的值
+   * Axis value
    */
   value: number
 }
@@ -160,97 +160,97 @@ export declare interface AxisValue {
 */
 export declare interface MouseEvent extends InputEvent {
   /**
-   * 鼠标事件动作
+   * Mouse event action
    */
   action: Action;
 
   /**
-   * 鼠标光标在屏幕中的x坐标
+   * X coordinate of the mouse pointer on the screen
    */
   screenX: number;
 
   /**
-   * 鼠标光标在屏幕中的y坐标
+   * Y coordinate of the mouse pointer on the screen
    */
   screenY: number;
 
   /**
-   * 鼠标归属窗口的x坐标
+   * X coordinate of the mouse pointer in the window
    */
   windowX: number;
 
   /**
-   * 鼠标归属窗口的y坐标
+   * Y coordinate of the mouse pointer in the window
    */
   windowY: number;
 
   /**
-   * X轴相对上次上报鼠标位置的偏移，在屏幕边缘位置时，该值可能小于两次鼠标上报的坐标差
+   * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
    */
   rawDeltaX: number;
 
   /**
-   * Y轴相对上次上报鼠标位置的偏移
+   * Y axis offset relative to the previous reported mouse pointer position
    */
   rawDeltaY: number;
 
   /**
-   * 当前按下/抬起的按钮
+   * Button that is currently pressed or released
    */
   button: Button;
 
   /**
-   * 当前处于按下状态的按钮
+   * Button that is being pressed
    */
   pressedButtons: Button[];
 
   /**
-   * 事件包含的所有轴数据
+   * All axis data contained in the event
    */
   axes: AxisValue[];
 
   /**
-   * 当前处于按下状态的按键列表
+   * List of pressed keys
    */
   pressedKeys: KeyCode[];
 
   /**
-   * 当前ctrlKey是否处于按下状态
+   * Whether ctrlKey is being pressed
    */
   ctrlKey: boolean;
 
   /**
-   * 当前altKey是否处于按下状态
+   * Whether altKey is being pressed
    */
   altKey: boolean;
 
   /**
-   *当前shiftKey是否处于按下状态
+   * Whether shiftKey is being pressed
    */
   shiftKey: boolean;
 
   /**
-   * 当前logoKey是否处于按下状态
+   * Whether logoKey is being pressed
    */
   logoKey: boolean;
 
   /**
-   * 当前fnKey是否处于按下状态
+   * Whether fnKey is being pressed
    */
   fnKey:boolean
   
   /**
-   * 当前capsLock是否处于激活状态
+   * Whether capsLock is active
    */
   capsLock:boolean
   
   /**
-   * 当前numLock是否处于激活状态
+   * Whether numLock is active
    */
   numLock:boolean
   
   /**
-   * 当前scrollLock是否处于激活状态
+   * Whether scrollLock is active
    */
   scrollLock:boolean
 }

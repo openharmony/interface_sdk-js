@@ -36,32 +36,32 @@ declare namespace inputDevice {
 
   enum KeyboardType {
     /**
-     * 无按键
+     * None
      */
     NONE = 0,
   
     /**
-     * 未知按键
+      * Unknown key
      */
     UNKNOWN = 1,
   
     /**
-     * 字母键盘
+     * Alphabetical keyboard
      */
     ALPHABETIC_KEYBOARD = 2,
   
     /**
-     * 数字按键
+     * Digital keyboard
      */
     DIGITAL_KEYBOARD = 3,
   
     /**
-     * 手写笔
+     * Stylus
      */
     HANDWRITING_PEN = 4,
   
     /**
-     * 遥控器
+     * Remote control
      */
     REMOTE_CONTROL = 5,
     }
@@ -108,9 +108,9 @@ declare namespace inputDevice {
    * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
    * @param max Maximum value of the data reported on this axis.
    * @param min Minimum value of the data reported on this axis.
-   * @param fuzz fuzz value of the data reported on this axis.
-   * @param flat flat value of the data reported on this axis.
-   * @param resolution resolution value of the data reported on this axis.
+   * @param fuzz Fuzz value of the data reported on this axis.
+   * @param flat Flat value of the data reported on this axis.
+   * @param resolution Resolution value of the data reported on this axis.
    */
   interface AxisRange {
     /**
@@ -155,13 +155,13 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param name Name of the input device.
    * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
-   * @param axisRanges
-   * @param bus 总线
-   * @param product 产品
-   * @param vendor 厂商
-   * @param version 版本
-   * @param phys 物理路径
-   * @param uniq 唯一标识符
+   * @param axisRanges Axis range of the input device.
+   * @param bus Bus of the input device.
+   * @param product Product of the input device.
+   * @param vendor Vendor of the input device.
+   * @param version Version of the input device.
+   * @param phys Physical path of the input device.
+   * @param uniq Unique identifier of the input device.
    */
   interface InputDeviceData {
     /**
@@ -253,19 +253,19 @@ declare namespace inputDevice {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param deviceId 指定的输入设备标识。
-   * @return 键盘类型。
+   * @param deviceId ID of the specified input device.
+   * @return Returns the keyboard type.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
   /**
-   * 设置鼠标位置
+   * Sets the mouse position.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x x坐标
-   * @param y y坐标
+   * @param x X coordinate.
+   * @param y Y coordinate.
    * @return -
    */
    function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
