@@ -623,7 +623,7 @@ declare class WebCookie {
 
   /**
    * Saves the cookies.
-   * @since 8
+   * @since 9
    */
   saveCookieSync(): boolean;
 
