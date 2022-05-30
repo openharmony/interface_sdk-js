@@ -132,6 +132,7 @@ export interface AbilityDelegator {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param msg Log information
      */
+    printSync(msg: string): void;
     print(msg: string, callback: AsyncCallback<void>): void;
     print(msg: string): Promise<void>;
 
