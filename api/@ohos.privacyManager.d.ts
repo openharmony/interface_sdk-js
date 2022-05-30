@@ -46,6 +46,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * PermissionUsageFlag.
+     * @systemapi hide this for inner system use
      * @since 9
      */
     enum PermissionUsageFlag {
@@ -61,6 +62,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * Provides request of querying permission used records.
+     * @systemapi hide this for inner system use
      * @since 9
      */
     interface PermissionUsedRequest {
@@ -107,6 +109,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * Provides response of querying permission used records.
+     * @systemapi hide this for inner system use
      * @since 9
      */
     interface PermissionUsedResponse {
@@ -128,6 +131,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * BundleUsedRecord.
+     * @systemapi hide this for inner system use
      * @since 9
      */
      interface BundleUsedRecord {
@@ -159,6 +163,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * PermissionUsedRecord.
+     * @systemapi hide this for inner system use
      * @since 9
      */
     interface PermissionUsedRecord {
@@ -205,6 +210,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * UsedRecordDetail.
+     * @systemapi hide this for inner system use
      * @since 9
      */
     interface UsedRecordDetail {
