@@ -131,6 +131,7 @@ export default class App {
    * if not set, the application will not cache any decoded image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param value capacity of decoded image count.
+   * @since 7
    */
   static setImageCacheCount(value: number): void;
 
@@ -139,6 +140,7 @@ export default class App {
    * if not set, the application will not cache any raw image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param value capacity of raw image data size in bytes.
+   * @since 7
    */
   static setImageRawDataCacheSize(value: number): void;
 
@@ -147,6 +149,7 @@ export default class App {
    * if not set, the application will cache 100MB image files on disk.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @param value capacity of raw image data size in bytes.
+   * @since 7
    */
   static setImageFileCacheSize(value: number): void;
 }
