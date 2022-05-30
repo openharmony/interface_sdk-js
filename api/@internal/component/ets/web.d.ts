@@ -784,13 +784,13 @@ declare class WebCookie {
    * Gets the title of current Web page.
    * @since 9
    */
-   getTitle(): number;
+  getTitle(): number;
 
   /**
    * Gets the content height of current Web page.
    * @since 9
    */
-   getContentHeight(): number;
+  getContentHeight(): number;
 
   /**
    * Gets the request focus.
@@ -834,7 +834,7 @@ declare class WebCookie {
    * Goes forward or back backOrForward in the history of the web page.
    * @since 9
    */
-   backOrForward(step: number): void;
+  backOrForward(step: number): void;
 
   /**
    * Gets network cookie manager
