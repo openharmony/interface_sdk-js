@@ -41,7 +41,7 @@ declare namespace inputDevice {
     NONE = 0,
   
     /**
-      * Unknown key
+     * Unknown key
      */
     UNKNOWN = 1,
   
