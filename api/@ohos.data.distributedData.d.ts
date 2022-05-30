@@ -17,6 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 import ValuesBucket from './@ohos.data.DatashareValuesBucket';
 import Predicates from './@ohos.data.DatasharePredicates';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
+import Context from './application/Context';
 
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
@@ -49,6 +50,16 @@ declare namespace distributedData {
          * @import N/A
          */
         bundleName: string;
+
+        /**
+         * Indicates the ability or hap context
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @import N/A
+         * @Note: if swap the area, you should close all the KV store and use the new Context to create the KVManager
+         * @StageModelOnly
+         */
+        context: Context;
     }
 
     /**
