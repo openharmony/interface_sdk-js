@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import ValuesBucket from './@ohos.data.DatashareValuesBucket';
+import ValuesBucket from './@ohos.data.ValuesBucket';
 import Predicates from './@ohos.data.DatasharePredicates';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 
