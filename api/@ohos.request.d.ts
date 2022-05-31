@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import Context from './application/Context';
+import BaseContext from './application/BaseContext';
 
 /**
  * upload and download
@@ -206,14 +206,14 @@ declare namespace request {
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   * @param context Indicates the application context.
+   * @since 8
+   * @param BaseContext Indicates the application BaseContext.
    * @param config download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function download(context: Context, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
+  function download(BaseContext: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
    * Starts a download session.
@@ -229,13 +229,13 @@ declare namespace request {
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   * @param context Indicates the application context.
+   * @since 8
+   * @param BaseContext Indicates the application BaseContext.
    * @param config download config
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function download(context: Context, config: DownloadConfig): Promise<DownloadTask>;
+  function download(BaseContext: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a upload session.
@@ -252,14 +252,14 @@ declare namespace request {
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   * @param context Indicates the application context.
+   * @since 8
+   * @param BaseContext Indicates the application BaseContext.
    * @param config upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function upload(context: Context, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
+  function upload(BaseContext: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
    * Starts a upload session.
@@ -275,13 +275,13 @@ declare namespace request {
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   * @param context Indicates the application context.
+   * @since 8
+   * @param BaseContext Indicates the application BaseContext.
    * @param config upload config
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function upload(context: Context, config: UploadConfig): Promise<UploadTask>;
+  function upload(BaseContext: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
    * DownloadConfig data Structure
