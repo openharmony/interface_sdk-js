@@ -26,28 +26,6 @@ interface TextInterface {
 }
 
 /**
- * Indicates the share option.
- *
- * @since 9
- */
-declare enum CopyOption {
-  /**
-   * Share in app.
-   */
-  InApp = 0,
-
-  /**
-   * Share in local device.
-   */
-  LocalDevice = 1,
-
-  /**
-   * Share cross device.
-   */
-  CrossDevice = 2,
-}
-
-/**
  * @since 7
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
