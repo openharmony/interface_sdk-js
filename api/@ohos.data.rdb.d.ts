@@ -84,6 +84,7 @@ declare namespace rdb {
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      */
     enum SubscribeType {
         /**
