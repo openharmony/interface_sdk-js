@@ -790,7 +790,7 @@ declare class WebCookie {
    * Gets the content height of current Web page.
    * @since 9
    */
-  getContentHeight(): number;
+  getPageHeight(): number;
 
   /**
    * Gets the request focus.
