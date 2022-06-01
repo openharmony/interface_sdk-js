@@ -68,6 +68,7 @@
 /// <reference path="./rating.d.ts" />
 /// <reference path="./rect.d.ts" />
 /// <reference path="./refresh.d.ts" />
+/// <reference path="./relative_container.d.ts" />
 /// <reference path="./rich_text.d.ts" />
 /// <reference path="./row.d.ts" />
 /// <reference path="./row_split.d.ts" />
