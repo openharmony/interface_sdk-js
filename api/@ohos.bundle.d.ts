@@ -55,6 +55,10 @@ declare namespace bundle {
      * @since 9
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
+     /**
+     * @since 9
+     */
+      GET_BUNDLE_WITH_HASH_VALUE = 0x00000030,
     /**
      * @since 8
      */
