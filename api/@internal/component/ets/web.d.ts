@@ -699,6 +699,18 @@ declare class WebCookie {
   zoom(factor: number): void;
 
   /**
+   * Let the Web zoom in.
+   * @since 9
+   */
+   zoomIn(): boolean;
+
+  /**
+   * Let the Web zoom out.
+   * @since 9
+   */
+   zoomOut(): boolean;
+
+  /**
    * Clears the history in the Web.
    * @since 8
    */
@@ -763,6 +775,24 @@ declare class WebCookie {
   getHitTest(): HitTestType;
 
   /**
+   * Gets the id for the current Web.
+   * @since 9
+   */
+  getWebId(): number;
+
+  /**
+   * Gets the title of current Web page.
+   * @since 9
+   */
+  getTitle(): number;
+
+  /**
+   * Gets the content height of current Web page.
+   * @since 9
+   */
+  getPageHeight(): number;
+
+  /**
    * Gets the request focus.
    * @since 8
    */
@@ -799,6 +829,12 @@ declare class WebCookie {
    * @since 8
    */
   forward();
+
+  /**
+   * Goes forward or back backOrForward in the history of the web page.
+   * @since 9
+   */
+  backOrForward(step: number): void;
 
   /**
    * Gets network cookie manager
@@ -979,6 +1015,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
+
+  /**
+   * Sets the initial scale for the Web.
+   * @param percent the initial scale for the Web.
+   *
+   * @since 9
+   */
+  initialScale(percent: number): WebAttribute;
 
   /**
    * Sets the Web's user agent.
@@ -1169,6 +1213,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @deprecated since 9
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
+
+  /**
+   * Triggered when the url loading.
+   * @param callback The triggered when the url loading.
+   *
+   * @since 9
+   */
+  onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Triggered when the scale of WebView changed.
+   * @param callback The triggered when the scale of WebView changed.
+   *
+   * @since 9
+   */
+  onScaleChange(callback: (event: {oldScale: number, newScale: number}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
