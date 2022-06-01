@@ -26,5 +26,12 @@ interface RelativeContainerInterface {
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
 }
 
+/**
+ * @since 9
+ */
 declare const RelativeContainer : RelativeContainerInterface;
+
+/**
+ * @since 9
+ */
 declare const RelativeContainerInstance: RelativeContainerAttribute;
