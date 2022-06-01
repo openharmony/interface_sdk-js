@@ -206,7 +206,7 @@ declare namespace request {
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 8
+   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config download config
    * @param callback Indicate the callback function to receive DownloadTask.
@@ -229,7 +229,7 @@ declare namespace request {
   /**
    * Starts a download session.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 8
+   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config download config
    * @permission ohos.permission.INTERNET
@@ -252,7 +252,7 @@ declare namespace request {
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 8
+   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config upload config
    * @param callback Indicate the callback function to receive UploadTask.
@@ -275,7 +275,7 @@ declare namespace request {
   /**
    * Starts a upload session.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 8
+   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config upload config
    * @permission ohos.permission.INTERNET
