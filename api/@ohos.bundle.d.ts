@@ -71,6 +71,10 @@ declare namespace bundle {
      * @since 8
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+    /**
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x00000400,
   }
 
 /**
