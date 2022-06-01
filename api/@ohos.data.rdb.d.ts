@@ -84,6 +84,7 @@ declare namespace rdb {
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      */
     enum SubscribeType {
         /**
@@ -239,15 +240,7 @@ declare namespace rdb {
         /**
          * Set table to be distributed table.
          *
-         * @deprecated since 9
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param tables the tables name you want to set
-         */
-        /**
-         * Set table to be distributed table.
-         *
-         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param tables the tables name you want to set
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -259,18 +252,7 @@ declare namespace rdb {
          * Obtain distributed table name of specified remote device according to local table name.
          * When query remote device database, distributed table name is needed.
          *
-         * @deprecated since 9
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param device Indicates the remote device.
-         * @param table Indicates the local table name.
-         * @return the distributed table name.
-         */
-        /**
-         * Obtain distributed table name of specified remote device according to local table name.
-         * When query remote device database, distributed table name is needed.
-         *
-         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param device Indicates the remote device.
          * @param table Indicates the local table name.
@@ -283,17 +265,7 @@ declare namespace rdb {
         /**
          * Sync data between devices
          *
-         * @deprecated since 9
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
-         * @param predicates Constraint synchronized data and devices.
-         * @param callback Indicates the callback used to send the synchronization result to the caller.
-         */
-        /**
-         * Sync data between devices
-         *
-         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param mode Indicates the synchronization mode. The value can be PUSH, PULL.
          * @param predicates Constraint synchronized data and devices.
@@ -307,17 +279,7 @@ declare namespace rdb {
          * Registers an observer for the database. When data in the distributed database changes,
          * the callback will be invoked.
          *
-         * @deprecated since 9
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the observer of data change events in the distributed database.
-         */
-        /**
-         * Registers an observer for the database. When data in the distributed database changes,
-         * the callback will be invoked.
-         *
-         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the observer of data change events in the distributed database.
@@ -328,16 +290,7 @@ declare namespace rdb {
         /**
          * Remove specified observer of specified type from the database.
          *
-         * @deprecated since 9
          * @since 8
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the data change observer already registered.
-         */
-        /**
-         * Remove specified observer of specified type from the database.
-         *
-         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
          * @param observer Indicates the data change observer already registered.
