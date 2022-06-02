@@ -617,8 +617,8 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-	function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
-	function getSingleSensor(type: SensorType): Promise<Sensor>;
+    function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
+    function getSingleSensor(type: SensorType): Promise<Sensor>;
     
     /**
      * Obtains all sensor information on the device.
@@ -626,7 +626,7 @@ declare namespace sensor {
      * @since 8
      */
     function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
-	function getSensorLists(): Promise<Array<Sensor>>;
+    function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
      * Indicates geomagnetic field data.
