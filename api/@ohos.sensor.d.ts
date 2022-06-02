@@ -625,7 +625,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-        function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
+    function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
 	function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
@@ -648,7 +648,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-     interface LocationOptions {
+    interface LocationOptions {
         latitude: number;
         longitude: number;
         altitude: number;
