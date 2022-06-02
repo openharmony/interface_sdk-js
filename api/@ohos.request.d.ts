@@ -117,7 +117,7 @@ declare namespace request {
    * @since 9
    * @permission ohos.permission.INTERNET
    */
-  const NETWORK_ERROR: number;
+  const ERROR_NETWORK_FAIL: number;
 
   /**
    * Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
@@ -213,7 +213,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function download(BaseContext: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
+  function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
    * Starts a download session.
@@ -235,7 +235,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function download(BaseContext: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
+  function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a upload session.
@@ -259,7 +259,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function upload(BaseContext: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
+  function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
    * Starts a upload session.
@@ -281,7 +281,7 @@ declare namespace request {
    * @permission ohos.permission.INTERNET
    * @return -
    */
-  function upload(BaseContext: BaseContext, config: UploadConfig): Promise<UploadTask>;
+  function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
    * DownloadConfig data Structure
