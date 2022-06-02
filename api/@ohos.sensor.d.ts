@@ -609,7 +609,7 @@ declare namespace sensor {
         maxRange:number; /**< Maximum measurement range of the sensor */
         precision:number; /**< Sensor accuracy */
         power:number; /**< Sensor power */
-    }    
+    }
     
     /**
      * Obtains the sensor information of a specified type.
@@ -625,7 +625,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
-    	function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
+    function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
 	function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
