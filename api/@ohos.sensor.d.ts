@@ -598,7 +598,7 @@ declare namespace sensor {
     /**
      * Indicates sensor information.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
+     * @since 9
      */
     interface Sensor {
         sensorName:string; /**< Sensor name */
@@ -615,7 +615,7 @@ declare namespace sensor {
      * Obtains the sensor information of a specified type.
      * @param type Indicate the sensor type, {@code SensorType}.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
+     * @since 9
      */
     function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
     function getSingleSensor(type: SensorType): Promise<Sensor>;
@@ -623,7 +623,7 @@ declare namespace sensor {
     /**
      * Obtains all sensor information on the device.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
+     * @since 9
      */
     function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
     function getSensorLists(): Promise<Array<Sensor>>;
