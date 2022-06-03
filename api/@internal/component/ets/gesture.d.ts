@@ -180,7 +180,7 @@ interface FingerInfo {
  * @since 7
  */
 declare type GestureType =
-  | TapGestureInterface
+  TapGestureInterface
   | LongPressGestureInterface
   | PanGestureInterface
   | PinchGestureInterface
