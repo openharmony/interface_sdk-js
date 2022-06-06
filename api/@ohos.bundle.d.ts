@@ -734,6 +734,32 @@ declare namespace bundle {
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param abilityName Indicates the abilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param extensionAbilityName Indicates the extensionAbilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 }
 
 export default bundle;
