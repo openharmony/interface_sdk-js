@@ -1439,3 +1439,28 @@ declare enum Placement {
    */
   RightBottom,
 }
+
+/**
+ * Indicates the share option.
+ *
+ * @since 9
+ */
+declare enum CopyOption {
+  /**
+   * Share in app.
+   * @since 9
+   */
+  InApp = 0,
+
+  /**
+   * Share in local device.
+   * @since 9
+   */
+  LocalDevice = 1,
+
+  /**
+   * Share cross device.
+   * @since 9
+   */
+  CrossDevice = 2,
+}
