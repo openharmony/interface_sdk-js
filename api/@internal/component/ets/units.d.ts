@@ -104,6 +104,22 @@ declare type Offset = {
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
+ * Defines the length constrain property.
+ * @since 9
+ */
+declare type LengthConstrain = {
+  /**
+   * minimum length.
+   */
+  minLength: Length;
+
+  /**
+   * maximum length.
+   */
+  maxLength: Length;
+};
+
+/**
  * Defines the font used for text.
  * @since 7
  */
