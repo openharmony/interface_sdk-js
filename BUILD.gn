@@ -75,6 +75,8 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/page_transition.d.ts",
     "api/@internal/component/ets/panel.d.ts",
     "api/@internal/component/ets/path.d.ts",
+    "api/@internal/component/ets/pattern_lock.d.ts",
+    "api/@internal/component/ets/plugin_component.d.ts",
     "api/@internal/component/ets/polygon.d.ts",
     "api/@internal/component/ets/polyline.d.ts",
     "api/@internal/component/ets/progress.d.ts",
