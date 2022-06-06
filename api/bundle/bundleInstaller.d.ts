@@ -76,11 +76,11 @@ export interface InstallParam {
    hashParams?: Array<HashParam>;
 
   /**
-    * @default Indicates the validity period of the bundle
+    * @default Indicates the deadline of the crowdtesting bundle
     * @since 9
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
-  validityPeriod: number;
+  crowdtestDeadline?: number;
 }
 
 /**
