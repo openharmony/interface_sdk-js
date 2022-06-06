@@ -100,6 +100,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 8
    */
   onPaste(callback: (value: string) => void): SearchAttribute;
+
+  /**
+   * Called when the copy option is set.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): SearchAttribute;
 }
 
 declare const Search: SearchInterface;

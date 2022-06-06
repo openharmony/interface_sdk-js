@@ -66,5 +66,19 @@ declare namespace formProvider {
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
     
+    /**
+     * Request to publish a form to the form host.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want The want of the form to publish
+     * @param formBindingData Indicates the form data
+     * @systemapi hide for inner use
+     * @return Returns form id
+     */
+     function requestPublishForm(want: Want, formBindingData: formBindingData.FormBindingData,
+        callback: AsyncCallback<string>): void;
+     function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
+     function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 }
 export default formProvider;
