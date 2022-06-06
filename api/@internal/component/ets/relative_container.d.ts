@@ -18,6 +18,7 @@
  * @since 9
  */
 interface RelativeContainerInterface {
+    (): RelativeContainerAttribute;
 }
   
 /**

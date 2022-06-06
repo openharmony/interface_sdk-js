@@ -368,6 +368,39 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+declare interface AlignRuleOption {
+  /**
+   * The param of left align.
+   * @since 9
+   */
+  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   * @since 9
+   */
+  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of middle align.
+   * @since 9
+   */
+  middle?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of top align.
+   * @since 9
+   */
+  top?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of bottom align.
+   * @since 9
+   */
+  bottom?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of center align.
+   * @since 9
+   */
+  center?: { anchor: string, align: VerticalAlign };
+}
+
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -1475,14 +1508,7 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
-  alignRules(value: {
-    left?: { anchor: string, align: HorizontalAlign };
-    right?: { anchor: string, align: HorizontalAlign };
-    middle?: { anchor: string, align: HorizontalAlign };
-    top?: { anchor: string, align: VerticalAlign };
-    bottom?: { anchor: string, align: VerticalAlign };
-    center?: { anchor: string, align: VerticalAlign };
-   }): T;
+  alignRules(value: AlignRuleOption): T;
 
   /**
    * Specifies the aspect ratio of the current component.
