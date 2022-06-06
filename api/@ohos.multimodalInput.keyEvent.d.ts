@@ -23,17 +23,17 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 export declare enum Action {
   /**
-   * cancel
+   * Cancel key
    */
   CANCEL = 0,
 
   /**
-   * down
+   * Down key
    */
   DOWN = 1,
 
   /**
-   * up
+   * Up key
    */
   UP = 2,
 }
@@ -47,17 +47,17 @@ export declare enum Action {
 */
 export declare interface Key {
   /**
-   * the key code
+   * Key code
    */
   code: KeyCode;
 
   /**
-   * press the time
+   * Time when the key is pressed
    */
   pressedTime: number;
 
   /**
-   * button Owning device
+   * Device to which the key belongs
    */
   deviceId: number;
 }
@@ -71,62 +71,62 @@ export declare interface Key {
 */
 export declare interface KeyEvent extends InputEvent {
   /**
-   * the key action
+   * Key action
    */
   action: Action;
 
   /**
-   * the keys that change this time
+   * Key that has changed
    */
   key: Key;
 
   /**
-   * unideCode coding
+   * Unicode character corresponding to the key
    */
   unicodeChar: number;
 
   /**
-   * list of keys that are currently in the pressed state
+   * List of pressed keys
    */
   keys: Key[];
 
   /**
-   * whether ctrlKey is in down state
+   * Whether ctrlKey is being pressed
    */
   ctrlKey: boolean;
 
   /**
-   * whether altKey is in down state
+   * Whether altKey is being pressed
    */
   altKey: boolean;
 
   /**
-   * whether shiftKey is in down state
+   * Whether shiftKey is being pressed
    */
   shiftKey: boolean;
 
   /**
-   * whether logoKey is in down state
+   * Whether logoKey is being pressed
    */
   logoKey: boolean;
 
   /**
-   * whether fnKey is in down state
+   * Whether fnKey is being pressed
    */
   fnKey: boolean;
 
   /**
-   * whether the current capsLock is activated
+   * Whether capsLock is active
    */
   capsLock: boolean;
 
   /**
-   * whether the current numLock is activated
+   * Whether numLock is active
    */
   numLock: boolean;
 
   /**
-   * whether the current scrollLock is activated
+   * Whether scrollLock is active
    */
   scrollLock: boolean;
 }

@@ -41,13 +41,48 @@ declare namespace distributedDataObject {
     function genSessionId(): string;
 
     /**
+     * @since 9
+     */
+    interface SaveSuccessResponse {
+        /**
+         * sessionId of saved object
+         * @since 9
+         */
+        sessionId: string;
+
+        /**
+         * version of saved object, can compare with DistributedObject.__version
+         * @since 9
+         */
+        version: number;
+
+        /**
+         * deviceid that data saved
+         * data is "local", means save in local device
+         * otherwise, means the networkId of device
+         * @since 9
+         */
+        deviceId: string;
+    }
+
+    /**
+     * @since 9
+     */
+    interface RevokeSaveSuccessResponse {
+        /**
+         * @since 9
+         */
+        sessionId: string;
+    }
+
+    /**
      * Object create by {@link createDistributedObject}.
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      */
     interface DistributedObject {
-        /**
+        /*
          * Change object session
          *
          * @param sessionId The sessionId to be joined, if empty, leave all session
@@ -77,7 +112,7 @@ declare namespace distributedDataObject {
          * On watch of status
          *
          * @param callback Indicates the observer of object status changed.
-         *                 sessionId: The sessionId of the changed object 
+         *                 sessionId: The sessionId of the changed object
          *                 networkId: NetworkId of the changed device
          *                 status: 'online' The object became online on the device and data can be synced to the device
          *                         'offline' The object became offline on the device and the object can not sync any data
@@ -92,6 +127,30 @@ declare namespace distributedDataObject {
          * @since 8
          */
         off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
+
+        /**
+         * Save object, after save object data successfully, the object data will not release when app existed, and resume data on saved device after app existed
+         * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data, you should encrypt it
+         *
+         * the saved data will be released when
+         * 1. saved after 24h
+         * 2. app uninstalled
+         * 3. after resume data success, system will auto delete the saved data
+         *
+         * @param deviceId Indicates the device that will resume the object data
+         * @since 9
+         */
+        save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
+        save(deviceId: string): Promise<SaveSuccessResponse>;
+
+        /**
+         * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
+         * if object is saved in other device, it will delete data in local device.
+         *
+         * @since 9
+         */
+        revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
+        revokeSave(): Promise<RevokeSaveSuccessResponse>;
     }
 }
 

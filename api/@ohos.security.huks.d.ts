@@ -53,6 +53,17 @@ declare namespace huks {
     function importKey(keyAlias: string, options: HuksOptions) : Promise<HuksResult>;
 
     /**
+     * Import Wrapped Key.
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @param keyAlias Indicates the name of key to be imported.
+     * @param wrappingKeyAlias Indicates the name of key for wrapping the key to be imported
+     * @param options Indicates the properties of the key.
+     */
+    function importWrappedKey(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
+    function importWrappedKey(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions) : Promise<HuksResult>;
+
+    /**
      * Export Key.
      * @since 8
      * @syscap SystemCapability.Security.Huks
@@ -265,6 +276,8 @@ declare namespace huks {
         HUKS_ERROR_INVALID_SALT = -123,
         HUKS_ERROR_INVALID_ITERATION = -124,
         HUKS_ERROR_INVALID_OPERATION = -125,
+        HUKS_ERROR_INVALID_WRAPPED_FORMAT = -126,
+        HUKS_ERROR_INVALID_USAGE_OF_KEY = -127,
 
         HUKS_ERROR_INTERNAL_ERROR = -999,
         HUKS_ERROR_UNKNOWN_ERROR = -1000,
@@ -297,6 +310,7 @@ declare namespace huks {
     export enum HuksKeyDigest {
         HUKS_DIGEST_NONE = 0,
         HUKS_DIGEST_MD5 = 1,
+        HUKS_DIGEST_SM3 = 2,
         HUKS_DIGEST_SHA1 = 10,
         HUKS_DIGEST_SHA224 = 11,
         HUKS_DIGEST_SHA256 = 12,
@@ -363,6 +377,9 @@ declare namespace huks {
         HUKS_DH_KEY_SIZE_2048 = 2048,
         HUKS_DH_KEY_SIZE_3072 = 3072,
         HUKS_DH_KEY_SIZE_4096 = 4096,
+
+        HUKS_SM2_KEY_SIZE_256 = 256,
+        HUKS_SM4_KEY_SIZE_128 = 128,
     }
 
     /**
@@ -385,6 +402,21 @@ declare namespace huks {
         HUKS_ALG_X25519 = 101,
         HUKS_ALG_ED25519 = 102,
         HUKS_ALG_DH = 103,
+
+        HUKS_ALG_SM2 = 150,
+        HUKS_ALG_SM3 = 151,
+        HUKS_ALG_SM4 = 152,
+    }
+
+    /**
+     * @name HuksUnwrapSuite
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
+    export enum HuksUnwrapSuite {
+        HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
+        HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
     }
 
     /**
@@ -421,6 +453,18 @@ declare namespace huks {
     export enum HuksKeyStorageType {
         HUKS_STORAGE_TEMP = 0,
         HUKS_STORAGE_PERSISTENT = 1,
+    }
+
+    /**
+     * @name HuksImportKeyType
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @permission N/A
+     */
+    export enum HuksImportKeyType {
+        HUKS_KEY_TYPE_PUBLIC_KEY = 0,
+        HUKS_KEY_TYPE_PRIVATE_KEY = 1,
+        HUKS_KEY_TYPE_KEY_PAIR = 2,
     }
 
     /**
@@ -487,6 +531,22 @@ declare namespace huks {
         HUKS_TAG_AGREE_PUBLIC_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 22,
         HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
         HUKS_TAG_DERIVE_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 24,
+
+        /**
+         * @name HUKS_TAG_IMPORT_KEY_TYPE
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         * @permission N/A
+         */
+        HUKS_TAG_IMPORT_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 25, /* choose from enum HuksImportKeyType */
+
+        /**
+         * @name HUKS_TAG_UNWRAP_ALGORITHM_SUITE
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         * @permission N/A
+         */
+        HUKS_TAG_UNWRAP_ALGORITHM_SUITE = HuksTagType.HUKS_TAG_TYPE_UINT | 26,
 
         /*
          * Key authentication related TAG: 201 - 300

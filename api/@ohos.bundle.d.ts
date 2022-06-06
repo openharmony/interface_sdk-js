@@ -55,6 +55,10 @@ declare namespace bundle {
      * @since 9
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
+     /**
+     * @since 9
+     */
+      GET_BUNDLE_WITH_HASH_VALUE = 0x00000030,
     /**
      * @since 8
      */
@@ -71,6 +75,10 @@ declare namespace bundle {
      * @since 8
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+    /**
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x00000400,
   }
 
 /**
@@ -521,7 +529,6 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
-   * @systemapi Hide this for inner system use
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;

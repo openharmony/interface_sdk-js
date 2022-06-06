@@ -1355,20 +1355,20 @@ declare namespace media {
      * format like: scheme + "://" + "context".
      * file:  file://path
      * fd:    fd://fd
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     url: string;
     /**
      * Sets the video rotation angle in output file, and for the file to playback. mp4 support.
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     rotation?: number;
     /**
      * geographical location information.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      */
     location?: Location;

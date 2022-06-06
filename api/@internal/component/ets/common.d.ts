@@ -1475,6 +1475,15 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
+  alignRules(value: {
+    left?: { anchor: string, align: HorizontalAlign };
+    right?: { anchor: string, align: HorizontalAlign };
+    middle?: { anchor: string, align: HorizontalAlign };
+    top?: { anchor: string, align: VerticalAlign };
+    bottom?: { anchor: string, align: VerticalAlign };
+    center?: { anchor: string, align: VerticalAlign };
+   }): T;
+
   /**
    * Specifies the aspect ratio of the current component.
    * @since 7
