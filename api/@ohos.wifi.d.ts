@@ -953,34 +953,34 @@ declare namespace wifi {
         /** The identity */
         identity: string;
 
-		/** Anonymous identity */
+        /** Anonymous identity */
         anonymousIdentity: string;
 
-		/** Password */
+        /** Password */
         password: string;
 
-		/** CA certificate alias */
+        /** CA certificate alias */
         caCertAliases: string;
 
-		/** CA certificate path */
+        /** CA certificate path */
         caPath: string;
 
-		/** Client certificate alias */
+        /** Client certificate alias */
         clientCertAliases: string;
 
-		/** Alternate subject match */
+        /** Alternate subject match */
         altSubjectMatch: string;
 
-		/** Domain suffix match */
+        /** Domain suffix match */
         domainSuffixMatch: string;
 
-		/** Realm for Passpoint credential */
+        /** Realm for Passpoint credential */
         realm: string;
 
-		/** Public Land Mobile Network of the provider of Passpoint credential */
+        /** Public Land Mobile Network of the provider of Passpoint credential */
         plmn: string;
 
-		/** Sub ID of the SIM card */
+        /** Sub ID of the SIM card */
         eapSubId: number;
     }
 
