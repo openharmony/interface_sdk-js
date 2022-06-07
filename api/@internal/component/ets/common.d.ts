@@ -1245,6 +1245,12 @@ declare class CommonMethod<T> {
   onBlur(event: () => void): T;
 
   /**
+   * Set focus index by key tab.
+   * @since 9
+   */
+  tabIndex(index: number): T;
+
+  /**
    * animation
    * @since 7
    */
