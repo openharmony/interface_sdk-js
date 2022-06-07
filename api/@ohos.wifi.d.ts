@@ -898,17 +898,17 @@ declare namespace wifi {
 
         EAP_TLS,
 		
-		EAP_TTLS,
+        EAP_TTLS,
 
-		EAP_PWD,
+        EAP_PWD,
 
-		EAP_SIM,
+        EAP_SIM,
 
-		EAP_AKA,
+        EAP_AKA,
 
-		EAP_AKA_PRIME,
+        EAP_AKA_PRIME,
 
-		EAP_UNAUTH_TLS,
+        EAP_UNAUTH_TLS,
     }
 
     /**
