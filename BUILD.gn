@@ -44,6 +44,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/column.d.ts",
     "api/@internal/component/ets/column_split.d.ts",
     "api/@internal/component/ets/common.d.ts",
+    "api/@internal/component/ets/common_ts_ets_api.d.ts",
     "api/@internal/component/ets/context_menu.d.ts",
     "api/@internal/component/ets/counter.d.ts",
     "api/@internal/component/ets/custom_dialog_controller.d.ts",
