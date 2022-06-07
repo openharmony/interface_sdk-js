@@ -784,7 +784,7 @@ declare class WebCookie {
    * Gets the title of current Web page.
    * @since 9
    */
-  getTitle(): number;
+  getTitle(): string;
 
   /**
    * Gets the content height of current Web page.
