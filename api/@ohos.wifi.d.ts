@@ -105,12 +105,15 @@ declare namespace wifi {
      *     your device will determine whether to connect to the hotspot.
      *
      * @return Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
      function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+ 
+     function addUntrustedConfig(config: WifiDeviceConfig): Promise<number>;
+     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
  
      /**
       * Removes a specified untrusted hotspot configuration.
@@ -118,12 +121,27 @@ declare namespace wifi {
       * <p>This method removes one configuration at a time.
       *
       * @return Returns {@code true} if the untrusted hotspot configuration is removed, returns {@code false} otherwise.
-      * @since 7
+      * @since 9
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
      function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+
+     function removeUntrustedConfig(networkId: number): Promise<boolean>;
+     function removeUntrustedConfig(networkId: number, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Connect to a specified untrusted hotspot configuration.
+     *
+     * <p>This method connect to a configuration at a time.
+     *
+     * @return Returns {@code true} if the untrusted hotspot configuration is connected, returns {@code false} otherwise.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO
+     */
+     function ConnectToUntrustedConfig(networkId: number): boolean;
 
     /**
      * Connects to Wi-Fi network.
@@ -471,6 +489,17 @@ declare namespace wifi {
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
+     * Obtains the information about own device info.
+     *
+     * @return Returns the information about own device info.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+     */
+    function requestDeviceInfo(): Promise<WifiP2pDevice>;
+    function requestDeviceInfo(callback: AsyncCallback<WifiP2pDevice>): void;
+
+    /**
      * Creates a P2P group.
      *
      * @param config Indicates the configuration for creating a group.
@@ -543,6 +572,17 @@ declare namespace wifi {
      * @systemapi Hide this for inner system use.
      */
     function deletePersistentGroup(netId: number): boolean;
+
+    /**
+     * Obtains information about the persistent group.
+     *
+     * @return Returns the persistent group information.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+     */
+    function requestPersistentGroupInfo(): Promise<WifiP2pGroupInfo>;
+    function requestPersistentGroupInfo(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
@@ -845,6 +885,106 @@ declare namespace wifi {
     function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
     /**
+     * Wi-Fi EAP method.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+     enum EapMethod {
+        EAP_NONE,
+
+        EAP_PEAP,
+
+        EAP_TLS,
+		
+		EAP_TTLS,
+
+		EAP_PWD,
+
+		EAP_SIM,
+
+		EAP_AKA,
+
+		EAP_AKA_PRIME,
+
+		EAP_UNAUTH_TLS,
+    }
+
+    /**
+     * Wi-Fi phase 2 method.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+     enum Phase2Method {
+        PHASE2_NONE,
+
+        PHASE2_PAP,
+
+        PHASE2_MSCHAP,
+
+		PHASE2_MSCHAPV2,
+
+		PHASE2_GTC,
+
+		PHASE2_SIM,
+
+		PHASE2_AKA,
+
+		PHASE2_AKA_PRIME,
+    }
+
+    /**
+     * Wi-Fi EAP config.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+    interface WifiEapConfig {
+        /** EAP authentication method */
+        eapMethod: EapMethod;
+
+        /** Phase 2 authentication method */
+        phase2Method: Phase2Method;
+
+        /** The identity */
+        identity: string;
+
+		/** Anonymous identity */
+		anonymousIdentity: string;
+
+		/** Password */
+		password: string;
+
+		/** CA certificate alias */
+		caCertAliases: string;
+
+		/** CA certificate path */
+		caPath: string;
+
+		/** Client certificate alias */
+		clientCertAliases: string;
+
+		/** Alternate subject match */
+		altSubjectMatch: string;
+
+		/** Domain suffix match */
+		domainSuffixMatch: string;
+
+		/** Realm for Passpoint credential */
+		realm: string;
+
+		/** Public Land Mobile Network of the provider of Passpoint credential */
+		plmn: string;
+
+		/** Sub ID of the SIM card */
+		eapSubId: number;
+    }
+
+    /**
      * Wi-Fi device configuration information.
      *
      * @since 6
@@ -893,6 +1033,10 @@ declare namespace wifi {
         /** IP config of static */
         /* @systemapi */
         staticIp: IpConfig;
+
+        /** EAP config info */
+        /* @systemapi */
+		WifiEapConfig wifiEapConfig;
     }
 
     /**
@@ -912,7 +1056,7 @@ declare namespace wifi {
     /**
      * Describes the scanned Wi-Fi information.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiScanInfo {
@@ -939,6 +1083,15 @@ declare namespace wifi {
 
         /** Channel width */
         channelWidth: number;
+
+        /** Center frequency */
+        centerFrequency0: number;
+
+        /** Center frequency */
+        centerFrequency1: number;
+
+        /** Information elements */
+        informationElements: string;
 
         /** Time stamp */
         timestamp: number;
@@ -1009,6 +1162,9 @@ declare namespace wifi {
         /** The signal-to-noise ratio (SNR) of this Wi-Fi connection. */
         /* @systemapi */
         snr: number;
+
+        /** Type of macAddress: 0 - real mac, 1 - random mac. */
+        macType: number;
 
         /** The Wi-Fi MAC address of a device. */
         macAddress: string;
