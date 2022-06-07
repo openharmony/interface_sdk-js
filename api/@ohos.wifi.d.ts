@@ -925,15 +925,15 @@ declare namespace wifi {
 
         PHASE2_MSCHAP,
 
-		PHASE2_MSCHAPV2,
+        PHASE2_MSCHAPV2,
 
-		PHASE2_GTC,
+        PHASE2_GTC,
 
-		PHASE2_SIM,
+        PHASE2_SIM,
 
-		PHASE2_AKA,
+        PHASE2_AKA,
 
-		PHASE2_AKA_PRIME,
+        PHASE2_AKA_PRIME,
     }
 
     /**
@@ -954,34 +954,34 @@ declare namespace wifi {
         identity: string;
 
 		/** Anonymous identity */
-		anonymousIdentity: string;
+        anonymousIdentity: string;
 
 		/** Password */
-		password: string;
+        password: string;
 
 		/** CA certificate alias */
-		caCertAliases: string;
+        caCertAliases: string;
 
 		/** CA certificate path */
-		caPath: string;
+        caPath: string;
 
 		/** Client certificate alias */
-		clientCertAliases: string;
+        clientCertAliases: string;
 
 		/** Alternate subject match */
-		altSubjectMatch: string;
+        altSubjectMatch: string;
 
 		/** Domain suffix match */
-		domainSuffixMatch: string;
+        domainSuffixMatch: string;
 
 		/** Realm for Passpoint credential */
-		realm: string;
+        realm: string;
 
 		/** Public Land Mobile Network of the provider of Passpoint credential */
-		plmn: string;
+        plmn: string;
 
 		/** Sub ID of the SIM card */
-		eapSubId: number;
+        eapSubId: number;
     }
 
     /**
@@ -1036,7 +1036,7 @@ declare namespace wifi {
 
         /** EAP config info */
         /* @systemapi */
-		WifiEapConfig wifiEapConfig;
+        WifiEapConfig wifiEapConfig;
     }
 
     /**
