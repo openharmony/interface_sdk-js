@@ -928,7 +928,7 @@ declare namespace wifi {
      enum EapMethod {
         EAP_NONE,
         EAP_PEAP,
-        EAP_TLS,		
+        EAP_TLS,
         EAP_TTLS,
         EAP_PWD,
         EAP_SIM,
@@ -1055,7 +1055,7 @@ declare namespace wifi {
 
         /** EAP config info */
         /* @systemapi */
-        WifiEapConfig: wifiEapConfig;
+        eapConfig: WifiEapConfig;
     }
 
     /**
