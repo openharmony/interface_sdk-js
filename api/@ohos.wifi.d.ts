@@ -1069,7 +1069,7 @@ declare namespace wifi {
     interface WifiInfoElem {
         id: number;
         content: string;
-	}
+    }
 
     /**
      * Describes the wifi channel width.
