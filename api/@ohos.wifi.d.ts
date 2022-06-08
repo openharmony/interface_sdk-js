@@ -153,6 +153,18 @@ declare namespace wifi {
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
 
     /**
+     * Obtains the list of all existing candidate Wi-Fi configurations which added by this app.
+     *
+     * <p>You can obtain only the Wi-Fi configurations you created on your own application.
+     *
+     * @return Returns the list of all existing Wi-Fi configurations you created on your application.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     */
+    function getCandidateConfigs(): Array<WifiDeviceConfig>;
+
+    /**
      * Connect to a specified candidate hotspot configuration.
      *
      * <p>This method connect to a configuration at a time.
@@ -595,15 +607,16 @@ declare namespace wifi {
     function deletePersistentGroup(netId: number): boolean;
 
     /**
-     * Obtains information about the persistent group.
+     * Obtains information about the persistent groups.
      *
      * @return Returns the persistent group information.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+     * @systemapi Hide this for inner system use.
      */
-    function requestPersistentGroupInfo(): Promise<WifiP2pGroupInfo>;
-    function requestPersistentGroupInfo(callback: AsyncCallback<WifiP2pGroupInfo>): void;
+    function requestPersistentGroupInfo(): Promise<Array<WifiP2pGroupInfo>>;
+    function requestPersistentGroupInfo(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
