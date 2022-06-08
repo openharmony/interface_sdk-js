@@ -15,7 +15,7 @@
 
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
-import Context from "./application/Context";
+import Context from "./application/BaseContext";
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
 
 /**
