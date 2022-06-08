@@ -386,9 +386,9 @@ declare namespace bundleState {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-	 * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
-	 * @param bundleName, name of the application.
+     * @param bundleName, name of the application.
      * @return Returns the usage priority group of the calling application.
      */
      function queryAppUsagePriorityGroup(bundleName? : string, callback: AsyncCallback<number>): void;
