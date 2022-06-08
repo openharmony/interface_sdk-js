@@ -99,7 +99,7 @@ declare interface Rect {
 }
 
 /**
- * Represents filer condation to get the window .
+ * Represents filer condition to get the window .
  *
  * @since 9
  */
