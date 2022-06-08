@@ -105,18 +105,42 @@ declare namespace wifi {
      *     your device will determine whether to connect to the hotspot.
      *
      * @return Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
-     * @since 9
+     * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
      function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
  
-     function addUntrustedConfig(config: WifiDeviceConfig): Promise<number>;
-     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
- 
      /**
       * Removes a specified untrusted hotspot configuration.
+      *
+      * <p>This method removes one configuration at a time.
+      *
+      * @return Returns {@code true} if the untrusted hotspot configuration is removed, returns {@code false} otherwise.
+      * @since 7
+      * @syscap SystemCapability.Communication.WiFi.STA
+      * @permission ohos.permission.SET_WIFI_INFO
+      */
+     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
+     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+
+     /**
+     * Adds a specified candidate hotspot configuration and returns the networkId.
+     *
+     * <p>This method adds one configuration at a time. After this configuration is added,
+     *     your device will determine whether to connect to the hotspot.
+     *
+     * @return Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.SET_WIFI_INFO
+     */
+     function addCandidateConfig(config: WifiDeviceConfig): Promise<number>;
+     function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
+
+     /**
+      * Removes a specified candidate hotspot configuration.
       *
       * <p>This method removes one configuration at a time.
       *
@@ -125,14 +149,11 @@ declare namespace wifi {
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
-     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
-     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
-
-     function removeUntrustedConfig(networkId: number): Promise<boolean>;
-     function removeUntrustedConfig(networkId: number, callback: AsyncCallback<boolean>): void;
+     function removeCandidateConfig(networkId: number): Promise<boolean>;
+     function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Connect to a specified untrusted hotspot configuration.
+     * Connect to a specified candidate hotspot configuration.
      *
      * <p>This method connect to a configuration at a time.
      *
@@ -141,7 +162,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function ConnectToUntrustedConfig(networkId: number): boolean;
+     function connectToCandidateConfig(networkId: number): boolean;
 
     /**
      * Connects to Wi-Fi network.
@@ -1036,7 +1057,7 @@ declare namespace wifi {
 
         /** EAP config info */
         /* @systemapi */
-        WifiEapConfig wifiEapConfig;
+        WifiEapConfig: wifiEapConfig;
     }
 
     /**
@@ -1052,6 +1073,33 @@ declare namespace wifi {
         dnsServers: number[];
         domains: Array<string>;
     }
+
+    /**
+     * Wi-Fi information elements.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+    interface WifiInfoElem {
+        id: number;
+        content: string;
+	}
+
+    /**
+     * Describes the wifi channel width.
+     *
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     */
+    enum class WifiChannelWidth {
+        WIDTH_20MHZ = 0,
+        WIDTH_40MHZ = 1,
+        WIDTH_80MHZ = 2,
+        WIDTH_160MHZ = 3,
+        WIDTH_80MHZ_PLUS = 4,
+        WIDTH_INVALID
+	};
 
     /**
      * Describes the scanned Wi-Fi information.
@@ -1082,7 +1130,7 @@ declare namespace wifi {
         frequency: number;
 
         /** Channel width */
-        channelWidth: number;
+        channelWidth: WifiChannelWidth;
 
         /** Center frequency */
         centerFrequency0: number;
@@ -1091,7 +1139,7 @@ declare namespace wifi {
         centerFrequency1: number;
 
         /** Information elements */
-        informationElements: string;
+        infoElems: Array<WifiInfoElem>;
 
         /** Time stamp */
         timestamp: number;
