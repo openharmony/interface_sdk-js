@@ -1274,7 +1274,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      */
-    abandonIndependentInterrupt(focusType: FocusType): Promise<void>;
+    abandonIndependentInterrupt(focusType: FocusType): Promise<boolean>;
 
     /**
      * Listens for independent interruption events. When the audio of an application is interrupted by another application,
