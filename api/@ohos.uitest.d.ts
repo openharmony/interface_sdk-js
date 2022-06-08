@@ -14,7 +14,7 @@
  */
 
 /**
- * Resize dircetion for the window.
+ * Resize direction for the window.
  *
  * @since 9
  */
@@ -104,7 +104,7 @@ declare interface Rect {
  * @since 9
  */
 declare interface WindowFilter {
-    readonly  bundleNmae?: string;
+    readonly  bundleName?: string;
     readonly  title?: string;
     readonly  focused?: bool;
     readonly  actived?: bool;
@@ -513,7 +513,7 @@ class UiComponent{
   /**
    * Find the first matched {@link UiWindow} window.
    * @syscap SystemCapability.Test.UiTest
-   * @param filter the filer condation of the target {@link UiWindow}.
+   * @param filter the filer condition of the target {@link UiWindow}.
    * @returns the first matched {@link UiWindow} or undefined.
    * @since 9
    * @test
