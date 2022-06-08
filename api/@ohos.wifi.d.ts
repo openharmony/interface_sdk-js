@@ -1084,7 +1084,7 @@ declare namespace wifi {
         WIDTH_160MHZ = 3,
         WIDTH_80MHZ_PLUS = 4,
         WIDTH_INVALID
-    };
+    }
 
     /**
      * Describes the scanned Wi-Fi information.
