@@ -293,20 +293,6 @@ declare namespace formInfo {
      */
     enum FormParam {
         /**
-         * Indicates the key specifying the ID of the form to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
-         *       IDENTITY_KEY: 1L
-         *    }
-         * }.
-         *
-         * @since 8
-         * @syscap SystemCapability.Ability.Form
-         * @systemapi hide for inner use.
-         */
-        IDENTITY_KEY = "ohos.extra.param.key.form_identity",
-
-        /**
          * Indicates the key specifying the grid style of the form to be obtained, which is represented as
          * want: {
          *   "parameters": {

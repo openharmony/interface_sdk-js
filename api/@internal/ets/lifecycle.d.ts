@@ -181,21 +181,6 @@ export declare interface LifecycleApp {
   onCreate?(): void;
 
   /**
-   * Called when the window display mode of this ability changes, for example, from fullscreen mode
-   *     to multi-window mode or from multi-window mode to fullscreen mode.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param isShownInMultiWindow Specifies whether this ability is currently in multi-window mode.
-   *     The value {@code true} indicates the multi-window mode, and {@code false} indicates another mode.
-   * @param newConfig Indicates the new configuration information about this Page ability.
-   * @return -
-   * @systemapi hide for inner use.
-   * @FAModelOnly
-   */
-  onWindowDisplayModeChanged?(isShownInMultiWindow: boolean, newConfig: resourceManager.Configuration): void;
-
-  /**
    * Asks a user whether to start the migration.
    *
    * @since 7

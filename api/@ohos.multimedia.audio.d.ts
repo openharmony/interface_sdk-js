@@ -759,20 +759,6 @@ declare namespace audio {
      */
     AUDIO_SCENE_DEFAULT = 0,
     /**
-     * Ringing audio scene
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    AUDIO_SCENE_RINGING,
-    /**
-     * Phone call audio scene
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    AUDIO_SCENE_PHONE_CALL,
-    /**
      * Voice chat audio scene
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
@@ -1065,41 +1051,6 @@ declare namespace audio {
      */
     isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
     /**
-     * Listens for system volume change events. This method uses a callback to get volume change events.
-     * @param callback Callback used to get the system volume change event.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     */
-    on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
-    /**
-     * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
-     * @param callback Callback used to get the updated ringer mode.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    on(type: 'ringerModeChange', callback: Callback<AudioRingMode>): void;
-    /**
-     * Sets the audio scene mode to change audio strategies. This method uses an asynchronous callback to return the
-     * result.
-     * @param scene Audio scene mode.
-     * @param callback Callback used to return the result.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    setAudioScene(scene: AudioScene, callback: AsyncCallback<void> ): void;
-    /**
-     * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
-     * @param scene Audio scene mode.
-     * @return Promise used to return the result.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @systemapi
-     */
-    setAudioScene(scene: AudioScene): Promise<void>;
-    /**
      * Obtains the audio scene mode. This method uses an asynchronous callback to return the query result.
      * @param callback Callback used to return the audio scene mode.
      * @since 8
@@ -1178,33 +1129,6 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
-
-  /**
-   * Describes the volume event received by the app when the volume is changed.
-   * @since 8
-   * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
-   */
-  interface VolumeEvent {
-    /**
-     * Volume type of the current stream.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    volumeType: AudioVolumeType;
-    /**
-     * Volume level.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    volume: number;
-    /**
-     * Whether to show the volume change in UI.
-     * @since 8
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     */
-    updateUi: boolean;
-  }
 
   /**
    * Describes the callback invoked for audio interruption or focus gain events.When the audio of an application

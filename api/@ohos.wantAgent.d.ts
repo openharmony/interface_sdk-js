@@ -48,24 +48,6 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
-   *
-   * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
-   * @systemapi Hide this for inner system use.
-   */
-  function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
-
-  /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
-   *
-   * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
-   * @systemapi Hide this for inner system use.
-   */
-  function getWant(agent: WantAgent): Promise<Want>;
-
-  /**
    * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
    * @param WantAgent to cancel.

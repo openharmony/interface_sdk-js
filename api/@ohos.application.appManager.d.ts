@@ -14,8 +14,6 @@
  */
 
 import { AsyncCallback } from './basic';
-import ApplicationStateObserver from './application/ApplicationStateObserver';
-import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
@@ -27,58 +25,6 @@ import { ProcessRunningInfo } from './application/ProcessRunningInfo';
  * @permission N/A
  */
 declare namespace appManager {
-    /**
-     * Register application state observer.
-     *
-     * @default -
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The application state observer.
-     * @systemapi hide this for inner system use
-     * @return Returns the number code of the observer.
-     * @permission ohos.permission.RUNNING_STATE_OBSERVER
-     */
-    function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
-
-    /**
-     * Unregister application state observer.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observerId Indicates the number code of the observer.
-     * @systemapi hide this for inner system use
-     * @return -
-     * @permission ohos.permission.RUNNING_STATE_OBSERVER
-     */
-    function unregisterApplicationStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
-    function unregisterApplicationStateObserver(observerId: number): Promise<void>;
-
-    /**
-     * getForegroundApplications.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @return Returns the list of AppStateData.
-     * @permission ohos.permission.GET_RUNNING_INFO
-     */
-     function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
-     function getForegroundApplications(): Promise<Array<AppStateData>>;
-
-    /**
-     * Kill process with account.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName The process bundle name.
-     * @param accountId The account id.
-     * @systemapi hide this for inner system use
-     * @return -
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
-     */
-    function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
-    function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
-
      /**
      * Is user running in stability test.
      *
@@ -99,28 +45,6 @@ declare namespace appManager {
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
-
-    /**
-     * Kill processes by bundle name
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName bundle name.
-     * @systemapi hide this for inner system use
-     * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
-     */
-     function killProcessesByBundleName(bundleName: string): Promise<void>;
-     function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
-
-    /**
-     * Clear up application data by bundle name
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName bundle name.
-     * @systemapi hide this for inner system use
-     * @permission ohos.permission.CLEAN_APPLICATION_DATA
-     */
-     function clearUpApplicationData(bundleName: string): Promise<void>;
-     function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
     /**
      * Is it a ram-constrained device

@@ -796,20 +796,6 @@ declare namespace settings {
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
 
   /**
-   * Saves a character string name and its value to the database.
-   *
-   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
-   * the database.
-   * @param name Indicates the name of the character string.
-   * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @since 7
-   * @systemapi Hide this for inner system use. SystemApi
-   */
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
-  function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
-
-  /**
    * Enables or disables airplane mode.
    *
    * @param enable Specifies whether to enable airplane mode. The value {@code true} means to enable airplane

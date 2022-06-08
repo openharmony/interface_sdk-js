@@ -195,30 +195,6 @@ declare namespace geolocation {
     function requestEnableLocation() : Promise<boolean>;
 
     /**
-     * enable location switch
-     *
-     * @since 7
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @param callback Indicates the callback for reporting the location switch result.
-     */
-    function enableLocation(callback: AsyncCallback<boolean>) : void;
-    function enableLocation() : Promise<boolean>;
-
-    /**
-     * disable location switch
-     *
-     * @since 7
-     * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @param callback Indicates the callback for reporting the location switch result.
-     */
-    function disableLocation(callback: AsyncCallback<boolean>) : void;
-    function disableLocation() : Promise<boolean>;
-
-    /**
      * obtain address info from location
      *
      * @since 7
@@ -340,33 +316,6 @@ declare namespace geolocation {
         radius: number;
         expiration: number;
     }
-
-    /**
-     * querying location privacy protocol confirmation status.
-     *
-     * @since 8
-     * @systemapi
-     * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
-     * @param type indicates location privacy protocol type.
-     * @param callback indicates the callback for reporting the location privacy protocol confirmation status.
-     */
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType, callback: AsyncCallback<boolean>) : void;
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType,) : Promise<boolean>;
-
-    /**
-     * set location privacy protocol confirmation status.
-     *
-     * @since 8
-     * @systemapi
-     * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION
-     * @param type indicates location privacy protocol type.
-     * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
-     * @param callback Indicates the callback for reporting whether the action is set successfully.
-     */
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean, callback: AsyncCallback<boolean>) : void;
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean) : Promise<boolean>;
 
     /**
      * configuring parameters in reverse geocode requests

@@ -22,116 +22,7 @@
 */
 
 declare namespace process {
-
-    export interface ChildProcess {
-        /**
-        * return pid is the pid of the current process
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return the pid of the current process.
-        */
-        readonly pid: number;
-        /**
-        * return ppid is the pid of the current child process
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return the pid of the current child process.
-        */
-        readonly ppid: number;
-
-        /**
-        * return exitCode is the exit code of the current child process
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return the exit code of the current child process.
-        */
-        readonly exitCode: number;
-
-        /**
-        * return boolean is whether the current process signal is sent successfully
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return whether the current process signal is sent successfully.
-        */
-        readonly killed: boolean;
-
-        /**
-        * return 'number' is the target process exit code
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return the target process exit code.
-        */
-        wait(): Promise<number>;
-
-        /**
-        * return it as 'Uint8Array' of the stdout until EOF
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return subprocess standard outpute.
-        */
-        getOutput(): Promise<Uint8Array>;
-
-        /**
-        * return it as 'Uint8Array of the stderr until EOF
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @return return subprocess standard error output.
-        */
-        getErrorOutput(): Promise<Uint8Array>;
-
-        /**
-        * close the target process
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        */
-        close(): void;
-
-        /**
-        * send a signal to process
-        * @since 7
-        * @syscap SystemCapability.Utils.Lang
-        * @systemapi Hide this for inner system use
-        * @param signal number or string represents the signal sent.
-        */
-        kill(signal: number | string): void;
-    }
-
-    /**
-    * returns the numeric valid group ID of the process
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return return the numeric valid group ID of the process.
-    */
-    const egid: number;
-
-    /**
-    * return the numeric valid user identity of the process
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return return the numeric valid user identity of the process.
-    */
-    const euid: number;
-
-    /**
-    * returns the numeric group id of the process
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return return the numeric group if of the process.
-    */
-    const gid: number
-
-    /**
+   /**
     * returns the digital user id of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
@@ -140,30 +31,12 @@ declare namespace process {
     const uid: number;
 
     /**
-    * return an array with supplementary group id
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return return an array with supplementary group id.
-    */
-    const groups: number[];
-
-    /**
     * return pid is The pid of the current process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @return return The pid of the current process.
     */
     const pid: number;
-
-    /**
-    * return ppid is The pid of the current child process
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return return The pid of the current child process.
-    */
-    const ppid: number;
 
     /**
     * Returns the tid of the current thread.
@@ -251,19 +124,6 @@ declare namespace process {
     function getEnvironmentVar(name: string): string;
 
     type EventListener = (evt: Object) => void;
-    /**
-    * Return a child process object and spawns a new ChildProcess to run the command
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @param command string of the shell commands executed by the child process.
-    * @param options This is an object. The object contains three parameters. Timeout is the running time of the child
-    * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
-    * maximum buffer area for standard input and output.
-    * @systemapi Hide this for inner system use
-    * @return Return a child process object.
-    */
-    function runCmd(command: string,
-        options?: { timeout : number, killSignal : number | string, maxBuffer : number }): ChildProcess;
 
     /**
     * Abort current process
@@ -273,50 +133,12 @@ declare namespace process {
     function abort(): void;
 
     /**
-    * Register for an event
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @param type Indicates the type of event registered.
-    * @systemapi Hide this for inner system use
-    * @param listener Represents the registered event function
-    */
-    function on(type: string, listener: EventListener): void;
-
-    /**
-    * Remove registered event
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @param type Remove the type of registered event.
-    * @systemapi Hide this for inner system use
-    * @return Return removed result.
-    */
-    function off(type: string): boolean;
-
-    /**
     * Process exit
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param code Process exit code.
     */
     function exit(code: number): void;
-
-    /**
-    * Return the current work directory;
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @return Return the current work directory.
-    */
-    function cwd(): string;
-
-    /**
-    * Change current  directory
-    * @since 7
-    * @syscap SystemCapability.Utils.Lang
-    * @systemapi Hide this for inner system use
-    * @param dir The path you want to change.
-    */
-    function chdir(dir: string): void;
 
     /**
     * Returns the running time of the system

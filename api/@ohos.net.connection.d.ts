@@ -85,22 +85,6 @@ declare namespace connection {
   function hasDefaultNet(): Promise<boolean>;
 
   /**
-   * Enables the airplane mode for a device.
-   *
-   * @systemapi Hide this for inner system use. Only used for system app.
-   */
-  function enableAirplaneMode(callback: AsyncCallback<void>): void;
-  function enableAirplaneMode(): Promise<void>;
-
-  /**
-   * Disables the airplane mode for a device.
-   *
-   * @systemapi Hide this for inner system use. Only used for system app.
-   */
-  function disableAirplaneMode(callback: AsyncCallback<void>): void;
-  function disableAirplaneMode(): Promise<void>;
-
-  /**
    * Reports the network state is connected.
    *
    * @param netHandle Indicates the network whose state is to be reported.

@@ -114,19 +114,6 @@ export default class App {
   static terminate(): void;
 
   /**
-   * Requests the application to run in full window.
-   * In some scenarios, such as semi-modal FA, the FA runs in non-full window.
-   * In this case, you can call this API.
-   * This API is invalid for an application already in full-window mode.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Transition time from non-full window to full window, in milliseconds.
-   * By default, the value is in direct proportion to the distance between the non-full window and the full window.
-   * @since 3
-   * @systemapi
-   */
-  static requestFullWindow(options?: RequestFullWindowOptions): void;
-
-  /**
    * Set image cache capacity of decoded image count.
    * if not set, the application will not cache any decoded image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

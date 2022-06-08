@@ -51,19 +51,6 @@ export interface AbilityDelegator {
     executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
-
-    /**
-     * Prints log information to the unit testing console.
-     * The total length of the log information to be printed cannot exceed 1000 characters.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @param msg Log information
-     * @param code Result code
-     */
-    finishTest(msg: string, code: number, callback: AsyncCallback<void>): void;
-    finishTest(msg: string, code: number): Promise<void>;
 }
 
 export default AbilityDelegator;

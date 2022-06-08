@@ -915,26 +915,6 @@ declare namespace mediaLibrary {
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
     /**
-     * Delete File Asset
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param uri FileAsset's URI
-     * @param callback no value returned
-     * @systemapi
-     */
-    deleteAsset(uri: string, callback: AsyncCallback<void>): void;
-    /**
-     * Delete File Asset
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param uri, FileAsset's URI
-     * @return A Promise instance, no value returned
-     * @systemapi
-     */
-    deleteAsset(uri: string): Promise<void>;
-    /**
      * Obtains albums based on the media retrieval options. This method uses an asynchronous callback to return.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
@@ -1016,42 +996,6 @@ declare namespace mediaLibrary {
      */
     startMediaSelect(option: MediaSelectOption): Promise<Array<string>>;
     /**
-     * Get Active Peer device information
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @permission ohos.permission.READ_MEDIA
-     * @systemapi
-     * @param callback, Callback return the list of the active peer devices' information
-     */
-    getActivePeers(callback: AsyncCallback<Array<PeerInfo>>): void;
-    /**
-     * Get Active Peer device information
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @permission ohos.permission.READ_MEDIA
-     * @systemapi
-     * @return Promise used to return the list of the active peer devices' information
-     */
-    getActivePeers(): Promise<Array<PeerInfo>>;
-    /**
-     * Get all the peer devices' information
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @permission ohos.permission.READ_MEDIA
-     * @systemapi
-     * @param callback Callback return the list of the all the peer devices' information
-     */
-    getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
-    /**
-     * Get all the peer devices' information
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @permission ohos.permission.READ_MEDIA
-     * @systemapi
-     * @return Promise used to return the list of the all the peer devices' information
-     */
-    getAllPeers(): Promise<Array<PeerInfo>>;
-    /**
      * Release MediaLibrary instance
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
@@ -1084,101 +1028,6 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
     height: number;
-  }
-  
-  /**
-   * peer devices' information
-   * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-   * @systemapi
-   * @since 8
-   */
-  interface PeerInfo {
-    /**
-     * Peer device name
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    readonly deviceName: string;
-    /**
-     * Peer device network id
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    readonly networkId: string;
-    /**
-     * Peer device type
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    readonly deviceType: DeviceType;
-    /**
-     * Peer device online status
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    readonly isOnline: boolean;
-  }
-
-  /**
-   * peer device type
-   * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-   * @systemapi
-   * @since 8
-   */
-  enum DeviceType {
-    /**
-     * Unknow device type
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_UNKNOWN = 0,
-    /**
-     * Laptop device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_LAPTOP,
-    /**
-     * Phone device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_PHONE,
-    /**
-     * Tablet device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_TABLET,
-    /**
-     * Watch device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_WATCH,
-    /**
-     * Car device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_CAR,
-    /**
-     * TV device
-     * @since 8
-     * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
-     * @systemapi
-     */
-    TYPE_TV
   }
 }
 

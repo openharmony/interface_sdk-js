@@ -154,22 +154,6 @@ declare namespace bundleState {
     }
 
     /**
-     * Queries usage information about each bundle within a specified period.
-     * 
-     * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
-     */
-    function queryBundleStateInfos(begin: number, end: number, callback: AsyncCallback<BundleActiveInfoResponse>): void;
-    function queryBundleStateInfos(begin: number, end: number): Promise<BundleActiveInfoResponse>;
-
-    /**
      * Declares interval type.
      * 
      * @since 7
@@ -201,37 +185,6 @@ declare namespace bundleState {
          */
         BY_ANNUALLY = 4
     }
-
-    /**
-     * Queries usage information about each bundle within a specified period at a specified interval.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param byInterval Indicates the interval at which the usage statistics are queried.
-     * The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
-     */
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
-
-    /**
-     * Queries state data of all bundles within a specified period identified by the start and end time.
-     *
-     * @since 7
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @systemapi Hide this for inner system use.
-     * @param begin Indicates the start time of the query period, in milliseconds.
-     * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
-     */
-    function queryBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
-    function queryBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
 
     /**
      * Queries state data of the current bundle within a specified period.

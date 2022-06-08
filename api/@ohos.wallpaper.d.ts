@@ -108,28 +108,6 @@ declare namespace wallpaper {
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
     /**
-     * Obtains the default pixel map of a wallpaper of the specified type.
-     * @param wallpaperType Indicates the wallpaper type.
-     * @return the default pixel map.
-     * @permission ohos.permission.GET_WALLPAPER
-     * @permission ohos.permission.READ_USER_STORAGE
-     * @systemapi Hide this for inner system use.
-     */
-    function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
-    function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
-
-    /**
-     * Screen shot live wallpaper
-     * @param scale scale the PixelMap
-     * @param pixelFormat pixel format
-     * @return the pixel map of wallpaper.
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @systemapi Hide this for inner system use.
-     */
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat, callback: AsyncCallback<image.PixelMap>): void;
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat): Promise<image.PixelMap>;
-
-    /**
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.

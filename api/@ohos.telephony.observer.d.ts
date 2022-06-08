@@ -66,27 +66,6 @@ declare namespace observer {
   function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
   /**
-   * Called back when the cell information corresponding to a monitored {@code slotId} updates.
-   *
-   * @param type cellInfoChange
-   * @param options including slotId Indicates the ID of the target card slot.
-   *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @param callback including an array of instances of the classes derived from {@link CellInformation}.
-   * @permission ohos.permission.LOCATION
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  function on(type: 'cellInfoChange', callback: Callback<Array<CellInformation>>): void;
-  function on(type: 'cellInfoChange', options: { slotId: number },
-    callback: Callback<Array<CellInformation>>): void;
-
-  /**
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  function off(type: 'cellInfoChange', callback?: Callback<Array<CellInformation>>): void;
-
-  /**
    * Called when the cellular data link connection state updates.
    *
    * @param type cellularDataConnectionStateChange
