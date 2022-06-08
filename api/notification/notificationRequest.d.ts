@@ -169,33 +169,9 @@ export interface NotificationRequest {
   readonly creatorUserId?: number;
 
   /**
-   * Obtains the classification of this notification.
-   *
-   * @systemapi Hide this for inner system use.
-   */
-  classification?: string;
-
-  /**
    * Obtains the unique hash code of a notification in the current application.
    */
   readonly hashCode?: string;
-
-  /**
-   * Whether the notification can be remove.
-   *
-   * @default true
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   */
-  readonly isRemoveAllowed?: boolean;
-
-  /**
-   * Notification source. enum SourceType
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   */
-  readonly source?: number;
 
   /**
    * Obtains the template of this notification.
@@ -210,14 +186,6 @@ export interface NotificationRequest {
    * @since 8
    */
   distributedOption?: DistributedOptions;
-
-  /**
-   * The device ID of the notification source.
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   */
-  readonly deviceId?: string;
 
   /**
    * Obtains the set of identifiers for the notification.
@@ -252,11 +220,4 @@ export interface DistributedOptions {
    * Obtains the devices on which notifications can be open.
    */
   supportOperateDevices?: Array<string>;
-
-  /**
-   * Obtains the remind mode of the notification. enum DeviceRemindType.
-
-   * @systemapi Hide this for inner system use.
-   */
-  readonly remindType?: number;
 }

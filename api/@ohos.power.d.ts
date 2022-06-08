@@ -23,18 +23,6 @@ import {AsyncCallback} from './basic';
  */
 declare namespace power {
   /**
-   * Shuts down the system.
-   *
-   * <p>This method requires the ohos.permission.REBOOT permission.
-   *
-   * @param reason Indicates the shutdown reason.
-   * @permission ohos.permission.REBOOT
-   * @systemapi
-   * @since 7
-   */
-  function shutdownDevice(reason: string): void;
-
-  /**
    * Restarts the system.
    *
    * <p>This method requires the ohos.permission.REBOOT permission.

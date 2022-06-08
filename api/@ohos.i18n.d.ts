@@ -45,39 +45,6 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain all languages supported by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns all languages supported by the system.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function getSystemLanguages(): Array<string>;
-
-/**
- * Obtain all regions supported by the system in the language.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language used to get the list of regions.
- * @return Returns all regions supported by the system in the language.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function getSystemCountries(language: string): Array<string>;
-
-/**
- * Determine whether the current language or region is recommended.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language code.
- * @param region The region code.
- * @return Returns whether the current language or region is recommended.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function isSuggested(language: string, region?: string): boolean;
-
-/**
  * Obtain the language currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
@@ -85,17 +52,6 @@ export function isSuggested(language: string, region?: string): boolean;
  * @since 7
  */
 export function getSystemLanguage(): string;
-
-/**
- * Set the language currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param language The language to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemLanguage(language: string): boolean;
 
 /**
  * Obtain the region currently used by the system.
@@ -107,17 +63,6 @@ export function setSystemLanguage(language: string): boolean;
 export function getSystemRegion(): string;
 
 /**
- * Set the region currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param region The region to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemRegion(region: string): boolean;
-
-/**
  * Obtain the locale currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
@@ -125,17 +70,6 @@ export function setSystemRegion(region: string): boolean;
  * @since 7
  */
 export function getSystemLocale(): string;
-
-/**
- * Set the locale currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param locale The locale to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemLocale(locale: string): boolean;
 
 /**
  * Provides util functions.

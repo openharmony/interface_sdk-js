@@ -52,18 +52,6 @@ declare namespace window {
      */
     TYPE_CUTOUT
   }
-  /**
-   * Describes the window mode of an application
-   * @systemapi Hide this for inner system use.
-   * @since 7
-   */
-  enum WindowMode {
-    UNDEFINED = 1,
-    FULLSCREEN,
-    PRIMARY,
-    SECONDARY,
-    FLOATING
-  }
 
   /**
    * Properties of status bar and navigation bar, it couldn't update automatically
@@ -106,56 +94,6 @@ declare namespace window {
      * @since 8
      */
     navigationBarContentColor?: string;
-  }
-
-  /**
-   * system bar tint of region
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  interface SystemBarRegionTint {
-    /**
-     * system bar type
-     */
-    type: WindowType;
-
-    /**
-     * the visibility of system bar
-     */
-    isEnable?: boolean;
-
-    /**
-     * the region of system bar
-     */
-    region?: Rect;
-
-    /**
-     * the background color of the system bar.
-     */
-    backgroundColor?: string;
-
-    /**
-     * the content color of the system bar.
-     */
-    contentColor?: string
-  }
-
-  /**
-   * system bar tint state for systemui
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  interface SystemBarTintState {
-    /**
-     * id of display
-     */
-    displayId: number;
-    /**
-     * region tint of systembar
-     */
-    regionTint: Array<SystemBarRegionTint>;
   }
 
   /**
@@ -386,37 +324,7 @@ declare namespace window {
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
-  /**
-   * register the callback of systemBarTintChange
-   * @param type: 'systemBarTintChange'
-   * @systemapi Hide this for inner system use.
-   * @since 8
-   */
-  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
-
-  /**
-  * unregister the callback of systemBarTintChange
-  * @param type: 'systemBarTintChange'
-  * @systemapi Hide this for inner system use.
-  * @since 8
-  */
-  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
-
   interface Window {
-    /**
-     * hide window.
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    hide (callback: AsyncCallback<void>): void;
-
-    /**
-      * hide window.
-      * @systemapi Hide this for inner system use.
-      * @since 7
-      */
-    hide(): Promise<void>;
-
     /**
       * show window.
       * @since 7
@@ -476,24 +384,6 @@ declare namespace window {
      * @since 7
      */
     resetSize(width: number, height: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set the type of a window.
-     * @param type Indicate the type of a window.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    setWindowType(type: WindowType): Promise<void>;
-
-    /**
-     * Set the type of a window.
-     * @param type Indicate the type of a window.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    setWindowType(type: WindowType, callback: AsyncCallback<void>): void;
 
     /**
      * get the properties of current window

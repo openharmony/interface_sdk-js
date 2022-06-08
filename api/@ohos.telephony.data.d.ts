@@ -32,17 +32,6 @@ declare namespace data {
   function getDefaultCellularDataSlotId(): Promise<number>;
 
   /**
-   * Switches cellular data services to another card, without changing the default settings.
-   *
-   * @param slotId Indicates the ID of the target card slot.
-   *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @systemapi Hide this for inner system use.
-   */
-  function setDefaultCellularDataSlotId(slotId: number, callback: AsyncCallback<void>): void;
-  function setDefaultCellularDataSlotId(slotId: number): Promise<void>;
-
-  /**
    * Indicates that there is no uplink or downlink data.
    *
    * <p>It is a return value of service state query of cellular data services.
@@ -77,24 +66,6 @@ declare namespace data {
   function isCellularDataEnabled(): Promise<boolean>;
 
   /**
-   * Enables cellular data services.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @systemapi Hide this for inner system use.
-   */
-  function enableCellularData(callback: AsyncCallback<void>): void;
-  function enableCellularData(): Promise<void>;
-
-  /**
-   * Diables cellular data services.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @systemapi Hide this for inner system use.
-   */
-  function disableCellularData(callback: AsyncCallback<void>): void;
-  function disableCellularData(): Promise<void>;
-
-  /**
    * Checks whether roaming is enabled for cellular data services.
    *
    * @param slotId Indicates the ID of a card slot.
@@ -104,28 +75,6 @@ declare namespace data {
    */
   function isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
   function isCellularDataRoamingEnabled(slotId: number): Promise<boolean>;
-
-  /**
-   * Enables cellular data roaming.
-   *
-   * @param slotId Indicates the ID of a card slot.
-   *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @systemapi Hide this for inner system use.
-   */
-  function enableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
-  function enableCellularDataRoaming(slotId: number): Promise<void>;
-
-  /**
-   * Disables cellular data roaming.
-   *
-   * @param slotId Indicates the ID of a card slot.
-   *      The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @systemapi Hide this for inner system use.
-   */
-  function disableCellularDataRoaming(slotId: number, callback: AsyncCallback<void>): void;
-  function disableCellularDataRoaming(slotId: number): Promise<void>;
 
   /**
    * Describes the cellular data flow type.

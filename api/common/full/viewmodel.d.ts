@@ -501,14 +501,6 @@ export interface Element {
   getBoundingClientRect(): RectObj;
 
   /**
-   * Obtains attributes of the element.
-   * @returns attributes of the element in json string.
-   * @since 8
-   * @systemapi
-   */
-  getInspector(): string;
-
-  /**
    * If 0.5 is returned, 50% of the current component is visible.
    * @param radios Scope of Monitoring components.
    * @since 6
@@ -2759,25 +2751,3 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    */
   onCreate?(): void;
 }
-
-/**
- * Used for ide.
- * @systemapi
- * @hide
- * @since 4
- */
-type DefaultData<T> = object;
-/**
- * Used for ide.
- * @systemapi
- * @hide
- * @since 4
- */
-type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & ThisType<T & ViewModel & Data>;
-/**
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @hide
- * @since 4
- */
-export declare function extendViewModel<T extends ViewModel, Data>(options: CombinedOptions<T, Data>): ViewModel & Data;

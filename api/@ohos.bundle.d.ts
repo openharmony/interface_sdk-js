@@ -285,18 +285,6 @@ declare namespace bundle {
    function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
   /**
-   * Obtains the interface used to install bundles.
-   *
-   * @since 7
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @return Returns the IBundleInstaller interface.
-   * @permission ohos.permission.INSTALL_BUNDLE
-   * @systemapi Hide this for inner system use
-   */
-  function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
-  function getBundleInstaller(): Promise<BundleInstaller>;
-   
-  /**
    * Obtains information about the current ability.
    *
    * @since 7
@@ -412,60 +400,6 @@ declare namespace bundle {
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
-
-  /**
-   * Clears cache data of a specified application.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application whose cache data is to be cleared.
-   * @param callback Indicates the callback to be invoked for returning the operation result.
-   * @permission ohos.permission.REMOVE_CACHE_FILES
-   * @systemapi Hide this for inner system use
-   */
-  function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
-  function cleanBundleCacheFiles(bundleName: string): Promise<void>;
-
-  /**
-   * Sets whether to enable a specified application.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param bundleName Indicates the bundle name of the application.
-   * @param isEnabled Specifies whether to enable the application. The value true means to enable it, and the
-   *                  value false means to disable it.
-   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
-   */
-  function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
-  function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
-
-  /**
-   * Sets whether to enable a specified ability.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param abilityInfo Indicates information about the ability to set.
-   * @param isEnabled Specifies whether to enable the ability. The value true means to enable it, and the
-   *                  value false means to disable it..
-   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @systemapi Hide this for inner system use
-   */
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
-
-  /**
-   * Get the permission details by permissionName.
-   *
-   * @since 8
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @param permissionName Indicates permission name.
-   * @return Returns permissionDef object.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @systemapi
-   */
-  function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
-  function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
    * Obtains the label of a specified ability.

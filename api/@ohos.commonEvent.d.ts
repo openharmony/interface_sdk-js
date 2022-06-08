@@ -48,33 +48,6 @@ declare namespace commonEvent {
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes an ordered, sticky, or standard common event to a specified user.
-   *
-   * @since 8
-   * @param event Specified the names of the common events.
-   * @param userId Specified the user to receive the common events.
-   * @param callback Specified callback method.
-   * @return -
-   *
-   * @systemapi Hide this for inner system use.
-   */
-   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Publishes an ordered, sticky, or standard common event to a specified user.
-   *
-   * @since 8
-   * @param event Specified the names of the common events.
-   * @param userId Specified the user to receive the common events.
-   * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
-   * @param callback Specified callback method.
-   * @return -
-   *
-   * @systemapi Hide this for inner system use.
-   */
-  function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
-
-  /**
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
    * @since 7

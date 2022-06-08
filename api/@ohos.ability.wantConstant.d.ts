@@ -291,20 +291,6 @@ declare namespace wantConstant {
     FLAG_ABILITY_FORM_ENABLED = 0x00000020,
 
     /**
-     * Indicates the grant for possible persisting on the URI.
-     *
-     * @systemapi Hide this for inner system use.
-     */
-    FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
-
-    /**
-     * Returns the result to the source ability slice.
-     *
-     * @systemapi Hide this for inner system use.
-     */
-    FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
-
-    /**
      * Supports multi-device startup in the distributed scheduling system.
      */
     FLAG_ABILITYSLICE_MULTI_DEVICE = 0x00000100,
@@ -314,13 +300,6 @@ declare namespace wantConstant {
      * been started.
      */
     FLAG_START_FOREGROUND_ABILITY = 0x00000200,
-
-    /**
-     * Indicates the continuation is reversible.
-     *
-     * @systemapi Hide this for inner system use.
-     */
-    FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
 
     /**
      * Install the specified ability if it's not installed.

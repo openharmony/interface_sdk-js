@@ -153,24 +153,6 @@ declare namespace backgroundTaskManager {
         MULTI_DEVICE_CONNECTION = 6,
 
         /**
-         * wifi interaction mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         * @systemapi Hide this for inner system use.
-         */
-        WIFI_INTERACTION = 7,
-
-        /**
-         * Voice over Internet Phone mode
-         *
-         * @since 8
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-         * @systemapi Hide this for inner system use.
-         */
-        VOIP = 8,
-
-        /**
          * background continuous calculate mode, for example 3D render.
          * only supported in portable computer device
          *

@@ -216,19 +216,3 @@ export declare class ImageBitmap {
    */
   readonly width: number;
 }
-
-/**
- * Conditional compilation for rich equipment
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 4
- * @systemapi
- */
-export declare const STANDARD: string;
-
-/**
- * Conditional compilation for lite equipment
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 4
- * @systemapi
- */
-export declare const LITE: string;

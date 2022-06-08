@@ -12,29 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
- /**
-  * @name  Provides methods for obtaining information about the ability that a shortcut will start, including the target
-  *        bundle name and ability class name.
-  * @since 7
-  * @syscap SystemCapability.BundleManager.BundleFramework
-  * @permission NA
-  * @systemapi Hide this for inner system use
-  */
-  export interface ShortcutWant{
-    /**
-      * @default Indicates the target bundle of the shortcut want
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetBundle: string;
-    /**
-      * @default Indicates the target class of the shortcut want
-      * @since 7
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetClass: string;
-  }
   
    /**
     * @name  Provides information about a shortcut, including the shortcut ID and label.

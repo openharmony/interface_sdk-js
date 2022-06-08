@@ -56,17 +56,6 @@ declare namespace bluetooth {
     function pairDevice(deviceId: string): boolean;
 
     /**
-     * Remove a paired remote device.
-     *
-     * @param deviceId The address of the remote device to be removed.
-     * @return Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
-     * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
-     * @systemapi Hide this for inner system use
-     */
-    function cancelPairedDevice(deviceId: string): boolean;
-
-    /**
      * Obtains the name of a peer Bluetooth device.
      *
      * @param deviceId The address of the remote device.

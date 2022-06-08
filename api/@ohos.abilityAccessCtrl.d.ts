@@ -39,41 +39,6 @@ import { AsyncCallback } from "./basic";
          * @since 8
          */
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
-
-        /**
-         * Grants a specified user_grant permission to the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be granted.
-         * @param permissionFlag Flag of permission state.
-         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
-
-        /**
-         * Revokes a specified user_grant permission to the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be revoked.
-         * @param permissionFlag Flag of permission state.
-         * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number): Promise<number>;
-        revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
-
-        /**
-         * Queries specified permission flag of the given application.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be granted.
-         * @return Return permission flag.
-         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
-         * @systemapi hid this for inner system use
-         * @since 8
-         */
-        getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
     }
   
     /**
