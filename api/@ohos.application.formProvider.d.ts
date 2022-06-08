@@ -65,7 +65,7 @@ declare namespace formProvider {
     function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
-    
+
     /**
      * Request to publish a form to the form host.
      *
@@ -80,5 +80,17 @@ declare namespace formProvider {
         callback: AsyncCallback<string>): void;
      function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
      function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
+
+    /**
+     * Check if the request of publishing a form is supported by the host
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi hide for inner use
+     * @return Returns true if the request is supported and false otherwise
+     */
+    function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
+    function isRequestPublishFormSupported(): Promise<boolean>;
+
 }
 export default formProvider;
