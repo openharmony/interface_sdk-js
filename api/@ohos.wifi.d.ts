@@ -914,21 +914,13 @@ declare namespace wifi {
      */
      enum EapMethod {
         EAP_NONE,
-
         EAP_PEAP,
-
-        EAP_TLS,
-		
+        EAP_TLS,		
         EAP_TTLS,
-
         EAP_PWD,
-
         EAP_SIM,
-
         EAP_AKA,
-
         EAP_AKA_PRIME,
-
         EAP_UNAUTH_TLS,
     }
 
@@ -941,19 +933,12 @@ declare namespace wifi {
      */
      enum Phase2Method {
         PHASE2_NONE,
-
         PHASE2_PAP,
-
         PHASE2_MSCHAP,
-
         PHASE2_MSCHAPV2,
-
         PHASE2_GTC,
-
         PHASE2_SIM,
-
         PHASE2_AKA,
-
         PHASE2_AKA_PRIME,
     }
 
@@ -1099,12 +1084,12 @@ declare namespace wifi {
         WIDTH_160MHZ = 3,
         WIDTH_80MHZ_PLUS = 4,
         WIDTH_INVALID
-	};
+    };
 
     /**
      * Describes the scanned Wi-Fi information.
      *
-     * @since 9
+     * @since 6
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiScanInfo {
