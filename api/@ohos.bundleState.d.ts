@@ -437,9 +437,9 @@ declare namespace bundleState {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-	 * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
-	 * @param bundleName, name of the application.
+     * @param bundleName, name of the application.
      * @param newGroup,the group of the application whose name is bundleName.
      * @return Returns the result of setBundleGroup, true of false.
      */
@@ -451,9 +451,9 @@ declare namespace bundleState {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-	 * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
-	 * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
+     * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
      * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed. the result of AsyncCallback is true or false.
      */
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>, callback: AsyncCallback<boolean>): void;
@@ -464,7 +464,7 @@ declare namespace bundleState {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-	 * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
      * @return Returns the result of unRegisterGroupCallBack, true of false.
      */
