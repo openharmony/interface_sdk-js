@@ -123,13 +123,6 @@ ohos_copy("common_api") {
   module_install_name = ""
 }
 
-ohos_copy("bundle_api") {
-  sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
-  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
-  module_source_dir = target_out_dir + "/$target_name"
-  module_install_name = ""
-}
-
 template("ohos_declaration_template") {
   forward_variables_from(invoker, "*")
   action_with_pydeps(target_name) {
@@ -163,6 +156,7 @@ ohos_copy("internal_full") {
   sources = [
     "api/common/full/console.d.ts",
     "api/common/full/dom.d.ts",
+    "api/common/full/featureability.d.ts",
     "api/common/full/global.d.ts",
     "api/common/full/index.d.ts",
     "api/common/full/viewmodel.d.ts",
