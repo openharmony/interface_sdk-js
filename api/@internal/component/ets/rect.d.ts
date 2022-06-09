@@ -24,11 +24,11 @@ interface RectInterface {
    */
   new (
     value?:
-      | {
-          width?: number | string;
-          height?: number | string;
-          radius?: number | string | Array<any>;
-        }
+      {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
       | {
           width?: number | string;
           height?: number | string;
@@ -43,11 +43,11 @@ interface RectInterface {
    */
   (
     value?:
-      | {
-          width?: number | string;
-          height?: number | string;
-          radius?: number | string | Array<any>;
-        }
+      {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
       | {
           width?: number | string;
           height?: number | string;
