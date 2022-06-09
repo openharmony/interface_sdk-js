@@ -274,10 +274,11 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param want Indicates the want info of ability.
+     * @param launchParams Indicates the launch parameters.
      * @return -
      * @StageModelOnly
      */
-    onNewWant(want: Want): void;
+    onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
 
     /**
      * Called when the system configuration is updated.

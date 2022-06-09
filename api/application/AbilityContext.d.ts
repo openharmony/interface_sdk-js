@@ -137,6 +137,62 @@ export default class AbilityContext extends Context {
     startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
 
     /**
+     * Starts a new service extension ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want info to start.
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     */
+    startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
+    startServiceExtensionAbility(want: Want): Promise<void>;
+
+    /**
+     * Starts a new service extension ability with account.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want info to start.
+     * @param accountId Indicates the account to start.
+     * @systemapi hide for inner use.
+     * @return -
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @StageModelOnly
+     */
+    startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+    startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+
+    /**
+     * Stops a service within the same application.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want info to start.
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     */
+    stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
+    stopServiceExtensionAbility(want: Want): Promise<void>;
+
+    /**
+     * Stops a service within the same application with account.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the want info to start.
+     * @param accountId Indicates the accountId to start.
+     * @systemapi hide for inner use.
+     * @return -
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @StageModelOnly
+     */
+    stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+    stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
+
+    /**
      * Destroys this Page ability.
      *
      * @since 9
@@ -245,5 +301,15 @@ export default class AbilityContext extends Context {
      * @StageModelOnly
      */
     restoreWindowStage(localStorage: LocalStorage) : void;
+
+    /**
+     * check to see ability is in terminating state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @return Returns true when ability is in terminating state, else returns false.
+     * @StageModelOnly
+     */
+    isTerminating(): boolean;
 
 }

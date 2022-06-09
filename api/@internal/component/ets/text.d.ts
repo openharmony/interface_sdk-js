@@ -118,6 +118,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 7
    */
   baselineOffset(value: number | string): TextAttribute;
+
+  /**
+   * Allow replication.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): TextAttribute;
 }
 
 declare const TextInstance: TextAttribute;

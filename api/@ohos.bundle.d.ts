@@ -55,6 +55,10 @@ declare namespace bundle {
      * @since 9
      */
      GET_BUNDLE_WITH_EXTENSION_ABILITY = 0x00000020,
+     /**
+     * @since 9
+     */
+      GET_BUNDLE_WITH_HASH_VALUE = 0x00000030,
     /**
      * @since 8
      */
@@ -71,6 +75,10 @@ declare namespace bundle {
      * @since 8
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200,
+    /**
+     * @since 9
+     */
+    GET_APPLICATION_INFO_WITH_CERTIFICATE_FINGERPRINT = 0x00000400,
   }
 
 /**
@@ -521,7 +529,6 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
    * @return Returns the BundleInfo object.
-   * @systemapi Hide this for inner system use
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>;
@@ -727,6 +734,32 @@ declare namespace bundle {
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param abilityName Indicates the abilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param extensionAbilityName Indicates the extensionAbilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 
   /**
    * Set the disposed status of a specified bundle.

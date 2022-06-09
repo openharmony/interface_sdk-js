@@ -23,22 +23,22 @@ import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 */
 export declare enum Action {
   /**
-   * touch to cancel
+   * Touch cancelled
    */
   CANCEL = 0,
 
   /**
-   * touch press
+   * Touch pressed
    */
   DOWN = 1,
 
   /**
-   * touch move
+   * Touch moved
    */
   MOVE = 2,
 
   /**
-   * touch up
+   * Touch lifted
    */
   UP = 3,
 }
@@ -52,37 +52,37 @@ export declare enum Action {
 */
 export declare enum ToolType {
   /**
-   * finger
+   * Finger
    */
   FINGER = 0,
 
   /**
-   * pen
+   * Stylus
    */
   PEN = 1,
 
   /**
-   * rubber
+   * Rubber
    */
   RUBBER = 2,
 
   /**
-   * brush
+   * Brush
    */
   BRUSH = 3,
 
   /**
-   * pencil
+   * Pencil
    */
   PENCIL = 4,
 
   /**
-   * airbrush
+   * Air brush
    */
   AIRBRUSH = 5,
 
   /**
-   * mouse
+   * Mouse
    */
   MOUSE = 6,
 
@@ -98,17 +98,17 @@ export declare enum ToolType {
 */
 export declare enum SourceType {
   /**
-   * touch screen
+   * Touchscreen
    */
   TOUCH_SCREEN = 0,
 
   /**
-   * pen
+   * Stylus
    */
   PEN = 1,
 
   /**
-   * touch pad
+   * Touchpad
    */
   TOUCH_PAD = 2,
 }
@@ -122,92 +122,92 @@ export declare enum SourceType {
 */
 export declare interface Touch {
   /**
-   * pointer identifier, integer data, data greater than or equal to 0.
+   * Pointer identifier
    */
   id: number;
 
   /**
-   * press the timestamp of the moment
+   * Time stamp when touch is pressed
    */
   pressedTime: number;
 
   /**
-   * the x coordinate of the screen to which the touch position belongs
+   * X coordinate of the touch position on the screen
    */
   screenX: number;
 
   /**
-   * the y coordinate of the screen to which the touch position belongs
+   * Y coordinate of the touch position on the screen
    */
   screenY: number;
 
   /**
-   * touch the x coordinate of the position in the window
+   * X coordinate of the touch position in the window
    */
   windowX: number;
 
   /**
-   * touch the y coordinate of the position in the window
+   * Y coordinate of the touch position in the window
    */
   windowY: number;
 
   /**
-   * the pressure value. The range is 0.0 to 1.0, with 0.0 indicating unsupported.
+   * Pressure value. The value range is [0.0, 1.0]. The value 0.0 indicates that the pressure is not supported.
    */
   pressure: number;
 
   /**
-   * press the width of the contact area
+   * Width of the contact area when touch is pressed
    */
   width: number;
 
   /**
-   * press the height of the contact area
+   * Height of the contact area when touch is pressed
    */
   height: number;
 
   /**
-   * relative to the YZ plane, values range from -90 to 90 inclusive, where positive values are skewed to the right
+   * Angle relative to the YZ plane. The value range is [-90, 90]. A positive value indicates a rightward tilt.
    */
   tiltX: number;
 
   /**
-   * the Angle relative to the XZ plane ranges from -90 to 90 inclusive, where positive values are downward sloping.
+   * Angle relative to the XZ plane. The value range is [-90, 90]. A positive value indicates a downward tilt.
    */
   tiltY: number;
 
   /**
-   * the center point x of the tool area
+   * Center point X of the tool area
    */
   toolX: number;
 
   /**
-   * the center point y of the tool area
+   * Center point Y of the tool area
    */
   toolY: number;
 
   /**
-   * tool area width
+   * Width of the tool area
    */
   toolWidth: number;
 
   /**
-   * tool area height
+   * Height of the tool area
    */
   toolHeight: number;
 
   /**
-   * the x coordinate on the input device
+   * X coordinate of the input device
    */
   rawX: number;
 
   /**
-   * the y coordinate on the input device
+   * Y coordinate of the input device
    */
   rawY: number;
 
   /**
-   * tool type
+   * Tool type
    */
   toolType: ToolType;
 }
@@ -221,22 +221,22 @@ export declare interface Touch {
 */
 export declare interface TouchEvent extends InputEvent {
   /**
-   * touch action
+   * Touch action
    */
   action: Action;
 
   /**
-   * the current touch
+   * Current touch point
    */
   touch: Touch;
 
   /**
-   * all touch
+   * All touch points
    */
   touches: Touch[];
 
   /**
-   * the device type of the touch source
+   * Device type of the touch source
    */
   sourceType: SourceType;
 }
