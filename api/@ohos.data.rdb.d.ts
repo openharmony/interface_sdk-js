@@ -246,14 +246,14 @@ declare namespace rdb {
          */
         backup(destName:string, callback: AsyncCallback<void>):void;
         backup(destName:string): Promise<void>;
-  
-         /**
-          * Restores a database from a specified database file.
-          *
-          * @since 9
-          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-          * @param srcName Indicates the name that saves the database file.
-          */
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param srcName Indicates the name that saves the database file.
+         */
         restore(srcName:string, callback: AsyncCallback<void>):void;
         restore(srcName:string): Promise<void>;
 
