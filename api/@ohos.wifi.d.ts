@@ -140,7 +140,8 @@ declare namespace wifi {
      function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
      /**
-      * Removes a specified candidate hotspot configuration.
+      * Removes a specified candidate hotspot configuration, only the configration which is added by ourself is allowed
+      * to be removed.
       *
       * <p>This method removes one configuration at a time.
       *
@@ -153,19 +154,20 @@ declare namespace wifi {
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Obtains the list of all existing candidate Wi-Fi configurations which added by this app.
+     * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
      *
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
     function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
     /**
-     * Connect to a specified candidate hotspot configuration.
+     * Connect to a specified candidate hotspot configuration, only the configration which is added by ourself
+     * is allowed to be connected.
      *
      * <p>This method connect to a configuration at a time.
      *
@@ -529,8 +531,8 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
-    function requestDeviceInfo(): Promise<WifiP2pDevice>;
-    function requestDeviceInfo(callback: AsyncCallback<WifiP2pDevice>): void;
+    function getP2pDeviceInfo(): Promise<WifiP2pDevice>;
+    function getP2pDeviceInfo(callback: AsyncCallback<WifiP2pDevice>): void;
 
     /**
      * Creates a P2P group.
@@ -615,8 +617,8 @@ declare namespace wifi {
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function requestPersistentGroupInfo(): Promise<Array<WifiP2pGroupInfo>>;
-    function requestPersistentGroupInfo(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
+    function getPersistentGroupInfo(): Promise<Array<WifiP2pGroupInfo>>;
+    function getPersistentGroupInfo(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
@@ -1080,8 +1082,10 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiInfoElem {
-        id: number;
-        content: string;
+        /** Element id */
+        eid: number;
+        /** Element content */
+        content: Uint8Array;
     }
 
     /**
@@ -1164,6 +1168,21 @@ declare namespace wifi {
 
         /** Simultaneous Authentication of Equals (SAE) */
         WIFI_SEC_TYPE_SAE = 4,
+
+        /** EAP authentication */
+        WIFI_SEC_TYPE_EAP = 5,
+
+        /** SUITE_B_192 192 bit level */
+        WIFI_SEC_TYPE_EAP_SUITE_B = 6,
+
+        /** Opportunististic Wireless Encryption */
+        WIFI_SEC_TYPE_OWE = 7,
+
+        /** WAPI certificate to be specified */
+        WIFI_SEC_TYPE_WAPI_CERT = 8,
+
+        /** WAPI pre-shared key to be specified */
+        WIFI_SEC_TYPE_WAPI_PSK = 9,
     }
 
     /**
