@@ -319,22 +319,22 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
-     * Gets unique id for audio stream, which is a system wide unique identifier
+     * Gets id for audio stream, which is a system wide unique identifier
      * for the audio stream played by this Player instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @param callback async callback return audio stream unique id.
      */
-    getAudioStreamUniqueId(callback: AsyncCallback<number>): void;
+    getAudioStreamId(callback: AsyncCallback<number>): void;
 
     /**
-     * Gets unique id for audio stream, which is a system wide unique identifier
+     * Gets id for audio stream, which is a system wide unique identifier
      * for the audio stream played by this Player instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @return A Promise instance used to return audio stream unique id.
      */
-    getAudioStreamUniqueId(): Promise<number>;
+    getAudioStreamId(): Promise<number>;
 
     /**
      * Listens for audio playback buffering events.
@@ -1066,22 +1066,22 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
-     * Gets unique id for audio stream, which is a system wide unique identifier
+     * Gets id for audio stream, which is a system wide unique identifier
      * for the audio stream played by this Player instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @param callback async callback return audio stream unique id.
      */
-    getAudioStreamUniqueId(callback: AsyncCallback<number>): void;
+    getAudioStreamId(callback: AsyncCallback<number>): void;
 
     /**
-     * Gets unique id for audio stream, which is a system wide unique identifier
+     * Gets id for audio stream, which is a system wide unique identifier
      * for the audio stream played by this Player instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @return A Promise instance used to return audio stream unique id.
      */
-    getAudioStreamUniqueId(): Promise<number>;
+    getAudioStreamId(): Promise<number>;
 
     /**
      * media url. Mainstream video formats are supported.
