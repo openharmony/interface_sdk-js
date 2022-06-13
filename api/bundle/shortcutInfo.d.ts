@@ -34,6 +34,12 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly targetClass: string;
+    /**
+      * @default Indicates the target module of the shortcut want
+      * @since 9
+      * @syscap SystemCapability.BundleManager.BundleFramework
+      */
+    readonly targetModule: string;
   }
   
    /**
