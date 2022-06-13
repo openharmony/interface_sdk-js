@@ -14,6 +14,11 @@
  */
 
 import {AsyncCallback} from './basic';
+import Want from './@ohos.application.Want';
+import StartOptions from "./@ohos.application.StartOptions";
+import { ConnectOptions } from "./ability/connectOptions";
+import ExtensionContext from './application/ExtensionContext';
+import { ExtensionAbilityInfo } from "./bundle/extensionAbilityInfo";
 
 /**
  * inputmethodengine
@@ -52,6 +57,13 @@ declare namespace inputMethodEngine {
     const OPTION_AUTO_WORDS: number;
     const OPTION_MULTI_LINE: number;
     const OPTION_NO_FULLSCREEN: number;
+
+    /**
+     * window style for inputmethod ability.
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     function getInputMethodEngine(): InputMethodEngine;
 
@@ -101,6 +113,18 @@ declare namespace inputMethodEngine {
         getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
+
+        /**
+         * Move curosr from input method.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param direction Indicates the distance of cursor to be moved.
+         * @return -
+         * @StageModelOnly
+         */
+        moveCursor(direction: number, callback: AsyncCallback<void>): void;
+        moveCursor(direction: number): Promise<void>;
     }
 
     interface KeyboardDelegate {
@@ -129,6 +153,152 @@ declare namespace inputMethodEngine {
     interface KeyEvent {
         readonly keyCode: number;
         readonly keyAction: number;
+    }
+
+    /**
+     * The extension context class of input method.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @StageModelOnly
+     */
+    class InputMethodExtensionContext extends ExtensionContext {
+
+        /**
+         * Information of an extension ability.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        abilityInfo: ExtensionAbilityInfo;
+
+        /**
+         * Input method extension uses this method to start a specific ability.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param want Indicates the ability to start.
+         * @param options Indicates the start options.
+         * @return -
+         * @StageModelOnly
+         */
+        startAbility(want: Want, callback: AsyncCallback<void>): void;
+        startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+        startAbility(want: Want, options?: StartOptions): Promise<void>;
+
+        /**
+         * Input method extension uses this method to start a specific ability with account.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param want Indicates the ability to start.
+         * @param accountId Indicates the accountId to start.
+         * @param options Indicates the start options.
+         * @return -
+         * @StageModelOnly
+         */
+        startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
+        startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+        startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
+
+        /**
+         * Connects an ability to an input method extension.
+         *
+         * <p>This method can be called by an ability or input method extension, but the destination of the connection must be an
+         * input method extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+         * input method extension when the input method extension is connected.</p>
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param want Indicates the service extension to connect.
+         * @param options Indicates the callback of connection.
+         * @return connection id, int value.
+         * @StageModelOnly
+         */
+        connectAbility(want: Want, options: ConnectOptions): number;
+
+        /**
+         * Connects an ability to an input method extension with account.
+         *
+         * <p>This method can be called by an ability or input method extension, but the destination of the connection must be an
+         * input method extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+         * input method extension when the input method extension is connected.</p>
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param want Indicates the service extension to connect.
+         * @param accountId Indicates the account to connect.
+         * @param options Indicates the callback of connection.
+         * @return connection id, int value.
+         * @StageModelOnly
+         */
+        connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+
+        /**
+         * Disconnects an ability to an input method extension, in contrast to
+         * {@link connectAbility}.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param connection the connection id returned from connectAbility api.
+         * @return -
+         * @StageModelOnly
+         */
+        disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+        disconnectAbility(connection: number): Promise<void>;
+
+        /**
+         * Destroy the input method extension.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @return -
+         * @StageModelOnly
+         */
+        terminateSelf(callback: AsyncCallback<void>): void;
+        terminateSelf(): Promise<void>;
+
+    }
+
+    /**
+     * The extension ability class of input method.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @StageModelOnly
+     */
+    class InputMethodExtensionAbility {
+
+        /**
+         * Indicates input method extension ability context.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         */
+        context: InputMethodExtensionContext;
+        
+        /**
+         * Called back when a input method extension is started for initialization.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param want Indicates the want of created service extension.
+         * @return -
+         * @StageModelOnly
+         */
+        onCreate(want: Want): void;
+
+        /**
+         * Called back before a input method extension is destroyed.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @return -
+         * @StageModelOnly
+         */
+        onDestroy(): void;
+
     }
 }
 
