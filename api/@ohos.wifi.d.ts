@@ -524,15 +524,16 @@ declare namespace wifi {
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
-     * Obtains the information about own device info.
+     * Obtains the information about own device info. deviceAddress in the returned WifiP2pDevice
+	 * will be set "00:00:00:00:00:00", if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
      *
      * @return Returns the information about own device info.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      */
-    function getP2pDeviceInfo(): Promise<WifiP2pDevice>;
-    function getP2pDeviceInfo(callback: AsyncCallback<WifiP2pDevice>): void;
+    function GetP2pLocalDevice(): Promise<WifiP2pDevice>;
+    function GetP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
     /**
      * Creates a P2P group.
@@ -609,16 +610,16 @@ declare namespace wifi {
     function deletePersistentGroup(netId: number): boolean;
 
     /**
-     * Obtains information about the persistent groups.
+     * Obtains information about the groups.
      *
-     * @return Returns the persistent group information.
+     * @return Returns the groups information.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function getPersistentGroupInfo(): Promise<Array<WifiP2pGroupInfo>>;
-    function getPersistentGroupInfo(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
+    function GetP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
+    function GetP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
