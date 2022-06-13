@@ -524,8 +524,10 @@ declare namespace wifi {
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
-     * Obtains the information about own device info. deviceAddress in the returned WifiP2pDevice
-	 * will be set "00:00:00:00:00:00", if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+     * Obtains the information about own device info. 
+     *
+     * <p> deviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
+	 * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
      *
      * @return Returns the information about own device info.
      * @since 9
