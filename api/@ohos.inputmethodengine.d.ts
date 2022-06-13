@@ -59,7 +59,7 @@ declare namespace inputMethodEngine {
     const OPTION_NO_FULLSCREEN: number;
 
     /**
-     * window style for inputmethod ability.
+     * The window styles for inputmethod ability.
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
