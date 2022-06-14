@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -225,9 +225,15 @@ declare interface AnimateParam {
   tempo?: number;
   /**
    * Animation curve.
+   * @type { string | Curve}
    * @since 7
    */
-  curve?: Curve | string;
+  /**
+   * Animation curve.
+   * @type { string | Curve | ICurve}
+   * @since 9
+   */
+  curve?: Curve | string | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -248,6 +254,18 @@ declare interface AnimateParam {
    * @since 7
    */
   onFinish?: () => void;
+}
+
+/**
+ * Interface for curve object.
+ * @since 9
+ */
+interface ICurve {
+  /**
+   * Get curve value by fraction.
+   * @since 9
+   */ 
+  interpolate(fraction : number) : number;
 }
 
 /**
