@@ -534,8 +534,8 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      */
-    function GetP2pLocalDevice(): Promise<WifiP2pDevice>;
-    function GetP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
+    function getP2pLocalDevice(): Promise<WifiP2pDevice>;
+    function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
 
     /**
      * Creates a P2P group.
@@ -620,8 +620,8 @@ declare namespace wifi {
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
-    function GetP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
-    function GetP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
+    function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
+    function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
