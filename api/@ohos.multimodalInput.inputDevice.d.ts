@@ -32,43 +32,47 @@ declare namespace inputDevice {
   /**
    * @since 9
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'touchMajor' | 'NULL';
+  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
 
+  /**
+   * @since 9
+   */
   enum KeyboardType {
     /**
-     * none
+     * None
      */
     NONE = 0,
-  
+
     /**
-     * unknown
+     * Unknown key
      */
     UNKNOWN = 1,
-  
+
     /**
-     * alphabetic keyboard
+     * Alphabetical keyboard
      */
     ALPHABETIC_KEYBOARD = 2,
-  
+
     /**
-     * digital keyboard
+     * Digital keyboard
      */
     DIGITAL_KEYBOARD = 3,
-  
+
     /**
-     * handwriting pen
+     * Stylus
      */
     HANDWRITING_PEN = 4,
-  
+
     /**
-     * remote control
+     * Remote control
      */
     REMOTE_CONTROL = 5,
-    }
+  }
 
   /**
    * Defines the listener for input device events.
    * 
+   * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event. The options are add and remove.
    * @param deviceId ID of the input device for the reported input device event.
@@ -86,7 +90,7 @@ declare namespace inputDevice {
    * @param type Type of the input device event, which is **change**.
    * @return Callback for the input device event.
    */
-   function on(type: "change", listener: Callback<DeviceListener>): void;
+  function on(type: "change", listener: Callback<DeviceListener>): void;
 
   /**
    * Stops listening for an input device event.
@@ -108,9 +112,9 @@ declare namespace inputDevice {
    * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
    * @param max Maximum value of the data reported on this axis.
    * @param min Minimum value of the data reported on this axis.
-   * @param fuzz fuzz value of the data reported on this axis.
-   * @param flat flat value of the data reported on this axis.
-   * @param resolution resolution value of the data reported on this axis.
+   * @param fuzz Fuzz value of the data reported on this axis.
+   * @param flat Flat value of the data reported on this axis.
+   * @param resolution Resolution value of the data reported on this axis.
    */
   interface AxisRange {
     /**
@@ -155,13 +159,13 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param name Name of the input device.
    * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
-   * @param axisRanges
-   * @param bus bus
-   * @param product product
-   * @param vendor vendor
-   * @param version version
-   * @param phys physical path
-   * @param uniq unique identifier
+   * @param axisRanges Axis range of the input device.
+   * @param bus Bus of the input device.
+   * @param product Product of the input device.
+   * @param vendor Vendor of the input device.
+   * @param version Version of the input device.
+   * @param phys Physical path of the input device.
+   * @param uniq Unique identifier of the input device.
    */
   interface InputDeviceData {
     /**
@@ -249,46 +253,27 @@ declare namespace inputDevice {
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
-   * Set the speed of cursor movement.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param speed Speed of cursor movement.
-   */
-  function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
-  function setPointerSpeed(speed: number): Promise<void>;
-
-  /**
-   * Gets the cursor movement speed.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   */
-  function getPointerSpeed(callback: AsyncCallback<number>): void;
-  function getPointerSpeed(): Promise<number>;
-
-  /**
    * Query the keyboard type of the input device.
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param deviceId input device id.
+   * @param deviceId ID of the specified input device.
    * @return Returns the keyboard type.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 
   /**
-   * Mouse position setting.
+   * Sets the mouse position.
    * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x x coordinate
-   * @param y y coordinate
+   * @param x X coordinate.
+   * @param y Y coordinate.
    * @return -
    */
-   function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
-   function setPointerLocation(x: number, y: number): Promise<void>;
+  function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
+  function setPointerLocation(x: number, y: number): Promise<void>;
 }
 
 export default inputDevice;

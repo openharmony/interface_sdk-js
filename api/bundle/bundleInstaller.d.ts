@@ -17,6 +17,29 @@ import { AsyncCallback } from './../basic';
 import bundle from './../@ohos.bundle';
 
 /**
+ * @name Provides parameters required for hashParam.
+ * @since 9
+ * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
+ * @systemapi Hide this for inner system use
+ */
+ export interface HashParam {
+  /**
+    * @default Indicates the moduleName
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  moduleName: string;
+
+  /**
+    * @default Indicates the hash value
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  hashValue: string;
+}
+
+/**
  * @name Provides parameters required for installing or uninstalling an application.
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
@@ -44,6 +67,13 @@ export interface InstallParam {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   isKeepData: boolean;
+
+  /**
+    * @default Indicates the hash params
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   hashParams?: Array<HashParam>;
 }
 
 /**

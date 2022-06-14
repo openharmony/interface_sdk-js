@@ -24,37 +24,37 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 */
 export declare enum Action {
   /**
-   * cancel
+   * Cancel
    */
   CANCEL = 0,
 
   /**
-   * mouse move
+   * Moving of the mouse pointer
    */
   MOVE = 1,
 
   /**
-   * the mouse button is down
+   * Pressing down of the mouse
    */
   BUTTON_DOWN = 2,
 
   /**
-   * Mouse button up
+   * Lifting of the mouse button
    */
   BUTTON_UP = 3,
 
   /**
-   * mouse associated axis event begins
+   * Beginning of the axis event associated with the mouse
    */
   AXIS_BEGIN = 4,
 
   /**
-   * mouse associated axis events updated
+   * Updating of the axis event associated with the mouse
    */
   AXIS_UPDATE = 5,
 
   /**
-   * mouse associated axis event ends
+   * Ending of the axis event associated with the mouse
    */
   AXIS_END = 6,
 }
@@ -68,42 +68,42 @@ export declare enum Action {
 */
 export declare enum Button {
   /**
-   * the left mouse button
+   * Left button on the mouse
    */
   LEFT = 0,
 
   /**
-   * the middle mouse button
+   * Middle button on the mouse
    */
   MIDDLE = 1,
 
   /**
-   * the right mouse button
+   * Right button on the mouse
    */
   RIGHT = 2,
 
   /**
-   * side mouse button
+   * Side button on the mouse
    */
   SIDE = 3,
 
   /**
-   * mouse extension button
+   * Extended button on the mouse
    */
   EXTRA = 4,
 
   /**
-   * mouse forward button
+   * Forward button on the mouse
    */
   FORWARD = 5,
 
   /**
-   * mouse back button
+   * Back button on the mouse
    */
   BACK = 6,
 
   /**
-   * mouse task button
+   * Task key on the mouse
    */
   TASK = 7
 }
@@ -117,17 +117,17 @@ export declare enum Button {
 */
 export declare enum Axis {
   /**
-   * scroll vertical
+   * Vertical scroll axis
    */
   SCROLL_VERTICAL = 0,
 
   /**
-   * scroll horizontal
+   * Horizontal scroll axis
    */
   SCROLL_HORIZONTAL = 1,
 
   /**
-   * pinch
+   * Pinch axis
    */
   PINCH = 2,
 }
@@ -141,12 +141,12 @@ export declare enum Axis {
 */
 export declare interface AxisValue {
   /**
-   * axis type
+   * Axis type
    */
   axis: Axis;
 
   /**
-   * The value of the axis
+   * Axis value
    */
   value: number
 }
@@ -160,99 +160,97 @@ export declare interface AxisValue {
 */
 export declare interface MouseEvent extends InputEvent {
   /**
-   * mouse event action
+   * Mouse event action
    */
   action: Action;
 
   /**
-   * the x coordinate of the mouse cursor in the screen
+   * X coordinate of the mouse pointer on the screen
    */
   screenX: number;
 
   /**
-   * the y coordinate of the mouse cursor in the screen
+   * Y coordinate of the mouse pointer on the screen
    */
   screenY: number;
 
   /**
-   * the x coordinate of the mouse window
+   * X coordinate of the mouse pointer in the window
    */
   windowX: number;
 
   /**
-   * the y coordinate of the mouse window
+   * Y coordinate of the mouse pointer in the window
    */
   windowY: number;
 
   /**
-   * the relative X offset from the last mouse position reported. At the edge of the screen,
-   * this value may be less than the coordinate difference reported by the two mice
+   * X axis offset relative to the previous reported mouse pointer position. When the mouse pointer is at the edge of the screen, the value may be less than the difference of the X coordinate reported twice.
    */
   rawDeltaX: number;
 
   /**
-   * the relative Y offset from the last mouse position reported. At the edge of the screen,
-   * this value may be less than the coordinate difference reported by the two mice
+   * Y axis offset relative to the previous reported mouse pointer position
    */
   rawDeltaY: number;
 
   /**
-   * a button to press or up
+   * Button that is currently pressed or released
    */
   button: Button;
 
   /**
-   * the button that is currently in the pressed state
+   * Button that is being pressed
    */
   pressedButtons: Button[];
 
   /**
-   * The current action for AxisBegin/AxisUpdate/AxisEnd, the axis of the relevant data
+   * All axis data contained in the event
    */
   axes: AxisValue[];
 
   /**
-   * list of keys that are currently in the pressed state
+   * List of pressed keys
    */
   pressedKeys: KeyCode[];
 
   /**
-   * whether ctrlKey is in down state
+   * Whether ctrlKey is being pressed
    */
   ctrlKey: boolean;
 
   /**
-   * whether altKey is in down state
+   * Whether altKey is being pressed
    */
   altKey: boolean;
 
   /**
-   * whether shiftKey is in down state
+   * Whether shiftKey is being pressed
    */
   shiftKey: boolean;
 
   /**
-   * whether logoKey is in down state
+   * Whether logoKey is being pressed
    */
   logoKey: boolean;
 
   /**
-   * whether fnKey is in down state
+   * Whether fnKey is being pressed
    */
   fnKey:boolean
   
   /**
-   * whether capsLock is in the active state.
+   * Whether capsLock is active
    */
   capsLock:boolean
   
   /**
-   * whether numLock is in the active state.
+   * Whether numLock is active
    */
   numLock:boolean
   
   /**
-   * whether scrollLock is in the active state.
+   * Whether scrollLock is active
    */
   scrollLock:boolean
 }

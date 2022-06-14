@@ -55,7 +55,6 @@ declare namespace nfcController {
    *
    * @since 7
    */
-
   function on(type: "nfcStateChange", callback: Callback<NfcState>): void
 
   /**
@@ -66,7 +65,6 @@ declare namespace nfcController {
    *
    * @since 7
    */
-
   function off(type: "nfcStateChange", callback?: Callback<NfcState>): void
 
   /**

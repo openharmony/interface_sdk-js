@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { AsyncCallback } from './basic';
 
 /**
  * Provides methods to operate or manage NFC card emulation.
@@ -76,7 +77,6 @@ declare namespace cardEmulation {
      */
     stopHCE(): boolean;
 
-
     /**
      * register HCE event to receive the APDU data.
      *
@@ -86,7 +86,6 @@ declare namespace cardEmulation {
      *
      * @since 8
      */
-
     on(type: "hceCmd", callback: AsyncCallback<number[]>): void;
 
     /**

@@ -19,7 +19,7 @@
   * @since 7
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
-  *
+  * @systemapi Hide this for inner system use
   */
   export interface ShortcutWant{
     /**

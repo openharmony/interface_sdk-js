@@ -251,6 +251,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 8
    */
   onPaste(callback: (value: string) => void): TextInputAttribute;
+
+  /**
+   * Called when the copy option is set.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): TextInputAttribute;
 }
 
 declare const TextInput: TextInputInterface;

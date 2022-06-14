@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Want } from '../../../ability/want';
 
 /**
  * Provides an interface for the ability component.
@@ -44,5 +43,5 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
    onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
-declare const abilityComponent: AbilityComponentInterface;
-declare const abilityComponentInstance: AbilityComponentAttribute;
+declare const AbilityComponent: AbilityComponentInterface;
+declare const AbilityComponentInstance: AbilityComponentAttribute;

@@ -154,6 +154,12 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 7
    */
   onPaste(callback: (value: string) => void): TextAreaAttribute;
+
+  /**
+   * Called when the copy option is set.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): TextAreaAttribute;
 }
 
 declare const TextArea: TextAreaInterface;

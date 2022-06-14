@@ -959,6 +959,13 @@ declare namespace commonEvent {
      * @since 8
      */
     COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN"
+
+    /**
+     * The notification slot has been updated.
+     * This is a protected common event that can only be sent by system.
+     * @since 9
+     */
+     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE"
   }
 }
 

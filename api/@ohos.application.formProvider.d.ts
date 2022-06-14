@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.application.formBindingData";
+import formInfo from "./@ohos.application.formInfo";
 
 /**
  * interface of formProvider.
@@ -50,5 +51,34 @@ declare namespace formProvider {
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
         callback: AsyncCallback<void>): void;
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+
+    /**
+     * Get infos of all forms belonging to current bundle.
+     *
+     * Client to communication with FormManagerService.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
+     * @return Infos of all forms.
+     */
+    function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+    function getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
+    
+    /**
+     * Request to publish a form to the form host.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want The want of the form to publish
+     * @param formBindingData Indicates the form data
+     * @systemapi hide for inner use
+     * @return Returns form id
+     */
+     function requestPublishForm(want: Want, formBindingData: formBindingData.FormBindingData,
+        callback: AsyncCallback<string>): void;
+     function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
+     function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 }
 export default formProvider;
