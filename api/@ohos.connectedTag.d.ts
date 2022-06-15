@@ -98,10 +98,10 @@ declare namespace connectedTag {
      */
     enum NfcRfType {
         /** NFC RF LEAVE */
-        NFC_RF_LEAVE = 0;
+        NFC_RF_LEAVE = 0,
 
         /** NFC RF ENTER */
-        NFC_RF_ENTER = 1;
+        NFC_RF_ENTER = 1,
     }
 }
 

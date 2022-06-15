@@ -193,7 +193,7 @@ declare namespace preferences {
     /**
      * Indicates possible value types
      */
-    type ValueType = number | string | boolean;
+    type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean>;
 
     /**
      * Indicates the maximum length of a key (80 characters).

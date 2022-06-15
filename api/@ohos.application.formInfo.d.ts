@@ -386,5 +386,25 @@ declare namespace formInfo {
          */
         TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
     }
+
+    /**
+     * The optional options used as filters to ask 
+     * getFormsInfo to return formInfos from only forms that match the options.
+     *
+     * @name FormInfoFilter
+     * 
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    interface FormInfoFilter {
+        /**
+         * optional moduleName that used to ask getFormsInfo to return
+         * form infos with the same moduleName.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        moduleName?: string;
+    }
 }
 export default formInfo;

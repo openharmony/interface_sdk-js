@@ -368,6 +368,39 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+declare interface AlignRuleOption {
+  /**
+   * The param of left align.
+   * @since 9
+   */
+  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   * @since 9
+   */
+  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of middle align.
+   * @since 9
+   */
+  middle?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of top align.
+   * @since 9
+   */
+  top?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of bottom align.
+   * @since 9
+   */
+  bottom?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of center align.
+   * @since 9
+   */
+  center?: { anchor: string, align: VerticalAlign };
+}
+
 declare interface RotateOptions {
   /**
    * The param of x direction.
@@ -1212,6 +1245,12 @@ declare class CommonMethod<T> {
   onBlur(event: () => void): T;
 
   /**
+   * Set focus index by key tab.
+   * @since 9
+   */
+  tabIndex(index: number): T;
+
+  /**
    * animation
    * @since 7
    */
@@ -1474,6 +1513,8 @@ declare class CommonMethod<T> {
     md?: number | { span: number; offset: number };
     lg?: number | { span: number; offset: number };
   }): T;
+
+  alignRules(value: AlignRuleOption): T;
 
   /**
    * Specifies the aspect ratio of the current component.

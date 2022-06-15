@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import tag from '../ohos.nfc.tag';
-import { AsyncCallback } from './basic';
+import tag from '../@ohos.nfc.tag';
+import { AsyncCallback } from '../basic';
 
 /**
  * Controls tag read and write.
@@ -105,18 +105,6 @@ export interface TagSession {
    * @since 7
    */
   sendData(data: number[]): Promise<number[]>;
-
-  /**
-   * Writes data to a tag.
-   *
-   * @param data Indicates the data to be written to the tag.
-   * @return Returns bytes received in response. Or bytes with a length of 0 if the
-   * data fails to be written to the tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   *
-   * @since 7
-   */
   sendData(data: number[], callback: AsyncCallback<number[]>): void;
 
   /**

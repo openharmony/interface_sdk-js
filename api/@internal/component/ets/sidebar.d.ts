@@ -107,21 +107,35 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
   /**
    * Sets the length of sidebar.
-   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
+   * @since 8
+   */
+  sideBarWidth(value: number): SideBarContainerAttribute;
+  /**
+   * Sets the min length of sidebar.
+   * default value is 200vp.
+   * @since 8
+   */
+  minSideBarWidth(value: number): SideBarContainerAttribute;
+  /**
+   * Sets the max length of sidebar.
+   * default value is 280vp.
+   * @since 8
+   */
+  maxSideBarWidth(value: number): SideBarContainerAttribute;
+  /**
+   * Sets the length of sidebar.
    * @since 9
    */
   sideBarWidth(value: Length): SideBarContainerAttribute;
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
-   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
    * @since 9
    */
   minSideBarWidth(value: Length): SideBarContainerAttribute;
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
-   * Notice: only supports 'number' type on 8, supports 'Length' type since 9.
    * @since 9
    */
   maxSideBarWidth(value: Length): SideBarContainerAttribute;

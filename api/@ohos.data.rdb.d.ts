@@ -15,7 +15,7 @@
 
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
-import Context from "./application/Context";
+import Context from "./application/BaseContext";
 import DataSharePredicates from './@ohos.data.DataSharePredicates';
 
 /**
@@ -84,6 +84,7 @@ declare namespace rdb {
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      */
     enum SubscribeType {
         /**
@@ -237,6 +238,26 @@ declare namespace rdb {
         rollBack():void;
 
         /**
+         * Backs up a database in a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param destName Indicates the name that saves the database backup.
+         */
+        backup(destName:string, callback: AsyncCallback<void>):void;
+        backup(destName:string): Promise<void>;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param srcName Indicates the name that saves the database file.
+         */
+        restore(srcName:string, callback: AsyncCallback<void>):void;
+        restore(srcName:string): Promise<void>;
+
+        /**
          * Set table to be distributed table.
          *
          * @since 8
@@ -292,7 +313,7 @@ declare namespace rdb {
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param observer Indicates the data change observer already registered .
+         * @param observer Indicates the data change observer already registered.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;

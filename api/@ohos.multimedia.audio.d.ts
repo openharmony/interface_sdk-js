@@ -544,6 +544,20 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the focus type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum FocusType {
+    /**
+     * Recording type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    FOCUS_TYPE_RECORDING = 0,
+  }
+
+  /**
    * Describes audio stream information.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -619,6 +633,16 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     rendererInfo: AudioRendererInfo;
+  }
+
+  /**
+   * Enumerates the interrupt modes.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   */
+  enum InterruptMode {
+      SHARE_MODE = 0,
+      INDEPENDENT_MODE = 1
   }
 
   /**
@@ -1213,6 +1237,67 @@ declare namespace audio {
     off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback<InterruptAction>): void;
 
     /**
+     * Request independent interrupt event.
+     * @param focusType The focus type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Request independent interrupt event.
+     * @param focusType The focus type.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    requestIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Abandon the requested independent interrupt event.
+     * @param focusType The focus type.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    abandonIndependentInterrupt(focusType: FocusType): Promise<boolean>;
+
+    /**
+     * Listens for independent interruption events. When the audio of an application is interrupted by another application,
+     * the callback is invoked to notify the former application.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    on(type: 'independentInterrupt', callback: Callback<InterruptEvent>): void;
+    
+    /**
+     * Cancels the listening of independent interruption events.
+     * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
+     * @param callback Callback invoked for the independent interruption event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    off(type: 'independentInterrupt', callback?: Callback<InterruptEvent>): void;
+
+    /**
      * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
      * @since 9
@@ -1724,6 +1809,22 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
     getRenderRate(): Promise<AudioRendererRate>;
+    /**
+     * Set interrupt mode.
+     * @param mode The interrupt mode.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterruptMode(mode: InterruptMode, callback: AsyncCallback<void>): void;
+    /**
+     * Set interrupt mode.
+     * @param mode The interrupt mode.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    setInterruptMode(mode: InterruptMode): Promise<void>;
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.

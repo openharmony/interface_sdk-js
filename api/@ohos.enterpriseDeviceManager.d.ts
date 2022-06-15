@@ -46,7 +46,7 @@ declare namespace enterpriseDeviceManager {
   }
 
   /**
-   * Activates the given ability as a administrator of the device.
+   * Enables the given ability as a administrator of the device.
    * 
    * Only apps with the ohos.permission.MANAGE_ADMIN permission or the shell uid can call this method.
    *
@@ -55,49 +55,52 @@ declare namespace enterpriseDeviceManager {
    * @param admin Indicates the administrator ability information.
    * @param enterpriseInfo Indicates the enterprise information of the calling application.
    * @param type Indicates the type of administrator to set.
-   * @return {@code true} if activates administrator success.
+   * @param userId Indicates the user ID or do not pass user ID.
+   * @return {@code true} if enables administrator success.
    * @permission ohos.permission.MANAGE_ADMIN
    */
-  function activateAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<boolean>): void;
-  function activateAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType): Promise<boolean>;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number, callback: AsyncCallback<boolean>): void;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<boolean>;
 
   /**
-   * Deactivates a current normal administrator ability. 
+   * Disables a current normal administrator ability. 
    * 
    * Only apps with the ohos.permission.MANAGE_ADMIN permission or the shell uid can call this method.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @return {@code true} if deactivates administrator success.
+   * @param userId Indicates the user ID or do not pass user ID.
+   * @return {@code true} if disables administrator success.
    * @permission ohos.permission.MANAGE_ADMIN
    */
-  function deactivateAdmin(admin: Want, callback: AsyncCallback<boolean>): void;
-  function deactivateAdmin(admin: Want): Promise<boolean>;
+  function disableAdmin(admin: Want, userId?: number, callback: AsyncCallback<boolean>): void;
+  function disableAdmin(admin: Want, userId?: number): Promise<boolean>;
 
   /**
-   * Deactivates a current super administrator ability. 
+   * Disables a current super administrator ability. 
    * 
    * Only the administrator app or apps with the shell uid can call this method.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param bundleName Indicates the administrator bundle information.
-   * @return {@code true} if deactivates super administrator success.
+   * @return {@code true} if disables super administrator success.
    */
-  function deactivateSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
-  function deactivateSuperAdmin(bundleName: String): Promise<boolean>;
+  function disableSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
+  function disableSuperAdmin(bundleName: String): Promise<boolean>;
 
   /**
-   * Get whether the ability is activated as device administrator.
+   * Get whether the ability is enabled as device administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param admin Indicates the administrator ability information.
-   * @return {@code true} if the administrator is active.
+   * @param userId Indicates the user ID or do not pass user ID.
+   * @return {@code true} if the administrator is enabled.
    */
-  function isAdminAppActive(admin: Want, callback: AsyncCallback<boolean>): void;
-  function isAdminAppActive(admin: Want): Promise<boolean>;
+  function isAdminEnabled(admin: Want, userId?: number, callback: AsyncCallback<boolean>): void;
+  function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
 
   /**
    * Get information of the administrator's enterprise.
@@ -125,12 +128,12 @@ declare namespace enterpriseDeviceManager {
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<boolean>;
 
   /**
-   * Get whether the ability is activated as super device administrator.
+   * Get whether the ability is enabled as super device administrator.
    *
    * @since 9
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @param bundleName Indicates the administrator bundle information.
-   * @return {@code true} if the administrator is activated as super device administrator.
+   * @return {@code true} if the administrator is enabled as super device administrator.
    */
   function isSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
   function isSuperAdmin(bundleName: String): Promise<boolean>;
