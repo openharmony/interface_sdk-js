@@ -1236,36 +1236,36 @@ declare namespace audio {
    */
   interface AudioStreamManager {
     /**
-     * Get infos of current existing audio renderers.
-     * @param callback Callback used to return the infos of current existing audio renderers.
+     * Get information of current existing audio renderers.
+     * @param callback Callback used to return the information of current existing audio renderers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getCurrentAudioRendererInfos(callback: AsyncCallback<AudioRendererChangeInfos>): void;
+    getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
 
     /**
-     * Get infos of current existing audio renderers.
-     * @return Promise used to return the infos of current existing audio renderers.
+     * Get information of current existing audio renderers.
+     * @return Promise used to return the information of current existing audio renderers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getCurrentAudioRendererInfos(): Promise<AudioRendererChangeInfos>;
+    getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>;
 
     /**
-     * Get infos of current existing audio capturers.
-     * @param callback Callback used to return the infos of current existing audio capturers.
+     * Get information of current existing audio capturers.
+     * @param callback Callback used to return the information of current existing audio capturers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getCurrentAudioCapturerInfos(callback: AsyncCallback<AudioCapturerChangeInfos>): void;
+    getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
 
     /**
-     * Get infos of current existing audio capturers.
-     * @return Promise used to return the infos of current existing audio capturers.
+     * Get information of current existing audio capturers.
+     * @return Promise used to return the information of current existing audio capturers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    getCurrentAudioCapturerInfos(): Promise<AudioCapturerChangeInfos>;
+    getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>;
 
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
@@ -1275,7 +1275,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: "audioRendererChange", callback: Callback<AudioRendererChangeInfos>): void;
+    on(type: "audioRendererChange", callback: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio renderer change events.
@@ -1292,7 +1292,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    on(type: "audioCapturerChange", callback: Callback<AudioCapturerChangeInfos>): void;
+    on(type: "audioCapturerChange", callback: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
      * UnSubscribes to audio capturer change events.
@@ -1307,7 +1307,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
-  type AudioRendererChangeInfos = Array<Readonly<AudioRendererChangeInfo>>;
+  type AudioRendererChangeInfoArray = Array<Readonly<AudioRendererChangeInfo>>;
 
   /**
    * Describes audio renderer change information.
@@ -1351,7 +1351,7 @@ declare namespace audio {
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
-  type AudioCapturerChangeInfos = Array<Readonly<AudioCapturerChangeInfo>>;
+  type AudioCapturerChangeInfoArray = Array<Readonly<AudioCapturerChangeInfo>>;
 
   /**
    * Describes audio capturer change information.
