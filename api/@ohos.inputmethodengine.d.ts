@@ -165,14 +165,6 @@ declare namespace inputMethodEngine {
     class InputMethodExtensionContext extends ExtensionContext {
 
         /**
-         * Information of an extension ability.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         */
-        abilityInfo: ExtensionAbilityInfo;
-
-        /**
          * Input method extension uses this method to start a specific ability.
          *
          * @since 9
@@ -185,67 +177,6 @@ declare namespace inputMethodEngine {
         startAbility(want: Want, callback: AsyncCallback<void>): void;
         startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
         startAbility(want: Want, options?: StartOptions): Promise<void>;
-
-        /**
-         * Input method extension uses this method to start a specific ability with account.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the ability to start.
-         * @param accountId Indicates the accountId to start.
-         * @param options Indicates the start options.
-         * @return -
-         * @StageModelOnly
-         */
-        startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
-        startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
-        startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
-
-        /**
-         * Connects an ability to an input method extension.
-         *
-         * <p>This method can be called by an ability or input method extension, but the destination of the connection must be an
-         * input method extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-         * input method extension when the input method extension is connected.</p>
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the service extension to connect.
-         * @param options Indicates the callback of connection.
-         * @return connection id, int value.
-         * @StageModelOnly
-         */
-        connectAbility(want: Want, options: ConnectOptions): number;
-
-        /**
-         * Connects an ability to an input method extension with account.
-         *
-         * <p>This method can be called by an ability or input method extension, but the destination of the connection must be an
-         * input method extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-         * input method extension when the input method extension is connected.</p>
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the service extension to connect.
-         * @param accountId Indicates the account to connect.
-         * @param options Indicates the callback of connection.
-         * @return connection id, int value.
-         * @StageModelOnly
-         */
-        connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
-
-        /**
-         * Disconnects an ability to an input method extension, in contrast to
-         * {@link connectAbility}.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param connection the connection id returned from connectAbility api.
-         * @return -
-         * @StageModelOnly
-         */
-        disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-        disconnectAbility(connection: number): Promise<void>;
 
         /**
          * Destroy the input method extension.
