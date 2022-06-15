@@ -617,7 +617,7 @@ declare namespace wifi {
      * @return Returns the groups information.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @systemapi Hide this for inner system use.
      */
     function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
