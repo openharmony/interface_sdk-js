@@ -131,7 +131,7 @@ declare namespace wifi {
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
      *
-     * @return Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
+     * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
@@ -145,13 +145,13 @@ declare namespace wifi {
       *
       * <p>This method removes one configuration at a time.
       *
-      * @return Returns {@code true} if the untrusted hotspot configuration is removed, returns {@code false} otherwise.
       * @since 9
+      * @throws {TypedError | Error} when failed to remove the hotspot configuration.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
-     function removeCandidateConfig(networkId: number): Promise<boolean>;
-     function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
+     function removeCandidateConfig(networkId: number): Promise<void>;
+     function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
@@ -171,12 +171,13 @@ declare namespace wifi {
      *
      * <p>This method connect to a configuration at a time.
      *
-     * @return Returns {@code true} if the untrusted hotspot configuration is connected, returns {@code false} otherwise.
+     * @param {number} networkId - Network ID which will be connected.
+     * @throws {TypedError | Error} when failed connect to the hotspot configuration
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function connectToCandidateConfig(networkId: number): boolean;
+     function connectToCandidateConfig(networkId: number): void;
 
     /**
      * Connects to Wi-Fi network.
