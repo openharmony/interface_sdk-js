@@ -1173,10 +1173,22 @@ declare class CommonMethod<T> {
   borderStyle(value: BorderStyle): T;
 
   /**
+   * Border style
+   * @since 9
+   */
+   borderStyle(value: EdgeStyles): T;
+
+  /**
    * Border width
    * @since 7
    */
   borderWidth(value: Length): T;
+
+  /**
+   * Border width
+   * @since 9
+   */
+   borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -1185,10 +1197,22 @@ declare class CommonMethod<T> {
   borderColor(value: ResourceColor): T;
 
   /**
+   * Border color
+   * @since 9
+   */
+   borderColor(value: EdgeColors): T;
+
+  /**
    * Border radius
    * @since 7
    */
   borderRadius(value: Length): T;
+
+  /**
+   * Border radius
+   * @since 9
+   */
+   borderRadius(value: BorderRadiuses): T;
 
   /**
    * Trigger a click event when a click is clicked.
