@@ -16,7 +16,7 @@
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet } from './data/rdb/resultSet';
 import Context from "./application/BaseContext";
-import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -139,8 +139,8 @@ declare namespace rdb {
          * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          */
-        update(table: string, values: ValuesBucket, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        update(table: string, values: ValuesBucket, predicates: DataSharePredicates): Promise<number>;
+        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
  
         /**
          * Deletes data from the database based on a specified instance object of rdbPredicates.
@@ -162,8 +162,8 @@ declare namespace rdb {
          * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          */
-        delete(table: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        delete(table: string, predicates: DataSharePredicates): Promise<number>;
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database based on specified conditions.
@@ -187,8 +187,8 @@ declare namespace rdb {
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          */
-        query(table: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        query(table: string, predicates: DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
+        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
 
         /**
          * Queries data in the database based on SQL statement.

@@ -15,7 +15,7 @@
 
 import { AsyncCallback, Callback } from './basic';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
-import Predicates from './@ohos.data.DatasharePredicates';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import Context from './application/Context';
 
@@ -1164,8 +1164,8 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
-        delete(predicates: Predicates, callback: AsyncCallback<void>);
-        delete(predicates: Predicates): Promise<void>;
+        delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
+        delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
         
         /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
@@ -1395,8 +1395,8 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
-        getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
-        getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+        getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
+        getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
 
         /**
          * Closes a {@code KvStoreResultSet} object returned by getResultSet.
@@ -1655,8 +1655,8 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
-         getResultSet(predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
-         getResultSet(predicates: Predicates): Promise<KvStoreResultSet>;
+         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
 
         /**
          * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
@@ -1669,8 +1669,8 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
          * {@code DB_ERROR}.
          */
-         getResultSet(deviceId: string, predicates: Predicates, callback: AsyncCallback<KvStoreResultSet>): void;
-         getResultSet(deviceId: string, predicates: Predicates): Promise<KvStoreResultSet>;
+         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
+         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
          
          /**
           * Closes a {@code KvStoreResultSet} object returned by getResultSet.
