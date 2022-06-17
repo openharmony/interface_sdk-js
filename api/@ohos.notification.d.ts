@@ -715,28 +715,19 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
+  function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
+  function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
 
   /**
-    * Obtains whether the application slot is enabled.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    */
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
+   * Obtains whether the application slot is enabled.
+   *
+   * @since 9
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   */
+  function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
+  function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
-  /**
-    * Set whether to sync notifications to devices that do not have the app installed.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    */
-    function setSyncNotificationEnabledForUninstallApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
-    function setSyncNotificationEnabledForUninstallApp(userId: number, enable: boolean): Promise<void>;
   /**
    * Describes a BundleOption.
    */
