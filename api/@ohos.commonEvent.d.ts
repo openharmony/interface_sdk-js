@@ -958,7 +958,7 @@ declare namespace commonEvent {
      * sent by the window manager service when the window mode is split.
      * @since 8
      */
-    COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN"
+    COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
 
     /**
      * The notification slot has been updated.

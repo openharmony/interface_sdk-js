@@ -227,13 +227,6 @@ export interface NotificationRequest {
    readonly notificationFlags?: NotificationFlags;
 
   /**
-   * WantAgent instance to which the notification will be redirected when removing notification.
-   *
-   * @since 9
-   */
-  removalWantAgent?: WantAgent;
-
-  /**
    * Number of notifications displayed on the app icon.
    *
    * @since 9
