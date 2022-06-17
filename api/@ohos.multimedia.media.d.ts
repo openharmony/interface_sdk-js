@@ -328,6 +328,15 @@ declare namespace media {
     loop: boolean;
 
     /**
+     * Describes audio renderer information, refer to {@link #audio.AudioRendererInfo}. If
+     * it is not set, the default value will be used. Set it before calling the {@link #play()}
+     * in the first time in order for the renderer info to become effective thereafter.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
+     */
+    audioRendererInfo ?: audio.AudioRendererInfo;
+
+    /**
      * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
      * set, the default mode will be used. Set it before calling the {@link #play()} in the
      * first time in order for the interrupt mode to become effective thereafter.
@@ -1614,13 +1623,6 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      */
     AUDIO_FLAC = 'audio/flac',
-
-    /**
-     * opus codec MIME type.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.Core
-     */
-    AUDIO_OPUS = 'audio/opus',
   }
 }
 export default media;
