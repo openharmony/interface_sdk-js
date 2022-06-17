@@ -215,29 +215,6 @@ declare namespace media {
   }
 
   /**
-   * Provides the audio playback parameters definition.
-   * @since 9
-   * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-   */
-  interface AudioPlaybackParams {
-    /**
-     * Describes audio renderer information, refer to {@link #audio.AudioRendererInfo}. If
-     * it is not set, the default value or recent value will be used.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     */
-    audioRendererInfo ?: audio.AudioRendererInfo;
-
-    /**
-     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
-     * set, the default value or recent value will be used.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     */
-    audioInterruptMode ?: audio.InterruptMode;
-  }
-
-  /**
    * Describes audio playback states.
    * @since 6
    * @syscap SystemCapability.Multimedia.Media.AudioPlayer
