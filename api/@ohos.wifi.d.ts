@@ -1136,7 +1136,7 @@ declare namespace wifi {
         frequency: number;
 
         /** Channel width */
-        channelWidth: WifiChannelWidth;
+        channelWidth: number;
 
         /** Center frequency */
         centerFrequency0: number;
