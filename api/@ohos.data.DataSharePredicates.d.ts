@@ -15,6 +15,7 @@
 
 import { ValueType } from './@ohos.data.ValuesBucket';
 
+declare namespace dataSharePredicates {
 /**
  * Manages relational database configurations.
  *
@@ -22,7 +23,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @import import data_dataShare from '@ohos.data.dataShare';
  */
-export default class DataSharePredicates {
+    class DataSharePredicates {
     /**
      * Configures the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
@@ -366,4 +367,7 @@ export default class DataSharePredicates {
      * @return Returns the query object.
      */
     inKeys(keys: Array<string>): DataSharePredicates;
+    }
 }
+
+export default dataSharePredicates;
