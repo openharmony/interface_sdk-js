@@ -319,24 +319,6 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
-     * Gets id for audio stream, which is a system wide unique identifier
-     * for the audio stream played by this Player instance.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     * @param callback async callback return audio stream unique id.
-     */
-    getAudioStreamId(callback: AsyncCallback<number>): void;
-
-    /**
-     * Gets id for audio stream, which is a system wide unique identifier
-     * for the audio stream played by this Player instance.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.AudioPlayer
-     * @return A Promise instance used to return audio stream unique id.
-     */
-    getAudioStreamId(): Promise<number>;
-
-    /**
      * Listens for audio playback buffering events.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
@@ -369,13 +351,13 @@ declare namespace media {
     loop: boolean;
 
     /**
-     * audio parameters for audio playback. Set it before calling the {@link #play()} in the
-     * first time in order for the audio parameters info to become effective thereafter. For more
-     * information, refer to {@link #AudioPlaybackParams}.
+     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
+     * set, the default mode will be used. Set it before calling the {@link #play()} in the
+     * first time in order for the interrupt mode to become effective thereafter.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      */
-    audioPlaybackParams ?: AudioPlaybackParams;
+    audioInterruptMode ?: audio.InterruptMode;
 
     /**
      * Current playback position.
@@ -1066,24 +1048,6 @@ declare namespace media {
     getTrackDescription() : Promise<Array<MediaDescription>>;
 
     /**
-     * Gets id for audio stream, which is a system wide unique identifier
-     * for the audio stream played by this Player instance.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @param callback async callback return audio stream unique id.
-     */
-    getAudioStreamId(callback: AsyncCallback<number>): void;
-
-    /**
-     * Gets id for audio stream, which is a system wide unique identifier
-     * for the audio stream played by this Player instance.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
-     * @return A Promise instance used to return audio stream unique id.
-     */
-    getAudioStreamId(): Promise<number>;
-
-    /**
      * media url. Mainstream video formats are supported.
      * local:fd://XXX, file://XXX. network:http://xxx
      * @since 8
@@ -1141,13 +1105,13 @@ declare namespace media {
     readonly height: number;
 
     /**
-     * audio parameters for audio track playback. Set it before calling the {@link #prepare()} in
-     * the first time in order for the audio parameters info to become effective thereafter. For more
-     * information, refer to {@link #AudioPlaybackParams}.
+     * Describes audio interrupt mode, refer to {@link #audio.InterruptMode}. If it is not
+     * set, the default mode will be used. Set it before calling the {@link #play()} in the
+     * first time in order for the interrupt mode to become effective thereafter.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      */
-    audioPlaybackParams ?: AudioPlaybackParams;
+    audioInterruptMode ?: audio.InterruptMode;
 
     /**
      * video scale type. Defaultly, the {@link #VIDEO_SCALE_TYPE_FIT} will be used, for more
