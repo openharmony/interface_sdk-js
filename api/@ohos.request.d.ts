@@ -112,14 +112,6 @@ declare namespace request {
   const ERROR_UNKNOWN: number;
 
   /**
-   * Indicates that the network is offline.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   * @permission ohos.permission.INTERNET
-   */
-  const ERROR_NETWORK_FAIL: number;
-
-  /**
    * Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
@@ -348,13 +340,6 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     title?: string;
-    /**
-     * Whether to display the background
-     *
-     * @since 9
-     * @permission ohos.permission.INTERNET
-     */
-    background?: boolean;
   }
 
   /**
@@ -728,13 +713,6 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     data: Array<RequestData>;
-    /**
-     * Whether to display the background
-     *
-     * @since 9
-     * @permission ohos.permission.INTERNET
-     */
-    background?: boolean;
   }
 
   interface UploadTask {
@@ -806,64 +784,6 @@ declare namespace request {
      * @return -
      */
     remove(): Promise<boolean>;
-
-    /**
-     * Called when the current upload session fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     * @param type Indicates the Upload session type, fail: Upload task has failed.
-     * @param callback The callback function for the Upload fail change event
-     *        err The error code for Upload task.
-     * @param The callback parameter result list corresponds to the server response after uploading
-     * 		  each file in uploadconfig.files.Result is the server response body. If the server responds
-     * 	      only once after uploading multiple files, there is only one element in the result list.
-     * @permission ohos.permission.INTERNET
-     * @return -
-     */
-    on(type: 'fail', callback: (err: number, result?: Array<string>) => void): void;
-
-    /**
-     * Called when the current upload session fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     * @param type Indicates the upload session type, fail: upload task has failed.
-     * @param callback The callback function for the Upload fail change event err The error code
-     *        for Upload task.
-     * @param The callback parameter result list corresponds to the server response after uploading
-     * 		  each file in uploadconfig.files.Result is the server response body. If the server responds
-     * 	      only once after uploading multiple files, there is only one element in the result list.
-     * @permission ohos.permission.INTERNET
-     * @return -
-     */
-    off(type: 'fail', callback?: (err: number, result?: Array<string>) => void): void;
-
-    /**
-     * Called when the current upload session complete
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     * @param type Indicates the upload session event type,complete: upload task completed,
-     * @param The callback parameter code/result list corresponds to the server response to
-	 * 	      each file uploaded in UploadConfig.files. Code is the server response code and result
-	 *        is the server response body. If the server responds only once after uploading
-	 *        multiple files, there is only one element in the code/result list.
-     * @permission ohos.permission.INTERNET
-     * @return -
-     */
-    on(type: 'complete', callback: (code: Array<number>, result?: Array<string>) => void): void;
-
-    /**
-     * Called when the current upload session complete
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     * @param type Indicates the upload session event type,complete: upload task completed,
-     * @param The callback parameter code/result list corresponds to the server response to
-	 * 	      each file uploaded in UploadConfig.files. Code is the server response code and result
-	 *        is the server response body. If the server responds only once after uploading
-	 *        multiple files, there is only one element in the code/result list.
-     * @permission ohos.permission.INTERNET
-     * @return -
-     */
-    off(type: 'complete', callback?: (code: Array<number>, result?: Array<string>) => void): void;
   }
 }
 
