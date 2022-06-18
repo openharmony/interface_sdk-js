@@ -966,6 +966,13 @@ declare namespace commonEvent {
      * @since 9
      */
      COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE"
+
+    /**
+     * Indicate the action of a common event that the spn display information has been updated.
+     * This common event can be triggered only by system.
+     * @since 9
+     */
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
   }
 }
 
