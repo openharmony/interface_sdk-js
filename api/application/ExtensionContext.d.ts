@@ -44,4 +44,12 @@ export default class ExtensionContext extends Context {
      * @StageModelOnly
      */
     config: Configuration;
+
+    /**
+     * Service extension information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    extensionAbilityInfo: ExtensionAbilityInfo;
 }

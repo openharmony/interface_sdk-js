@@ -32,14 +32,6 @@ import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
  */
 export default class ServiceExtensionContext extends ExtensionContext {
     /**
-     * Service extension information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    extensionAbilityInfo: ExtensionAbilityInfo;
-
-    /**
      * Service extension uses this method to start a specific ability.
      *
      * @since 9
