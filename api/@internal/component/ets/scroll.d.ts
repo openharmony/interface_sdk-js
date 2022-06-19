@@ -86,6 +86,12 @@ declare class Scroller {
    * @since 7
    */
   scrollToIndex(value: number);
+
+  /**
+   * Called when the setting slides by offset.
+   * @since 9
+   */
+  scrollBy(dx: Length, dy: Length);
 }
 
 /**
@@ -152,6 +158,12 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 7
    */
   edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
+
+  /**
+   * Event called when sroll will scroll.
+   * @since 9
+   */
+  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;
 }
 
 declare const Scroll: ScrollInterface;

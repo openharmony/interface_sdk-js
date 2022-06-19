@@ -217,6 +217,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 8
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
+
+  /**
+   * Event called when list will scroll.
+   * @since 9
+   */
+  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ListAttribute;
 }
 
 declare const List: ListInterface;
