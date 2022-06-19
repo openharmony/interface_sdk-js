@@ -304,6 +304,12 @@ declare namespace bundle {
      */
     WINDOW = 10,
     /**
+     * @default Indicates extension info with type of enterprise admin
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    ENTERPRISE_ADMIN = 11,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
