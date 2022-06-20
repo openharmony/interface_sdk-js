@@ -92,8 +92,8 @@ declare namespace defaultAppManager {
    * @return return true if caller is default application; return false otherwise.
    * @permission N/A
    */
-  function isDefaultApplication(type: string) : Promise<void>;
-  function isDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
+  function isDefaultApplication(type: string) : Promise<boolean>;
+  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
 
   /**
    * get default application based on type.
@@ -118,7 +118,6 @@ declare namespace defaultAppManager {
    * @param type application type or file type.
    * @param elementName uniquely identifies an ability or extensionAbility.
    * @param userId indicates the id for the user.
-   * @return return true if set default application success; return false otherwise.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @systemapi hide this for inner system use.
    */
@@ -133,7 +132,6 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type application type or file type.
    * @param userId indicates the id for the user.
-   * @return return true if reset default application success; return false otherwise.
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @systemapi hide this for inner system use.
    */
