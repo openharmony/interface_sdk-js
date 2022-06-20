@@ -25,10 +25,16 @@ declare enum InputType {
   Normal,
 
   /**
-   * Password entry mode.
+   * Pure digital input mode.
    * @since 7
    */
   Number,
+
+  /**
+   * Phone number entry mode.
+   * @since 9
+   */
+  PhoneNumber,
 
   /**
    * E-mail address input mode.
@@ -37,7 +43,7 @@ declare enum InputType {
   Email,
 
   /**
-   * Pure digital input mode.
+   * Password entry mode.
    * @since 7
    */
   Password,
@@ -257,6 +263,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 9
    */
   copyOption(value: boolean | CopyOption): TextInputAttribute;
+
+  /**
+   * Called when the password show/hide icon is set.
+   * @since 9
+   */
+  showPasswordIcon(value: boolean): TextInputAttribute;
+
+  /**
+   * Called when the text align is set.
+   * @since 9
+   */
+  textAlign(value: TextAlign): TextInputAttribute;
 }
 
 declare const TextInput: TextInputInterface;
