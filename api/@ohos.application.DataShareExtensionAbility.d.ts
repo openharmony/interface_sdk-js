@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
-import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
@@ -109,7 +109,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records updated.
      * @StageModelOnly
      */
-    update?(uri: string, predicates: DataSharePredicates, valueBucket: ValuesBucket,
+    update?(uri: string, predicates: dataSharePredicates.DataSharePredicates, valueBucket: ValuesBucket,
         callback: AsyncCallback<number>): void;
 
     /**
@@ -124,7 +124,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the number of data records deleted.
      * @StageModelOnly
      */
-    delete?(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
+    delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
      * Queries one or more data records in the database. This method should be implemented by a data share.
@@ -141,7 +141,7 @@ export default class DataShareExtensionAbility {
      * @return Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
-    query?(uri: string, predicates: DataSharePredicates, columns: Array<string>,
+    query?(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>,
         callback: AsyncCallback<Object>): void;
 
     /**
