@@ -1098,7 +1098,7 @@ declare namespace wifi {
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
-    enum class WifiChannelWidth {
+    enum WifiChannelWidth {
         WIDTH_20MHZ = 0,
         WIDTH_40MHZ = 1,
         WIDTH_80MHZ = 2,
