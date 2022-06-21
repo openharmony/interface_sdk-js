@@ -1663,6 +1663,7 @@ declare class CommonMethod<T> {
   /**
    * Key. User can set an key to the component to identify it.
    * @since 8
+   * @systemapi
    * @test
    */
   key(value: string): T;
