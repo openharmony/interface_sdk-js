@@ -1844,7 +1844,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-declare class CustomComponent {
+/**
+ * Custom Component
+ * @extends CommonAttribute
+ * @since 9
+ */
+declare class CustomComponent extends CommonAttribute {
   /**
    * Customize the pop-up content constructor.
    * @since 7
