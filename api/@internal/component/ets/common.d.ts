@@ -831,11 +831,13 @@ declare type PixelMap = PixelMapMock;
 
 /**
  * pixelmap object with release function.
+ * @systemapi
  * @since 7
  */
 declare interface PixelMapMock {
   /**
    * release function.
+   * @systemapi
    * @since 7
    */
   release(): void;
@@ -1864,12 +1866,14 @@ declare class CustomComponent {
 /**
  * View
  * @ignore ide should ignore this class
+ * @systemapi
  * @since 7
  */
 declare class View {
   /**
    * Just use for generate tsbundle
    * @ignore ide should ignore this arrtibute
+   * @systemapi
    * @since 7
    */
   create(value: any): any;
