@@ -189,13 +189,6 @@ declare interface Rectangle {
 }
 
 /**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
-
-/**
  * global $r function
  * @since 7
  */
@@ -487,61 +480,51 @@ declare interface TransitionOptions {
 /**
  * Define Preview property
  * @since 8
- * @systemapi
  */
 interface PreviewParams {
   /**
    * Define Preview title
    * @since 8
-   * @systemapi
    */
   title?: string;
   /**
    * Define Preview width
    * @since 8
-   * @systemapi
    */
   width?: number;
   /**
    * Define Preview height
    * @since 8
-   * @systemapi
    */
   height?: number;
   /**
    * Define Preview locale
    * @since 8
-   * @systemapi
    */
   locale?: string;
   /**
    * Define Preview colorMode
    * @since 8
-   * @systemapi
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
    * @since 8
-   * @systemapi
    */
   deviceType?: string;
   /**
    * Define Preview dpi
    * @since 8
-   * @systemapi
    */
   dpi?: number;
   /**
    * Define Preview orientation
    * @since 8
-   * @systemapi
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
    * @since 8
-   * @systemapi
    */
   roundScreen?: boolean;
 }
@@ -848,13 +831,11 @@ declare type PixelMap = PixelMapMock;
 
 /**
  * pixelmap object with release function.
- * @systemapi
  * @since 7
  */
 declare interface PixelMapMock {
   /**
    * release function.
-   * @systemapi
    * @since 7
    */
   release(): void;
@@ -1084,7 +1065,6 @@ declare interface CustomPopupOptions {
 declare class CommonMethod<T> {
   /**
    * constructor.
-   * @systemapi
    * @since 7
    * @ignore
    */
@@ -1681,7 +1661,6 @@ declare class CommonMethod<T> {
   /**
    * Key. User can set an key to the component to identify it.
    * @since 8
-   * @systemapi
    * @test
    */
   key(value: string): T;
@@ -1885,14 +1864,12 @@ declare class CustomComponent {
 /**
  * View
  * @ignore ide should ignore this class
- * @systemapi
  * @since 7
  */
 declare class View {
   /**
    * Just use for generate tsbundle
    * @ignore ide should ignore this arrtibute
-   * @systemapi
    * @since 7
    */
   create(value: any): any;
