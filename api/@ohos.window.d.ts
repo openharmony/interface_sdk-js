@@ -33,7 +33,6 @@ declare namespace window {
     TYPE_APP,
     /**
      * System alert.
-     * @StageModelOnly
      */
     TYPE_SYSTEM_ALERT,
     /**
@@ -495,7 +494,6 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
-   * @StageModelOnly
    */
   function getTopWindow(ctx: Context): Promise<Window>;
 
@@ -503,7 +501,6 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
-   * @StageModelOnly
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
