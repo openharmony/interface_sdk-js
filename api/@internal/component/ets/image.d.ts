@@ -164,6 +164,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
 
   /**
+   * This callback is triggered when an exception occurs during image loading.
+   * The field of "message" carries the detailed information of failed image loading.
+   * @since 9
+   */
+  onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
+
+  /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
    * If the svg image is a wireless loop image, this callback is not triggered.
    * @since 7
