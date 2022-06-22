@@ -406,6 +406,34 @@ declare namespace bundle {
   }
 
   /**
+  * @name SupportWindowMode
+  * @since 9
+  * @syscap SystemCapability.BundleManager.BundleFramework
+  * @import NA
+  * @permission NA
+  */
+  export enum SupportWindowMode {
+    /**
+     * @default Indicates supported window mode of full screen mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FULL_SCREEN = 0,
+    /**
+     * @default Indicates supported window mode of split mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    SPLIT = 1,
+    /**
+     * @default Indicates supported window mode of floating mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FLOATING = 2,
+  }
+
+  /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
    *
    * @since 7
