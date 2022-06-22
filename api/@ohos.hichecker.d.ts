@@ -28,28 +28,28 @@ declare namespace hichecker {
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    const RULE_CAUTION_PRINT_LOG: bigint;
+    const RULE_CAUTION_PRINT_LOG: 9223372036854775808n; // 1 << 63
 
     /**
     * The caution rule trigger crash.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    const RULE_CAUTION_TRIGGER_CRASH: bigint;
+    const RULE_CAUTION_TRIGGER_CRASH: 4611686018427387904n; // 1 << 62
 
     /**
     * The thread rule check slow process.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    const RULE_THREAD_CHECK_SLOW_PROCESS: bigint;
+    const RULE_THREAD_CHECK_SLOW_PROCESS: 1n;
 
     /**
     * The process rule check ability connection leak.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
-    const RULE_CHECK_ABILITY_CONNECTION_LEAK: bigint;
+    const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
 
     /**
     * add one or more rule.
