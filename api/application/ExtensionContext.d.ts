@@ -46,7 +46,7 @@ export default class ExtensionContext extends Context {
     config: Configuration;
 
     /**
-     * Service extension information.
+     * Extension information.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
