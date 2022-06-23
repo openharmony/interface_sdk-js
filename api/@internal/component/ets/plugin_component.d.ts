@@ -16,19 +16,19 @@
 /**
  * PluginComponentTemplate
  * @since 9
- * @systemapi Hide this for inner system use.
+ * @systemapi
  */
 interface PluginComponentTemplate {
   /**
    * Defines the plugin source name.
    * @since 9
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    */
   source: string;
   /**
    * Defines the ability name.
    * @since 9
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    */
   ability: string;
 }
@@ -36,13 +36,13 @@ interface PluginComponentTemplate {
 /**
  * Provides plugin component.
  * @since 9
- * @systemapi Hide this for inner system use.
+ * @systemapi
  */
 interface PluginComponentInterface {
   /**
    * Called when setting the plugin.
    * @since 9
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    */
   (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
 }
@@ -50,20 +50,20 @@ interface PluginComponentInterface {
 /**
  * Defines the plugin component attibute functions.
  * @since 9
- * @systemapi Hide this for inner system use.
+ * @systemapi
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
    * pluginComponent onComplete callback,
    * @since 9
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    */
   onComplete(callback: () => void): PluginComponentAttribute;
 
   /**
    * pluginComponent onError callback,
    * @since 9
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    */
   onError(callback: (info: { errcode: number; msg: string }) => void): PluginComponentAttribute;
 }
