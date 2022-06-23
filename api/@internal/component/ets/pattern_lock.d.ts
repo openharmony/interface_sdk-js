@@ -15,7 +15,7 @@
 
 /**
  * Provides methods for control pattern lock component.
- * @since 8
+ * @since 9
  */
 declare class PatternLockController {
   /**
@@ -31,73 +31,73 @@ declare class PatternLockController {
 
 /**
  * Provides an interface for generating PatternLock.
- * @since 8
+ * @since 9
  */
 interface PatternLockInterface {
   (controller?: PatternLockController): PatternLockAttribute;
 }
 
 /**
- * @since 8
+ * @since 9
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * The square side length of pattern lock component.
-   * @since 8
+   * @since 9
    */
   sideLength(value: Length): PatternLockAttribute;
 
   /**
    * Circle radius.
-   * @since 8
+   * @since 9
    */
   circleRadius(value: Length): PatternLockAttribute;
 
   /**
    * The background color.
-   * @since 8
+   * @since 9
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * Regular color.
-   * @since 8
+   * @since 9
    */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is selected.
-   * @since 8
+   * @since 9
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The color when cell is active state.
-   * @since 8
+   * @since 9
    */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line color.
-   * @since 8
+   * @since 9
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
   /**
    * The path line stroke width.
-   * @since 8
+   * @since 9
    */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
   /**
    * Called when the pattern input completed.
-   * @since 8
+   * @since 9
    */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
-   * @since 8
+   * @since 9
    */
   autoReset(value: boolean): PatternLockAttribute;
 }
