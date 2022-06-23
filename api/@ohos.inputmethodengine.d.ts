@@ -124,6 +124,16 @@ declare namespace inputMethodEngine {
          * @StageModelOnly
          */
         moveCursor(direction: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Move curosr from input method.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param direction Indicates the distance of cursor to be moved.
+         * @return -
+         * @StageModelOnly
+         */
         moveCursor(direction: number): Promise<void>;
     }
 

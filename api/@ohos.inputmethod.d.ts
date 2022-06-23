@@ -48,6 +48,15 @@ declare namespace inputMethod {
      * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Switch input method
+     * @since 9
+     * @param target Indicates the input method which will replace the current one
+     * @return -
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @StageModelOnly
+     */
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
     /**
@@ -74,10 +83,26 @@ declare namespace inputMethod {
          * @StageModelOnly
          */
         listInputMethod(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
+
+        /**
+         * List input methods
+         * @since 9
+         * @param enable :
+         *     if true, collect enabled input methods.
+         *     if false, collect disabled input methods.
+         * @return -
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @StageModelOnly
+         */
         listInputMethod(enable: boolean): Promise<Array<InputMethodProperty>>;
 
+        /**
+         * @since 8
+         */
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
-
+        /**
+         * @since 8
+         */
         listInputMethod(): Promise<Array<InputMethodProperty>>;
 
         displayOptionalInputMethod(callback: AsyncCallback<void>): void;
