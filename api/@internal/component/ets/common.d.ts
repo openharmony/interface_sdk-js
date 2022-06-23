@@ -189,13 +189,6 @@ declare interface Rectangle {
 }
 
 /**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
-
-/**
  * global $r function
  * @since 7
  */
@@ -486,62 +479,52 @@ declare interface TransitionOptions {
 
 /**
  * Define Preview property
- * @since 8
- * @systemapi
+ * @since 9
  */
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   title?: string;
   /**
    * Define Preview width
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   width?: number;
   /**
    * Define Preview height
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   height?: number;
   /**
    * Define Preview locale
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   roundScreen?: boolean;
 }
