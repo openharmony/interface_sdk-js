@@ -158,6 +158,12 @@ declare namespace pluginComponentManager {
    * @systemapi Hide this for inner system use.
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
+
+  /**
+   * Plugin component push method.
+   * @since 9
+   * @systemapi Hide this for inner system use.
+   */
   function push(param: PushParameters): Promise<void>;
 
   /**
@@ -166,6 +172,12 @@ declare namespace pluginComponentManager {
    * @systemapi Hide this for inner system use.
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
+
+  /**
+   * Plugin component request method.
+   * @since 9
+   * @systemapi Hide this for inner system use.
+   */
   function request(param: RequestParameters): Promise<RequestCallbackParameters>;
 
   /**
