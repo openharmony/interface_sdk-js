@@ -479,7 +479,7 @@ declare interface TransitionOptions {
 
 /**
  * Define Preview property
- * @since 8
+ * @since 9
  */
 interface PreviewParams {
   /**
