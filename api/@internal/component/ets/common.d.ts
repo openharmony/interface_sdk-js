@@ -1067,7 +1067,8 @@ declare interface CustomPopupOptions {
 declare class CommonMethod<T> {
   /**
    * constructor.
-   * @since 9
+   * @systemapi
+   * @since 7
    * @ignore
    */
   constructor();
