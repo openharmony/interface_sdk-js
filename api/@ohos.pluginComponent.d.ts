@@ -31,6 +31,7 @@ interface PluginComponentTemplate {
  * Plugin component manager interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @systemapi Hide this for inner system use.
  */
 declare namespace pluginComponentManager {
   type KVObject = {[key: string]: number | string | boolean | [] | KVObject}
