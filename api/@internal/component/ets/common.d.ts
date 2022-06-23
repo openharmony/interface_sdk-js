@@ -484,47 +484,47 @@ declare interface TransitionOptions {
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 8
+   * @since 9
    */
   title?: string;
   /**
    * Define Preview width
-   * @since 8
+   * @since 9
    */
   width?: number;
   /**
    * Define Preview height
-   * @since 8
+   * @since 9
    */
   height?: number;
   /**
    * Define Preview locale
-   * @since 8
+   * @since 9
    */
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 8
+   * @since 9
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
-   * @since 8
+   * @since 9
    */
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 8
+   * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 8
+   * @since 9
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
-   * @since 8
+   * @since 9
    */
   roundScreen?: boolean;
 }
@@ -1067,7 +1067,7 @@ declare interface CustomPopupOptions {
 declare class CommonMethod<T> {
   /**
    * constructor.
-   * @since 7
+   * @since 8
    * @ignore
    */
   constructor();
