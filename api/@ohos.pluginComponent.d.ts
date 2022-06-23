@@ -19,7 +19,7 @@ import Want from './@ohos.application.want';
 /**
  * Plugin component template property.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
+ * @since 9
  * @systemapi Hide this for inner system use.
  */
 interface PluginComponentTemplate {
@@ -30,7 +30,7 @@ interface PluginComponentTemplate {
 /**
  * Plugin component manager interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
+ * @since 9
  */
 declare namespace pluginComponentManager {
   type KVObject = {[key: string]: number | string | boolean | [] | KVObject}
@@ -56,7 +56,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component push parameters.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   interface PushParameters {
@@ -88,7 +88,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request parameters.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   interface RequestParameters {
@@ -116,7 +116,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request callback parameters.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   interface RequestCallbackParameters {
@@ -127,7 +127,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request event result value.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   interface RequestEventResult {
@@ -138,7 +138,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component push event callback.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
@@ -146,14 +146,14 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request event callback.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
   /**
    * Plugin component push method.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
@@ -161,7 +161,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component request method.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
@@ -169,7 +169,7 @@ declare namespace pluginComponentManager {
 
   /**
    * Plugin component on event listener.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
@@ -185,7 +185,7 @@ declare namespace pluginComponentManager {
   /**
    * Plugin component cancel event listener.
    * @param owner Indicates the want of the caller.
-   * @since 8
+   * @since 9
    * @systemapi Hide this for inner system use.
    */
   function off(owner: Want, callback: AsyncCallback<void>): void;
