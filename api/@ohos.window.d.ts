@@ -567,6 +567,26 @@ declare namespace window {
   */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
+  /**
+   * display orientation
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  enum Orientation {
+    UNSPECIFIED = 0,
+    PORTRAIT = 1,
+    LANDSCAPE = 2,
+    PORTRAIT_INVERTED = 3,
+    LANDSCAPE_INVERTED = 4,
+    AUTO_ROTATION = 5,
+    AUTO_ROTATION_PORTRAIT = 6,
+    AUTO_ROTATION_LANDSCAPE = 7,
+    AUTO_ROTATION_RESTRICTED = 8,
+    AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
+    LOCKED = 11,
+  }
+
   interface Window {
     /**
      * hide window.
@@ -751,6 +771,22 @@ declare namespace window {
      * @since 6
      */
     setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
+
+    /**
+     * Set the requested orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setRequestedOrientation(orientation: Orientation): Promise<void>;
+
+    /**
+     * Set the requested orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setRequestedOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
