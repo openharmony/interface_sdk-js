@@ -288,6 +288,12 @@ declare class JsResult {
    * @since 8
    */
   handleConfirm(): void;
+
+  /**
+   * Handle the user's JavaScript result if confirm the prompt dialog.
+   * @since 9
+   */
+  handlePromptConfirm(result: string): void;
 }
 
 /**
@@ -1119,6 +1125,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * @param callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   *
+   * @since 9
+   */
+  onPrompt(callback: (event?: {url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.
