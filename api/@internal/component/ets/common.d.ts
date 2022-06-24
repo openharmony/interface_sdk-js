@@ -368,6 +368,10 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+/**
+ * Defines the align rule options of relative container.
+ * @since 9
+ */
 declare interface AlignRuleOption {
   /**
    * The param of left align.
@@ -1514,6 +1518,10 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
+  /**
+   * Specifies the alignRules of relative container
+   * @since 9
+   */
   alignRules(value: AlignRuleOption): T;
 
   /**
