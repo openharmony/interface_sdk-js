@@ -315,6 +315,30 @@ declare class FileSelectorResult {
 }
 
 /**
+ * Defines the hit test value, related to {@link getHitTestValue} method.
+ * @since 9
+ */
+declare class HitTestValue {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * get the hit test type.
+   * @since 9
+   */
+  getType(): HitTestType;
+
+  /**
+   * get the hit test extra data.
+   * @since 9
+   */
+  getExtra(): string;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -781,10 +805,22 @@ declare class WebCookie {
   getHitTest(): HitTestType;
 
   /**
+   * Gets the hit test value of HitTest.
+   * @since 9
+   */
+  getHitTestValue(): HitTestValue;
+
+  /**
    * Gets the id for the current Web.
    * @since 9
    */
   getWebId(): number;
+
+  /**
+   * Gets the default user agent.
+   * @since 9
+   */
+  getDefaultUserAgent(): string;
 
   /**
    * Gets the title of current Web page.
