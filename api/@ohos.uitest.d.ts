@@ -726,7 +726,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   moveTo(x: number, y: number,):Promise<bool>;
+   moveTo(x: number, y: number):Promise<bool>;
 
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
@@ -791,4 +791,4 @@ class UiComponent{
  */
  const BY:By;
 
- export {UiComponent,UiDriver,BY,MatchPattern};
+ export {UiComponent,UiDriver,BY,MatchPattern,ResizeDirection,WindowMode};
