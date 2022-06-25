@@ -309,8 +309,8 @@ declare namespace window {
      * Whether avoidArea is visible on screen
      * @since 9
      */
-
     visible: boolean;
+
     /**
      * Rectangle on the left of the screen
      */
@@ -850,7 +850,7 @@ declare namespace window {
      * @param type: 'systemAvoidAreaChange'
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
-     * @deprecated since 9, please use on_avoidAreaChange instead.
+     * @deprecated since 9, please use off_avoidAreaChange instead.
      */
     off(type: 'systemAvoidAreaChange', callback?: Callback<AvoidArea>): void;
 
