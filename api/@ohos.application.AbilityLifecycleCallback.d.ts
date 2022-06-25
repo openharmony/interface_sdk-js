@@ -24,7 +24,7 @@ import Ability from "./@ohos.application.Ability";
  */
 export default class AbilityLifecycleCallback {
     /**
-     * Called back when the ability is started for initialization.
+     * Called back when an ability is started for initialization.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -34,7 +34,7 @@ export default class AbilityLifecycleCallback {
     onAbilityCreate(ability: Ability): void;
 
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability window stage is created.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -44,7 +44,7 @@ export default class AbilityLifecycleCallback {
     onAbilityWindowStageCreate(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability window stage is destroyed.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -54,7 +54,7 @@ export default class AbilityLifecycleCallback {
     onAbilityWindowStageDestroy(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability is destroyed.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -64,7 +64,7 @@ export default class AbilityLifecycleCallback {
     onAbilityDestroy(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when the state of an ability changes to foreground.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -74,7 +74,7 @@ export default class AbilityLifecycleCallback {
     onAbilityForeground(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when the state of an ability changes to background.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -84,7 +84,7 @@ export default class AbilityLifecycleCallback {
     onAbilityBackground(ability: Ability): void;
  
     /**
-     * Called back when the ability window stage is created.
+     * Called back when an ability prepares to continue.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

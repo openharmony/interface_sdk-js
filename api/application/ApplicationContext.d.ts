@@ -16,6 +16,7 @@
 import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
+import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -48,4 +49,27 @@ export default class ApplicationContext extends Context {
      */
     unregisterAbilityLifecycleCallback(callbackId: number,  callback: AsyncCallback<void>): void;
     unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+
+    /**
+     * Register environment callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param callback The environment callback.
+     * @return Returns the number code of the callback.
+     * @StageModelOnly
+     */
+    registerEnvironmentCallback(callback: EnvironmentCallback): number;
+
+    /**
+     * Unregister environment callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param callbackId Indicates the number code of the callback.
+     * @return -
+     * @StageModelOnly
+     */
+    unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
+    unregisterEnvironmentCallback(callbackId: number): Promise<void>;
 }
