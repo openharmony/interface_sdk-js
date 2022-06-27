@@ -83,6 +83,17 @@ declare namespace wifi {
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
     /**
+     * Obtains the scanned results.
+     *
+     * @return Returns information about scanned Wi-Fi hotspots if any.
+     *
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
+     */
+    function getScanResults(): Array<WifiScanInfo>;
+
+    /**
      * Adds Wi-Fi connection configuration to the device.
      *
      * <p>The configuration will be updated when the configuration is added.</p>
