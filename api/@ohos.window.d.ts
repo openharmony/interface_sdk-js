@@ -788,20 +788,20 @@ declare namespace window {
     setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
-     * Set the requested orientation config of the window
+     * Set the preferred orientation config of the window
      * @param orientation the orientation config of the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    setRequestedOrientation(orientation: Orientation): Promise<void>;
+    setPreferredOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * Set the requested orientation config of the window
+     * Set the preferred orientation config of the window
      * @param orientation the orientation config of the window
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    setRequestedOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+    setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
      * Loads content
