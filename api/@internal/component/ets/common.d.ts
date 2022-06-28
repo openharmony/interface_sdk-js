@@ -654,6 +654,30 @@ declare enum SourceType {
 }
 
 /**
+ * enum Blur style
+ * @since 9
+ */
+ declare enum BlurStyle {
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thin,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Regular,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thick,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -1158,6 +1182,13 @@ declare class CommonMethod<T> {
    */
   backgroundImagePosition(value: Position | Alignment): T;
 
+  /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @since 9
+   */
+   backgroundBlurStyle(value: BlurStyle): T;
+  
   /**
    * Opacity
    * @since 7
