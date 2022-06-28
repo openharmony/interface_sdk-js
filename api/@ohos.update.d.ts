@@ -171,7 +171,6 @@ declare namespace update {
         /**
          * Subscribe task update events
          *
-         * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
@@ -179,7 +178,6 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
-         * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
         off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
@@ -214,6 +212,7 @@ declare namespace update {
         /**
          * Verify local update package.
          *
+         * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
         verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<number>): void;
@@ -813,7 +812,7 @@ declare namespace update {
      * @since 9
      */
     export enum NetType {
-        CELLUAR = 1,
+        CELLULAR = 1,
         METERED_WIFI = 2,
         NOT_METERED_WIFI = 4
     }
