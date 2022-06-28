@@ -99,3 +99,58 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @since 8
  */
 export declare function canIUse(syscap: string): boolean;
+
+/**
+ * Obtains all attributes of the component with the specified ID.
+ * @param id ID of the component whose attributes are to be obtained.
+ * @since 8
+ * @systemapi
+ * @test
+ */
+export declare function getInspectorByKey(id: string): string;
+
+ /**
+  * Get components tree.
+  * @since 8
+  * @systemapi
+  * @test
+  */
+export declare function getInspectorTree(): string;
+ 
+ /**
+  * Sends an event to the component with the specified ID.
+  * @param id ID of the component for which the event is to be sent.
+  * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+  * @param params Event parameters. If there is no parameter, pass an empty string "".
+  * @since 8
+  * @systemapi
+  * @test
+  */
+export declare function sendEventByKey(id: string, action: number, params: string): boolean;
+ 
+ /**
+  * Send touch event.
+  * @param event TouchObject to be sent.
+  * @since 8
+  * @systemapi
+  * @test
+  */
+export declare function sendTouchEvent(event: TouchObject): boolean;
+ 
+ /**
+  * Send key event.
+  * @param event KeyEvent to be sent.
+  * @since 8
+  * @systemapi
+  * @test
+  */
+export declare function sendKeyEvent(event: KeyEvent): boolean;
+ 
+ /**
+  * Send mouse event.
+  * @param event MouseEvent to be sent.
+  * @since 8
+  * @systemapi
+  * @test
+  */
+export declare function sendMouseEvent(event: MouseEvent): boolean;
