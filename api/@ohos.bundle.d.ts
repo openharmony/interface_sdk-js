@@ -204,6 +204,69 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
     FOLLOW_RECENT,
+
+    /**
+     * @default Indicates the inverted landscape orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LANDSCAPE_INVERTED,
+
+    /**
+     * @default Indicates the inverted portrait orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    PORTRAIT_INVERTED,
+
+    /**
+     * @default Indicates the orientation can be auto-rotated
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION,
+
+    /**
+     * @default Indicates the landscape orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE,
+
+    /**
+     * @default Indicates the portrait orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT,
+
+    /**
+     * @default Indicates the sensor restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor landscape restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor portrait restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT_RESTRICTED,
+
+    /**
+     * @default Indicates the locked orientation mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LOCKED,
   }
 
   /**
