@@ -770,9 +770,6 @@ declare namespace update {
      */
     export enum ComponentType {
         OTA = 1,
-        PATCH = 2,
-        COTA = 4,
-        PARAM = 8
     }
 
     /**
