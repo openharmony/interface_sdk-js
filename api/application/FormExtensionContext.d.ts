@@ -16,6 +16,7 @@
 import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import formBindingData from '../@ohos.application.formBindingData';
+import Want from '../@ohos.application.Want';
 
 /**
  * The context of form extension. It allows access to
@@ -42,4 +43,17 @@ export default class FormExtensionContext extends ExtensionContext {
      */
     updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback<void>): void;
     updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+
+    /**
+     * start an ability within the same bundle.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param want includes ability name, parameters and relative info sending to an ability.
+     * @return -
+     * @StageModelOnly
+     * @systemapi hide for inner use
+     */
+    startAbility(want: Want, callback: AsyncCallback<void>): void;
+    startAbility(want: Want): Promise<void>;
 }
