@@ -1749,6 +1749,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   restoreId(value: number): T;
+
+  /**
+   * Trigger a visible area change event.
+   * @since 9
+   */
+   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**

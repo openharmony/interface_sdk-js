@@ -59,7 +59,7 @@ export interface DataAbilityHelper {
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deregisters an observer used for monitoring data specified by the given uri.
+     * Deregisters all observers used for monitoring data specified by the given uri.
      *
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
