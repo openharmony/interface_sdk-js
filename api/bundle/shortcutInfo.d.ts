@@ -116,4 +116,11 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly isEnabled?: boolean;
+
+    /**
+     * @default Indicates the moduleName of the shortcut
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    readonly moduleName?: string;
   }
