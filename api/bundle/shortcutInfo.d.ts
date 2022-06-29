@@ -15,7 +15,7 @@
 
  /**
   * @name  Provides methods for obtaining information about the ability that a shortcut will start, including the target
-  *        bundle name and ability class name.
+  *        bundle name, target module name and ability class name.
   * @since 7
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
@@ -28,6 +28,12 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly targetBundle: string;
+    /**
+      * @default Indicates the target module of the shortcut want
+      * @since 9
+      * @syscap SystemCapability.BundleManager.BundleFramework
+      */
+    readonly targetModule: string;
     /**
       * @default Indicates the target class of the shortcut want
       * @since 7
