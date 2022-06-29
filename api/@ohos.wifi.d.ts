@@ -91,7 +91,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      */
-    function getScanResults(): Array<WifiScanInfo>;
+    function getScanInfosSync(): Array<WifiScanInfo>;
 
     /**
      * Adds Wi-Fi connection configuration to the device.
