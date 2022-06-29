@@ -206,4 +206,18 @@ export interface ApplicationInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
      readonly descriptionResource: Resource;
+
+  /**
+    * @default Indicates the appDistributionType of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly appDistributionType: string;
+
+  /**
+    * @default Indicates the appProvisionType of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly appProvisionType: string;
 }
