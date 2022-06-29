@@ -21,7 +21,9 @@ import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import Want from './@ohos.application.want';
 import { BundleInstaller } from './bundle/bundleInstaller';
 import { PermissionDef } from  './bundle/PermissionDef';
+import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
+import pack from './bundle/packInfo';
 
 /**
  * bundle.
@@ -722,6 +724,19 @@ declare namespace bundle {
   function isModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
   /**
+   * Obtains bundlePackInfo based on bundleName and bundleFlags.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param bundlePackFlag Indicates the application bundle pack flag to be queried.
+   * @return Returns the BundlePackInfo object.
+   * @systemapi hide this for inner system use
+   */
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag, callback: AsyncCallback<pack.BundlePackInfo>): void;
+  function getBundlePackInfo(bundleName: string, bundlePackFlag : pack.BundlePackFlag): Promise<pack.BundlePackInfo>;
+
+  /**   
    * Obtains information about the current ability.
    *
    * @since 9
@@ -734,6 +749,17 @@ declare namespace bundle {
    */
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
   function getAbilityInfo(bundleName: string, moduleName: string, abilityName: string): Promise<AbilityInfo>;
+
+  /**   
+   * Obtains information about the dispatcher version.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @return Returns the DispatchInfo object for the current ability.
+   * @systemapi hide this for inner system use
+   */
+  function getDispatcherVersion(callback: AsyncCallback<DispatchInfo>): void;
+  function getDispatcherVersion(): Promise<DispatchInfo>;
 
   /**
    * Obtains the label of a specified ability.
