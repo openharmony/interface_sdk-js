@@ -1219,15 +1219,73 @@ declare namespace bluetooth {
     /**
      * Describes the criteria for filtering scanning results can be set.
      *
-     * @since 7
      */
     interface ScanFilter {
-        /** The address of a BLE peripheral device */
+        /**
+         * The address of a BLE peripheral device
+         * @since 7
+         */
         deviceId?: string;
-        /** The name of a BLE peripheral device */
+
+        /**
+         * The name of a BLE peripheral device
+         * @since 7
+         */
         name?: string;
-        /** The service UUID of a BLE peripheral device */
+
+        /**
+         * The service UUID of a BLE peripheral device
+         * @since 7
+         */
         serviceUuid?: string;
+        
+        /**
+         * Service UUID mask.
+         * @since 9
+         */
+        serviceUuidMask?: string;
+        
+        /**
+         * Service solicitation UUID mask.
+         * @since 9
+         */
+        serviceSolicitationUuid?: string;
+
+        /**
+         * Service solicitation UUID mask.
+         * @since 9
+         */
+        serviceSolicitationUuidMask?: string;
+
+        /**
+         * Service data.
+         * @since 9
+         */
+        serviceData?: ArrayBuffer;
+
+        /**
+         * Service data mask.
+         * @since 9
+         */
+        serviceDataMask?: ArrayBuffer;
+
+        /**
+         * Manufacture id.
+         * @since 9
+         */
+        manufactureId?: number;
+
+        /**
+         * Manufacture data.
+         * @since 9
+         */
+        manufactureData?: ArrayBuffer;
+
+        /**
+         * Manufacture data mask.
+         * @since 9
+         */
+        manufactureDataMask?: ArrayBuffer;
     }
 
     /**

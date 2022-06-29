@@ -26,6 +26,54 @@ interface ImageAnimatorInterface {
 }
 
 /**
+ * Defines the ImageFrameInfo Interface.
+ * @since 7
+ */
+interface ImageFrameInfo {
+  /**
+   * Image path
+   * @type { string }
+   * @since 7
+   */
+  /**
+   * Image path
+   * @type { string | Resource }
+   * @since 9
+   */
+  src: string | Resource;
+  /**
+   * Image width
+   * @type: { number | string }
+   * @since 7
+   */
+  width?: number | string;
+  /**
+   * Image height
+   * @type: { number | string }
+   * @since 7
+   */
+  height?: number | string;
+  /**
+   * Vertical coordinate of the image relative to the upper left corner of the component
+   * @type: { number | string }
+   * @since 7
+   */
+  top?: number | string;
+  /**
+   * Horizontal coordinate of the image relative to the upper left corner of the component
+   * @type: { number | string }
+   * @since 7
+   */
+  left?: number | string;
+  /**
+   * Playback duration of this image frame, in milliseconds.
+   * @type: { number }
+   * @since 7
+   */
+  duration?: number;
+}
+
+/**
  * inheritance CommonMethod
  * @since 7
  */
@@ -34,16 +82,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * list images
    * @since 7
    */
-  images(
-    value: Array<{
-      src: string;
-      width?: number | string;
-      height?: number | string;
-      top?: number | string;
-      left?: number | string;
-      duration?: number;
-    }>,
-  ): ImageAnimatorAttribute;
+  images(value: Array<ImageFrameInfo>): ImageAnimatorAttribute;
 
   /**
    * The default value is the initial state, which is used to control the playback status.

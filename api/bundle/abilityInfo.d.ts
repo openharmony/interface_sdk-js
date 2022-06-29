@@ -146,7 +146,6 @@ export interface AbilityInfo {
     * @default Enumerates ability display orientations
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
-    * @FAModelOnly
     */
   readonly orientation: bundle.DisplayOrientation;
 
@@ -229,5 +228,54 @@ export interface AbilityInfo {
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
-   readonly enabled: boolean;
+  readonly enabled: boolean;
+
+  /**
+    * @default Indicates which window mode is supported
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly supportWindowMode: Array<bundle.SupportWindowMode>;
+
+  /**
+    * @default Indicates maximum ratio of width over height of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly maxWindowRatio: number;
+
+  /**
+    * @default Indicates minimum ratio of width over height of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly minWindowRatio: number;
+
+  /**
+    * @default Indicates maximum width of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly maxWindowWidth: number;
+
+  /**
+    * @default Indicates minimum width of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly minWindowWidth: number;
+
+  /**
+    * @default Indicates maximum height of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly maxWindowHeight: number;
+
+  /**
+    * @default Indicates minimum height of window under free window status.
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly minWindowHeight: number;
 }

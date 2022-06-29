@@ -204,6 +204,69 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
     FOLLOW_RECENT,
+
+    /**
+     * @default Indicates the inverted landscape orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LANDSCAPE_INVERTED,
+
+    /**
+     * @default Indicates the inverted portrait orientation
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    PORTRAIT_INVERTED,
+
+    /**
+     * @default Indicates the orientation can be auto-rotated
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION,
+
+    /**
+     * @default Indicates the landscape orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE,
+
+    /**
+     * @default Indicates the portrait orientation rotated with sensor
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT,
+
+    /**
+     * @default Indicates the sensor restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor landscape restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED,
+
+    /**
+     * @default Indicates the sensor portrait restricted mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    AUTO_ROTATION_PORTRAIT_RESTRICTED,
+
+    /**
+     * @default Indicates the locked orientation mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    LOCKED,
   }
 
   /**
@@ -304,6 +367,12 @@ declare namespace bundle {
      */
     WINDOW = 10,
     /**
+     * @default Indicates extension info with type of enterprise admin
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    ENTERPRISE_ADMIN = 11,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
@@ -403,6 +472,34 @@ declare namespace bundle {
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
      RELATION_UPGRADE = 2,
+  }
+
+  /**
+  * @name SupportWindowMode
+  * @since 9
+  * @syscap SystemCapability.BundleManager.BundleFramework
+  * @import NA
+  * @permission NA
+  */
+  export enum SupportWindowMode {
+    /**
+     * @default Indicates supported window mode of full screen mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FULL_SCREEN = 0,
+    /**
+     * @default Indicates supported window mode of split mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    SPLIT = 1,
+    /**
+     * @default Indicates supported window mode of floating mode
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    FLOATING = 2,
   }
 
   /**
@@ -734,6 +831,32 @@ declare namespace bundle {
    */
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
+   * Obtains the profile designated by metadata name, abilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param abilityName Indicates the abilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array<string>>;
+
+  /**
+   * Obtains the profile designated by metadata name, extensionAbilityName and moduleName from the current application.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param moduleName Indicates the moduleName of the application.
+   * @param extensionAbilityName Indicates the extensionAbilityName of the application.
+   * @param metadataName Indicates the name of metadata in ability.
+   * @return Returns string in json-format of the corresponding config file.
+   */
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array<string>>): void;
+  function getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array<string>>;
 }
 
 export default bundle;

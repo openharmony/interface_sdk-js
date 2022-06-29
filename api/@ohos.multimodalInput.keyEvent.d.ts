@@ -43,7 +43,7 @@ export declare enum Action {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {Key} from '@ohos.multimodalInput.mouseEvent';
+* @import import {Key} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface Key {
   /**
@@ -67,7 +67,7 @@ export declare interface Key {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {KeyEvent} from '@ohos.multimodalInput.mouseEvent';
+* @import import {KeyEvent} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface KeyEvent extends InputEvent {
   /**

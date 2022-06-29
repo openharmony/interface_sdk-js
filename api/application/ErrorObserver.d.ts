@@ -13,25 +13,21 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from "./commonEvent/commonEventData";
-
 /**
- * class of static subscriber extension ability.
+ * The observer will be called by system when an error occurs.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
- * @StageModelOnly
+ * @permission N/A
  */
-export default class StaticSubscriberExtensionAbility {
+export default class ErrorObserver {
     /**
-     * Called back when a specific common event is published.
+     * Will be called when the js runtime throws an exception which doesn't caught by user.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
+     * @param errMsg the message and error stacktrace about the exception.
      * @return -
-     * @StageModelOnly
      */
-    onReceiveEvent(event: CommonEventData): void;
+    onUnhandledException(errMsg: string): void;
 }

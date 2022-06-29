@@ -14,6 +14,10 @@
  */
 
 import { NfcATag, NfcBTag, NfcFTag, NfcVTag } from './tag/nfctech';
+import { IsoDepTag, NdefTag, MifareClassicTag, MifareUltralightTag, NdefFormatableTag } from './tag/nfctech';
+import { PacMap } from "./ability/dataAbilityHelper";
+import rpc from "./@ohos.rpc";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage NFC tag.
@@ -24,22 +28,22 @@ import { NfcATag, NfcBTag, NfcFTag, NfcVTag } from './tag/nfctech';
  * @syscap SystemCapability.Communication.NFC.Core
  */
 declare namespace tag {
-  /** Indicates an NFC-A tag. */
+  /** Indicates a NFC-A tag. */
   const NFC_A = 1;
 
-  /** Indicates an NFC-B tag. */
+  /** Indicates a NFC-B tag. */
   const NFC_B = 2;
 
-  /** Indicates an ISO-DEP tag. */
+  /** Indicates a ISO-DEP tag. */
   const ISO_DEP = 3;
 
-  /** Indicates an NFC-F tag. */
+  /** Indicates a NFC-F tag. */
   const NFC_F = 4;
 
-  /** Indicates an NFC-V tag. */
+  /** Indicates a NFC-V tag. */
   const NFC_V = 5;
 
-  /** Indicated an NDEF tag. */
+  /** Indicates a NDEF tag. */
   const NDEF = 6;
 
   /** Indicates a MifareClassic tag. */
@@ -49,9 +53,16 @@ declare namespace tag {
   const MIFARE_ULTRALIGHT = 9;
 
   /**
-   * Obtains an {@code NfcATag} object based on the tag information.
+   * Indicates a NdefFormatable tag.
    *
-   * <p>During tag reading, if the tag supports the NFC-A technology, an {@code NfcATag} object
+   * @since 9
+   */
+  const NDEF_FORMATABLE = 10;
+
+  /**
+   * Obtains an {@link NfcATag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the NFC-A technology, an {@link NfcATag} object
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
@@ -62,9 +73,9 @@ declare namespace tag {
   function getNfcATag(tagInfo: TagInfo): NfcATag
 
   /**
-   * Obtains an {@code NfcBTag} object based on the tag information.
+   * Obtains an {@link NfcBTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the NFC-B technology, an {@code NfcBTag} object
+   * <p>During tag reading, if the tag supports the NFC-B technology, an {@link NfcBTag} object
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
@@ -75,9 +86,9 @@ declare namespace tag {
   function getNfcBTag(tagInfo: TagInfo): NfcBTag
 
   /**
-   * Obtains an {@code NfcFTag} object based on the tag information.
+   * Obtains an {@link NfcFTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the NFC-F technology, an {@code NfcFTag} object
+   * <p>During tag reading, if the tag supports the NFC-F technology, an {@link NfcFTag} object
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
@@ -88,9 +99,9 @@ declare namespace tag {
   function getNfcFTag(tagInfo: TagInfo): NfcFTag
 
   /**
-   * Obtains an {@code NfcVTag} object based on the tag information.
+   * Obtains an {@link NfcVTag} object based on the tag information.
    *
-   * <p>During tag reading, if the tag supports the NFC-V technology, an {@code NfcVTag} object
+   * <p>During tag reading, if the tag supports the NFC-V technology, an {@link NfcVTag} object
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
@@ -100,6 +111,70 @@ declare namespace tag {
    */
   function getNfcVTag(tagInfo: TagInfo): NfcVTag
 
+  /**
+   * Obtains an {@link IsoDepTag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the IsoDep technology, an {@link IsoDepTag} object
+   * will be created based on the tag information.
+   *
+   * @param tagInfo Indicates the tag information.
+   * @permission ohos.permission.NFC_TAG
+   *
+   * @since 9
+   */
+  function getIsoDepTag(tagInfo: TagInfo): IsoDepTag
+
+  /**
+   * Obtains an {@link NdefTag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the NDEF technology, an {@link NdefTag} object
+   * will be created based on the tag information.
+   *
+   * @param tagInfo Indicates the tag information.
+   * @permission ohos.permission.NFC_TAG
+   *
+   * @since 9
+   */
+  function getNdefTag(tagInfo: TagInfo): NdefTag
+
+  /**
+   * Obtains an {@link MifareClassicTag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the MifareClassic technology,
+   * an {@link MifareClassicTag} object will be created based on the tag information.
+   *
+   * @param tagInfo Indicates the tag information.
+   * @permission ohos.permission.NFC_TAG
+   *
+   * @since 9
+   */
+  function getMifareClassicTag(tagInfo: TagInfo): MifareClassicTag
+
+   /**
+   * Obtains an {@link MifareUltralightTag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the MifareUltralight technology,
+   * an {@link MifareUltralightTag} object will be created based on the tag information.
+   *
+   * @param tagInfo Indicates the tag information.
+   * @permission ohos.permission.NFC_TAG
+   *
+   * @since 9
+   */
+  function getMifareUltralightTag(tagInfo: TagInfo): MifareUltralightTag
+
+  /**
+   * Obtains an {@link NdefFormatableTag} object based on the tag information.
+   *
+   * <p>During tag reading, if the tag supports the NdefFormatable technology,
+   * an {@link NdefFormatableTag} object will be created based on the tag information.
+   *
+   * @param tagInfo Indicates the tag information.
+   * @permission ohos.permission.NFC_TAG
+   *
+   * @since 9
+   */
+  function getNdefFormatableTag(tagInfo: TagInfo): NdefFormatableTag
 
   /**
    * Provides tag information.
@@ -112,6 +187,50 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    */
   export interface TagInfo {
+   /**
+    * The uid of this tag, it.
+    *
+    * @since 9
+    */
+    uid: string;
+
+   /**
+    * The supported technology list of this tag.
+    *
+    * @since 9
+    */
+    technology: number[];
+
+   /**
+    * The extra data for each technology of this tag.
+    *
+    * @since 9
+    * @systemapi hide for inner use.
+    */
+    extrasData: PacMap[];
+
+   /**
+    * The the RF discovery id of this tag.
+    *
+    * @since 9
+    * @systemapi hide for inner use.
+    */
+    tagRfDiscId: number;
+
+   /**
+    * The extra data for the technology of this tag.
+    *
+    * @since 9
+    * @systemapi hide for inner use.
+    */
+    remoteTagService: rpc.RemoteObject;
+
+   /**
+    * The supported technology list of this tag.
+    *
+    * @since 7
+    * @deprecated since 9
+    */
     supportedProfiles: number[];
   }
 }

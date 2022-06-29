@@ -29,6 +29,7 @@ ohos_copy("ets_internal_api") {
 
 ohos_copy("ets_component") {
   sources = [
+    "api/@internal/component/ets/ability_component.d.ts",
     "api/@internal/component/ets/action_sheet.d.ts",
     "api/@internal/component/ets/alert_dialog.d.ts",
     "api/@internal/component/ets/alphabet_indexer.d.ts",
@@ -44,6 +45,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/column.d.ts",
     "api/@internal/component/ets/column_split.d.ts",
     "api/@internal/component/ets/common.d.ts",
+    "api/@internal/component/ets/common_ts_ets_api.d.ts",
     "api/@internal/component/ets/context_menu.d.ts",
     "api/@internal/component/ets/counter.d.ts",
     "api/@internal/component/ets/custom_dialog_controller.d.ts",

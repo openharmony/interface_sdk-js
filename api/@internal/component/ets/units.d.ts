@@ -35,6 +35,18 @@ declare interface Resource {
    * @since 7
    */
   readonly params?: any[];
+
+  /**
+   * Set bundleName.
+   * @since 9
+   */
+  readonly bundleName: string;
+
+  /**
+   * Set moduleName.
+   * @since 9
+   */
+  readonly moduleName: string;
 }
 
 /**
@@ -80,6 +92,126 @@ declare type Padding = {
  * @since 7
  */
 declare type Margin = Padding;
+
+/**
+ * Defines the border width property.
+ * @since 9
+ */
+ declare type EdgeWidths = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: Length;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: Length;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: Length;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: Length;
+};
+
+/**
+ * Defines the border radius property.
+ * @since 9
+ */
+declare type BorderRadiuses = {
+  /**
+   * top-left property.
+   * @since 9
+   */
+  topLeft?: Length;
+
+  /**
+   * top-right property.
+   * @since 9
+   */
+  topRight?: Length;
+
+  /**
+   * bottom-left property.
+   * @since 9
+   */
+  bottomLeft?: Length;
+
+  /**
+   * bottom-right property.
+   * @since 9
+   */
+  bottomRight?: Length;
+};
+
+/**
+ * Defines the border color property.
+ * @since 9
+ */
+declare type EdgeColors = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: ResourceColor;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: ResourceColor;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: ResourceColor;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: ResourceColor;
+};
+
+/**
+ * Defines the border style property.
+ * @since 9
+ */
+declare type EdgeStyles = {
+  /**
+   * top property.
+   * @since 9
+   */
+  top?: BorderStyle;
+
+  /**
+   * right property.
+   * @since 9
+   */
+  right?: BorderStyle;
+
+  /**
+   * bottom property.
+   * @since 9
+   */
+  bottom?: BorderStyle;
+
+  /**
+   * left property.
+   * @since 9
+   */
+  left?: BorderStyle;
+};
 
 /**
  * Defines the offset property.
@@ -243,22 +375,46 @@ declare interface SizeOptions {
 declare interface BorderOptions {
   /**
    * Defines the border width.
+   * @type { Length }
    * @since 7
    */
-  width?: Length;
+  /**
+   * Defines the border width.
+   * @type { EdgeWidths | Length }
+   * @since 9
+   */
+  width?: EdgeWidths | Length;
   /**
    * Defines the border color.
+   * @type { ResourceColor }
    * @since 7
    */
-  color?: ResourceColor;
+  /**
+   * Defines the border color.
+   * @type { EdgeColors | ResourceColor }
+   * @since 9
+   */
+  color?: EdgeColors | ResourceColor;
   /**
    * Defines the border radius.
+   * @type { Length }
    * @since 7
    */
-  radius?: Length;
+  /**
+   * Defines the border radius.
+   * @type { BorderRadiuses | Length }
+   * @since 9
+   */
+  radius?: BorderRadiuses | Length;
   /**
    * Defines the border style.
+   * @type { BorderStyle }
    * @since 7
    */
-  style?: BorderStyle;
+  /**
+   * Defines the border style.
+   * @type { EdgeStyles | BorderStyle }
+   * @since 9
+   */
+  style?: EdgeStyles | BorderStyle;
 }

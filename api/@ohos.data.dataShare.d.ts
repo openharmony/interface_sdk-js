@@ -16,7 +16,7 @@
 import { AsyncCallback } from './basic';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
-import DataSharePredicates from './@ohos.data.DataSharePredicates';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 declare namespace dataShare {
@@ -100,8 +100,8 @@ declare namespace dataShare {
          * @return Returns the number of data records deleted.
          * @StageModelOnly
          */
-        delete(uri: string, predicates: DataSharePredicates, callback: AsyncCallback<number>): void;
-        delete(uri: string, predicates: DataSharePredicates): Promise<number>;
+        delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+        delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database.
@@ -113,8 +113,8 @@ declare namespace dataShare {
          * @return Returns the query result.
          * @StageModelOnly
          */
-        query(uri: string, predicates: DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
-        query(uri: string, predicates: DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
+        query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
+        query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
 
         /**
          * Updates data records in the database.
@@ -126,8 +126,8 @@ declare namespace dataShare {
          * @return Returns the number of data records updated.
          * @StageModelOnly
          */
-        update(uri: string, predicates: DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
-        update(uri: string, predicates: DataSharePredicates, value: ValuesBucket): Promise<number>;
+        update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
+        update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
 
         /**
          * Inserts multiple data records into the database.

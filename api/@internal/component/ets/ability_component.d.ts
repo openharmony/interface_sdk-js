@@ -12,37 +12,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Want } from '../../../ability/want';
 
 /**
- * Provides an interface for the ability component.
+ * Provide an interface for the ability component.
  * @since 9
+ * @systemapi
  */
 interface AbilityComponentInterface {
   /**
    * Construct the ability component.
    * Called when the ability component is used.
    * @since 9
+   * @systemapi
    */
   (want: Want): AbilityComponentAttribute;
 }
 
 /**
- * Defines the attribute functions of ability component.
+ * Define the attribute functions of ability component.
  * @since 9
+ * @systemapi
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
-   * Called when the component connected with ability.
+   * Called when the component is connected to ability.
    * @since 9
+   * @systemapi
    */
   onConnect(callback: () => void): AbilityComponentAttribute;
   /**
-   * Called when the component onDisconnected with ability.
+   * Called when the component is disconnected.
    * @since 9
+   * @systemapi
    */
    onDisconnect(callback: () => void): AbilityComponentAttribute;
 }
 
-declare const abilityComponent: AbilityComponentInterface;
-declare const abilityComponentInstance: AbilityComponentAttribute;
+declare const AbilityComponent: AbilityComponentInterface;
+declare const AbilityComponentInstance: AbilityComponentAttribute;

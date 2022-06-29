@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -189,13 +189,6 @@ declare interface Rectangle {
 }
 
 /**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
-
-/**
  * global $r function
  * @since 7
  */
@@ -225,9 +218,15 @@ declare interface AnimateParam {
   tempo?: number;
   /**
    * Animation curve.
+   * @type { string | Curve}
    * @since 7
    */
-  curve?: Curve | string;
+  /**
+   * Animation curve.
+   * @type { string | Curve | ICurve}
+   * @since 9
+   */
+  curve?: Curve | string | ICurve;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
@@ -248,6 +247,18 @@ declare interface AnimateParam {
    * @since 7
    */
   onFinish?: () => void;
+}
+
+/**
+ * Interface for curve object.
+ * @since 9
+ */
+interface ICurve {
+  /**
+   * Get curve value by fraction.
+   * @since 9
+   */ 
+  interpolate(fraction : number) : number;
 }
 
 /**
@@ -368,6 +379,10 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+/**
+ * Defines the align rule options of relative container.
+ * @since 9
+ */
 declare interface AlignRuleOption {
   /**
    * The param of left align.
@@ -468,62 +483,52 @@ declare interface TransitionOptions {
 
 /**
  * Define Preview property
- * @since 8
- * @systemapi
+ * @since 9
  */
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   title?: string;
   /**
    * Define Preview width
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   width?: number;
   /**
    * Define Preview height
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   height?: number;
   /**
    * Define Preview locale
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   roundScreen?: boolean;
 }
@@ -646,6 +651,30 @@ declare enum SourceType {
    * @since 8
    */
   TouchScreen,
+}
+
+/**
+ * enum Blur style
+ * @since 9
+ */
+ declare enum BlurStyle {
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thin,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Regular,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thick,
 }
 
 /**
@@ -1154,6 +1183,13 @@ declare class CommonMethod<T> {
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @since 9
+   */
+   backgroundBlurStyle(value: BlurStyle): T;
+  
+  /**
    * Opacity
    * @since 7
    */
@@ -1173,10 +1209,22 @@ declare class CommonMethod<T> {
   borderStyle(value: BorderStyle): T;
 
   /**
+   * Border style
+   * @since 9
+   */
+   borderStyle(value: EdgeStyles): T;
+
+  /**
    * Border width
    * @since 7
    */
   borderWidth(value: Length): T;
+
+  /**
+   * Border width
+   * @since 9
+   */
+   borderWidth(value: EdgeWidths): T;
 
   /**
    * Border color
@@ -1185,10 +1233,22 @@ declare class CommonMethod<T> {
   borderColor(value: ResourceColor): T;
 
   /**
+   * Border color
+   * @since 9
+   */
+   borderColor(value: EdgeColors): T;
+
+  /**
    * Border radius
    * @since 7
    */
   borderRadius(value: Length): T;
+
+  /**
+   * Border radius
+   * @since 9
+   */
+   borderRadius(value: BorderRadiuses): T;
 
   /**
    * Trigger a click event when a click is clicked.
@@ -1514,6 +1574,10 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
+  /**
+   * Specifies the alignRules of relative container
+   * @since 9
+   */
   alignRules(value: AlignRuleOption): T;
 
   /**
@@ -1685,6 +1749,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   restoreId(value: number): T;
+
+  /**
+   * Trigger a visible area change event.
+   * @since 9
+   */
+   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**
@@ -1802,7 +1872,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-declare class CustomComponent {
+/**
+ * Custom Component
+ * @extends CommonAttribute
+ * @since 9
+ */
+declare class CustomComponent extends CommonAttribute {
   /**
    * Customize the pop-up content constructor.
    * @since 7

@@ -18,7 +18,7 @@ declare namespace usb {
      * Obtains the USB device list.
      *
      * @return Returns the {@link USBDevice} list.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getDevices(): Array<Readonly<USBDevice>>;
@@ -28,7 +28,7 @@ declare namespace usb {
      *
      * @param device USB device on the device list returned by {@link getDevices()}.
      * @return Returns the {@link USBDevicePipe} object for data transfer.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
@@ -38,7 +38,7 @@ declare namespace usb {
      *
      * @param deviceName Device name defined by {@link USBDevice.name}.
      * @return Returns **true** if the user has the permission to access the device; return **false** otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function hasRight(deviceName: string): boolean;
@@ -48,7 +48,7 @@ declare namespace usb {
      *
      * @param deviceName Device name defined by {@link USBDevice.name}.
      * @return Returns **true** if the temporary device access permissions are granted; return **false** otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function requestRight(deviceName: string): Promise<boolean>;
@@ -59,7 +59,7 @@ declare namespace usb {
      * @param funcs Descriptor of the supported function list.
      * @return Returns the numeric mask combination of the function list.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function usbFunctionsFromString(funcs: string): number;
@@ -70,7 +70,7 @@ declare namespace usb {
      * @param funcs Numeric mask combination of the function list.
      * @return Returns the string descriptor of the supported function list.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function usbFunctionsToString(funcs: FunctionType): string;
@@ -81,7 +81,7 @@ declare namespace usb {
      * @param funcs Numeric mask combination of the supported function list.
       * @return Returns **true** if the setting is successful; returns **false** otherwise.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
@@ -90,7 +90,7 @@ declare namespace usb {
      *
      * @return Returns the numeric mask combination for the current USB function list in {@link FunctionType}.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function getCurrentFunctions(): FunctionType;
@@ -101,7 +101,7 @@ declare namespace usb {
      *
      * @return Returns the {@link USBPort} list.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function getPorts(): Array<USBPort>;
@@ -111,7 +111,7 @@ declare namespace usb {
      *
      * @return Returns the mask combination for the supported mode list in {@link PortModeType}.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function getSupportedModes(portId: number): PortModeType;
@@ -124,7 +124,7 @@ declare namespace usb {
      * @param dataRole Data role defined by {@link DataRoleType}.
      * @return Returns the supported role type.
      * @systemapi
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<boolean>;
@@ -137,7 +137,7 @@ declare namespace usb {
       * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to claim.
      * @param force Optional parameter that determines whether to forcibly claim the USB interface. 
      * @return Returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
@@ -147,7 +147,7 @@ declare namespace usb {
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
       * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to release.
      * @return Returns **0** if the USB interface is successfully released; returns an error code otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
@@ -157,7 +157,7 @@ declare namespace usb {
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
      * @param config Device configuration defined by {@link USBConfig}.
      * @return Returns **0** if the device configuration is successfully set; returns an error code otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
@@ -167,7 +167,7 @@ declare namespace usb {
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
       * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to set.
      * @return Returns **0** if the USB interface is successfully set; return an error code otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
@@ -176,7 +176,7 @@ declare namespace usb {
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
        * @return Returns the raw descriptor data.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
@@ -185,7 +185,7 @@ declare namespace usb {
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
       * @return Returns the file descriptor of the USB device.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getFileDescriptor(pipe: USBDevicePipe): number;
@@ -196,7 +196,7 @@ declare namespace usb {
      * @param contrlparam Control transfer parameters.
      * @param timeout Timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
      * @return Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function controlTransfer(pipe: USBDevicePipe, contrlparam: USBControlParams, timeout?: number): Promise<number>;
@@ -209,7 +209,7 @@ declare namespace usb {
      * @param buffer Buffer for writing or reading data.
      * @param timeout Timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
      * @return Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array,
@@ -220,7 +220,7 @@ declare namespace usb {
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
      * @return Returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
-     * @SysCap SystemCapability.USB.USBManager
+     * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function closePipe(pipe: USBDevicePipe): number;

@@ -14,6 +14,7 @@
  */
 
 import { RawFileDescriptor } from './global/rawFileDescriptor';
+import { Resource } from './global/resource';
 
 /**
  * Provides resource related APIs.
@@ -254,6 +255,24 @@ export interface ResourceManager {
     getString(resId: number): Promise<string>;
 
     /**
+     * Obtains the character string corresponding to a specified resource object in callback mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @since 9
+     */
+    getString(resource: Resource, callback: AsyncCallback<string>): void;
+
+    /**
+     * Obtains string resources associated with a specified resource object in Promise mode.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the character string corresponding to the resource object.
+     * @since 9
+     */
+    getString(resource: Resource): Promise<string>;
+
+    /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
      *
      * @param resId Indicates the resource ID.
@@ -270,6 +289,24 @@ export interface ResourceManager {
      * @since 6
      */
     getStringArray(resId: number): Promise<Array<string>>;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource object in callback mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @since 9
+     */
+    getStringArray(resource: Resource, callback: AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource object in Promise mode.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the array of character strings corresponding to the specified resource object.
+     * @since 9
+     */
+    getStringArray(resource: Resource): Promise<Array<string>>;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
@@ -290,6 +327,24 @@ export interface ResourceManager {
     getMedia(resId: number): Promise<Uint8Array>;
 
     /**
+     * Obtains the content of the media file corresponding to a specified resource object in callback mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @since 9
+     */
+    getMedia(resource: Resource, callback: AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Obtains the content of the media file corresponding to a specified resource object in Promise mode.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the content of the media file corresponding to the specified resource object.
+     * @since 9
+     */
+    getMedia(resource: Resource): Promise<Uint8Array>;
+
+    /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
      *
      * @param resId Indicates the resource ID.
@@ -307,6 +362,25 @@ export interface ResourceManager {
      * @since 6
      */
     getMediaBase64(resId: number): Promise<string>;
+
+    /**
+     * Obtains the Base64 code of the image resource corresponding to the specified resource object in callback mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     *                 resource.
+     * @since 9
+     */
+    getMediaBase64(resource: Resource, callback: AsyncCallback<string>): void;
+
+    /**
+     * Obtains the Base64 code of the image resource corresponding to the specified resource object in Promise mode.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the Base64 code of the image resource corresponding to the specified resource object.
+     * @since 9
+     */
+    getMediaBase64(resource: Resource): Promise<string>;
 
     /**
      * Obtains the device capability in callback mode.
@@ -364,6 +438,30 @@ export interface ResourceManager {
      * @since 6
      */
     getPluralString(resId: number, num: number): Promise<string>;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to the
+     * specified number in callback mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param num Indicates the number.
+     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     *                 string represented by the resource object string corresponding to the specified number.
+     * @since 9
+     */
+    getPluralString(resource: Resource, num: number, callback: AsyncCallback<string>): void;
+
+    /**
+     * Obtains the singular-plural character string represented by the resource object string corresponding to
+     * the specified number in Promise mode.
+     *
+     * @param resource Indicates the resource object.
+     * @param num Indicates the number.
+     * @return Returns the singular-plural character string represented by the resource object string
+     *         corresponding to the specified number.
+     * @since 9
+     */
+    getPluralString(resource: Resource, num: number): Promise<string>;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
@@ -526,6 +624,15 @@ export interface ResourceManager {
     getStringSync(resId: number): string;
 
     /**
+     * Obtains string resources associated with a specified resource object.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the character string corresponding to the resource object.
+     * @since 9
+     */
+    getStringSync(resource: Resource): string;
+
+    /**
      * Obtains string resources associated with a specified resource name.
      *
      * @param resName Indicates the resource name.
@@ -544,6 +651,15 @@ export interface ResourceManager {
     getBoolean(resId: number): boolean;
 
     /**
+     * Obtains the boolean result with a specified resource object.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the boolean resource corresponding to the resource object.
+     * @since 9
+     */
+    getBoolean(resource: Resource): boolean;
+
+    /**
      * Obtains the boolean result with a specified resource name.
      *
      * @param resName Indicates the resource name.
@@ -560,6 +676,15 @@ export interface ResourceManager {
      * @since 9
      */
     getNumber(resId: number): number;
+
+    /**
+     * Obtains the number result with a specified resource object.
+     *
+     * @param resource Indicates the resource object.
+     * @return Returns the number resource corresponding to the resource object.
+     * @since 9
+     */
+    getNumber(resource: Resource): number;
 
     /**
      * Obtains the number result with a specified resource name.

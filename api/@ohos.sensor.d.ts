@@ -596,15 +596,37 @@ declare namespace sensor {
     function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
     /**
-     * Indicates geographic location.
+     * Indicates sensor information.
      * @syscap SystemCapability.Sensors.Sensor
-     * @since 8
+     * @since 9
      */
-    interface LocationOptions {
-        latitude: number;
-        longitude: number;
-        altitude: number;
+    interface Sensor {
+        sensorName:string; /**< Sensor name */
+        venderName:string; /**< Sensor vendor */
+        firmwareVersion:string; /**< Sensor firmware version */
+        hardwareVersion:string; /**< Sensor hardware version */
+        sensorTypeId:number; /**< Sensor type ID, {@code SensorType} */
+        maxRange:number; /**< Maximum measurement range of the sensor */
+        precision:number; /**< Sensor accuracy */
+        power:number; /**< Sensor power */
     }
+    
+    /**
+     * Obtains the sensor information of a specified type.
+     * @param type Indicate the sensor type, {@code SensorType}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
+    function getSingleSensor(type: SensorType, callback: AsyncCallback<Sensor>): void;
+    function getSingleSensor(type: SensorType): Promise<Sensor>;
+    
+    /**
+     * Obtains all sensor information on the device.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
+    function getSensorLists(callback: AsyncCallback<Array<Sensor>>): void;
+    function getSensorLists(): Promise<Array<Sensor>>;
 
     /**
      * Indicates geomagnetic field data.
@@ -619,6 +641,17 @@ declare namespace sensor {
         deflectionAngle: number;
         levelIntensity: number;
         totalIntensity: number;
+    }
+
+    /**
+     * Indicates geographic location.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 8
+     */
+    interface LocationOptions {
+        latitude: number;
+        longitude: number;
+        altitude: number;
     }
 
    /**

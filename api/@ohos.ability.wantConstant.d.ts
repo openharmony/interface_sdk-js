@@ -215,6 +215,14 @@ declare namespace wantConstant {
      * @since 8
      */
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
+
+    /**
+     * Indicates the action of downloading application from application market.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload"
   }
 
   /**

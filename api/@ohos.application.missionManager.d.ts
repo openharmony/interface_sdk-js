@@ -87,6 +87,18 @@ declare namespace missionManager {
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
+     * Get the mission low resolution snapshot with the given missionId.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param deviceId Indicates the device to be queried.
+     * @param missionId Indicates mission id to be queried.
+     * @return The {@link MissionSnapshot} of the given id.
+     */
+     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
+     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
+
+    /**
      * Lock the mission.
      *
      * @since 8
