@@ -74,6 +74,13 @@ export interface InstallParam {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
    hashParams?: Array<HashParam>;
+
+  /**
+    * @default Indicates the deadline of the crowdtesting bundle
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  crowdtestDeadline?: number;
 }
 
 /**
