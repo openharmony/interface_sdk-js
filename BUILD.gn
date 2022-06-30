@@ -29,6 +29,7 @@ ohos_copy("ets_internal_api") {
 
 ohos_copy("ets_component") {
   sources = [
+    "api/@internal/component/ets/ability_component.d.ts",
     "api/@internal/component/ets/action_sheet.d.ts",
     "api/@internal/component/ets/alert_dialog.d.ts",
     "api/@internal/component/ets/alphabet_indexer.d.ts",

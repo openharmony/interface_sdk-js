@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,54 +20,56 @@ import { AsyncCallback } from './basic';
  * and user behavior events reported during running. Based on event information,
  * you will be able to analyze the running status of applications.
  *
- * @since 9
- * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+ * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
  * @import import hiSysEvent from '@ohos.hiSysEvent'
  * @permission ohos.permission.READ_DFX_SYSEVENT
+ * @since 9
  */
 declare namespace hiSysEvent {
   /**
    * Enumerate system event types.
    *
-   * @since 9
-   * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+   * @enum {number}
+   * @readonly
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   enum EventType {
     /**
      * Fault event
      *
-     * @since 9
-     * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     FAULT = 1,
 
     /**
      * Statistic event
      *
-     * @since 9
-     * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     STATISTIC = 2,
 
     /**
      * Security event
      *
-     * @since 9
-     * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     SECURITY = 3,
 
     /**
      * System behavior event
      *
-     * @since 9
-     * @sysCap SystemCapability.HiviewDFX.HiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     BEHAVIOR = 4
   }
@@ -75,9 +77,9 @@ declare namespace hiSysEvent {
   /**
    * Definition of written system event information.
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface SysEventInfo {
     /**
@@ -104,13 +106,13 @@ declare namespace hiSysEvent {
   /**
    * Write system event.
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @static
    * @param {SysEventInfo} info system event information to be written.
    * @param {AsyncCallback} [callback] callback function.
    * @return {void | Promise<void>} no callback return Promise otherwise return void.
+   * @since 9
    */
   function write(info: SysEventInfo): Promise<void>;
   function write(info: SysEventInfo, callback: AsyncCallback<void>): void;
@@ -118,35 +120,37 @@ declare namespace hiSysEvent {
   /**
    * Enumerate search system event rule type.
    *
-   * @since 9
+   * @enum {number}
+   * @readonly
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   enum RuleType {
     /**
      * whole word match
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     WHOLE_WORD = 1,
 
     /**
      * prefix match
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     PREFIX = 2,
 
     /**
      * regular match
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
+     * @since 9
      */
     REGULAR = 3
   }
@@ -154,9 +158,9 @@ declare namespace hiSysEvent {
   /**
    * Definition listener rule for system event information.
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface WatchRule {
     /**
@@ -183,9 +187,9 @@ declare namespace hiSysEvent {
   /**
    * Definition wathcer for system event information.
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface Watcher{
     /**
@@ -196,21 +200,21 @@ declare namespace hiSysEvent {
      /**
      * receive system event.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo} info system event information of receive.
      * @return {void} return void.
+     * @since 9
      */
     onEvent: (info: SysEventInfo) => void;
 
     /**
      * hisysevent service shutdown.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
      * @return {void} return void.
+     * @since 9
      */
     onServiceDied: () => void;
   }
@@ -218,9 +222,11 @@ declare namespace hiSysEvent {
   /**
    * Definition arguments for query system event information.
    *
-   * @since 9
+   * @enum {number}
+   * @readonly
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface QueryArg {
     /**
@@ -242,9 +248,9 @@ declare namespace hiSysEvent {
   /**
    * Definition event for query system event information
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface QueryRule {
     /**
@@ -261,32 +267,32 @@ declare namespace hiSysEvent {
   /**
    * Definition query result handler
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
+   * @since 9
    */
   interface Querier {
     /**
      * handle query result, the query result will be send in serval times.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
      * @param {number[]} seqs sequeue of infos.
      * @return {void} return void.
+     * @since 9
      */
     onQuery: (infos: SysEventInfo[], seqs: number[]) => void;
 
     /**
      * notify Querier execute query has finished.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.hiSysEvent
      * @systemapi hide for inner use
      * @param {number} reason 0 success, 1 fail.
      * @param {number} total the total number of query result.
      * @return {void} return void.
+     * @since 9
      */
     onComplete: (reason: number, total: number) => void;
   }
@@ -294,31 +300,30 @@ declare namespace hiSysEvent {
   /**
    * add watcher to watch system event
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
    * @return {number} 0 success, 1 fail
+   * @since 9
    */
   function addWatcher(watcher: Watcher): number;
 
   /**
    * remove watcher
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} wathcer watch system event
    * @return {number} 0 success, 1 fail
+   * @since 9
    */
   function removeWatcher(wathcer: Watcher): number;
 
   /**
    * query system event
    *
-   * @since 9
    * @syscap SystemCapability.HiviewDFX.hiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
@@ -326,6 +331,7 @@ declare namespace hiSysEvent {
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
    * @return {number} 0 success, 1 fail
+   * @since 9
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): number;
 }

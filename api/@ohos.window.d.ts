@@ -33,7 +33,6 @@ declare namespace window {
     TYPE_APP,
     /**
      * System alert.
-     * @StageModelOnly
      */
     TYPE_SYSTEM_ALERT,
     /**
@@ -143,7 +142,19 @@ declare namespace window {
     /**
      * Notch
      */
-    TYPE_CUTOUT
+    TYPE_CUTOUT,
+
+    /**
+     * area for system gesture
+     * @since 9
+     */
+    TYPE_SYSTEM_GESTURE,
+
+    /**
+     * area for keyboard
+     * @since 9
+     */
+     TYPE_KEYBOARD
   }
   /**
    * Describes the window mode of an application
@@ -293,6 +304,12 @@ declare namespace window {
    * @since 7
    */
   interface AvoidArea {
+    /**
+     * Whether avoidArea is visible on screen
+     * @since 9
+     */
+    visible: boolean;
+
     /**
      * Rectangle on the left of the screen
      */
@@ -495,7 +512,6 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
-   * @StageModelOnly
    */
   function getTopWindow(ctx: Context): Promise<Window>;
 
@@ -503,7 +519,6 @@ declare namespace window {
    * Get the final show window.
    * @param ctx Indicates the context on which the window depends
    * @since 8
-   * @StageModelOnly
    */
   function getTopWindow(ctx: Context, callback: AsyncCallback<Window>): void;
 
@@ -566,6 +581,26 @@ declare namespace window {
   * @since 8
   */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
+  /**
+   * display orientation
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  enum Orientation {
+    UNSPECIFIED = 0,
+    PORTRAIT = 1,
+    LANDSCAPE = 2,
+    PORTRAIT_INVERTED = 3,
+    LANDSCAPE_INVERTED = 4,
+    AUTO_ROTATION = 5,
+    AUTO_ROTATION_PORTRAIT = 6,
+    AUTO_ROTATION_LANDSCAPE = 7,
+    AUTO_ROTATION_RESTRICTED = 8,
+    AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
+    AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
+    LOCKED = 11,
+  }
 
   interface Window {
     /**
@@ -753,6 +788,22 @@ declare namespace window {
     setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise<void>;
 
     /**
+     * Set the preferred orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setPreferredOrientation(orientation: Orientation): Promise<void>;
+
+    /**
+     * Set the preferred orientation config of the window
+     * @param orientation the orientation config of the window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
+
+    /**
      * Loads content
      * @param path  path Path of the page to which the content will be loaded
      * @param storage storage The data object shared within the content instance loaded by the window
@@ -823,6 +874,7 @@ declare namespace window {
      * @param type: 'systemAvoidAreaChange'
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 9, please use on_avoidAreaChange instead.
      */
     on(type: 'systemAvoidAreaChange', callback: Callback<AvoidArea>): void;
 
@@ -831,8 +883,25 @@ declare namespace window {
      * @param type: 'systemAvoidAreaChange'
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     * @deprecated since 9, please use off_avoidAreaChange instead.
      */
     off(type: 'systemAvoidAreaChange', callback?: Callback<AvoidArea>): void;
+
+    /**
+     * register the callback of avoidAreaChange
+     * @param type: 'avoidAreaChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    on(type: 'avoidAreaChange', callback: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
+
+    /**
+     * unregister the callback of avoidAreaChange
+     * @param type: 'avoidAreaChange'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    off(type: 'avoidAreaChange', callback?: Callback<{ type: AvoidAreaType, area: AvoidArea }>): void;
 
     /**
      * register the callback of keyboardHeightChange

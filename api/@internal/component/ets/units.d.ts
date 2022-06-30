@@ -35,6 +35,18 @@ declare interface Resource {
    * @since 7
    */
   readonly params?: any[];
+
+  /**
+   * Set bundleName.
+   * @since 9
+   */
+  readonly bundleName: string;
+
+  /**
+   * Set moduleName.
+   * @since 9
+   */
+  readonly moduleName: string;
 }
 
 /**

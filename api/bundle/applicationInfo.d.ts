@@ -14,8 +14,9 @@
  */
 
 import { ModuleInfo } from './moduleInfo';
-import { CustomizeData } from './customizeData'
-import { Metadata } from './metadata'
+import { CustomizeData } from './customizeData';
+import { Metadata } from './metadata';
+import { Resource } from './../global/resource';
 
 /**
  * @name Obtains configuration information about an application
@@ -185,4 +186,38 @@ export interface ApplicationInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
    readonly fingerprint: string;
+
+    /**
+    * @default Indicates icon resource of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+    readonly iconResource: Resource;
+
+    /**
+    * @default Indicates label resource of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+     readonly labelResource: Resource;
+    /**
+    * @default Indicates description resource of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+     readonly descriptionResource: Resource;
+
+  /**
+    * @default Indicates the appDistributionType of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly appDistributionType: string;
+
+  /**
+    * @default Indicates the appProvisionType of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+   readonly appProvisionType: string;
 }

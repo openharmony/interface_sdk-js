@@ -15,6 +15,7 @@
 
 import {AsyncCallback} from "./basic";
 import Want from "./@ohos.application.want";
+import rpc from "./@ohos.rpc"
 
 /**
  * This module provides the capability to manage application accounts.
@@ -101,6 +102,18 @@ declare namespace appAccount {
          */
         enableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void;
         enableAppAccess(name: string, bundleName: string): Promise<void>;
+
+        /**
+         * Checks whether a third-party application with the specified bundle name is allowed to access
+         * the given application account for data query and listening.
+         *
+         * @since 9
+         * @param name Indicates the name of the application account.
+         * @param bundleName Indicates the bundle name of the third-party application.
+         * @return void.
+         */
+        checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
+        checkAppAccess(name: string, bundleName: string): Promise<boolean>;
 
         /**
          * Checks whether a specified application account allows application data synchronization.
@@ -216,7 +229,7 @@ declare namespace appAccount {
          */
         getAllAccounts(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
         getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>;
-         
+
         /**
          * Obtains the credential of this application account.
          *
@@ -399,6 +412,65 @@ declare namespace appAccount {
          */
         getAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
         getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
+
+        /**
+         * Checks whether a paticular account has all specified labels.
+         *
+         * @param name Indicates the account name.
+         * @param owner Indicates the account owner.
+         * @param labels Indicates an array of labels to check.
+         * @return boolean
+         */
+        checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
+        checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>;
+
+        /**
+         * Deletes the credential of the specified application account.
+         *
+         * @since 9
+         * @param name Indicates the account name.
+         * @param credentialType Indicates the type of the credential to delete.
+         * @return void.
+         */
+        deleteAccountCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
+        deleteAccountCredential(name: string, credentialType: string): Promise<void>;
+
+        /**
+         * Selects a list of accounts that satisfied with the specified options.
+         *
+         * @since 9
+         * @param options Indicates the options for selecting account.
+         * @return Returns a list of accounts.
+         */
+        selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>);
+        selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
+
+        /**
+         * Verifies the credential to ensure the user is the owner of the specified account.
+         *
+         * @since 9
+         * @param name Indicates the account name.
+         * @param owner Indicates the account owner.
+         * @param options Indicates the options for verifying credential.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        verifyCredential(name: string, owner: string, callback: AuthenticatorCallback): void;
+        verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthenticatorCallback): void;
+
+        /**
+         * Sets properties for the specified account authenticator.
+         * <p>
+         * If the authenticator supports setting its properties, 
+         * the caller will normally be redirected to an Ability specified by Want for property setting.
+         *
+         * @since 9
+         * @param owner Indicates the owner of authenticator.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        setAuthenticatorProperties(owner: string, callback: AuthenticatorCallback): void;
+        setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthenticatorCallback): void;
     }
 
     /**
@@ -435,7 +507,12 @@ declare namespace appAccount {
          * The token value.
          */
         token: string;
-    }
+
+        /**
+         * The account to which the token belongs.
+         */
+        account?: AppAccountInfo;
+    }   
 
     /**
      * Provides basic information of an authenticator, including the authenticator owner, icon id and label id.
@@ -461,6 +538,70 @@ declare namespace appAccount {
     }
 
     /**
+     * Provides the available options for selecting accounts.
+     * @name SelectAccountsOptions
+     * @since 9
+     * @syscap SystemCapability.Account.AppAccount
+     */
+    interface SelectAccountsOptions {
+        /**
+         * The list of accounts allowed to be selected.
+         */
+        allowedAccounts?: Array<AppAccountInfo>,
+
+        /**
+         * The list of account owners, whose accounts allowed to be selected.
+         */
+        allowedOwners?: Array<string>,
+
+        /**
+         * The labels required for the selected accounts.
+         */
+        requiredLabels?: Array<string>
+    }
+
+    /**
+     * Provides the available options for verifying credential.
+     * @name VerifyCredentialOptions
+     * @since 9
+     * @syscap SystemCapability.Account.AppAccount
+     */
+    interface VerifyCredentialOptions {
+        /**
+         * The credentail type to be verified.
+         */
+        credentialType?: string,
+
+        /**
+         * The credential to be verified.
+         */
+        credential?: string,
+
+        /**
+         * The authenticator-specific parameters.
+         */
+        parameters?: {[key:string]: Object}
+    }
+
+    /**
+     * Provides the available options for setting properties.
+     * @name SetPropertiesOptions
+     * @since 9
+     * @syscap SystemCapability.Account.AppAccount
+     */
+     interface SetPropertiesOptions {
+        /**
+         * The properties to be set.
+         */
+        properties?: {[key: string]: Object},
+
+        /**
+         * The authenticator-specific parameters.
+         */
+        parameters?: {[key: string]: Object}
+    }
+
+    /**
      * Provides constants definition.
      * @name Constants
      * @since 8
@@ -478,6 +619,8 @@ declare namespace appAccount {
         KEY_CALLER_PID = "callerPid",
         KEY_CALLER_UID = "callerUid",
         KEY_CALLER_BUNDLE_NAME = "callerBundleName",
+        KEY_REQUIRED_LABELS = "requiredLabels",
+        KEY_BOOLEAN_RESULT = "booleanResult"
     }
 
     /**
@@ -533,6 +676,14 @@ declare namespace appAccount {
          * @return void.
          */
         onRequestRedirected: (request: Want) => void;
+
+        /**
+         * Notifies the client that the request is continued.
+         *
+         * @since 9
+         * @return void.
+         */
+        onRequestContinued?: () => void;
     }
 
     /**
@@ -566,6 +717,59 @@ declare namespace appAccount {
          * @return void.
          */
         authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any}, callback: AuthenticatorCallback): void;
+
+        /**
+         * Verifies the credential to ensure the user is the owner of the specified application account.
+         * <p>
+         * The credential can be provided in the options, otherwise an Ability will normally be returned,
+         * which can be started by the caller to further verify credential.
+         *
+         * @since 9
+         * @param name Indicates the name of the application account.
+         * @param options Indicates the options for verifying credential.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthenticatorCallback): void;
+
+        /**
+         * Sets properties for the authenticator.
+         *
+         * @since 9
+         * @param options Indicates the options for setting properties.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        setProperties(options: SetPropertiesOptions, callback: AuthenticatorCallback): void;
+
+        /**
+         * Checks whether a paticular account has all specified labels.
+         *
+         * @since 9
+         * @param name Indicates the account name.
+         * @param labels Indicates an array of labels to check.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        checkAccountLabels(name: string, labels: Array<string>, callback: AuthenticatorCallback): void;
+
+        /**
+         * Checks whether the specified account can be removed.
+         *
+         * @since 9
+         * @param name Indicates the account name.
+         * @param callback Indicates the authenticator callback.
+         * @return void.
+         */
+        isAccountRemovable(name: string, callback: AuthenticatorCallback): void;
+
+        /**
+         * Gets the remote object of the authenticator for remote procedure call.
+         *
+         * @since 9
+         * @return Returns a remote object.
+         */
+        getRemoteObject(): rpc.RemoteObject;
     }
 }
 

@@ -34,6 +34,12 @@ declare namespace display {
   function getDefaultDisplay(): Promise<Display>;
 
   /**
+   * Obtain the default display.
+   * @since 9
+   */
+  function getDefaultDisplaySync(): Display;
+
+  /**
    * Obtain all displays.
    * @since 7
    */

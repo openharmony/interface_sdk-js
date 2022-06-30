@@ -288,6 +288,12 @@ declare class JsResult {
    * @since 8
    */
   handleConfirm(): void;
+
+  /**
+   * Handle the user's JavaScript result if confirm the prompt dialog.
+   * @since 9
+   */
+  handlePromptConfirm(result: string): void;
 }
 
 /**
@@ -306,6 +312,30 @@ declare class FileSelectorResult {
     * @since 9
     */
   handleFileList(fileList: Array<string>): void;
+}
+
+/**
+ * Defines the hit test value, related to {@link getHitTestValue} method.
+ * @since 9
+ */
+declare class HitTestValue {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * get the hit test type.
+   * @since 9
+   */
+  getType(): HitTestType;
+
+  /**
+   * get the hit test extra data.
+   * @since 9
+   */
+  getExtra(): string;
 }
 
 /**
@@ -775,10 +805,22 @@ declare class WebCookie {
   getHitTest(): HitTestType;
 
   /**
+   * Gets the hit test value of HitTest.
+   * @since 9
+   */
+  getHitTestValue(): HitTestValue;
+
+  /**
    * Gets the id for the current Web.
    * @since 9
    */
   getWebId(): number;
+
+  /**
+   * Gets the default user agent.
+   * @since 9
+   */
+  getDefaultUserAgent(): string;
 
   /**
    * Gets the title of current Web page.
@@ -1119,6 +1161,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   onConfirm(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * @param callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   *
+   * @since 9
+   */
+  onPrompt(callback: (event?: {url: string, message: string, value: string, result: JsResult }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a JavaScript console message.

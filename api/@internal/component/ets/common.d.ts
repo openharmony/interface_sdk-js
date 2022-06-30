@@ -189,13 +189,6 @@ declare interface Rectangle {
 }
 
 /**
- * Defining isSystemplugin Constants.
- * @since 7
- * @systemapi
- */
-declare const isSystemplugin: (...args: string[]) => any;
-
-/**
  * global $r function
  * @since 7
  */
@@ -386,6 +379,10 @@ declare interface ScaleOptions {
   centerY?: number | string;
 }
 
+/**
+ * Defines the align rule options of relative container.
+ * @since 9
+ */
 declare interface AlignRuleOption {
   /**
    * The param of left align.
@@ -486,62 +483,52 @@ declare interface TransitionOptions {
 
 /**
  * Define Preview property
- * @since 8
- * @systemapi
+ * @since 9
  */
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   title?: string;
   /**
    * Define Preview width
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   width?: number;
   /**
    * Define Preview height
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   height?: number;
   /**
    * Define Preview locale
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   colorMode?: string;
   /**
    * Define Preview deviceType
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   orientation?: string;
   /**
    * Define Preview roundScreen
-   * @since 8
-   * @systemapi
+   * @since 9
    */
   roundScreen?: boolean;
 }
@@ -694,6 +681,29 @@ declare enum RepeatMode {
    * @since 9
    */
   Space,
+}
+/**
+ * enum Blur style
+ * @since 9
+ */
+ declare enum BlurStyle {
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thin,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Regular,
+
+  /**
+   * Defines the fuzzy scale.
+   * @since 9
+   */
+  Thick,
 }
 
 /**
@@ -1244,6 +1254,13 @@ declare class CommonMethod<T> {
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @since 9
+   */
+   backgroundBlurStyle(value: BlurStyle): T;
+  
+  /**
    * Opacity
    * @since 7
    */
@@ -1634,6 +1651,10 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
+  /**
+   * Specifies the alignRules of relative container
+   * @since 9
+   */
   alignRules(value: AlignRuleOption): T;
 
   /**
@@ -1805,6 +1826,12 @@ declare class CommonMethod<T> {
    * @since 8
    */
   restoreId(value: number): T;
+
+  /**
+   * Trigger a visible area change event.
+   * @since 9
+   */
+   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 }
 
 /**
@@ -1922,7 +1949,12 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Custom Component
  * @since 7
  */
-declare class CustomComponent {
+/**
+ * Custom Component
+ * @extends CommonAttribute
+ * @since 9
+ */
+declare class CustomComponent extends CommonAttribute {
   /**
    * Customize the pop-up content constructor.
    * @since 7

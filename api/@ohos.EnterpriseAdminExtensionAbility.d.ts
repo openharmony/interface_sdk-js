@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,25 +13,29 @@
  * limitations under the License.
  */
 
-import { CommonEventData } from "./commonEvent/commonEventData";
-
 /**
- * class of static subscriber extension ability.
+ * Class of the enterprise admin extension ability.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
+ * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @StageModelOnly
  */
-export default class StaticSubscriberExtensionAbility {
+export default class EnterpriseAdminExtensionAbility {
     /**
-     * Called back when a specific common event is published.
+     * Called back when an application is enabled.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @return -
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
      */
-    onReceiveEvent(event: CommonEventData): void;
+    onAdminEnabled(): void;
+	
+    /**
+     * Called back when an application is disabled.
+     *
+     * @since 9
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @StageModelOnly
+     */
+    onAdminDisabled(): void;
 }

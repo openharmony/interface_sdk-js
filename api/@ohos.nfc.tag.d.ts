@@ -28,22 +28,22 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.Communication.NFC.Core
  */
 declare namespace tag {
-  /** Indicates an NFC-A tag. */
+  /** Indicates a NFC-A tag. */
   const NFC_A = 1;
 
-  /** Indicates an NFC-B tag. */
+  /** Indicates a NFC-B tag. */
   const NFC_B = 2;
 
-  /** Indicates an ISO-DEP tag. */
+  /** Indicates a ISO-DEP tag. */
   const ISO_DEP = 3;
 
-  /** Indicates an NFC-F tag. */
+  /** Indicates a NFC-F tag. */
   const NFC_F = 4;
 
-  /** Indicates an NFC-V tag. */
+  /** Indicates a NFC-V tag. */
   const NFC_V = 5;
 
-  /** Indicated an NDEF tag. */
+  /** Indicates a NDEF tag. */
   const NDEF = 6;
 
   /** Indicates a MifareClassic tag. */
@@ -52,7 +52,11 @@ declare namespace tag {
   /** Indicates a MifareUltralight tag. */
   const MIFARE_ULTRALIGHT = 9;
 
-  /** Indicates a NdefFormatable tag. */
+  /**
+   * Indicates a NdefFormatable tag.
+   *
+   * @since 9
+   */
   const NDEF_FORMATABLE = 10;
 
   /**
