@@ -236,6 +236,17 @@ export class PhoneNumberFormat {
      * @since 8
      */
     format(number: string): string;
+
+    /**
+     * Determine the location by phone number, and return it according to the specified regional language.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param number input phone number.
+     * @param locale locale ID.
+     * @return Returns a string represents phone number's location.
+     * @since 9
+     */
+    static getLocationName(number: string, locale: string): string;
 }
 
 /**
@@ -748,6 +759,45 @@ export class TimeZone {
      * @since 7
      */
     getOffset(date?: number): number;
+
+    /**
+     * Get available TimeZone ID list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string array represents the available TimeZone ID list.
+     * @since 9
+     */
+    static getAvailableIDs(): Array<string>;
+
+     /**
+      * Get available Zone City ID list.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @return Returns a string array represents the available Zone City ID list.
+      * @since 9
+      */
+    static getAvailableZoneCityIDs(): Array<string>;
+ 
+     /**
+      * Get City display name in a certain locale.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param cityID Zone City ID.
+      * @param locale locale used to display city name.
+      * @return Returns a string represents the display name of City in locale.
+      * @since 9
+      */
+    static getCityDisplayName(cityID: string, locale: string): string;
+ 
+     /**
+      * Get TimeZone Object from city ID.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param cityID Zone City ID.
+      * @return Returns a TimeZone Object from city ID.
+      * @since 9
+      */
+    static getTimezoneFromCity(cityID: string): TimeZone;
 }
 
 /**
@@ -788,5 +838,26 @@ export class Transliterator {
      */
     transform(text: string): string;
 }
+
+/**
+ * Set whether to use local digit.
+ *
+ * @permission ohos.permission.UPDATE_CONFIGURATION
+ * @syscap SystemCapability.Global.I18n
+ * @param flag a boolean variable represents whether to use local digit.
+ * @return Returns a boolean represents whether set successful.
+ * @since 9
+ * @systemapi Hide this for inner system use.
+ */
+export function setUsingLocalDigit(flag: boolean): boolean;
+
+ /**
+  * Get whether to use local digit.
+  *
+  * @syscap SystemCapability.Global.I18n
+  * @return Returns a boolean represents whether to use local digit.
+  * @since 9
+  */
+export function getUsingLocalDigit(): boolean;
 }
 export default i18n;
