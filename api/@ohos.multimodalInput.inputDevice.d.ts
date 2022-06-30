@@ -262,18 +262,6 @@ declare namespace inputDevice {
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
-
-  /**
-   * Sets the mouse position.
-   * 
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.RemoteInputDevice
-   * @param x X coordinate.
-   * @param y Y coordinate.
-   * @return -
-   */
-  function setPointerLocation(x: number, y: number, callback: AsyncCallback<void>): void;
-  function setPointerLocation(x: number, y: number): Promise<void>;
 }
 
 export default inputDevice;
