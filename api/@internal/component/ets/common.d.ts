@@ -654,6 +654,35 @@ declare enum SourceType {
 }
 
 /**
+ * Defines the Border Image Repeat Mode.
+ * @since 9
+ */
+declare enum RepeatMode {
+  /**
+   * Repeat mode.
+   * @since 9
+   */
+  Repeat,
+  
+  /**
+   * Stretch mode.
+   * @since 9
+   */
+  Stretch,
+
+  /**
+   * Round mode.
+   * @since 9
+   */
+  Round,
+
+  /**
+   * Space mode.
+   * @since 9
+   */
+  Space,
+}
+/**
  * enum Blur style
  * @since 9
  */
@@ -699,6 +728,48 @@ declare interface BaseEvent {
    * @since 8
    */
   source: SourceType;
+}
+
+/**
+ * Border image option
+ * @since 9
+ */
+declare interface BorderImageOption {
+  /**
+   * Border image slice
+   * @since 9
+   */
+  slice?: Length | EdgeWidths,
+
+  /**
+   * Border image repeat
+   * @since 9
+   */
+  repeat?: RepeatMode,
+
+  /**
+   * Border image source
+   * @since 9
+   */
+  source?: string | Resource | linearGradient,
+
+  /**
+   * Border image width
+   * @since 9
+   */
+  width?: Length | EdgeWidths,
+
+  /**
+   * Border image outset
+   * @since 9
+   */
+  outset?: Length | EdgeWidths,
+
+  /**
+   * Border image center fill
+   * @since 9
+   */
+  fill?: boolean
 }
 
 /**
@@ -1249,6 +1320,12 @@ declare class CommonMethod<T> {
    * @since 9
    */
    borderRadius(value: BorderRadiuses): T;
+
+  /**
+   * Border image
+   * @since 9
+   */
+  borderImage(value: BorderImageOption): T;
 
   /**
    * Trigger a click event when a click is clicked.
