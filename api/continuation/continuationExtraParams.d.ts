@@ -47,7 +47,7 @@ export interface ContinuationExtraParams {
     description?: string;
 
     /**
-     * Parameters used for filtering devices.
+     * Parameters used for filtering devices, type must be { [key: string]: any }.
      *
      * @since 8
      * @syscap SystemCapability.Ability.DistributedAbilityManager

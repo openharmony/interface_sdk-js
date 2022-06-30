@@ -28,10 +28,35 @@ import { ContinuationExtraParams } from './continuation/continuationExtraParams'
  */
 declare namespace continuationManager {
     /**
+     * Called when the user selects devices from the candidate device list.
+     * You can implement your own processing logic in this callback to initiate the hop process.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.DistributedAbilityManager
+     * @param type deviceConnect.
+     * @return callback Indicates the information about the selected devices.
+     */
+     function on(type: "deviceConnect", token: number, callback: Callback<Array<ContinuationResult>>): void;
+     function off(type: "deviceConnect", token: number): void;
+ 
+     /**
+      * Called when devices is disconnected from the continuation manager servcie.
+      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
+      *
+      * @since 9
+      * @syscap SystemCapability.Ability.DistributedAbilityManager
+      * @param type deviceDisconnect.
+      * @return callback Indicates the ID of the disconnected devices.
+      */
+     function on(type: "deviceDisconnect", token: number, callback: Callback<Array<string>>): void;
+     function off(type: "deviceDisconnect", token: number): void;
+
+    /**
      * Called when the user selects a device from the candidate device list.
      * You can implement your own processing logic in this callback to initiate the hop process.
      *
      * @since 8
+     * @deprecated since 9
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @param type deviceConnect.
      * @return callback Indicates the information about the selected device.
@@ -44,6 +69,7 @@ declare namespace continuationManager {
      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
      *
      * @since 8
+     * @deprecated since 9
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @param type deviceDisconnect.
      * @return callback Indicates the ID of the disconnected device.
