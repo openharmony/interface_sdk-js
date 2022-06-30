@@ -150,6 +150,24 @@ declare namespace geolocation {
     function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
 
     /**
+     * registering the callback function for listening to country code changes.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @param callback Indicates the callback for reporting country code changes.
+     */
+    function on(type: 'countryCodeChange', callback: Callback<CountryCode>) : void;
+
+    /**
+     * unregistering the callback function for listening to country code changes.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @param callback Indicates the callback for reporting country code changes.
+     */
+    function off(type: 'countryCodeChange', callback: Callback<CountryCode>) : void;
+
+    /**
      * obtain current location
      *
      * @since 7
@@ -285,6 +303,111 @@ declare namespace geolocation {
      */
     function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>) : void;
     function sendCommand(command: LocationCommand) : Promise<boolean>;
+
+    /**
+     * Obtain the current country code.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @param callback Indicates the callback for reporting the country code.
+     */
+    function getCountryCode(callback: AsyncCallback<CountryCode>) : void;
+    function getCountryCode() : Promise<CountryCode>;
+
+    /**
+     * enable the geographical location simulation function.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param scenario Indicates the scenarios where location simulation is required.
+     * @param callback Indicates whether the position simulation function is enabled.
+     */
+    function enableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<boolean>) : void;
+    function enableLocationMock(scenario: LocationRequestScenario) : Promise<boolean>;
+
+    /**
+     * diable the geographical location simulation function.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param scenario Indicates the scenarios where location simulation is required.
+     * @param callback Indicates whether the position simulation function is enabled.
+     */
+    function disableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<boolean>) : void;
+    function disableLocationMock(scenario: LocationRequestScenario) : Promise<boolean>;
+
+    /**
+     * sets the configuration parameters for location simulation.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param config Indicates the configuration parameters for location simulation.
+     * @param callback Indicates whether the parameters of the location simulation function are set successfully.
+     */
+    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<boolean>) : void;
+    function setMockedLocations(config: LocationMockConfig) : Promise<boolean>;
+
+    /**
+     * enable the reverse geocoding simulation function.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param callback Indicates whether the reverse geocoding simulation function is enabled.
+     */
+    function enableReverseGeocodingMock(callback: AsyncCallback<boolean>) : void;
+    function enableReverseGeocodingMock() : Promise<boolean>;
+
+    /**
+     * disable the reverse geocoding simulation function.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param callback Indicates whether the reverse geocoding simulation function is enabled.
+     */
+    function disableReverseGeocodingMock(callback: AsyncCallback<boolean>) : void;
+    function disableReverseGeocodingMock() : Promise<boolean>;
+
+    /**
+     * sets the configuration parameters for simulating reverse geocoding.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @param mockInfos Indicates the set of locations and place names to be simulated.
+     * @param callback Indicates whether the parameters of the reverse geocoding simulation are set successfully.
+     */
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<boolean>) : void;
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<boolean>;
+
+    /**
+     * configuration parameters for simulating reverse geocoding.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     */
+    export interface ReverseGeocodingMockInfo {
+        location: ReverseGeoCodeRequest;
+        geoAddress: GeoAddress;
+    }
+
+    /**
+     * parameters for configuring the location simulation function.
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     */
+    export interface LocationMockConfig {
+        scenario: LocationRequestScenario;
+        timeInterval: number;
+        locations: Array<Location>;
+    }
 
     /**
      * satellite status information
@@ -425,6 +548,7 @@ declare namespace geolocation {
         addressUrl?: string;
         descriptions?: Array<string>;
         descriptionsSize?: number;
+        isFromMock: Boolean;
     }
 
     /**
@@ -474,6 +598,7 @@ declare namespace geolocation {
         timeSinceBoot: number;
         additions?: Array<string>;
         additionSize?: number;
+        isFromMock: Boolean;
     }
 
     /**
@@ -514,13 +639,15 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      */
     export enum GeoLocationErrorCode {
-        INPUT_PARAMS_ERROR = 101,
+        NOT_SUPPORTED = 100,
+        INPUT_PARAMS_ERROR,
         REVERSE_GEOCODE_ERROR,
         GEOCODE_ERROR,
         LOCATOR_ERROR,
         LOCATION_SWITCH_ERROR,
         LAST_KNOWN_LOCATION_ERROR,
         LOCATION_REQUEST_TIMEOUT_ERROR,
+        QUERY_COUNTRY_CODE_ERROR,
     }
 
     /**
@@ -546,6 +673,30 @@ declare namespace geolocation {
     export interface LocationCommand {
         scenario: LocationRequestScenario;
         command: string;
+    }
+
+    /**
+     * country code structure
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
+    export interface CountryCode {
+        country: string;
+        type: CountryCodeType;
+    }
+
+    /**
+     * enum for country code type
+     *
+     * @since 9
+     * @syscap SystemCapability.Location.Location.Core
+     */
+    export enum CountryCodeType {
+        COUNTRY_CODE_FROM_LOCALE = 1,
+        COUNTRY_CODE_FROM_SIM,
+        COUNTRY_CODE_FROM_LOCATION,
+        COUNTRY_CODE_FROM_NETWORK,
     }
 }
 
