@@ -1429,6 +1429,13 @@ declare namespace audio {
      * @systemapi
      */
     readonly rendererState: AudioState;
+
+    /**
+     * Audio output devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     */
+    readonly deviceDescriptors: AudioDeviceDescriptors;
   }
 
   /**
@@ -1473,6 +1480,13 @@ declare namespace audio {
      * @systemapi
      */
     readonly capturerState: AudioState;
+
+    /**
+     * Audio input devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     */
+    readonly deviceDescriptors: AudioDeviceDescriptors;
   }
 
   /**
@@ -1487,12 +1501,55 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceRole: DeviceRole;
+
     /**
      * Audio device type.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly deviceType: DeviceType;
+
+    /**
+     * Audio device id.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly id: number;
+
+    /**
+     * Audio device name.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly name: string;
+
+    /**
+     * Audio device address.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly address: string;
+
+    /**
+     * Supported sampling rates.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly sampleRates: Array<number>;
+
+    /**
+     * Supported channel counts.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly channelCounts: Array<number>;
+
+    /**
+     * Supported channel masks.
+     * @since 9
+     * @SysCap SystemCapability.Multimedia.Audio.Device
+     */
+    readonly channelMasks: Array<number>;
   }
 
   /**
