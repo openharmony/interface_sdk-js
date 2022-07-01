@@ -133,6 +133,14 @@ declare namespace util {
         constructor();
 
         /**
+         * the textEncoder constructor.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param encoding The string for encoding format.
+         */
+        constructor(encoding?: string);
+
+        /**
          * Returns the result of encoder.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
