@@ -735,8 +735,8 @@ declare namespace notification {
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     */
-    function setSyncNotificationEnabledForUninstallApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
-    function setSyncNotificationEnabledForUninstallApp(userId: number, enable: boolean): Promise<void>;
+    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
+    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
   
   /**
     * Obtains whether to sync notifications to devices that do not have the app installed.
@@ -745,8 +745,8 @@ declare namespace notification {
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     */
-   function getSyncNotificationEnabledForUninstallApp(userId: number, callback: AsyncCallback<boolean>): void;
-   function getSyncNotificationEnabledForUninstallApp(userId: number): Promise<boolean>;
+   function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
+   function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
 
     /**
    * Describes a BundleOption.
