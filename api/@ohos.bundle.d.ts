@@ -704,7 +704,7 @@ declare namespace bundle {
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application.
     * @param moduleName Indicates the module name of the application.
-    * @param isNeedUpdate Indicates isNeedUpdate of the application.
+    * @param upgradeFlag Indicates upgradeFlag of the application.
     * @systemapi Hide this for inner system use
     */
   function setModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>):void;
