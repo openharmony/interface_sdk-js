@@ -18,7 +18,7 @@ import { Callback } from './basic';
 import Want from './@ohos.application.want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
-import { Context } from './app/context';
+import { Context as _Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
 import window from './@ohos.window';
@@ -213,5 +213,18 @@ declare namespace featureAbility {
     TYPE_DELETE = 3,
     TYPE_ASSERT = 4,
   }
+
+  /**
+   * The context of an ability or an application.  It allows access to
+   * application-specific resources, request and verification permissions.
+   * Can only be obtained through the ability.
+   *
+   * @since 6
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @import import abilityManager from 'app/context'
+   * @permission N/A
+   * @FAModelOnly
+   */
+  export type Context = _Context  
 }
 export default featureAbility;
