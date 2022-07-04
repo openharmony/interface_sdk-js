@@ -66,8 +66,19 @@ declare namespace util {
 
     /**
      * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
+     * callback as the last argument, and return a function that returns promises.
+     * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     * @param original asynchronous function
+     * @return return a version that returns promises
+     */
+     function promiseWrapper(original: (err: Object, value: Object) => void): Function;
+
+    /**
+     * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
      * callback as the last argument, and return a version that returns promises.
      * @since 7
+     * @deprecated since 9
      * @syscap SystemCapability.Utils.Lang
      * @param original asynchronous function
      * @return return a version that returns promises
