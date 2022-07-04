@@ -52,7 +52,7 @@ declare namespace distributedMissionManager {
 
   /**
    * Register the missionListener to ams.
-   * @default -
+   *
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @param parameter Parameters corresponding to mission.
@@ -64,7 +64,7 @@ declare namespace distributedMissionManager {
 
   /**
   * Unrgister the missionListener to ams.
-  * @default -
+  *
   * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
   * @param parameter Parameters corresponding to mission.
