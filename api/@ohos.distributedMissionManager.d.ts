@@ -24,7 +24,7 @@ import { MissionParameter } from './application/MissionParameter';
  * @name distributedMissionManager
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi Hide this for inner system use.
  */
 declare namespace distributedMissionManager {
@@ -34,7 +34,6 @@ declare namespace distributedMissionManager {
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission.
    * @param parameter Parameters corresponding to mission.
-   * @return -
    * @systemapi Hide this for inner system use.
    */
   function startSyncRemoteMissions(parameter: MissionParameter, callback: AsyncCallback<void>): void;
@@ -46,7 +45,6 @@ declare namespace distributedMissionManager {
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission.
    * @param parameter Parameters corresponding to mission.
-   * @return -
    * @systemapi Hide this for inner system use.
    */
   function stopSyncRemoteMissions(parameter: MissionDeviceInfo, callback: AsyncCallback<void>): void;
@@ -59,7 +57,6 @@ declare namespace distributedMissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @param parameter Parameters corresponding to mission.
    * @param options The callbacks for regist mission.
-   * @return -
    * @systemapi Hide this for inner system use.
    */
   function registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback, callback: AsyncCallback<void>): void;
@@ -71,7 +68,6 @@ declare namespace distributedMissionManager {
   * @since 9
   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
   * @param parameter Parameters corresponding to mission.
-  * @return -
   * @systemapi Hide this for inner system use.
   */
   function unRegisterMissionListener(parameter: MissionDeviceInfo, callback:AsyncCallback<void>): void;
