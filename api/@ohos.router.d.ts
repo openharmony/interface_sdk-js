@@ -23,6 +23,24 @@ import {Callback} from './basic';
 declare namespace router {
 
   /**
+   * Router Mode
+   * @since 9
+   */
+  export enum RouterMode {
+    /**
+     * Default route mode.
+     * @since 9
+     */
+    Standard,
+
+    /**
+     * single mode.
+     * @since 9
+     */
+    Single,
+  }
+
+  /**
    * @since 8
    */
   interface RouterOptions {
@@ -94,6 +112,14 @@ declare namespace router {
   function push(options: RouterOptions):void;
 
   /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param options Options.
+   * @param mode RouterMode
+   * @since 9
+   */
+  function push(options: RouterOptions, mode: RouterMode):void;
+
+  /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
    * @param options Options.
    * @since 8
@@ -101,11 +127,19 @@ declare namespace router {
   function replace(options: RouterOptions):void;
 
   /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param options Options.
+   * @param mode RouterMode
+   * @since 9
+   */
+  function replace(options: RouterOptions, mode: RouterMode):void;
+
+  /**
    * Returns to the previous page or a specified page.
    * @param options Options.
    * @since 8
    */
-  function back(options?: RouterOptions ):void;
+  function back(options?: RouterOptions):void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
