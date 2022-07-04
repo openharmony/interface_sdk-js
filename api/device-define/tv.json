@@ -125,6 +125,7 @@
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
-    "SystemCapability.Applications.settings.Core"
+    "SystemCapability.Applications.settings.Core",
+    "SystemCapability.Web"
   ]
 }
