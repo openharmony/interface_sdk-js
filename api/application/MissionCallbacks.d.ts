@@ -19,7 +19,7 @@
  * @name MissionCallback
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
  export interface MissionCallback {
@@ -29,7 +29,6 @@
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the deviceId mission changed.
-     * @return -
      */
     notifyMissionsChanged(deviceId: string): void;
 
@@ -40,7 +39,6 @@
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the deviceId mission changed.
      * @param mission Indicates the id of destroyed mission.
-     * @return -
      */
     notifySnapshot(deviceId: string, mission: number): void;
 
@@ -51,7 +49,6 @@
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the deviceId mission changed.
      * @param state Indicates the state of network
-     * @return -
      */
     notifyNetDisconnect(deviceId: string, state: number): void;
 }
