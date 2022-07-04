@@ -339,6 +339,36 @@ declare class HitTestValue {
 }
 
 /**
+ * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
+ * @since 9
+ */
+declare class WebHttpAuthResult {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * confirm.
+   * @since 9
+   */
+  confirm(userName: string, password: string): boolean;
+
+  /**
+   * cancel.
+   * @since 9
+   */
+  cancel(): void;
+
+  /**
+   * isHttpAuthInfoSaved.
+   * @since 9
+   */
+  isHttpAuthInfoSaved(): boolean;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -1279,6 +1309,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onScaleChange(callback: (event: {oldScale: number, newScale: number}) => void): WebAttribute;
+
+  /**
+   * Triggered when the browser needs credentials from the user.
+   * @param callback The triggered when the browser needs credentials from the user.
+   *
+   * @since 9
+   */
+  onHttpAuthRequest(callback: (event?: { result: WebHttpAuthResult }) => boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
