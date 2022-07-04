@@ -18,7 +18,7 @@
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
+ * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
  */
  export interface MissionDeviceInfo {
