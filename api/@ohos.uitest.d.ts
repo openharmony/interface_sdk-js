@@ -569,6 +569,17 @@ class UiComponent{
   triggerKey(keyCode:number):Promise<void>;
 
   /**
+   * Press two or three key combinations
+   * @syscap SystemCapability.Test.UiTest
+   * @param key0 the first keyCode.
+   * @param key1 the second keyCode.
+   * @param key2 the third keyCode.
+   * @since 9
+   * @test
+   */
+  triggerCombineKeys(key0: number, key1: number, key2?: number): Promise<void>;
+
+  /**
    * Click on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
    * @param x the x-coordinate.
