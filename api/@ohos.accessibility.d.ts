@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -123,6 +123,19 @@ declare namespace accessibility {
   function getAbilityLists(abilityType: AbilityType, stateType: AbilityState,
     callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
   function getAbilityLists(abilityType: AbilityType,
+    stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
+
+  /**
+   * Queries the list of accessibility abilities.
+   * @since 9
+   * @param abilityType The all type of the accessibility ability.
+   * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @return Returns the list of abilityInfos.
+  */
+  function getAbilityLists(abilityType: 'all', stateType: AbilityState,
+    callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
+  function getAbilityLists(abilityType: 'all',
     stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
   /**
@@ -282,6 +295,11 @@ declare namespace accessibility {
      * @since 7
      */
     readonly bundleName: string;
+
+    /* The target bundle name for the observation.
+     * @since 9
+     */
+    readonly targetBundleNames: Array<string>;
 
     /**
      * The type of the ability.
