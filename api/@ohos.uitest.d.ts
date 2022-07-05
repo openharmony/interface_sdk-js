@@ -471,6 +471,24 @@ class UiComponent{
        * @test
        */
       dragTo(target: UiComponent): Promise<void>;
+
+      /**
+       * Pinch enlarge this {@link UiComponent} to the target scale.
+       * @syscap SystemCapability.Test.UiTest
+       * @param scale the scale of the pinch enlarge this {@link UiComponent}'s size.
+       * @since 9
+       * @test
+       */
+      pinchOut(scale: number): Promise<void>;
+
+      /**
+       * Pinch shrink this {@link UiComponent} to the target scale.
+       * @syscap SystemCapability.Test.UiTest
+       * @param scale the scale of the pinch shrink this {@link UiComponent}'s size.
+       * @since 9
+       * @test
+       */
+      pinchIn(scale: number): Promise<void>;
 }
 
 /**
