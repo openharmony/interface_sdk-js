@@ -103,3 +103,5 @@
 /// <reference path="./ability_component.d.ts" />
 /// <reference path="./remote_window.d.ts" />
 /// <reference path="./common_ts_ets_api.d.ts" />
+/// <reference path="./grid_row.d.ts" />
+/// <reference path="./grid_col.d.ts" />
