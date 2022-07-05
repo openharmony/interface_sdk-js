@@ -41,6 +41,15 @@ import { AsyncCallback } from "./basic";
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
         /**
+         * Checks whether a specified application has been granted the given permission synchronously.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be verified.
+         * @return Returns permission verify result
+         * @since 9
+         */
+         verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
+
+        /**
          * Grants a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
