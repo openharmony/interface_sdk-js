@@ -416,6 +416,7 @@ declare namespace appAccount {
         /**
          * Checks whether a paticular account has all specified labels.
          *
+         * @since 9
          * @param name Indicates the account name.
          * @param owner Indicates the account owner.
          * @param labels Indicates an array of labels to check.
@@ -500,16 +501,22 @@ declare namespace appAccount {
     interface OAuthTokenInfo {
         /**
          * The authentication type.
+         *
+         * @since 8
          */
         authType: string;
 
         /**
          * The token value.
+         *
+         * @since 8
          */
         token: string;
 
         /**
          * The account to which the token belongs.
+         *
+         * @since 9
          */
         account?: AppAccountInfo;
     }   
@@ -608,18 +615,95 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      */
     enum Constants {
+        /**
+         * Indicates the action for adding account implicitly.
+         *
+         * @since 8
+         */
         ACTION_ADD_ACCOUNT_IMPLICITLY = "addAccountImplicitly",
+
+        /**
+         * Indicates the action for authenticating.
+         *
+         * @since 8
+         */
         ACTION_AUTHENTICATE = "authenticate",
+
+        /**
+         * Indicates the key of name.
+         *
+         * @since 8
+         */
         KEY_NAME = "name",
+
+        /**
+         * Indicates the key of owner.
+         *
+         * @since 8
+         */
         KEY_OWNER = "owner",
+
+        /**
+         * Indicates the key of token.
+         *
+         * @since 8
+         */
         KEY_TOKEN = "token",
+
+        /**
+         * Indicates the key of action.
+         *
+         * @since 8
+         */
         KEY_ACTION = "action",
+
+        /**
+         * Indicates the key of authentiaction type.
+         *
+         * @since 8
+         */
         KEY_AUTH_TYPE = "authType",
+
+        /**
+         * Indicates the key of session id.
+         *
+         * @since 8
+         */
         KEY_SESSION_ID = "sessionId",
+
+        /**
+         * Indicates the key of caller pid.
+         *
+         * @since 8
+         */
         KEY_CALLER_PID = "callerPid",
+
+        /**
+         * Indicates the key of caller uid.
+         *
+         * @since 8
+         */
         KEY_CALLER_UID = "callerUid",
+
+        /**
+         * Indicates the key of caller bundle name.
+         *
+         * @since 8
+         */
         KEY_CALLER_BUNDLE_NAME = "callerBundleName",
+
+        /**
+         * Indicates the key of required labels.
+         *
+         * @since 9
+         */
         KEY_REQUIRED_LABELS = "requiredLabels",
+
+        /**
+         * Indicates the key of boolean result.
+         *
+         * @since 9
+         */
         KEY_BOOLEAN_RESULT = "booleanResult"
     }
 
