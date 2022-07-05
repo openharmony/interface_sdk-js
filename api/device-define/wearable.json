@@ -127,6 +127,7 @@
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
-    "SystemCapability.Applications.settings.Core"
+    "SystemCapability.Applications.settings.Core",
+    "SystemCapability.Web"
   ]
 }
