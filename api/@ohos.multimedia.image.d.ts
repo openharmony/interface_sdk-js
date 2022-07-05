@@ -504,6 +504,34 @@ declare namespace image {
   }
 
   /**
+   * Initialization options for ImageSource.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.Core
+   */
+  interface SourceOptions {
+    /**
+     * The density for ImageSource.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    sourceDensity: number;
+
+    /**
+     * PixelMap expected format.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    sourcePixelFormat?: PixelMapFormat;
+
+    /**
+     * PixelMap size.
+     * @since 8
+     * @syscap SystemCapability.Multimedia.Image.Core
+     */
+    sourceSize?: Size;
+  }
+
+  /**
    * Create pixelmap by data buffer.
    * @since 8
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -527,6 +555,16 @@ declare namespace image {
   function createImageSource(uri: string): ImageSource;
 
   /**
+   * Creates an ImageSource instance based on the URI.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @param uri Image source URI.
+   * @param options The config of Image source.
+   * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   */
+  function createImageSource(uri: string, options: SourceOptions): ImageSource;
+
+  /**
    * Creates an ImageSource instance based on the file descriptor.
    * @since 7
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -534,6 +572,16 @@ declare namespace image {
    * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
    */
   function createImageSource(fd: number): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the file descriptor.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @param fd ID of a file descriptor.
+   * @param options The config of Image source.
+   * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   */
+  function createImageSource(fd: number, options: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer.
@@ -545,6 +593,16 @@ declare namespace image {
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
   /**
+   * Creates an ImageSource instance based on the buffer.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @param buf The buffer of the iamge.
+   * @param options The config of Image source.
+   * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   */
+  function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
+
+  /**
    * Creates an ImageSource instance based on the buffer in incremental.
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -552,6 +610,16 @@ declare namespace image {
    * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
    */
   function CreateIncrementalSource(buf: ArrayBuffer): ImageSource;
+
+  /**
+   * Creates an ImageSource instance based on the buffer in incremental.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @param buf The buffer of the iamge.
+   * @param options The config of source.
+   * @return Returns the ImageSource instance if the operation is successful; returns null otherwise.
+   */
+  function CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImagePacker instance.
@@ -696,6 +764,144 @@ declare namespace image {
      * @return Total number of bytes.
      */
     getPixelBytesNumber(): number;
+
+    /**
+     * Obtains the density of the image pixel map.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @return The number of density.
+     */
+    getDensity():number;
+
+    /**
+     * Set the transparent rate of pixel map. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param rate The value of transparent rate.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    opacity(rate: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param rate The value of transparent rate.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    opacity(rate: number): Promise<void>;
+
+    /**
+     * Obtains new pixel map with allpha information. This method uses a promise to return the information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @return A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
+     */
+    createAlphaPixelmap(): Promise<PixelMap>;
+
+    /**
+     * Obtains new pixel map with allpha information. This method uses a callback to return the information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
+     */
+    createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Image zoom in width and height. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param x The zoom value of width.
+     * @param y The zoom value of height.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    scale(x: number, y: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Image zoom in width and height. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param x The zoom value of width.
+     * @param y The zoom value of height.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    scale(x: number, y: number): Promise<void>;
+ 
+    /**
+     * Image position transformation. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param x The position value of width.
+     * @param y The position value of height.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    translate(x: number, y: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Image position transformation. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param x The position value of width.
+     * @param y The position value of height.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    translate(x: number, y: number): Promise<void>;
+
+    /**
+     * Image rotation. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param angle The rotation angle.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    rotate(angle: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Image rotation. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param angle The rotation angle.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    rotate(angle: number): Promise<void>;
+
+    /**
+     * Image flipping. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param horizontal Is flip in horizontal.
+     * @param vertical Is flip in vertical.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Image flipping. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param horizontal Is flip in horizontal.
+     * @param vertical Is flip in vertical.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    flip(horizontal: boolean, vertical: boolean): Promise<void>;
+ 
+    /**
+     * Crop the image. This method uses a callback to return the operation result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param region The region to crop.
+     * @param callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     */
+    crop(region: Region, callback: AsyncCallback<void>): void;
+
+    /**
+     * Crop the image. This method uses a promise to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @param region The region to crop.
+     * @return A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     */
+    crop(region: Region): Promise<void>;
 
     /**
      * Releases this PixelMap object. This method uses a callback to return the result.
