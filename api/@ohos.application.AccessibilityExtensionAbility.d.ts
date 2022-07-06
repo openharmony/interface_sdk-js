@@ -71,8 +71,7 @@ declare interface AccessibilityEvent {
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
- declare class GesturePath {
-    constructor(durationTime: number)
+ declare interface GesturePath {
     /**
      * Indicates the position of the points that make up the gesture.
      */
@@ -88,8 +87,7 @@ declare interface AccessibilityEvent {
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
-declare class GesturePoint {
-    constructor(positionX: number, positionY: number)
+declare interface GesturePoint {
     /**
      * Indicates the X coordinate of point.
      */
