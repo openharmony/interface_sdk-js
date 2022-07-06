@@ -251,7 +251,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeUriRecord(uri: string): NdefMessage;
+  makeUriRecord(uri: string): NdefRecord;
 
  /**
   * Create a ndef record with text data.
@@ -261,7 +261,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeTextRecord(text: string, locale: string): NdefMessage;
+  makeTextRecord(text: string, locale: string): NdefRecord;
 
  /**
   * Create a ndef record with mime data.
@@ -271,7 +271,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeMimeRecord(mimeType: string, mimeData: string): NdefMessage;
+  makeMimeRecord(mimeType: string, mimeData: string): NdefRecord;
 
  /**
   * Create a ndef record with external data.
@@ -282,7 +282,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeExternalRecord(domainName: string, serviceName: string, externalData: string): NdefMessage;
+  makeExternalRecord(domainName: string, serviceName: string, externalData: string): NdefRecord;
 
  /**
   * Parse a ndef message into raw bytes.
