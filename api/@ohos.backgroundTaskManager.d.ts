@@ -15,7 +15,7 @@
 
 import { AsyncCallback , Callback} from './basic';
 import { WantAgent } from "./@ohos.wantAgent";
-import { Context } from './app/context';
+import Context from './application/BaseContext';
 
 /**
  * Manages background tasks.
