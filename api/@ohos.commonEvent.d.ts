@@ -965,7 +965,7 @@ declare namespace commonEvent {
      * This is a protected common event that can only be sent by system.
      * @since 9
      */
-     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE"
+     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
 
     /**
      * Indicate the action of a common event that the spn display information has been updated.
