@@ -21,7 +21,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  */
-export default interface BaseContext {
+export default abstract class BaseContext {
     /**
      * Indicates the context is FA Mode or Stage Mode.
      *
