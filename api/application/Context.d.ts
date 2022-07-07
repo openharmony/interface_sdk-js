@@ -125,7 +125,6 @@ export default class Context extends BaseContext {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
-     * @hide
      */
     area: AreaMode;
 
