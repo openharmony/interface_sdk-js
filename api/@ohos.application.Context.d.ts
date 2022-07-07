@@ -29,7 +29,7 @@ import * as _FormExtensionContext  from './application/FormExtensionContext';
  * @permission N/A
  * @StageModelOnly
  */
-declare namespace applicationContext {
+declare namespace context {
 
     /**
      * The context of an ability. It allows access to ability-specific resources.
@@ -104,4 +104,4 @@ declare namespace applicationContext {
     export type FormExtensionContext = _FormExtensionContext.default
 }
 
-export default applicationContext;
+export default context;
