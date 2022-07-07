@@ -575,7 +575,7 @@ declare class WebResourceRequest {
   setResponseHeader(header: Array<Header>);
 
   /**
-   * Gets the response code.
+   * Sets the response code.
    * @param code the response code.
    *
    * @since 9
