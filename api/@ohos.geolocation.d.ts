@@ -165,7 +165,7 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @param callback Indicates the callback for reporting country code changes.
      */
-    function off(type: 'countryCodeChange', callback: Callback<CountryCode>) : void;
+    function off(type: 'countryCodeChange', callback?: Callback<CountryCode>) : void;
 
     /**
      * obtain current location
@@ -323,8 +323,8 @@ declare namespace geolocation {
      * @param scenario Indicates the scenarios where location simulation is required.
      * @param callback Indicates whether the position simulation function is enabled.
      */
-    function enableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<boolean>) : void;
-    function enableLocationMock(scenario: LocationRequestScenario) : Promise<boolean>;
+    function enableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
+    function enableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
 
     /**
      * diable the geographical location simulation function.
@@ -335,11 +335,11 @@ declare namespace geolocation {
      * @param scenario Indicates the scenarios where location simulation is required.
      * @param callback Indicates whether the position simulation function is enabled.
      */
-    function disableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<boolean>) : void;
-    function disableLocationMock(scenario: LocationRequestScenario) : Promise<boolean>;
+    function disableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
+    function disableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
 
     /**
-     * sets the configuration parameters for location simulation.
+     * set the configuration parameters for location simulation.
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
@@ -347,8 +347,8 @@ declare namespace geolocation {
      * @param config Indicates the configuration parameters for location simulation.
      * @param callback Indicates whether the parameters of the location simulation function are set successfully.
      */
-    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<boolean>) : void;
-    function setMockedLocations(config: LocationMockConfig) : Promise<boolean>;
+    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<void>) : void;
+    function setMockedLocations(config: LocationMockConfig) : Promise<void>;
 
     /**
      * enable the reverse geocoding simulation function.
@@ -358,8 +358,8 @@ declare namespace geolocation {
      * @systemapi
      * @param callback Indicates whether the reverse geocoding simulation function is enabled.
      */
-    function enableReverseGeocodingMock(callback: AsyncCallback<boolean>) : void;
-    function enableReverseGeocodingMock() : Promise<boolean>;
+    function enableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
+    function enableReverseGeocodingMock() : Promise<void>;
 
     /**
      * disable the reverse geocoding simulation function.
@@ -369,11 +369,11 @@ declare namespace geolocation {
      * @systemapi
      * @param callback Indicates whether the reverse geocoding simulation function is enabled.
      */
-    function disableReverseGeocodingMock(callback: AsyncCallback<boolean>) : void;
-    function disableReverseGeocodingMock() : Promise<boolean>;
+    function disableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
+    function disableReverseGeocodingMock() : Promise<void>;
 
     /**
-     * sets the configuration parameters for simulating reverse geocoding.
+     * set the configuration parameters for simulating reverse geocoding.
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
@@ -381,8 +381,8 @@ declare namespace geolocation {
      * @param mockInfos Indicates the set of locations and place names to be simulated.
      * @param callback Indicates whether the parameters of the reverse geocoding simulation are set successfully.
      */
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<boolean>) : void;
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<boolean>;
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<void>) : void;
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<void>;
 
     /**
      * configuration parameters for simulating reverse geocoding.
@@ -404,7 +404,6 @@ declare namespace geolocation {
      * @systemapi
      */
     export interface LocationMockConfig {
-        scenario: LocationRequestScenario;
         timeInterval: number;
         locations: Array<Location>;
     }
@@ -530,24 +529,123 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      */
     export interface GeoAddress {
+        /**
+         * Indicates latitude information.
+         * A positive value indicates north latitude,
+         * and a negative value indicates south latitude.
+         * @since 7
+         */
         latitude?: number;
+
+        /**
+         * Indicates longitude information.
+         * A positive value indicates east longitude ,
+         * and a negative value indicates west longitude .
+         * @since 7
+         */
         longitude?: number;
+
+        /**
+         * Indicates language used for the location description.
+         * zh indicates Chinese, and en indicates English.
+         * @since 7
+         */
         locale?: string;
+
+        /**
+         * Indicates landmark of the location.
+         * @since 7
+         */
         placeName?: string;
+
+        /**
+         * Indicates country code.
+         * @since 7
+         */
         countryCode?: string;
+
+        /**
+         * Indicates country name.
+         * @since 7
+         */
         countryName?: string;
+
+        /**
+         * Indicates administrative region name.
+         * @since 7
+         */
         administrativeArea?: string;
+
+        /**
+         * Indicates sub-administrative region name.
+         * @since 7
+         */
         subAdministrativeArea?: string;
+
+        /**
+         * Indicates locality information.
+         * @since 7
+         */
         locality?: string;
+
+        /**
+         * Indicates sub-locality information.
+         * @since 7
+         */
         subLocality?: string;
+
+        /**
+         * Indicates road name.
+         * @since 7
+         */
         roadName?: string;
+
+        /**
+         * Indicates auxiliary road information.
+         * @since 7
+         */
         subRoadName?: string;
+
+        /**
+         * Indicates house information.
+         * @since 7
+         */
         premises?: string;
+
+        /**
+         * Indicates postal code.
+         * @since 7
+         */
         postalCode?: string;
+
+        /**
+         * Indicates phone number.
+         * @since 7
+         */
         phoneNumber?: string;
+
+        /**
+         * Indicates website URL.
+         * @since 7
+         */
         addressUrl?: string;
+
+        /**
+         * Indicates the amount of additional descriptive information.
+         * @since 7
+         */
         descriptions?: Array<string>;
+
+        /**
+         * Indicates the amount of additional descriptive information.
+         * @since 7
+         */
         descriptionsSize?: number;
+
+        /**
+         * Indicates whether it is an mock GeoAddress
+         * @since 9
+         */
         isFromMock: Boolean;
     }
 
@@ -588,16 +686,74 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      */
     export interface Location {
+        /**
+         * Indicates latitude information.
+         * A positive value indicates north latitude,
+         * and a negative value indicates south latitude.
+         * @since 7
+         */
         latitude: number;
+
+        /**
+         * Indicates Longitude information.
+         * A positive value indicates east longitude ,
+         * and a negative value indicates west longitude .
+         * @since 7
+         */
         longitude: number;
+
+        /**
+         * Indicates location altitude, in meters.
+         * @since 7
+         */
         altitude: number;
+
+        /**
+         * Indicates location accuracy, in meters.
+         * @since 7
+         */
         accuracy: number;
+
+        /**
+         * Indicates speed, in m/s.
+         * @since 7
+         */
         speed: number;
+
+        /**
+         * Indicates location timestamp in the UTC format.
+         * @since 7
+         */
         timeStamp: number;
+
+        /**
+         * Indicates direction information.
+         * @since 7
+         */
         direction: number;
+
+        /**
+         * Indicates location timestamp since boot.
+         * @since 7
+         */
         timeSinceBoot: number;
+
+        /**
+         * Indicates additional information.
+         * @since 7
+         */
         additions?: Array<string>;
+
+        /**
+         * Indicates the amount of additional descriptive information.
+         * @since 7
+         */
         additionSize?: number;
+
+        /**
+         * Indicates whether it is an mock GeoAddress
+         * @since 9
+         */
         isFromMock: Boolean;
     }
 
@@ -639,14 +795,58 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      */
     export enum GeoLocationErrorCode {
+        /**
+         * Indicates function not supported.
+         * @since 7
+         */
         NOT_SUPPORTED = 100,
+
+        /**
+         * Indicates input parameter error.
+         * @since 7
+         */
         INPUT_PARAMS_ERROR,
+
+        /**
+         * Indicates reverse geocode query failed.
+         * @since 7
+         */
         REVERSE_GEOCODE_ERROR,
+
+        /**
+         * Indicates geocode query failed.
+         * @since 7
+         */
         GEOCODE_ERROR,
+
+        /**
+         * Indicates positioning failed.
+         * @since 7
+         */
         LOCATOR_ERROR,
+
+        /**
+         * Indicates operation failure caused by abnormal position switch.
+         * @since 7
+         */
         LOCATION_SWITCH_ERROR,
+
+        /**
+         * Indicates failed to get the last cache location.
+         * @since 7
+         */
         LAST_KNOWN_LOCATION_ERROR,
+
+        /**
+         * Indicates location request timeout.
+         * @since 7
+         */
         LOCATION_REQUEST_TIMEOUT_ERROR,
+
+        /**
+         * Indicates country code query failed.
+         * @since 9
+         */
         QUERY_COUNTRY_CODE_ERROR,
     }
 
