@@ -533,6 +533,54 @@ declare class WebResourceRequest {
    * @since 8
    */
   getResponseCode(): number;
+
+  /**
+   * Sets the response data.
+   * @param data the response data.
+   *
+   * @since 9
+   */
+  setResponseData(data: string);
+  
+  /**
+   * Sets the response encoding.
+   * @param encoding the response encoding.
+   *
+   * @since 9
+   */
+  setResponseEncoding(encoding: string);
+
+ /**
+   * Sets the response MIME type.
+   * @param mimeType the response MIME type.
+   *
+   * @since 9
+   */
+  setResponseMimeType(mimeType: string);
+
+  /**
+   * Sets the reason message.
+   * @param reason the reason message.
+   *
+   * @since 9
+   */
+  setReasonMessage(reason: string);
+
+  /**
+   * Sets the response headers.
+   * @param header the response headers.
+   *
+   * @since 9
+   */
+  setResponseHeader(header: Array<Header>);
+
+  /**
+   * Sets the response code.
+   * @param code the response code.
+   *
+   * @since 9
+   */
+  setResponseCode(code: number);
 }
 
 /**
@@ -1317,6 +1365,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onHttpAuthRequest(callback: (event?: { result: WebHttpAuthResult }) => boolean): WebAttribute;
+
+  /**
+   * Triggered when the resouces loading is intercepted.
+   * @param callback The triggered callback when the resouces loading is intercepted.
+   *
+   * @return If the response value is null, the Web will continue to load the resouces. Otherwise, the response value will be used
+   * @since 9
+   */
+  onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
 }
 
 declare const Web: WebInterface;
