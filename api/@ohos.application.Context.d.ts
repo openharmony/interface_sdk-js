@@ -65,7 +65,7 @@ declare namespace context {
      * The base context of 'app.Context' for FA Mode or
      * 'application.Context' for Stage Mode.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @permission N/A
      */
