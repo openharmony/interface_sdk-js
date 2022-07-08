@@ -59,7 +59,8 @@ declare namespace enterpriseDeviceManager {
    * @return {@code true} if enables administrator success.
    * @permission ohos.permission.MANAGE_ADMIN
    */
-  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number, callback: AsyncCallback<boolean>): void;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<boolean>): void;
+  function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<boolean>): void;
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<boolean>;
 
   /**
@@ -74,7 +75,8 @@ declare namespace enterpriseDeviceManager {
    * @return {@code true} if disables administrator success.
    * @permission ohos.permission.MANAGE_ADMIN
    */
-  function disableAdmin(admin: Want, userId?: number, callback: AsyncCallback<boolean>): void;
+  function disableAdmin(admin: Want, callback: AsyncCallback<boolean>): void;
+  function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
   function disableAdmin(admin: Want, userId?: number): Promise<boolean>;
 
   /**
@@ -99,7 +101,8 @@ declare namespace enterpriseDeviceManager {
    * @param userId Indicates the user ID or do not pass user ID.
    * @return {@code true} if the administrator is enabled.
    */
-  function isAdminEnabled(admin: Want, userId?: number, callback: AsyncCallback<boolean>): void;
+  function isAdminEnabled(admin: Want, callback: AsyncCallback<boolean>): void;
+  function isAdminEnabled(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
   function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
 
   /**
