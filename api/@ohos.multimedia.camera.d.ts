@@ -944,7 +944,7 @@ declare namespace camera {
 
     /**
      * Adds a camera output.
-     * @param previewOutput Target camera output to add.
+     * @param cameraOutput Target camera output to add.
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -953,7 +953,7 @@ declare namespace camera {
 
     /**
      * Adds a camera output.
-     * @param previewOutput Target camera output to add.
+     * @param cameraOutput Target camera output to add.
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1179,38 +1179,38 @@ declare namespace camera {
     setExposureMode(aeMode: ExposureMode): Promise<void>;
 
     /**
-     * Gets current meterring point.
-     * @param callback Callback used to return the current meterring point.
+     * Gets current metering point.
+     * @param callback Callback used to return the current metering point.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    getMeterringPoint(callback: AsyncCallback<Point>): void;
+    getMeteringPoint(callback: AsyncCallback<Point>): void;
 
     /**
-     * Gets current meterring point.
-     * @return Promise used to return the current meterring point.
+     * Gets current metering point.
+     * @return Promise used to return the current metering point.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    getMeterringPoint(): Promise<Point>;
+    getMeteringPoint(): Promise<Point>;
 
     /**
-     * Set the center point of the meterring area.
-     * @param point Meterring point
+     * Set the center point of the metering area.
+     * @param point Metering point
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    setMeterringPoint(point: Point, callback: AsyncCallback<void>): void;
+    setMeteringPoint(point: Point, callback: AsyncCallback<void>): void;
 
      /**
-      * Set the center point of the meterring area.
-      * @param point meterring point
+      * Set the center point of the metering area.
+      * @param point metering point
       * @return Promise used to return the result.
       * @since 9
       * @syscap SystemCapability.Multimedia.Camera.Core
       */
-    setMeterringPoint(point: Point): Promise<void>;
+    setMeteringPoint(point: Point): Promise<void>;
 
     /**
      * Query the exposure compensation range.
@@ -1557,6 +1557,7 @@ declare namespace camera {
   interface PreviewOutput extends CameraOutput {
     /**
      * Add surface id for output instance.
+     * @param surfaceId Surface object id used in camera preview output.
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1565,6 +1566,7 @@ declare namespace camera {
 
     /**
      * Add surface id for output instance.
+     * @param surfaceId Surface object id used in camera preview output.
      * @return Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1790,7 +1792,7 @@ declare namespace camera {
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
-    getDefaultCaptureSetting(): Promise<PhotoCaptureSetting>;;
+    getDefaultCaptureSetting(): Promise<PhotoCaptureSetting>;
 
     /**
      * Start capture output.
@@ -2152,7 +2154,7 @@ declare namespace camera {
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
-  interface MetadataOutput {
+  interface MetadataOutput extends CameraOutput {
     /**
      * Start output metadata
      * @param callback Callback used to return the result.
