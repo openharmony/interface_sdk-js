@@ -219,7 +219,7 @@ declare namespace featureAbility {
    * application-specific resources, request and verification permissions.
    * Can only be obtained through the ability.
    *
-   * @since 6
+   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @import import abilityManager from 'app/context'
    * @permission N/A
