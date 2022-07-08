@@ -26,7 +26,6 @@ import * as _FormExtensionContext  from './application/FormExtensionContext';
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
  * @StageModelOnly
  */
 declare namespace context {
@@ -36,7 +35,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
     export type AbilityContext = _AbilityContext.default
@@ -46,7 +44,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
     export type AbilityStageContext = _AbilityStageContext.default
@@ -56,7 +53,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
     export type ApplicationContext = _ApplicationContext.default
@@ -67,7 +63,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      */
     export type BaseContext = _BaseContext.default
 
@@ -77,7 +72,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
     export type Context = _Context.default
@@ -87,7 +81,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      * @StageModelOnly
      */
     export type ExtensionContext = _ExtensionContext.default
@@ -98,7 +91,6 @@ declare namespace context {
      *
      * @since 9
      * @syscap SystemCapability.Ability.Form
-     * @permission N/A
      * @StageModelOnly
      */
     export type FormExtensionContext = _FormExtensionContext.default

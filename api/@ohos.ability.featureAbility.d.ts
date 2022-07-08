@@ -222,7 +222,6 @@ declare namespace featureAbility {
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @import import abilityManager from 'app/context'
-   * @permission N/A
    * @FAModelOnly
    */
   export type Context = _Context  
