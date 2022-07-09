@@ -20,6 +20,9 @@ import * as _BaseContext  from './application/BaseContext';
 import * as _Context  from './application/Context';
 import * as _ExtensionContext  from './application/ExtensionContext';
 import * as _FormExtensionContext  from './application/FormExtensionContext';
+import { AreaMode as _AreaMode } from './application/Context';
+import * as _EventHub  from './application/EventHub';
+import * as _PermissionRequestResult  from './application/PermissionRequestResult';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -94,6 +97,33 @@ declare namespace context {
      * @StageModelOnly
      */
     export type FormExtensionContext = _FormExtensionContext.default
+
+    /**
+     * File area mode
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export type AreaMode = _AreaMode
+
+    /**
+     * The event center of a context, support the subscription and publication of events.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export type EventHub = _EventHub.default
+
+    /**
+     * The result of requestPermissionsFromUser with asynchronous callback.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export type PermissionRequestResult = _PermissionRequestResult.default
 }
 
 export default context;
