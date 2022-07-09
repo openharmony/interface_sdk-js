@@ -19,7 +19,7 @@
   * @since 6
   * @syscap SystemCapability.Ability.AbilityBase
   * @permission N/A
-  * @deprecated
+  * @deprecated since 9
   */
 export declare interface Want {
   /**
