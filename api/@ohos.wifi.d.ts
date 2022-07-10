@@ -1074,7 +1074,7 @@ declare namespace wifi {
          * EAP config info.
          *
          * @since 9
-		 * @systemapi
+         * @systemapi
          * @syscap SystemCapability.Communication.WiFi.STA
          */
         eapConfig: WifiEapConfig;
