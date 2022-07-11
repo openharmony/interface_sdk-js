@@ -1071,22 +1071,6 @@ declare namespace rpc {
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
         /**
-         * Sends a request to the peer object.
-         *
-         * <p>If the peer object and {@code RemoteObject} are on the same device, the request is sent by the IPC driver.
-         * If they are on different devices, the request is sent by the socket driver.
-         *
-         * @param code Indicates the message code of the request.
-         * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
-         * @param reply Indicates the {@link MessageParcel} object receiving the response data.
-         * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @deprecated since 8
-         * @since 7
-         */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
-        /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
          * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
@@ -1103,6 +1087,22 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+
+        /**
+         * Sends a request to the peer object.
+         *
+         * <p>If the peer object and {@code RemoteObject} are on the same device, the request is sent by the IPC driver.
+         * If they are on different devices, the request is sent by the socket driver.
+         *
+         * @param code Indicates the message code of the request.
+         * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
+         * @param reply Indicates the {@link MessageParcel} object receiving the response data.
+         * @param options Indicates a synchronous (default) or asynchronous request.
+         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @deprecated since 8
+         * @since 7
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
@@ -1227,23 +1227,6 @@ declare namespace rpc {
         getInterfaceDescriptor(): string;
 
         /**
-         * Sends a request to the peer object.
-         *
-         * <p>If the peer object and {@code RemoteProxy} are on the same device, the request is sent by the IPC driver.
-         * If they are on different devices, the request is sent by the socket driver.
-         *
-         * @param code Indicates the message code of the request.
-         * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
-         * @param reply Indicates the {@link MessageParcel} object receiving the response data.
-         * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @throws RemoteException Throws this exception if a remote object exception occurs.
-         * @deprecated since 8
-         * @since 7
-         */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
-
-        /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
          *
          * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
@@ -1260,6 +1243,23 @@ declare namespace rpc {
          * @since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+
+        /**
+         * Sends a request to the peer object.
+         *
+         * <p>If the peer object and {@code RemoteProxy} are on the same device, the request is sent by the IPC driver.
+         * If they are on different devices, the request is sent by the socket driver.
+         *
+         * @param code Indicates the message code of the request.
+         * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
+         * @param reply Indicates the {@link MessageParcel} object receiving the response data.
+         * @param options Indicates a synchronous (default) or asynchronous request.
+         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @throws RemoteException Throws this exception if a remote object exception occurs.
+         * @deprecated since 8
+         * @since 7
+         */
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
