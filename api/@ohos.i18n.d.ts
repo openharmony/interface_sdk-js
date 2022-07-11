@@ -246,7 +246,7 @@ export class PhoneNumberFormat {
      * @return Returns a string represents phone number's location.
      * @since 9
      */
-    static getLocationName(number: string, locale: string): string;
+    getLocationName(number: string, locale: string): string;
 }
 
 /**
