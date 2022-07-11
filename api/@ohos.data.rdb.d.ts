@@ -14,7 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from './basic';
-import { ResultSet } from './data/rdb/resultSet';
+import { ResultSet as _ResultSet } from './data/rdb/resultSet';
 import Context from "./application/BaseContext";
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
@@ -709,6 +709,8 @@ declare namespace rdb {
          */
         notIn(field: string, value: Array<ValueType>): RdbPredicates;
     }
+
+    export type ResultSet = _ResultSet
 }
 
 export default rdb;
