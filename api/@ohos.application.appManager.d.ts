@@ -181,17 +181,8 @@ declare namespace appManager {
     /**
      * The class of an process running information.
      *
-     * @deprecated since 9
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @permission N/A
-     */
-    /**
-     * The class of an process running information.
-     *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @permission N/A
      */
     export type ProcessRunningInfo = _ProcessRunningInfo
 }

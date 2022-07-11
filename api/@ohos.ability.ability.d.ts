@@ -28,7 +28,7 @@ import { StartAbilityParameter as _StartAbilityParameter }  from './ability/star
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  */
-declare namespace Ability {
+declare namespace ability {
 
     /**
      * DataAbilityHelper
@@ -79,4 +79,4 @@ declare namespace Ability {
     export type StartAbilityParameter = _StartAbilityParameter
 }
 
-export default Ability;
+export default ability;
