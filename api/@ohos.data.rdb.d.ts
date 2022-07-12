@@ -189,6 +189,19 @@ declare namespace rdb {
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
+		
+		/**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param rdbPredicates Indicates the specified remote query condition by the instance object of RdbPredicates.
+         * @param columns Indicates the columns to remote query. If the value is null, the remote query applies to all columns.
+         * @return Returns a ResultSet object if the operation is successful;
+         */
+        remoteQuery(rdbPredicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        remoteQuery(rdbPredicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
 
         /**
          * Queries data in the database based on SQL statement.
