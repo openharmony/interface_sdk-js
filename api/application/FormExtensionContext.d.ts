@@ -30,21 +30,6 @@ import Want from '../@ohos.application.Want';
 export default class FormExtensionContext extends ExtensionContext {
 
     /**
-     * update the given form.
-     *
-     * <p>You can use this method to update the given form</p>
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @param formId Indicates the given form.
-     * @param formBindingData Indicates the form data.
-     * @return -
-     * @StageModelOnly
-     */
-    updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback<void>): void;
-    updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
-
-    /**
      * start an ability within the same bundle.
      *
      * @since 9
