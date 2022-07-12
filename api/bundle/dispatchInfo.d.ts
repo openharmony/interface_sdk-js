@@ -25,7 +25,7 @@
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    readonly verison: string;
+    readonly version: string;
   
     /**
      * @default Indicates the free install interface version number
