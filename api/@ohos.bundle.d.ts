@@ -14,13 +14,13 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { ApplicationInfo } from './bundle/applicationInfo';
-import { BundleInfo } from './bundle/bundleInfo';
-import { AbilityInfo } from './bundle/abilityInfo';
-import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
+import { ApplicationInfo as _ApplicationInfo } from './bundle/applicationInfo';
+import { BundleInfo as _BundleInfo } from './bundle/bundleInfo';
+import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import Want from './@ohos.application.want';
-import { BundleInstaller } from './bundle/bundleInstaller';
-import { PermissionDef } from  './bundle/PermissionDef';
+import { BundleInstaller as _BundleInstaller } from './bundle/bundleInstaller';
+import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
 import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
 import pack from './bundle/packInfo';
@@ -910,6 +910,31 @@ declare namespace bundle {
    */
   function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
   function getDisposedStatus(bundleName: string): Promise<number>;
+
+  /**
+    * Re-export ApplicationInfo under namespace
+    */
+  export type ApplicationInfo = _ApplicationInfo;
+  /**
+    * Re-export BundleInfo under namespace
+    */
+  export type BundleInfo = _BundleInfo;
+  /**
+    * Re-export AbilityInfo under namespace
+    */
+  export type AbilityInfo = _AbilityInfo;
+  /**
+    * Re-export ExtensionAbilityInfo under namespace
+    */
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
+  /**
+    * Re-export BundleInstaller under namespace
+    */
+  export type BundleInstaller = _BundleInstaller; 
+  /**
+    * Re-export PermissionDef under namespace
+    */
+  export type PermissionDef = _PermissionDef;
 }
 
 export default bundle;

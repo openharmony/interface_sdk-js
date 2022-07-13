@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { BundleStatusCallback } from './bundle/bundleStatusCallback';
-import { LauncherAbilityInfo} from './bundle/launcherAbilityInfo';
-import { ShortcutInfo } from './bundle/shortcutInfo';
+import { BundleStatusCallback as _BundleStatusCallback } from './bundle/bundleStatusCallback';
+import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
+import { ShortcutInfo as _ShortcutInfo } from './bundle/shortcutInfo';
 
 /**
  * inner bundle manager.
@@ -94,6 +94,19 @@ declare namespace innerBundleManager {
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
+  /**
+    * Re-export BundleStatusCallback under namespace
+    */
+  export type BundleStatusCallback = _BundleStatusCallback;
+  /**
+    * Re-export LauncherAbilityInfo under namespace
+    */
+  export type LauncherAbilityInfo = _LauncherAbilityInfo;
+  /**
+    * Re-export ShortcutInfo under namespace
+    */
+  export type ShortcutInfo = _ShortcutInfo;
+
 }
 
 export default innerBundleManager;

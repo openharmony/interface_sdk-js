@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ElementName }  from './bundle/elementName';
-import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
+import { ElementName as _ElementName }  from './bundle/elementName';
+import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
 
 /**
  * distributedBundle.
@@ -79,4 +79,13 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    */
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
+
+  /**
+    * Re-export ElementName under namespace
+    */
+   export type ElementName = _ElementName;
+  /**
+    * Re-export RemoteAbilityInfo under namespace
+    */
+   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
