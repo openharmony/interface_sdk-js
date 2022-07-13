@@ -1070,8 +1070,13 @@ declare namespace wifi {
         /* @systemapi */
         staticIp: IpConfig;
 
-        /** EAP config info */
-        /* @systemapi */
+        /**
+         * EAP config info.
+         *
+         * @since 9
+         * @systemapi
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         eapConfig: WifiEapConfig;
     }
 
@@ -1149,13 +1154,28 @@ declare namespace wifi {
         /** Channel width */
         channelWidth: number;
 
-        /** Center frequency */
+        /**
+         * Center frequency 0.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         centerFrequency0: number;
 
-        /** Center frequency */
+        /**
+         * Center frequency 1.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         centerFrequency1: number;
 
-        /** Information elements */
+        /**
+         * Information elements.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         infoElems: Array<WifiInfoElem>;
 
         /** Time stamp */
@@ -1184,19 +1204,44 @@ declare namespace wifi {
         /** Simultaneous Authentication of Equals (SAE) */
         WIFI_SEC_TYPE_SAE = 4,
 
-        /** EAP authentication */
+        /**
+         * EAP authentication.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_EAP = 5,
 
-        /** SUITE_B_192 192 bit level */
+        /**
+         * SUITE_B_192 192 bit level.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
-        /** Opportunististic Wireless Encryption */
+        /**
+         * Opportunististic Wireless Encryption.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_OWE = 7,
 
-        /** WAPI certificate to be specified */
+        /**
+         * WAPI certificate to be specified.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_WAPI_CERT = 8,
 
-        /** WAPI pre-shared key to be specified */
+        /**
+         * WAPI pre-shared key to be specified.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.Core
+         */
         WIFI_SEC_TYPE_WAPI_PSK = 9,
     }
 
@@ -1243,7 +1288,12 @@ declare namespace wifi {
         /* @systemapi */
         snr: number;
 
-        /** Type of macAddress: 0 - real mac, 1 - random mac. */
+        /**
+         * Type of macAddress: 0 - real mac, 1 - random mac.
+         *
+         * @since 9
+         * @syscap SystemCapability.Communication.WiFi.STA
+         */
         macType: number;
 
         /** The Wi-Fi MAC address of a device. */
