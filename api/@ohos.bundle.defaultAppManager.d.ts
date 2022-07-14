@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { BundleInfo as _BundleInfo } from './bundle/bundleInfo';
-import { ElementName as _ElementName } from './bundle/elementName';
+import { BundleInfo } from './bundle/bundleInfo';
+import { ElementName } from './bundle/elementName';
 
 /**
  * default application manager.
@@ -139,14 +139,6 @@ declare namespace defaultAppManager {
   function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
 
-  /**
-    * Re-export BundleInfo under namespace
-    */
-  export type BundleInfo = _BundleInfo;
-  /**
-    * Re-export ElementName under namespace
-    */
-  export type ElementName = _ElementName;
 }
 
 export default defaultAppManager;

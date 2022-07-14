@@ -15,11 +15,15 @@
 
 import { AsyncCallback, Callback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundle/applicationInfo';
-import { BundleInfo as _BundleInfo } from './bundle/bundleInfo';
+import { ModuleInfo as _ModuleInfo } from './bundle/moduleInfo';
+import { CustomizeData as _CustomizeData} from './bundle/customizeData';
+import { Metadata as _Metadata } from './bundle/metadata';
+import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail } from './bundle/bundleInfo';
+import { HapModuleInfo as _HapModuleInfo } from './bundle/hapModuleInfo';
 import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import Want from './@ohos.application.want';
-import { BundleInstaller as _BundleInstaller } from './bundle/bundleInstaller';
+import { BundleInstaller as _BundleInstaller, HashParam as _HashParam, InstallParam as _InstallParam, InstallStatus as _InstallStatus} from './bundle/bundleInstaller';
 import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
 import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
@@ -916,9 +920,33 @@ declare namespace bundle {
     */
   export type ApplicationInfo = _ApplicationInfo;
   /**
+    * Re-export ApplicationInfo under namespace
+    */
+   export type ModuleInfo = _ModuleInfo;
+   /**
+    * Re-export ApplicationInfo under namespace
+    */
+  export type CustomizeData = _CustomizeData;
+  /**
+    * Re-export ApplicationInfo under namespace
+    */
+   export type Metadata = _Metadata;
+  /**
     * Re-export BundleInfo under namespace
     */
   export type BundleInfo = _BundleInfo;
+  /**
+    * Re-export BundleInfo under namespace
+    */
+   export type UsedScene = _UsedScene;
+   /**
+    * Re-export BundleInfo under namespace
+    */
+  export type ReqPermissionDetail = _ReqPermissionDetail;
+  /**
+    * Re-export BundleInfo under namespace
+    */
+   export type HapModuleInfo = _HapModuleInfo;
   /**
     * Re-export AbilityInfo under namespace
     */
@@ -931,6 +959,18 @@ declare namespace bundle {
     * Re-export BundleInstaller under namespace
     */
   export type BundleInstaller = _BundleInstaller; 
+  /**
+    * Re-export BundleInstaller under namespace
+    */
+   export type HashParam = _HashParam; 
+   /**
+    * Re-export BundleInstaller under namespace
+    */
+  export type InstallParam = _InstallParam; 
+  /**
+    * Re-export BundleInstaller under namespace
+    */
+   export type InstallStatus = _InstallStatus; 
   /**
     * Re-export PermissionDef under namespace
     */
