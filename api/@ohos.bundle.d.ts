@@ -16,14 +16,14 @@
 import { AsyncCallback, Callback } from './basic';
 import { ApplicationInfo as _ApplicationInfo } from './bundle/applicationInfo';
 import { ModuleInfo as _ModuleInfo } from './bundle/moduleInfo';
-import { CustomizeData as _CustomizeData} from './bundle/customizeData';
+import { CustomizeData as _CustomizeData } from './bundle/customizeData';
 import { Metadata as _Metadata } from './bundle/metadata';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail } from './bundle/bundleInfo';
 import { HapModuleInfo as _HapModuleInfo } from './bundle/hapModuleInfo';
 import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
 import Want from './@ohos.application.want';
-import { BundleInstaller as _BundleInstaller, HashParam as _HashParam, InstallParam as _InstallParam, InstallStatus as _InstallStatus} from './bundle/bundleInstaller';
+import { BundleInstaller as _BundleInstaller, HashParam as _HashParam, InstallParam as _InstallParam, InstallStatus as _InstallStatus } from './bundle/bundleInstaller';
 import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
 import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
@@ -916,64 +916,64 @@ declare namespace bundle {
   function getDisposedStatus(bundleName: string): Promise<number>;
 
   /**
-    * Re-export ApplicationInfo under namespace
-    */
+   * Re-export ApplicationInfo under namespace
+   */
   export type ApplicationInfo = _ApplicationInfo;
   /**
-    * Re-export ApplicationInfo under namespace
-    */
-   export type ModuleInfo = _ModuleInfo;
-   /**
-    * Re-export ApplicationInfo under namespace
-    */
+   * Re-export ModuleInfo under namespace
+   */
+  export type ModuleInfo = _ModuleInfo;
+  /**
+   * Re-export CustomizeData under namespace
+   */
   export type CustomizeData = _CustomizeData;
   /**
-    * Re-export ApplicationInfo under namespace
-    */
-   export type Metadata = _Metadata;
+   * Re-export Metadata under namespace
+   */
+  export type Metadata = _Metadata;
   /**
-    * Re-export BundleInfo under namespace
-    */
+   * Re-export BundleInfo under namespace
+   */
   export type BundleInfo = _BundleInfo;
   /**
-    * Re-export BundleInfo under namespace
-    */
-   export type UsedScene = _UsedScene;
-   /**
-    * Re-export BundleInfo under namespace
-    */
+   * Re-export UsedScene under namespace
+   */
+  export type UsedScene = _UsedScene;
+  /**
+   * Re-export ReqPermissionDetail under namespace
+   */
   export type ReqPermissionDetail = _ReqPermissionDetail;
   /**
-    * Re-export BundleInfo under namespace
-    */
-   export type HapModuleInfo = _HapModuleInfo;
+   * Re-export HapModuleInfo under namespace
+   */
+  export type HapModuleInfo = _HapModuleInfo;
   /**
-    * Re-export AbilityInfo under namespace
-    */
+   * Re-export AbilityInfo under namespace
+   */
   export type AbilityInfo = _AbilityInfo;
   /**
-    * Re-export ExtensionAbilityInfo under namespace
-    */
+   * Re-export ExtensionAbilityInfo under namespace
+   */
   export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
   /**
-    * Re-export BundleInstaller under namespace
-    */
+   * Re-export BundleInstaller under namespace
+   */
   export type BundleInstaller = _BundleInstaller; 
   /**
-    * Re-export BundleInstaller under namespace
-    */
-   export type HashParam = _HashParam; 
-   /**
-    * Re-export BundleInstaller under namespace
-    */
+   * Re-export HashParam under namespace
+   */
+  export type HashParam = _HashParam; 
+  /**
+   * Re-export InstallParam under namespace
+   */
   export type InstallParam = _InstallParam; 
   /**
-    * Re-export BundleInstaller under namespace
-    */
-   export type InstallStatus = _InstallStatus; 
+   * Re-export InstallStatus under namespace
+   */
+  export type InstallStatus = _InstallStatus; 
   /**
-    * Re-export PermissionDef under namespace
-    */
+   * Re-export PermissionDef under namespace
+   */
   export type PermissionDef = _PermissionDef;
 }
 

@@ -95,17 +95,17 @@ declare namespace innerBundleManager {
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
   /**
-    * Re-export LauncherAbilityInfo under namespace
-    */
+   * Re-export LauncherAbilityInfo under namespace
+   */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
   /**
-    * Re-export ShortcutInfo under namespace
-    */
+   * Re-export ShortcutInfo under namespace
+   */
   export type ShortcutInfo = _ShortcutInfo;
   /**
-    * Re-export ShortcutInfo under namespace
-    */
-   export type ShortcutWant = _ShortcutWant;
+   * Re-export ShortcutWant under namespace
+   */
+  export type ShortcutWant = _ShortcutWant;
 
 }
 

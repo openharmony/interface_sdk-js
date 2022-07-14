@@ -81,12 +81,12 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityI
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
   /**
-    * Re-export ElementName under namespace
-    */
-   export type ElementName = _ElementName;
+   * Re-export ElementName under namespace
+   */
+  export type ElementName = _ElementName;
   /**
-    * Re-export RemoteAbilityInfo under namespace
-    */
-   export type RemoteAbilityInfo = _RemoteAbilityInfo;
+   * Re-export RemoteAbilityInfo under namespace
+   */
+  export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
 export default distributedBundle;
