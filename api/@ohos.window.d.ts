@@ -1106,6 +1106,15 @@ declare namespace window {
     setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
     /**
+     * Ignore this window during screenshot.
+     * @param isSkip skip if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setSnapshotSkip(isSkip: boolean): void;
+
+    /**
      * Sets whether is touchable or not.
      * @param isTouchable is touchable if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
