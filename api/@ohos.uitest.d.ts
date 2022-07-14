@@ -112,7 +112,7 @@ declare interface WindowFilter {
 
 /**
  * Describes the attribute requirements for the target UiComponents.
- * 
+ *
  * @since 8
  * @syscap SystemCapability.Test.UiTest
  */
