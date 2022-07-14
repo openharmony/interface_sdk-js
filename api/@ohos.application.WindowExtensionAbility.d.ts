@@ -43,10 +43,9 @@ export default class WindowExtensionAbility {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates connection information about the Window ability.
      * @systemapi hide for inner use.
-     * @return Returns the proxy of the Window ability.
      * @StageModelOnly
      */
-    onConnect(want: Want): rpc.RemoteObject;
+    onConnect(want: Want): void;
 
     /**
      * Called back when all abilities connected to a window extension are disconnected.
