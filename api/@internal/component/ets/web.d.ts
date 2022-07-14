@@ -342,7 +342,7 @@ declare class HitTestValue {
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  * @since 9
  */
-declare class WebHttpAuthResult {
+declare class HttpAuthHandler {
   /**
    * Constructor.
    * @since 9
@@ -1364,7 +1364,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 9
    */
-  onHttpAuthRequest(callback: (event?: { result: WebHttpAuthResult }) => boolean): WebAttribute;
+   onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
 
   /**
    * Triggered when the resouces loading is intercepted.

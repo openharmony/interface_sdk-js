@@ -179,7 +179,7 @@ declare interface GridRowOptions {
      * grid-container layout column spacing.
      * @since 9
      */
-    gutter?: GetterOption;
+    gutter?: Length | GetterOption;
 
     /**
      * Sets the total number of columns in the current layout.

@@ -64,19 +64,19 @@ declare interface GridColOptions {
      * Sets the span of current gird-container item.
      * @since 9
      */
-    span?: GridColColumnOption;
+    span?: number | GridColColumnOption;
 
     /**
      * Sets the offset of current gird-container item.
      * @since 9
      */
-    offset?: GridColColumnOption;
+    offset?: number | GridColColumnOption;
 
     /**
      * Sets the order of current gird-container item.
      * @since 9
      */
-    order?: GridColColumnOption;
+    order?: number | GridColColumnOption;
 }
 
 
@@ -92,7 +92,25 @@ interface GridColInterface {
     (optiion?: GridColOptions): GridColAttribute;
 }
 
-declare class GridColAttribute extends CommonMethod<GridColAttribute> {}
+declare class GridColAttribute extends CommonMethod<GridColAttribute> {
+    /**
+    * Sets the span of current gird-container item.
+    * @since 9
+    */
+    span(value: number | GridColColumnOption): GridRowAttribute;
+
+    /**
+    * Sets the offset of  current gird-container item.
+    * @since 9
+    */
+    offset(value: number | GridColColumnOption): GridRowAttribute;
+
+    /**
+    * Sets the order of current gird-container item.
+    * @since 9
+    */
+    order(value: number | GridColColumnOption): GridRowAttribute;
+}
 
 declare const GridCol: GridColInterface
 declare const GridColInstance: GridColAttribute;
