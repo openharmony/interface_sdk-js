@@ -15,7 +15,7 @@
 
 /**
  * Resize direction for the window.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
  enum ResizeDirection{
@@ -30,7 +30,7 @@
  }
 /**
  * Enumerates the string value match pattern.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 8
  */
  enum MatchPattern{
@@ -66,7 +66,7 @@
 
 /**
  * Describes the window mode of the tested window
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
  enum WindowMode{
@@ -78,7 +78,7 @@
  
 /**
  * Represents the point on the device screen.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface Point {
@@ -88,7 +88,7 @@ declare interface Point {
 
 /**
  * Represents the rectangle area on the device screen.
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface Rect {
@@ -100,7 +100,7 @@ declare interface Rect {
 
 /**
  * Represents filer condition to get the window .
- *
+ * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
 declare interface WindowFilter {
