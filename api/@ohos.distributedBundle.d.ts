@@ -89,3 +89,4 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityI
     */
    export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
+export default distributedBundle;
