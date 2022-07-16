@@ -222,7 +222,47 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload"
+    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the param of sandbox flag.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_SANDBOX = "ohos.dlp.params.sandbox",
+
+    /**
+     * Indicates the param of dlp bundle name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_BUNDLE_NAME = "ohos.dlp.params.bundleName",
+
+    /**
+     * Indicates the param of dlp module name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_MODULE_NAME = "ohos.dlp.params.moduleName",
+
+    /**
+     * Indicates the param of dlp ability name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_ABILITY_NAME = "ohos.dlp.params.abilityName",
+
+    /**
+     * Indicates the param of dlp bundle index.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
   }
 
   /**

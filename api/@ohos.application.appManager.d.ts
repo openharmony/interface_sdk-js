@@ -28,6 +28,24 @@ import { ProcessRunningInfo } from './application/ProcessRunningInfo';
  */
 declare namespace appManager {
     /**
+     * @name ApplicationState
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi Hide this for inner system use.
+     * @permission N/A
+     */
+    export enum ApplicationState {
+        STATE_CREATE,
+        STATE_FOREGROUND,
+        STATE_VISIBLE,
+        STATE_FOCUS,
+        STATE_SUSPEND,
+        STATE_KEEP_BACKGROUND,
+        STATE_BACKGROUND,
+        STATE_DESTROY
+    }
+
+    /**
      * Register application state observer.
      *
      * @default -
