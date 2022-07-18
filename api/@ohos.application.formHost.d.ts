@@ -267,5 +267,19 @@ declare namespace formHost {
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
+
+    /**
+     * Share form by formId and deviceId.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formId Indicates the form ID
+     * @param deviceId Indicates the remote device ID
+     * @systemapi hide for inner use.
+     * @return -
+     * @permission ohos.permission.REQUIRE_FORM
+     */
+    function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
+    function shareForm(formId: string, deviceId: string): Promise<void>;
 }
 export default formHost;
