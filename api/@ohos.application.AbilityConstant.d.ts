@@ -90,6 +90,19 @@ declare namespace AbilityConstant {
     }
 
     /**
+     * Type of memory level.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+     export enum MemoryLevel {
+        MEMORY_LEVEL_MODERATE = 0,
+        MEMORY_LEVEL_LOW = 1,
+        MEMORY_LEVEL_CRITICAL = 2,
+    }
+
+    /**
      * Type of window mode.
      *
      * @since 9
