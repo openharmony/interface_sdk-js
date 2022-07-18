@@ -15,6 +15,7 @@
 
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
+import Caller from '../@ohos.application.Ability';
 import ExtensionContext from "./ExtensionContext";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.application.StartOptions";
@@ -89,7 +90,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      */
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
- 
+
     /**
      * Stops a service within the same application.
      *
@@ -178,4 +179,15 @@ export default class ServiceExtensionContext extends ExtensionContext {
      */
     disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
     disconnectAbility(connection: number): Promise<void>;
+
+    /**
+     * Get the caller object of the startup capability
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the ability to start.
+     * @return Returns to the Caller interface on success Returns empty or undefined on failure
+     * @StageModelOnly
+     */
+     startAbilityByCall(want: Want): Promise<Caller>;
 }
