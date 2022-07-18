@@ -75,4 +75,14 @@ import image from "../@ohos.multimedia.image";
      * @return -
      */
      onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
+
+    /**
+     * Called by system when target mission is closed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @param mission Indicates the id of the mission whose icon has changed.
+     * @return -
+     */
+    onMissionClosed(mission: number): void;
 }
