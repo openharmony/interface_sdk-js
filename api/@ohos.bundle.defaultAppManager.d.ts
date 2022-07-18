@@ -138,7 +138,6 @@ declare namespace defaultAppManager {
   function resetDefaultApplication(type: string, userId?: number) : Promise<void>;
   function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>) : void;
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
-
 }
 
 export default defaultAppManager;
