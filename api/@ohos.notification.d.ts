@@ -70,8 +70,7 @@ declare namespace notification {
    * @param representativeBundle bundle name of the representative
    * @param userId userid of the representative
    * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    *
    */
     function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
@@ -103,8 +102,8 @@ declare namespace notification {
    * @param representativeBundle bundle name of the representative
    * @param userId userid of the representative
    * @param callback callback function
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @systemapi Hide this for inner system use.
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    */
   function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
