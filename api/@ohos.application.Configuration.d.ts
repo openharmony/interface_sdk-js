@@ -63,4 +63,12 @@ export interface Configuration {
      * @syscap SystemCapability.Ability.AbilityBase
      */
     displayId?: number;
+
+    /**
+     * Indicates whether a pointer type device has connected.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityBase
+     */
+    hasPointerDevice?: boolean;
 }
