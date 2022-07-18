@@ -90,6 +90,12 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   vertical(value: boolean): TabsAttribute;
 
   /**
+   * Called when determining the location of the bar chart.
+   * @since 9
+   */
+  barPosition(value: BarPosition): TabsAttribute;
+
+  /**
    * Called when judging whether page switching can be performed by sliding left and right.
    * @since 7
    */
