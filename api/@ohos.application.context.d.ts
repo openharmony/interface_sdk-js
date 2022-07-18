@@ -20,7 +20,6 @@ import * as _BaseContext  from './application/BaseContext';
 import * as _Context  from './application/Context';
 import * as _ExtensionContext  from './application/ExtensionContext';
 import * as _FormExtensionContext  from './application/FormExtensionContext';
-import { AreaMode as _AreaMode } from './application/Context';
 import * as _EventHub  from './application/EventHub';
 import * as _PermissionRequestResult  from './application/PermissionRequestResult';
 
@@ -105,7 +104,16 @@ declare namespace context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      */
-    export type AreaMode = _AreaMode
+    export enum AreaMode {
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         */
+        EL1 = 0,
+        /**
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         */
+        EL2 = 1
+    }
 
     /**
      * The event center of a context, support the subscription and publication of events.
