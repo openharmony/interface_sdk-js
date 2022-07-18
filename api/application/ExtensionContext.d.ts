@@ -16,6 +16,7 @@
 import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import { Configuration } from '../@ohos.application.Configuration';
 import Context from "./Context";
+import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
 
 /**
  * The context of an extension. It allows access to extension-specific resources.
