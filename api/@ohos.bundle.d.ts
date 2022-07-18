@@ -896,7 +896,7 @@ declare namespace bundle {
    * @systemapi Hide this for inner system use
    */
   function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
-  function setDisposedStatus(bundleName: string, status: number,): Promise<void>;
+  function setDisposedStatus(bundleName: string, status: number): Promise<void>;
 
   /**
    * Obtains the disposed status of a specified bundle.
