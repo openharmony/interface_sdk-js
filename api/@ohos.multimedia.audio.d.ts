@@ -83,37 +83,37 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_NEW,
+    STATE_NEW = 0,
     /**
      * Prepared state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_PREPARED,
+    STATE_PREPARED = 1,
     /**
      * Running state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_RUNNING,
+    STATE_RUNNING = 2,
     /**
      * Stopped state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_STOPPED,
+    STATE_STOPPED = 3,
     /**
      * Released state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_RELEASED,
+    STATE_RELEASED = 4,
     /**
      * Paused state.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
-    STATE_PAUSED
+    STATE_PAUSED = 5
   }
 
   /**
@@ -641,8 +641,18 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
   enum InterruptMode {
-      SHARE_MODE = 0,
-      INDEPENDENT_MODE = 1
+    /**
+     * Mode that different stream share one interrupt unit.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    SHARE_MODE = 0,
+    /**
+     * Mode that each stream has independent interrupt unit.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+    INDEPENDENT_MODE = 1
   }
 
   /**
@@ -757,7 +767,7 @@ declare namespace audio {
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    INTERRUPT_SHARE
+    INTERRUPT_SHARE = 1
   }
 
   /**
@@ -849,20 +859,20 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
-    AUDIO_SCENE_RINGING,
+    AUDIO_SCENE_RINGING = 1,
     /**
      * Phone call audio scene
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      */
-    AUDIO_SCENE_PHONE_CALL,
+    AUDIO_SCENE_PHONE_CALL = 2,
     /**
      * Voice chat audio scene
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
-    AUDIO_SCENE_VOICE_CHAT
+    AUDIO_SCENE_VOICE_CHAT = 3
   }
 
   /**
@@ -1286,7 +1296,7 @@ declare namespace audio {
      * @systemapi
      */
     on(type: 'independentInterrupt', callback: Callback<InterruptEvent>): void;
-    
+
     /**
      * Cancels the listening of independent interruption events.
      * @param type Type of the event to listen for. Only the independentInterrupt event is supported.
