@@ -45,6 +45,25 @@ declare namespace appManager {
         STATE_DESTROY
     }
 
+
+    /**
+     * @name ProcessState
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi Hide this for inner system use.
+     * @permission N/A
+     */
+    export enum ProcessState {
+        STATE_CREATE,
+        STATE_FOREGROUND,
+        STATE_VISIBLE,
+        STATE_FOCUS,
+        STATE_SUSPEND,
+        STATE_KEEP_BACKGROUND,
+        STATE_BACKGROUND,
+        STATE_DESTROY
+    }
+
     /**
      * Register application state observer.
      *

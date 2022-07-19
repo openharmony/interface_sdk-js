@@ -262,7 +262,15 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index",
+
+    /**
+     * Indicates the param of dlp security flag.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_INDEX = "ohos.dlp.params.securityFlag"
   }
 
   /**
