@@ -13,8 +13,10 @@
  * limitations under the License.
  */
 
-import { AbilityDelegator } from './application/abilityDelegator';
-import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
+import { AbilityDelegator as _AbilityDelegator } from './application/abilityDelegator';
+import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
+import { AbilityMonitor as _AbilityMonitor } from './application/abilityMonitor';
+import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
@@ -57,6 +59,43 @@ declare namespace abilityDelegatorRegistry {
         BACKGROUND,
         DESTROY,
     }
+
+    /**
+     * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @import import AbilityDelegator from 'application/abilityDelegator.d'
+     */
+    export type AbilityDelegator = _AbilityDelegator
+
+    /**
+     * Store unit testing-related parameters, including test case names, and test runner name.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
+     */
+    export type AbilityDelegatorArgs = _AbilityDelegatorArgs
+
+    /**
+     * Provide methods for matching monitored Ability objects that meet specified conditions.
+     * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @import import AbilityMonitor from 'application/abilityMonitor.d'
+     */
+    export type AbilityMonitor = _AbilityMonitor
+
+    /**
+     * A object that records the result of shell command executes.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @import import ShellCmdResult from 'application/shellCmdResult.d'
+     */
+    export type ShellCmdResult = _ShellCmdResult
 }
 
 export default abilityDelegatorRegistry;

@@ -14,9 +14,11 @@
  */
 
 import { AsyncCallback } from './basic';
-import ApplicationStateObserver from './application/ApplicationStateObserver';
-import AppStateData from './application/AppStateData';
-import { ProcessRunningInfo } from './application/ProcessRunningInfo';
+import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
+import * as _AbilityStateData from './application/AbilityStateData';
+import * as _AppStateData from './application/AppStateData';
+import * as _ProcessData from './application/ProcessData';
+import { ProcessRunningInfo as _ProcessRunningInfo } from './application/ProcessRunningInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -139,6 +141,50 @@ declare namespace appManager {
      */
     function getAppMemorySize(): Promise<number>;
     function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+    /**
+     * The ability or extension state data.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    export type AbilityStateData = _AbilityStateData.default
+
+    /**
+     * The application state data.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    export type AppStateData = _AppStateData.default
+
+    /**
+     * The application state observer.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    export type ApplicationStateObserver = _ApplicationStateObserver.default
+
+    /**
+     * The process data.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi hide for inner use.
+     */
+    export type ProcessData = _ProcessData.default
+
+    /**
+     * The class of an process running information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    export type ProcessRunningInfo = _ProcessRunningInfo
 }
 
 export default appManager;
