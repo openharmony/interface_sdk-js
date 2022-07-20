@@ -29,7 +29,7 @@ declare namespace mouse {
    * Sets whether the pointer icon is visible.
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible, 
    * and the value false indicates the opposite.
    */
@@ -40,11 +40,22 @@ declare namespace mouse {
    * Checks whether the pointer icon is visible.
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
    * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
   function isPointerVisible() : Promise<boolean>;
+
+   /**
+   * 设置鼠标捕获模式是否开启
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @param capture whether the mouse capture mode is on.The value <b>true</b> indicates that
+   * the capture mode is on, and the value <b>false</b>  indicates that the capture mode is off.
+   */
+  function setCaptureMode(capture: boolean, callback: AsyncCallback<void>) : void;
+  function setCaptureMode(capture: boolean) : Promise<void>;
 }
 
 export default mouse;
