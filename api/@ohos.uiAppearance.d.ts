@@ -17,7 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provide APIs to set system uiAppearance.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.Ace.UiAppearance
  * @import import uiAppearance from '@ohos.uiAppearance';
  * @since 9
  */
