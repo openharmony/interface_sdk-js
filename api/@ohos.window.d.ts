@@ -142,7 +142,14 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-    TYPE_DIALOG
+    TYPE_DIALOG,
+    /**
+     * screenshot.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_SCREENSHOT
   }
 
   /**
@@ -981,7 +988,7 @@ declare namespace window {
       * @since 9
       */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
- 
+
     /**
      * bind dialog to the target window.
      * @param token token of the target window.
