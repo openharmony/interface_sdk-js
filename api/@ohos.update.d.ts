@@ -156,8 +156,8 @@ declare namespace update {
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
-        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<number>): void;
-        setUpgradePolicy(policy: UpgradePolicy): Promise<number>;
+        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
+        setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
         /**
          * terminate upgrade task.
@@ -215,8 +215,8 @@ declare namespace update {
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
-        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<number>): void;
-        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<number>;
+        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
+        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
         /**
          * Apply local update package.
@@ -759,8 +759,7 @@ declare namespace update {
      * @since 9
      */
     export enum BusinessSubType {
-        FIRMWARE = 1,
-        PARAM = 2
+        FIRMWARE = 1
     }
 
     /**
@@ -811,7 +810,9 @@ declare namespace update {
     export enum NetType {
         CELLULAR = 1,
         METERED_WIFI = 2,
-        NOT_METERED_WIFI = 4
+        NOT_METERED_WIFI = 4,
+        WIFI = 6,
+        CELLULAR_AND_WIFI = 7
     }
 
     /**
@@ -822,7 +823,9 @@ declare namespace update {
     export enum Order {
         DOWNLOAD = 1,
         INSTALL = 2,
-        APPLY = 4
+        DOWNLOAD_AND_INSTALL = 3,
+        APPLY = 4,
+        INSTALL_AND_APPLY = 6
     }
 
     /**
