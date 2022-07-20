@@ -44,7 +44,7 @@ export interface OnReleaseCallBack {
  * @return rpc.Sequenceable
  * @StageModelOnly
  */
-export interface CaleeCallBack {
+export interface CalleeCallBack {
     (indata: rpc.MessageParcel): rpc.Sequenceable;
 }
 
@@ -123,7 +123,7 @@ export interface Callee {
      * @return -
      * @StageModelOnly
      */
-     on(method: string, callback: CaleeCallBack): void;
+     on(method: string, callback: CalleeCallBack): void;
 
      /**
      * Unregister data listener callback.
