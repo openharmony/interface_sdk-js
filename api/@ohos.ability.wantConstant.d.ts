@@ -267,9 +267,9 @@ declare namespace wantConstant {
     /**
      * Indicates the param of dlp security flag.
      * 
-     * @permission ohos.permission.ACCESS_DLP_FILE
      * @since 9
      * @systemapi Hide this for inner system use.
+     * @permission ohos.permission.ACCESS_DLP_FILE
      */
     DLP_PARAMS_INDEX = "ohos.dlp.params.securityFlag"
   }
