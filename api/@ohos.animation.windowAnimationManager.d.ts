@@ -208,7 +208,7 @@ declare namespace windowAnimationManager {
 
 
     /**
-     * Called on window targets update.
+     * Called on window animation targets update.
      *
      * @param fullScreenWindowTarget The fullscreen window target.
      * @param floatingWindowTargets All the floating window targets.
