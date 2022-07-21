@@ -51,7 +51,7 @@ declare namespace windowAnimationManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function minimizeWindows(windowTargets: WindowAnimationTarget[]): void;
+  function minimizeWindows(windowTargets: Array<WindowAnimationTarget>): void;
 
   /**
    * Minimize the window target with animation.
@@ -62,7 +62,8 @@ declare namespace windowAnimationManager {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget, finishCallback: AsyncCallback<WindowAnimationFinishedCallback>): void;
+  function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
+    finishCallback: AsyncCallback<WindowAnimationFinishedCallback>): void;
 
   /**
    * Minimize the window target with animation.
@@ -214,7 +215,8 @@ declare namespace windowAnimationManager {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    onWindowTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget, floatingWindowTargets: WindowAnimationTarget[]): void;
+    onWindowAnimationTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget,
+      floatingWindowTargets: Array<WindowAnimationTarget>): void;
   }
 }
 
