@@ -20,19 +20,6 @@ import { AsyncCallback, Callback } from "./basic";
  * @since 8
  * @syscap SystemCapability.Sensors.Sensor
  * @import import sensor from '@ohos.sensor'
- * @permission ohos.permission.ACCELEROMETER, ohos.permission.GYROSCOPE,
- *             ohos.permission.ACTIVITY_MOTION, ohos.permission.HEALTH_DATA
- * @deprecated since 9 (permission type error)
- */
-
-/**
- * This module provides the capability to subscribe to sensor data.
- *
- * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@ohos.sensor'
- * @permission ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
- *             ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA
- * @since 9
  */
 declare namespace sensor {
     /**
@@ -136,17 +123,20 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
-     * @deprecated since 9 (permission type error)
+     * @deprecated since 9
      */
+    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
+        options?: Options): void;
+
     /**
-     * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * Subscribe to heart rate sensor data.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-    function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
+     function on(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
 
     /**
@@ -344,16 +334,18 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEART_RATE
      * @since 8
-     * @deprecated since 9 (permission type error)
+     * @deprecated since 9
      */
+    function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
+
     /**
-     * Subscribe to sensor data once.
-     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * Subscribe to heart rate sensor data.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
+     function once(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -369,16 +361,18 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELERATION
      * @since 8
-     * @deprecated since 9 (permission type error)
+     * @deprecated since 9
      */
+    function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
+
     /**
      * Subscribe to sensor data once.
-     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION}.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 9
      */
-    function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
+     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -537,17 +531,19 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
-     * @deprecated since 9 (permission type error)
+     * @deprecated since 9
      */
+    function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
+
     /**
      * Subscribe to sensor data, If the API is called multiple times, the last call takes effect.
-     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_RATE}.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
      * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-    function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
+     function off(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback?: Callback<HeartRateResponse>): void;
 
     /**
      * Unsubscribe to sensor data.
@@ -843,7 +839,7 @@ declare namespace sensor {
     }
 
     /**
-     * The type of sensor.
+     * The type of number.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      */
@@ -869,6 +865,18 @@ declare namespace sensor {
         SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
         SENSOR_TYPE_ID_WEAR_DETECTION = 280,        /**< Wear detection sensor */
         SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281,   /**< Uncalibrated acceleration sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @since 9
+         */
+        SENSOR_TYPE_ID_HEART_BEAT_RATE = 282, /**< Heart rate sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @since 9
+         */
+        SENSOR_TYPE_ID_LINEAR_ACCELEROMETER = 283 /**< Linear acceleration sensor */
     }
 
     /**
