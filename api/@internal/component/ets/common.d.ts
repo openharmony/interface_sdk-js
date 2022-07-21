@@ -1109,6 +1109,12 @@ declare interface PopupOptions {
    * @since 7
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?:Length;
 }
 
 /**
@@ -1157,6 +1163,12 @@ declare interface CustomPopupOptions {
    * @since 8
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?:Length;
 }
 
 /**
