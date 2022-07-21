@@ -58,13 +58,6 @@ declare namespace inputMethodEngine {
     const OPTION_MULTI_LINE: number;
     const OPTION_NO_FULLSCREEN: number;
 
-    /**
-     * The window styles for inputmethod ability.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
-
     function getInputMethodEngine(): InputMethodEngine;
 
     function createKeyboardDelegate(): KeyboardDelegate;

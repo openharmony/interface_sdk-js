@@ -64,30 +64,6 @@ declare namespace inputMethod {
      */
     interface InputMethodSetting {
         /**
-         * List input methods
-         * @since 9
-         * @param enable :
-         *     if true, collect enabled input methods.
-         *     if false, collect disabled input methods.
-         * @return -
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        listInputMethod(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
-
-        /**
-         * List input methods
-         * @since 9
-         * @param enable :
-         *     if true, collect enabled input methods.
-         *     if false, collect disabled input methods.
-         * @return -
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        listInputMethod(enable: boolean): Promise<Array<InputMethodProperty>>;
-
-        /**
          * @since 8
          */
         listInputMethod(callback: AsyncCallback<Array<InputMethodProperty>>): void;
