@@ -60,15 +60,6 @@ declare namespace inputMethod {
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
     /**
-     * Get current input method
-     * @since 9
-     * @return The InputMethodProperty object of the current input method
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    function getCurrentInputMethod(): InputMethodProperty;
-
-    /**
      * @since 8
      */
     interface InputMethodSetting {
