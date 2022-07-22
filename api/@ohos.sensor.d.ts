@@ -123,7 +123,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE type instead.
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
@@ -156,7 +156,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER type instead.
      */
     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
         options?: Options): void;
@@ -346,7 +346,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEART_RATE
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE type instead.
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
@@ -373,7 +373,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELERATION
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER type instead.
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
 
@@ -543,7 +543,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
-     * @deprecated since 9
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE type instead.
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
@@ -571,6 +571,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
+     * @deprecated since 9, please use subscribe @SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER type instead.
      */
     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
 
@@ -878,7 +879,7 @@ declare namespace sensor {
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
-         * @deprecated since 9
+         * @deprecated since 9, please use @SENSOR_TYPE_ID_LINEAR_ACCELEROMETER instead.
          */
         SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,  /**< Linear acceleration sensor */
         /**
@@ -897,7 +898,7 @@ declare namespace sensor {
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
-         * @deprecated since 9
+         * @deprecated since 9, please use @SENSOR_TYPE_ID_HEART_BEAT_RATE instead.
          */
         SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
         /**
