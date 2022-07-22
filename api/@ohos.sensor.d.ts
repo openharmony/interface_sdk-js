@@ -156,8 +156,20 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
+     * @deprecated since 9
      */
     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
+        options?: Options): void;
+
+    /**
+     * Subscribe to linear accelerometer data.
+     * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
+     * @param options Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 9
+     */
+     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>,
         options?: Options): void;
 
     /**
@@ -339,7 +351,7 @@ declare namespace sensor {
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
     /**
-     * Subscribe to heart rate sensor data.
+     * Subscribe to heart rate sensor data once.
      * @param type Indicate the sensor type to listen for, {@code SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE}.
      * @syscap SystemCapability.Sensors.Sensor
      * @permission ohos.permission.READ_HEALTH_DATA
@@ -561,6 +573,15 @@ declare namespace sensor {
      * @since 8
      */
     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
+
+    /**
+     * Unsubscribe to sensor data.
+     * @param type Indicate the sensor type to unsubscribe, {@code SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER}.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @permission ohos.permission.ACCELEROMETER
+     * @since 9
+     */
+     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
 
     /**
      * Unsubscribe to sensor data.
@@ -854,7 +875,18 @@ declare namespace sensor {
         SENSOR_TYPE_ID_HUMIDITY = 13,              /**< Humidity sensor */
         SENSOR_TYPE_ID_ORIENTATION = 256,          /**< Orientation sensor */
         SENSOR_TYPE_ID_GRAVITY = 257,              /**< Gravity sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @deprecated since 9
+         */
         SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,  /**< Linear acceleration sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @since 9
+         */
+        SENSOR_TYPE_ID_LINEAR_ACCELEROMETER = 258, /**< Linear acceleration sensor */
         SENSOR_TYPE_ID_ROTATION_VECTOR = 259,      /**< Rotation vector sensor */
         SENSOR_TYPE_ID_AMBIENT_TEMPERATURE = 260,  /**< Ambient temperature sensor */
         SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED = 261,  /**< Uncalibrated magnetic field sensor */
@@ -862,21 +894,20 @@ declare namespace sensor {
         SENSOR_TYPE_ID_SIGNIFICANT_MOTION = 264,    /**< Significant motion sensor */
         SENSOR_TYPE_ID_PEDOMETER_DETECTION = 265,   /**< Pedometer detection sensor */
         SENSOR_TYPE_ID_PEDOMETER = 266,             /**< Pedometer sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @deprecated since 9
+         */
         SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
+        /**
+         * The type of number.
+         * @syscap SystemCapability.Sensors.Sensor
+         * @since 9
+         */
+        SENSOR_TYPE_ID_HEART_BEAT_RATE = 278, /**< Heart rate sensor */
         SENSOR_TYPE_ID_WEAR_DETECTION = 280,        /**< Wear detection sensor */
-        SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281,   /**< Uncalibrated acceleration sensor */
-        /**
-         * The type of number.
-         * @syscap SystemCapability.Sensors.Sensor
-         * @since 9
-         */
-        SENSOR_TYPE_ID_HEART_BEAT_RATE = 282, /**< Heart rate sensor */
-        /**
-         * The type of number.
-         * @syscap SystemCapability.Sensors.Sensor
-         * @since 9
-         */
-        SENSOR_TYPE_ID_LINEAR_ACCELEROMETER = 283 /**< Linear acceleration sensor */
+        SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED = 281   /**< Uncalibrated acceleration sensor */
     }
 
     /**
