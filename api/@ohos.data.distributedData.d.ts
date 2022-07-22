@@ -1167,6 +1167,36 @@ declare namespace distributedData {
         delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
         
         /**
+         * Backs up a database in a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param fileName Indicates the name that saves the database backup.
+         */
+        backup(file:string, callback: AsyncCallback<void>):void;
+        backup(file:string): Promise<void>;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param fileName Indicates the name that saves the database file.
+         */
+        restore(file:string, callback: AsyncCallback<void>):void;
+        restore(file:string): Promise<void>;
+
+        /**
+         * Delete a backup files based on a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param fileName list Indicates the name that backup file to delete.
+         */
+        deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
+        deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
+
+        /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
          * {@code KvStoreObserver} will be invoked.
          *
