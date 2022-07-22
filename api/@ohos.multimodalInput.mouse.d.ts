@@ -14,6 +14,7 @@
 */
 
 import { AsyncCallback } from "./basic";
+import AbilityContext from "./application/AbilityContext";
 
 /**
 * 鼠标指针相关属性接口
@@ -47,15 +48,22 @@ declare namespace mouse {
   function isPointerVisible() : Promise<boolean>;
 
    /**
-   * 设置鼠标捕获模式是否开启
+   * 进入鼠标捕获模式
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Mouse
-   * @param capture whether the mouse capture mode is on.The value <b>true</b> indicates that
-   * the capture mode is on, and the value <b>false</b>  indicates that the capture mode is off.
+   * @param The context of an ability.
    */
-  function setCaptureMode(capture: boolean, callback: AsyncCallback<void>) : void;
-  function setCaptureMode(capture: boolean) : Promise<void>;
+  function  enterCaptureMode(abilityContext: AbilityContext) : Promise<void>;
+  
+  /**
+   * 退出鼠标捕获模式
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @param The context of an ability.
+   */
+  function  leaveCaptureMode(abilityContext: AbilityContext) : Promise<void>;
 }
 
 export default mouse;
