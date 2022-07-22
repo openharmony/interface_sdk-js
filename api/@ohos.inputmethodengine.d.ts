@@ -58,13 +58,6 @@ declare namespace inputMethodEngine {
     const OPTION_MULTI_LINE: number;
     const OPTION_NO_FULLSCREEN: number;
 
-    /**
-     * The window styles for inputmethod ability.
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
-
     function getInputMethodEngine(): InputMethodEngine;
 
     function createKeyboardDelegate(): KeyboardDelegate;
@@ -113,28 +106,6 @@ declare namespace inputMethodEngine {
         getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
-
-        /**
-         * Move curosr from input method.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param direction Indicates the distance of cursor to be moved.
-         * @return -
-         * @StageModelOnly
-         */
-        moveCursor(direction: number, callback: AsyncCallback<void>): void;
-
-        /**
-         * Move curosr from input method.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param direction Indicates the distance of cursor to be moved.
-         * @return -
-         * @StageModelOnly
-         */
-        moveCursor(direction: number): Promise<void>;
     }
 
     interface KeyboardDelegate {
@@ -163,83 +134,6 @@ declare namespace inputMethodEngine {
     interface KeyEvent {
         readonly keyCode: number;
         readonly keyAction: number;
-    }
-
-    /**
-     * The extension context class of input method.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    class InputMethodExtensionContext extends ExtensionContext {
-
-        /**
-         * Input method extension uses this method to start a specific ability.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the ability to start.
-         * @param options Indicates the start options.
-         * @return -
-         * @StageModelOnly
-         */
-        startAbility(want: Want, callback: AsyncCallback<void>): void;
-        startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
-        startAbility(want: Want, options?: StartOptions): Promise<void>;
-
-        /**
-         * Destroy the input method extension.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @return -
-         * @StageModelOnly
-         */
-        terminateSelf(callback: AsyncCallback<void>): void;
-        terminateSelf(): Promise<void>;
-
-    }
-
-    /**
-     * The extension ability class of input method.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    class InputMethodExtensionAbility {
-
-        /**
-         * Indicates input method extension ability context.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        context: InputMethodExtensionContext;
-        
-        /**
-         * Called back when a input method extension is started for initialization.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the want of created service extension.
-         * @return -
-         * @StageModelOnly
-         */
-        onCreate(want: Want): void;
-
-        /**
-         * Called back before a input method extension is destroyed.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @return -
-         * @StageModelOnly
-         */
-        onDestroy(): void;
-
     }
 }
 
