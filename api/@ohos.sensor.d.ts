@@ -137,7 +137,7 @@ declare namespace sensor {
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-     function on(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
 
     /**
@@ -171,7 +171,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 9
      */
-     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>,
+    function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>,
         options?: Options): void;
 
     /**
@@ -388,7 +388,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 9
      */
-     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
+    function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>): void;
 
     /**
      * Subscribe to sensor data once.
@@ -560,7 +560,7 @@ declare namespace sensor {
      * @permission ohos.permission.READ_HEALTH_DATA
      * @since 9
      */
-     function off(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback?: Callback<HeartRateResponse>): void;
+    function off(type: SensorType.SENSOR_TYPE_ID_HEART_BEAT_RATE, callback?: Callback<HeartRateResponse>): void;
 
     /**
      * Unsubscribe to sensor data.
@@ -588,7 +588,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 9
      */
-     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
+    function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELEROMETER, callback?: Callback<LinearAccelerometerResponse>): void;
 
     /**
      * Unsubscribe to sensor data.
@@ -885,7 +885,8 @@ declare namespace sensor {
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
-         * @deprecated since 9, please use @SENSOR_TYPE_ID_LINEAR_ACCELEROMETER instead.
+         * @deprecated since 9
+         * @useinstead SENSOR_TYPE_ID_LINEAR_ACCELEROMETER
          */
         SENSOR_TYPE_ID_LINEAR_ACCELERATION = 258,  /**< Linear acceleration sensor */
         /**
@@ -904,7 +905,8 @@ declare namespace sensor {
         /**
          * The type of number.
          * @syscap SystemCapability.Sensors.Sensor
-         * @deprecated since 9, please use @SENSOR_TYPE_ID_HEART_BEAT_RATE instead.
+         * @deprecated since 9
+         * @useinstead SENSOR_TYPE_ID_HEART_BEAT_RATE
          */
         SENSOR_TYPE_ID_HEART_RATE = 278,            /**< Heart rate sensor */
         /**
