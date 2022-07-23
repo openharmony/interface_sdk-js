@@ -143,6 +143,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   syncLoad(value: boolean): ImageAttribute;
 
   /**
+   * Allow replication.
+   * @since 9
+   */
+  copyOption(value: boolean | CopyOption): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
