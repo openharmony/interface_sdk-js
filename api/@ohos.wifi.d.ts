@@ -142,7 +142,9 @@ declare namespace wifi {
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
      *
+     * @param config - candidate config.
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
@@ -156,13 +158,15 @@ declare namespace wifi {
       *
       * <p>This method removes one configuration at a time.
       *
+      * @param networkId - Network ID which will be removed.
+      * @return Returns {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
+      *
       * @since 9
-      * @throws {TypedError | Error} when failed to remove the hotspot configuration.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
-     function removeCandidateConfig(networkId: number): Promise<void>;
-     function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
+     function removeCandidateConfig(networkId: number): Promise<boolean>;
+     function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
 
     /**
      * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
@@ -170,6 +174,7 @@ declare namespace wifi {
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -182,13 +187,14 @@ declare namespace wifi {
      *
      * <p>This method connect to a configuration at a time.
      *
-     * @param {number} networkId - Network ID which will be connected.
-     * @throws {TypedError | Error} when failed connect to the hotspot configuration
+     * @param networkId - Network ID which will be connected.
+     * Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function connectToCandidateConfig(networkId: number): void;
+     function connectToCandidateConfig(networkId: number): boolean;
 
     /**
      * Connects to Wi-Fi network.
