@@ -263,7 +263,7 @@ declare namespace process {
     * @return Return a child process object.
     */
     function runCmd(command: string,
-        options?: { timeout : number, killSignal : number | string, maxBuffer : number }): ChildProcess;
+        options?: { timeout?: number, killSignal?: number | string, maxBuffer?: number }): ChildProcess;
 
     /**
     * Abort current process
