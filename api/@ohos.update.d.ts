@@ -93,7 +93,7 @@ declare namespace update {
         getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
         /**
-         * Get current version.
+         * Get current version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
