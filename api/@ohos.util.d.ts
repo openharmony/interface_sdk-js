@@ -70,9 +70,9 @@ declare namespace util {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param original asynchronous function
-     * @return return a version that returns promises
+     * @return return a function that returns promises
      */
-     function promiseWrapper(original: (err: Object, value: Object) => void): Function;
+     function promisify(original: (err: Object, value: Object) => void): Function;
 
     /**
      * Takes a function following the common error-first callback style, i.e taking an (err, value) =>
