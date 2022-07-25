@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2020-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * Providers interfaces to creat a {@link deviceManager} instances.
+ * Providers interfaces to create a {@link deviceManager} instances.
  * 
  * @since 7
  * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -50,6 +50,11 @@ declare namespace deviceManager {
      * @since 8
      */
     networkId: string;
+
+    /**
+     * The distance of dicovered device, in centimeters(cm).
+     */
+    range: number;
   }
 
   /**
@@ -159,6 +164,68 @@ declare namespace deviceManager {
      * Subscribe capability.
      */
     capability: SubscribeCap;
+  }
+
+  /**
+   * Service publish info for device discover
+   *
+   * @systemapi this method can be used only by system applications.
+   */
+  interface PublishInfo {
+    /**
+     * Service publish ID, the value is in scope [0, 65535], should be unique for each publish process
+     */
+    publishId: number;
+
+    /**
+     * Discovery mode for service subscription.
+     */
+    mode: DiscoverMode;
+
+    /**
+     * Service subscription frequency.
+     */
+    freq: ExchangeFreq;
+
+    /**
+     * Publish capability.
+     */
+    capability: SubscribeCap;
+
+    /**
+     *  Whether the device should be ranged  by discoverers.
+     */
+    ranging : boolean;
+  }
+
+  /**
+   * Discovery filters
+   */
+  interface Filters {
+    /**
+     * Discovery filter type.
+     */
+    type: string;
+
+    /**
+     * Discovery filter value.
+     */
+    value:number;
+  }
+
+  /**
+   * Discovery filterOptions
+   */
+  interface FilterOptions {
+    /**
+     * Discovery filter_op (e.g "AND","OR"").
+     */
+    filter_op: string;
+
+    /**
+     * Discovery filters.
+     */
+    filters: Filters[];
   }
 
   /**
@@ -372,7 +439,7 @@ declare namespace deviceManager {
      * @param subscribeInfo subscribe info to discovery device
      * @systemapi this method can be used only by system applications.
      */
-    startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
+    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions: FilterOptions): void;
 
     /**
      * Stop to discover device.
@@ -381,6 +448,22 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */
     stopDeviceDiscovery(subscribeId: number): void;
+
+    /**
+     * Publish discover device.
+     *
+     * @param publishInfo publish info to Publish discovery device
+     * @systemapi this method can be used only by system applications.
+     */
+    publishDeviceDiscovery(publishInfo: PublishInfo): void;
+
+    /**
+     * UnPublish discover device.
+     *
+     * @param publishId Service publish ID
+     * @systemapi this method can be used only by system applications.
+     */
+    unPublishDeviceDiscovery(publishId: number): void;
 
     /**
      * Authenticate the specified device.
@@ -460,6 +543,38 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
+
+    /**
+     * Register a device publish result callback so that the application can be notified when the device publish success
+     *
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
+
+    /**
+     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
+     *
+     * @param callback Indicates the device found result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
+
+    /**
+     * Register a device publish result callback so that the application can be notified when the device discover was failed
+     *
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
+
+    /**
+     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
+     *
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
