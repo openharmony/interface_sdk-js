@@ -362,7 +362,7 @@ declare namespace bluetooth {
      * @return Returns instance of profile.
      * @since 9
      */
-    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
+    function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
 
     /**
      * Base interface of profile.
