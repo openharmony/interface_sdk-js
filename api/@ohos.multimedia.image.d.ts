@@ -518,14 +518,14 @@ declare namespace image {
 
     /**
      * PixelMap expected format.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     sourcePixelFormat?: PixelMapFormat;
 
     /**
      * PixelMap size.
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      */
     sourceSize?: Size;
