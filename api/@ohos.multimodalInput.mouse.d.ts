@@ -52,18 +52,18 @@ declare namespace mouse {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Mouse
-   * @param The context of an ability.
+   * @param windowId.
    */
-  function  enterCaptureMode(abilityContext: AbilityContext) : Promise<void>;
+  function  enterCaptureMode(windowId: number) : Promise<void>;
   
   /**
    * 退出鼠标捕获模式
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Mouse
-   * @param The context of an ability.
+   * @param windowId.
    */
-  function  leaveCaptureMode(abilityContext: AbilityContext) : Promise<void>;
+  function  leaveCaptureMode(windowId : number) : Promise<void>;
 }
 
 export default mouse;
