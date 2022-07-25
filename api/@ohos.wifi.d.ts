@@ -188,8 +188,8 @@ declare namespace wifi {
      * <p>This method connect to a configuration at a time.
      *
      * @param networkId - Network ID which will be connected.
-     * Returns {@code true} if the operation is successful, returns {@code false} otherwise. The result will be
-     * indicated by the call back function of wifi connection change.
+     * Returns {@code true} if the operation is successful, returns {@code false} otherwise. The connect result
+     * will be indicated by the call back function of wifi connection change.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
