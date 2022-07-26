@@ -195,12 +195,14 @@ declare namespace rdb {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @param rdbPredicates Indicates the specified remote query condition by the instance object of RdbPredicates.
+		 * @param devices Indicates specified remote devices.
+		 * @param table Indicates the target table.
+         * @param rdbPredicates Indicates the specified remote query condition by the instance object of RdbPredicates or DataSharePredicates.
          * @param columns Indicates the columns to remote query. If the value is null, the remote query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          */
-        remoteQuery(rdbPredicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
-        remoteQuery(rdbPredicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+        remoteQuery(devices: Array<string>, table: string, rdbPredicates: RdbPredicates | dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        remoteQuery(devices: Array<string>, table: string, rdbPredicates: RdbPredicates | dataSharePredicates.DataSharePredicates, columns: Array<string>): Promise<ResultSet>;
 
 
         /**
