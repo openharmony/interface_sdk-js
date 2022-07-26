@@ -16,68 +16,46 @@
 /**
  * The class of an process running information.
  *
- * @deprecated since 9
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission N/A
- */
-/**
- * The class of an process running information.
- *
- * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ProcessRunningInformation
  */
 export interface ProcessRunningInfo {
     /**
      * @default process id
-     * @deprecated since 9
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @deprecated since 9
+     * @useinstead ProcessRunningInformation.pid
      */
+    pid: number;
+
     /**
-     * @default process id
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @default user id
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @deprecated since 9
+     * @useinstead ProcessRunningInformation.uid
      */
-     pid: number;
+    uid: number;
 
-     /**
-      * @default user id
-      * @deprecated since 9
-      * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-      */
-     /**
-      * @default user id
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     uid: number;
+    /**
+     * @default the name of the process
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @deprecated since 9
+     * @useinstead ProcessRunningInformation.processName
+     */
+    processName: string;
 
-     /**
-      * @default the name of the process
-      * @deprecated since 9
-      * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-      */
-     /**
-      * @default the name of the process
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     processName: string;
-
-     /**
-      * @default an array of the bundleNames running in the process
-      * @deprecated since 9
-      * @since 8
-      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-      */
-     /**
-      * @default an array of the bundleNames running in the process
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      */
-     bundleNames: Array<string>;
+    /**
+     * @default an array of the bundleNames running in the process
+     * @since 8
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @deprecated since 9
+     * @useinstead ProcessRunningInformation.bundleNames
+     */
+    bundleNames: Array<string>;
 }

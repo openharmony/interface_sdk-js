@@ -17,7 +17,7 @@
  * The process data.
  *
  * @since 8
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @permission N/A
  */
@@ -26,7 +26,7 @@ export default class ProcessData {
      * The bundle name.
      *
      * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     bundleName: string;
@@ -35,7 +35,7 @@ export default class ProcessData {
      * The pid.
      *
      * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     pid: number;
@@ -44,7 +44,7 @@ export default class ProcessData {
      * The uid.
      *
      * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
      */
     uid: number;

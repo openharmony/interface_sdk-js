@@ -17,8 +17,8 @@ import { AsyncCallback } from './basic';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
-import * as _ProcessData from './application/ProcessData';
 import { ProcessRunningInfo as _ProcessRunningInfo } from './application/ProcessRunningInfo';
+import { ProcessRunningInformation as _ProcessRunningInformation } from './application/ProcessRunningInformation';
 
 /**
  * This module provides the function of app manager service.
@@ -98,6 +98,8 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @return Returns the array of {@link ProcessRunningInfo}.
     * @permission ohos.permission.GET_RUNNING_INFO
+    * @deprecated since 9
+    * @useinstead getProcessRunningInformation
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
@@ -143,6 +145,17 @@ declare namespace appManager {
     function getAppMemorySize(callback: AsyncCallback<number>): void;
 
     /**
+    * Get information about running processes
+    *
+    * @since 9
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @return Returns the array of {@link ProcessRunningInformation}.
+    * @permission ohos.permission.GET_RUNNING_INFO
+    */
+    function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+    function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+
+    /**
      * The ability or extension state data.
      *
      * @since 9
@@ -170,13 +183,12 @@ declare namespace appManager {
     export type ApplicationStateObserver = _ApplicationStateObserver.default
 
     /**
-     * The process data.
+     * The class of an process running information.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    export type ProcessData = _ProcessData.default
+    export type ProcessRunningInfo = _ProcessRunningInfo
 
     /**
      * The class of an process running information.
@@ -184,7 +196,7 @@ declare namespace appManager {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    export type ProcessRunningInfo = _ProcessRunningInfo
+    export type ProcessRunningInformation = _ProcessRunningInformation
 }
 
 export default appManager;
