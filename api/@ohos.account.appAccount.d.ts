@@ -264,6 +264,16 @@ declare namespace appAccount {
         getAssociatedData(name: string, key: string): Promise<string>;
 
         /**
+         * Obtains data associated with the specified account synchronously.
+         *
+         * @since 9
+         * @param name Indicates the name of the application account.
+         * @param key Indicates the key of the data to obtain.
+         * @return Returns the associated data of the application account.
+         */
+        getAssociatedDataSync(name: string, key: string): string;
+
+        /**
          * Subscribes to the change events of accounts of the specified owners.
          * <p>
          * When the account owner updates the account, the subscriber will receive a notification

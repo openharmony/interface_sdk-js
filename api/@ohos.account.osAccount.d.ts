@@ -812,7 +812,8 @@ declare namespace osAccount {
          * @permission ohos.permission.ACCESS_USER_IDM
          * @systemapi Hide this for inner system use.
          */
-        getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>, authType?: AuthType): void;
+        getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
+        getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
         getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
     }
 
@@ -849,10 +850,11 @@ declare namespace osAccount {
          * Notifies to get data.
          *
          * @since 8
+         * @param pinSubType Indicates the credential subtype for authentication.
          * @param callback Indicates the password data callback.
          * @systemapi Hide this for inner system use.
          */
-        onGetData: (callback: IInputData) => void;
+        onGetData: (pinSubType: AuthSubType, callback: IInputData) => void;
     }
 
     /**
