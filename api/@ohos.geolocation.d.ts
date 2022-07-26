@@ -305,7 +305,7 @@ declare namespace geolocation {
     function sendCommand(command: LocationCommand) : Promise<boolean>;
 
     /**
-     * Obtain the current country code.
+     * obtain the current country code.
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
@@ -321,19 +321,23 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @param scenario Indicates the scenarios where location simulation is required.
-     * @param callback Indicates whether the position simulation function is enabled.
+     * @param callback Indicates a callback function, which is used to report the result 
+     * of enabling the location simulation function. If the enabling fails, the error message will
+     * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
      */
     function enableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
     function enableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
 
     /**
-     * diable the geographical location simulation function.
+     * disable the geographical location simulation function.
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @param scenario Indicates the scenarios where location simulation is required.
-     * @param callback Indicates whether the position simulation function is enabled.
+     * @param callback Indicates a callback function, which is used to report the result 
+     * of disabling the location simulation function. If the disabling fails, the error message will
+     * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
      */
     function disableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
     function disableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
@@ -345,7 +349,9 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @param config Indicates the configuration parameters for location simulation.
-     * @param callback Indicates whether the parameters of the location simulation function are set successfully.
+     * @param callback Indicates a callback function, which is used to report the result of setting 
+     * the simulation locations. If the setting fails, the error message will be carried in the first 
+     * parameter err of AsyncCallback. If the setting succeeds, no data will be returned.
      */
     function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<void>) : void;
     function setMockedLocations(config: LocationMockConfig) : Promise<void>;
@@ -356,7 +362,9 @@ declare namespace geolocation {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @param callback Indicates whether the reverse geocoding simulation function is enabled.
+     * @param callback Indicates a callback function, which is used to report the result 
+     * of enabling the reverse geocode simulation function. If the enabling fails, the error message will
+     * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
      */
     function enableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
     function enableReverseGeocodingMock() : Promise<void>;
@@ -367,7 +375,9 @@ declare namespace geolocation {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @param callback Indicates whether the reverse geocoding simulation function is enabled.
+     * @param callback Indicates a callback function, which is used to report the result 
+     * of disabling the reverse geocode simulation function. If the disabling fails, the error message will
+     * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
      */
     function disableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
     function disableReverseGeocodingMock() : Promise<void>;
@@ -379,7 +389,10 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @param mockInfos Indicates the set of locations and place names to be simulated.
-     * @param callback Indicates whether the parameters of the reverse geocoding simulation are set successfully.
+     * @param callback Indicates a callback function, which is used to report the result of setting 
+     * the configuration parameters for simulating reverse geocoding. If the setting fails, 
+     * the error message will be carried in the first parameter err of AsyncCallback. 
+     * If the setting succeeds, no data will be returned.
      */
     function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<void>) : void;
     function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<void>;
@@ -631,7 +644,7 @@ declare namespace geolocation {
         addressUrl?: string;
 
         /**
-         * Indicates the amount of additional descriptive information.
+         * Indicates additional information.
          * @since 7
          */
         descriptions?: Array<string>;
@@ -751,7 +764,7 @@ declare namespace geolocation {
         additionSize?: number;
 
         /**
-         * Indicates whether it is an mock GeoAddress
+         * Indicates whether it is an mock location.
          * @since 9
          */
         isFromMock: Boolean;
@@ -797,7 +810,7 @@ declare namespace geolocation {
     export enum GeoLocationErrorCode {
         /**
          * Indicates function not supported.
-         * @since 7
+         * @since 9
          */
         NOT_SUPPORTED = 100,
 
@@ -826,13 +839,13 @@ declare namespace geolocation {
         LOCATOR_ERROR,
 
         /**
-         * Indicates operation failure caused by abnormal position switch.
+         * Indicates operation failure caused by abnormal location switch.
          * @since 7
          */
         LOCATION_SWITCH_ERROR,
 
         /**
-         * Indicates failed to get the last cache location.
+         * Indicates failed to get the last known location.
          * @since 7
          */
         LAST_KNOWN_LOCATION_ERROR,
