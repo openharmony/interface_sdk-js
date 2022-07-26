@@ -20,6 +20,14 @@ import { AsyncCallback } from './basic';
  * @since 8
  * @syscap SystemCapability.Sensors.MiscDevice
  * @import import vibrator from '@ohos.vibrator'
+ * @permission ohos.permission.VIBRATE
+ */
+/**
+ * This module provides the capability to control motor vibration.
+ *
+ * @since 9
+ * @syscap SystemCapability.Sensors.MiscDevice
+ * @import import vibrator from '@ohos.vibrator'
  */
 declare namespace vibrator {
     /**
