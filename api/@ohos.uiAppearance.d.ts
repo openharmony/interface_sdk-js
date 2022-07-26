@@ -17,7 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provide APIs to set system uiAppearance.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.UiAppearance
  * @import import uiAppearance from '@ohos.uiAppearance';
  * @since 9
  */
@@ -40,7 +40,7 @@ declare namespace uiAppearance {
     /**
      * Set the system dark-mode.
      * @param mode Indicates the dark-mode to set
-     * @permission ohos.permission.UPDATE_CONFIGRATION
+     * @permission ohos.permission.UPDATE_CONFIGURATION
      * @systemapi Hide this for inner system use
      */
     function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
@@ -49,7 +49,7 @@ declare namespace uiAppearance {
     /**
      * Acquire the current dark-mode.
      * @return current dark-mode.
-     * @permission ohos.permission.UPDATE_CONFIGRATION
+     * @permission ohos.permission.UPDATE_CONFIGURATION
      * @systemapi Hide this for inner system use
      */
     function getDarkMode(): DarkMode;
