@@ -17,6 +17,7 @@ import { AsyncCallback } from './basic';
 import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
+import { ProcessRunningInformation as _ProcessRunningInformation } from './application/ProcessRunningInformation';
 
 /**
  * This module provides the function of app manager service.
@@ -96,6 +97,8 @@ declare namespace appManager {
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @return Returns the array of {@link ProcessRunningInfo}.
     * @permission ohos.permission.GET_RUNNING_INFO
+    * @deprecated since 9
+    * @useinstead getProcessRunningInformation
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
@@ -132,6 +135,17 @@ declare namespace appManager {
     function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
     /**
+    * Get information about running processes
+    *
+    * @since 9
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @return Returns the array of {@link ProcessRunningInformation}.
+    * @permission ohos.permission.GET_RUNNING_INFO
+    */
+    function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+    function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+
+    /**
      * Get the memory size of the application
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -139,6 +153,14 @@ declare namespace appManager {
      */
     function getAppMemorySize(): Promise<number>;
     function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+    /**
+     * The class of an process running information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+     export type ProcessRunningInformation = _ProcessRunningInformation
 }
 
 export default appManager;

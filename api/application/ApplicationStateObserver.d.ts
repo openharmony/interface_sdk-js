@@ -15,7 +15,7 @@
 
 import AppStateData from "./AppStateData";
 import AbilityStateData from "./AbilityStateData";
-import ProcessData from "./ProcessData";
+import * as _ProcessData from './ProcessData';
 
 /**
  * The application state observer.
@@ -70,3 +70,12 @@ export default class ApplicationStateObserver {
      */
     onProcessDied(processData: ProcessData): void;
 }
+
+/**
+ * The process data.
+ *
+ * @since 9
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi hide for inner use.
+ */
+export type ProcessData = _ProcessData.default
