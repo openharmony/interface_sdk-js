@@ -19,14 +19,14 @@ import {AsyncCallback} from "./basic";
  * This module provides the capability to manage web modules.
  *
  * @since 9
- * @syscap SystemCapability.Web
+ * @syscap SystemCapability.Web.Webview.Core
  */
-declare namespace web {
+declare namespace webview {
     /**
      * Provides basic information of web storage.
      * @name WebStorageOrigin
      * @since 9
-     * @syscap SystemCapability.Web
+     * @syscap SystemCapability.Web.Webview.Core
      */
     interface WebStorageOrigin {
         origin: string;
@@ -38,7 +38,7 @@ declare namespace web {
      * Provides methods for managing web storage.
      * @name WebStorage
      * @since 9
-     * @syscap SystemCapability.Web
+     * @syscap SystemCapability.Web.Webview.Core
      */
     class WebStorage {
         /**
@@ -84,7 +84,7 @@ declare namespace web {
      * Provides methods for managing web database.
      * @name WebDataBase
      * @since 9
-     * @syscap SystemCapability.Web
+     * @syscap SystemCapability.Web.Webview.Core
      */
     class WebDataBase {
         /**
@@ -124,4 +124,4 @@ declare namespace web {
       }
 }
 
-export default web;
+export default webview;
