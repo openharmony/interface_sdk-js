@@ -34,26 +34,6 @@ declare namespace windowAnimationManager {
   function setController(controller: WindowAnimationController): void;
 
   /**
-   * Minimize the window target.
-   *
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @param windowTarget The window target to be minimized.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function minimizeWindow(windowTarget: WindowAnimationTarget): void;
-
-  /**
-   * Minimize the window targets.
-   *
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @param windowTarget The window targets to be minimized.
-   * @systemapi Hide this for inner system use.
-   * @since 9
-   */
-  function minimizeWindows(windowTargets: Array<WindowAnimationTarget>): void;
-
-  /**
    * Minimize the window target with animation.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -63,7 +43,7 @@ declare namespace windowAnimationManager {
    * @since 9
    */
   function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
-    finishCallback: AsyncCallback<WindowAnimationFinishedCallback>): void;
+    callback: AsyncCallback<WindowAnimationFinishedCallback>): void;
 
   /**
    * Minimize the window target with animation.
