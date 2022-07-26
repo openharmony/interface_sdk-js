@@ -20,7 +20,6 @@ import { AsyncCallback } from './basic';
  * @since 8
  * @syscap SystemCapability.Sensors.MiscDevice
  * @import import vibrator from '@ohos.vibrator'
- * @permission ohos.permission.VIBRATE
  */
 declare namespace vibrator {
     /**
