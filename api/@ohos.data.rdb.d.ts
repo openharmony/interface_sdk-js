@@ -187,7 +187,7 @@ declare namespace rdb {
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          */
-        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
 		
 		/**
@@ -201,7 +201,7 @@ declare namespace rdb {
          * @param columns Indicates the columns to remote query. If the value is null, the remote query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          */
-        remoteQuery(device: string, table: string, rdbPredicates: RdbPredicates | dataSharePredicates.DataSharePredicates, columns?: Array<string>, callback: AsyncCallback<ResultSet>): void;
+        remoteQuery(device: string, table: string, rdbPredicates: RdbPredicates | dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
         remoteQuery(device: string, table: string, rdbPredicates: RdbPredicates | dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSet>;
 
 
