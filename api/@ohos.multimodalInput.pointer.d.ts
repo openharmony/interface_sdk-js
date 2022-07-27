@@ -19,17 +19,17 @@ import { AsyncCallback } from "./basic";
 * 鼠标指针相关属性接口
 *
 * @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Mouse
-* @import import mouse from '@ohos.multimodalInput.mouse';
+* @syscap SystemCapability.MultimodalInput.Input.Pointer
+* @import import pointer from '@ohos.multimodalInput.pointer';
 */
 
-declare namespace mouse {
+declare namespace pointer {
 
   /**
    * Sets whether the pointer icon is visible.
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible, 
    * and the value false indicates the opposite.
    */
@@ -40,7 +40,7 @@ declare namespace mouse {
    * Checks whether the pointer icon is visible.
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
@@ -49,7 +49,7 @@ declare namespace mouse {
    * 进入鼠标捕获模式
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId 窗口id
    */
   function  enterCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
@@ -59,11 +59,11 @@ declare namespace mouse {
    * 退出鼠标捕获模式
    *
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Mouse
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId 窗口id
    */
    function  leaveCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
    function  leaveCaptureMode(windowId: number) : Promise<void>;
 }
 
-export default mouse;
+export default pointer;
