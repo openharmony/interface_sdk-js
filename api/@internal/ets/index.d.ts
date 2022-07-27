@@ -13,5 +13,6 @@
  * limitations under the License.
  */
 
+export * from './featureability';
 export * from './global';
 export * from './lifecycle';

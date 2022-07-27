@@ -21,6 +21,7 @@ ohos_copy("ets_internal_api") {
     "api/@internal/ets/index.d.ts",
     "api/@internal/ets/lifecycle.d.ts",
     "api/@internal/global.d.ts",
+    "api/common/full/featureability.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
