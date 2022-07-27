@@ -14,7 +14,6 @@
 */
 
 import { AsyncCallback } from "./basic";
-import AbilityContext from "./application/AbilityContext";
 
 /**
 * 鼠标指针相关属性接口
@@ -46,14 +45,14 @@ declare namespace mouse {
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
   function isPointerVisible() : Promise<boolean>;
-
    /**
    * 进入鼠标捕获模式
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Mouse
-   * @param windowId.
+   * @param windowId 窗口id
    */
+  function  enterCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
   function  enterCaptureMode(windowId: number) : Promise<void>;
   
   /**
@@ -61,9 +60,10 @@ declare namespace mouse {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Mouse
-   * @param windowId.
+   * @param windowId 窗口id
    */
-  function  leaveCaptureMode(windowId : number) : Promise<void>;
+   function  leaveCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
+   function  leaveCaptureMode(windowId: number) : Promise<void>;
 }
 
 export default mouse;
