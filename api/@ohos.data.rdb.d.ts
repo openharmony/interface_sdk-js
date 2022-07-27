@@ -134,6 +134,7 @@ declare namespace rdb {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @param table Indicates the target table.
          * @param values Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
@@ -158,6 +159,7 @@ declare namespace rdb {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @param table Indicates the target table.
          * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
@@ -182,6 +184,7 @@ declare namespace rdb {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @systemapi
          * @param table Indicates the target table.
          * @param predicates Indicates the specified query condition by the instance object of DataSharePredicates.
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
