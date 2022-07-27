@@ -168,7 +168,7 @@ declare namespace deviceManager {
 
   /**
    * Service publish info for device discover
-   *
+   * @since 9
    * @systemapi this method can be used only by system applications.
    */
   interface PublishInfo {
@@ -196,36 +196,6 @@ declare namespace deviceManager {
      *  Whether the device should be ranged  by discoverers.
      */
     ranging : boolean;
-  }
-
-  /**
-   * Discovery filters
-   */
-  interface Filters {
-    /**
-     * Discovery filter type.
-     */
-    type: string;
-
-    /**
-     * Discovery filter value.
-     */
-    value:number;
-  }
-
-  /**
-   * Discovery filterOptions
-   */
-  interface FilterOptions {
-    /**
-     * Discovery filter_op (e.g "AND","OR"").
-     */
-    filter_op: string;
-
-    /**
-     * Discovery filters.
-     */
-    filters: Filters[];
   }
 
   /**
@@ -439,7 +409,7 @@ declare namespace deviceManager {
      * @param subscribeInfo subscribe info to discovery device
      * @systemapi this method can be used only by system applications.
      */
-    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions: FilterOptions): void;
+    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
 
     /**
      * Stop to discover device.
@@ -451,7 +421,7 @@ declare namespace deviceManager {
 
     /**
      * Publish discover device.
-     *
+     * @since 9
      * @param publishInfo publish info to Publish discovery device
      * @systemapi this method can be used only by system applications.
      */
@@ -459,7 +429,7 @@ declare namespace deviceManager {
 
     /**
      * UnPublish discover device.
-     *
+     * @since 9
      * @param publishId Service publish ID
      * @systemapi this method can be used only by system applications.
      */
