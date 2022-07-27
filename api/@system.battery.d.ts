@@ -16,17 +16,20 @@
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 3
+ * @deprecated since 9
  */
  export interface BatteryResponse {
     /**
      * Whether the battery is being charged.
      * @since 3
+     * @deprecated since 9
      */
     charging: boolean;
 
     /**
      * Current battery level, which ranges from 0.00 to 1.00.
      * @since 3
+     * @deprecated since 9
      */
     level: number;
 }
@@ -34,23 +37,27 @@
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 3
+ * @deprecated since 9
  */
 export interface GetStatusOptions {
     /**
      * Called when the current charging state and battery level are obtained.
      * @since 3
+     * @deprecated since 9
      */
     success?: (data: BatteryResponse) => void;
 
     /**
      * Called when the current charging state and battery level fail to be obtained.
      * @since 3
+     * @deprecated since 9
      */
     fail?: (data: string, code: number) => void;
 
     /**
      * Called when the execution is completed.
      * @since 3
+     * @deprecated since 9
      */
     complete?: () => void;
 }
@@ -58,13 +65,14 @@ export interface GetStatusOptions {
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 3
- * @import battery from '@system.battery';
+ * @deprecated since 9
  */
 export default class Battery {
     /**
      * Obtains the current charging state and battery level.
      * @param options Options.
      * @since 3
+     * @deprecated since 9
      */
     static getStatus(options?: GetStatusOptions): void;
 }
