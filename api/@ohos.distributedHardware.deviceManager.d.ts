@@ -529,6 +529,7 @@ declare namespace deviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device publish success
      *
+     * @since 9
      * @param callback Indicates the device publish result callback to register.
      * @systemapi this method can be used only by system applications.
      */
@@ -537,6 +538,7 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @since 9
      * @param callback Indicates the device found result callback to register.
      * @systemapi this method can be used only by system applications.
      */
@@ -545,6 +547,7 @@ declare namespace deviceManager {
     /**
      * Register a device publish result callback so that the application can be notified when the device discover was failed
      *
+     * @since 9
      * @param callback Indicates the device publish result callback to register.
      * @systemapi this method can be used only by system applications.
      */
@@ -553,6 +556,7 @@ declare namespace deviceManager {
     /**
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
+     * @since 9
      * @param callback Indicates the device publish result callback to register.
      * @systemapi this method can be used only by system applications.
      */
