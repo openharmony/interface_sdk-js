@@ -442,7 +442,7 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      * @since 9
-     * @param publishId Service publish ID, should be the same as publishDeviceDiscovery's publishId of PublishInfo
+     * @param publishId Service publish ID, identify a publish opration, should be a unique id in package range
      * @systemapi this method can be used only by system applications.
      */
     unPublishDeviceDiscovery(publishId: number): void;
