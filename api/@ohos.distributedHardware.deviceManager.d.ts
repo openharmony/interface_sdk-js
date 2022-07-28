@@ -539,7 +539,7 @@ declare namespace deviceManager {
      * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @since 9
-     * @param callback Indicates the device found result callback to register.
+     * @param callback Indicates the device publish result callback to register.
      * @systemapi this method can be used only by system applications.
      */
      off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
