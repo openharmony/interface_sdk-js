@@ -417,6 +417,96 @@ declare class PermissionRequest {
 }
 
 /**
+* Defines the context menu param, related to {@link WebContextMenuParam} method.
+* @since 9
+*/
+declare class WebContextMenuParam {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * x.
+   * @return The context menu x coordinate.
+   * 
+   * @since 9
+   */
+  x(): number;
+
+  /**
+   * y.
+   * @return The context menu y coordinate.
+   * 
+   * @since 9
+   */
+  y(): number;
+
+  /**
+   * getLinkUrl.
+   * @return If relate to a link return link url, else return null.
+   * 
+   * @since 9
+   */
+  getLinkUrl(): string;
+
+  /**
+   * getUnfilterendLinkUrl.
+   * @return If relate to a link return unfilterend link url, else return null.
+   * 
+   * @since 9
+   */
+  getUnfilterendLinkUrl(): string;
+
+  /**
+   * getSourceUrl.
+   * @return If this context menu is "src" attribute, return link url, else return null.
+   * 
+   * @since 9
+   */
+  getSourceUrl(): string;
+
+  /**
+   * existsImageContents.
+   * @return Return whether this context menu has image content.
+   * 
+   * @since 9
+   */
+  existsImageContents(): boolean;
+}
+
+/**
+ * Defines the contest menu result, related to {@link WebContextMenuResult} method.
+ * @since 9
+ */
+declare class WebContextMenuResult {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * closeContextMenu.
+   * When close context menu without other call in WebContextMenuResult,
+   * User should call this function to close menu
+   * 
+   * @since 9
+   */
+  closeContextMenu(): void;
+
+  /**
+   * copyImage.
+   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
+   * If WebContextMenuParam has not image content, this function will do nothing. 
+   * 
+   * @since 9
+   */
+  copyImage(): void;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -1431,6 +1521,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
+
+  /**
+   * Triggered when called to allow custom display of the context menu.
+   * @param callback The triggered callback when called to allow custom display of the context menu.
+   *
+   * @return If custom display return true.Otherwise, default display return false.
+   * @since 9
+   */
+  onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
