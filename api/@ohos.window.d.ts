@@ -14,7 +14,9 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './application/BaseContext';
-import { LocalStorage } from './@internal/component/ets/stateManagement'
+import { LocalStorage } from './@internal/component/ets/stateManagement';
+import image from './@ohos.multimedia.image';
+
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -934,6 +936,22 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
+     * register the callback of screenshot, only the focused window called back
+     * @param type: 'screenshot'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    on(type: 'screenshot', callback: Callback<void>): void;
+
+     /**
+      * unregister the callback of screenshot
+      * @param type: 'screenshot'
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 9
+      */
+    off(type: 'screenshot', callback?: Callback<void>): void;
+
+    /**
      * Whether the window supports thr wide gamut setting.
      * @since 8
      */
@@ -1120,6 +1138,20 @@ declare namespace window {
      * @since 9
      */
     setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
+
+    /**
+     * Obtains snapshot of window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    snapshot(callback: AsyncCallback<image.PixelMap>): void;
+
+     /**
+      * Obtains snapshot of window
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 9
+      */
+    snapshot(): Promise<image.PixelMap>;
   }
   /**
    * window stage callback event type
