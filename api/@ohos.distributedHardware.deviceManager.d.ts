@@ -52,6 +52,7 @@ declare namespace deviceManager {
     networkId: string;
 
     /**
+     * @since 9
      * The distance of dicovered device, in centimeters(cm).
      */
     range: number;
@@ -406,7 +407,18 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
+     * @since 8
      * @param subscribeInfo subscribe info to discovery device
+     * @systemapi this method can be used only by system applications.
+     */
+    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
+
+    /**
+     * Start to discover device.
+     *
+     * @since 9
+     * @param subscribeInfo subscribe info to discovery device
+     * @param filterOptions filterOptions to filter discovery device
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
