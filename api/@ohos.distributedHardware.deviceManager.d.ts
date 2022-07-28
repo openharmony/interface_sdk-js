@@ -545,7 +545,7 @@ declare namespace deviceManager {
      off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
 
     /**
-     * Register a device publish result callback so that the application can be notified when the device discover was failed
+     * Register a device publish result callback so that the application can be notified when the device publish was failed
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
