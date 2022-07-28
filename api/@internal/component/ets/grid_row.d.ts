@@ -179,7 +179,7 @@ declare interface GridRowOptions {
      * grid-container layout column spacing.
      * @since 9
      */
-    gutter?: GetterOption;
+    gutter?: Length | GetterOption;
 
     /**
      * Sets the total number of columns in the current layout.
@@ -214,18 +214,6 @@ interface GridRowInterface {
 }
 
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
-    /**
-    * Set the alignment of sub components in the vertical direction
-    * @since 9
-    */
-    verticalAlign(value: VerticalAlign): GridRowAttribute;
-
-    /**
-    * Set the alignment of sub components in the horizontal direction
-    * @since 9
-    */
-    horizontalAlign(value: HorizontalAlign): GridRowAttribute;
-
     /**
     * Callback triggered when the breakpoint changes
     * @since 9

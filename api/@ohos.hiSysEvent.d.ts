@@ -23,7 +23,6 @@ import { AsyncCallback } from './basic';
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
  * @import import hiSysEvent from '@ohos.hiSysEvent'
- * @permission ohos.permission.READ_DFX_SYSEVENT
  * @since 9
  */
 declare namespace hiSysEvent {
@@ -77,7 +76,7 @@ declare namespace hiSysEvent {
   /**
    * Definition of written system event information.
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -106,7 +105,7 @@ declare namespace hiSysEvent {
   /**
    * Write system event.
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @static
    * @param {SysEventInfo} info system event information to be written.
@@ -122,7 +121,7 @@ declare namespace hiSysEvent {
    *
    * @enum {number}
    * @readonly
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -130,7 +129,7 @@ declare namespace hiSysEvent {
     /**
      * whole word match
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
      */
@@ -139,7 +138,7 @@ declare namespace hiSysEvent {
     /**
      * prefix match
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
      */
@@ -148,7 +147,7 @@ declare namespace hiSysEvent {
     /**
      * regular match
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since 9
      */
@@ -158,7 +157,7 @@ declare namespace hiSysEvent {
   /**
    * Definition listener rule for system event information.
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -187,7 +186,7 @@ declare namespace hiSysEvent {
   /**
    * Definition wathcer for system event information.
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -200,7 +199,7 @@ declare namespace hiSysEvent {
      /**
      * receive system event.
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo} info system event information of receive.
      * @return {void} return void.
@@ -211,7 +210,7 @@ declare namespace hiSysEvent {
     /**
      * hisysevent service shutdown.
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @return {void} return void.
      * @since 9
@@ -224,7 +223,7 @@ declare namespace hiSysEvent {
    *
    * @enum {number}
    * @readonly
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -248,7 +247,7 @@ declare namespace hiSysEvent {
   /**
    * Definition event for query system event information
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -267,7 +266,7 @@ declare namespace hiSysEvent {
   /**
    * Definition query result handler
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
@@ -275,7 +274,7 @@ declare namespace hiSysEvent {
     /**
      * handle query result, the query result will be send in serval times.
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
      * @param {number[]} seqs sequeue of infos.
@@ -287,7 +286,7 @@ declare namespace hiSysEvent {
     /**
      * notify Querier execute query has finished.
      *
-     * @syscap SystemCapability.HiviewDFX.hiSysEvent
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {number} reason 0 success, 1 fail.
      * @param {number} total the total number of query result.
@@ -300,7 +299,7 @@ declare namespace hiSysEvent {
   /**
    * add watcher to watch system event
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
@@ -312,7 +311,7 @@ declare namespace hiSysEvent {
   /**
    * remove watcher
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} wathcer watch system event
@@ -324,7 +323,7 @@ declare namespace hiSysEvent {
   /**
    * query system event
    *
-   * @syscap SystemCapability.HiviewDFX.hiSysEvent
+   * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {QueryArg} queryArg common arguments of query system event

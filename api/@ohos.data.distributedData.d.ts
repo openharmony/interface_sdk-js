@@ -57,7 +57,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @Note: if swap the area, you should close all the KV store and use the new Context to create the KVManager
-         * @StageModelOnly
          */
         context: Context;
     }

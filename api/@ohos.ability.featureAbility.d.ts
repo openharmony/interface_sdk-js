@@ -18,9 +18,11 @@ import { Callback } from './basic';
 import Want from './@ohos.application.want';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { AbilityResult } from './ability/abilityResult';
+import { AppVersionInfo as _AppVersionInfo } from './app/appVersionInfo';
 import { Context as _Context } from './app/context';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { ConnectOptions } from './ability/connectOptions';
+import { ProcessInfo as _ProcessInfo } from './app/processInfo';
 import window from './@ohos.window';
 
 /**
@@ -224,6 +226,21 @@ declare namespace featureAbility {
    * @import import abilityManager from 'app/context'
    * @FAModelOnly
    */
-  export type Context = _Context  
+  export type Context = _Context
+
+  /**
+   * Defines an AppVersionInfo object.
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  export type AppVersionInfo = _AppVersionInfo
+
+  /**
+   * @name This class saves process information about an application
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @import import ProcessInfo from 'app/processInfo'
+   */
+  export type ProcessInfo = _ProcessInfo
 }
 export default featureAbility;

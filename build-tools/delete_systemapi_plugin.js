@@ -80,6 +80,115 @@ function writeFile(url, data, option) {
     }
   })
 }
+
+function formatImportDeclaration(url) {
+  return (context) => {
+    const allIdentifierSet = new Set([]);
+    let copyrightMessage = '';
+    let isCopyrightDeleted = false;
+    return (node) => {
+      sourceFile = node;
+      collectAllIdentifier(node);
+      node = formatAllNodes(node);
+      if (!isEmptyFile(node)) {
+        const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+        let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
+        if (isCopyrightDeleted) {
+          result = copyrightMessage + '\n' + result;
+        }
+        writeFile(url, result);
+      }
+      return node;
+    }
+    function collectAllIdentifier(node) {
+      if (ts.isSourceFile(node) && node.statements) {
+        node.statements.forEach(stat => {
+          if (!ts.isImportDeclaration(stat)) {
+            ts.visitEachChild(stat, collectAllNodes, context);
+          }
+        });
+      }
+    }
+    function collectAllNodes(node) {
+      if (ts.isIdentifier(node)) {
+        allIdentifierSet.add(node.escapedText.toString());
+      }
+      return ts.visitEachChild(node, collectAllNodes, context);
+    }
+    function formatAllNodes(node) {
+      if (ts.isSourceFile(node) && node.statements) {
+        const newStatements = [];
+        node.statements.forEach(statement => {
+          if (ts.isImportDeclaration(statement)) {
+            const clauseSet = new Set([]);
+            if (statement.importClause && ts.isImportClause(statement.importClause)) {
+              const clauseNode = statement.importClause;
+              if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
+                clauseSet.add(clauseNode.name.escapedText.toString());
+              } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
+                clauseNode.namedBindings.elements.forEach(ele => {
+                  if (ele.name && ts.isIdentifier(ele.name)) {
+                    clauseSet.add(ele.name.escapedText.toString());
+                  }
+                });
+              }
+            }
+            const importSpecifier = statement.moduleSpecifier.getText();
+            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier.replace(/[\'\"]/g, '')}.d.ts`);
+            if (fs.existsSync(importSpecifierRealPath) && clauseSet.size > 0) {
+              const clasueCheckList = [];
+              let exsitClauseSet = new Set([]);
+              for (const clause of clauseSet) {
+                if (allIdentifierSet.has(clause)) {
+                  exsitClauseSet.add(clause);
+                  clasueCheckList.push('exist');
+                } else {
+                  clasueCheckList.push('non-exist');
+                }
+              }
+              let hasExsitStatus = false;
+              let hasNonExsitStatus = false;
+              clasueCheckList.forEach(ele => {
+                if (ele === 'exist') {
+                  hasExsitStatus = true;
+                } else {
+                  hasNonExsitStatus = true;
+                }
+              });
+              if (hasExsitStatus) {
+                if (hasNonExsitStatus) {
+                  const newSpecifiers = [];
+                  statement.importClause.namedBindings.elements.forEach(element => {
+                    if (exsitClauseSet.has(element.name.escapedText.toString())) {
+                      newSpecifiers.push(element);
+                    }
+                  });
+                  statement.importClause.namedBindings = ts.factory.updateNamedImports(
+                    statement.importClause.namedBindings, newSpecifiers);
+                }
+                newStatements.push(statement);
+              } else if (hasCopyright(statement)) {
+                copyrightMessage = node.getFullText().replace(node.getText(), '');
+                isCopyrightDeleted = true;
+              }
+            } else if (hasCopyright(statement)) {
+              copyrightMessage = node.getFullText().replace(node.getText(), '');
+              isCopyrightDeleted = true;
+            }
+          } else {
+            newStatements.push(statement);
+          }
+        });
+        node = ts.factory.updateSourceFile(node, newStatements);
+      }
+      return node;
+    }
+    function hasCopyright(node) {
+      return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(node.getFullText().replace(node.getText(), ''));
+    }
+  }
+}
+
 function deleteSystemApi(url) {
   return (context) => {
     return (node) => {
@@ -89,7 +198,15 @@ function deleteSystemApi(url) {
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-        writeFile(url, result);
+        const fileName = path.basename(url).replace(/.d.ts/g, '.ts');
+        ts.transpileModule(result, {
+          compilerOptions: {
+            "target": ts.ScriptTarget.ES2017
+          },
+          fileName: fileName,
+          transformers: { before: [formatImportDeclaration(url)] }
+        });
+        // writeFile(url, result);
       }
       return node;
     }

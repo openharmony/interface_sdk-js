@@ -375,11 +375,23 @@ declare namespace bundle {
      */
     ENTERPRISE_ADMIN = 11,
     /**
+     * @default Indicates extension info with type of thumbnail
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    THUMBNAIL = 13,
+    /**
+     * @default Indicates extension info with type of preview
+     * @since 9
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     */
+    PREVIEW = 14,
+    /**
      * @default Indicates extension info with type of unspecified
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    UNSPECIFIED = 20,
+    UNSPECIFIED = 255,
   }
 
   /**
@@ -896,7 +908,7 @@ declare namespace bundle {
    * @systemapi Hide this for inner system use
    */
   function setDisposedStatus(bundleName: string, status: number, callback: AsyncCallback<void>): void;
-  function setDisposedStatus(bundleName: string, status: number,): Promise<void>;
+  function setDisposedStatus(bundleName: string, status: number): Promise<void>;
 
   /**
    * Obtains the disposed status of a specified bundle.
