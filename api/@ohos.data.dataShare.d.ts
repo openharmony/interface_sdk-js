@@ -40,6 +40,23 @@ declare namespace dataShare {
      * @StageModelOnly
      */
     interface DataShareHelper {
+         /**
+         * Opens a file in a specified remote path.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @param uri Indicates the path of the file to open.
+         * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
+         *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
+         *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
+         *             any existing data, or "rwt" for read and write access that truncates any existing file.
+         * @param callback Indicates the callback when openfile success
+         * @return Returns the file descriptor.
+         * @StageModelOnly
+         */
+        openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
+        openFile(uri: string, mode: string): Promise<number>;
+
         /**
          * Registers an observer to observe data specified by the given uri.
          * @since 9
