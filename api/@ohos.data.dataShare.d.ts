@@ -38,23 +38,6 @@ declare namespace dataShare {
      * @StageModelOnly
      */
     interface DataShareHelper {
-         /**
-         * Opens a file in a specified remote path.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @param uri Indicates the path of the file to open.
-         * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
-         *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
-         *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
-         *             any existing data, or "rwt" for read and write access that truncates any existing file.
-         * @param callback Indicates the callback when openfile success
-         * @return Returns the file descriptor.
-         * @StageModelOnly
-         */
-        openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
-        openFile(uri: string, mode: string): Promise<number>;
-
         /**
          * Registers an observer to observe data specified by the given uri.
          * @since 9
@@ -140,32 +123,6 @@ declare namespace dataShare {
          */
         batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
         batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
-
-        /**
-         * Obtains the MIME type of the date specified by the given uri.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @param uri Indicates the path of the data to operate.
-         * @return Returns the MIME type that matches the data specified by uri.
-         * @StageModelOnly
-         */
-        getType(uri: string, callback: AsyncCallback<string>): void;
-        getType(uri: string): Promise<string>;
-
-        /**
-         * Obtains the MIME types of files supported.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-         * @param uri Indicates the path of the files to obtain.
-         * @param mimeTypeFilter Indicates the MIME types of the files to obtain. This parameter cannot be null.
-         *                       <p>1. "&ast;/*": Obtains all types supported by Data abilities.
-         *                       <p>2. "image/*": Obtains files whose main type is image of any subtype.
-         *                       <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
-         * @return Returns the matched MIME types. If there is no match, {@code null} is returned.
-         * @StageModelOnly
-         */
-        getFileTypes(uri: string,  mimeTypeFilter:string, callback: AsyncCallback<Array<string>>): void;
-        getFileTypes(uri: string,  mimeTypeFilter: string): Promise<Array<string>>;
 
         /**
          * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
