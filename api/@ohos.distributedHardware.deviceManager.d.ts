@@ -411,7 +411,7 @@ declare namespace deviceManager {
      * @param subscribeInfo subscribe info to discovery device
      * @systemapi this method can be used only by system applications.
      */
-    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
+    startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
 
     /**
      * Start to discover device.
