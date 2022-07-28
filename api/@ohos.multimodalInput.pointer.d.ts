@@ -45,6 +45,27 @@ declare namespace pointer {
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
   function isPointerVisible() : Promise<boolean>;
+
+  /**
+   * 设置窗口鼠标图标是否显示
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param visible 为 true 鼠标图标显示; false 鼠标图标隐藏
+   */
+  function setWindowPointerVisible(visible: boolean, callback: AsyncCallback<void>) : void;
+  function setWindowPointerVisible(visible: boolean) : Promise<void>;
+   
+  /**
+   * 判断窗口鼠标图标是否显示
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @return 返回true 鼠标图标显示; false 鼠标图标隐藏
+   */
+  function isWindowPointerVisible(callback: AsyncCallback<boolean>) : void;
+  function isWindowPointerVisible() : Promise<boolean>;
+
    /**
    * 进入鼠标捕获模式
    *
@@ -54,7 +75,7 @@ declare namespace pointer {
    */
   function  enterCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
   function  enterCaptureMode(windowId: number) : Promise<void>;
-  
+
   /**
    * 退出鼠标捕获模式
    *
