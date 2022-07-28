@@ -127,7 +127,14 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-    TYPE_POINTER
+    TYPE_POINTER,
+    /**
+     * float camera.
+     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @since 9
+     * @StageModelOnly
+     */
+     TYPE_FLOAT_CAMERA
   }
 
   /**
@@ -1120,7 +1127,7 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
-    
+
     /**
      * set the flag of the window is forbidden to move in split screen mode
      * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
