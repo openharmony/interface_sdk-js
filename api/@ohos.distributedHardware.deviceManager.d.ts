@@ -17,7 +17,7 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Providers interfaces to create a {@link deviceManager} instances.
- * 
+ *
  * @since 7
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * 
@@ -46,7 +46,7 @@ declare namespace deviceManager {
 
     /**
      * NetworkId of the device.
-     * 
+     *
      * @since 8
      */
     networkId: string;
@@ -319,7 +319,7 @@ declare namespace deviceManager {
      * the token used for this authentication.
      */
     token: number;
-    
+
     /**
      * Authentication extra infos.
      */
@@ -344,7 +344,7 @@ declare namespace deviceManager {
   interface DeviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
-     * 
+     *
      * @systemapi this method can be used only by system applications.
      */
     release(): void;
@@ -442,7 +442,7 @@ declare namespace deviceManager {
     /**
      * UnPublish discover device.
      * @since 9
-     * @param publishId Service publish ID
+     * @param publishId Service publish ID, should be the same as publishDeviceDiscovery's publishId of PublishInfo
      * @systemapi this method can be used only by system applications.
      */
     unPublishDeviceDiscovery(publishId: number): void;
