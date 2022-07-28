@@ -88,6 +88,21 @@ declare namespace AbilityConstant {
         REJECT = 1,
         MISMATCH = 2,
     }
+
+    /**
+     * Type of window mode.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export enum WindowMode {
+        WINDOW_MODE_UNDEFINED = 0,
+        WINDOW_MODE_FULLSCREEN = 1,
+        WINDOW_MODE_SPLIT_PRIMARY = 100,
+        WINDOW_MODE_SPLIT_SECONDARY = 101,
+        WINDOW_MODE_FLOATING = 102,
+    }
 }
 
 export default AbilityConstant
