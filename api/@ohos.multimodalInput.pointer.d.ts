@@ -45,48 +45,7 @@ declare namespace pointer {
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
   function isPointerVisible() : Promise<boolean>;
-
-  /**
-   * 设置窗口鼠标图标是否显示
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param visible 为 true 鼠标图标显示; false 鼠标图标隐藏
-   * @param windowId 窗口id
-   */
-  function setWindowPointerVisible(windowId: number, visible: boolean, callback: AsyncCallback<void>) : void;
-  function setWindowPointerVisible(windowId: number, visible: boolean) : Promise<void>;
-   
-  /**
-   * 判断窗口鼠标图标是否显示
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param windowId 窗口id
-   * @return 返回true 鼠标图标显示; false 鼠标图标隐藏
-   */
-  function isWindowPointerVisible(windowId: number, callback: AsyncCallback<boolean>) : void;
-  function isWindowPointerVisible(windowId: number) : Promise<boolean>;
-
-   /**
-   * 进入鼠标捕获模式
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param windowId 窗口id
-   */
-  function  enterCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
-  function  enterCaptureMode(windowId: number) : Promise<void>;
-
-  /**
-   * 退出鼠标捕获模式
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @param windowId 窗口id
-   */
-   function  leaveCaptureMode(windowId: number, callback: AsyncCallback<void>) : void;
-   function  leaveCaptureMode(windowId: number) : Promise<void>;
+  
 }
 
 export default pointer;
