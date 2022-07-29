@@ -1114,7 +1114,7 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?:Length;
+   arrowOffset?: Length;
 }
 
 /**
@@ -1168,7 +1168,7 @@ declare interface CustomPopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-   arrowOffset?:Length;
+   arrowOffset?: Length;
 }
 
 /**
