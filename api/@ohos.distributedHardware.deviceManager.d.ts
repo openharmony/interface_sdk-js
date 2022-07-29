@@ -54,6 +54,8 @@ declare namespace deviceManager {
 
   /**
    * Device Type definitions
+   * 
+   * @systemapi this method can be used only by system applications.
    */
   enum DeviceType {
     /**
@@ -390,7 +392,7 @@ declare namespace deviceManager {
      * @param callback Indicates the callback to be invoked upon authenticateDevice
      * @systemapi this method can be used only by system applications.
      */
-    authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
+    authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinToken ?: number}>): void;
 
     /**
      * unAuthenticate the specified device.
