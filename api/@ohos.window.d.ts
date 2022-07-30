@@ -1128,6 +1128,15 @@ declare namespace window {
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
     /**
+     * Sets whether to wake up the screen when this ability is restored.
+     * @param wakeUp Specifies whether to wake up the screen. True means to wake it up, false means not.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setWakeUpScreen(wakeUp: boolean): void;
+
+    /**
     * Sets whether outside can be touch or not.
     * @param touchable outside can be touch if true, or not if false.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1325,6 +1334,7 @@ declare namespace window {
      * Sets whether can show on lock screen or not
      * @param showOnLockScreen can show on lock screen if true, or not if false
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      * @StageModelOnly
      */
