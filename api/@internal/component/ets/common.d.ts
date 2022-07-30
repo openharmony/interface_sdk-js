@@ -1388,6 +1388,24 @@ declare class CommonMethod<T> {
   tabIndex(index: number): T;
 
   /**
+   * Set default focused component when a page create.
+   * @since 9
+   */
+  defaultFocus(value: boolean): T;
+
+  /**
+   * Set default focused component when focus on a focus group.
+   * @since 9
+   */
+  groupDefaultFocus(value: boolean): T;
+
+  /**
+   * Set a component focused when the component be touched.
+   * @since 9
+   */
+  focusOnTouch(value: boolean): T;
+
+  /**
    * animation
    * @since 7
    */
