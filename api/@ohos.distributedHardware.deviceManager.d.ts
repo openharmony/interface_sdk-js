@@ -189,11 +189,6 @@ declare namespace deviceManager {
     freq: ExchangeFreq;
 
     /**
-     * Publish capability.
-     */
-    capability: SubscribeCap;
-
-    /**
      *  Whether the device should be ranged  by discoverers.
      */
     ranging : boolean;
@@ -206,12 +201,16 @@ declare namespace deviceManager {
    */
   enum DiscoverMode {
     /**
-     * Passive
+     * when using this key at client side, it means discovering for available nearby devices by 
+     * calling @startDeviceDiscovery function, while using this key at server side indicating that
+     * a device publication or advertisement by calling @publishDeviceDiscovery.
      */
     DISCOVER_MODE_PASSIVE = 0x55,
 
     /**
-     * Proactive
+     * when using this key at server side, it means discovering for available nearby devices by 
+     * calling @startDeviceDiscovery function, while using this key at client side indicating that
+     * a device publication or advertisement by calling @publishDeviceDiscovery.
      */
     DISCOVER_MODE_ACTIVE = 0xAA
   }
