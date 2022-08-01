@@ -118,6 +118,18 @@ declare namespace rdb {
         insert(table: string, values: ValuesBucket): Promise<number>;
 
         /**
+         * Inserts a batch of data into the target table.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @param table Indicates the target table.
+         * @param values Indicates the rows of data to be inserted into the table.
+         * @return Returns the number of values that were inserted if the operation is successful; returns -1 otherwise.
+         */
+        batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+        batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+
+        /**
          * Updates data in the database based on a a specified instance object of rdbPredicates.
          *
          * @since 7
