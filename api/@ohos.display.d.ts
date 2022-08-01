@@ -52,6 +52,14 @@ declare namespace display {
   function getAllDisplay(): Promise<Array<Display>>;
 
   /**
+   * Check whether there is a privacy window on the current display.
+   * @param displayId Display id to query
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function hasPrivateWindow(displayId: number): boolean;
+
+  /**
    * Register the callback for display changes.
    * @param type: type of callback
    * @since 7

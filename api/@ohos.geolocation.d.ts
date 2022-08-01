@@ -659,7 +659,7 @@ declare namespace geolocation {
          * Indicates whether it is an mock GeoAddress
          * @since 9
          */
-        isFromMock: Boolean;
+        isFromMock?: Boolean;
     }
 
     /**
@@ -767,7 +767,7 @@ declare namespace geolocation {
          * Indicates whether it is an mock location.
          * @since 9
          */
-        isFromMock: Boolean;
+        isFromMock?: Boolean;
     }
 
     /**

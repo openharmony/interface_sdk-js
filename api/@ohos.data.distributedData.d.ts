@@ -1130,6 +1130,7 @@ declare namespace distributedData {
          * 
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param value Indicates the data record to put.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1157,6 +1158,7 @@ declare namespace distributedData {
          * Deletes the key-value pair based on a specified key.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1388,6 +1390,7 @@ declare namespace distributedData {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1649,6 +1652,7 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param predicates Indicates the datasharePredicates.
+         * @systemapi
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1661,6 +1665,7 @@ declare namespace distributedData {
          * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the key.
          * @param deviceId Indicates the ID of the device to which the results belong.
          * Spaces before and after the key will be cleared.

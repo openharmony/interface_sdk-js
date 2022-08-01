@@ -14,7 +14,10 @@
 */
 import { AsyncCallback, Callback } from './basic' ;
 import { Context } from  './application/BaseContext';
-import { LocalStorage } from './@internal/component/ets/stateManagement'
+import { LocalStorage } from './@internal/component/ets/stateManagement';
+import image from './@ohos.multimedia.image';
+import rpc from './@ohos.rpc';
+
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -125,7 +128,28 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-    TYPE_POINTER
+    TYPE_POINTER,
+    /**
+     * float camera.
+     * @permission ohos.permission.SYSTEM_FLOAT_WINDOW
+     * @since 9
+     * @StageModelOnly
+     */
+     TYPE_FLOAT_CAMERA,
+     /**
+     * dialog.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_DIALOG,
+    /**
+     * screenshot.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_SCREENSHOT
   }
 
   /**
@@ -934,6 +958,56 @@ declare namespace window {
     off(type: 'touchOutside', callback?: Callback<void>): void;
 
     /**
+     * register the callback of screenshot, only the focused window called back
+     * @param type: 'screenshot'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    on(type: 'screenshot', callback: Callback<void>): void;
+
+     /**
+      * unregister the callback of screenshot
+      * @param type: 'screenshot'
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 9
+      */
+    off(type: 'screenshot', callback?: Callback<void>): void;
+
+    /**
+     * register the callback of dialogTargetTouch
+     * @param type: 'dialogTargetTouch'
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    on(type: 'dialogTargetTouch', callback: Callback<void>): void;
+
+     /**
+      * unregister the callback of dialogTargetTouch
+      * @param type: 'dialogTargetTouch'
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 9
+      */
+    off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
+
+    /**
+     * bind dialog to the target window.
+     * @param token token of the target window.
+     * @param deathCallback the callback of dialogDeath.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>): Promise<void>;
+
+     /**
+      * bind dialog to the target window.
+      * @param token token of the target window.
+      * @param deathCallback the callback of dialogDeath.
+      * @systemapi Hide this for inner system use.
+      * @since 9
+      */
+    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>);
+
+    /**
      * Whether the window supports thr wide gamut setting.
      * @since 8
      */
@@ -1054,6 +1128,15 @@ declare namespace window {
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
     /**
+     * Sets whether to wake up the screen when this ability is restored.
+     * @param wakeUp Specifies whether to wake up the screen. True means to wake it up, false means not.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setWakeUpScreen(wakeUp: boolean): void;
+
+    /**
     * Sets whether outside can be touch or not.
     * @param touchable outside can be touch if true, or not if false.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1088,6 +1171,15 @@ declare namespace window {
     setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
     /**
+     * Ignore this window during screenshot.
+     * @param isSkip skip if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setSnapshotSkip(isSkip: boolean): void;
+
+    /**
      * Sets whether is touchable or not.
      * @param isTouchable is touchable if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1102,7 +1194,7 @@ declare namespace window {
      * @since 7
      */
     setTouchable(isTouchable: boolean, callback: AsyncCallback<void>): void;
-    
+
     /**
      * set the flag of the window is forbidden to move in split screen mode
      * @param isForbidSplitMove the flag of the window is forbidden to move in split screen mode
@@ -1120,6 +1212,20 @@ declare namespace window {
      * @since 9
      */
     setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
+
+    /**
+     * Obtains snapshot of window
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    snapshot(callback: AsyncCallback<image.PixelMap>): void;
+
+     /**
+      * Obtains snapshot of window
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 9
+      */
+    snapshot(): Promise<image.PixelMap>;
   }
   /**
    * window stage callback event type
@@ -1228,6 +1334,7 @@ declare namespace window {
      * Sets whether can show on lock screen or not
      * @param showOnLockScreen can show on lock screen if true, or not if false
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      * @StageModelOnly
      */

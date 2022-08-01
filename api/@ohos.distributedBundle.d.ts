@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './basic';
 import { ElementName }  from './bundle/elementName';
-import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
+import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
 
 /**
  * distributedBundle.
@@ -79,4 +79,14 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    */
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
+
+  /**
+   * Contains basic remote ability information.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
+export default distributedBundle;
