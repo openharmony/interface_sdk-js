@@ -24,6 +24,7 @@ declare namespace dataShare {
      * Obtains the dataShareHelper.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
      * @param context Indicates the application context.
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
@@ -35,6 +36,7 @@ declare namespace dataShare {
      * DataShareHelper
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
      * @StageModelOnly
      */
     interface DataShareHelper {
@@ -59,6 +61,7 @@ declare namespace dataShare {
          * Registers an observer to observe data specified by the given uri.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param type dataChange.
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the callback when dataChange.
@@ -71,6 +74,7 @@ declare namespace dataShare {
          * Deregisters an observer used for monitoring data specified by the given uri.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param type dataChange.
          * @param uri Indicates the path of the data to operate.
          * @param callback Indicates the registered callback.
@@ -83,6 +87,7 @@ declare namespace dataShare {
          * Inserts a single data record into the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of the data to operate.
          * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
          * @return Returns the index of the inserted data record.
@@ -95,6 +100,7 @@ declare namespace dataShare {
          * Deletes one or more data records from the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of the data to operate.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records deleted.
@@ -107,6 +113,7 @@ declare namespace dataShare {
          * Queries data in the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of data to query.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
@@ -120,6 +127,7 @@ declare namespace dataShare {
          * Updates data records in the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of data to update.
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @param value Indicates the data to update. This parameter can be null.
@@ -133,6 +141,7 @@ declare namespace dataShare {
          * Inserts multiple data records into the database.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of the data to operate.
          * @param values Indicates the data records to insert.
          * @return Returns the number of data records inserted.
@@ -145,6 +154,7 @@ declare namespace dataShare {
          * Obtains the MIME type of the date specified by the given uri.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of the data to operate.
          * @return Returns the MIME type that matches the data specified by uri.
          * @StageModelOnly
@@ -156,6 +166,7 @@ declare namespace dataShare {
          * Obtains the MIME types of files supported.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the path of the files to obtain.
          * @param mimeTypeFilter Indicates the MIME types of the files to obtain. This parameter cannot be null.
          *                       <p>1. "&ast;/*": Obtains all types supported by Data abilities.
@@ -175,6 +186,7 @@ declare namespace dataShare {
          * to convert it to a denormalized uri that can be used only in the current environment.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to normalize.
          * @return Returns the normalized {@code Uri} object if the DataShare supports uri normalization;
          * returns {@code null} otherwise.
@@ -190,6 +202,7 @@ declare namespace dataShare {
          * Converts the given normalized {@code uri} generated by {@link #normalizeUri(Uri)} into a denormalized one.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to denormalize.
          * @return Returns the denormalized {@code Uri} object if the denormalization is successful; returns the
          * original {@code Uri} passed to this method if there is nothing to do; returns {@code null} if the data
@@ -206,6 +219,7 @@ declare namespace dataShare {
          * Notifies the registered observers of a change to the data resource specified by Uri.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
          * @param uri Indicates the {@link ohos.utils.net.Uri} object to notifyChange.
          * @return -
          * @StageModelOnly
