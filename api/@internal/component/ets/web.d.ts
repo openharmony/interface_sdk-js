@@ -369,6 +369,54 @@ declare class HttpAuthHandler {
 }
 
 /**
+ * Defines the accessible resource type, related to {@link onPermissionRequest} method.
+ * @since 9
+ */
+declare enum ProtectedResourceType {
+  /**
+   * The MidiSysex resource.
+   * @since 9
+   */
+  MidiSysex = "TYPE_MIDI_SYSEX"
+}
+
+/**
+ * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * @since 9
+ */
+declare class PermissionRequest {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Reject the request.
+   * @since 9
+   */
+  deny(): void;
+
+  /**
+   * Gets the source if the webpage that attempted to access the restricted resource.
+   * @since 9
+   */
+  getOrigin(): string;
+
+  /**
+   * Gets the resource that the webpage is trying to access.
+   * @since 9
+   */
+  getAccessibleResource(): Array<string>;
+
+  /**
+   * Grant origin access to a given resource.
+   * @since 9
+   */
+  grant(resources: Array<string>): void;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -1374,6 +1422,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
+
+  /**
+   * Triggered when the host application that web content from the specified origin is attempting to access the resources.
+   * @param callback The triggered callback when the host application that web content from the specified origin is
+   *     attempting to access the resources.
+   *
+   * @since 9
+   */
+  onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
