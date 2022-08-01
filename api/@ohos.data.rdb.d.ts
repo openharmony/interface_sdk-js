@@ -195,8 +195,8 @@ declare namespace rdb {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-		 * @param device Indicates specified remote device.
-		 * @param table Indicates the target table.
+         * @param device Indicates specified remote device.
+         * @param table Indicates the target table.
          * @param predicates Indicates the specified remote query condition by the instance object of RdbPredicates.
          * @param columns Indicates the columns to remote query. If the value is undefined or null, the remote query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
