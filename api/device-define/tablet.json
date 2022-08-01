@@ -151,6 +151,6 @@
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Test.UiTest",
-    "SystemCapability.Web"
+    "SystemCapability.Web.Webview.Core"
   ]
 }
