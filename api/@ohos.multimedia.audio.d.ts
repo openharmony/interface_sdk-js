@@ -615,6 +615,35 @@ declare namespace audio {
     rendererFlags: number;
   }
 
+  /** Describes audio renderer filter.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   */
+  interface AudioRendererFilter {
+    /**
+     * Application uid.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    uid: number;
+    /**
+     * Renderer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    rendererInfo?: AudioRendererInfo;
+    /**
+     * AudioRenderer id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    rendererId?: number;
+  }
+
   /**
    * Describes audio renderer configuration options.
    * @since 8
@@ -1322,6 +1351,70 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getStreamManager(): Promise<AudioStreamManager>;
+
+    /**
+     * Obtains an AudioRoutingManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
+
+    /**
+      * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
+      * @param callback Callback used to return the result.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Audio.Device
+      */
+    getRoutingManager(): Promise<AudioRoutingManager>;
+  }
+
+  /**
+   * Implements audio router management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   */
+  interface AudioRoutingManager {
+    /**
+     * Select the output device. This method uses an asynchronous callback to return the result.
+     * @param outputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the output device. This method uses a promise to return the result.
+     * @param outputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Select the output device with desired AudioRenderer. This method uses an asynchronous callback to return the result.
+     * @param filter Filter for AudioRenderer.
+     * @param outputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
+     * @param filter Filter for AudioRenderer.
+     * @param outputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
   }
 
   /**
