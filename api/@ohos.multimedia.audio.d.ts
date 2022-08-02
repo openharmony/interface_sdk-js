@@ -22,7 +22,7 @@ import {ErrorCallback, AsyncCallback, Callback} from './basic';
  */
 declare namespace audio {
   /**
-  * Define local device net work id for audio
+  * Define local device network id for audio
   * @since 9
   * @syscap SystemCapability.Multimedia.Audio.Device
   * @systemapi
@@ -1726,7 +1726,7 @@ declare namespace audio {
      */
     readonly channelMasks: Array<number>;
     /**
-     * Distributed device id
+     * Network id
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
