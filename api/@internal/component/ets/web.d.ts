@@ -428,7 +428,7 @@ declare class WebContextMenuParam {
   constructor();
 
   /**
-   * x.
+   * Horizontal offset coordinates of the menu within the Web component.
    * @return The context menu x coordinate.
    * 
    * @since 9
@@ -436,7 +436,7 @@ declare class WebContextMenuParam {
   x(): number;
 
   /**
-   * y.
+   * Vertical offset coordinates for the menu within the Web component.
    * @return The context menu y coordinate.
    * 
    * @since 9
@@ -444,7 +444,7 @@ declare class WebContextMenuParam {
   y(): number;
 
   /**
-   * getLinkUrl.
+   * If the long-press location is the link returns the link's security-checked URL.
    * @return If relate to a link return link url, else return null.
    * 
    * @since 9
@@ -452,7 +452,7 @@ declare class WebContextMenuParam {
   getLinkUrl(): string;
 
   /**
-   * getUnfilterendLinkUrl.
+   * If the long-press location is the link returns the link's original URL.
    * @return If relate to a link return unfilterend link url, else return null.
    * 
    * @since 9
@@ -460,7 +460,7 @@ declare class WebContextMenuParam {
   getUnfilterendLinkUrl(): string;
 
   /**
-   * getSourceUrl.
+   * Returns the SRC URL if the selected element has a SRC attribute.
    * @return If this context menu is "src" attribute, return link url, else return null.
    * 
    * @since 9
@@ -468,7 +468,7 @@ declare class WebContextMenuParam {
   getSourceUrl(): string;
 
   /**
-   * existsImageContents.
+   * Long press menu location has image content.
    * @return Return whether this context menu has image content.
    * 
    * @since 9
@@ -488,7 +488,7 @@ declare class WebContextMenuResult {
   constructor();
 
   /**
-   * closeContextMenu.
+   * Close the menu.
    * When close context menu without other call in WebContextMenuResult,
    * User should call this function to close menu
    * 
@@ -497,7 +497,7 @@ declare class WebContextMenuResult {
   closeContextMenu(): void;
 
   /**
-   * copyImage.
+   * copy Image.
    * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
    * If WebContextMenuParam has not image content, this function will do nothing. 
    * 
