@@ -1766,6 +1766,7 @@ declare namespace window {
     * Sets the dimBehind of window.
     * @param dimBehindValue the specified dimBehind.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @throws Throws an exception cause this device do not support
     * @since 7
     * @deprecated since 9
     */
@@ -1775,6 +1776,7 @@ declare namespace window {
      * Sets the dimBehind of window.
      * @param dimBehind the specified dimBehind.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @throws Throws an exception cause this device do not support
      * @since 7
      * @deprecated since 9
      */
@@ -1880,6 +1882,7 @@ declare namespace window {
     * Sets whether outside can be touch or not.
     * @param touchable outside can be touch if true, or not if false.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @throws Throws an exception cause this device do not support
     * @since 7
     * @deprecated since 9
     */
@@ -1889,6 +1892,7 @@ declare namespace window {
      * Sets whether outside can be touch or not.
      * @param touchable outside can be touch if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @throws Throws an exception cause this device do not support
      * @since 7
      * @deprecated since 9
      */
