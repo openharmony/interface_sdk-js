@@ -417,6 +417,94 @@ declare class PermissionRequest {
 }
 
 /**
+* Defines the context menu param, related to {@link WebContextMenuParam} method.
+* @since 9
+*/
+declare class WebContextMenuParam {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Horizontal offset coordinates of the menu within the Web component.
+   * @return The context menu x coordinate.
+   * 
+   * @since 9
+   */
+  x(): number;
+
+  /**
+   * Vertical offset coordinates for the menu within the Web component.
+   * @return The context menu y coordinate.
+   * 
+   * @since 9
+   */
+  y(): number;
+
+  /**
+   * If the long-press location is the link returns the link's security-checked URL.
+   * @return If relate to a link return link url, else return null.
+   * 
+   * @since 9
+   */
+  getLinkUrl(): string;
+
+  /**
+   * If the long-press location is the link returns the link's original URL.
+   * @return If relate to a link return unfilterend link url, else return null.
+   * 
+   * @since 9
+   */
+  getUnfilterendLinkUrl(): string;
+
+  /**
+   * Returns the SRC URL if the selected element has a SRC attribute.
+   * @return If this context menu is "src" attribute, return link url, else return null.
+   * 
+   * @since 9
+   */
+  getSourceUrl(): string;
+
+  /**
+   * Long press menu location has image content.
+   * @return Return whether this context menu has image content.
+   * 
+   * @since 9
+   */
+  existsImageContents(): boolean;
+}
+
+/**
+ * Defines the context menu result, related to {@link WebContextMenuResult} method.
+ * @since 9
+ */
+declare class WebContextMenuResult {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * When close context menu without other call in WebContextMenuResult,
+   * User should call this function to close menu
+   * 
+   * @since 9
+   */
+  closeContextMenu(): void;
+
+  /**
+   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
+   * If WebContextMenuParam has not image content, this function will do nothing. 
+   * 
+   * @since 9
+   */
+  copyImage(): void;
+}
+
+/**
  * Encompassed message information as parameters to {@link onConsole} method.
  * @since 8
  */
@@ -1431,6 +1519,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onPermissionRequest(callback: (event?: { request: PermissionRequest }) => void): WebAttribute;
+
+  /**
+   * Triggered when called to allow custom display of the context menu.
+   * @param callback The triggered callback when called to allow custom display of the context menu.
+   *
+   * @return If custom display return true.Otherwise, default display return false.
+   * @since 9
+   */
+  onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
