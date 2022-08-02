@@ -477,7 +477,7 @@ declare class WebContextMenuParam {
 }
 
 /**
- * Defines the contest menu result, related to {@link WebContextMenuResult} method.
+ * Defines the context menu result, related to {@link WebContextMenuResult} method.
  * @since 9
  */
 declare class WebContextMenuResult {
@@ -488,7 +488,6 @@ declare class WebContextMenuResult {
   constructor();
 
   /**
-   * Close the menu.
    * When close context menu without other call in WebContextMenuResult,
    * User should call this function to close menu
    * 
@@ -497,7 +496,6 @@ declare class WebContextMenuResult {
   closeContextMenu(): void;
 
   /**
-   * copy Image.
    * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
    * If WebContextMenuParam has not image content, this function will do nothing. 
    * 
