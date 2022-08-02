@@ -21,7 +21,13 @@ import {ErrorCallback, AsyncCallback, Callback} from './basic';
  * @import import audio from '@ohos.multimedia.audio'
  */
 declare namespace audio {
-
+  /**
+  * Define local device network id for audio
+  * @since 9
+  * @syscap SystemCapability.Multimedia.Audio.Device
+  * @systemapi
+  */
+  const LOCAL_NETWORK_ID: string;
   /**
    * Obtains an AudioManager instance.
    * @return AudioManager object.
@@ -162,6 +168,13 @@ declare namespace audio {
    */
   enum DeviceFlag {
     /**
+     * None devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @sytemapi
+     */
+    NONE_DEVICES_FLAG = 0,
+    /**
      * Output devices.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -179,6 +192,27 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     ALL_DEVICES_FLAG = 3,
+    /**
+     * Distributed output devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @sytemapi
+     */
+    DISTRIBUTED_OUTPUT_DEVICES_FLAG = 4,
+    /**
+     * Distributed input devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    DISTRIBUTED_INPUT_DEVICES_FLAG = 8,
+    /**
+     * All Distributed devices.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @sytemapi
+     */
+    ALL_DISTRIBUTED_DEVICES_FLAG = 12,
   }
 
   /**
@@ -261,6 +295,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
     USB_HEADSET = 22,
+    /**
+     * Default device type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    DEFAULT = 1000,
   }
 
   /**
@@ -613,6 +653,35 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     rendererFlags: number;
+  }
+
+  /** Describes audio renderer filter.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   */
+  interface AudioRendererFilter {
+    /**
+     * Application uid.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     */
+    uid: number;
+    /**
+     * Renderer information.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    rendererInfo?: AudioRendererInfo;
+    /**
+     * AudioRenderer id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     */
+    rendererId?: number;
   }
 
   /**
@@ -1322,6 +1391,102 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     getStreamManager(): Promise<AudioStreamManager>;
+
+    /**
+     * Obtains an AudioRoutingManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
+
+    /**
+      * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
+      * @param callback Callback used to return the result.
+      * @since 9
+      * @syscap SystemCapability.Multimedia.Audio.Device
+      */
+    getRoutingManager(): Promise<AudioRoutingManager>;
+  }
+
+  /**
+   * Implements audio router management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   */
+  interface AudioRoutingManager {
+    /**
+     * Obtains the audio devices with a specific flag. This method uses an asynchronous callback to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @param callback Callback used to return the device list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Obtains the audio devices with a specific flag. This method uses a promise to return the query result.
+     * @param deviceFlag Audio device flag.
+     * @return Promise used to return the device list.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
+    /**
+     * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param deviceFlag Audio device flag.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
+    /**
+     * UnSubscribes to device change events.
+     * @param callback Callback used to obtain the device update details.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
+    /**
+     * Select the output device. This method uses an asynchronous callback to return the result.
+     * @param outputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the output device. This method uses a promise to return the result.
+     * @param outputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDevice(outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Select the output device with desired AudioRenderer. This method uses an asynchronous callback to return the result.
+     * @param filter Filter for AudioRenderer.
+     * @param outputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
+     * @param filter Filter for AudioRenderer.
+     * @param outputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
   }
 
   /**
@@ -1560,6 +1725,27 @@ declare namespace audio {
      * @SysCap SystemCapability.Multimedia.Audio.Device
      */
     readonly channelMasks: Array<number>;
+    /**
+     * Network id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    readonly networkId: string;
+    /**
+     * Interrupt group id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    readonly interruptGroupId: number;
+    /**
+     * Volume group id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    readonly volumeGroupId: number;
   }
 
   /**
