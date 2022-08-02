@@ -90,7 +90,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi hide this for inner system use.
          * @since 9
          */
-         getVersion(): Promise<number>;
+        getVersion(): Promise<number>;
 
         /**
          * Registeres a permission state callback so that the application can be notified upon specified permission state of specified applications changes.
@@ -113,7 +113,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi hide this for inner system use.
          * @since 9
          */
-         on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermStateChangeInfo>): void;
+        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermStateChangeInfo>): void;
 
         /**
          * Unregisteres a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
@@ -124,7 +124,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi hide this for inner system use.
          * @since 9
          */
-         off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermStateChangeInfo>): void;
+        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermStateChangeInfo>): void;
     }
   
     /**
@@ -146,15 +146,15 @@ import { AsyncCallback, Callback } from './basic';
      * PermStateChangeType.
      * @since 9
      */
-         export enum PermStateChangeType {
-            /**
-             * a granted user_grant permission is revoked.
-             */
-            PERMISSION_REVOKED_OPER = 0,
-            /**
-             * a user_grant permission is granted.
-             */
-            PERMISSION_GRANTED_OPER = 1,
+    export enum PermStateChangeType {
+        /**
+         * a granted user_grant permission is revoked.
+         */
+        PERMISSION_REVOKED_OPER = 0,
+        /**
+         * a user_grant permission is granted.
+         */
+        PERMISSION_GRANTED_OPER = 1,
     }
 
     /**
@@ -163,22 +163,22 @@ import { AsyncCallback, Callback } from './basic';
      * @name PermStateChangeInfo
      * @since 9
      */
-     interface PermStateChangeInfo {
+    interface PermStateChangeInfo {
         /**
          * Indicates the permission state change type.
          */
-         change: PermStateChangeType;
+        change: PermStateChangeType;
 
         /**
          * Indicates the application whose permission state has been changed.
          */
-         tokenID: number;
+        tokenID: number;
 
         /**
          * Indicates the permission whose state has been changed.
          */
-         permissionName: string;
+        permissionName: string;
     }
-  }
+ }
 
-  export default abilityAccessCtrl;
+ export default abilityAccessCtrl;
