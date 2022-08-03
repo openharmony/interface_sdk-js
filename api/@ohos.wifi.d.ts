@@ -165,8 +165,8 @@ declare namespace wifi {
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
-     function removeCandidateConfig(networkId: number): Promise<boolean>;
-     function removeCandidateConfig(networkId: number, callback: AsyncCallback<boolean>): void;
+     function removeCandidateConfig(networkId: number): Promise<void>;
+     function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
@@ -760,6 +760,28 @@ declare namespace wifi {
       * @systemapi Hide this for inner system use.
       */
      function off(type: "streamChange", callback?: Callback<number>): void;
+
+    /**
+     * Subscribe Wi-Fi stream change events.
+     *
+     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     * @systemapi Hide this for inner system use.
+     */
+     function on(type: "deviceConfigChange", callback: Callback<number>): void;
+
+    /**
+     * Subscribe Wi-Fi stream change events.
+     *
+     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     * @systemapi Hide this for inner system use.
+     */
+     function off(type: "deviceConfigChange", callback?: Callback<number>): void;
 
     /**
      * Subscribe Wi-Fi hotspot state change events.
