@@ -762,7 +762,7 @@ declare namespace wifi {
      function off(type: "streamChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe Wi-Fi stream change events.
+     * Subscribe Wi-Fi device config change events.
      *
      * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
@@ -773,7 +773,7 @@ declare namespace wifi {
      function on(type: "deviceConfigChange", callback: Callback<number>): void;
 
     /**
-     * Subscribe Wi-Fi stream change events.
+     * Subscribe Wi-Fi device config change events.
      *
      * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
