@@ -738,6 +738,31 @@ declare namespace window {
     LOCKED = 11,
   }
 
+  /**
+   * Type of blur style
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum BlurStyle {
+    /**
+     * Close blur.
+     */
+    OFF,
+    /**
+     * Blur style thin.
+     */
+    THIN,
+     /**
+     * Blur style regular.
+     */
+    REGULAR,
+    /**
+     * Blur style thick.
+     */
+    THICK,
+  }
+
   interface Window {
     /**
      * hide window.
@@ -1368,6 +1393,7 @@ declare namespace window {
       * @since 9
       */
     snapshot(): Promise<image.PixelMap>;
+
     /* * Sets opacity  of window
      * @param opacity  Interval is 0.f-1.f.
      * @systemapi
@@ -1405,6 +1431,49 @@ declare namespace window {
      * @since 9
      */
     getTransitionController(): TransitionController;
+
+    /**
+     * Sets the window blur radius.
+     * @param radius the blur radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBlur(radius: number): void;
+
+    /**
+     * Sets the window backdrop blur radius.
+     * @param radius the blur radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBackdropBlur(radius: number): void;
+
+    /**
+     * Sets the window backdrop blur style.
+     * @param blurStyle the specified blur style.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBackdropBlurStyle(blurStyle: BlurStyle): void;
+
+    /**
+     * Sets shadow.
+     * @param radius the radius of the shadow.
+     * @param color the color of the shadow.
+     * @param offsetX the offset of the shadow on the x-axis.
+     * @param offsetY the offset of the shadow on the y-axis.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
+
+    /**
+     * Sets corner radius.
+     * @param cornerRadius the corner radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setCornerRadius(cornerRadius: number): void;
   }
   /**
    * window stage callback event type
