@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 
 /**
-* 鼠标指针相关属性接口
+* Interfaces of mouse pointer related properties
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Pointer
@@ -45,7 +45,6 @@ declare namespace pointer {
    */
   function isPointerVisible(callback: AsyncCallback<boolean>) : void;
   function isPointerVisible() : Promise<boolean>;
-  
 }
 
 export default pointer;
