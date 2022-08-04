@@ -112,7 +112,7 @@ declare namespace display {
   /**
    * Rectangle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 7
+   * @since 9
    */
   interface Rect {
     left: number;
@@ -223,11 +223,13 @@ declare namespace display {
 
     /**
      * Obtain the cutout info of the display.
+     * @since 9
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
     /**
      * Obtain the cutout info of the display.
+     * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;
   }
