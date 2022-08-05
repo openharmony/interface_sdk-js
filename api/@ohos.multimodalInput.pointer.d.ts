@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 
 /**
-* Interfaces of mouse pointer related properties
+* APIs for mouse pointer attributes
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Pointer
