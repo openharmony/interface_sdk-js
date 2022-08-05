@@ -4,6 +4,7 @@
     "SystemCapability.BundleManager.PackingTool",
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.Bluetooth.Lite",
+    "SystemCapability.Communication.NFC.Core",
     "SystemCapability.Location.Location.Lite",
     "SystemCapability.PowerManager.PowerManager.Lite",
     "SystemCapability.PowerManager.BatteryManager.Lite",
