@@ -43,6 +43,20 @@ declare namespace appManager {
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
 
     /**
+     * Register application state observer.
+     *
+     * @default -
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param observer The application state observer.
+     * @param bundleNameList The list of bundleName. The max length is 128.
+     * @systemapi
+     * @return Returns the number code of the observer.
+     * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     */
+     function registerApplicationStateObserver(observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+
+    /**
      * Unregister application state observer.
      *
      * @since 8
