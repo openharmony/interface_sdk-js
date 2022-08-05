@@ -15,7 +15,9 @@
 
 import { AsyncCallback } from '../basic';
 import Ability from '../@ohos.application.Ability';
+import AbilityStage from '../@ohos.application.AbilityStage';
 import { AbilityMonitor } from './abilityMonitor';
+import { AbilityStageMonitor } from './abilityStageMonitor';
 import { Context } from './Context';
 import Want from "../@ohos.application.Want";
 import { ShellCmdResult } from './shellCmdResult';
@@ -40,6 +42,16 @@ export interface AbilityDelegator {
     addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
     /**
+     * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param monitor AbilityStageMonitor object
+     */
+     addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
+     addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
+
+    /**
      * Remove a specified AbilityMonitor object from the application memory.
      *
      * @since 9
@@ -48,6 +60,16 @@ export interface AbilityDelegator {
      */
     removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
     removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
+
+    /**
+     * Remove a specified AbilityStageMonitor object from the application memory.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param monitor AbilityStageMonitor object
+     */
+     removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
+     removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>;
 
     /**
      * Wait for and returns the Ability object that matches the conditions set in the given AbilityMonitor.
@@ -61,6 +83,19 @@ export interface AbilityDelegator {
     waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<Ability>): void;
     waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<Ability>): void;
     waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<Ability>;
+
+    /**
+     * Wait for and returns the AbilityStage object that matches the conditions set in the given AbilityStageMonitor.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param monitor AbilityStageMonitor object
+     * @param timeout Maximum wait time, in milliseconds
+     * @return success: return the AbilityStage object, failure: return null
+     */
+     waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void;
+     waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void;
+     waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>;
 
     /**
      * Obtain the application context.
