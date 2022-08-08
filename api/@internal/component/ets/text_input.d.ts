@@ -135,13 +135,13 @@ declare enum TextInputStyle {
    * Text input default style.
    * @since 9
    */
-  DEFAULT,
+  Default,
 
   /**
    * Text input inline style.
    * @since 9
    */
-  INLINE
+  Inline
 }
 
 /**
