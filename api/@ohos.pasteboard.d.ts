@@ -14,6 +14,7 @@
  */
 import { AsyncCallback } from './basic';
 import Want from './@ohos.application.want';
+import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
@@ -46,6 +47,11 @@ declare namespace pasteboard {
    * @since 7
    */
   const MIMETYPE_TEXT_URI: string;
+  /**
+   * Indicates MIME types of PixelMap.
+   * @since 9
+   */
+  const MIMETYPE_PIXELMAP: string;
 
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_HTML.
@@ -80,6 +86,14 @@ declare namespace pasteboard {
   function createUriData(uri: string): PasteData;
 
   /**
+   * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
+   * @param pixelmap To save the pixelmap of content.
+   * @return Containing the contents of the clipboard content object.
+   * @since 9
+   */
+  function createPixelMapData(pixelmap: image.PixelMap): PasteData;
+
+  /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
    * @return The content of a new record
@@ -111,6 +125,14 @@ declare namespace pasteboard {
    */
   function createUriRecord(uri: string): PasteDataRecord;
 
+  /**
+   * Creates a Record object for PasteData#MIMETYPE_PIXELMAp.
+   * @param pixelMap To save the pixelMap of content.
+   * @return The content of a new record
+   * @since 9
+   */
+  function createPixelMapRecord(pixelMap:image.PixelMap):PasteDataRecord;
+  
   /**
    * get SystemPasteboard
    * @return The system clipboard object
@@ -174,6 +196,11 @@ declare namespace pasteboard {
      * @since 7
      */
     uri: string;
+    /**
+     * PixelMap in a record.
+     * @since 9
+     */
+    pixelMap: image.PixelMap;
 
     /**
      * Will a PasteData cast to the content of text content
@@ -221,6 +248,13 @@ declare namespace pasteboard {
     addUriRecord(uri: string): void;
 
     /**
+     * Adds a PixelMap Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_PIXELMAP in DataProperty.
+     * @param pixelMap To save the pixelMap of content.
+     * @since 9
+     */
+    addPixmapRecord(pixelMap: image.PixelMap): void;
+    
+    /**
      * MIME types of all content on the pasteboard.
      * @return string type of array
      * @since 7
@@ -261,6 +295,13 @@ declare namespace pasteboard {
      * @since 7
      */
     getPrimaryUri(): string;
+
+    /**
+     * the PixelMap of the primary record in a PasteData object.
+     * @return string type of PixelMap
+     * @since 9
+     */
+    getPrimaryPixelMap(): image.PixelMap;
 
     /**
      * DataProperty of a PasteData object.
