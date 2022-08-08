@@ -158,6 +158,73 @@ declare enum CacheMode {
 }
 
 /**
+ * Define html5 web message port.
+ * @since 9
+ */
+declare class WebMessagePort {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Close port.
+   * @since 9
+   */
+  close(): void;
+
+  /**
+   * Post a message to other port.
+   * @since 9
+   */
+  postMessageEvent(message: WebMessageEvent): void;
+
+  /**
+   * Receive message from other port.
+   * @since 9
+   */
+  onMessageEvent(callback: (result: string) => void): void;
+}
+
+
+/**
+ * Define html5 web message, which include message and ports.
+ * @since 9
+ */
+declare class WebMessageEvent {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Get message.
+   * @since 9
+   */
+  getData(): string;
+
+  /**
+   * Set message.
+   * @since 9
+   */
+  setData(data: string): void;
+
+  /**
+   * Get ports.
+   * @since 9
+   */
+  getPorts(): Array<WebMessagePort>;
+
+  /**
+   * Set ports.
+   * @since 9
+   */
+  setPorts(ports: Array<WebMessagePort>): void;
+}
+
+/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  * @since 9
  */
@@ -967,6 +1034,21 @@ declare class WebCookie {
    * @since 8
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
+
+  /**
+   * Create web message ports
+   *
+   * @since 9
+   */
+  createWebMessagePorts(): Array<WebMessagePort>;
+
+  /**
+   * Post web message port to html5
+   * @param options The options with a message event and a uri.
+   *
+   * @since 9
+   */
+  postMessage(options: { message: WebMessageEvent, uri: string}): void;
 
   /**
    * Loads the data or URL.
