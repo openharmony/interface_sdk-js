@@ -262,7 +262,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when the copy option is set.
    * @since 9
    */
-  copyOption(value: boolean | CopyOption): TextInputAttribute;
+  copyOption(value: CopyOptions): TextInputAttribute;
 
   /**
    * Called when the password show/hide icon is set.

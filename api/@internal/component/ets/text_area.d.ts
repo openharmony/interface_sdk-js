@@ -159,7 +159,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * Called when the copy option is set.
    * @since 9
    */
-  copyOption(value: boolean | CopyOption): TextAreaAttribute;
+  copyOption(value: CopyOptions): TextAreaAttribute;
 }
 
 declare const TextArea: TextAreaInterface;
