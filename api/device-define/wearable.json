@@ -19,6 +19,7 @@
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.Communication.NetStack",
+    "SystemCapability.Communication.NFC.Core",
     "SystemCapability.Communication.WiFi.Core",
     "SystemCapability.Communication.WiFi.STA",
     "SystemCapability.Communication.WiFi.AP.Core",

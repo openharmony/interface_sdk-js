@@ -31,6 +31,23 @@ declare enum SideBarContainerType {
 }
 
 /**
+ * Sets the sidebar position of showing
+ * @since 9
+ */
+declare enum SideBarPosition {
+  /**
+   * The sidebar is on the Start of the container
+   * @since 9
+   */
+  Start,
+  /**
+   * The sidebar is on the End of the container
+   * @since 9
+   */
+  End,
+}
+
+/**
  * Sets the control button style
  * @since 8
  */
@@ -145,6 +162,12 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @since 9
    */
   autoHide(value: boolean): SideBarContainerAttribute;
+  /**
+   * Called when determining the location of the sidebar.
+   * default value is Start.
+   * @since 9
+   */
+  sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
 }
 
 declare const SideBarContainer: SideBarContainerInterface;

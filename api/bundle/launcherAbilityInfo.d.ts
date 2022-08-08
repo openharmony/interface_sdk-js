@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import { ApplicationInfo } from './applicationInfo';
+import { ElementName } from './elementName'
+
 /**
  * Contains basic Ability information, which uniquely identifies an ability.
  * You can use this class to obtain values of the fields set in an AbilityInfo,
@@ -24,10 +27,6 @@
  * @permission N/A
  * @systemapi Hide this for inner system use
  */
-
-import { ApplicationInfo } from './applicationInfo';
-import { ElementName } from './elementName'
-
 export interface LauncherAbilityInfo {
   /**
    * @name Obtains application info information about an launcher ability.

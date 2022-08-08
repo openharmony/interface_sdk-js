@@ -139,4 +139,16 @@ export default class FormExtension {
      * @StageModelOnly
      */
     onAcquireFormState?(want: Want): formInfo.FormState;
+
+    /**
+     * Called when the system shares the form.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formId Indicates the ID of the form.
+     * @systemapi hide for inner use.
+     * @return Returns the wantParams object.
+     * @StageModelOnly
+     */
+    onShare?(formId: string): {[key: string]: any};
 }

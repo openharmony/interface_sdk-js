@@ -138,7 +138,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @StageModelOnly
  * @since 9
  */
-declare function getContext(component?: Object): import('../api/application/Context').default;
+declare function getContext(component?: Object): Context;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare type Context = import('../api/application/Context').default;
  
 /**
  * Defines the data type of the interface restriction.
@@ -1109,6 +1116,12 @@ declare interface PopupOptions {
    * @since 7
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
@@ -1157,6 +1170,12 @@ declare interface CustomPopupOptions {
    * @since 8
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
