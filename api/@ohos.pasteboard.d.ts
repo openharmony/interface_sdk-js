@@ -87,11 +87,11 @@ declare namespace pasteboard {
 
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
-   * @param pixelmap To save the pixelmap of content.
+   * @param pixelMap To save the pixelMap of content.
    * @return Containing the contents of the clipboard content object.
    * @since 9
    */
-  function createPixelMapData(pixelmap: image.PixelMap): PasteData;
+  function createPixelMapData(pixelMap: image.PixelMap): PasteData;
 
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
@@ -131,7 +131,7 @@ declare namespace pasteboard {
    * @return The content of a new record
    * @since 9
    */
-  function createPixelMapRecord(pixelMap:image.PixelMap):PasteDataRecord;
+  function createPixelMapRecord(pixelMap: image.PixelMap):PasteDataRecord;
   
   /**
    * get SystemPasteboard
@@ -252,7 +252,7 @@ declare namespace pasteboard {
      * @param pixelMap To save the pixelMap of content.
      * @since 9
      */
-    addPixmapRecord(pixelMap: image.PixelMap): void;
+    addPixelMapRecord(pixelMap: image.PixelMap): void;
     
     /**
      * MIME types of all content on the pasteboard.
