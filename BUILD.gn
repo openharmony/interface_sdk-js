@@ -13,6 +13,7 @@
 
 import("//build/ohos.gni")
 import("//build/ohos/notice/notice.gni")
+import("//build/ohos_var.gni")
 import("//build/templates/metadata/module_info.gni")
 import("interface_config.gni")
 
@@ -123,6 +124,16 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
   ]
+  if (sdk_build_public) {
+    sources -= [
+      "api/@internal/component/ets/ability_component.d.ts",
+      "api/@internal/component/ets/animator.d.ts",
+      "api/@internal/component/ets/calendar.d.ts",
+      "api/@internal/component/ets/form_component.d.ts",
+      "api/@internal/component/ets/plugin_component.d.ts",
+      "api/@internal/component/ets/remote_window.d.ts",
+    ]
+  }
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
@@ -135,21 +146,28 @@ ohos_copy("common_api") {
   module_install_name = ""
 }
 
-ohos_copy("bundle_api") {
-  sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
-  outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
-  module_source_dir = target_out_dir + "/$target_name"
-  module_install_name = ""
+if (!sdk_build_public) {
+  ohos_copy("bundle_api") {
+    sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
+    outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
+    module_source_dir = target_out_dir + "/$target_name"
+    module_install_name = ""
+  }
 }
 
 template("ohos_declaration_template") {
   forward_variables_from(invoker, "*")
   action_with_pydeps(target_name) {
     script = "//interface/sdk-js/remove_internal.py"
+    input_api_dir = "//interface/sdk-js/api"
     outputs = [ root_out_dir + "/ohos_declaration/$target_name" ]
+    if (sdk_build_public) {
+      script = "//out/sdk-public/public_interface/sdk-js/remove_internal.py"
+      input_api_dir = "//out/sdk-public/public_interface/sdk-js/api"
+    }
     args = [
       "--input",
-      rebase_path("//interface/sdk-js/api", root_build_dir),
+      rebase_path(input_api_dir, root_build_dir),
       "--output",
       rebase_path(root_out_dir + "/ohos_declaration/$target_name/",
                   root_build_dir),
@@ -193,6 +211,9 @@ ohos_copy("internal_lite") {
     "api/common/lite/index.d.ts",
     "api/common/lite/viewmodel.d.ts",
   ]
+  if (sdk_build_public) {
+    sources -= [ "api/common/lite/featureability.d.ts" ]
+  }
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
