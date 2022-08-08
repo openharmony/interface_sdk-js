@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import {AsyncCallback} from "./basic";
+
 /**
  * Window animation manager.
  *
@@ -30,6 +32,29 @@ declare namespace windowAnimationManager {
    * @since 9
    */
   function setController(controller: WindowAnimationController): void;
+
+  /**
+   * Minimize the window target with animation.
+   *
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param windowTarget The window target to be minimized.
+   * @return Returns the animation finished callback.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget,
+    callback: AsyncCallback<WindowAnimationFinishedCallback>): void;
+
+  /**
+   * Minimize the window target with animation.
+   *
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @param windowTarget The window target to be minimized.
+   * @return Returns the animation finished callback.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function minimizeWindowWithAnimation(windowTarget: WindowAnimationTarget): Promise<WindowAnimationFinishedCallback>;
 
   /**
    * Round rect.
@@ -63,6 +88,8 @@ declare namespace windowAnimationManager {
     readonly abilityName: string;
 
     readonly windowBounds: RRect;
+
+    readonly missionId: number;
   }
 
   /**
@@ -158,6 +185,18 @@ declare namespace windowAnimationManager {
      * @since 9
      */
     onScreenUnlock(finishCallback: WindowAnimationFinishedCallback): void;
+
+
+    /**
+     * Called on window animation targets update.
+     *
+     * @param fullScreenWindowTarget The fullscreen window target.
+     * @param floatingWindowTargets All the floating window targets.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    onWindowAnimationTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget,
+      floatingWindowTargets: Array<WindowAnimationTarget>): void;
   }
 }
 
