@@ -171,7 +171,7 @@ declare namespace audio {
      * None devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     NONE_DEVICES_FLAG = 0,
     /**
@@ -196,7 +196,7 @@ declare namespace audio {
      * Distributed output devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     DISTRIBUTED_OUTPUT_DEVICES_FLAG = 4,
     /**
@@ -210,7 +210,7 @@ declare namespace audio {
      * All Distributed devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     ALL_DISTRIBUTED_DEVICES_FLAG = 12,
   }
@@ -1397,16 +1397,15 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
      */
     getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
 
     /**
-      * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
-      * @param callback Callback used to return the result.
-      * @since 9
-      * @syscap SystemCapability.Multimedia.Audio.Device
-      */
+     * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
     getRoutingManager(): Promise<AudioRoutingManager>;
   }
 
@@ -1414,7 +1413,6 @@ declare namespace audio {
    * Implements audio router management.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @systemapi
    */
   interface AudioRoutingManager {
     /**
