@@ -1,6 +1,5 @@
 {
   "SysCaps": [
-    "SystemCapability.Communication.ConnectedTag",
     "SystemCapability.Communication.SoftBus.Core",
     "SystemCapability.Communication.WiFi.AP.Extension",
     "SystemCapability.PowerManager.PowerManager.Lite",
