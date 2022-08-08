@@ -617,6 +617,14 @@ declare function lpx2px(value: number): number;
  */
 declare function px2lpx(value: number): number;
 
+declare namespace focusControl {
+  /**
+   * Request focus to the specific component by param: 'id/key'.
+   * @since 9
+   */
+  declare function requestFocus(value: string): boolean;
+}
+
 /**
  * Defines the event target.
  * @since 8
