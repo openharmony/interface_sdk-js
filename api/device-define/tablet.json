@@ -146,7 +146,6 @@
     "SystemCapability.Ability.AbilityRuntime.Mission",
     "SystemCapability.Ability.AbilityTools.AbilityAssistant",
     "SystemCapability.Ability.Form",
-    "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.ContactsData",
     "SystemCapability.Applications.Contacts",
     "SystemCapability.Applications.settings.Core",
