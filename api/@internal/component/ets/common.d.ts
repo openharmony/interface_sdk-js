@@ -138,7 +138,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @StageModelOnly
  * @since 9
  */
-declare function getContext(component?: Object): Object;
+declare function getContext(component?: Object): Context;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare type Context = import('../api/application/Context').default;
  
 /**
  * Defines the data type of the interface restriction.
@@ -926,7 +933,7 @@ declare interface TouchEvent extends BaseEvent {
  * Defines the PixelMap type object for ui component.
  * @since 7
  */
-declare type PixelMap = PixelMapMock;
+declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap;
 
 /**
  * pixelmap object with release function.
