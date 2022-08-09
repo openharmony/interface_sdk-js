@@ -1097,6 +1097,27 @@ declare class WebCookie {
    * @since 9
    */
   getCookieManager() : WebCookie
+
+  /**
+   * Search all instances of 'searchString' on the page and highlights them,
+   * result will be notify through callback onSearchResultReceive.
+   * @param searchString string to be search.
+   * @since 9
+   */
+  searchAllAsync(searchString: string): void;
+
+  /**
+   * Clears the highlighting surrounding text matches created by searchAllAsync.
+   * @since 9
+   */
+  clearMatches(): void;
+
+  /**
+   * Highlights and scrolls to the next match search.
+   * @param forward step of search is back or forward.
+   * @since 9
+   */
+  searchNext(forward: boolean): void;
 }
 
 /**
@@ -1528,6 +1549,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
+
+  /**
+   * Notify search result to host application through onSearchResultReceive.
+   * @param callback function Triggered when the host application call searchAllAsync
+   * or searchNext api on WebController and the request is valid.
+   *
+   * @since 9
+   */
+   onSearchResultReceive(callback: (event?: {activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean}) => void): WebAttribute
 }
 
 declare const Web: WebInterface;
