@@ -958,4 +958,4 @@ class PointerMatrix {
  */
  const BY:By;
 
- export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,ResizeDirection,WindowMode, PointerMatrix};
+ export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,DisplayRotation,ResizeDirection,WindowMode, PointerMatrix};
