@@ -190,14 +190,13 @@ declare namespace wifi {
      * <p>This method connect to a configuration at a time.
      *
      * @param networkId - Network ID which will be connected.
-     * Returns {@code true} if the operation is successful, returns {@code false} otherwise. The connect result
-     * will be indicated by the call back function of wifi connection change.
-     *
+     * @throws {ErrCode} if operation is failed.
+     * @returns {Promise<void>} operation result.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function connectToCandidateConfig(networkId: number): boolean;
+     function connectToCandidateConfig(networkId: number): Promise<void>;
 
     /**
      * Connects to Wi-Fi network.
