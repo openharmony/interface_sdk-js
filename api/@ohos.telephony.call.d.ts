@@ -703,7 +703,7 @@ declare namespace call {
     CALL_NOT_ALLOW = 1029,
     SIM_INVALID = 1045,
     UNKNOWN = 1279,
-  };
+  }
 }
 
 export default call;
