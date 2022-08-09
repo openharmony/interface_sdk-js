@@ -1171,7 +1171,7 @@ declare namespace distributedData {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param fileName Indicates the name that saves the database backup.
+         * @param file Indicates the name that saves the database backup.
          */
         backup(file:string, callback: AsyncCallback<void>):void;
         backup(file:string): Promise<void>;
@@ -1181,7 +1181,7 @@ declare namespace distributedData {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param fileName Indicates the name that saves the database file.
+         * @param file Indicates the name that saves the database file.
          */
         restore(file:string, callback: AsyncCallback<void>):void;
         restore(file:string): Promise<void>;
@@ -1191,7 +1191,7 @@ declare namespace distributedData {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param fileName list Indicates the name that backup file to delete.
+         * @param files list Indicates the name that backup file to delete.
          */
         deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
         deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
