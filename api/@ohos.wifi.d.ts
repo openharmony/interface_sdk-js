@@ -119,7 +119,7 @@ declare namespace wifi {
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated
+     * @deprecated since 9
      */
      function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
@@ -133,7 +133,7 @@ declare namespace wifi {
       * @since 7
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
-      * @deprecated
+      * @deprecated since 9
       */
      function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
