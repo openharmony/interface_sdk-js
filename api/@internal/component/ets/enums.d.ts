@@ -1470,3 +1470,37 @@ declare enum CopyOption {
    */
   CrossDevice = 2,
 }
+
+/**
+ * Defines the hit test mode.
+ * @since 9
+ */
+ declare enum HitTestMode {
+  /**
+   * Both self and children nodes respond to the hit test for touch events,
+   * but block hit test of the other nodes which is masked by this node.
+   * @since 9
+   */
+  Default,
+
+  /**
+   * Self respond to the hit test for touch events,
+   * but block hit test of children and other nodes which is masked by this node.
+   * @since 9
+   */
+  Block,
+
+  /**
+   * Self and children respond to the hit test for touch events,
+   * and allow hit test of other nodes which is masked by this node.
+   * @since 9
+   */
+  Transparent,
+
+  /**
+   * Self not respond to the hit test for touch events,
+   * but children respond to the hit test for touch events.
+   * @since 9
+   */
+  None,
+}

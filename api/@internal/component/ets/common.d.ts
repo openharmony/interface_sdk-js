@@ -1218,8 +1218,16 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
+   * @deprecated since 9, instead of hitTestBehavior.
    */
   touchable(value: boolean): T;
+
+  /**
+   * Defines the component's hit test behavior in touch events.
+   * @param value the hit test mode.
+   * @since 9
+   */
+  hitTestBehavior(value: HitTestMode): T;
 
   /**
    * layout Weight
