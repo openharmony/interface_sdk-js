@@ -432,7 +432,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -441,7 +441,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -659,7 +659,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -672,7 +672,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -766,7 +766,7 @@ class UiComponent{
    * @param from the threshold of UI idle time, in millisecond.
    * @param to the maximum time to wait for idle, in millisecond.
    * @param stepLen the length of each step, in pixels.
-   * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @returns true if wait for idle succeed in the timeout, false otherwise.
    * @since 9
    * @test
@@ -777,7 +777,7 @@ class UiComponent{
    * Inject multi-pointer action on the device display.
    * @syscap SystemCapability.Test.UiTest
    * @param pointers the two-dimensional array of pointers to inject.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -958,4 +958,4 @@ class PointerMatrix {
  */
  const BY:By;
 
- export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,ResizeDirection,WindowMode};
+ export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,DisplayRotation,ResizeDirection,WindowMode,PointerMatrix};
