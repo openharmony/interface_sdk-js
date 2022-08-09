@@ -1451,24 +1451,30 @@ declare enum Placement {
  *
  * @since 9
  */
-declare enum CopyOption {
+declare enum CopyOptions {
+  /**
+   * Not allow share.
+   * @since 9
+   */
+  None = 0,
+
   /**
    * Share in app.
    * @since 9
    */
-  InApp = 0,
+  InApp = 1,
 
   /**
    * Share in local device.
    * @since 9
    */
-  LocalDevice = 1,
+  LocalDevice = 2,
 
   /**
    * Share cross device.
    * @since 9
    */
-  CrossDevice = 2,
+  CrossDevice = 3,
 }
 
 /**
