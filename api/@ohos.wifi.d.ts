@@ -159,7 +159,7 @@ declare namespace wifi {
       * to be removed.
       *
       * @param networkId - Network ID which will be removed.
-	  * @throws {ErrorCode} when failed to remove the hotspot configuration.
+      * @throws {ErrorCode} when failed to remove the hotspot configuration.
       * @return {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
       *
       * @since 9
