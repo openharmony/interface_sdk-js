@@ -158,10 +158,9 @@ declare namespace wifi {
       * Removes a specified candidate hotspot configuration, only the configration which is added by ourself is allowed
       * to be removed.
       *
-      * <p>This method removes one configuration at a time.
-      *
       * @param networkId - Network ID which will be removed.
-      * @return Returns {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
+	  * @throws {ErrorCode} when failed to remove the hotspot configuration.
+      * @return {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
       *
       * @since 9
       * @syscap SystemCapability.Communication.WiFi.STA
