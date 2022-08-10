@@ -190,12 +190,11 @@ declare namespace wifi {
      *
      * @param networkId - Network ID which will be connected.
      * @throws {ErrCode} if operation is failed.
-     * @returns {Promise<void>} operation result.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
-     function connectToCandidateConfig(networkId: number): Promise<void>;
+     function connectToCandidateConfig(networkId: number): void;
 
     /**
      * Connects to Wi-Fi network.
