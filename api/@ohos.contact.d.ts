@@ -29,7 +29,7 @@ declare namespace contact {
    * @param contact Indicates the contact information.
    * @return Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
   function addContact(contact: Contact): Promise<number>;
@@ -50,7 +50,7 @@ declare namespace contact {
    *
    * @param key Indicates the unique query key of a contact to delete.
    * @return Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
   function deleteContact(key: string): Promise<void>;
@@ -165,7 +165,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes to update. If this parameter is null,
    * all available attributes will be updated.
    * @return Returns {@code true} if the update is successful; returns {@code false} otherwise.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
@@ -583,7 +583,7 @@ declare namespace contact {
     /**
      * Indicates the full name of the contact.
      */
-    fullName?: string
+    fullName: string
 
     /**
      * Indicates the given name of the contact.
