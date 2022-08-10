@@ -122,6 +122,53 @@ declare namespace webview {
          */
         static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
       }
+
+      /**
+       * Provides asynchronous methods for manage the webview.
+       *
+       * @since 9
+       */
+      class WebAsyncController {
+          /**
+           * Constructor.
+           *
+           * @param controller WebAsyncController needs a WebController to associate with corresponding nweb.
+           *
+           * @since 9
+           */
+          constructor(controller: WebController);
+
+          /**
+           * Stores the current page as a web archive.
+           *
+           * @param baseName Where the generated offline webpage is stored, This value cannot be null.
+           * @param autoName If it is false, the filename will be automatically generated according to
+           *                 the url and the generated offline webpage will be stored in the directory
+           *                 specified by baseName. If it is true, the offline webpage will be directly
+           *                 stored in the path specified by baseName.
+           * @returns a promise resolved after the web archive has been stored. The parameter will either
+           *          be the filename under which the file was stored, or empty if storing the file failed.
+           *
+           * @since 9
+           */
+          storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
+
+          /**
+           * Stores the current page as a web archive.
+           *
+           * @param baseName Where the generated offline webpage is stored, This value cannot be null.
+           * @param autoName If it is false, the filename will be automatically generated according to
+           *                 the url and the generated offline webpage will be stored in the directory
+           *                 specified by baseName. If it is true, the offline webpage will be directly
+           *                 stored in the path specified by baseName.
+           * @param callback called after the web archive has been stored. The parameter will either be
+           *                 the filename under which the file was stored, or empty if storing
+           *                 the file failed.
+           *
+           * @since 9
+           */
+          storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
+      }
 }
 
 export default webview;
