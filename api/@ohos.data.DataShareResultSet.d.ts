@@ -20,12 +20,14 @@
  *
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @systemapi
  */
 export enum DataType {
     /**
      * Indicates that the data type is null.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     TYPE_NULL = 0,
 
@@ -33,6 +35,7 @@ export enum DataType {
      * Indicates that the data type is long.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     TYPE_LONG = 1,
 
@@ -40,6 +43,7 @@ export enum DataType {
      * Indicates that the data type is double.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     TYPE_DOUBLE = 2,
 
@@ -47,6 +51,7 @@ export enum DataType {
      * Indicates that the data type is byte string.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * */
     TYPE_STRING = 3,
 
@@ -54,6 +59,7 @@ export enum DataType {
      * Indicates that the data type is blob.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * */
     TYPE_BLOB = 4
 }
@@ -63,6 +69,7 @@ export enum DataType {
  *
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @systemapi
  */
 export default interface DataShareResultSet {
     /**
@@ -72,6 +79,7 @@ export default interface DataShareResultSet {
      * as the columns or keys in the result set.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     columnNames: Array<string>;
 
@@ -81,6 +89,7 @@ export default interface DataShareResultSet {
      * @note The returned number is equal to the length of the string array returned by the columnCount method.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     columnCount: number;
 
@@ -89,6 +98,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     rowCount: number;
 
@@ -99,6 +109,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      */
     isClosed: boolean;
 
@@ -107,6 +118,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      */
@@ -117,6 +129,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      */
@@ -127,6 +140,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the last row.
      */
@@ -137,6 +151,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the first row.
      */
@@ -148,6 +163,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param offset Indicates the offset relative to the current position.
      * @return Returns true if the result set is moved successfully and does not go beyond the range;
      * returns false otherwise.
@@ -159,6 +175,7 @@ export default interface DataShareResultSet {
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param position Indicates the index of the specified row, which starts from 1.
      * @return Returns true if the result set is moved successfully; returns false otherwise.
      */
@@ -171,6 +188,7 @@ export default interface DataShareResultSet {
      * column or key in the current row is null or the specified column or key is not of the Blob type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
      * @return Returns the value of the specified column or key as a byte array.
      */
@@ -183,6 +201,7 @@ export default interface DataShareResultSet {
      * column or key in the current row is null or the specified column or key is not of the string type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
      * @return Returns the value of the specified column or key as a string.
      */
@@ -195,6 +214,7 @@ export default interface DataShareResultSet {
      * column or key in the current row is null, the specified column or key is not of the long type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
      * @return Returns the value of the specified column or key as a long.
      */
@@ -207,6 +227,7 @@ export default interface DataShareResultSet {
      * column or key in the current row is null, the specified column or key is not of the double type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
      * @return Returns the value of the specified column or key as a double.
      */
@@ -218,6 +239,7 @@ export default interface DataShareResultSet {
      * @note Calling this method on the result set will release all of its resources and makes it ineffective.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @return Returns true if the result set is closed; returns false otherwise.
      */
     close(): void;
@@ -228,6 +250,7 @@ export default interface DataShareResultSet {
      * @note The column name or key name is passed as an input parameter.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnName Indicates the name of the specified column or key in the result set.
      * @return Returns the index of the specified column or key.
      */
@@ -239,6 +262,7 @@ export default interface DataShareResultSet {
      * @note The column index or key index is passed as an input parameter.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the index of the specified column or key in the result set.
      * @return Returns the name of the specified column or key.
      */
@@ -251,6 +275,7 @@ export default interface DataShareResultSet {
      * column or key in the current row is null, the specified column or key is not in the data type.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
      * @param columnIndex Indicates the specified column index or key index, which starts from 0.
      * @return Returns the dataType of the specified column or key.
      */

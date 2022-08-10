@@ -129,6 +129,18 @@ export declare interface LifecycleForm {
    * @FAModelOnly
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
+
+  /**
+   * Called when the system shares the form.
+   *
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @param formId Indicates the ID of the deleted form.
+   * @systemapi hide for inner use.
+   * @return Returns the wantParams object.
+   * @FAModelOnly
+   */
+  onShare?(formId: string): {[key: string]: any};
 }
 
 /**

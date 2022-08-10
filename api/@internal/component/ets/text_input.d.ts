@@ -127,6 +127,24 @@ declare interface TextInputOptions {
 }
 
 /**
+ * Text input style.
+ * @since 9
+ */
+declare enum TextInputStyle {
+  /**
+   * Text input default style.
+   * @since 9
+   */
+  Default,
+
+  /**
+   * Text input inline style.
+   * @since 9
+   */
+  Inline
+}
+
+/**
  * Provides a single-line text input component interface.
  * @since 7
  */
@@ -262,7 +280,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when the copy option is set.
    * @since 9
    */
-  copyOption(value: boolean | CopyOption): TextInputAttribute;
+  copyOption(value: CopyOptions): TextInputAttribute;
 
   /**
    * Called when the password show/hide icon is set.
@@ -275,6 +293,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 9
    */
   textAlign(value: TextAlign): TextInputAttribute;
+
+  /**
+   * Text input style
+   * @since 9
+   */
+  style(value: TextInputStyle): TextInputAttribute;
 }
 
 declare const TextInput: TextInputInterface;

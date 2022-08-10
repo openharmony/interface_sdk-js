@@ -119,6 +119,7 @@ declare namespace wifi {
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
+     * @deprecated since 9
      */
      function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
@@ -132,6 +133,7 @@ declare namespace wifi {
       * @since 7
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
+      * @deprecated since 9
       */
      function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
@@ -142,7 +144,9 @@ declare namespace wifi {
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
      *
+     * @param config - candidate config.
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
@@ -154,10 +158,11 @@ declare namespace wifi {
       * Removes a specified candidate hotspot configuration, only the configration which is added by ourself is allowed
       * to be removed.
       *
-      * <p>This method removes one configuration at a time.
+      * @param networkId - Network ID which will be removed.
+      * @throws {ErrorCode} when failed to remove the hotspot configuration.
+      * @return {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
       *
       * @since 9
-      * @throws {TypedError | Error} when failed to remove the hotspot configuration.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
@@ -170,6 +175,7 @@ declare namespace wifi {
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
+     *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
@@ -182,8 +188,8 @@ declare namespace wifi {
      *
      * <p>This method connect to a configuration at a time.
      *
-     * @param {number} networkId - Network ID which will be connected.
-     * @throws {TypedError | Error} when failed connect to the hotspot configuration
+     * @param networkId - Network ID which will be connected.
+     * @throws {ErrCode} if operation is failed.
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
@@ -753,6 +759,28 @@ declare namespace wifi {
       * @systemapi Hide this for inner system use.
       */
      function off(type: "streamChange", callback?: Callback<number>): void;
+
+    /**
+     * Subscribe Wi-Fi device config change events.
+     *
+     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     * @systemapi Hide this for inner system use.
+     */
+     function on(type: "deviceConfigChange", callback: Callback<number>): void;
+
+    /**
+     * Subscribe Wi-Fi device config change events.
+     *
+     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
+     * @since 9
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @permission ohos.permission.GET_WIFI_INFO
+     * @systemapi Hide this for inner system use.
+     */
+     function off(type: "deviceConfigChange", callback?: Callback<number>): void;
 
     /**
      * Subscribe Wi-Fi hotspot state change events.

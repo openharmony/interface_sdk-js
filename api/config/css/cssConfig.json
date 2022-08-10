@@ -6871,9 +6871,6 @@
     },
     {
       "name": "placeholder-color",
-      "syscap": [
-        "SystemCapability.ArkUI.ArkUI.Full"
-      ],
       "syntax": [
         {
           "name": "<color>"

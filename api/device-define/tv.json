@@ -126,6 +126,6 @@
     "SystemCapability.Ability.Form",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.settings.Core",
-    "SystemCapability.Web"
+    "SystemCapability.Web.Webview.Core"
   ]
 }

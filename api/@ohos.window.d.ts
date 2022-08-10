@@ -142,7 +142,14 @@ declare namespace window {
      * @since 9
      * @StageModelOnly
      */
-    TYPE_DIALOG
+    TYPE_DIALOG,
+    /**
+     * screenshot.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     * @StageModelOnly
+     */
+    TYPE_SCREENSHOT
   }
 
   /**
@@ -435,6 +442,7 @@ declare namespace window {
     /**
      * Whether is round corner or not.
      * @since 7
+     * @deprecated since 9
      */
     isRoundCorner: boolean
 
@@ -458,6 +466,117 @@ declare namespace window {
      * Wide gamut color space. The specific wide color gamut depends on thr screen.
      */
     WIDE_GAMUT,
+  }
+  /**
+   * Describes the scale Transition Options of window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   * @systemapi
+   */
+   interface ScaleOptions {
+    /**
+     * The scale param of x direction. Default is 1.f
+     */
+    x?: number;
+    /**
+     * The scale param of y direction. Default is 1.f
+     */
+    y?: number;
+    /**
+     * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
+     */
+    pivotX?: number;
+    /**
+     * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
+     */
+    pivotY?: number;
+  }
+
+  /**
+   * Describes the rotate Transition Options of window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   * @systemapi
+   */
+  interface RotateOptions {
+    /**
+     * The rotate degree of x direction. Default value is 0.f
+     */
+    x?: number;
+    /**
+     * The rotate degree of y direction. Default value is 0.f
+     */
+    y?: number;
+    /**
+     * The rotate degree of z direction. Default value is 0.f
+     */
+    z?: number;
+    /**
+     * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
+     */
+    pivotX?: number;
+    /**
+     * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
+     */
+    pivotY?: number;
+  }
+
+  /**
+   * Describes the translate Transition Options of window
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   * @systemapi
+   */
+  interface TranslateOptions {
+    /**
+    * The translate pixel param of x direction. Default is 0.f
+    */
+    x?: number;
+    /**
+     * The translate pixel param of y direction. Default is 0.f
+     */
+    y?: number;
+    /**
+     * The translate pixel param of z direction. Default is 0.f
+     */
+    z?: number;
+  }
+
+  /**
+   * Transition Context
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systempi
+   * @since 9
+   */
+   interface TransitionContext {
+    /**
+     * The target window with animation
+     */
+    toWindow: Window
+    /**
+     * Set complete state of animation transition
+     * @param isCompleted is Completed if true, or not if false.
+     */
+    completeTransition(isCompleted: boolean): void;
+  }
+
+  /**
+   * Transition Controller
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systempi
+   * @since 9
+   */
+  interface TransitionController {
+    /**
+     * Animation configuration when showing window
+     * @param context transition Context.
+     */
+    animationForShown(context: TransitionContext): void;
+    /**
+     * Animation configuration when hiding window
+     * @param context transition context.
+     */
+    animationForHidden(context: TransitionContext): void;
   }
 
   /**
@@ -619,6 +738,31 @@ declare namespace window {
     LOCKED = 11,
   }
 
+  /**
+   * Type of blur style
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  enum BlurStyle {
+    /**
+     * Close blur.
+     */
+    OFF,
+    /**
+     * Blur style thin.
+     */
+    THIN,
+     /**
+     * Blur style regular.
+     */
+    REGULAR,
+    /**
+     * Blur style thick.
+     */
+    THICK,
+  }
+
   interface Window {
     /**
      * hide window.
@@ -635,6 +779,20 @@ declare namespace window {
     hide(): Promise<void>;
 
     /**
+      * hide window with animation.
+      * @since 9
+      * @systemapi
+      */
+    hideWithAnimation(callback: AsyncCallback<void>): void;
+
+    /**
+      * hide window with animation.
+      * @since 9
+      * @systemapi
+      */
+    hideWithAnimation(): Promise<void>;
+
+    /**
       * show window.
       * @since 7
       */
@@ -645,6 +803,20 @@ declare namespace window {
       * @since 7
       */
     show(): Promise<void>;
+
+    /**
+      * show window with animation.
+      * @since 9
+      * @systemapi
+      */
+    showWithAnimation(callback: AsyncCallback<void>): void;
+
+    /**
+      * show window with animation.
+      * @since 9
+      * @systemapi
+      */
+    showWithAnimation(): Promise<void>;
 
     /**
      * Destroy the window.
@@ -700,6 +872,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     * @deprecated since 9
      */
     setWindowType(type: WindowType): Promise<void>;
 
@@ -709,6 +882,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7
+     * @deprecated since 9
      */
     setWindowType(type: WindowType, callback: AsyncCallback<void>): void;
 
@@ -981,7 +1155,7 @@ declare namespace window {
       * @since 9
       */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
- 
+
     /**
      * bind dialog to the target window.
      * @param token token of the target window.
@@ -1121,6 +1295,15 @@ declare namespace window {
     setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
     /**
+     * Sets whether to wake up the screen when this ability is restored.
+     * @param wakeUp Specifies whether to wake up the screen. True means to wake it up, false means not.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setWakeUpScreen(wakeUp: boolean): void;
+
+    /**
     * Sets whether outside can be touch or not.
     * @param touchable outside can be touch if true, or not if false.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1153,6 +1336,15 @@ declare namespace window {
      * @since 7
      */
     setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Ignore this window during screenshot.
+     * @param isSkip skip if true, or not if false.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setSnapshotSkip(isSkip: boolean): void;
 
     /**
      * Sets whether is touchable or not.
@@ -1201,6 +1393,87 @@ declare namespace window {
       * @since 9
       */
     snapshot(): Promise<image.PixelMap>;
+
+    /* * Sets opacity  of window
+     * @param opacity  Interval is 0.f-1.f.
+     * @systemapi
+     * @since 9
+     */
+    opacity(opacity: number): void;
+
+    /**
+     * Sets scale options of window.
+     * @param scaleOptions scale param of window.
+     * @systemapi
+     * @since 9
+     */
+    scale(scaleOptions: ScaleOptions): void;
+
+    /**
+     * Sets rotate options of window.
+     * @param rotateOptions rotate param of window.
+     * @systemapi
+     * @since 9
+     */
+    rotate(rotateOptions: RotateOptions): void;
+
+    /**
+     * Sets translate options of window.
+     * @param translateOptions translate param of window.
+     * @systemapi
+     * @since 9
+     */
+    translate(translateOptions: TranslateOptions): void;
+
+    /**
+     * Get Transition Controller.
+     * @systemapi
+     * @since 9
+     */
+    getTransitionController(): TransitionController;
+
+    /**
+     * Sets the window blur radius.
+     * @param radius the blur radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBlur(radius: number): void;
+
+    /**
+     * Sets the window backdrop blur radius.
+     * @param radius the blur radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBackdropBlur(radius: number): void;
+
+    /**
+     * Sets the window backdrop blur style.
+     * @param blurStyle the specified blur style.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setBackdropBlurStyle(blurStyle: BlurStyle): void;
+
+    /**
+     * Sets shadow.
+     * @param radius the radius of the shadow.
+     * @param color the color of the shadow.
+     * @param offsetX the offset of the shadow on the x-axis.
+     * @param offsetY the offset of the shadow on the y-axis.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
+
+    /**
+     * Sets corner radius.
+     * @param cornerRadius the corner radius.
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    setCornerRadius(cornerRadius: number): void;
   }
   /**
    * window stage callback event type
@@ -1309,6 +1582,7 @@ declare namespace window {
      * Sets whether can show on lock screen or not
      * @param showOnLockScreen can show on lock screen if true, or not if false
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
      * @since 9
      * @StageModelOnly
      */
