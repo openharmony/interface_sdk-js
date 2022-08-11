@@ -51,41 +51,38 @@ declare namespace screenLock {
   function unlockScreen():Promise<void>;
 
   /**
-   * Receives {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation} called. 
-   * This callback is invoked when {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation}
-   * is called by runtime
-   *
+   * Lock the screen.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'beginExitAnimation', callback: Callback<void>): void;
+  function lockScreen(callback: AsyncCallback<boolean>): void;
+  function lockScreen():Promise<boolean>;
 
   /**
-    * Receives {beginSleep | endSleep | changeUser} called. This callback is invoked when {beginSleep | endSleep | changeUser} is called by runtime 
-    *
-    * @systemapi Hide this for inner system use.
-    * @since 9
-    */
-  function on(type: 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<number>): void;
-
-  /**
-   * Receives screenlockEnabled change. This callback is invoked when screenlockEnabled is called by runtime 
-   *
+   * Lock the screen.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function on(type: 'screenlockEnabled', callback: Callback<boolean>): void;
+  function lockScreen(callback: AsyncCallback<boolean>): void;
+  function lockScreen():Promise<boolean>;
+
+  interface SystemEvent{
+    /**
+     * event type of the system event.
+     */
+    eventType:string;
+    /**
+     * event params of the system event.
+     */
+    params:string;
+  }
 
   /**
-   * Remove the receives of {beginWakeUp | endWakeUp | beginScreenOn | endScreenOn | beginScreenOff | endScreenOff | unlockScreen 
-   * | beginExitAnimation | screenlockEnabled | beginSleep | endSleep | changeUser}.
-   *
+   * Lock the screen.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function off(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' 
-      | 'unlockScreen' | 'beginExitAnimation' | 'screenlockEnabled' | 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<void>): void;
-
+  function onSystemEvent(callback: Callback<SystemEvent>): void;
 
   /**
    * screenlockAPP send event to screenlockSA
