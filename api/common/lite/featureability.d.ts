@@ -116,6 +116,7 @@ export interface SubscribeMessageOptions {
 
 /**
  * @since 5
+ * @systemapi
  * @deprecated since 8
  */
 export declare class FeatureAbility {
