@@ -29,7 +29,7 @@ declare namespace contact {
    * @param contact Indicates the contact information.
    * @return Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
   function addContact(contact: Contact): Promise<number>;
@@ -50,7 +50,7 @@ declare namespace contact {
    *
    * @param key Indicates the unique query key of a contact to delete.
    * @return Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
   function deleteContact(key: string): Promise<void>;
@@ -165,7 +165,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes to update. If this parameter is null,
    * all available attributes will be updated.
    * @return Returns {@code true} if the update is successful; returns {@code false} otherwise.
-   * @permision ohos.permission.WRITE_CONTACTS
+   * @permission ohos.permission.WRITE_CONTACTS
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
@@ -203,87 +203,87 @@ declare namespace contact {
     /**
      * Indicates the contact ID.
      */
-    readonly id: number
+    readonly id?: number
 
     /**
      * Indicates the query key that identifies the contact.
      */
-    readonly key: string
+    readonly key?: string
 
     /**
      * Indicates the contact attributes.
      */
-    contactAttributes: ContactAttributes
+    contactAttributes?: ContactAttributes
 
     /**
      * Indicates an email address of the contact.
      */
-    emails: Email[]
+    emails?: Email[]
 
     /**
      * Indicates an event (special date) of the contact.
      */
-    events: Event[]
+    events?: Event[]
 
     /**
      * Indicates a group of the contact.
      */
-    groups: Group[]
+    groups?: Group[]
 
     /**
      * Indicates an IM address of the contact.
      */
-    imAddresses: ImAddress[]
+    imAddresses?: ImAddress[]
 
     /**
      * Indicates a phone number of the contact.
      */
-    phoneNumbers: PhoneNumber[]
+    phoneNumbers?: PhoneNumber[]
 
     /**
      * Indicates the contact portrait.
      */
-    portrait: Portrait
+    portrait?: Portrait
 
     /**
      * Indicates a postal address of the contact.
      */
-    postalAddresses: PostalAddress[]
+    postalAddresses?: PostalAddress[]
 
     /**
      * Indicates a relation of the contact.
      */
-    relations: Relation[]
+    relations?: Relation[]
 
     /**
      * Indicates a Session Initiation Protocol (SIP) address of the contact.
      */
-    sipAddresses: SipAddress[]
+    sipAddresses?: SipAddress[]
 
     /**
      * Indicates a website of the contact.
      */
-    websites: Website[]
+    websites?: Website[]
 
     /**
      * Indicates the contact name.
      */
-    name: Name
+    name?: Name
 
     /**
      * Indicates the contact nickname.
      */
-    nickName: NickName
+    nickName?: NickName
 
     /**
      * Indicates the contact note.
      */
-    note: Note
+    note?: Note
 
     /**
      * Indicates organization information about the contact.
      */
-    organization: Organization
+    organization?: Organization
   }
 
   /**
@@ -408,17 +408,17 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the displayed email name.
      */
-    displayName: string
+    displayName?: string
 
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -458,12 +458,12 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -473,7 +473,7 @@ declare namespace contact {
     /**
      * Indicates the contact group ID.
      */
-    groupId: number
+    groupId?: number
 
     /**
      * Indicates the contact group title.
@@ -493,12 +493,12 @@ declare namespace contact {
     /**
      * Indicates the displayed name of a contact holder.
      */
-    readonly displayName: string
+    readonly displayName?: string
 
     /**
      * Indicates the holder ID.
      */
-    holderId: number
+    holderId?: number
   }
 
   /**
@@ -558,12 +558,12 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -573,12 +573,12 @@ declare namespace contact {
     /**
      * Indicates the family name of the contact.
      */
-    familyName: string
+    familyName?: string
 
     /**
      * Indicates the phonetic family name of the contact.
      */
-    familyNamePhonetic: string
+    familyNamePhonetic?: string
 
     /**
      * Indicates the full name of the contact.
@@ -588,32 +588,32 @@ declare namespace contact {
     /**
      * Indicates the given name of the contact.
      */
-    givenName: string
+    givenName?: string
 
     /**
      * Indicates the phonetic given name of the contact.
      */
-    givenNamePhonetic: string
+    givenNamePhonetic?: string
 
     /**
      * Indicates the middle name of the contact.
      */
-    middleName: string
+    middleName?: string
 
     /**
      * Indicates the phonetic middle name of the contact.
      */
-    middleNamePhonetic: string
+    middleNamePhonetic?: string
 
     /**
      * Indicates the prefix of the contact name.
      */
-    namePrefix: string
+    namePrefix?: string
 
     /**
      * Indicates the suffix of this contact name.
      */
-    nameSuffix: string
+    nameSuffix?: string
   }
 
   /**
@@ -646,9 +646,9 @@ declare namespace contact {
     name: string
 
     /**
-     * Indicates the title of the contact.
+     * Indicates the title of the organization.
      */
-    title: string
+    title?: string
   }
 
   /**
@@ -768,7 +768,7 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the phone number of the contact.
@@ -778,7 +778,7 @@ declare namespace contact {
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -823,27 +823,27 @@ declare namespace contact {
     /**
      * Indicates the city where this contact is located.
      */
-    city: string
+    city?: string
 
     /**
      * Indicates the country/region where this contact is located.
      */
-    country: string
+    country?: string
 
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the neighborhood where this contact is located.
      */
-    neighborhood: string
+    neighborhood?: string
 
     /**
      * Indicates the post box of this contact.
      */
-    pobox: string
+    pobox?: string
 
     /**
      * Indicates the postal address of this contact.
@@ -853,22 +853,22 @@ declare namespace contact {
     /**
      * Indicates the postal code of this contact.
      */
-    postcode: string
+    postcode?: string
 
     /**
      * Indicates the area where this contact is located.
      */
-    region: string
+    region?: string
 
     /**
      * Indicates the street where this contact is located.
      */
-    street: string
+    street?: string
 
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -958,7 +958,7 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the relation name.
@@ -968,7 +968,7 @@ declare namespace contact {
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
@@ -1003,7 +1003,7 @@ declare namespace contact {
     /**
      * Indicates the label name of an attribute.
      */
-    labelName: string
+    labelName?: string
 
     /**
      * Indicates the SIP address.
@@ -1013,7 +1013,7 @@ declare namespace contact {
     /**
      * Indicates the label id.
      */
-    labelId: number
+    labelId?: number
   }
 
   /**
