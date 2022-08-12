@@ -126,6 +126,15 @@ declare namespace util {
          * @return return decoded text
          */
         decode(input: Uint8Array, options?: { stream?: false }): string;
+
+        /**
+         * Returns the result of running encoding's decoder.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param input decoded numbers in accordance with the format
+         * @return return decoded text
+         */
+         decodeWithStream(input: Uint8Array, options?: { stream?: boolean }): string;
     }
 
     class TextEncoder {
