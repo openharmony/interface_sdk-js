@@ -422,6 +422,7 @@ declare namespace osAccount {
          * @since 9
          * @return Returns {@code true} if current process belongs to the main os account;
          *         returns {@code false} otherwise.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @systemapi Hide this for inner system use.
          */
         isMainOsAccount(callback: AsyncCallback<boolean>): void;
