@@ -32,8 +32,8 @@ export interface Result {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
- * @systemapi
  * @deprecated since 8
  */
 export interface SubscribeMessageResponse {
@@ -149,8 +149,8 @@ export interface SubscribeAbilityEventParam {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
- * @systemapi
  * @deprecated since 8
  */
 export interface SendMessageOptions {
@@ -200,8 +200,8 @@ export interface SendMessageOptions {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
- * @systemapi
  * @deprecated since 8
  */
 export interface SubscribeMessageOptions {
@@ -374,8 +374,8 @@ export declare class FeatureAbility {
   /**
    * Sends messages to the destination device.
    * @param options Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
-   * @systemapi
    * @deprecated since 8
    */
   static sendMsg(options: SendMessageOptions): void;
@@ -383,16 +383,16 @@ export declare class FeatureAbility {
   /**
    * Listens for messages sent from other devices.
    * @param options Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
-   * @systemapi
    * @deprecated since 8
    */
   static subscribeMsg(options: SubscribeMessageOptions): void;
 
   /**
    * Cancels the listening for messages sent from other devices.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
-   * @systemapi
    * @deprecated since 8
    */
   static unsubscribeMsg(): void;
