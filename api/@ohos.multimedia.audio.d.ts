@@ -587,12 +587,14 @@ declare namespace audio {
    * Enumerates the focus type.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
    */
   enum FocusType {
     /**
      * Recording type.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
      */
     FOCUS_TYPE_RECORDING = 0,
   }
