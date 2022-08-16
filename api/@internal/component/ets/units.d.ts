@@ -418,3 +418,16 @@ declare interface BorderOptions {
    */
   style?: EdgeStyles | BorderStyle;
 }
+
+/**
+ * Defines the ColorFilter object.
+ * @since 9
+ */
+declare class ColorFilter {
+  /**
+   * Creates ColorFilter with 4*5 matrix.
+   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @since 9
+   */
+  constructor(value: number[]);
+}
