@@ -170,6 +170,7 @@ ohos_copy("internal_full") {
 ohos_copy("internal_lite") {
   sources = [
     "api/common/lite/console.d.ts",
+    "api/common/lite/featureability.d.ts",
     "api/common/lite/global.d.ts",
     "api/common/lite/index.d.ts",
     "api/common/lite/viewmodel.d.ts",
