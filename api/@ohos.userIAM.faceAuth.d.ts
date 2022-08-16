@@ -23,7 +23,7 @@ declare namespace faceAuth {
      * Provides the abilities for face authentication.
      * @name FaceAuth
      * @since 9
-     * @syscap SystemCapability.UserIAM.FaceAuth
+     * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
      */
     class FaceAuthManager {
@@ -52,7 +52,7 @@ declare namespace faceAuth {
      *
      * @name ResultCode
      * @since 9
-     * @syscap SystemCapability.UserIAM.FaceAuth
+     * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
      */
     enum ResultCode {
