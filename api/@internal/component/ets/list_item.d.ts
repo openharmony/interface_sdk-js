@@ -63,6 +63,49 @@ declare enum EditMode {
 }
 
 /**
+ * Sliding effect
+ * @since 9
+ */
+declare enum SwipeEdgeEffect {
+  /**
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * @since 9
+   */
+  Spring,
+
+  /**
+   * Sliding to the edge has no effect.
+   * @since 9
+   */
+  None,
+}
+
+/**
+ * Defines the SwipeActionOption of swipeAction attribute method.
+ * @since 9
+ */
+declare interface SwipeActionOptions {
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   * @since 9
+   */
+  start?: CustomBuilder;
+  /**
+   * An action item that appears when a list item slides left (when list direction is Vertical) or
+   * slides up (when list direction Horizontal).
+   * @since 9
+   */
+  end?: CustomBuilder;
+
+  /**
+   * Sets whether sliding to a boundary has a spring effect.
+   * @since 9
+   */
+  edgeEffect?: SwipeEdgeEffect;
+}
+
+/**
  * @since 7
  */
 
@@ -99,6 +142,13 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 8
    */
   selectable(value: boolean): ListItemAttribute;
+
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   * @param value items defines in the SwipeActionOption.
+   * @since 9
+   */
+  swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
   /**
    * Called when the listItem is selected.
