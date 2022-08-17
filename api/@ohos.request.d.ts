@@ -341,6 +341,12 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     title?: string;
+    /**
+     * Allow download background task notifications.
+     *
+     * @since 9
+     */
+    background?: boolean;
   }
 
   /**

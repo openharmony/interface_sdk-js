@@ -14,6 +14,8 @@
  */
 
 import Ability from "./@ohos.application.Ability";
+import dataAbility from "./@ohos.data.dataAbility";
+import window from './@ohos.window';
 
 /**
  * The ability lifecycle callback.
@@ -34,24 +36,48 @@ export default class AbilityLifecycleCallback {
     onAbilityCreate(ability: Ability): void;
 
     /**
-     * Called back when an ability window stage is created.
+     * Called back when a window stage is created.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to create
      * @StageModelOnly
      */
-    onAbilityWindowStageCreate(ability: Ability): void;
+    onWindowStageCreate(ability: Ability, windowStage: window.WindowStage): void;
  
     /**
-     * Called back when an ability window stage is destroyed.
+     * Called back when a window stage is actived.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to active
      * @StageModelOnly
      */
-    onAbilityWindowStageDestroy(ability: Ability): void;
+    onWindowStageActive(ability: Ability, windowStage: window.WindowStage): void;
+
+    /**
+     * Called back when a window stage is inactived.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to inactive
+     * @StageModelOnly
+     */
+    onWindowStageInactive(ability: Ability, windowStage: window.WindowStage): void;
+
+    /**
+     * Called back when a window stage is destroyed.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param ability: Indicates the ability to register for listening.
+     * @param windowStage window stage to destroy
+     * @StageModelOnly
+     */
+    onWindowStageDestroy(ability: Ability, windowStage: window.WindowStage): void;
  
     /**
      * Called back when an ability is destroyed.

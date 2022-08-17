@@ -123,7 +123,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Allow replication.
    * @since 9
    */
-  copyOption(value: boolean | CopyOption): TextAttribute;
+  copyOption(value: CopyOptions): TextAttribute;
 }
 
 declare const TextInstance: TextAttribute;

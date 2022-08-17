@@ -105,7 +105,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Called when the copy option is set.
    * @since 9
    */
-  copyOption(value: boolean | CopyOption): SearchAttribute;
+  copyOption(value: CopyOptions): SearchAttribute;
 
   /**
    * Called when the text align is set.

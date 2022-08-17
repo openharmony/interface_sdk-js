@@ -138,7 +138,14 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * @StageModelOnly
  * @since 9
  */
-declare function getContext(component?: Object): Object;
+declare function getContext(component?: Object): Context;
+
+/**
+ * Get context.
+ * @StageModelOnly
+ * @since 9
+ */
+declare type Context = import('../api/application/Context').default;
  
 /**
  * Defines the data type of the interface restriction.
@@ -617,6 +624,14 @@ declare function lpx2px(value: number): number;
  */
 declare function px2lpx(value: number): number;
 
+declare namespace focusControl {
+  /**
+   * Request focus to the specific component by param: 'id/key'.
+   * @since 9
+   */
+  declare function requestFocus(value: string): boolean;
+}
+
 /**
  * Defines the event target.
  * @since 8
@@ -926,7 +941,7 @@ declare interface TouchEvent extends BaseEvent {
  * Defines the PixelMap type object for ui component.
  * @since 7
  */
-declare type PixelMap = PixelMapMock;
+declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap;
 
 /**
  * pixelmap object with release function.
@@ -1109,6 +1124,12 @@ declare interface PopupOptions {
    * @since 7
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
@@ -1157,6 +1178,12 @@ declare interface CustomPopupOptions {
    * @since 8
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
+
+  /**
+   * The offset of the sharp corner of popup.
+   * @since 9
+   */
+   arrowOffset?: Length;
 }
 
 /**
@@ -1206,8 +1233,16 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
+   * @deprecated since 9, instead of hitTestBehavior.
    */
   touchable(value: boolean): T;
+
+  /**
+   * Defines the component's hit test behavior in touch events.
+   * @param value the hit test mode.
+   * @since 9
+   */
+  hitTestBehavior(value: HitTestMode): T;
 
   /**
    * layout Weight
@@ -1386,6 +1421,24 @@ declare class CommonMethod<T> {
    * @since 9
    */
   tabIndex(index: number): T;
+
+  /**
+   * Set default focused component when a page create.
+   * @since 9
+   */
+  defaultFocus(value: boolean): T;
+
+  /**
+   * Set default focused component when focus on a focus group.
+   * @since 9
+   */
+  groupDefaultFocus(value: boolean): T;
+
+  /**
+   * Set a component focused when the component be touched.
+   * @since 9
+   */
+  focusOnTouch(value: boolean): T;
 
   /**
    * animation

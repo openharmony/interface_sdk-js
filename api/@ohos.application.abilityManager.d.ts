@@ -24,10 +24,10 @@ import { ElementName }  from './bundle/elementName';
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi Hide this for inner system use
  * @permission N/A
  */
 declare namespace abilityManager {
-
     /**
      * @name AbilityState
      * @since 8
@@ -68,16 +68,16 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
-     /**
-      * Get information about running extensions
-      *
-      * @since 9
-      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-      * @param upperLimit Get the maximum limit of the number of messages
-      * @systemapi Hide this for inner system use.
-      * @return Returns the array of {@link ExtensionRunningInfo}.
-      * @permission ohos.permission.GET_RUNNING_INFO
-      */
+    /**
+     * Get information about running extensions
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param upperLimit Get the maximum limit of the number of messages
+     * @systemapi Hide this for inner system use.
+     * @return Returns the array of {@link ExtensionRunningInfo}.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     */
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
     function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
@@ -89,26 +89,26 @@ declare namespace abilityManager {
      * @systemapi Hide this for inner system use.
      * @return Returns the {@link ElementName} info of the top ability.
      */
-   function getTopAbility(): Promise<ElementName>;
-   function getTopAbility(callback: AsyncCallback<ElementName>): void;
+    function getTopAbility(): Promise<ElementName>;
+    function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
-   /**
-   * The class of an ability running information.
-   *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use
-   */
-   export type AbilityRunningInfo = _AbilityRunningInfo
+    /**
+     * The class of an ability running information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
+     */
+    export type AbilityRunningInfo = _AbilityRunningInfo
 
-  /**
-   * The class of an extension running information.
-   *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi hide this for inner system use
-   */
-   export type ExtensionRunningInfo = _ExtensionRunningInfo
+    /**
+     * The class of an extension running information.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide this for inner system use
+     */
+    export type ExtensionRunningInfo = _ExtensionRunningInfo
 }
 
 export default abilityManager;

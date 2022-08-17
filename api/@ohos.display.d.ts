@@ -52,6 +52,14 @@ declare namespace display {
   function getAllDisplay(): Promise<Array<Display>>;
 
   /**
+   * Check whether there is a privacy window on the current display.
+   * @param displayId Display id to query
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function hasPrivateWindow(displayId: number): boolean;
+
+  /**
    * Register the callback for display changes.
    * @param type: type of callback
    * @since 7
@@ -99,6 +107,47 @@ declare namespace display {
      * Screen on and not update.
      */
     STATE_ON_SUSPEND,
+  }
+
+  /**
+   * Rectangle
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface Rect {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  }
+
+  /**
+   * Curved area rects of the waterfall display.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface WaterfallDisplayAreaRects {
+    readonly left: Rect;
+    readonly right: Rect;
+    readonly top: Rect;
+    readonly bottom: Rect;
+  }
+
+  /**
+   * cutout information of the display.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface CutoutInfo {
+    /**
+     * Bounding rectangles of the cutout areas of the display.
+     */
+    readonly boundingRects: Array<Rect>;
+
+    /**
+     * Rectangles of curved parts on each side of a waterfall display. 
+     */
+    readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
 
   /**
@@ -171,6 +220,18 @@ declare namespace display {
      * DPI on the y-axis.
      */
     yDPI: number;
+
+    /**
+     * Obtain the cutout info of the display.
+     * @since 9
+     */
+    getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
+
+    /**
+     * Obtain the cutout info of the display.
+     * @since 9
+     */
+    getCutoutInfo(): Promise<CutoutInfo>;
   }
 }
 

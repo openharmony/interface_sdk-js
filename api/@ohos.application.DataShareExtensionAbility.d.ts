@@ -51,39 +51,6 @@ export default class DataShareExtensionAbility {
     onCreate?(want: Want, callback: AsyncCallback<void>): void;
 
     /**
-     * Obtains the MIME type of files. This method should be implemented by a data share.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the path of the files to obtain.
-     * @param mimeTypeFilter Indicates the MIME type of the files to obtain. This parameter cannot be set to {@code
-     *     null}.
-     *     <p>1. "&ast;/*": Obtains all types supported by a data share.
-     *     <p>2. "image/*": Obtains files whose main type is image of any subtype.
-     *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
-     * @systemapi Hide this for inner system use.
-     * @return Returns the MIME type of the matched files; returns null if there is no type that matches the Data
-     * @StageModelOnly
-     */
-    getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
-
-    /**
-     * Opens a file in a specified remote path.
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the path of the file to open.
-     * @param mode Indicates the file open mode, which can be "r" for read-only access, "w" for write-only access
-     *             (erasing whatever data is currently in the file), "wt" for write access that truncates any existing
-     *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
-     *             any existing data, or "rwt" for read and write access that truncates any existing file.
-     * @param callback Indicates the callback when openfile success
-     * @return Returns the file descriptor.
-     * @StageModelOnly
-     */
-    openFile?(uri: string, mode: string, callback: AsyncCallback<number>): void;
-
-    /**
      * Inserts a data record into the database. This method should be implemented by a data share.
      *
      * @since 9
@@ -143,21 +110,6 @@ export default class DataShareExtensionAbility {
      */
     query?(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>,
         callback: AsyncCallback<Object>): void;
-
-    /**
-     * Obtains the MIME type matching the data specified by the URI of the data share. This method should be
-     * implemented by a data share.
-     *
-     * <p>Data abilities supports general data types, including text, HTML, and JPEG.</p>
-     *
-     * @since 9
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-     * @param uri Indicates the uri of the data.
-     * @systemapi Hide this for inner system use.
-     * @return Returns the MIME type that matches the data specified by {@code uri}.
-     * @StageModelOnly
-     */
-    getType?(uri: string, callback: AsyncCallback<string>): void;
 
     /**
      * Inserts multiple data records into the database. This method should be implemented by a data share.

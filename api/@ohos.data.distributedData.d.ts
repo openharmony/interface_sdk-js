@@ -1130,6 +1130,7 @@ declare namespace distributedData {
          * 
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param value Indicates the data record to put.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1157,6 +1158,7 @@ declare namespace distributedData {
          * Deletes the key-value pair based on a specified key.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1166,6 +1168,36 @@ declare namespace distributedData {
         delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
         delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
         
+        /**
+         * Backs up a database in a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param file Indicates the name that saves the database backup.
+         */
+        backup(file:string, callback: AsyncCallback<void>):void;
+        backup(file:string): Promise<void>;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param file Indicates the name that saves the database file.
+         */
+        restore(file:string, callback: AsyncCallback<void>):void;
+        restore(file:string): Promise<void>;
+
+        /**
+         * Delete a backup files based on a specified name.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param files list Indicates the name that backup file to delete.
+         */
+        deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
+        deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
+
         /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
          * {@code KvStoreObserver} will be invoked.
@@ -1388,6 +1420,7 @@ declare namespace distributedData {
          *
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
@@ -1649,6 +1682,7 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param predicates Indicates the datasharePredicates.
+         * @systemapi
          * Spaces before and after the key will be cleared.
          * @throws Throws this exception if any of the following errors 
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
@@ -1661,6 +1695,7 @@ declare namespace distributedData {
          * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
          * @param predicates Indicates the key.
          * @param deviceId Indicates the ID of the device to which the results belong.
          * Spaces before and after the key will be cleared.

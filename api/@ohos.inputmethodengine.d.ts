@@ -14,11 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
-import { ConnectOptions } from "./ability/connectOptions";
-import ExtensionContext from './application/ExtensionContext';
-import { ExtensionAbilityInfo } from "./bundle/extensionAbilityInfo";
 
 /**
  * inputmethodengine

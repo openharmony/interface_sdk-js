@@ -308,7 +308,7 @@ declare namespace formInfo {
          * Indicates the key specifying the ID of the form to be obtained, which is represented as
          * want: {
          *   "parameters": {
-         *       IDENTITY_KEY: 1L
+         *       IDENTITY_KEY: "119476135"
          *    }
          * }.
          *
@@ -421,7 +421,21 @@ declare namespace formInfo {
          * @since 9
          * @syscap SystemCapability.Ability.Form
          */
-        ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name"
+        ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
+
+        /**
+         * Indicates the key specifying the the device ID, which is represented as
+         * want: {
+         *   "parameters": {
+         *       DEVICE_ID_KEY : "EFC11C0C53628D8CC2F8CB5052477E130D075917034613B9884C55CD22B3DEF2"
+         *    }
+         * }
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use.
+         */
+        DEVICE_ID_KEY = "ohos.extra.param.key.device_id"
     }
 
     /**

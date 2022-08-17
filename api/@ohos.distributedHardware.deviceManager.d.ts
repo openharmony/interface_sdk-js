@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2020-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,8 +16,8 @@
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * Providers interfaces to creat a {@link deviceManager} instances.
- * 
+ * Providers interfaces to create a {@link deviceManager} instances.
+ *
  * @since 7
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * 
@@ -46,14 +46,22 @@ declare namespace deviceManager {
 
     /**
      * NetworkId of the device.
-     * 
+     *
      * @since 8
      */
     networkId: string;
+
+    /**
+     * @since 9
+     * The distance of dicovered device, in centimeters(cm).
+     */
+    range: number;
   }
 
   /**
    * Device Type definitions
+   * 
+   * @systemapi this method can be used only by system applications.
    */
   enum DeviceType {
     /**
@@ -162,18 +170,49 @@ declare namespace deviceManager {
   }
 
   /**
+   * Service publish info for device discover
+   * @since 9
+   * @systemapi this method can be used only by system applications.
+   */
+  interface PublishInfo {
+    /**
+     * Service publish ID, the value is in scope [0, 65535], should be unique for each publish process
+     */
+    publishId: number;
+
+    /**
+     * Discovery mode for service subscription.
+     */
+    mode: DiscoverMode;
+
+    /**
+     * Service subscription frequency.
+     */
+    freq: ExchangeFreq;
+
+    /**
+     *  Whether the device should be ranged  by discoverers.
+     */
+    ranging : boolean;
+  }
+
+  /**
    * device discover mode
    *
    * @systemapi this method can be used only by system applications.
    */
   enum DiscoverMode {
     /**
-     * Passive
+     * when using this key at client side, it means discovering for available nearby devices by 
+     * calling @startDeviceDiscovery function, while using this key at server side indicating that
+     * a device publication or advertisement by calling @publishDeviceDiscovery.
      */
     DISCOVER_MODE_PASSIVE = 0x55,
 
     /**
-     * Proactive
+     * when using this key at server side, it means discovering for available nearby devices by 
+     * calling @startDeviceDiscovery function, while using this key at client side indicating that
+     * a device publication or advertisement by calling @publishDeviceDiscovery.
      */
     DISCOVER_MODE_ACTIVE = 0xAA
   }
@@ -281,7 +320,7 @@ declare namespace deviceManager {
      * the token used for this authentication.
      */
     token: number;
-    
+
     /**
      * Authentication extra infos.
      */
@@ -306,7 +345,7 @@ declare namespace deviceManager {
   interface DeviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
-     * 
+     *
      * @systemapi this method can be used only by system applications.
      */
     release(): void;
@@ -369,10 +408,21 @@ declare namespace deviceManager {
     /**
      * Start to discover device.
      *
+     * @since 8
      * @param subscribeInfo subscribe info to discovery device
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
+
+    /**
+     * Start to discover device.
+     *
+     * @since 9
+     * @param subscribeInfo subscribe info to discovery device
+     * @param filterOptions filterOptions to filter discovery device
+     * @systemapi this method can be used only by system applications.
+     */
+    startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
 
     /**
      * Stop to discover device.
@@ -383,6 +433,22 @@ declare namespace deviceManager {
     stopDeviceDiscovery(subscribeId: number): void;
 
     /**
+     * Publish discover device.
+     * @since 9
+     * @param publishInfo publish info to Publish discovery device
+     * @systemapi this method can be used only by system applications.
+     */
+    publishDeviceDiscovery(publishInfo: PublishInfo): void;
+
+    /**
+     * UnPublish discover device.
+     * @since 9
+     * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
+     * @systemapi this method can be used only by system applications.
+     */
+    unPublishDeviceDiscovery(publishId: number): void;
+
+    /**
      * Authenticate the specified device.
      *
      * @param deviceInfo deviceInfo of device to authenticate
@@ -390,7 +456,7 @@ declare namespace deviceManager {
      * @param callback Indicates the callback to be invoked upon authenticateDevice
      * @systemapi this method can be used only by system applications.
      */
-    authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinTone ?: number}>): void;
+    authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinToken ?: number}>): void;
 
     /**
      * unAuthenticate the specified device.
@@ -460,6 +526,42 @@ declare namespace deviceManager {
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
+
+    /**
+     * Register a device publish result callback so that the application can be notified when the device publish success
+     *
+     * @since 9
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
+
+    /**
+     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
+     *
+     * @since 9
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
+
+    /**
+     * Register a device publish result callback so that the application can be notified when the device publish was failed
+     *
+     * @since 9
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
+
+    /**
+     * UnRegister a device publish result callback so that the application can be notified when the device publish was failed
+     *
+     * @since 9
+     * @param callback Indicates the device publish result callback to register.
+     * @systemapi this method can be used only by system applications.
+     */
+     off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
