@@ -1920,7 +1920,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1932,7 +1932,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
