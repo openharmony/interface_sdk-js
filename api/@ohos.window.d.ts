@@ -1766,7 +1766,6 @@ declare namespace window {
     * Sets the dimBehind of window.
     * @param dimBehindValue the specified dimBehind.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
-    * @throws Throws an exception cause this device do not support
     * @since 7
     * @deprecated since 9
     */
@@ -1776,7 +1775,6 @@ declare namespace window {
      * Sets the dimBehind of window.
      * @param dimBehind the specified dimBehind.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @throws Throws an exception cause this device do not support
      * @since 7
      * @deprecated since 9
      */
@@ -1882,7 +1880,6 @@ declare namespace window {
     * Sets whether outside can be touch or not.
     * @param touchable outside can be touch if true, or not if false.
     * @syscap SystemCapability.WindowManager.WindowManager.Core
-    * @throws Throws an exception cause this device do not support
     * @since 7
     * @deprecated since 9
     */
@@ -1892,7 +1889,6 @@ declare namespace window {
      * Sets whether outside can be touch or not.
      * @param touchable outside can be touch if true, or not if false.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @throws Throws an exception cause this device do not support
      * @since 7
      * @deprecated since 9
      */
@@ -1924,7 +1920,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1936,7 +1932,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
