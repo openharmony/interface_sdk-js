@@ -58,14 +58,13 @@ declare namespace screenLock {
   function lockScreen(callback: AsyncCallback<boolean>): void;
   function lockScreen():Promise<boolean>;
 
+  /**
+   * Definition of system events.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   interface SystemEvent{
-    /**
-     * event type of the system event.
-     */
     eventType:string;
-    /**
-     * event params of the system event.
-     */
     params:string;
   }
 
