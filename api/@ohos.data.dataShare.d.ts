@@ -28,7 +28,7 @@ declare namespace dataShare {
      * @param context Indicates the application context.
      * @param uri Indicates the path of the file to open.
      * @return Returns the dataShareHelper.
-	 * @StageModelOnly
+     * @StageModelOnly
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
     function createDataShareHelper(context: Context, uri: string): Promise<DataShareHelper>;
