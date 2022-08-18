@@ -763,8 +763,8 @@ class UiComponent{
   /**
    * Inject fling on the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param from the coordinate of the touch starting point.
-   * @param to the coordinate of the touch ending point.
+   * @param from the coordinate point where the finger touches the screen.
+   * @param to the coordinate point where the finger leaves the screen.
    * @param stepLen the length of each step, in pixels.
    * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
