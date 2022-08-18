@@ -32,6 +32,37 @@ export interface Result {
 }
 
 /**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 5
+ * @deprecated since 8
+ */
+export interface SubscribeMessageResponse {
+  /**
+   * Peer device ID.
+   * @since 5
+   */
+  deviceId: string;
+
+  /**
+   * Name of the bundle where the peer ability locates. The name is case sensitive.
+   * @since 5
+   */
+  bundleName: string;
+
+  /**
+   * Peer ability name, which is case sensitive.
+   * @since 5
+   */
+  abilityName: string;
+
+  /**
+   * Messages received from the device.
+   * @since 5
+   */
+  message: string;
+}
+
+/**
  * @since 5
  * @deprecated since 8
  */
@@ -115,6 +146,76 @@ export interface SubscribeAbilityEventParam {
    * @since 5
    */
   syncOption?: number;
+}
+
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 5
+ * @deprecated since 8
+ */
+export interface SendMessageOptions {
+  /**
+   * Destination device ID.
+   * @since 5
+   */
+  deviceId: string;
+
+  /**
+   * Name of the destination bundle where the ability locates. The name is case sensitive.
+   * @since 5
+   */
+  bundleName: string;
+
+  /**
+   * Destination ability name, which is case sensitive.
+   * @since 5
+   */
+  abilityName: string;
+
+  /**
+   * Messages sent to the destination device.
+   * A maximum of 1 KB of data can be transmitted at a time.
+   * If more than 1 KB of data needs to be transmitted, split the messages into multiple parts to transmit.
+   * @since 5
+   */
+  message?: string;
+
+  /**
+   * Called when the messages are sent successfully.
+   * @since 5
+   */
+  success?: () => void;
+
+  /**
+   * Called when the messages fail to be sent.
+   * @since 5
+   */
+  fail?: (data: string, code: number) => void;
+
+  /**
+   * Called when the execution is completed.
+   * @since 5
+   */
+  complete?: () => void;
+}
+
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 5
+ * @deprecated since 8
+ */
+export interface SubscribeMessageOptions {
+  /**
+   * Called when the messages are sent successfully.
+   * @since 5
+   */
+  success?: (data: SubscribeMessageResponse) => void;
+
+  /**
+   * Called when the messages fail to be sent.
+   * @since 5
+   */
+  fail?: (data: string, code: number) => void;
 }
 
 /**
@@ -269,4 +370,30 @@ export declare class FeatureAbility {
    * @deprecated since 8
    */
   static unsubscribeAbilityEvent(param: SubscribeAbilityEventParam): Promise<string>;
+
+  /**
+   * Sends messages to the destination device.
+   * @param options Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 5
+   * @deprecated since 8
+   */
+  static sendMsg(options: SendMessageOptions): void;
+
+  /**
+   * Listens for messages sent from other devices.
+   * @param options Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 5
+   * @deprecated since 8
+   */
+  static subscribeMsg(options: SubscribeMessageOptions): void;
+
+  /**
+   * Cancels the listening for messages sent from other devices.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 5
+   * @deprecated since 8
+   */
+  static unsubscribeMsg(): void;
 }
