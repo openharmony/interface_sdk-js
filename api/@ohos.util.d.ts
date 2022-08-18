@@ -84,6 +84,33 @@ declare namespace util {
      * @return return a version that returns promises
      */
     function promiseWrapper(original: (err: Object, value: Object) => void): Object;
+    
+    /**
+      * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
+      * @since 9
+      * @syscap SystemCapability.Utils.Lang
+      * @param entropyCache whether to generate the UUID with using the cache. Default: true.
+      * @return return a string representing this UUID.
+      */
+    function randomUUID(entropyCache?: boolean): string;
+
+    /**
+      * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
+      * @since 9
+      * @syscap SystemCapability.Utils.Lang
+      * @param entropyCache whether to generate the UUID with using the cache. Default: true.
+      * @return return a Uint8Array representing this UUID.
+      */
+    function randomBinaryUUID(entropyCache?: boolean): Uint8Array;
+
+    /**
+      * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
+      * @since 9
+      * @syscap SystemCapability.Utils.Lang
+      * @param uuid string that specifies a UUID
+      * @return return a Uint8Array representing this UUID. Throw SyntaxError if parsing fails.
+      */
+    function parseUUID(uuid: string): Uint8Array;
 
     class TextDecoder {
         /**
