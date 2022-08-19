@@ -18,7 +18,7 @@ import BaseContext from './application/BaseContext';
 
 /**
  * upload and download
- * 
+ *
  * @import request from '@ohos.request';
  * @permission ohos.permission.INTERNET
  */
@@ -752,7 +752,6 @@ declare namespace request {
      * @permission ohos.permission.INTERNET
      */
     message: string;
-
   }
 
   interface UploadTask {
