@@ -963,16 +963,16 @@ declare namespace window {
     setSystemBarEnable(names: Array<'status'|'navigation'>): Promise<void>;
 
     /**
-     * set the background color of statusbar
-     * @param color the background color of statusbar
+     * set the properties of system bar
+     * @param systemBarProperties the properties of system bar
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
     setSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback<void>): void;
 
     /**
-     * set the background color of statusbar
-     * @param color the background color of statusbar
+     * set the properties of system bar
+     * @param systemBarProperties the properties of system bar
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
