@@ -1360,12 +1360,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
 
   /**
-   * Sets the atio of the text zoom.
-   * @param textZoomAtio The atio of the text zoom.
+   * Sets the ratio of the text zoom.
+   * @param textZoomAtio The ratio of the text zoom.
    *
    * @since 8
+   * @deprecated since 9
    */
   textZoomAtio(textZoomAtio: number): WebAttribute;
+
+  /**
+   * Sets the ratio of the text zoom.
+   * @param textZoomRatio The ratio of the text zoom.
+   *
+   * @since 9
+   */
+   textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
@@ -1634,12 +1643,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Notify search result to host application through onSearchResultReceive.
-   * @param callback function Triggered when the host application call searchAllAsync
+   * @param callback Function Triggered when the host application call searchAllAsync
    * or searchNext api on WebController and the request is valid.
    *
    * @since 9
    */
    onSearchResultReceive(callback: (event?: {activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean}) => void): WebAttribute
+
+  /**
+   * Triggered when the scroll bar slides to the specified position.
+   * @param callback Function Triggered when the scroll bar slides to the specified position.
+   *
+   * @since 9
+   */
+   onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
