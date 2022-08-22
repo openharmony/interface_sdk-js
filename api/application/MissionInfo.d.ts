@@ -87,4 +87,28 @@ export interface MissionInfo {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
      continuable: boolean;
+
+    /**
+     * Indicates labelId of the mission.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     */
+    labelId: number;
+
+    /**
+     * Indicates label id of the mission setted by user.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     */
+     userLabelId: number;
+
+     /**
+     * Indicates label string of the mission setted by user.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     */
+    userLabel: string;
 }

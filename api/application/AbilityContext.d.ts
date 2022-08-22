@@ -268,6 +268,17 @@ export default class AbilityContext extends Context {
      setMissionLabel(label: string): Promise<void>;
 
     /**
+     * Set mission label id of current ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param labelId The resource id of label of the ability that showed in recent missions.
+     * @StageModelOnly
+     */
+     setMissionLabelId(labelId: number, callback:AsyncCallback<void>): void;
+     setMissionLabelId(labelId: number): Promise<void>;
+
+    /**
      * Set mission icon of current ability.
      *
      * @since 9
