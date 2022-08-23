@@ -828,7 +828,7 @@ declare namespace request {
       * @permission ohos.permission.INTERNET
       * @return -
       */
-    off(type:'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
+    off(type:'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
     /**
      * Deletes a upload session.
