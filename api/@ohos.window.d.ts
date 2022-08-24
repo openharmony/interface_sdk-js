@@ -545,7 +545,7 @@ declare namespace window {
   /**
    * Transition Context
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systempi
+   * @systemapi
    * @since 9
    */
    interface TransitionContext {
@@ -563,7 +563,7 @@ declare namespace window {
   /**
    * Transition Controller
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systempi
+   * @systemapi
    * @since 9
    */
   interface TransitionController {
