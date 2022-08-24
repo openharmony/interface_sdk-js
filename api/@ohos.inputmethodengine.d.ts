@@ -52,9 +52,33 @@ declare namespace inputMethodEngine {
     const OPTION_AUTO_WORDS: number;
     const OPTION_MULTI_LINE: number;
     const OPTION_NO_FULLSCREEN: number;
+
+    /**
+     * The move direction of cursor: UP
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
     const CURSOR_UP: number;
+
+    /**
+     * The move direction of cursor: DOWN
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
     const CURSOR_DOWN: number;
+
+    /**
+     * The move direction of cursor: LEFT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
     const CURSOR_LEFT: number;
+
+    /**
+     * The move direction of cursor: RIGHT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
     const CURSOR_RIGHT: number;
 
     /**
@@ -77,9 +101,45 @@ declare namespace inputMethodEngine {
     interface InputMethodEngine {
         on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
+
+        /**
+         * Subscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
         on(type: 'inputStop', callback: () => void): void;
+
+        /**
+         * Unsubscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
         off(type: 'inputStop', callback: () => void): void;
+
+        /**
+         * Subscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
         on(type: 'setCallingWindow', callback: (wid:number) => void): void;
+
+        /**
+         * Unsubscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
         off(type: 'setCallingWindow', callback: (wid:number) => void): void;
         on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
