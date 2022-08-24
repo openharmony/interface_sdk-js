@@ -834,62 +834,6 @@ declare namespace notification {
   }
 
   /**
-   * The type of the Do Not Disturb.
-   *
-   * @since 8
-   * @systemapi Hide this for inner system use.
-   */
-   export enum DoNotDisturbType {
-    /**
-     * Non do not disturb type notification
-     */
-    TYPE_NONE = 0,
-
-    /**
-     * Execute do not disturb once in the set time period (only watch hours and minutes)
-     */
-    TYPE_ONCE = 1,
-
-    /**
-     * Execute do not disturb every day with a set time period (only watch hours and minutes)
-     */
-    TYPE_DAILY = 2,
-
-    /**
-     * Execute in the set time period (specify the time, month, day and hour)
-     */
-    TYPE_CLEARLY = 3,
-  }
-
-  /**
-   * Describes a DoNotDisturbDate instance.
-   *
-   * @systemapi Hide this for inner system use.
-   */
-  export interface DoNotDisturbDate {
-    /**
-     * the type of the Do Not Disturb.
-     *
-     * @since 8
-     */
-    type: DoNotDisturbType;
-
-    /**
-     * the start time of the Do Not Disturb.
-     *
-     * @since 8
-     */
-    begin: Date;
-
-    /**
-     * the end time of the Do Not Disturb.
-     *
-     * @since 8
-     */
-    end: Date;
-  }
-
-  /**
    * The remind type of the nofication.
    *
    * @since 8
