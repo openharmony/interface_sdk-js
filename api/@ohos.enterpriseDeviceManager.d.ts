@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import { DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
+import { DeviceSettingsManager as _DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
 import Want from "./@ohos.application.want";
 
 /**
@@ -34,6 +34,13 @@ declare namespace enterpriseDeviceManager {
     name: string;
     description: string;
   }
+
+  /**
+   * @name DeviceSettingsManager
+   * @since 9
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   */
+  export type DeviceSettingsManager = _DeviceSettingsManager
 
   /**
    * @name AdminType
