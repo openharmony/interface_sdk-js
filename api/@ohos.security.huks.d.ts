@@ -137,6 +137,17 @@ declare namespace huks {
     function finish(handle: number, options: HuksOptions) : Promise<HuksResult>;
 
     /**
+     * Finish Operation.
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @param handle Indicates the handle of the init operation.
+     * @param options Indicates the properties of the finish operation.
+     * @param token Indicates the value of token.
+     */
+     function finish(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksResult>) : void;
+     function finish(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksResult>;
+
+    /**
      * Abort Operation.
      * @since 8
      * @syscap SystemCapability.Security.Huks
@@ -146,6 +157,17 @@ declare namespace huks {
     function abort(handle: number, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
     function abort(handle: number, options: HuksOptions) : Promise<HuksResult>;
 
+    
+    /**
+     * Key Attestation.
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @param keyAlias Indicates the key's name.
+     * @param options Indicates the properties of the key attestation operation.
+     */
+     function attestKey(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
+     function attestKey(keyAlias: string, options: HuksOptions) : Promise<HuksResult>;
+     
     /**
      * Get the sdk version.
      * @since 8
@@ -243,6 +265,41 @@ declare namespace huks {
         HUKS_ERROR_NEW_ROOT_KEY_MATERIAL_EXIST = -36,
         HUKS_ERROR_UPDATE_ROOT_KEY_MATERIAL_FAIL = -37,
         HUKS_ERROR_VERIFICATION_FAILED = -38,
+
+        /**
+         * @name HUKS_ERROR_GET_USERIAM_SECINFO_FAILED
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_ERROR_GET_USERIAM_SECINFO_FAILED = -40,
+
+        /**
+         * @name HUKS_ERROR_GET_USERIAM_AUTHINFO_FAILED
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_ERROR_GET_USERIAM_AUTHINFO_FAILED = -41,
+
+        /**
+         * @name HUKS_ERROR_USER_AUTH_TYPE_NOT_SUPPORT
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_ERROR_USER_AUTH_TYPE_NOT_SUPPORT = -42,
+
+        /**
+         * @name HUKS_ERROR_KEY_AUTH_FAILED
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_ERROR_KEY_AUTH_FAILED = -43,
+
+        /**
+         * @name HUKS_ERROR_DEVICE_NO_CREDENTIAL
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_ERROR_DEVICE_NO_CREDENTIAL = -44,
 
         HUKS_ERROR_CHECK_GET_ALG_FAIL = -100,
         HUKS_ERROR_CHECK_GET_KEY_SIZE_FAIL = -101,
@@ -491,6 +548,59 @@ declare namespace huks {
     }
 
     /**
+     * @name HuksUserAuthType
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     */
+    export enum HuksUserAuthType {
+        HUKS_USER_AUTH_TYPE_FINGERPRINT = 1 << 0,
+        HUKS_USER_AUTH_TYPE_FACE = 1 << 1,
+        HUKS_USER_AUTH_TYPE_PIN = 1 << 2,
+    }
+
+    /**
+     * @name HuksAuthAccessType
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     */
+    export enum HuksAuthAccessType {
+        HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
+        HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
+    }
+
+    /**
+     * @name HuksChallengeType
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     */
+    export enum HuksChallengeType {
+        HUKS_CHALLENGE_TYPE_NORMAL = 0,
+        HUKS_CHALLENGE_TYPE_CUSTOM = 1,
+        HUKS_CHALLENGE_TYPE_NONE = 2,
+    }
+
+    /**
+     * @name HuksChallengePosition
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     */
+    export enum HuksChallengePosition {
+        HUKS_CHALLENGE_POS_0 = 0,
+        HUKS_CHALLENGE_POS_1,
+        HUKS_CHALLENGE_POS_2,
+        HUKS_CHALLENGE_POS_3,
+    }
+
+    /**
+     * @name HuksSecureSignType
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     */
+    export enum HuksSecureSignType {
+        HUKS_SECURE_SIGN_WITH_AUTHINFO = 1,
+    }
+
+    /**
      * @name HuksSendType
      * @since 8
      * @syscap SystemCapability.Security.Huks
@@ -589,6 +699,36 @@ declare namespace huks {
         HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
         HUKS_TAG_AUTH_TIMEOUT = HuksTagType.HUKS_TAG_TYPE_UINT | 305,
         HUKS_TAG_AUTH_TOKEN = HuksTagType.HUKS_TAG_TYPE_BYTES | 306,
+
+        /* Key secure access control and user auth TAG */
+
+        /**
+         * @name HUKS_TAG_KEY_AUTH_ACCESS_TYPE
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+         HUKS_TAG_KEY_AUTH_ACCESS_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 307,
+
+        /**
+         * @name HUKS_TAG_KEY_SECURE_SIGN_TYPE
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_KEY_SECURE_SIGN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 308,
+
+        /**
+         * @name HUKS_TAG_CHALLENGE_TYPE
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_CHALLENGE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 309,
+
+        /**
+         * @name HUKS_TAG_CHALLENGE_POS
+         * @since 9
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_CHALLENGE_POS = HuksTagType.HUKS_TAG_TYPE_UINT | 310,
 
         /* Attestation related TAG: 501 - 600 */
         HUKS_TAG_ATTESTATION_CHALLENGE = HuksTagType.HUKS_TAG_TYPE_BYTES | 501,

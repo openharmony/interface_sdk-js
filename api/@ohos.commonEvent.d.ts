@@ -837,6 +837,20 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = "common.event.IVI_ACTIVE",
 
     /**
+     * @since 9
+     * The usb state change events.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_STATE = "usual.event.hardware.usb.action.USB_STATE",
+
+    /**
+     * @since 9
+     * The usb port changed.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_PORT_CHANGED = "usual.event.hardware.usb.action.USB_PORT_CHANGED",
+
+    /**
      * The usb device attached.
      * This is a protected common event that can only be sent by system.
      */

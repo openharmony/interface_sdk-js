@@ -304,13 +304,24 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          * @systemapi hide for inner use.
          */
+        /**
+         * Indicates the key specifying the ID of the form to be obtained, which is represented as
+         * want: {
+         *   "parameters": {
+         *       IDENTITY_KEY: "119476135"
+         *    }
+         * }.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
         IDENTITY_KEY = "ohos.extra.param.key.form_identity",
 
         /**
          * Indicates the key specifying the grid style of the form to be obtained, which is represented as
          * want: {
          *   "parameters": {
-         *       DIMENSION_KEY: 1
+         *       DIMENSION_KEY: FormDimension.Dimension_1_2
          *    }
          * }.
          *
@@ -384,15 +395,55 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
+        TEMPORARY_KEY = "ohos.extra.param.key.form_temporary",
+
+        /**
+         * Indicates the key specifying the name of the bundle to be obtained, which is represented as
+         * want: {
+         *   "parameters": {
+         *       BUNDLE_NAME_KEY: "bundleName"
+         *    }
+         * }
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        BUNDLE_NAME_KEY = "ohos.extra.param.key.bundle_name",
+
+        /**
+         * Indicates the key specifying the name of the ability to be obtained, which is represented as
+         * want: {
+         *   "parameters": {
+         *       ABILITY_NAME_KEY: "abilityName"
+         *    }
+         * }
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
+
+        /**
+         * Indicates the key specifying the the device ID, which is represented as
+         * want: {
+         *   "parameters": {
+         *       DEVICE_ID_KEY : "EFC11C0C53628D8CC2F8CB5052477E130D075917034613B9884C55CD22B3DEF2"
+         *    }
+         * }
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use.
+         */
+        DEVICE_ID_KEY = "ohos.extra.param.key.device_id"
     }
 
     /**
-     * The optional options used as filters to ask 
+     * The optional options used as filters to ask
      * getFormsInfo to return formInfos from only forms that match the options.
      *
      * @name FormInfoFilter
-     * 
+     *
      * @since 9
      * @syscap SystemCapability.Ability.Form
      */
@@ -405,6 +456,44 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          */
         moduleName?: string;
+    }
+
+    /**
+     * Defines the FormDimension enum.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    enum FormDimension {
+        /**
+         * 1 x 2 form
+         * @since 9
+         */
+        Dimension_1_2 = 1,
+
+        /**
+         * 2 x 2 form
+         * @since 9
+         */
+        Dimension_2_2,
+
+        /**
+         * 2 x 4 form
+         * @since 9
+         */
+        Dimension_2_4,
+
+        /**
+         * 4 x 4 form
+         * @since 9
+         */
+        Dimension_4_4,
+
+        /**
+         * 2 x 1 form
+         * @since 9
+         */
+        Dimension_2_1,
     }
 }
 export default formInfo;

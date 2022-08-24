@@ -57,10 +57,11 @@ declare namespace screen {
   function makeMirror(mainScreen:number, mirrorScreen:Array<number>, callback: AsyncCallback<number>): void;
   function makeMirror(mainScreen:number, mirrorScreen:Array<number>): Promise<number>;
 
-
   /**
    * Create virtual screen.
    * @param options Indicates the options of the virtual screen.
+   * @permission ohos.permission.CAPTURE_SCREEN. if VirtualScreenOption.surfaceId is valid,
+   *             this permission is necessary.
    * @since 9
    */
   function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
@@ -78,6 +79,7 @@ declare namespace screen {
    * Set surface for the virtual screen.
    * @param screenId Indicates the screen id of the virtual screen.
    * @param surfaceId Indicates the surface id.
+   * @permission ohos.permission.CAPTURE_SCREEN
    * @since 9
    */
   function setVirtualScreenSurface(screenId:number, surfaceId: string, callback: AsyncCallback<void>): void;
@@ -214,9 +216,6 @@ declare namespace screen {
     HORIZONTAL = 2,
     REVERSE_VERTICAL = 3,
     REVERSE_HORIZONTAL = 4,
-    SENSOR = 5,
-    SENSOR_VERTICAL = 6,
-    SENSOR_HORIZONTAL = 7,
   }
 
   /**

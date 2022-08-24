@@ -14,16 +14,22 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { ApplicationInfo } from './bundle/applicationInfo';
-import { BundleInfo } from './bundle/bundleInfo';
-import { AbilityInfo } from './bundle/abilityInfo';
-import { ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
+import { ApplicationInfo as _ApplicationInfo } from './bundle/applicationInfo';
+import { ModuleInfo as _ModuleInfo } from './bundle/moduleInfo';
+import { CustomizeData as _CustomizeData } from './bundle/customizeData';
+import { Metadata as _Metadata } from './bundle/metadata';
+import { HapModuleInfo as _HapModuleInfo } from './bundle/hapModuleInfo';
+import { AbilityInfo as _AbilityInfo } from './bundle/abilityInfo';
+import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensionAbilityInfo';
+import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
+import { ElementName as _ElementName }  from './bundle/elementName';
+import { DispatchInfo as _DispatchInfo } from './bundle/dispatchInfo';
 import Want from './@ohos.application.want';
-import { BundleInstaller } from './bundle/bundleInstaller';
-import { PermissionDef } from  './bundle/PermissionDef';
-import { DispatchInfo } from './bundle/dispatchInfo';
 import image from './@ohos.multimedia.image';
 import pack from './bundle/packInfo';
+import * as _PackInfo from './bundle/packInfo';
+import * as _BundleInfo from './bundle/bundleInfo';
+import * as _BundleInstaller from './bundle/bundleInstaller';
 
 /**
  * bundle.
@@ -922,6 +928,256 @@ declare namespace bundle {
    */
   function getDisposedStatus(bundleName: string, callback: AsyncCallback<number>): void;
   function getDisposedStatus(bundleName: string): Promise<number>;
+
+  /**
+   * Obtains configuration information about an application.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ApplicationInfo = _ApplicationInfo;
+
+  /**
+   * Stores module information about an application.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ModuleInfo = _ModuleInfo;
+
+  /**
+   * Indicates the custom metadata.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type CustomizeData = _CustomizeData;
+
+  /**
+   * Indicates the Metadata.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type Metadata = _Metadata;
+
+  /**
+   * Obtains configuration information about a bundle.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type BundleInfo = _BundleInfo.BundleInfo;
+
+  /**
+   * The scene which is used.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type UsedScene = _BundleInfo.UsedScene;
+
+  /**
+   * Indicates the required permissions details defined in file config.json.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
+
+  /**
+   * Obtains configuration information about an module.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type HapModuleInfo = _HapModuleInfo;
+
+  /**
+   * Obtains configuration information about an ability.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type AbilityInfo = _AbilityInfo;
+
+  /**
+   * Obtains extension information about a bundle.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ExtensionAbilityInfo = _ExtensionAbilityInfo;
+
+  /**
+   * Offers install, upgrade, and remove bundles on the devices.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundleInstaller = _BundleInstaller.BundleInstaller; 
+
+  /**
+   * Provides parameters required for hashParam.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type HashParam = _BundleInstaller.HashParam; 
+
+  /**
+   * Provides parameters required for installing or uninstalling an application.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type InstallParam = _BundleInstaller.InstallParam; 
+
+  /**
+   * Indicates the install or uninstall status.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type InstallStatus = _BundleInstaller.InstallStatus; 
+
+  /**
+   * Indicates the defined permission details in file config.json.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type PermissionDef = _PermissionDef;
+
+  /**
+   * Contains basic Ability information, which uniquely identifies an ability.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   */
+  export type ElementName = _ElementName;
+
+  /**
+   * The dispatch info class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type DispatchInfo = _DispatchInfo;
+
+  /**
+   * The bundle pack info class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundlePackInfo = _PackInfo.BundlePackInfo;
+
+  /**
+   * The package info class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type PackageConfig = _PackInfo.PackageConfig;
+
+  /**
+   * The package summary class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type PackageSummary = _PackInfo.PackageSummary;
+
+  /**
+   * The bundle summary class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundleConfigInfo = _PackInfo.BundleConfigInfo;
+
+  /**
+   * The extension ability forms class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ExtensionAbilities = _PackInfo.ExtensionAbilities;
+
+  /**
+   * The module summary of a bundle.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ModuleConfigInfo = _PackInfo.ModuleConfigInfo;
+
+  /**
+   * The bundle info summary class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ModuleDistroInfo = _PackInfo.ModuleDistroInfo;
+
+  /**
+   * The ability info of a module.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ModuleAbilityInfo = _PackInfo.ModuleAbilityInfo;
+
+  /**
+   * The form info of an ability.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type AbilityFormInfo = _PackInfo.AbilityFormInfo;
+
+  /**
+   * The bundle version class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type Version = _PackInfo.Version;
+
+  /**
+   * The bundle Api version class.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type ApiVersion = _PackInfo.ApiVersion;
+
+  /**
+   * Flags which are used to indicate bundle pack.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundlePackFlag = _PackInfo.BundlePackFlag;
 }
 
 export default bundle;
