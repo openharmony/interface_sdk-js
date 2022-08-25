@@ -1172,7 +1172,7 @@ declare namespace window {
       * @systemapi Hide this for inner system use.
       * @since 9
       */
-    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>);
+    bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.
