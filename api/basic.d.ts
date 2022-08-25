@@ -61,7 +61,7 @@ export interface BusinessError<T = void> extends Error {
   code: number;
   /**
    * Defines the additional information for business
-   * @type { T } [data]
+   * @type { ?T }
    * @since 9
    */
   data?: T;
