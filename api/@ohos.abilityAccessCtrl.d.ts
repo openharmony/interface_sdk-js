@@ -113,7 +113,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 9
          */
-        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermStateChangeInfo>): void;
+        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermissionStateChangeInfo>): void;
 
         /**
          * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
@@ -124,7 +124,7 @@ import { AsyncCallback, Callback } from './basic';
          * @systemapi
          * @since 9
          */
-        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermStateChangeInfo>): void;
+        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermissionStateChangeInfo>): void;
     }
   
     /**
@@ -148,11 +148,11 @@ import { AsyncCallback, Callback } from './basic';
      */
     export enum PermissionStateChangeType {
         /**
-         * a granted user_grant permission is revoked.
+         * A granted user_grant permission is revoked.
          */
         PERMISSION_REVOKED_OPER = 0,
         /**
-         * a user_grant permission is granted.
+         * A user_grant permission is granted.
          */
         PERMISSION_GRANTED_OPER = 1,
     }
@@ -160,10 +160,10 @@ import { AsyncCallback, Callback } from './basic';
     /**
      * Indicates the information of permission state change.
      *
-     * @name PermStateChangeInfo
+     * @name PermissionStateChangeInfo
      * @since 9
      */
-    interface PermStateChangeInfo {
+    interface PermissionStateChangeInfo {
         /**
          * Indicates the permission state change type.
          */
