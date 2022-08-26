@@ -69,8 +69,8 @@ import {AsyncCallback, Callback} from './basic'
     function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Subscribes to the change of  active state of the specified permission.
-     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * Subscribes to the change of active state of the specified permission.
+     * @param permissionNameLists Indicates the permission lists, which are specified.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
@@ -78,8 +78,8 @@ import {AsyncCallback, Callback} from './basic'
     function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<ActiveChangeResponse>): void;
 
     /**
-     * Unsubscribes from .
-     * @param permissionNameLists Indicated the permission lists, which are specified.
+     * Unsubscribes to the change of active state of the specified permission.
+     * @param permissionNameLists Indicates the permission lists, which are specified.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
