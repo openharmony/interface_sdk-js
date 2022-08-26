@@ -21,10 +21,14 @@ let lastNoteStr = '';
 let lastNodeName = '';
 
 function collectDeclaration(url) {
-  const utPath = path.resolve(__dirname, url);
-  const utFiles = [];
-  readFile(utPath, utFiles);
-  tsTransform(utFiles, deleteSystemApi);
+  try {
+    const utPath = path.resolve(__dirname, url);
+    const utFiles = [];
+    readFile(utPath, utFiles);
+    tsTransform(utFiles, deleteSystemApi);
+  } catch (error) {
+    console.error("DELETE_SYSTEM_PLUGIN ERROR: ", error);
+  }
 }
 
 function tsTransform(utFiles, callback) {
@@ -101,7 +105,7 @@ function deleteSystemApi(url) {
             newMembers.push(member);
           }
         });
-        node = ts.factory.updateInterfaceDeclaration(node, node.decorators, node.modifiers, node.name,
+        node = ts.factory.updateInterfaceDeclaration(node, node.modifiers, node.name,
           node.typeParameters, node.heritageClauses, newMembers);
       } else if (ts.isClassDeclaration(node)) {
         const newMembers = [];
@@ -110,7 +114,7 @@ function deleteSystemApi(url) {
             newMembers.push(member);
           }
         });
-        node = ts.factory.updateClassDeclaration(node, node.decorators, node.modifiers, node.name,
+        node = ts.factory.updateClassDeclaration(node, node.modifiers, node.name,
           node.typeParameters, node.heritageClauses, newMembers);
       } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
         const newStatements = [];
@@ -119,8 +123,8 @@ function deleteSystemApi(url) {
             newStatements.push(statement);
           }
         });
-        const newModuleBody = ts.factory.updateBlock(node.body, newStatements);
-        node = ts.factory.updateModuleDeclaration(node, node.decorators, node.modifiers, node.name, newModuleBody);
+        const newModuleBody = ts.factory.updateModuleBlock(node.body, newStatements);
+        node = ts.factory.updateModuleDeclaration(node, node.modifiers, node.name, newModuleBody);
       } else if (ts.isEnumDeclaration(node)) {
         const newMembers = [];
         node.members.forEach(member => {
@@ -128,7 +132,7 @@ function deleteSystemApi(url) {
             newMembers.push(member);
           }
         });
-        node = ts.factory.updateEnumDeclaration(node, node.decorators, node.modifiers, node.name, newMembers);
+        node = ts.factory.updateEnumDeclaration(node, node.modifiers, node.name, newMembers);
       }
       return ts.visitEachChild(node, processAllNodes, context);
     }
