@@ -24,122 +24,200 @@ import { AsyncCallback } from "./basic";
 */
 
 declare namespace pointer {
-enum PointerStyle {
-    // Default
+  enum PointerStyle {
+    /**
+     * Default
+     */
     DEFAULT,
 
-    // East arrow
+    /**
+     * East arrow
+     */
     EAST,
 
-    // West arrow
+    /**
+     * West arrow
+     */
     WEST,
 
-    // South arrow
+    /**
+     * South arrow
+     */
     SOUTH,
 
-    // North arrow
+    /**
+     * North arrow
+     */
     NORTH,
 
-    // East-west arrow
+    /**
+     * East-west arrow
+     */
     WEST_EAST,
 
-    // North-south arrow
+    /**
+     * North-south arrow
+     */
     NORTH_SOUTH,
 
-    // North-east arrow
+    /**
+     * North-east arrow
+     */
     NORTH_EAST,
 
-    // North-west arrow
+    /**
+     * North-west arrow
+     */
     NORTH_WEST,
 
-    // South-east arrow
+    /**
+     * South-east arrow
+     */
     SOUTH_EAST,
 
-    // South-west arrow
+    /**
+     * South-west arrow
+     */
     SOUTH_WEST,
 
-    // North-east and south-west arrow
+    /**
+     * North-east and south-west arrow
+     */
     NORTH_EAST_SOUTH_WEST,
 
-    // North-west and south-east arrow
+    /**
+     * North-west and south-east arrow
+     */
     NORTH_WEST_SOUTH_EAST,
 
-    // Cross
+    /**
+     * Cross
+     */
     CROSS,
 
-    // Copy cursor
+    /**
+     * Copy cursor
+     */
     CURSOR_COPY,
 
-    // Forbid cursor
+    /**
+     * Forbid cursor
+     */
     CURSOR_FORBID,
 
-    // Sucker
+    /**
+     * Sucker
+     */
     COLOR_SUCKER,
 
-    // Hand grabbing
+    /**
+     * Hand grabbing
+     */
     HAND_GRABBING,
 
-    // Hand open
+    /**
+     * Hand open
+     */
     HAND_OPEN,
 
-    // Hand pointing
+    /**
+     * Hand pointing
+     */
     HAND_POINTING,
 
-    // Help
+    /**
+     * Help
+     */
     HELP,
 
-    // Move
+    /**
+     * Move
+     */
     MOVE,
 
-    // Resize left and right
+    /**
+     * Resize left and right
+     */
     RESIZE_LEFT_RIGHT,
 
-    // Resize up and down
+    /**
+     * Resize up and down
+     */
     RESIZE_UP_DOWN,
 
-    // Screenshot selection
+    /**
+     * Screenshot selection
+     */
     SCREENSHOT_CHOOSE,
 
-    // Screenshot cursor
+    /**
+     * Screenshot cursor
+     */
     SCREENSHOT_CURSOR,
 
-    // Text cursor
+    /**
+     * Text cursor
+     */
     TEXT_CURSOR,
 
-    // Zoom in
+    /**
+     * Zoom in
+     */
     ZOOM_IN,
 
-    // Zoom out
+    /**
+     * Zoom out
+     */
     ZOOM_OUT,
 
-    // East arrow of the middle mouse button
+    /**
+     * East arrow of the middle mouse button
+     */
     MIDDLE_BTN_EAST,
 
-    // West arrow of the middle mouse button
+    /**
+     * West arrow of the middle mouse button
+     */
     MIDDLE_BTN_WEST,
 
-    // South arrow of the middle mouse button
+    /**
+     * South arrow of the middle mouse button
+     */
     MIDDLE_BTN_SOUTH,
 
-    // North arrow of the middle mouse button
+    /**
+     * North arrow of the middle mouse button
+     */
     MIDDLE_BTN_NORTH,
 
-    // North-south arrow of the middle mouse button
+    /**
+     * North-south arrow of the middle mouse button
+     */
     MIDDLE_BTN_NORTH_SOUTH,
 
-    // North-east arrow of the middle mouse button
+    /**
+     * North-east arrow of the middle mouse button
+     */
     MIDDLE_BTN_NORTH_EAST,
 
-    // North-west arrow of the middle mouse button
+    /**
+     * North-west arrow of the middle mouse button
+     */
     MIDDLE_BTN_NORTH_WEST,
 
-    // South-east arrow of the middle mouse button
+    /**
+     * South-east arrow of the middle mouse button
+     */
     MIDDLE_BTN_SOUTH_EAST,
 
-    // South-west arrow of the middle mouse button
+    /**
+     * South-west arrow of the middle mouse button
+     */
     MIDDLE_BTN_SOUTH_WEST,
 
-    // North-west and south-east arrow of the middle mouse button
+    /**
+     * North-west and south-east arrow of the middle mouse button
+     */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
   }
 
@@ -231,8 +309,8 @@ enum PointerStyle {
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
    * and the value false indicates the opposite.
    */
-  function setPointerVisible(visible: boolean, callback: AsyncCallback<void>) : void;
-  function setPointerVisible(visible: boolean) : Promise<void>;
+  function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
+  function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
    * Checks whether the pointer icon is visible.
@@ -241,8 +319,8 @@ enum PointerStyle {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
-  function isPointerVisible(callback: AsyncCallback<boolean>) : void;
-  function isPointerVisible() : Promise<boolean>;
+  function isPointerVisible(callback: AsyncCallback<boolean>): void;
+  function isPointerVisible(): Promise<boolean>;
 }
 
 export default pointer;
