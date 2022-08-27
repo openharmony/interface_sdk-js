@@ -17,7 +17,7 @@ const rules = require("../code_style_rule.json");
 const result = require("../check_result.json");
 const { getAPINote } = require("./utils");
 
-// 收集装饰器错误节点信息，防止重复收集
+// duplicate removal
 const API_ERROR_DECORATOR_POS = new Set([]);
 
 function checkAPIDecorators(node, sourcefile, fileName) {

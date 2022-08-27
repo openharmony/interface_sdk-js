@@ -59,7 +59,7 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  // 校验装饰器
+  // check decorator
   if (hasAPINote(node)) {
     checkAPIDecorators(node, sourcefile, fileName);
   }
@@ -67,7 +67,7 @@ function checkAllNode(node, sourcefile, fileName) {
 }
 
 function scanEntry(url) {
-  // 入口
+  // scan entry
   checkAPICodeStyle(url);
   return JSON.stringify(result.scanResult);
 }
