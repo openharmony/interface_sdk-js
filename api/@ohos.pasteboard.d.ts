@@ -173,12 +173,7 @@ declare namespace pasteboard {
      * LocalDevice meas that only paste in this device is allowed.
      * @since 9
      */
-    LocalDevice,
-    /**
-     * CrossDevice meas allow pasting in any app across devices.
-     * @since9
-     */
-    CrossDevice
+    LocalDevice
   }
 
   interface PasteDataProperty {
@@ -250,14 +245,6 @@ declare namespace pasteboard {
      * @since 9
      */
     pixelMap: image.PixelMap;
-    /**
-     * Data array in a record, mimeType indicates MIME type of value, ArrayBuffer indicates content to be saved.
-     * @type { object }
-     * @since 9
-     */
-    data: {
-      [mimeType: string]: ArrayBuffer
-    }
 
     /**
      * Will a PasteData cast to the content of text content
@@ -378,7 +365,6 @@ declare namespace pasteboard {
     /**
      * Set PasteDataProperty to a PasteData object.
      * @param { PasteDataProperty } property - save property to PasteData object.
-     * @throws { TypedError } if property not a PasteDataProperty object.
      * @since 9
      */
     setProperty(property: PasteDataProperty): void;
