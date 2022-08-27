@@ -87,20 +87,11 @@ declare namespace pasteboard {
 
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
-   * @param { image.PixelMap } pixelMap - indicates the pixelMap to be created.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * @param pixelMap To save the pixelMap of content.
+   * @return Containing the contents of the clipboard content object.
    * @since 9
    */
   function createPixelMapData(pixelMap: image.PixelMap): PasteData;
-
-  /**
-   * Creates a PasteData object with MIME type and value.
-   * @param { string } mimetype - indicates MIME type of value.
-   * @param { ArrayBuffer } value - content to be saved.
-   * @returns { PasteData } the clipboard content object with MIME type and value.
-   * @since 9
-   */
-   function createData(mimeType: string, value: ArrayBuffer): PasteData;
 
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
@@ -136,20 +127,11 @@ declare namespace pasteboard {
 
   /**
    * Creates a Record object for PasteData#MIMETYPE_PIXELMAp.
-   * @param { image.PixelMap } pixelMap - to save the pixelMap of content.
-   * @returns { PasteDataRecord } the content of a new record
+   * @param pixelMap To save the pixelMap of content.
+   * @return The content of a new record
    * @since 9
    */
   function createPixelMapRecord(pixelMap: image.PixelMap):PasteDataRecord;
-  
-  /**
-   * Creates a Record object with MIME type and value.
-   * @param { string } mimetype - indicates MIME type of value.
-   * @param { ArrayBuffer } value - content to be saved.
-   * @returns { PasteDataRecord } the content of a new record with MIME type and value.
-   * @since 9
-   */
-   function createRecord(mimeType: string, value: ArrayBuffer):PasteDataRecord;
 
   /**
    * get SystemPasteboard
@@ -269,13 +251,6 @@ declare namespace pasteboard {
      * @since 7
      */
     addWantRecord(want: Want): void;
-
-    /**
-     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
-     * @param record The content of a new record.
-     * @since 7
-     */
-    addRecord(record: PasteDataRecord): void;
 
     /**
      * Adds a Record for plain text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_PLAIN in DataProperty.
