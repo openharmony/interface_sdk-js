@@ -263,7 +263,6 @@ declare namespace pointer {
    * Sets the pointer style.
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
    * @param callback Callback used to return the result.
@@ -274,7 +273,6 @@ declare namespace pointer {
    * Sets the pointer style.
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
    * @return Returns the result through a promise.
@@ -285,7 +283,6 @@ declare namespace pointer {
    * Queries the pointer style.
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use
    * @param windowId Window ID.
    * @param callback Callback used to return the result.
    */
@@ -295,7 +292,6 @@ declare namespace pointer {
    * Queries the pointer style.
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use
    * @param windowId Window ID.
    * @return Returns the result through a promise.
    */
