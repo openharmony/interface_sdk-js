@@ -253,6 +253,13 @@ declare namespace pasteboard {
     addWantRecord(want: Want): void;
 
     /**
+     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
+     * @param record The content of a new record.
+     * @since 7
+     */
+    addRecord(record: PasteDataRecord): void;
+
+    /**
      * Adds a Record for plain text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_PLAIN in DataProperty.
      * @param text To save the text of content.
      * @since 7
@@ -272,14 +279,6 @@ declare namespace pasteboard {
      * @since 9
      */
     addPixelMapRecord(pixelMap: image.PixelMap): void;
-    
-    /**
-     * Adds a key-value record to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value.
-     * @returns { ArrayBuffer } value - content to be saved.
-     * @since 9
-     */
-    addRecord(mimeType: string, value: ArrayBuffer): void;
 
     /**
      * MIME types of all content on the pasteboard.
