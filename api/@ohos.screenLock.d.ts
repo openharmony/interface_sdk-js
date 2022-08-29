@@ -91,8 +91,9 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function off(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' 
+   function off(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' 
       | 'unlockScreen' | 'beginExitAnimation' | 'screenlockEnabled' | 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<void>): void;
+
 
   /**
    * screenlockAPP send event to screenlockSA
@@ -102,6 +103,7 @@ declare namespace screenLock {
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+
 }
 
 export default screenLock;
