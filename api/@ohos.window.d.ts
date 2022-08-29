@@ -12,9 +12,12 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
+/// <reference path="../component/state_management.d.ts"/>
+
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from  './application/BaseContext';
-import { LocalStorage } from './@internal/component/ets/stateManagement';
+import Context from './application/BaseContext';
+import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 
