@@ -147,12 +147,12 @@ declare namespace pasteboard {
    */
    enum ShareOption {
     /**
-     * InApp meas that only in-app pasting is allowed.
+     * InApp means that only in-app pasting is allowed.
      * @since 9
      */
     InApp,
     /**
-     * LocalDevice meas that only paste in this device is allowed.
+     * LocalDevice means that only paste in this device is allowed.
      * @since 9
      */
     LocalDevice
