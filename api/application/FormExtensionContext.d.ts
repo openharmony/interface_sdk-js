@@ -24,7 +24,6 @@ import Want from '../@ohos.application.Want';
  *
  * @since 9
  * @syscap SystemCapability.Ability.Form
- * @systemapi hide for inner use
  * @permission N/A
  * @StageModelOnly
  */
