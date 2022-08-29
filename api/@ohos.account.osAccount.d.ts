@@ -14,7 +14,7 @@
  */
 
 import distributedAccount from './@ohos.account.distributedAccount'
-import {AsyncCallback} from "./basic";
+import {AsyncCallback, Callback} from "./basic";
 
 /**
  * This module provides the capability to manage os accounts.
