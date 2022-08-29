@@ -59,21 +59,40 @@ declare namespace screenLock {
   function lockScreen():Promise<boolean>;
 
   /**
-   * Definition of system events.
+   * Receives {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation} called. 
+   * This callback is invoked when {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation}
+   * is called by runtime
+   *
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  interface SystemEvent{
-    eventType:string;
-    params:string;
-  }
+  function on(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'beginExitAnimation', callback: Callback<void>): void;
 
   /**
-   * Lock the screen.
+    * Receives {beginSleep | endSleep | changeUser} called. This callback is invoked when {beginSleep | endSleep | changeUser} is called by runtime 
+    *
+    * @systemapi Hide this for inner system use.
+    * @since 9
+    */
+  function on(type: 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<number>): void;
+
+  /**
+   * Receives screenlockEnabled change. This callback is invoked when screenlockEnabled is called by runtime 
+   *
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function onSystemEvent(callback: Callback<SystemEvent>): void;
+  function on(type: 'screenlockEnabled', callback: Callback<boolean>): void;
+
+  /**
+   * Remove the receives of {beginWakeUp | endWakeUp | beginScreenOn | endScreenOn | beginScreenOff | endScreenOff | unlockScreen 
+   * | beginExitAnimation | screenlockEnabled | beginSleep | endSleep | changeUser}.
+   *
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function off(type: 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' 
+      | 'unlockScreen' | 'beginExitAnimation' | 'screenlockEnabled' | 'beginSleep' | 'endSleep' | 'changeUser', callback: Callback<void>): void;
 
   /**
    * screenlockAPP send event to screenlockSA
@@ -83,7 +102,6 @@ declare namespace screenLock {
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
-
 }
 
 export default screenLock;
