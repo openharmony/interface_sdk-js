@@ -18,7 +18,7 @@
  *
  * @since 8
  */
- enum MatchPattern{
+ declare enum MatchPattern{
    /**
     * Equals to a string.
     * @syscap SystemCapability.Test.UiTest
@@ -55,7 +55,7 @@
  * @since 8
  * @syscap SystemCapability.Test.UiTest
  */
- class By{
+ declare class By{
    /**
     * Specifies the text for the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
@@ -177,7 +177,7 @@
      * @test
      * @syscap SystemCapability.Test.UiTest
      */
-     class UiComponent{
+     declare class UiComponent{
       /**
        * Click this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
@@ -310,7 +310,7 @@
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiDriver{
+ declare class UiDriver{
   /**
    * Create an {@link UiDriver} object.
    * @syscap SystemCapability.Test.UiTest
@@ -435,6 +435,6 @@
  * @since 8
  * @test
  */
- const BY:By;
+ declare const BY:By;
 
  export {UiComponent,UiDriver,BY,MatchPattern};
