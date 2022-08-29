@@ -337,7 +337,7 @@ declare namespace pasteboard {
     getProperty(): PasteDataProperty;
 
     /**
-     * Set PasteDataProperty to a PasteData object.
+     * Set PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
      * @since 9
      */
