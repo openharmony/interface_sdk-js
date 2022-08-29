@@ -811,7 +811,7 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    interface IRemoteObject {
+    abstract class IRemoteObject {
         /**
          * Queries the description of an interface.
          *
@@ -976,27 +976,39 @@ declare namespace rpc {
     class MessageOption {
         /**
          * Indicates synchronous call.
+         *
+         * @constant
+         * @default 0 
          * @since 7
          */
-        TF_SYNC = 0;
+        TF_SYNC: number;
 
         /**
          * Indicates asynchronous call.
+         *
+         * @constant
+         * @default 1
          * @since 7
          */
-        TF_ASYNC = 1;
+        TF_ASYNC: number;
 
         /**
          * Indicates the sendRequest API for returning the file descriptor.
+         *
+         * @constant
+         * @default 16
          * @since 7
          */
-        TF_ACCEPT_FDS = 0x10;
+        TF_ACCEPT_FDS: number;
 
         /**
          * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
+         *
+         * @constant
+         * @default 4
          * @since 7
          */
-        TF_WAIT_TIME  = 4;
+        TF_WAIT_TIME: number;
 
         /**
          * A constructor used to create a MessageOption instance.
@@ -1005,7 +1017,7 @@ declare namespace rpc {
          * @param waitTime Maximum wait time for a RPC call. The default value is TF_WAIT_TIME.
          * @since 7
          */
-        constructor(syncFlags?: number, waitTime = TF_WAIT_TIME);
+        constructor(syncFlags?: number, waitTime?: number);
 
         /**
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
@@ -1045,7 +1057,7 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    class RemoteObject implements IRemoteObject {
+    class RemoteObject extends IRemoteObject {
         /**
          * A constructor to create a RemoteObject instance.
          *
@@ -1192,40 +1204,55 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    class RemoteProxy implements IRemoteObject {
+    class RemoteProxy extends IRemoteObject {
         /**
          * Indicates the message code for a Ping operation.
+         *
+         * @constant
+         * @default 1599098439
          * @since 7
          */
-        PING_TRANSACTION = ('_' << 24) | ('P' << 16) | ('N' << 8) | 'G';
+        PING_TRANSACTION: number;
 
         /**
          * Indicates the message code for a dump operation.
+         *
+         * @constant
+         * @default 1598311760
          * @since 7
          */
-        DUMP_TRANSACTION = ('_' << 24) | ('D' << 16) | ('M' << 8) | 'P';
+        DUMP_TRANSACTION: number;
 
         /**
          * Indicates the message code for a transmission.
+         * 
+         * @constant
+         * @default 1598968902
          * @since 7
          */
-        INTERFACE_TRANSACTION = ('_' << 24) | ('N' << 16) | ('T' << 8) | 'F';
+        INTERFACE_TRANSACTION: number;
 
         /**
          * Indicates the minimum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         *
+         * @constant
+         * @default 0x1
          * @since 7
          */
-        MIN_TRANSACTION_ID = 0x1;
+        MIN_TRANSACTION_ID: number;
 
         /**
          * Indicates the maximum value of a valid message code.
          *
          * <p>This constant is used to check the validity of an operation.
+         * 
+         * @constant
+         * @default 0x00FFFFFF
          * @since 7
          */
-        MAX_TRANSACTION_ID = 0x00FFFFFF;
+        MAX_TRANSACTION_ID: number;
 
         /**
          * Queries a local interface with a specified descriptor.
@@ -1476,27 +1503,39 @@ declare namespace rpc {
     class Ashmem {
         /**
          * The mapped memory is executable.
+         * 
+         * @constant
+         * @default 4
          * @since 8
          */
-        PROT_EXEC = 4;
+        PROT_EXEC: number;
 
         /**
          * The mapped memory is inaccessible.
+         *
+         * @constant
+         * @default 0 
          * @since 8
          */
-        PROT_NONE = 0;
+        PROT_NONE: number;
 
         /**
          * The mapped memory is readable.
+         * 
+         * @constant
+         * @default 1
          * @since 8
          */
-        PROT_READ = 1;
+        PROT_READ: number;
 
         /**
          * The mapped memory is writable.
+         *
+         * @constant
+         * @default 2
          * @since 8
          */
-        PROT_WRITE = 2;
+        PROT_WRITE: number;
 
         /**
          * Creates an Ashmem object with the specified name and size.
