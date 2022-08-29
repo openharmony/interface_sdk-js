@@ -187,8 +187,8 @@ declare namespace pasteboard {
      */
     localOnly: boolean;
     /**
-     * Indicates the scope to which clipboard data can be pasted.
-     * If it is not set or is incorrectly set, the default value is CrossDevice.
+     * Indicates the scope of clipboard data which can be pasted.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
      * @type { ShareOption }
      * @since 9
      */
