@@ -323,7 +323,7 @@ declare namespace pasteboard {
     getPrimaryUri(): string;
 
     /**
-     * Get the primary PixelMap record in a PasteData object.
+     * Gets the primary PixelMap record in a PasteData object.
      * @returns {image.PixelMap} pixelMap
      * @since 9
      */
