@@ -811,7 +811,7 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    interface IRemoteObject {
+    abstract class IRemoteObject {
         /**
          * Queries the description of an interface.
          *
@@ -996,7 +996,7 @@ declare namespace rpc {
          * Indicates the sendRequest API for returning the file descriptor.
          *
          * @constant
-         * @default 0x10
+         * @default 16
          * @since 7
          */
         TF_ACCEPT_FDS: number;
@@ -1057,7 +1057,7 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    class RemoteObject implements IRemoteObject {
+    class RemoteObject extends IRemoteObject {
         /**
          * A constructor to create a RemoteObject instance.
          *
@@ -1197,34 +1197,6 @@ declare namespace rpc {
          * @since 7
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
-
-        /**
-         * Registers a callback used to receive notifications of the death of a remote object.
-         *
-         * @param recipient Indicates the callback to be registered.
-         * @param flags Indicates the flag of the death notification.
-         * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
-         * @since 7
-         */
-         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
-         /**
-         * Deregisters a callback used to receive death notifications of a remote object.
-         *
-         * @param recipient Indicates the callback to be deregistered.
-         * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
-         * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
-         * @since 7
-         */
-        removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
-
-        /**
-         * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
-         *
-         * @return Returns {@code true} if the {@code RemoteObject} is dead; returns {@code false} otherwise.
-         * @since 7
-         */
-         isObjectDead(): boolean;
     }
 
     /** 
@@ -1232,7 +1204,7 @@ declare namespace rpc {
      * @import import rpc from '@ohos.rpc'
      * @since 7
      */
-    class RemoteProxy implements IRemoteObject {
+    class RemoteProxy extends IRemoteObject {
         /**
          * Indicates the message code for a Ping operation.
          *
