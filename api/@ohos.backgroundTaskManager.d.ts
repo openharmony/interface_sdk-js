@@ -15,7 +15,7 @@
 
 import { AsyncCallback , Callback} from './basic';
 import { WantAgent } from "./@ohos.wantAgent";
-import { Context } from './app/context';
+import Context from './application/BaseContext';
 
 /**
  * Manages background tasks.
@@ -190,8 +190,8 @@ declare namespace backgroundTaskManager {
         VOIP = 8,
 
         /**
-         * background continuous calculate mode, for example 3d render.
-         * only supported in portable computer
+         * background continuous calculate mode, for example 3D render.
+         * only supported in particular device
          *
          * @since 8
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
