@@ -261,6 +261,36 @@ declare enum RenderExitReason {
 }
 
 /**
+ * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
+ * @since 9
+ */
+ declare enum SslError {
+  /**
+   * General error.
+   * @since 9
+   */
+   Invalid,
+
+  /**
+   * Hostname mismatch.
+   * @since 9
+   */
+   HostMismatch,
+
+  /**
+   * The certificate date is invalid.
+   * @since 9
+   */
+  DateInvalid,
+
+  /**
+   * The certificate authority is not trusted.
+   * @since 9
+   */
+   Untrusted,
+}
+
+/**
  * Enum type supplied to {@link FileSelectorParam} when onFileSelectorShow being called.
  * @since 9
  */
@@ -433,6 +463,30 @@ declare class HttpAuthHandler {
    * @since 9
    */
   isHttpAuthInfoSaved(): boolean;
+}
+
+/**
+ * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
+ * @since 9
+ */
+ declare class SslErrorHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * handleConfirm.
+   * @since 9
+   */
+   handleConfirm(): void;
+
+  /**
+   * handleCancel.
+   * @since 9
+   */
+   handleCancel(): void;
 }
 
 /**
@@ -1200,6 +1254,12 @@ declare class WebCookie {
    * @since 9
    */
   searchNext(forward: boolean): void;
+
+  /**
+   * Clears the ssl cache in the Web.
+   * @since 8
+   */
+   clearSslCache(): void;
 }
 
 /**
@@ -1657,6 +1717,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
    onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page receives an ssl Error.
+   * @param callback The triggered callback when the Web page receives an ssl Error.
+   *
+   * @since 9
+   */
+   onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
