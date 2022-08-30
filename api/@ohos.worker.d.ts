@@ -241,7 +241,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -251,7 +251,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -265,10 +265,20 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @param messageObject Data to be sent to the worker
    * @param transfer array cannot contain null.
    * @since 7
+   * @deprecated since 9
    * @syscap SystemCapability.Utils.Lang
    */
   postMessage(messageObject: Object, transfer: Transferable[]): void;
   postMessage(messageObject: Object, options?: PostMessageOptions): void;
+
+  /**
+   * Send a message to host thread from the worker
+   * @param messageObject Data to be sent to the worker
+   * @param transfer array cannot contain null.
+   * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+   postMessage(messageObject: Object, transfer: ArrayBuffer[]): void;
 }
 
 /**
@@ -277,7 +287,7 @@ declare interface WorkerGlobalScope extends EventTarget {
  * @syscap SystemCapability.Utils.Lang
  */
 declare namespace worker {
-  class Worker extends EventTarget {
+  class Worker implements EventTarget {
     /**
      * Creates a worker instance
      * @param scriptURL URL of the script to be executed by the worker
@@ -314,7 +324,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent) => void;
+    onmessage?: (event: MessageEvent<T>) => void;
 
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -323,7 +333,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent) => void;
+    onmessageerror?: (event: MessageEvent<T>) => void;
 
     /**
      * Sends a message to the worker thread.
