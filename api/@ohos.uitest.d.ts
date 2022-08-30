@@ -18,7 +18,7 @@
  *
  * @since 9
  */
- enum ResizeDirection{
+ declare enum ResizeDirection{
    LEFT,
    RIGHT,  
    UP,
@@ -33,7 +33,7 @@
  *
  * @since 8
  */
- enum MatchPattern{
+ declare enum MatchPattern{
    /**
     * Equals to a string.
     * @syscap SystemCapability.Test.UiTest
@@ -69,7 +69,7 @@
  *
  * @since 9
  */
- enum WindowMode{
+ declare enum WindowMode{
     FULLSCREEN,
     PRIMARY,
     SECONDARY,
@@ -106,8 +106,8 @@ declare interface Rect {
 declare interface WindowFilter {
     readonly  bundleName?: string;
     readonly  title?: string;
-    readonly  focused?: bool;
-    readonly  actived?: bool;
+    readonly  focused?: boolean;
+    readonly  actived?: boolean;
 }
 
 /**
@@ -116,7 +116,7 @@ declare interface WindowFilter {
  * @since 8
  * @syscap SystemCapability.Test.UiTest
  */
- class By{
+ declare class By{
    /**
     * Specifies the text for the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
@@ -166,7 +166,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   clickable(b?:bool):By;
+   clickable(b?:boolean):By;
 
    /**
     * Specifies the longClickable status of the target UiComponent.
@@ -176,7 +176,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   longClickable(b?: bool): By;
+   longClickable(b?: boolean): By;
 
    /**
     * Specifies the scrollable status of the target UiComponent.
@@ -186,7 +186,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   scrollable(b?:bool):By;
+   scrollable(b?:boolean):By;
 
    /**
     * Specifies the enabled status of the target UiComponent.
@@ -196,7 +196,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   enabled(b?:bool):By;
+   enabled(b?:boolean):By;
 
    /**
     * Specifies the focused status of the target UiComponent.
@@ -206,7 +206,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   focused(b?:bool):By;
+   focused(b?:boolean):By;
 
    /**
     * Specifies the selected status of the target UiComponent.
@@ -216,7 +216,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   selected(b?:bool):By;
+   selected(b?:boolean):By;
 
    /**
     * Specifies the checked status of the target UiComponent.
@@ -226,7 +226,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   checked(b?: bool): By;
+   checked(b?: boolean): By;
 
    /**
     * Specifies the checkable status of the target UiComponent.
@@ -236,7 +236,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   checkable(b?: bool): By;
+   checkable(b?: boolean): By;
 
    /**
     * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
@@ -268,7 +268,7 @@ declare interface WindowFilter {
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
-class UiComponent{
+declare class UiComponent{
       /**
        * Click this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
@@ -335,7 +335,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isClickable():Promise<bool>;
+      isClickable():Promise<boolean>;
 
       /**
        * Get the longClickable status of this {@link UiComponent}.
@@ -344,7 +344,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isLongClickable(): Promise<bool>;
+      isLongClickable(): Promise<boolean>;
 
       /**
        * Get the scrollable status of this {@link UiComponent}.
@@ -353,7 +353,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isScrollable():Promise<bool>;
+      isScrollable():Promise<boolean>;
 
       /**
        * Get the enabled status of this {@link UiComponent}.
@@ -362,7 +362,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isEnabled():Promise<bool>;
+      isEnabled():Promise<boolean>;
 
       /**
        * Get the focused status of this {@link UiComponent}.
@@ -371,7 +371,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isFocused():Promise<bool>;
+      isFocused():Promise<boolean>;
 
       /**
        * Get the selected status of this {@link UiComponent}.
@@ -380,7 +380,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isSelected():Promise<bool>;
+      isSelected():Promise<boolean>;
 
       /**
        * Get the checked status of this {@link UiComponent}.
@@ -389,7 +389,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isChecked(): Promise<bool>;
+      isChecked(): Promise<boolean>;
 
       /**
        * Get the checkable status of this {@link UiComponent}.
@@ -398,7 +398,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isCheckable(): Promise<bool>;
+      isCheckable(): Promise<boolean>;
 
       /**
        * Inject text to this {@link UiComponent},applicable to TextInput.
@@ -499,7 +499,7 @@ class UiComponent{
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiDriver{
+ declare class UiDriver{
   /**
    * Create an {@link UiDriver} object.
    * @syscap SystemCapability.Test.UiTest
@@ -674,7 +674,7 @@ class UiComponent{
    * @since 8
    * @test
    */
-  screenCap(savePath:string):Promise<bool>;
+  screenCap(savePath:string):Promise<boolean>;
 }
 
 /**
@@ -684,7 +684,7 @@ class UiComponent{
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiWindow{
+ declare class UiWindow{
   /**
    * Get the bundle name of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
@@ -728,7 +728,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   isFocused():Promise<bool>;
+   isFocused():Promise<boolean>;
 
   /**
    * Get the actived status of this {@link UiWindow}.
@@ -737,7 +737,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   isActived():Promise<bool>;
+   isActived():Promise<boolean>;
 
   /**
    * Set the focused status of this {@link UiWindow}.
@@ -746,7 +746,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   focus():Promise<bool>;
+   focus():Promise<boolean>;
 
   /**
    * Move this {@link UiWindow} to the specified points.
@@ -755,7 +755,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   moveTo(x: number, y: number):Promise<bool>;
+   moveTo(x: number, y: number):Promise<boolean>;
 
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
@@ -764,7 +764,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   resize(wide: number, height: number, direction: ResizeDirection):Promise<bool>;
+   resize(wide: number, height: number, direction: ResizeDirection):Promise<boolean>;
 
   /**
    * Change this {@link UiWindow} into split screen mode.
@@ -773,7 +773,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   split():Promise<bool>;   
+   split():Promise<boolean>;   
 
   /**
    * Maximize this {@link UiWindow}.
@@ -782,7 +782,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   maximize():Promise<bool>;
+   maximize():Promise<boolean>;
 
   /**
    * Minimize this {@link UiWindow}.
@@ -791,7 +791,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   minimize():Promise<bool>;
+   minimize():Promise<boolean>;
 
   /**
    * Resume this {@link UiWindow}.
@@ -800,7 +800,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   resume():Promise<bool>; 
+   resume():Promise<boolean>; 
 
   /**
    * Close this {@link UiWindow}.
@@ -809,7 +809,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   close():Promise<bool>; 
+   close():Promise<boolean>; 
  }
 
 /**
@@ -818,6 +818,6 @@ class UiComponent{
  * @since 8
  * @test
  */
- const BY:By;
+ declare const BY:By;
 
  export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,ResizeDirection,WindowMode};
