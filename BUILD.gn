@@ -22,6 +22,7 @@ ohos_copy("ets_internal_api") {
     "api/@internal/ets/index.d.ts",
     "api/@internal/ets/lifecycle.d.ts",
     "api/@internal/global.d.ts",
+    "api/common/full/canvaspattern.d.ts",
     "api/common/full/featureability.d.ts",
   ]
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
@@ -191,6 +192,7 @@ ohos_declaration_template("ohos_declaration_common") {
 
 ohos_copy("internal_full") {
   sources = [
+    "api/common/full/canvaspattern.d.ts",
     "api/common/full/console.d.ts",
     "api/common/full/dom.d.ts",
     "api/common/full/featureability.d.ts",
