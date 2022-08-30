@@ -418,3 +418,10 @@ declare interface BorderOptions {
    */
   style?: EdgeStyles | BorderStyle;
 }
+
+declare module "GlobalResource" {
+  module "GlobalResource" {
+    // @ts-ignore
+    export { Resource };
+  }
+}

@@ -14,7 +14,7 @@
  */
 
 import Want from "../../@ohos.application.want";
-import { ResultSet } from "../../data/rdb/resultSet";
+import ResultSet from "../../data/rdb/resultSet";
 import { AbilityInfo } from "../../bundle/abilityInfo";
 import { DataAbilityResult } from "../../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../../ability/dataAbilityOperation";
@@ -25,6 +25,7 @@ import rdb from "../../@ohos.data.rdb";
 import rpc from "../../@ohos.rpc";
 import resourceManager from "../../@ohos.resourceManager";
 import { PacMap } from "../../ability/dataAbilityHelper";
+import { AsyncCallback } from "../../basic";
 
 /**
  * interface of form lifecycle.
