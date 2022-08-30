@@ -1,6 +1,7 @@
 {
     "ets_internal_api": {
         "base": [
+            "api/common/full/canvaspattern.d.ts",
             "api/common/full/featureability.d.ts"
         ]
     },
