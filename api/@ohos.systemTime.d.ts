@@ -35,21 +35,24 @@ declare namespace systemTime {
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
      * @since 8
      */
-    function getCurrentTime(isNano?: boolean, callback: AsyncCallback<number>): void;
+    function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
+    function getCurrentTime(callback: AsyncCallback<number>): void;
     function getCurrentTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
      * @since 8
      */
-    function getRealActiveTime(isNano?: boolean, callback: AsyncCallback<number>): void;
+    function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
+    function getRealActiveTime(callback: AsyncCallback<number>): void;
     function getRealActiveTime(isNano?: boolean): Promise<number>;
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
      * @since 8
      */
-    function getRealTime(isNano?: boolean, callback: AsyncCallback<number>): void;
+    function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
+    function getRealTime(callback: AsyncCallback<number>): void;
     function getRealTime(isNano?: boolean): Promise<number>;
 
     /**
