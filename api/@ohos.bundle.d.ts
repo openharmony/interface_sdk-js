@@ -391,7 +391,7 @@ declare namespace bundle {
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
-    PREVIEW = 14,
+    PREVIEW = 15,
     /**
      * @default Indicates extension info with type of unspecified
      * @since 9
