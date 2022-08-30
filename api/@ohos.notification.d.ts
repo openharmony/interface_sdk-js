@@ -497,7 +497,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-  function remove(bundle: BundleOption, notificationKey: NotificationKey, callback: AsyncCallback<void>): void;
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
    * remove
@@ -505,7 +505,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-  function remove(bundle: BundleOption, notificationKey: NotificationKey): Promise<void>;
+  function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
   /**
    * remove
@@ -513,7 +513,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-  function remove(hashCode: string, callback: AsyncCallback<void>): void;
+  function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
    * remove
@@ -521,7 +521,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    */
-  function remove(hashCode: string): Promise<void>;
+  function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
   /**
    * removeAll
@@ -882,6 +882,24 @@ declare namespace notification {
      * Scheduled notification
      */
     TYPE_TIMER = 2,
+  }
+
+   /**
+   * Reason for remove a notification
+   *
+   * @since 9
+   * @systemapi Hide this for inner system use.
+   */
+  export enum RemoveReason {
+    /**
+     * Notification clicked notification on the status bar
+     */
+    CLICK_REASON_REMOVE = 1,
+
+    /**
+     * User dismissal notification  on the status bar
+     */
+    CANCEL_REASON_REMOVE = 2,
   }
 
   /**
