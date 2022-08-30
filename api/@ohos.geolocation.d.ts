@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { AsyncCallback, Callback } from './basic.d.ts';
-import WantAgent from '@ohos.wantAgent';
+import { AsyncCallback, Callback } from './basic';
+import { WantAgent } from './@ohos.wantAgent';
 
  /**
  * Provides interfaces for initiating location requests, ending the location service,
