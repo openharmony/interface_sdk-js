@@ -18,7 +18,7 @@
  *
  * @since 8
  */
- enum MatchPattern{
+ declare enum MatchPattern{
    /**
     * Equals to a string.
     * @syscap SystemCapability.Test.UiTest
@@ -55,7 +55,7 @@
  * @since 8
  * @syscap SystemCapability.Test.UiTest
  */
- class By{
+ declare class By{
    /**
     * Specifies the text for the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
@@ -105,7 +105,7 @@
     * @since 8
     * @test
     */
-   clickable(b?:bool):By;
+   clickable(b?:boolean):By;
 
    /**
     * Specifies the scrollable status of the target UiComponent.
@@ -115,7 +115,7 @@
     * @since 8
     * @test
     */
-   scrollable(b?:bool):By;
+   scrollable(b?:boolean):By;
 
    /**
     * Specifies the enabled status of the target UiComponent.
@@ -125,7 +125,7 @@
     * @since 8
     * @test
     */
-   enabled(b?:bool):By;
+   enabled(b?:boolean):By;
 
    /**
     * Specifies the focused status of the target UiComponent.
@@ -135,7 +135,7 @@
     * @since 8
     * @test
     */
-   focused(b?:bool):By;
+   focused(b?:boolean):By;
 
    /**
     * Specifies the selected status of the target UiComponent.
@@ -145,7 +145,7 @@
     * @since 8
     * @test
     */
-   selected(b?:bool):By;
+   selected(b?:boolean):By;
 
    /**
     * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
@@ -177,7 +177,7 @@
      * @test
      * @syscap SystemCapability.Test.UiTest
      */
-     class UiComponent{
+     declare class UiComponent{
       /**
        * Click this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
@@ -244,7 +244,7 @@
        * @since 8
        * @test
        */
-      isClickable():Promise<bool>;
+      isClickable():Promise<boolean>;
 
       /**
        * Get the scrollable status of this {@link UiComponent}.
@@ -253,7 +253,7 @@
        * @since 8
        * @test
        */
-      isScrollable():Promise<bool>;
+      isScrollable():Promise<boolean>;
 
       /**
        * Get the enabled status of this {@link UiComponent}.
@@ -262,7 +262,7 @@
        * @since 8
        * @test
        */
-      isEnabled():Promise<bool>;
+      isEnabled():Promise<boolean>;
 
       /**
        * Get the focused status of this {@link UiComponent}.
@@ -271,7 +271,7 @@
        * @since 8
        * @test
        */
-      isFocused():Promise<bool>;
+      isFocused():Promise<boolean>;
 
       /**
        * Get the selected status of this {@link UiComponent}.
@@ -280,7 +280,7 @@
        * @since 8
        * @test
        */
-      isSelected():Promise<bool>;
+      isSelected():Promise<boolean>;
 
       /**
        * Inject text to this {@link UiComponent},applicable to TextInput.
@@ -310,7 +310,7 @@
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiDriver{
+ declare class UiDriver{
   /**
    * Create an {@link UiDriver} object.
    * @syscap SystemCapability.Test.UiTest
@@ -426,7 +426,7 @@
    * @since 8
    * @test
    */
-  screenCap(savePath:string):Promise<bool>;
+  screenCap(savePath:string):Promise<boolean>;
 }
 
 /**
@@ -435,6 +435,6 @@
  * @since 8
  * @test
  */
- const BY:By;
+ declare const BY:By;
 
  export {UiComponent,UiDriver,BY,MatchPattern};
