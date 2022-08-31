@@ -169,6 +169,56 @@ declare namespace webview {
            */
           storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
       }
+
+    /**
+     * Provides a method for managing web geographic location permissions.
+     * @name GeolocationPermissions
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    class GeolocationPermissions {
+        /**
+         * allow geolocation permissions for specifies source.
+         * @param origin url source.
+         *
+         * @since 9
+         */
+        static allowGeolocation(origin: string): void;
+
+        /**
+         * delete geolocation permissions for specifies source.
+         * @param origin url source.
+         *
+         * @since 9
+         */
+        static deleteGeolocation(origin: string): void;
+
+        /**
+         * delete all geolocation permissions.
+         *
+         * @since 9
+         */
+         static deleteAllGeolocation(): void;
+
+        /**
+         * gets the geolocation permission status of the specified source.
+         * @param origin url source.
+         * @return return whether there is a saved result.
+         *
+         * @since 9
+         */
+        static getAccessibleGeolocation(origin: string): Promise<boolean>;
+        static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>): void;
+
+        /**
+         * get all stored geolocation permission url source.
+         * @return return whether there is a saved result.
+         *
+         * @since 9
+         */
+        static getStoredGeolocation() : Promise<Array<string>>;
+        static getStoredGeolocation(callback : AsyncCallback<Array<string>>): void;
+    }
 }
 
 export default webview;
