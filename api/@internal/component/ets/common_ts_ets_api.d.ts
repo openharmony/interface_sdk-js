@@ -81,8 +81,16 @@ declare class AppStorage {
   /**
    * Called when a cleanup occurs.
    * @since 7
+   * @deprecated since 9
+   * @useinstead AppStorage.Clear
    */
   static staticClear(): boolean;
+
+  /**
+   * Called when a cleanup occurs.
+   * @since 9
+   */
+  static Clear(): boolean;
 
   /**
    * Called when the data can be changed.
