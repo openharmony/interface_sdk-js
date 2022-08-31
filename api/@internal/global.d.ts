@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/// <reference path="../../../component/common.d.ts" />
+
+import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
+
 /**
  * Defines the console info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full

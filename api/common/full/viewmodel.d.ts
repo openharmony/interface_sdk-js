@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import { Image, ImageData } from "./global";
+import { Image, ImageData, ImageBitmap } from "./global";
 import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
 import { WebGL2RenderingContext } from "../../webgl/webgl2";
+import { CanvasPattern } from './canvaspattern';
 
 /**
  * Defines the foucs param.

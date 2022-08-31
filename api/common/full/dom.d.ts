@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export { Element } from './viewmodel';
+import { Element } from './viewmodel';
 
 /**
  * global dom

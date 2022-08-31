@@ -1794,3 +1794,10 @@ declare class View {
    */
   create(value: any): any;
 }
+
+declare module "SpecialEvent" {
+  module "SpecialEvent" {
+    // @ts-ignore
+    export { TouchObject, KeyEvent, MouseEvent };
+  }
+}
