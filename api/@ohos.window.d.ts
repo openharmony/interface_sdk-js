@@ -12,9 +12,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from  './app/context';
-import { ContentStorage } from './@internal/component/ets/stateManagement'
+import Context from  './app/context';
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
