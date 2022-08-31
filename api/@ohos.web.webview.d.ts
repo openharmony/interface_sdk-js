@@ -178,7 +178,7 @@ declare namespace webview {
      */
     class GeolocationPermissions {
         /**
-         * allow geolocation permissions for specifies source.
+         * Allow geolocation permissions for specifies source.
          * @param origin url source.
          *
          * @since 9
@@ -186,7 +186,7 @@ declare namespace webview {
         static allowGeolocation(origin: string): void;
 
         /**
-         * delete geolocation permissions for specifies source.
+         * Delete geolocation permissions for specifies source.
          * @param origin url source.
          *
          * @since 9
@@ -194,16 +194,16 @@ declare namespace webview {
         static deleteGeolocation(origin: string): void;
 
         /**
-         * delete all geolocation permissions.
+         * Delete all geolocation permissions.
          *
          * @since 9
          */
          static deleteAllGeolocation(): void;
 
         /**
-         * gets the geolocation permission status of the specified source.
+         * Gets the geolocation permission status of the specified source.
          * @param origin url source.
-         * @return return whether there is a saved result.
+         * @return Return whether there is a saved result.
          *
          * @since 9
          */
@@ -211,8 +211,8 @@ declare namespace webview {
         static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>): void;
 
         /**
-         * get all stored geolocation permission url source.
-         * @return return whether there is a saved result.
+         * Get all stored geolocation permission url source.
+         * @return Return whether there is a saved result.
          *
          * @since 9
          */
