@@ -250,7 +250,7 @@ declare namespace util {
         toString(): string;
     }
 
-    class LruBuffer {
+    class LruBuffer<K, V> {
         /**
          * Default constructor used to create a new LruBuffer instance with the default capacity of 64.
          * @since 8
