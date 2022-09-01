@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { OffscreenCanvasRenderingContext2D } from './viewmodel'
+
 /**
  * Sets the interval for repeatedly calling a function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -59,6 +59,13 @@ declare namespace wallpaper {
      * @return the file descriptor.
      * @since 8
      */
+    /**
+     * Obtains a file of the wallpaper of the specified type.
+     * @param wallpaperType Indicates the wallpaper type.
+     * @permission ohos.permission.GET_WALLPAPER.
+     * @return the file descriptor.
+     * @since 9
+     */
      function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
      function getFile(wallpaperType: WallpaperType): Promise<number>;
 
@@ -112,7 +119,6 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @return the default pixel map.
      * @permission ohos.permission.GET_WALLPAPER
-     * @permission ohos.permission.READ_USER_STORAGE
      * @systemapi Hide this for inner system use.
      */
     function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;

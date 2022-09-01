@@ -40,6 +40,7 @@ declare namespace document {
  * @param {AsyncCallback<void>} [callback] - callback.
  * @returns {void | Promise<void>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
+ * @deprecated since 9
  */
 declare function choose(types?: string[]): Promise<string>;
 declare function choose(callback: AsyncCallback<string>): void;
@@ -58,6 +59,7 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
  * @param {AsyncCallback<void>} [callback] - callback.
  * @returns {void | Promise<void>} no callback return Promise otherwise return void
  * @throws {TypedError} Parameter check failed
+ * @deprecated since 9
  */
 declare function show(uri: string, type: string): Promise<void>;
 declare function show(uri: string, type: string, callback: AsyncCallback<void>): void;

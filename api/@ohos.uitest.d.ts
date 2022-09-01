@@ -18,7 +18,7 @@
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
- enum ResizeDirection{
+ declare enum ResizeDirection{
    LEFT,
    RIGHT,  
    UP,
@@ -33,7 +33,7 @@
  * @syscap SystemCapability.Test.UiTest
  * @since 8
  */
- enum MatchPattern{
+ declare enum MatchPattern{
    /**
     * Equals to a string.
     * @syscap SystemCapability.Test.UiTest
@@ -69,12 +69,24 @@
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
- enum WindowMode{
+ declare enum WindowMode{
     FULLSCREEN,
     PRIMARY,
     SECONDARY,
     FLOATING
  }
+
+/**
+ * Describes the rotation of the device display
+ * @syscap SystemCapability.Test.UiTest
+ * @since 9
+ */
+declare enum DisplayRotation {
+    ROTATION_0,
+    ROTATION_90,
+    ROTATION_180,
+    ROTATION_270
+}
  
 /**
  * Represents the point on the device screen.
@@ -106,8 +118,8 @@ declare interface Rect {
 declare interface WindowFilter {
     readonly  bundleName?: string;
     readonly  title?: string;
-    readonly  focused?: bool;
-    readonly  actived?: bool;
+    readonly  focused?: boolean;
+    readonly  actived?: boolean;
 }
 
 /**
@@ -116,7 +128,8 @@ declare interface WindowFilter {
  * @since 8
  * @syscap SystemCapability.Test.UiTest
  */
- class By{
+ declare class By{
+ 
    /**
     * Specifies the text for the target UiComponent.
     * @syscap SystemCapability.Test.UiTest
@@ -166,7 +179,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   clickable(b?:bool):By;
+   clickable(b?:boolean):By;
 
    /**
     * Specifies the longClickable status of the target UiComponent.
@@ -176,7 +189,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   longClickable(b?: bool): By;
+   longClickable(b?: boolean): By;
 
    /**
     * Specifies the scrollable status of the target UiComponent.
@@ -186,7 +199,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   scrollable(b?:bool):By;
+   scrollable(b?:boolean):By;
 
    /**
     * Specifies the enabled status of the target UiComponent.
@@ -196,7 +209,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   enabled(b?:bool):By;
+   enabled(b?:boolean):By;
 
    /**
     * Specifies the focused status of the target UiComponent.
@@ -206,7 +219,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   focused(b?:bool):By;
+   focused(b?:boolean):By;
 
    /**
     * Specifies the selected status of the target UiComponent.
@@ -216,7 +229,7 @@ declare interface WindowFilter {
     * @since 8
     * @test
     */
-   selected(b?:bool):By;
+   selected(b?:boolean):By;
 
    /**
     * Specifies the checked status of the target UiComponent.
@@ -226,7 +239,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   checked(b?: bool): By;
+   checked(b?: boolean): By;
 
    /**
     * Specifies the checkable status of the target UiComponent.
@@ -236,7 +249,7 @@ declare interface WindowFilter {
     * @since 9
     * @test
     */
-   checkable(b?: bool): By;
+   checkable(b?: boolean): By;
 
    /**
     * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
@@ -268,7 +281,7 @@ declare interface WindowFilter {
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
-class UiComponent{
+declare class UiComponent{
       /**
        * Click this {@link UiComponent}.
        * @syscap SystemCapability.Test.UiTest
@@ -335,7 +348,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isClickable():Promise<bool>;
+      isClickable():Promise<boolean>;
 
       /**
        * Get the longClickable status of this {@link UiComponent}.
@@ -344,7 +357,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isLongClickable(): Promise<bool>;
+      isLongClickable(): Promise<boolean>;
 
       /**
        * Get the scrollable status of this {@link UiComponent}.
@@ -353,7 +366,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isScrollable():Promise<bool>;
+      isScrollable():Promise<boolean>;
 
       /**
        * Get the enabled status of this {@link UiComponent}.
@@ -362,7 +375,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isEnabled():Promise<bool>;
+      isEnabled():Promise<boolean>;
 
       /**
        * Get the focused status of this {@link UiComponent}.
@@ -371,7 +384,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isFocused():Promise<bool>;
+      isFocused():Promise<boolean>;
 
       /**
        * Get the selected status of this {@link UiComponent}.
@@ -380,7 +393,7 @@ class UiComponent{
        * @since 8
        * @test
        */
-      isSelected():Promise<bool>;
+      isSelected():Promise<boolean>;
 
       /**
        * Get the checked status of this {@link UiComponent}.
@@ -389,7 +402,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isChecked(): Promise<bool>;
+      isChecked(): Promise<boolean>;
 
       /**
        * Get the checkable status of this {@link UiComponent}.
@@ -398,7 +411,7 @@ class UiComponent{
        * @since 9
        * @test
        */
-      isCheckable(): Promise<bool>;
+      isCheckable(): Promise<boolean>;
 
       /**
        * Inject text to this {@link UiComponent},applicable to TextInput.
@@ -420,7 +433,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the top,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -429,7 +442,7 @@ class UiComponent{
       /**
        * Scroll on this {@link UiComponent} to the bottom,applicable to scrollable one.
        * @syscap SystemCapability.Test.UiTest
-       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+       * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
        * @since 9
        * @test
        */
@@ -499,7 +512,7 @@ class UiComponent{
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiDriver{
+ declare class UiDriver{
   /**
    * Create an {@link UiDriver} object.
    * @syscap SystemCapability.Test.UiTest
@@ -647,7 +660,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -660,7 +673,7 @@ class UiComponent{
    * @param starty the y-coordinate of the starting point.
    * @param endx the x-coordinate of the ending point.
    * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 0 to 3000,set it 3000 if greater than 3000.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
    * @since 9
    * @test
    */
@@ -674,7 +687,101 @@ class UiComponent{
    * @since 8
    * @test
    */
-  screenCap(savePath:string):Promise<bool>;
+  screenCap(savePath:string):Promise<boolean>;
+
+  /**
+   * Set the rotation of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param rotation the target rotation to set.
+   * @since 9
+   * @test
+   */
+  setDisplayRotation(rotation: DisplayRotation):Promise<void>;
+
+  /**
+   * Get the rotation of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the current display rotation.
+   * @since 9
+   * @test
+   */
+   getDisplayRotation():Promise<DisplayRotation>;
+
+  /**
+   * Enable/disable the rotation of device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param enabled enable the rotation or not.
+   * @since 9
+   * @test
+   */
+   setDisplayRotationEnabled(enabled:boolean):Promise<void>;
+
+  /**
+   * Get the size of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the size of the device display.
+   * @since 9
+   * @test
+   */
+   getDisplaySize():Promise<Point>;
+
+  /**
+   * Get the density of the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @returns the density of the device display.
+   * @since 9
+   * @test
+   */
+   getDisplayDensity():Promise<Point>;
+
+  /**
+   * Wake up the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 9
+   * @test
+   */
+   wakeUpDisplay():Promise<void>;
+
+  /**
+   * Press the home key.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 9
+   * @test
+   */
+   pressHome():Promise<void>;
+
+  /**
+   * Wait for the UI become idle.
+   * @syscap SystemCapability.Test.UiTest
+   * @param idleTime the threshold of UI idle time, in millisecond.
+   * @param timeout the maximum time to wait for idle, in millisecond.
+   * @returns true if wait for idle succeed in the timeout, false otherwise.
+   * @since 9
+   * @test
+   */
+   waitForIdle(idleTime: number, timeout: number):Promise<boolean>;
+
+  /**
+   * Inject fling on the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param from the coordinate point where the finger touches the screen.
+   * @param to the coordinate point where the finger leaves the screen.
+   * @param stepLen the length of each step, in pixels.
+   * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
+   * @since 9
+   * @test
+   */
+   fling(from: Point, to: Point, stepLen: number, speed: number):Promise<void>;
+
+  /**
+   * Inject multi-pointer action on the device display.
+   * @syscap SystemCapability.Test.UiTest
+   * @param pointers the two-dimensional array of pointers to inject.
+   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 3000,set it 600 if out of range.
+   * @since 9
+   * @test
+   */
+   injectMultiPointerAction(pointers: PointerMatrix, speed?: number):Promise<boolean>;
 }
 
 /**
@@ -684,7 +791,7 @@ class UiComponent{
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
- class UiWindow{
+ declare class UiWindow{
   /**
    * Get the bundle name of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
@@ -728,7 +835,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   isFocused():Promise<bool>;
+   isFocused():Promise<boolean>;
 
   /**
    * Get the actived status of this {@link UiWindow}.
@@ -737,7 +844,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   isActived():Promise<bool>;
+   isActived():Promise<boolean>;
 
   /**
    * Set the focused status of this {@link UiWindow}.
@@ -746,7 +853,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   focus():Promise<bool>;
+   focus():Promise<boolean>;
 
   /**
    * Move this {@link UiWindow} to the specified points.
@@ -755,7 +862,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   moveTo(x: number, y: number):Promise<bool>;
+   moveTo(x: number, y: number):Promise<boolean>;
 
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
@@ -764,7 +871,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   resize(wide: number, height: number, direction: ResizeDirection):Promise<bool>;
+   resize(wide: number, height: number, direction: ResizeDirection):Promise<boolean>;
 
   /**
    * Change this {@link UiWindow} into split screen mode.
@@ -773,7 +880,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   split():Promise<bool>;   
+   split():Promise<boolean>;   
 
   /**
    * Maximize this {@link UiWindow}.
@@ -782,7 +889,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   maximize():Promise<bool>;
+   maximize():Promise<boolean>;
 
   /**
    * Minimize this {@link UiWindow}.
@@ -791,7 +898,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   minimize():Promise<bool>;
+   minimize():Promise<boolean>;
 
   /**
    * Resume this {@link UiWindow}.
@@ -800,7 +907,7 @@ class UiComponent{
    * @since 9
    * @test
    */
-   resume():Promise<bool>; 
+   resume():Promise<boolean>; 
 
   /**
    * Close this {@link UiWindow}.
@@ -809,8 +916,40 @@ class UiComponent{
    * @since 9
    * @test
    */
-   close():Promise<bool>; 
+   close():Promise<boolean>; 
  }
+
+/**
+ * Represents a two-dimensional array of pointers on the device display, it's used to build a
+ * multi-finger trace which can be injected with UiDriver.
+ *
+ * @since 9
+ * @test
+ * @syscap SystemCapability.Test.UiTest
+ */
+declare class PointerMatrix {
+   /**
+   * Create an {@link PointerMatrix} object.
+   * @syscap SystemCapability.Test.UiTest
+   * @param fingers the number of fingers.
+   * @param steps the number of steps of each finger trace.
+   * @returns the {@link PointerMatrix} object.
+   * @since 9
+   * @test
+   */
+    static create(fingers: number, steps: number):PointerMatrix;
+
+    /**
+    * Set the point value of an element in the PointerMatrix.
+    * @syscap SystemCapability.Test.UiTest
+    * @param finger the index of target finger to set.
+    * @param step the index of target step to set.
+    * @param point the coordinate of target step to set.
+    * @since 9
+    * @test
+    */
+    setPoint(finger: number, step: number, point: Point):void;
+}
 
 /**
  * The static builder for building {@link By}object conveniently,usage example:BY.text('txt').enabled(true).
@@ -818,6 +957,6 @@ class UiComponent{
  * @since 8
  * @test
  */
- const BY:By;
+ declare const BY:By;
 
- export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,ResizeDirection,WindowMode};
+ export {UiComponent,UiDriver,UiWindow,BY,MatchPattern,DisplayRotation,ResizeDirection,WindowMode,PointerMatrix};

@@ -14,6 +14,7 @@
  */
 import { AsyncCallback } from './basic';
 import Want from './@ohos.application.want';
+import { image } from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
@@ -46,6 +47,11 @@ declare namespace pasteboard {
    * @since 7
    */
   const MIMETYPE_TEXT_URI: string;
+  /**
+   * Indicates MIME types of PixelMap.
+   * @since 9
+   */
+  const MIMETYPE_PIXELMAP: string;
 
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_HTML.
@@ -80,6 +86,14 @@ declare namespace pasteboard {
   function createUriData(uri: string): PasteData;
 
   /**
+   * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
+   * @param pixelMap To save the pixelMap of content.
+   * @return Containing the contents of the clipboard content object.
+   * @since 9
+   */
+  function createPixelMapData(pixelMap: image.PixelMap): PasteData;
+
+  /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
    * @return The content of a new record
@@ -112,11 +126,37 @@ declare namespace pasteboard {
   function createUriRecord(uri: string): PasteDataRecord;
 
   /**
+   * Creates a Record object for PasteData#MIMETYPE_PIXELMAp.
+   * @param pixelMap To save the pixelMap of content.
+   * @return The content of a new record
+   * @since 9
+   */
+  function createPixelMapRecord(pixelMap: image.PixelMap):PasteDataRecord;
+
+  /**
    * get SystemPasteboard
    * @return The system clipboard object
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
+
+  /**
+   * Types of scope that PasteData can be pasted.
+   * @enum { number }
+   * @since 9
+   */
+   enum ShareOption {
+    /**
+     * InApp means that only in-app pasting is allowed.
+     * @since 9
+     */
+    InApp,
+    /**
+     * LocalDevice means that only paste in this device is allowed.
+     * @since 9
+     */
+    LocalDevice
+  }
 
   interface PasteDataProperty {
     /**
@@ -140,12 +180,19 @@ declare namespace pasteboard {
      * a timestamp, which indicates when data is written to the system pasteboard.
      * @since 7
      */
-     readonly timestamp: number;
+    readonly timestamp: number;
     /**
      * Checks whether PasteData is set for local access only.
      * @since 7
      */
     localOnly: boolean;
+    /**
+     * Indicates the scope of clipboard data which can be pasted.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
+     * @type { ShareOption }
+     * @since 9
+     */
+    shareOption: ShareOption;
   }
 
   interface PasteDataRecord {
@@ -174,6 +221,12 @@ declare namespace pasteboard {
      * @since 7
      */
     uri: string;
+    /**
+     * PixelMap in a record.
+     * @type { image.PixelMap }
+     * @since 9
+     */
+    pixelMap: image.PixelMap;
 
     /**
      * Will a PasteData cast to the content of text content
@@ -221,6 +274,13 @@ declare namespace pasteboard {
     addUriRecord(uri: string): void;
 
     /**
+     * Adds a PixelMap record to a PasteData object.
+     * @param { image.PixelMap } pixelMap - to save the pixelMap of content.
+     * @since 9
+     */
+    addPixelMapRecord(pixelMap: image.PixelMap): void;
+
+    /**
      * MIME types of all content on the pasteboard.
      * @return string type of array
      * @since 7
@@ -263,11 +323,25 @@ declare namespace pasteboard {
     getPrimaryUri(): string;
 
     /**
+     * Gets the primary PixelMap record in a PasteData object.
+     * @returns {image.PixelMap} pixelMap
+     * @since 9
+     */
+    getPrimaryPixelMap(): image.PixelMap;
+
+    /**
      * DataProperty of a PasteData object.
      * @return PasteDataProperty type of PasteDataProperty
      * @since 7
      */
     getProperty(): PasteDataProperty;
+
+    /**
+     * Set PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
+     * @param { PasteDataProperty } property - save property to PasteData object.
+     * @since 9
+     */
+    setProperty(property: PasteDataProperty): void;
 
     /**
      * a Record based on a specified index.

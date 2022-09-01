@@ -14,11 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
-import { ConnectOptions } from "./ability/connectOptions";
-import ExtensionContext from './application/ExtensionContext';
-import { ExtensionAbilityInfo } from "./bundle/extensionAbilityInfo";
 
 /**
  * inputmethodengine
@@ -58,6 +53,41 @@ declare namespace inputMethodEngine {
     const OPTION_MULTI_LINE: number;
     const OPTION_NO_FULLSCREEN: number;
 
+    /**
+     * The move direction of cursor: UP
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_UP: number;
+
+    /**
+     * The move direction of cursor: DOWN
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_DOWN: number;
+
+    /**
+     * The move direction of cursor: LEFT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_LEFT: number;
+
+    /**
+     * The move direction of cursor: RIGHT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_RIGHT: number;
+
+    /**
+     * The window styles for inputmethod ability.
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
+
     function getInputMethodEngine(): InputMethodEngine;
 
     function createKeyboardDelegate(): KeyboardDelegate;
@@ -70,11 +100,48 @@ declare namespace inputMethodEngine {
 
     interface InputMethodEngine {
         on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
-
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
-        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
+        /**
+         * Subscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
+        on(type: 'inputStop', callback: () => void): void;
 
+        /**
+         * Unsubscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
+        off(type: 'inputStop', callback: () => void): void;
+
+        /**
+         * Subscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
+        on(type: 'setCallingWindow', callback: (wid:number) => void): void;
+
+        /**
+         * Unsubscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
+        off(type: 'setCallingWindow', callback: (wid:number) => void): void;
+        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
     }
 
@@ -106,6 +173,29 @@ declare namespace inputMethodEngine {
         getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         getEditorAttribute(): Promise<EditorAttribute>;
+
+        /**
+         * Move cursor from input method.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param direction Indicates the distance of cursor to be moved.
+         * @param callback
+         * @return -
+         * @StageModelOnly
+         */
+        moveCursor(direction: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Move curosr from input method.
+         *
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param direction Indicates the distance of cursor to be moved.
+         * @return -
+         * @StageModelOnly
+         */
+        moveCursor(direction: number): Promise<void>;
     }
 
     interface KeyboardDelegate {

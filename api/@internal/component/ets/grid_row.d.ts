@@ -15,7 +15,7 @@
 
 
 /**
-* Defines the option in length unit of grid-container component.
+* Defines the option in length unit of grid-row component.
 * @since 9
 */
 declare interface GridRowSizeOption {
@@ -99,18 +99,18 @@ declare interface GridRowColumnOption {
 }
 
 /**
-* Defines the getter of grid-container component.
+* Defines the gutter of grid-row component.
 * @since 9
 */
-declare interface GetterOption {
+declare interface GutterOption {
     /**
-    * Define x in getteroption
+    * Define x in GutterOption
     * @since 9
     */
     x?: Length | GridRowSizeOption,
     
     /**
-    * Define y in getteroption
+    * Define y in GutterOption
     * @since 9
     */
     y?: Length | GridRowSizeOption
@@ -153,7 +153,7 @@ declare enum GridRowDirection {
 }
 
 /**
-* Defines the breakpoints of grid-container component.
+* Defines the breakpoints of grid-row component.
 * @since 9
 */
 declare interface BreakPoints {
@@ -171,15 +171,15 @@ declare interface BreakPoints {
 }
 
 /**
- * Defines the options of grid-container component.
+ * Defines the options of grid-row component.
  * @since 9
  */
 declare interface GridRowOptions {
     /**
-     * grid-container layout column spacing.
+     * layout spacing between sub-components
      * @since 9
      */
-    gutter?: Length | GetterOption;
+    gutter?: Length | GutterOption;
 
     /**
      * Sets the total number of columns in the current layout.
@@ -188,13 +188,13 @@ declare interface GridRowOptions {
     columns?: number | GridRowColumnOption;
 
     /**
-     * grid-container layout breakpoints.
+     * grid-row layout breakpoints.
      * @since 9
      */
     breakpoints?: BreakPoints;
 
     /**
-     * grid-container layout direction.
+     * grid-row layout direction.
      * @since 9
      */
     direction?: GridRowDirection;
@@ -207,10 +207,10 @@ declare interface GridRowOptions {
  */
 interface GridRowInterface {
     /**
-     * Defines the constructor of GridContainer.
+     * Defines the constructor of GridRow.
      * @since 9
      */
-    (optiion?: GridRowOptions): GridRowAttribute;
+    (option?: GridRowOptions): GridRowAttribute;
 }
 
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {

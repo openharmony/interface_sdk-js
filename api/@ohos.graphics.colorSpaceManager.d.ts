@@ -144,19 +144,19 @@ import { AsyncCallback } from './basic';
      * Get color space type.
      * @since 9
      */
-    GetColorSpaceName(): ColorSpace;
+    getColorSpaceName(): ColorSpace;
   
     /**
      * Get white point(x, y) of color space.
      * @since 9
      */
-    GetWhitePoint(): Array<number>;
+    getWhitePoint(): Array<number>;
   
     /**
      * Get gamma value of color space.
      * @since 9
      */
-    GetGamma(): number;
+    getGamma(): number;
   }
 
   /**

@@ -158,6 +158,73 @@ declare enum CacheMode {
 }
 
 /**
+ * Define html5 web message port.
+ * @since 9
+ */
+declare class WebMessagePort {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Close port.
+   * @since 9
+   */
+  close(): void;
+
+  /**
+   * Post a message to other port.
+   * @since 9
+   */
+  postMessageEvent(message: WebMessageEvent): void;
+
+  /**
+   * Receive message from other port.
+   * @since 9
+   */
+  onMessageEvent(callback: (result: string) => void): void;
+}
+
+
+/**
+ * Define html5 web message, which include message and ports.
+ * @since 9
+ */
+declare class WebMessageEvent {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Get message.
+   * @since 9
+   */
+  getData(): string;
+
+  /**
+   * Set message.
+   * @since 9
+   */
+  setData(data: string): void;
+
+  /**
+   * Get ports.
+   * @since 9
+   */
+  getPorts(): Array<WebMessagePort>;
+
+  /**
+   * Set ports.
+   * @since 9
+   */
+  setPorts(ports: Array<WebMessagePort>): void;
+}
+
+/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  * @since 9
  */
@@ -497,7 +564,7 @@ declare class WebContextMenuResult {
 
   /**
    * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
-   * If WebContextMenuParam has not image content, this function will do nothing.
+   * If WebContextMenuParam has no image content, this function will do nothing.
    *
    * @since 9
    */
@@ -969,6 +1036,21 @@ declare class WebCookie {
   runJavaScript(options: { script: string, callback?: (result: string) => void });
 
   /**
+   * Create web message ports
+   *
+   * @since 9
+   */
+  createWebMessagePorts(): Array<WebMessagePort>;
+
+  /**
+   * Post web message port to html5
+   * @param options The options with a message event and a uri.
+   *
+   * @since 9
+   */
+  postMessage(options: { message: WebMessageEvent, uri: string}): void;
+
+  /**
    * Loads the data or URL.
    * @param options The options with the data or URL and other information.
    *
@@ -1097,6 +1179,27 @@ declare class WebCookie {
    * @since 9
    */
   getCookieManager() : WebCookie
+
+  /**
+   * Search all instances of 'searchString' on the page and highlights them,
+   * result will be notify through callback onSearchResultReceive.
+   * @param searchString string to be search.
+   * @since 9
+   */
+  searchAllAsync(searchString: string): void;
+
+  /**
+   * Clears the highlighting surrounding text matches created by searchAllAsync.
+   * @since 9
+   */
+  clearMatches(): void;
+
+  /**
+   * Highlights and scrolls to the next match search.
+   * @param forward step of search is back or forward.
+   * @since 9
+   */
+  searchNext(forward: boolean): void;
 }
 
 /**
@@ -1257,12 +1360,21 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
 
   /**
-   * Sets the atio of the text zoom.
-   * @param textZoomAtio The atio of the text zoom.
+   * Sets the ratio of the text zoom.
+   * @param textZoomAtio The ratio of the text zoom.
    *
    * @since 8
+   * @deprecated since 9
    */
   textZoomAtio(textZoomAtio: number): WebAttribute;
+
+  /**
+   * Sets the ratio of the text zoom.
+   * @param textZoomRatio The ratio of the text zoom.
+   *
+   * @since 9
+   */
+   textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
    * Sets whether the Web access the database.
@@ -1536,6 +1648,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
+
+  /**
+   * Notify search result to host application through onSearchResultReceive.
+   * @param callback Function Triggered when the host application call searchAllAsync
+   * or searchNext api on WebController and the request is valid.
+   *
+   * @since 9
+   */
+   onSearchResultReceive(callback: (event?: {activeMatchOrdinal: number, numberOfMatches: number, isDoneCounting: boolean}) => void): WebAttribute
+
+  /**
+   * Triggered when the scroll bar slides to the specified position.
+   * @param callback Function Triggered when the scroll bar slides to the specified position.
+   *
+   * @since 9
+   */
+   onScroll(callback: (event: {xOffset: number, yOffset: number}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

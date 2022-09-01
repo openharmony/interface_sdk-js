@@ -157,6 +157,17 @@ declare namespace huks {
     function abort(handle: number, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
     function abort(handle: number, options: HuksOptions) : Promise<HuksResult>;
 
+    
+    /**
+     * Key Attestation.
+     * @since 9
+     * @syscap SystemCapability.Security.Huks
+     * @param keyAlias Indicates the key's name.
+     * @param options Indicates the properties of the key attestation operation.
+     */
+     function attestKey(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
+     function attestKey(keyAlias: string, options: HuksOptions) : Promise<HuksResult>;
+     
     /**
      * Get the sdk version.
      * @since 8
@@ -604,7 +615,7 @@ declare namespace huks {
      * @since 8
      * @syscap SystemCapability.Security.Huks
      */
-    declare enum HuksTagType {
+    export enum HuksTagType {
         HUKS_TAG_TYPE_INVALID = 0 << 28,
         HUKS_TAG_TYPE_INT = 1 << 28,
         HUKS_TAG_TYPE_UINT = 2 << 28,

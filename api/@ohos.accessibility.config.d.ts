@@ -14,7 +14,7 @@
  */
 
 import accessibility from './@ohos.accessibility';
-import { AsyncCallback } from './basic';
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Configuration of the accessibility.
@@ -25,7 +25,56 @@ import { AsyncCallback } from './basic';
  */
 declare namespace config {
   /**
-   * Enable the acceessibility extension ability.
+   * Indicates the configuration of high-contrast text.
+   */
+  var highContrastText: Config<boolean>;
+  /**
+   * Indicates the configuration of invert color.
+   */
+  var invertColor: Config<boolean>;
+  /**
+   * Indicates the configuration of daltonization color filter.
+   */
+  var daltonizationColorFilter: Config<DaltonizationColorFilter>;
+  /**
+   * Indicates the configuration of content timeout.
+   */
+  var contentTimeout: Config<number>;
+  /**
+   * Indicates the configuration of animation state.
+   */
+  var animationOff: Config<boolean>;
+  /**
+   * Indicates the configuration of brightness discount.
+   */
+  var brightnessDiscount: Config<number>;
+  /**
+   * Indicates the configuration of mouse key state.
+   */
+  var mouseKey: Config<boolean>;
+  /**
+   * Indicates the configuration of mouse auto click.
+   */
+  var mouseAutoClick: Config<number>;
+  /**
+   * Indicates the configuration of short key state.
+   */
+  var shortkey: Config<boolean>;
+  /**
+   * Indicates the configuration of short key target.
+   */
+  var shortkeyTarget: Config<string>;
+  /**
+   * Indicates the configuration of captions state.
+   */
+  var captions: Config<boolean>;
+  /**
+   * Indicates the configuration of captions style.
+   */
+  var captionsStyle: Config<accessibility.CaptionsStyle>;
+
+  /**
+   * Enable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param capability Indicates the ability.
    */
@@ -33,10 +82,59 @@ declare namespace config {
   function enableAbility(name: string, capability: Array<accessibility.Capability>, callback: AsyncCallback<void>): void;
 
   /**
-   * Disable the acceessibility extension ability.
+   * Disable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    */
   function disableAbility(name: string): Promise<void>;
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the enabled status of accessibility extensions.
+   * @param type Indicates the enableAbilityListsStateChanged type.
+   * @param callback Indicates the listener.
+   */
+  function on(type: 'enableAbilityListsStateChanged', callback: Callback<void>): void;
+
+  /**
+   * Deregister listener that watches for changes in the enabled status of accessibility extensions.
+   * @param type Indicates the enableAbilityListsStateChanged type.
+   * @param callback Indicates the listener.
+   */
+  function off(type: 'enableAbilityListsStateChanged', callback?: Callback<void>): void;
+
+  /**
+   * Indicates setting, getting, and listening to changes in configuration.
+   */
+  interface Config<T> {
+    /**
+     * Setting configuration value.
+     * @param value Indicates the value.
+     */
+    set(value: T): Promise<void>;
+    set(value: T, callback: AsyncCallback<void>): void;
+
+    /**
+     * Getting configuration value.
+     */
+    get(): Promise<T>;
+    get(callback: AsyncCallback<T>): void;
+
+    /**
+     * Register the listener to listen for configuration changes.
+     * @param callback Indicates the listener.
+     */
+    on(callback: Callback<T>): void;
+
+    /**
+     * Deregister the listener to listen for configuration changes.
+     * @param callback Indicates the listener.
+     */
+    off(callback?: Callback<T>): void;
+  }
+
+  /**
+   * Indicates the type of daltonization color filter.
+   */
+  type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 }
 export default config;

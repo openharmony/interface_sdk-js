@@ -72,8 +72,16 @@ export interface ApplicationInfo {
     * @default Indicates the label id of the application
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
+    * @deprecated since 9, use labelIndex
     */
   readonly labelId: string;
+
+  /**
+    * @default Indicates the label index of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly labelIndex: number;
 
   /**
     * @default Indicates the icon of the application
@@ -86,8 +94,16 @@ export interface ApplicationInfo {
     * @default Indicates the icon id of the application
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
+    * @deprecated since 9, use iconIndex
     */
   readonly iconId: string;
+
+  /**
+    * @default Indicates the icon index of the application
+    * @since 9
+    * @syscap SystemCapability.BundleManager.BundleFramework
+    */
+  readonly iconIndex: number;
 
   /**
     * @default Process of application, if user do not set it ,the value equal bundleName

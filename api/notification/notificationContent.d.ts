@@ -14,7 +14,7 @@
  */
 
 import notification from '../@ohos.notification';
-import image from './@ohos.multimedia.image';
+import image from '../@ohos.multimedia.image';
 
 /**
  * Describes a normal text notification.

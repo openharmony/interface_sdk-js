@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { RawFileDescriptor } from './global/rawFileDescriptor';
-import { Resource } from './global/resource';
+import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
+import { Resource as _Resource } from './global/resource';
 
 /**
  * Provides resource related APIs.
@@ -702,5 +702,23 @@ export interface ResourceManager {
      */
     release();
 }
+
+    /**
+     * Contains rawFile descriptor information.
+     * @name Contains rawFile descriptor information
+     * @since 9
+     * @syscap SystemCapability.Global.ResourceManager
+     *
+     */
+    export type RawFileDescriptor = _RawFileDescriptor;
+
+    /**
+     * Contains resource descriptor information.
+     * @name Contains resource descriptor information
+     * @since 9
+     * @syscap SystemCapability.Global.ResourceManager
+     *
+     */
+    export type Resource = _Resource;
 }
 export default resourceManager;

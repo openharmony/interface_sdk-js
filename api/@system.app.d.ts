@@ -114,6 +114,15 @@ export default class App {
   static terminate(): void;
 
   /**
+   * Keeps the application visible after the screen is woken up.
+   * This method prevents the system from returning to the home screen when the screen is locked.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 3
+   * @deprecated since 8
+   */
+  static screenOnVisible(options?: ScreenOnVisibleOptions): void;
+
+  /**
    * Requests the application to run in full window.
    * In some scenarios, such as semi-modal FA, the FA runs in non-full window.
    * In this case, you can call this API.
@@ -122,7 +131,8 @@ export default class App {
    * @param options Transition time from non-full window to full window, in milliseconds.
    * By default, the value is in direct proportion to the distance between the non-full window and the full window.
    * @since 3
-   * @systemapi
+   * @deprecated since 8
+   * @useinstead startAbility
    */
   static requestFullWindow(options?: RequestFullWindowOptions): void;
 

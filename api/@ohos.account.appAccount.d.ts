@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
-import Want from "./@ohos.application.want";
-import rpc from "./@ohos.rpc"
+import { AsyncCallback, Callback } from './basic';
+import Want from './@ohos.application.Want';
+import rpc from './@ohos.rpc'
 
 /**
  * This module provides the capability to manage application accounts.

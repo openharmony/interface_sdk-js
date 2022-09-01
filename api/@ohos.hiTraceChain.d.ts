@@ -154,7 +154,7 @@ declare namespace hiTraceChain {
      * @param {number} flags Trace function flag.
      * @return {HiTraceId} Valid if first call, otherwise invalid.
      */
-    function begin(name: string, flags: number = HiTraceFlag.DEFAULT): HiTraceId;
+    function begin(name: string, flags?: number): HiTraceId;
 
     /**
      * Stop process tracing and clear trace id of current thread if the given trace

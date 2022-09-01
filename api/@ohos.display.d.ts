@@ -110,6 +110,47 @@ declare namespace display {
   }
 
   /**
+   * Rectangle
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface Rect {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  }
+
+  /**
+   * Curved area rects of the waterfall display.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface WaterfallDisplayAreaRects {
+    readonly left: Rect;
+    readonly right: Rect;
+    readonly top: Rect;
+    readonly bottom: Rect;
+  }
+
+  /**
+   * cutout information of the display.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 9
+   */
+  interface CutoutInfo {
+    /**
+     * Bounding rectangles of the cutout areas of the display.
+     */
+    readonly boundingRects: Array<Rect>;
+
+    /**
+     * Rectangles of curved parts on each side of a waterfall display. 
+     */
+    readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
+  }
+
+  /**
    * Define properties of the display. They cannot be updated automatically.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
@@ -179,6 +220,18 @@ declare namespace display {
      * DPI on the y-axis.
      */
     yDPI: number;
+
+    /**
+     * Obtain the cutout info of the display.
+     * @since 9
+     */
+    getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
+
+    /**
+     * Obtain the cutout info of the display.
+     * @since 9
+     */
+    getCutoutInfo(): Promise<CutoutInfo>;
   }
 }
 

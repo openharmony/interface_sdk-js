@@ -171,7 +171,7 @@ declare namespace audio {
      * None devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     NONE_DEVICES_FLAG = 0,
     /**
@@ -196,7 +196,7 @@ declare namespace audio {
      * Distributed output devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     DISTRIBUTED_OUTPUT_DEVICES_FLAG = 4,
     /**
@@ -210,7 +210,7 @@ declare namespace audio {
      * All Distributed devices.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @sytemapi
+     * @systemapi
      */
     ALL_DISTRIBUTED_DEVICES_FLAG = 12,
   }
@@ -587,12 +587,14 @@ declare namespace audio {
    * Enumerates the focus type.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
    */
   enum FocusType {
     /**
      * Recording type.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
      */
     FOCUS_TYPE_RECORDING = 0,
   }
@@ -1035,6 +1037,40 @@ declare namespace audio {
      */
     getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>;
     /**
+     * Get the volume group list for a networkId. This method uses an asynchronous callback to return the result.
+     * @param networkId Device network id
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    getVolumeGroups(networkId: string, callback: AsyncCallback<VolumeGroupInfos>): void;
+    /**
+     * Get the volume group list for a networkId. This method uses a promise to return the result.
+     * @param networkId Device network id
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    getVolumeGroups(networkId: string): Promise<VolumeGroupInfos>;
+    /**
+     * Obtains an AudioGroupManager instance. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    getGroupManager(groupId: number, callback: AsyncCallback<AudioGroupManager>): void;
+    /**
+     * Obtains an AudioGroupManager instance. This method uses a promise to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+    getGroupManager(groupId: number): Promise<AudioGroupManager>;
+    /**
      * Mutes a stream. This method uses an asynchronous callback to return the result.
      * @param volumeType Audio stream type.
      * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
@@ -1397,16 +1433,15 @@ declare namespace audio {
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
      */
     getRoutingManager(callback: AsyncCallback<AudioRoutingManager>): void;
 
     /**
-      * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
-      * @param callback Callback used to return the result.
-      * @since 9
-      * @syscap SystemCapability.Multimedia.Audio.Device
-      */
+     * Obtains an AudioRoutingManager instance. This method uses a promise to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
     getRoutingManager(): Promise<AudioRoutingManager>;
   }
 
@@ -1414,7 +1449,6 @@ declare namespace audio {
    * Implements audio router management.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Device
-   * @systemapi
    */
   interface AudioRoutingManager {
     /**
@@ -1561,6 +1595,188 @@ declare namespace audio {
      */
     off(type: "audioCapturerChange");
   }
+
+  /**
+   * Implements audio volume group management.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   */
+  interface AudioGroupManager {
+    /**
+     * Sets the volume for a stream. This method uses an asynchronous callback to return the result.
+     * @param volumeType Audio stream type.
+     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     */
+    setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     */
+    setVolume(volumeType: AudioVolumeType, volume: number): Promise<void>;
+    /**
+     * Obtains the volume of a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the volume.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    /**
+    * Obtains the volume of a stream. This method uses a promise to return the query result.
+    * @param volumeType Audio stream type.
+    * @return Promise used to return the volume.
+    * @since 9
+    * @syscap SystemCapability.Multimedia.Audio.Volume
+    */
+    getVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Obtains the minimum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the minimum volume.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the minimum volume.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getMinVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Obtains the maximum volume allowed for a stream. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the maximum volume.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
+    /**
+     * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the maximum volume.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
+    /**
+     * Mutes a stream. This method uses an asynchronous callback to return the result.
+     * @param volumeType Audio stream type.
+     * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Mutes a stream. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
+    /**
+     * Checks whether a stream is muted. This method uses an asynchronous callback to return the query result.
+     * @param volumeType Audio stream type.
+     * @param callback Callback used to return the mute status of the stream. The value true means that the stream is
+     * muted, and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
+    /**
+     * Checks whether a stream is muted. This method uses a promise to return the result.
+     * @param volumeType Audio stream type.
+     * @return Promise used to return the mute status of the stream. The value true means that the stream is muted,
+     * and false means the opposite.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    isMute(volumeType: AudioVolumeType): Promise<boolean>;
+  }
+
+  /**
+   * Describes an audio volume group.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   */
+  enum ConnectType {
+    /**
+     * Descript connect type for local device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    CONNECT_TYPE_LOCAL = 1,
+    /**
+     * Descript virtual type for local device.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    CONNECT_TYPE_DISTRIBUTED = 2
+  }
+
+  /**
+   * Describes an audio volume group.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   */
+  interface VolumeGroupInfo {
+    /**
+     * Device network id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     */
+     readonly networkId: string;
+    /**
+     * Volume group id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    readonly groupId: number;
+    /**
+     * Volume mapping group id.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    readonly mappingId: number;
+    /**
+     * Volume group name.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    readonly groupName: string;
+    /**
+     * Connect type of device for this group.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    readonly type: ConnectType;
+  }
+
+  /**
+   * Array of VolumeGroupInfos, which is read-only.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   */
+  type VolumeGroupInfos = Array<Readonly<VolumeGroupInfo>>;
 
   /**
    * Array of AudioRendererChangeInfo, which is read-only.
@@ -1726,7 +1942,7 @@ declare namespace audio {
      */
     readonly channelMasks: Array<number>;
     /**
-     * Network id
+     * Device network id
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
@@ -1780,6 +1996,18 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     updateUi: boolean;
+    /**
+     * volumeGroup id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    volumeGroupId: number;
+    /**
+     * Device network id
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     */
+    networkId: string;
   }
 
   /**
@@ -2094,7 +2322,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: "markReach", frame: number, callback: (position: number) => {}): void;
+    on(type: "markReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from mark reached events.
      * @since 8
@@ -2109,7 +2337,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
-    on(type: "periodReach", frame: number, callback: (position: number) => {}): void;
+    on(type: "periodReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
      * @since 8
@@ -2340,7 +2568,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    on(type: "markReach", frame: number, callback: (position: number) => {}): void;
+    on(type: "markReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from the mark reached events.
      * @since 8
@@ -2356,7 +2584,7 @@ declare namespace audio {
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
-    on(type: "periodReach", frame: number, callback: (position: number) => {}): void;
+    on(type: "periodReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
      * @since 8
