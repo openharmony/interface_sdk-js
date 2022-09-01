@@ -104,6 +104,15 @@ export interface Context extends BaseContext {
     */
     getDisplayOrientation(callback: AsyncCallback<bundle.DisplayOrientation>): void
     getDisplayOrientation(): Promise<bundle.DisplayOrientation>;
+
+    /**
+    * Obtains the absolute path to the application-specific cache directory
+    * @since 6
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @deprecated since 7
+    */
+    getExternalCacheDir(callback: AsyncCallback<string>): void
+    getExternalCacheDir(): Promise<string>;
     
     /**
     * Sets the display orientation of the current ability.
