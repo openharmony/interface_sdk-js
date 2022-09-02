@@ -100,7 +100,7 @@ declare namespace pasteboard {
    * @returns { PasteData } the clipboard content object with MIME type and value.
    * @since 9
    */
-  function createData(mineType:string, value: ArrayBuffer): PasteData;
+  function createData(mimeType:string, value: ArrayBuffer): PasteData;
 
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
@@ -251,7 +251,7 @@ declare namespace pasteboard {
      */
     pixelMap: image.PixelMap;
     /**
-     * Data array in a record, mineType indicates MIME type of value, ArrayBuffer indicates content to be saved.
+     * Data array in a record, mimeType indicates MIME type of value, ArrayBuffer indicates content to be saved.
      * @type { object }
      * @since 9
      */
@@ -317,7 +317,7 @@ declare namespace pasteboard {
      * @returns { ArrayBuffer } value - content to be saved.
      * @since 9
      */
-    addRecord(mineType: string, value: ArrayBuffer): void;
+    addRecord(mimeType: string, value: ArrayBuffer): void;
 
     /**
      * MIME types of all content on the pasteboard.
