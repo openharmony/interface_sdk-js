@@ -81,7 +81,7 @@ import image from "../@ohos.multimedia.image";
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param mission Indicates the id of the mission whose ability instance was destroyed.
+     * @param mission Indicates the id of the mission whose ability instance is destroyed.
      * @return -
      */
     onMissionClosed(mission: number): void;
