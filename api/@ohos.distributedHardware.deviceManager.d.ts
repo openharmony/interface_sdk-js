@@ -107,23 +107,23 @@ declare namespace deviceManager {
    */
   enum DeviceStateChangeAction {
     /**
-     * device online action, which indicates the device is physically online
+     * Device online action, which indicates the device is physically online
      */
     ONLINE = 0,
 
     /**
-     * device ready action, which indicates the information between devices has been synchronized in the Distributed Data Service (DDS) module,
+     * Device ready action, which indicates the information between devices has been synchronized in the Distributed Data Service (DDS) module,
      * and the device is ready for running distributed services
      */
     READY = 1,
 
     /**
-     * device offline action, which Indicates the device is physically offline
+     * Device offline action, which Indicates the device is physically offline
      */
     OFFLINE = 2,
 
     /**
-     * device change action
+     * Device change action
      */
     CHANGE = 3
   }
