@@ -281,7 +281,7 @@ declare enum RenderExitReason {
    * The certificate date is invalid.
    * @since 9
    */
-  DateInvalid,
+   DateInvalid,
 
   /**
    * The certificate authority is not trusted.
@@ -474,16 +474,16 @@ declare class HttpAuthHandler {
    * Constructor.
    * @since 9
    */
-  constructor();
+   constructor();
 
   /**
-   * handleConfirm.
+   * Confirm to use an SSL certificate.
    * @since 9
    */
    handleConfirm(): void;
 
   /**
-   * handleCancel.
+   * Cancel this request.
    * @since 9
    */
    handleCancel(): void;
