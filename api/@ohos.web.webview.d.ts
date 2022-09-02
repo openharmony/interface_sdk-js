@@ -219,6 +219,124 @@ declare namespace webview {
         static getStoredGeolocation() : Promise<Array<string>>;
         static getStoredGeolocation(callback : AsyncCallback<Array<string>>): void;
     }
+
+      /**
+       * Provides methods for managing the web cookies.
+       *
+       * @since 9
+       */
+       class WebCookieManager {
+        /**
+         * Gets all cookies for the given URL.
+         *
+         * @param url The URL for which the cookies are requested.
+         * @returns The cookie value for the given URL.
+         *
+         * @since 9
+         */
+        static getCookie(url: string): string;
+
+        /**
+         * Set a single cookie (key-value pair) for the given URL.
+         *
+         * @param url The URL for which the cookie is to be set.
+         * @param value The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+         * @returns True if the cookie was successfully set else false.
+         *
+         * @since 9
+         */
+        static setCookie(url: string, value: string): boolean;
+
+        /**
+         * Save the cookies Synchronously .
+         * 
+         * @return True if the cookies have been successfully saved else false.
+         * 
+         * @since 9
+         */
+        static saveCookieSync(): boolean;
+
+        /**
+         * Save the cookies Asynchronously.
+         * 
+         * @return A promise resolved after the cookies have been saved.The parameter will either
+         *         be true if the cookies have been successfully saved, or false if failed.
+         * 
+         * @since 9
+         */
+        static saveCookieAsync(): Promise<boolean>;
+
+        /**
+         * Save the cookies Asynchronously.
+         * 
+         * @param callback Called after the cookies have been saved. The parameter will either be
+         *                 true if the cookies have been successfully saved, or false if failed.
+         * 
+         * @since 9
+         */
+        static saveCookieAsync(callback: AsyncCallback<boolean>): void;
+
+        /**
+         * Get whether the instance can send and accept cookies.
+         *
+         * @returns True if the instance can send and accept cookies else false.
+         *
+         * @since 9
+         */
+        static isCookieAllowed(): boolean;
+
+        /**
+         * Set whether the instance should send and accept cookies.
+         * By default this is set to be true.
+         * 
+         * @param accept Whether the instance should send and accept cookies.
+         *
+         * @since 9
+         */
+        static putAcceptCookieEnabled(accept: boolean): void;
+
+        /**
+         * Get whether the instance can send and accept thirdparty cookies.
+         *
+         * @returns True if the instance can send and accept thirdparty cookies else false.
+         *
+         * @since 9
+         */
+        static isThirdPartyCookieAllowed(): boolean;
+
+        /**
+         * Set whether the instance should send and accept thirdparty cookies.
+         * By default this is set to be true.
+         * 
+         * @param accept Whether the instance should send and accept thirdparty cookies.
+         *
+         * @since 9
+         */
+        static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+        /**
+         * Check whether exists any cookies.
+         *
+         * @returns True if exists more than one cookie else false;
+         *
+         * @since 9
+         */
+        static existCookie(): boolean;
+
+        /**
+         * Remove all cookies.
+         *
+         * @since 9
+         */
+        static deleteEntireCookie(): void;
+
+        /**
+         * Delete the session cookies.
+         * 
+         * @since 9
+         */
+        static deleteSessionCookie(): void;
+    }
 }
 
 export default webview;
