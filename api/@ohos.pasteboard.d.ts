@@ -149,7 +149,7 @@ declare namespace pasteboard {
    * @returns { PasteDataRecord } the content of a new record with MIME type and value.
    * @since 9
    */
-  function createRecord(mimeType:string, value: ArrayBuffer):PasteDataRecord;
+  function createRecord(mimeType: string, value: ArrayBuffer):PasteDataRecord;
 
   /**
    * get SystemPasteboard
