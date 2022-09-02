@@ -1186,6 +1186,12 @@ declare namespace rpc {
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
+
+    /** 
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 9
+     */
     class RemoteObjectStub implements IRemoteObject {
         /**
          * A constructor to create a RemoteObject instance.
@@ -1248,7 +1254,7 @@ declare namespace rpc {
          * @throws Throws an exception if the method fails to be called.
          * @since 9
          */
-        sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
