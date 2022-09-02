@@ -19,28 +19,36 @@
  */
 declare class XComponentController {
   /**
-   * constructor.
+   * Constructor.
    * @since 8
    */
   constructor();
 
   /**
-   * get the id of surface created by XComponent.
+   * Get the id of surface created by XComponent.
    * @since 8
    * @systemapi
+   */
+  /**
+   * Get the id of surface created by XComponent.
+   * @since 9
    */
   getXComponentSurfaceId();
 
   /**
-   * get the context of native XComponent.
+   * Get the context of native XComponent.
    * @since 8
    */
   getXComponentContext();
 
   /**
-   * set the surface size created by XComponent.
+   * Set the surface size created by XComponent.
    * @since 8
    * @systemapi
+   */
+  /**
+   * Set the surface size created by XComponent.
+   * @since 9
    */
   setXComponentSurfaceSize(value: {
     surfaceWidth: number;
