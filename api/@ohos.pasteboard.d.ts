@@ -88,16 +88,16 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_PIXELMAP.
    * @param { image.PixelMap } pixelMap - indicates the pixelMap to be created.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * @returns { PasteData } the clipboard content object with pixelMap.
    * @since 9
    */
   function createPixelMapData(pixelMap: image.PixelMap): PasteData;
 
   /**
-   * Creates a PasteData object with MIME type and value.
-   * @param { string } mimetype - indicates MIME type of value.
-   * @param { ArrayBuffer } value - content to be saved.
-   * @returns { PasteData } the clipboard content object with MIME type and value.
+   * Creates a PasteData object with custom data.
+   * @param { string } mimeType - indicates the MIME type of custom data.
+   * @param { ArrayBuffer } value - indicates the value of custom data.
+   * @returns { PasteData } the clipboard content object with custom data.
    * @since 9
    */
   function createData(mimeType: string, value: ArrayBuffer): PasteData;
@@ -136,17 +136,17 @@ declare namespace pasteboard {
 
   /**
    * Creates a Record object for PasteData#MIMETYPE_PIXELMAp.
-   * @param { image.PixelMap } pixelMap - to save the pixelMap of content.
-   * @returns { PasteDataRecord } the content of a new record
+   * @param { image.PixelMap } pixelMap - indicates the pixelMap to be created.
+   * @returns { PasteDataRecord } the content of a new record witch pixelMap.
    * @since 9
    */
   function createPixelMapRecord(pixelMap: image.PixelMap):PasteDataRecord;
 
   /**
-   * Creates a Record object with MIME type and value.
-   * @param { string } mimetype - indicates MIME type of value.
-   * @param { ArrayBuffer } value - content to be saved.
-   * @returns { PasteDataRecord } the content of a new record with MIME type and value.
+   * Creates a Record object with custom data.
+   * @param { string } mimeType - indicates the MIME type of custom data.
+   * @param { ArrayBuffer } value - indicates the value of custom data.
+   * @returns { PasteDataRecord } the content of a new record with custom data.
    * @since 9
    */
   function createRecord(mimeType: string, value: ArrayBuffer):PasteDataRecord;
@@ -165,17 +165,17 @@ declare namespace pasteboard {
    */
    enum ShareOption {
     /**
-     * InApp means that only in-app pasting is allowed.
+     * InApp indicates that only paste in the same app is allowed.
      * @since 9
      */
     InApp,
     /**
-     * LocalDevice means that only paste in this device is allowed.
+     * LocalDevice indicates that paste in any app in this device is allowed.
      * @since 9
      */
     LocalDevice,
     /**
-     * CrossDevice meas allow pasting in any app across devices.
+     * CrossDevice indicates that paste in any app across devices is allowed.
      * @since9
      */
      CrossDevice
@@ -251,7 +251,7 @@ declare namespace pasteboard {
      */
     pixelMap: image.PixelMap;
     /**
-     * Data array in a record, mimeType indicates MIME type of value, ArrayBuffer indicates content to be saved.
+     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
      * @type { object }
      * @since 9
      */
@@ -306,15 +306,15 @@ declare namespace pasteboard {
 
     /**
      * Adds a PixelMap record to a PasteData object.
-     * @param { image.PixelMap } pixelMap - to save the pixelMap of content.
+     * @param { image.PixelMap } pixelMap - indicates the pixelMap to be added.
      * @since 9
      */
     addPixelMapRecord(pixelMap: image.PixelMap): void;
 
     /**
-     * Adds a key-value record to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value.
-     * @returns { ArrayBuffer } value - content to be saved.
+     * Adds a custom-data record to a PasteData object.
+     * @param { string } mimeType - indicates the MIME type of custom data.
+     * @returns { ArrayBuffer } value - indicates the value of custom data.
      * @since 9
      */
     addRecord(mimeType: string, value: ArrayBuffer): void;
