@@ -378,6 +378,15 @@ declare namespace rdb {
      */
     interface StoreConfig {
         name: string;
+
+        /**
+         * Specifies whether the database is encrypted.
+         *
+         * @since 9
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @import import data_rdb from '@ohos.data.rdb';
+         */    
+        encrypt?: boolean;
     }
 
     /**
