@@ -1095,8 +1095,28 @@ declare namespace rpc {
          * @param reply Indicates the response message object sent from the remote service.
          * The local service writes the response data to the {@link MessageParcel} object.
          * @param options Indicates whether the operation is synchronous or asynchronous.
+         * @return
+         * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
+         * Returns a promise object with a boolean when the function call is asynchronous. 
+         * @throws RemoteException Throws this exception if a remote service error occurs.
+         * @since 9
+         */
+        onRemoteRequestEx(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean | Promise<boolean>;
+
+        /**
+         * Sets an entry for receiving requests.
+         *
+         * <p>This method is implemented by the remote service provider. You need to override this method with
+         * your own service logic when you are using IPC.
+         *
+         * @param code Indicates the service request code sent from the peer end.
+         * @param data Indicates the {@link MessageParcel} object sent from the peer end.
+         * @param reply Indicates the response message object sent from the remote service.
+         * The local service writes the response data to the {@link MessageParcel} object.
+         * @param options Indicates whether the operation is synchronous or asynchronous.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote service error occurs.
+         * @deprecated since 9
          * @since 7
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
