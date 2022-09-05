@@ -2043,6 +2043,13 @@ declare class CustomComponent extends CommonAttribute {
    * @since 7
    */
   onBackPress?(): void;
+
+  /**
+   * PageTransition Method.
+   * Implement Animation when enter this page or move to other pages.
+   * @since 9
+   */
+  pageTransition?(): void;
 }
 
 /**
