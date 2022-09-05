@@ -1083,8 +1083,28 @@ declare namespace rpc {
          * @param reply Indicates the response message object sent from the remote service.
          * The local service writes the response data to the {@link MessageParcel} object.
          * @param options Indicates whether the operation is synchronous or asynchronous.
+         * @return
+         * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
+         * Returns a promise object with a boolean when the function call is asynchronous. 
+         * @throws RemoteException Throws this exception if a remote service error occurs.
+         * @since 9
+         */
+        onRemoteRequestEx(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean | Promise<boolean>;
+
+        /**
+         * Sets an entry for receiving requests.
+         *
+         * <p>This method is implemented by the remote service provider. You need to override this method with
+         * your own service logic when you are using IPC.
+         *
+         * @param code Indicates the service request code sent from the peer end.
+         * @param data Indicates the {@link MessageParcel} object sent from the peer end.
+         * @param reply Indicates the response message object sent from the remote service.
+         * The local service writes the response data to the {@link MessageParcel} object.
+         * @param options Indicates whether the operation is synchronous or asynchronous.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote service error occurs.
+         * @deprecated since 9
          * @since 7
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
@@ -1183,120 +1203,6 @@ declare namespace rpc {
          * @param localInterface Indicates the {@code RemoteObject} whose descriptor is to be changed.
          * @param descriptor Indicates the new descriptor of the {@code RemoteObject}.
          * @since 7
-         */
-        attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
-    }
-
-    /** 
-     * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
-     * @since 9
-     */
-    class RemoteObjectStub implements IRemoteObject {
-        /**
-         * A constructor to create a RemoteObject instance.
-         *
-         * @param descriptor Specifies interface descriptor.
-         * @since 9
-         */
-        constructor(descriptor: string);
-
-        /**
-         * Queries a remote object using an interface descriptor.
-         *
-         * @param descriptor Indicates the interface descriptor used to query the remote object.
-         * @return Returns the remote object matching the interface descriptor; returns null
-         * if no such remote object is found.
-         * @since 9
-         */
-        queryLocalInterface(descriptor: string): IRemoteBroker;
-
-        /**
-         * Queries an interface descriptor.
-         *
-         * @return Returns the interface descriptor.
-         * @since 9
-         */
-        getInterfaceDescriptor(): string;
-
-        /**
-         * Sets an entry for receiving requests.
-         *
-         * <p>This method is implemented by the remote service provider. You need to override this method with
-         * your own service logic when you are using IPC.
-         *
-         * @param code Indicates the service request code sent from the peer end.
-         * @param data Indicates the {@link MessageParcel} object sent from the peer end.
-         * @param reply Indicates the response message object sent from the remote service.
-         * The local service writes the response data to the {@link MessageParcel} object.
-         * @param options Indicates whether the operation is synchronous or asynchronous.
-         * @return
-         * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
-         * Returns a promise object with a boolean when the function call is asynchronous. 
-         * @throws RemoteException Throws this exception if a remote service error occurs.
-         * @since 9
-         */
-        onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean | Promise<boolean>;
-
-        /**
-         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
-         *
-         * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
-         * and the reply message does not contain any content. If options indicates the synchronous mode,
-         * a promise will be fulfilled when the response to sendRequest is returned,
-         * and the reply message contains the returned information.
-         * param code Message code called by the request, which is determined by the client and server.
-         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-         * param data {@link MessageParcel} object holding the data to send.
-         * param reply {@link MessageParcel} object that receives the response.
-         * param operations Indicates the synchronous or asynchronous mode to send messages.
-         * @returns Promise used to return the {@link SendRequestResult} instance.
-         * @throws Throws an exception if the method fails to be called.
-         * @since 9
-         */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
-
-        /**
-         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
-         *
-         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
-         * and the reply message does not contain any content. If options indicates the synchronous mode,
-         * a callback will be invoked when the response to sendRequest is returned,
-         * and the reply message contains the returned information.
-         * param code Message code called by the request, which is determined by the client and server.
-         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-         * param data {@link MessageParcel} object holding the data to send.
-         * param reply {@link MessageParcel} object that receives the response.
-         * param operations Indicates the synchronous or asynchronous mode to send messages.
-         * param callback Callback for receiving the sending result.
-         * @since 9
-         */
-        sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
-
-        /**
-         * Obtains the PID of the {@link RemoteProxy} object.
-         *
-         * @return Returns the PID of the {@link RemoteProxy} object.
-         * @since 9
-         */
-        getCallingPid(): number;
-
-        /**
-         * Obtains the UID of the {@link RemoteProxy} object.
-         *
-         * @return Returns the UID of the {@link RemoteProxy} object.
-         * @since 9
-         */
-        getCallingUid(): number;
-
-        /**
-         * Modifies the description of the current {@code RemoteObject}.
-         *
-         * <p>This method is used to change the default descriptor specified during the creation of {@code RemoteObject}.
-         *
-         * @param localInterface Indicates the {@code RemoteObject} whose descriptor is to be changed.
-         * @param descriptor Indicates the new descriptor of the {@code RemoteObject}.
-         * @since 9
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
