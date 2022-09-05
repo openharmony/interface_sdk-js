@@ -51,6 +51,17 @@ declare namespace vibrator {
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
 
     /**
+     * Trigger vibrator vibration.
+     * @param effect Describes the effect of vibration.
+     * @param attribute The attribute of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
+    function vibrate(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
+
+    /**
      * Stop the motor from vibrating.
      * @param stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -80,6 +91,52 @@ declare namespace vibrator {
         VIBRATOR_STOP_MODE_TIME = "time",
         /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
+    }
+
+    /**
+     * The use of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+        "touch" | "media" | "physicalFeedback" | "simulateReality";
+
+    /**
+     * The attribute of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateAttribute {
+        id?: number, /** Vibrator id, default is 0. */
+        usage: Usage, /** The use of vibration. */
+    }
+
+    /**
+     * Describes the effect of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+     type VibrateEffect = VibrateTime | VibratePreset;
+
+    /**
+     * Specifies the duration of the vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateTime {
+        type: "time";
+        duration: number; /** The duration of the vibration, in ms */
+    }
+
+    /**
+     * Preset vibration type vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibratePreset {
+        type: "preset";
+        effectId: string; /** Preset type vibration */
+        count: number; /** The number of vibration repetitions */
     }
 }
 
