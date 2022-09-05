@@ -497,7 +497,7 @@ declare class WebContextMenuParam {
   /**
    * Horizontal offset coordinates of the menu within the Web component.
    * @return The context menu x coordinate.
-   * 
+   *
    * @since 9
    */
   x(): number;
@@ -505,7 +505,7 @@ declare class WebContextMenuParam {
   /**
    * Vertical offset coordinates for the menu within the Web component.
    * @return The context menu y coordinate.
-   * 
+   *
    * @since 9
    */
   y(): number;
@@ -513,7 +513,7 @@ declare class WebContextMenuParam {
   /**
    * If the long-press location is the link returns the link's security-checked URL.
    * @return If relate to a link return link url, else return null.
-   * 
+   *
    * @since 9
    */
   getLinkUrl(): string;
@@ -521,7 +521,7 @@ declare class WebContextMenuParam {
   /**
    * If the long-press location is the link returns the link's original URL.
    * @return If relate to a link return unfilterend link url, else return null.
-   * 
+   *
    * @since 9
    */
   getUnfilterendLinkUrl(): string;
@@ -529,7 +529,7 @@ declare class WebContextMenuParam {
   /**
    * Returns the SRC URL if the selected element has a SRC attribute.
    * @return If this context menu is "src" attribute, return link url, else return null.
-   * 
+   *
    * @since 9
    */
   getSourceUrl(): string;
@@ -537,7 +537,7 @@ declare class WebContextMenuParam {
   /**
    * Long press menu location has image content.
    * @return Return whether this context menu has image content.
-   * 
+   *
    * @since 9
    */
   existsImageContents(): boolean;
@@ -557,15 +557,15 @@ declare class WebContextMenuResult {
   /**
    * When close context menu without other call in WebContextMenuResult,
    * User should call this function to close menu
-   * 
+   *
    * @since 9
    */
   closeContextMenu(): void;
 
   /**
    * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
-   * If WebContextMenuParam has not image content, this function will do nothing. 
-   * 
+   * If WebContextMenuParam has no image content, this function will do nothing.
+   *
    * @since 9
    */
   copyImage(): void;
@@ -744,7 +744,7 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseData(data: string);
-  
+
   /**
    * Sets the response encoding.
    * @param encoding the response encoding.
@@ -868,7 +868,7 @@ declare class WebCookie {
   /**
    * Get whether cookies can be send or accepted.
    * @return true if can send and accept cookies else false.
-   * 
+   *
    * @since 9
    */
   isCookieAllowed(): boolean;
@@ -876,7 +876,7 @@ declare class WebCookie {
   /**
    * Get whether third party cookies can be send or accepted.
    * @return true if can send and accept third party cookies else false.
-   * 
+   *
    * @since 9
    */
   isThirdPartyCookieAllowed(): boolean;
@@ -891,7 +891,7 @@ declare class WebCookie {
   /**
    * Set whether cookies can be send or accepted.
    * @param accept whether can send and accept cookies
-   * 
+   *
    * @since 9
    */
   putAcceptCookieEnabled(accept: boolean): void;
@@ -899,7 +899,7 @@ declare class WebCookie {
   /**
    * Set whether third party cookies can be send or accepted.
    * @param accept true if can send and accept else false.
-   *  
+   *
    * @since 9
    */
   putAcceptThirdPartyCookieEnabled(accept: boolean): void;
@@ -907,10 +907,10 @@ declare class WebCookie {
   /**
    * Set whether file scheme cookies can be send or accepted.
    * @param accept true if can send and accept else false.
-   * 
+   *
    * @since 9
    */
-  putAcceptFileURICookieEnabled(accept: boolean): void;  
+  putAcceptFileURICookieEnabled(accept: boolean): void;
 
   /**
    * Sets the cookie.
@@ -940,17 +940,17 @@ declare class WebCookie {
 
   /**
    * Gets all cookies for the given URL.
-   * 
+   *
    * @param url the URL for which the cookies are requested.
    * @return the cookie value for the given URL.
-   * 
+   *
    * @since 9
    */
   getCookie(url: string): string;
 
   /**
    * Check whether exists any cookies.
-   * 
+   *
    * @return true if exists cookies else false;
    * @since 9
    */
@@ -958,21 +958,21 @@ declare class WebCookie {
 
   /**
    * Delete all cookies.
-   * 
+   *
    * @since 9
    */
   deleteEntireCookie(): void;
 
   /**
    * Delete session cookies.
-   * 
+   *
    * @since 9
    */
   deleteSessionCookie(): void;
 
   /**
    * Delete all expired cookies.
-   * 
+   *
    * @since 9
    */
   deleteExpiredCookie(): void;
@@ -1256,7 +1256,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
    * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
    * {@code false} otherwise.
-   * 
+   *
    * @since 9
    */
   fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
@@ -1403,7 +1403,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Enables debugging of web contents.
    * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-   * 
+   *
    * @since 9
    */
   webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
@@ -1571,7 +1571,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   onShowFileSelector(callback: (event?: { result: FileSelectorResult,
     fileSelector: FileSelectorParam }) => boolean): WebAttribute;
-  
+
   /**
    * Triggered when the render process exits.
    * @param callback The triggered when the render process exits.
@@ -1640,6 +1640,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
+
+  /**
+   * Set whether media playback needs to be triggered by user gestures.
+   * @param access True if it needs to be triggered manually by the user else false.
+   *
+   * @since 9
+   */
+  mediaPlayGestureAccess(access: boolean): WebAttribute;
 
   /**
    * Notify search result to host application through onSearchResultReceive.
