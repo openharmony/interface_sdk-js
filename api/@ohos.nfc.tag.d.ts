@@ -13,8 +13,24 @@
  * limitations under the License.
  */
 
-import { NfcATag, NfcBTag, NfcFTag, NfcVTag } from './tag/nfctech';
-import { IsoDepTag, NdefTag, MifareClassicTag, MifareUltralightTag, NdefFormatableTag } from './tag/nfctech';
+import { NfcATag as _NfcATag,
+         NfcBTag as _NfcBTag,
+         NfcFTag as _NfcFTag,
+         NfcVTag as _NfcVTag } from './tag/nfctech';
+import { IsoDepTag as _IsoDepTag,
+         NdefTag as _NdefTag,
+         MifareClassicTag as _MifareClassicTag,
+         MifareUltralightTag as _MifareUltralightTag,
+         NdefFormatableTag as _NdefFormatableTag} from './tag/nfctech';
+import { NdefRecord as _NdefRecord,
+         TnfType as _TnfType,
+         RtdType as _RtdType,
+         NdefMessage as _NdefMessage,
+         NfcForumType as _NfcForumType,
+         MifareClassicType as _MifareClassicType,
+         MifareTagSize as _MifareTagSize,
+         MifareUltralightType as _MifareUltralightType } from './tag/nfctech';
+import { TagSession as _TagSession } from './tag/tagSession';
 import { PacMap } from "./ability/dataAbilityHelper";
 import rpc from "./@ohos.rpc";
 import { AsyncCallback, Callback } from './basic';
@@ -233,5 +249,24 @@ declare namespace tag {
     */
     supportedProfiles: number[];
   }
+
+  export type NfcATag = _NfcATag
+  export type NfcBTag = _NfcBTag
+  export type NfcFTag = _NfcFTag
+  export type NfcVTag = _NfcVTag
+  export type IsoDepTag = _IsoDepTag
+  export type NdefTag = _NdefTag
+  export type MifareClassicTag = _MifareClassicTag
+  export type MifareUltralightTag = _MifareUltralightTag
+  export type NdefFormatableTag = _NdefFormatableTag
+  export type NdefRecord = _NdefRecord
+  export type TnfType = _TnfType
+  export type RtdType = _RtdType
+  export type NdefMessage = _NdefMessage
+  export type NfcForumType = _NfcForumType
+  export type MifareClassicType = _MifareClassicType
+  export type MifareTagSize = _MifareTagSize
+  export type MifareUltralightType = _MifareUltralightType
+  export type TagSession = _TagSession
 }
 export default tag;
