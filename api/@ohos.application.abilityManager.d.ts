@@ -23,6 +23,7 @@ import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi Hide this for inner system use
  * @permission N/A
  */
 declare namespace abilityManager {
