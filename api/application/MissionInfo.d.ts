@@ -14,6 +14,7 @@
  */
 
 import Want from "../@ohos.application.Want";
+import { Resource } from "../global/resource";
 
 /**
  * Mission information corresponding to ability.
@@ -94,7 +95,7 @@ export interface MissionInfo {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
-    labelId: number;
+    labelRes: Resource;
 
     /**
      * Indicates label id of the mission setted by user.
@@ -102,7 +103,7 @@ export interface MissionInfo {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
-     userLabelId: number;
+     userLabelRes: Resource;
 
      /**
      * Indicates label string of the mission setted by user.
