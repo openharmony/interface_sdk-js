@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
+   * @throws {NewTargetIsNullError} Parameter check failed.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -28,6 +30,7 @@ declare class Stack<T> {
   /**
    * Tests if this stack is empty
    * @return the boolean type
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -36,6 +39,7 @@ declare class Stack<T> {
    * Looks at the object at the top of this stack without removing it from the stack
    * Return undfined if this stack is empty
    * @return the top value or undefined
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -44,6 +48,7 @@ declare class Stack<T> {
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
    * @returns Stack top value or undefined
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -52,6 +57,7 @@ declare class Stack<T> {
    * Pushes an item onto the top of this stack
    * @param item to be appended to this Stack
    * @returns the T type
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -60,6 +66,7 @@ declare class Stack<T> {
    * Returns the 1-based position where an object is on this stack
    * @param element Target to be deleted
    * @returns the T type,If there is no such element, return -1
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,6 +80,8 @@ declare class Stack<T> {
    * @param stack (Optional) The Stack object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws {ContainerBindError} Method not support bind.
+   * @throws {TypeError} Parameter check failed.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -80,6 +89,7 @@ declare class Stack<T> {
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   * @throws {ContainerBindError} Method not support bind.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
