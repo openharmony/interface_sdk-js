@@ -32,6 +32,7 @@ declare namespace buffer {
      * @param [fill=0] A value to pre-fill the new Buffer with
      * @param [encoding='utf8']  If `fill` is a string, this is its encoding
      * @return Return a new allocated Buffer
+     * @throws TypeError: The "size" argument must be of type number and cannot be negative. Received [message]
      */
     function alloc(size: number, fill?: string | Buffer | number, encoding?: BufferEncoding): Buffer;
 
@@ -41,6 +42,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
      * @return Return a new allocated Buffer
+     * @throws TypeError: The "size" argument must be of type number and cannot be negative. Received [message]
      */
     function allocUninitializedFromPool(size: number): Buffer;
  
@@ -50,6 +52,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
      * @return Return a new allocated Buffer
+     * @throws TypeError: The "size" argument must be of type number and cannot be negative. Received [message]
      */
     function allocUninitialized(size: number): Buffer;
  
@@ -62,6 +65,7 @@ declare namespace buffer {
      * @param string A value to calculate the length of
      * @param [encoding='utf8'] If `string` is a string, this is its encoding
      * @return The number of bytes contained within `string`
+     * @throws TypeError: The "string" argument must be of type string or an instance of Buffer or ArrayBuffer. Received [message]
      */
     function byteLength(string: string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number;
  
@@ -72,6 +76,9 @@ declare namespace buffer {
      * @param list List of `Buffer` or Uint8Array instances to concatenate
      * @param totalLength Total length of the `Buffer` instances in `list` when concatenated
      * @return Return a new allocated Buffer
+     * @throws TypeError: The "list" argument must be an instance of Array. Received [message]
+     * @throws TypeError: The "list" argument must be an instance of Array. Received type number ([number])
+     * @throws RangeError: The value of "length" is out of range. It must be >= 0 && <= max unsigned int. Received [number] 
      */
     function concat(list: Buffer[] | Uint8Array[], totalLength?: number): Buffer;
 
@@ -81,6 +88,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param array an array of bytes in the range 0 – 255
      * @return Return a new allocated Buffer
+     * @throws TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received [message] 
      */
     function from(array: number[]): Buffer;
 
@@ -92,6 +100,9 @@ declare namespace buffer {
      * @param [byteOffset = 0] Index of first byte to expose
      * @param [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
      * @return Return a view of the ArrayBuffer
+     * @throws TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received [message]
+     * @throws BufferRangeError: Start offset [number] is outside the bounds of the buffer
+     * @throws BufferRangeError: "length" is outside of buffer bounds
      */
     function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
@@ -101,6 +112,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param buffer An existing Buffer or Uint8Array from which to copy data
      * @return Return a new allocated Buffer
+     * @throws TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received [message] 
      */
     function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -113,6 +125,7 @@ declare namespace buffer {
      * @param offsetOrEncoding A byte-offset or encoding
      * @param length A length
      * @return Return a new allocated Buffer
+     * @throws TypeError: Unknown encoding: [encoding]
      */
     function from(object: Object, offsetOrEncoding: number | string, length: number): Buffer;
     
@@ -124,6 +137,7 @@ declare namespace buffer {
      * @param string  A string to encode
      * @param [encoding='utf8'] The encoding of string
      * @return Return a new Buffer containing string
+     * @throws TypeError: Unknown encoding: [encoding]
      */
     function from(string: String, encoding?: BufferEncoding): Buffer;
 
@@ -154,6 +168,8 @@ declare namespace buffer {
      * @return 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
+     * @throws TypeError: The "buf1" argument must be an instance of Buffer or Uint8Array. Received [message]
+     * @throws TypeError: The "buf2" argument must be an instance of Buffer or Uint8Array. Received [message]
      */
     function compare(buf1: Buffer | Uint8Array, buf2: Buffer | Uint8Array): -1 | 0 | 1;
 
@@ -165,6 +181,8 @@ declare namespace buffer {
      * @param fromEnc The current encoding
      * @param toEnc To target encoding
      * @return Returns a new Buffer instance
+     * @throws TypeError: The "source" argument must be an instance of Buffer or Uint8Array. Received [message]
+     * @throws Error: Unable to transcode Buffer [U_ILLEGAL_ARGUMENT_ERROR]
      */
     function transcode(source: Buffer | Uint8Array, fromEnc: string, toEnc: string): Buffer;
 
@@ -176,20 +194,23 @@ declare namespace buffer {
          * Returns the number of bytes in buf
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
+	 * @throws TypeError: Cannot set property length of [object Object] which has only a getter
          */
         length: number;
 
         /**
          * The underlying ArrayBuffer object based on which this Buffer object is created.
          * @since 9
-         * @syscap SystemCapability.Utils.Lang 
+         * @syscap SystemCapability.Utils.Lang
+	 * @throws TypeError: Cannot set property buffer of [object Object] which has only a getter
          */
         buffer: ArrayBuffer;
 
         /**
          * The byteOffset of the Buffers underlying ArrayBuffer object
          * @since 9
-         * @syscap SystemCapability.Utils.Lang 
+         * @syscap SystemCapability.Utils.Lang
+	 * @throws TypeError: Cannot set property byteOffset of [object Object] which has only a getter
          */
         byteOffset: number;
 
@@ -202,6 +223,9 @@ declare namespace buffer {
          * @param [end = buf.length] Where to stop filling buf (not inclusive)
          * @param [encoding='utf8'] The encoding for value if value is a string
          * @return A reference to buf
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 && <= max unsigned int. Received [number]
+         * @throws RangeError: The value of "end" is out of range. It must be >= 0 && <= [number]. Received [number]
+         * @throws TypeError: Unknown encoding: [encoding]
          */
         fill(value: string | Buffer | Uint8Array | number, offset?: number, end?: number, encoding?: BufferEncoding): Buffer;
 
@@ -218,6 +242,12 @@ declare namespace buffer {
          * @return 0 is returned if target is the same as buf
          *         1 is returned if target should come before buf when sorted.
          *        -1 is returned if target should come after buf when sorted.
+         * @throws TypeError: The "target" argument must be an instance of Buffer or Uint8Array. Received [message]
+         * @throws TypeError: The "[param]" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "targetStart" is out of range. It must be >= 0 && <= max unsigned int. Received [number]
+         * @throws RangeError: The value of "targetEnd" is out of range. It must be >= 0 && <= [number]. Received [number]
+         * @throws RangeError: The value of "sourceStart" is out of range. It must be >= 0 && <= max unsigned int. Received [number]
+         * @throws RangeError: The value of "sourceEnd" is out of range. It must be >= 0 && <= [number]. Received [number]
          */
         compare(target: Buffer | Uint8Array, targetStart?: number, targetEnd?: number, sourceStart?: number, sourceEnd?: number): -1 | 0 | 1;
 
@@ -231,6 +261,10 @@ declare namespace buffer {
          * @param [sourceStart = 0] The offset within buf from which to begin copying
          * @param [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
          * @return The number of bytes copied
+         * @throws TypeError: The "target" argument must be an instance of Buffer or Uint8Array. Received [message]
+         * @throws RangeError: The value of "targetStart" is out of range. It must be >= 0. Received [number]
+         * @throws RangeError: The value of "sourceStart" is out of range. It must be >= 0. Received [number]
+         * @throws RangeError: The value of "sourceEnd" is out of range. It must be >= 0. Received [number]
          */
         copy(target: Buffer | Uint8Array, targetStart?: number, sourceStart?: number, sourceEnd?: number): number;
 
@@ -240,6 +274,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param otherBuffer A Buffer or Uint8Array with which to compare buf
          * @return true or false
+         * @throws TypeError: The "otherBuffer" argument must be an instance of Buffer or Uint8Array. Received [message]
          */
         equals(otherBuffer: Uint8Array | Buffer): boolean;
 
@@ -251,6 +286,8 @@ declare namespace buffer {
          * @param [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
          * @param [encoding='utf8'] If value is a string, this is its encoding
          * @return true or false
+         * @throws TypeError: The "value" argument must be one of type number or string or an instance of Buffer or Uint8Array. Received [message]
+         * @throws TypeError: Unknown encoding: [encoding]
          */
         includes(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean;
 
@@ -262,6 +299,8 @@ declare namespace buffer {
          * @param [byteOffset = 0] Where to begin searching in buf
          * @param [encoding='utf8'] If value is a string, this is the encoding used to determine the binary representation of the string that will be searched for in buf
          * @return The index of the first occurrence of value in buf, or -1 if buf does not contain value
+         * @throws TypeError: The "value" argument must be one of type number or string or an instance of Buffer or Uint8Array. Received [message]
+         * @throws TypeError: Unknown encoding: [encoding]
          */
         indexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
 
@@ -294,6 +333,8 @@ declare namespace buffer {
          * @param [byteOffset = 0] Where to begin searching in buf
          * @param [encoding='utf8'] If value is a string, this is the encoding used to determine the binary representation of the string that will be searched for in buf
          * @return The index of the last occurrence of value in buf, or -1 if buf does not contain value
+         * @throws TypeError: The "value" argument must be one of type number or string or an instance of Buffer or Uint8Array. Received [message]
+         * @throws TypeError: Unknown encoding: [encoding]
          */
         lastIndexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
 
@@ -303,6 +344,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a signed, big-endian 64-bit integer 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigInt64BE(offset?: number): number;
 
@@ -311,7 +355,10 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a signed, little-endian 64-bit integer 
+         * @return Return a signed, little-endian 64-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds 
          */
         readBigInt64LE(offset?: number): number;
 
@@ -321,6 +368,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a unsigned, big-endian 64-bit integer 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigUInt64BE(offset?: number): number;
 
@@ -330,6 +380,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a unsigned, little-endian 64-bit integer 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigUInt64LE(offset?: number): number;
 
@@ -339,6 +392,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a 64-bit, big-endian double 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readDoubleBE(offset?: number): number;
 
@@ -348,6 +404,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a 64-bit, little-endian double 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readDoubleLE(offset?: number): number;
 
@@ -357,6 +416,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
          * @return Return  a 32-bit, big-endian float 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readFloatBE(offset?: number): number;
 
@@ -365,7 +427,10 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return Return  a 32-bit, little-endian float 
+         * @return Return  a 32-bit, little-endian float
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readFloatLE(offset?: number): number;
 
@@ -375,6 +440,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
          * @return Return  a signed 8-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt8(offset?: number): number;
 
@@ -384,6 +452,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
          * @return Return a signed, big-endian 16-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt16BE(offset?: number): number;
 
@@ -393,6 +464,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
          * @return Return a signed, little-endian 16-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt16LE(offset?: number): number;
 
@@ -402,6 +476,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
          * @return Return a signed, big-endian 32-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt32BE(offset?: number): number;
 
@@ -411,6 +488,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
          * @return Return a signed, little-endian 32-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt32LE(offset?: number): number;
 
@@ -422,6 +502,11 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @return 
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readIntBE(offset: number, byteLength: number): number;
 
@@ -433,6 +518,11 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @return 
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readIntLE(offset: number, byteLength: number): number;
 
@@ -442,6 +532,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
          * @return Reads an unsigned 8-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt8(offset?: number): number;
 
@@ -451,6 +544,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
          * @return Reads an unsigned, big-endian 16-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt16BE(offset?: number): number;
 
@@ -460,6 +556,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
          * @return Reads an unsigned, little-endian 16-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt16LE(offset?: number): number;
 
@@ -469,6 +568,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
          * @return Reads an unsigned, big-endian 32-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt32BE(offset?: number): number;
 
@@ -478,6 +580,9 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
          * @return Reads an unsigned, little-endian 32-bit integer
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt32LE(offset?: number): number;
 
@@ -489,6 +594,11 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @return 
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUIntBE(offset: number, byteLength: number): number;
 
@@ -500,6 +610,11 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
          * @return 
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
+         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUIntLE(offset: number, byteLength: number): number;
 
@@ -518,6 +633,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @return A reference to buf
+         * @throws BufferSizeError: Buffer size must be a multiple of 16-bits
          */
         swap16(): Buffer;
 
@@ -526,6 +642,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @return A reference to buf
+         * @throws BufferSizeError: Buffer size must be a multiple of 32-bits
          */
         swap32(): Buffer;
 
@@ -534,6 +651,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @return A reference to buf
+         * @throws BufferSizeError: Buffer size must be a multiple of 64-bits
          */
         swap64(): Buffer;
 
@@ -552,6 +670,7 @@ declare namespace buffer {
          * @param [encoding='utf8'] The character encoding to use
          * @param [start = 0] The byte offset to start decoding at
          * @param [end = buf.length] The byte offset to stop decoding at (not inclusive)
+         * @throws TypeError: Unknown encoding: [encoding]
          */
         toString(encoding?: string, start?: number, end?: number): string;
 
@@ -564,6 +683,12 @@ declare namespace buffer {
          * @param [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
          * @param [encoding='utf8'] The character encoding of string.
          * @return Number of bytes written.
+         * @throws TypeError: The "str" argument must be of type string. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "length" argument must be of type number. Received [message]
+         * @throws TypeError: Unknown encoding: [encoding]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 && <= buf.length. Received [offset]
+         * @throws RangeError: The value of "length" is out of range. It must be >= 0 && <= buf.length. Received [offset]
          */
         write(str: string, offset?: number, length?: number, encoding?: string): number;
 
@@ -574,6 +699,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2n ** 64n. Received [value]
          */
         writeBigInt64BE(value: number, offset?: number): number;
 
@@ -584,6 +713,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2n ** 64n. Received [value]
          */
         writeBigInt64LE(value: number, offset?: number): number;
 
@@ -594,6 +727,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2n ** 64n. Received [value]
          */
         writeBigUInt64BE(value: number, offset?: number): number;
 
@@ -603,7 +740,11 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @return offset plus the number of bytes written 
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2n ** 64n. Received [value]
          */
         writeBigUInt64LE(value: number, offset?: number): number;
 
@@ -614,6 +755,9 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
          */
         writeDoubleBE(value: number, offset?: number): number;
 
@@ -624,6 +768,9 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
          */
         writeDoubleLE(value: number, offset?: number): number;
 
@@ -634,6 +781,9 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
          */
         writeFloatBE(value: number, offset?: number): number;
 
@@ -644,6 +794,9 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
          */
         writeFloatLE(value: number, offset?: number): number;
 
@@ -652,8 +805,12 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
-         * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
+         * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**8 - 1. Received [value]
          */
         writeInt8(value: number, offset?: number): number;
 
@@ -664,6 +821,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**16 - 1. Received [value]
          */
         writeInt16BE(value: number, offset?: number): number;
 
@@ -674,6 +835,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**16 - 1. Received [value]
          */
         writeInt16LE(value: number, offset?: number): number;
 
@@ -684,6 +849,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**32 - 1. Received [value]
          */
         writeInt32BE(value: number, offset?: number): number;
 
@@ -694,6 +863,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**32 - 1. Received [value]
          */
         writeInt32LE(value: number, offset?: number): number;
 
@@ -705,6 +878,12 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength] 
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**48 - 1. Received [value]
          */
         writeIntBE(value: number, offset: number, byteLength: number): number;
 
@@ -716,6 +895,12 @@ declare namespace buffer {
          * @param offset  Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength] 
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**48 - 1. Received [value]
          */
         writeIntLE(value : number, offset: number, byteLength: number): number;
 
@@ -726,6 +911,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**8 - 1. Received [value]
          */
         writeUInt8(value: number, offset?: number): number;
 
@@ -736,6 +925,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**16 - 1. Received [value]
          */
         writeUInt16BE(value: number, offset?: number): number;
 
@@ -746,6 +939,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**16 - 1. Received [value]
          */
         writeUInt16LE(value: number, offset?: number): number;
 
@@ -756,6 +953,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**32 - 1. Received [value]
          */
         writeUInt32BE(value: number, offset?: number): number;
 
@@ -766,6 +967,10 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**32 - 1. Received [value]
          */
         writeUInt32LE(value: number, offset?: number): number;
 
@@ -777,6 +982,12 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength] 
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**48 - 1. Received [value]
          */
         writeUIntBE(value: number, offset: number, byteLength: number): number;
 
@@ -788,6 +999,12 @@ declare namespace buffer {
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
          * @return offset plus the number of bytes written
+         * @throws TypeError: The "byteLength" argument must be of type number. Received [message]
+         * @throws TypeError: The "offset" argument must be of type number. Received [message]
+         * @throws TypeError: The "value" argument must be of type number. Received [message]
+         * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength] 
+         * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
+         * @throws RangeError: The value of "value" is out of range. It must be >= 0 and <= 2**48 - 1. Received [value]
          */
         writeUIntLE(value: number, offset: number, byteLength: number): number;
 
@@ -803,6 +1020,8 @@ declare namespace buffer {
          * @param options {endings: string, type: string} 
          *                 endings:  One of either 'transparent' or 'native'. 
          *                 type: The Blob content-type
+         * @throws TypeError: The "sources" argument must be an instance of Iterable. Received [message]
+         * @throws TypeError: The "options" argument must be of type object. Received [message]
          */
         constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] , options: Object);
 
