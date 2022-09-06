@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -30,69 +30,70 @@ declare namespace process {
     */
     export interface ChildProcess {
         /**
-        * return pid is the pid of the current process
+        * Return pid is the pid of the current process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return the pid of the current process.
+        * @return Return the pid of the current process.
         */
         readonly pid: number;
+        
         /**
-        * return ppid is the pid of the current child process
+        * Return ppid is the pid of the current child process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return the pid of the current child process.
+        * @return Return the pid of the current child process.
         */
         readonly ppid: number;
 
         /**
-        * return exitCode is the exit code of the current child process
+        * Return exitCode is the exit code of the current child process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return the exit code of the current child process.
+        * @return Return the exit code of the current child process.
         */
         readonly exitCode: number;
 
         /**
-        * return boolean is whether the current process signal is sent successfully
+        * Return boolean is whether the current process signal is sent successfully
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return whether the current process signal is sent successfully.
+        * @return Return whether the current process signal is sent successfully.
         */
         readonly killed: boolean;
 
         /**
-        * return 'number' is the target process exit code
+        * Return 'number' is the target process exit code
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return the target process exit code.
+        * @return Return the target process exit code.
         */
         wait(): Promise<number>;
 
         /**
-        * return it as 'Uint8Array' of the stdout until EOF
+        * Return it as 'Uint8Array' of the stdout until EOF
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return subprocess standard outpute.
+        * @return Return subprocess standard outpute.
         */
         getOutput(): Promise<Uint8Array>;
 
         /**
-        * return it as 'Uint8Array of the stderr until EOF
+        * Return it as 'Uint8Array of the stderr until EOF
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return return subprocess standard error output.
+        * @return Return subprocess standard error output.
         */
         getErrorOutput(): Promise<Uint8Array>;
 
         /**
-        * close the target process
+        * Close the target process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
@@ -100,73 +101,152 @@ declare namespace process {
         close(): void;
 
         /**
-        * send a signal to process
+        * Send a signal to process
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @param signal number or string represents the signal sent.
+        * @param signal Number or string represents the signal sent.
         */
         kill(signal: number | string): void;
     }
 
     /**
-    * returns the numeric valid group ID of the process
+     * Process is mainly used to obtain the relevant ID of the process, obtain and modify the
+     * working directory of the process, exit and close the process.
+     * @name ProcessManager
+     * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    export class ProcessManager {
+        /**
+        * Returns a boolean whether the specified uid belongs to a particular application.
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param v An id.
+        * @return Return a boolean whether the specified uid belongs to a particular application.
+        * @throws {BusinessError} 401 - The type of v must be number.
+        */
+        isAppUid(v: number): boolean;
+
+        /**
+        * Returns the uid based on the specified user name.
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param v Process name.
+        * @return Return the uid based on the specified user name.
+        * @throws {BusinessError} 401 - The type of v must be string.
+        */
+        getUidForName(v: string): number;
+
+        /**
+        * Returns the thread priority based on the specified tid.
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param v The tid of the process.
+        * @return Return the thread priority based on the specified tid.
+        * @throws {BusinessError} 401 - The type of v must be number.
+        */
+        getThreadPriority(v: number): number;
+
+        /**
+        * Returns the system configuration at runtime.
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param name Parameters defined by the system configuration.
+        * @return Return the system configuration at runtime.
+        * @throws {BusinessError} 401 - The type of name must be number.
+        */
+        getSystemConfig(name: number): number;
+
+        /**
+        * Returns the system value for environment variables.
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param name Parameters defined by the system environment variables.
+        * @Returns the system value for environment variables.
+        * @throws {BusinessError} 401 - The type of name must be string.
+        */
+        getEnvironmentVar(name: string): string;
+
+        /**
+        * Process exit
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param code Process exit code.
+        * @throws {BusinessError} 401 - The type of code must be number.
+        */
+        exit(code: number): void;
+
+        /**
+        * Return whether the signal was sent successfully
+        * @since 9
+        * @syscap SystemCapability.Utils.Lang
+        * @param signal Signal sent.
+        * @param pid Send signal to target pid.
+        * @return Return the result of the signal.
+        * @throws {BusinessError} 401 - if the input parameters are invalid.
+        */
+        kill(signal: number, pid: number): boolean;
+    }
+
+    /**
+    * Returns the numeric valid group ID of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return return the numeric valid group ID of the process.
+    * @return Return the numeric valid group ID of the process.
     */
     const egid: number;
 
     /**
-    * return the numeric valid user identity of the process
+    * Return the numeric valid user identity of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return return the numeric valid user identity of the process.
+    * @return Return the numeric valid user identity of the process.
     */
     const euid: number;
 
     /**
-    * returns the numeric group id of the process
+    * Returns the numeric group id of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return return the numeric group if of the process.
+    * @return Return the numeric group if of the process.
     */
     const gid: number
 
     /**
-    * returns the digital user id of the process
+    * Returns the digital user id of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @return return the digital user id of the process.
+    * @return Return the digital user id of the process.
     */
     const uid: number;
 
     /**
-    * return an array with supplementary group id
+    * Return an array with supplementary group id
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return return an array with supplementary group id.
+    * @return Return an array with supplementary group id.
     */
     const groups: number[];
 
     /**
-    * return pid is The pid of the current process
+    * Return pid is The pid of the current process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @return return The pid of the current process.
+    * @return Return The pid of the current process.
     */
     const pid: number;
 
     /**
-    * return ppid is The pid of the current child process
+    * Return ppid is The pid of the current child process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return return The pid of the current child process.
+    * @return Return The pid of the current child process.
     */
     const ppid: number;
 
@@ -174,7 +254,7 @@ declare namespace process {
     * Returns the tid of the current thread.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return return the tid of the current thread.
+    * @return Return the tid of the current thread.
     */
     const tid: number;
 
@@ -182,16 +262,18 @@ declare namespace process {
     * Returns a boolean whether the process is isolated.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return return boolean whether the process is isolated.
+    * @return Return boolean whether the process is isolated.
     */
     function isIsolatedProcess(): boolean;
 
     /**
     * Returns a boolean whether the specified uid belongs to a particular application.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.isAppUid
     * @syscap SystemCapability.Utils.Lang
     * @param v An id.
-    * @return return a boolean whether the specified uid belongs to a particular application.
+    * @return Return a boolean whether the specified uid belongs to a particular application.
     */
     function isAppUid(v: number): boolean;
 
@@ -199,22 +281,26 @@ declare namespace process {
     * Returns a boolean whether the process is running in a 64-bit environment.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return return a boolean whether the process is running in a 64-bit environment.
+    * @return Return a boolean whether the process is running in a 64-bit environment.
     */
     function is64Bit(): boolean;
 
     /**
     * Returns the uid based on the specified user name.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.getUidForName
     * @syscap SystemCapability.Utils.Lang
     * @param v Process name.
-    * @return return the uid based on the specified user name.
+    * @return Return the uid based on the specified user name.
     */
     function getUidForName(v: string): number;
 
     /**
     * Returns the thread priority based on the specified tid.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.getThreadPriority
     * @syscap SystemCapability.Utils.Lang
     * @param v The tid of the process.
     * @return Return the thread priority based on the specified tid.
@@ -240,6 +326,8 @@ declare namespace process {
     /**
     * Returns the system configuration at runtime.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.getSystemConfig
     * @syscap SystemCapability.Utils.Lang
     * @param name Parameters defined by the system configuration.
     * @return Return the system configuration at runtime.
@@ -249,6 +337,8 @@ declare namespace process {
     /**
     * Returns the system value for environment variables.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.getEnvironmentVar
     * @syscap SystemCapability.Utils.Lang
     * @param name Parameters defined by the system environment variables.
     * @Returns the system value for environment variables.
@@ -260,7 +350,7 @@ declare namespace process {
     * Return a child process object and spawns a new ChildProcess to run the command
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @param command string of the shell commands executed by the child process.
+    * @param command String of the shell commands executed by the child process.
     * @param options This is an object. The object contains three parameters. Timeout is the running time of the child
     * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
     * maximum buffer area for standard input and output.
@@ -300,6 +390,8 @@ declare namespace process {
     /**
     * Process exit
     * @since 7
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.exit
     * @syscap SystemCapability.Utils.Lang
     * @param code Process exit code.
     */
@@ -315,7 +407,7 @@ declare namespace process {
     function cwd(): string;
 
     /**
-    * Change current  directory
+    * Change current directory
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
@@ -334,6 +426,8 @@ declare namespace process {
     /**
     * Return whether the signal was sent successfully
     * @since 7
+    * @deprecated since 9
+    * @useinstead ohos.process.ProcessManager.kill
     * @syscap SystemCapability.Utils.Lang
     * @param signal Signal sent.
     * @param pid Send signal to target pid.

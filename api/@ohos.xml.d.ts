@@ -21,6 +21,13 @@
  * @permission N/A
  */
 declare namespace xml {
+
+    /**
+     * The XmlSerializer interface is used to generate an xml file.
+     * @name XmlSerializer
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
     class XmlSerializer {
         /**
          * A parameterized constructor used to create a new XmlSerializer instance.
@@ -28,6 +35,7 @@ declare namespace xml {
          * The input parameter is an Arrarybuff.
          * The input parameter is a DataView.
          * The input parameter is an encoding format of string type.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
@@ -37,6 +45,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the attribute.
          * @param value Values of attribute.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         setAttributes(name: string, value: string): void;
 
@@ -46,6 +55,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the attribute.
          * @param value Values of element.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         addEmptyElement(name: string): void;
 
@@ -60,7 +70,8 @@ declare namespace xml {
          * Writes a elemnet start tag with the given name.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
-         * @param name name of the element.
+         * @param name Name of the element.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         startElement(name: string): void;
 
@@ -77,6 +88,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param prefix Values name of the prefix.
          * @param namespace Values of namespace.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         setNamespace(prefix: string, namespace: string): void;
 
@@ -85,6 +97,7 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param text Values of comment.
+         * @throws {BusinessError} 401 - The type of text must be string.
          */
         setComment(text: string): void;
 
@@ -93,6 +106,7 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param text Values of CDATA.
+         * @throws {BusinessError} 401 - The type of text must be string.
          */
         setCDATA(text: string): void;
 
@@ -101,6 +115,7 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param text Values of text.
+         * @throws {BusinessError} 401 - The type of text must be string.
          */
         setText(text: string): void;
 
@@ -109,6 +124,7 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param text Values of docType.
+         * @throws {BusinessError} 401 - The type of text must be string.
          */
         setDocType(text: string): void;
     }
@@ -175,7 +191,7 @@ declare namespace xml {
           */
         ENTITY_REFERENCE,
         /**
-          * a whitespace.
+          * A whitespace.
           * @since 8
           * @syscap SystemCapability.Utils.Lang
           */
@@ -246,7 +262,7 @@ declare namespace xml {
         getAttributeCount(): number;
     }
 
-    /** parse options for XmlPullParser. */
+    /** Parse options for XmlPullParser. */
     interface ParseOptions {
 
         /**
@@ -264,7 +280,7 @@ declare namespace xml {
         ignoreNameSpace?: boolean;
 
         /**
-         * tag value callback function.
+         * Tag value callback function.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param name The current tag name.
@@ -274,7 +290,7 @@ declare namespace xml {
         tagValueCallbackFunction?: (name: string, value: string) => boolean;
 
         /**
-         * attribute value callback function.
+         * Attribute value callback function.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param name The current attribute name.
@@ -284,7 +300,7 @@ declare namespace xml {
         attributeValueCallbackFunction?: (name: string, value: string) => boolean;
 
         /**
-         * token value callback function.
+         * Token value callback function.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param eventType The current token eventtype.
@@ -294,10 +310,17 @@ declare namespace xml {
         tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
     }
 
+    /**
+     * The XmlPullParser interface is used to parse the existing xml file.
+     * @name XmlPullParser
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
     class XmlPullParser {
         /**
-          * A constructor used to create a new XmlPullParser instance.
-          */
+         * A constructor used to create a new XmlPullParser instance.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
+         */
         constructor(buffer: ArrayBuffer | DataView, encoding?: string);
 
         /**
@@ -305,6 +328,7 @@ declare namespace xml {
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param option parse options for XmlPullParser, the interface including two Boolean variables and three callback functions.
+         * @throws {BusinessError} 401 - The type of option must be ParseOptions.
          */
         parse(option: ParseOptions): void;
     }

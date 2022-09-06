@@ -15,14 +15,20 @@
 
 /**
  * The url module provides utilities for URL resolution and parsing.
- * @since 9
+ * @since 7
  * @syscap SystemCapability.Utils.Lang
  * @import import url from '@ohos.url';
  * @permission N/A
  */
-
-declare namespace util.url {
-    // @deprecated since 9
+declare namespace url {
+    /**
+     * The URLSearchParams interface defines some practical methods to process URL query strings.
+     * @name URLSearchParams
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.url.URLParams
+     * @syscap SystemCapability.Utils.Lang
+     */
     class URLSearchParams {
         /**
          * A parameterized constructor used to create an URLSearchParams instance.
@@ -32,6 +38,7 @@ declare namespace util.url {
          * The input parameter is a character string.
          * The input parameter is the URLSearchParams object.
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.constructor
          */
         constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
 
@@ -39,6 +46,7 @@ declare namespace util.url {
          * Appends a specified key/value pair as a new search parameter.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.append
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the search parameter to be inserted.
          * @param value Values of search parameters to be inserted.
@@ -49,8 +57,9 @@ declare namespace util.url {
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.delete
          * @syscap SystemCapability.Utils.Lang
-         * @param Name of the key-value pair to be deleted.
+         * @param name Name of the key-value pair to be deleted.
          */
         delete(name: string): void;
 
@@ -58,8 +67,9 @@ declare namespace util.url {
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.getAll
          * @syscap SystemCapability.Utils.Lang
-         * @param Name Specifies the name of a key value.
+         * @param name Specifies the name of a key value.
          * @return string[] Returns all key-value pairs with the specified name.
          */
         getAll(name: string): string[];
@@ -69,15 +79,17 @@ declare namespace util.url {
          * The first item of Array is name, and the second item of Array is value.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.entries
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an iterator for ES6.
          */
-         entries(): IterableIterator<[string, string]>;
+        entries(): IterableIterator<[string, string]>;
 
         /** 
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.forEach
          * @syscap SystemCapability.Utils.Lang
          * @param value Current traversal key value.
          * @param key Indicates the name of the key that is traversed.
@@ -90,6 +102,7 @@ declare namespace util.url {
          * Returns the first value associated to the given search parameter.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.get
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
          * @return Returns the first value found by name. If no value is found, null is returned.
@@ -100,6 +113,7 @@ declare namespace util.url {
          * Returns a Boolean that indicates whether a parameter with the specified name exists.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.has
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
          * @return Returns a Boolean value that indicates whether a found
@@ -113,6 +127,7 @@ declare namespace util.url {
          * method creates it.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.set
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the parameter to be set.
          * @param value Indicates the parameter value to be set.
@@ -123,6 +138,7 @@ declare namespace util.url {
          * Sort all key/value pairs contained in this object in place and return undefined.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.sort
          * @syscap SystemCapability.Utils.Lang
          */
         sort(): void;
@@ -131,6 +147,7 @@ declare namespace util.url {
          * Returns an iterator allowing to go through all keys contained in this object.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.keys
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an ES6 Iterator over the names of each name-value pair.
          */
@@ -140,6 +157,7 @@ declare namespace util.url {
          * Returns an iterator allowing to go through all values contained in this object.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.values
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an ES6 Iterator over the values of each name-value pair.
          */
@@ -150,6 +168,7 @@ declare namespace util.url {
          * pairs contained in this object.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.[Symbol.iterator]
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
@@ -160,13 +179,20 @@ declare namespace util.url {
          * Returns a query string suitable for use in a URL.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.url.URLParams.toString
          * @syscap SystemCapability.Utils.Lang
          * @return Returns a search parameter serialized as a string, percent-encoded if necessary.
          */
         toString(): string;
     }
 
-    class URLSearchParamsV9 {
+    /**
+     * The URLParams interface defines some practical methods to process URL query strings.
+     * @name URLParams
+     * @since 9
+     * @syscap SystemCapability.Utils.Lang
+     */
+    class URLParams {
         /**
          * A parameterized constructor used to create an URLSearchParams instance.
          * As the input parameter of the constructor function, init supports four types.
@@ -175,7 +201,8 @@ declare namespace util.url {
          * The input parameter is a character string.
          * The input parameter is the URLSearchParams object.
          * @since 9
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - The type of init must be string two-dimensional array or object list
+         * or string or URLSearchParams object.
          */
         constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
 
@@ -185,7 +212,7 @@ declare namespace util.url {
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the search parameter to be inserted.
          * @param value Values of search parameters to be inserted.
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         append(name: string, value: string): void;
 
@@ -193,8 +220,8 @@ declare namespace util.url {
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @param Name of the key-value pair to be deleted.
-         * @throws {TypedError} Parameter check failed.
+         * @param name Name of the key-value pair to be deleted.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         delete(name: string): void;
 
@@ -202,9 +229,9 @@ declare namespace util.url {
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @param Name Specifies the name of a key value.
+         * @param name Specifies the name of a key value.
          * @return string[] Returns all key-value pairs with the specified name.
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         getAll(name: string): string[];
 
@@ -215,7 +242,7 @@ declare namespace util.url {
          * @syscap SystemCapability.Utils.Lang
          * @return Returns an iterator for ES6.
          */
-         entries(): IterableIterator<[string, string]>;
+        entries(): IterableIterator<[string, string]>;
 
         /** 
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
@@ -225,7 +252,7 @@ declare namespace util.url {
          * @param key Indicates the name of the key that is traversed.
          * @param searchParams The instance object that is currently calling the forEach method.
          * @param thisArg to be used as this value for when callbackfn is called
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         forEach(callbackfn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
 
@@ -235,7 +262,7 @@ declare namespace util.url {
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
          * @return Returns the first value found by name. If no value is found, null is returned.
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         get(name: string): string | null;
 
@@ -245,7 +272,7 @@ declare namespace util.url {
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
          * @return Returns a Boolean value that indicates whether a found
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - The type of name must be string.
          */
         has(name: string): boolean;
 
@@ -258,7 +285,7 @@ declare namespace util.url {
          * @syscap SystemCapability.Utils.Lang
          * @param name Key name of the parameter to be set.
          * @param value Indicates the parameter value to be set.
-         * @throws {TypedError} Parameter check failed.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         set(name: string, value: string): void;
 
@@ -303,22 +330,44 @@ declare namespace util.url {
          */
         toString(): string;
     }
-    
-    // @deprecated since 9
+
+    /**
+     * The interface of URL is used to parse, construct, normalize, and encode URLs.
+     * @name URL
+     * @since 7
+     * @syscap SystemCapability.Utils.Lang
+     */
     class URL {
-        /** 
+        /**
          * URL constructor, which is used to instantiate a URL object.
          * url: Absolute or relative input URL to resolve. Base is required if input is relative.
          * If input is an absolute value, base ignores the value.
          * base: Base URL to parse if input is not absolute.
+         * @since 7
          * @deprecated since 9
+         * @useinstead ohos.URL.constructor
          */
         constructor(url: string, base?: string | URL);
 
         /**
+         * URL constructor, which is used to instantiate a URL object.
+         * @since 9
+         */
+        constructor();
+
+        /**
+         * Check the validity of parameters
+         * url: Absolute or relative input URL to resolve. Base is required if input is relative.
+         * If input is an absolute value, base ignores the value.
+         * base: Base URL to parse if input is not absolute.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
+         * @throws {BusinessError} 10200002 - Invalid url string.
+         */
+        static parseURL(url: string, base?: string | URL): URL;
+
+        /**
          * Returns the serialized URL as a string.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          * @return Returns the serialized URL as a string.
          */
@@ -327,7 +376,6 @@ declare namespace util.url {
         /**
          * Returns the serialized URL as a string.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          * @return Returns the serialized URL as a string.
          */
@@ -336,7 +384,6 @@ declare namespace util.url {
         /** 
          * Gets and sets the fragment portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         hash: string;
@@ -344,7 +391,6 @@ declare namespace util.url {
         /** 
          * Gets and sets the host portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         host: string;
@@ -352,7 +398,6 @@ declare namespace util.url {
         /**
          * Gets and sets the host name portion of the URL，not include the port.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         hostname: string;
@@ -360,7 +405,6 @@ declare namespace util.url {
         /**
          * Gets and sets the serialized URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         href: string;
@@ -368,7 +412,6 @@ declare namespace util.url {
         /**
          * Gets the read-only serialization of the URL's origin.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         readonly origin: string;
@@ -376,7 +419,6 @@ declare namespace util.url {
         /**
          * Gets and sets the password portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         password: string;
@@ -384,7 +426,6 @@ declare namespace util.url {
         /**
          * Gets and sets the path portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         pathname: string;
@@ -392,7 +433,6 @@ declare namespace util.url {
         /**
          * Gets and sets the port portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         port: string;
@@ -400,7 +440,6 @@ declare namespace util.url {
         /**
          * Gets and sets the protocol portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         protocol: string;
@@ -408,7 +447,6 @@ declare namespace util.url {
         /**
          * Gets and sets the serialized query portion of the URL.
          * @since 7
-         * @deprecated since 9
          * @syscap SystemCapability.Utils.Lang
          */
         search: string;
@@ -422,134 +460,15 @@ declare namespace util.url {
          * @note Be careful when modifying with .searchParams, because the URLSearchParams
          * object uses different rules to determine which characters to
          * percent-encode according to the WHATWG specification.
-         * @deprecated since 9
          */
         readonly searchParams: URLSearchParams;
 
         /**
          * Gets and sets the username portion of the URL.
          * @since 7
-         * @deprecated since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        username: string;
-    }
-
-    class URLV9 {
-        /** 
-         * URL constructor, which is used to instantiate a URL object.
-         * url: Absolute or relative input URL to resolve. Base is required if input is relative.
-         * If input is an absolute value, base ignores the value.
-         * base: Base URL to parse if input is not absolute.
-         * @since 9
-         * @throws {TypedError} Parameter check failed.
-         */
-        constructor(url: string, base?: string | URL);
-
-        /**
-         * Returns the serialized URL as a string.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
-         */
-        toString(): string;
-
-        /**
-         * Returns the serialized URL as a string.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
-         */
-        toJSON(): string;
-
-        /** 
-         * Gets and sets the fragment portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        hash: string;
-
-        /** 
-         * Gets and sets the host portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        host: string;
-
-        /**
-         * Gets and sets the host name portion of the URL，not include the port.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        hostname: string;
-
-        /**
-         * Gets and sets the serialized URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        href: string;
-
-        /**
-         * Gets the read-only serialization of the URL's origin.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        readonly origin: string;
-
-        /**
-         * Gets and sets the password portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        password: string;
-
-        /**
-         * Gets and sets the path portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        pathname: string;
-
-        /**
-         * Gets and sets the port portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        port: string;
-
-        /**
-         * Gets and sets the protocol portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        protocol: string;
-
-        /**
-         * Gets and sets the serialized query portion of the URL.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         */
-        search: string;
-
-        /**
-         * Gets the URLSearchParams object that represents the URL query parameter.
-         * This property is read-only, but URLSearchParams provides an object that can be used to change
-         * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
-         * @since 9
-         * @syscap SystemCapability.Utils.Lang
-         * @note Be careful when modifying with .searchParams, because the URLSearchParams
-         * object uses different rules to determine which characters to
-         * percent-encode according to the WHATWG specification.
-         */
-        readonly searchParams: URLSearchParams;
-
-        /**
-         * Gets and sets the username portion of the URL.
-         * @since 9
          * @syscap SystemCapability.Utils.Lang
          */
         username: string;
     }
 }
-export default util.url;
+export default url;
