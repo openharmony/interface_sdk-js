@@ -930,6 +930,36 @@ declare namespace bundle {
   function getDisposedStatus(bundleName: string): Promise<number>;
 
   /**
+   * Obtains based on a given bundleName and bundleFlags.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
+   *            that will be returned.
+   * @param userId Indicates the user ID or do not pass user ID.
+   * @return Returns the ApplicationInfo object.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+   function getApplicationInfoSync(bundleName: string, bundleFlags: number, userId: number) : ApplicationInfo;
+   function getApplicationInfoSync(bundleName: string, bundleFlags: number) : ApplicationInfo;
+
+  /**
+   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   *
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @param bundleName Indicates the application bundle name to be queried.
+   * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object
+   *            that will be returned.
+   * @param options Indicates the bundle options object.
+   * @return Returns the BundleInfo object.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   */
+   function getBundleInfoSync(bundleName: string, bundleFlags: number, options: BundleOptions): BundleInfo;
+   function getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo;
+
+  /**
    * Obtains configuration information about an application.
    * 
    * @since 9
