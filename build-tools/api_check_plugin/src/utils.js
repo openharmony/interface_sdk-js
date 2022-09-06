@@ -46,11 +46,22 @@ exports.removeDir = removeDir;
 
 function writeResultFile(resultData, outputPath, option) {
   fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, 2), option, err => {
-      if (err) {
-          console.error(`ERROR FOR CREATE FILE:${err}`);
-      } else {
-          console.log('API CHECK FINISH!');
-      }
+    if (err) {
+      console.error(`ERROR FOR CREATE FILE:${err}`);
+    } else {
+      console.log('API CHECK FINISH!');
+    }
   })
 }
 exports.writeResultFile = writeResultFile;
+
+function overwriteIndexOf(item, array) {
+  let indexArr = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === item) {
+      indexArr.push(i);
+    }
+  }
+  return indexArr;
+}
+exports.overwriteIndexOf = overwriteIndexOf;

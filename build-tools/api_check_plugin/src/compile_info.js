@@ -14,3 +14,13 @@
  */
 
 // print compile info
+function formatCompileInfo(sourceFile, diagnosises) {
+  const formatDiagnosises = [];
+  diagnosises.forEach((diagnosis, index) => {
+    const posOfNode = sourceFile.getLineAndCharacterOfPosition(diagnosis.pos);
+    diagnosis.column = posOfNode.character + 1;
+    diagnosis.line = posOfNode.line + 1;
+    diagnosis.messageText = ``;
+    formatDiagnosises.push(diagnosis);
+  });
+}
