@@ -810,7 +810,7 @@ declare namespace osAccount {
          * @param authType Indicates the authentication type.
          * @param callback Indicates the callback to get all registered credential information of
          * the specified type for the current user.
-         * @permission ohos.permission.ACCESS_USER_IDM
+         * @permission ohos.permission.USE_USER_IDM
          * @systemapi Hide this for inner system use.
          */
         getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
