@@ -430,6 +430,30 @@ declare namespace sim {
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
   /**
+   * Obtains the opkey of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @return Returns the opkey; returns "-1" if no SIM card is inserted or
+   * no opkey matched.
+   * @since 9
+   */
+  function getOpKey(slotId: number, callback: AsyncCallback<string>): void;
+  function getOpKey(slotId: number): Promise<string>;
+
+   /**
+    * Obtains the opname of the SIM card in a specified slot.
+    *
+    * @param slotId Indicates the card slot index number,
+    * ranging from 0 to the maximum card slot index number supported by the device.
+    * @return Returns the opname; returns null if no SIM card is inserted or
+    * no opname matched.
+    * @since 9
+    */
+   function getOpName(slotId: number, callback: AsyncCallback<string>): void;
+   function getOpName(slotId: number): Promise<string>;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
