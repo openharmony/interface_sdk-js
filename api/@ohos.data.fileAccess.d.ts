@@ -47,8 +47,7 @@ declare namespace fileAccess {
      * @param context Indicates the application context.
      * @return Returns the fileAccessHelper.
      */
-    function createFileAccessHelper(context: Context, callback: AsyncCallback<FileAccessHelper>): void;
-    function createFileAccessHelper(context: Context): Promise<FileAccessHelper>;
+    function createFileAccessHelper(context: Context): FileAccessHelper;
 
     /**
      * Obtains the fileAccessHelper that connects some specified fileaccess servers in the system.
@@ -61,8 +60,7 @@ declare namespace fileAccess {
      * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.
      */
-    function createFileAccessHelper(context: Context, Array<Want>, callback: AsyncCallback<FileAccessHelper>): void;
-    function createFileAccessHelper(context: Context, Array<Want>): Promise<FileAccessHelper>;
+    function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
 	
     /**
      * File Object
