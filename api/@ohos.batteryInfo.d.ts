@@ -241,7 +241,7 @@ declare namespace batteryInfo {
     }
 
     /**
-     * Etra key code of common event COMMON_EVENT_BATTERY_CHANGED.
+     * Extra key code of common event COMMON_EVENT_BATTERY_CHANGED.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
