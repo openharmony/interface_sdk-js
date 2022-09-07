@@ -15,18 +15,14 @@
 
 const path = require("path");
 
-function checkEntry(url) {
-  let result = "API CHECK FAILED!";
-  try {
-    __dirname = "../../interface/sdk-js/build-tools/api_check_plugin";
-    const execSync = require("child_process").execSync;
-    execSync("cd ../../interface/sdk-js/build-tools/api_check_plugin && npm install");
-    const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
-    result = scanEntry(url);
-    const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
-    removeDir(path.resolve(__dirname, "node_modules"));
-  } catch (error) {
-    // catch error
-  }
-  return result;
+function checkEntryLocalText(url) {
+  let execSync = require("child_process").execSync;
+  execSync("npm install");
+  const { scanEntry } = require("../src/api_check_plugin");
+  result = scanEntry(url);
+  const { removeDir } = require(path.resolve(__dirname, "../src/utils"));
+  removeDir(path.resolve(__dirname, "../node_modules"));
+  console.log(result)
 }
+
+checkEntryLocalText("./mdFiles.txt");

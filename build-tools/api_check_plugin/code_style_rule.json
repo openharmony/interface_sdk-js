@@ -5,7 +5,7 @@
       "default",
       "deprecated",
       "enum",
-      "errornumber",
+      "errorcode",
       "example",
       "extends",
       "famodelonly",
@@ -25,7 +25,9 @@
       "typedef",
       "throws",
       "test",
-      "useinstead"
+      "useinstead",
+      "FAModelOnly",
+      "StageModelOnly"
     ],
     "jsDoc": [
       "abstract",

@@ -28,7 +28,6 @@ function checkAPIDecorators(node, sourcefile, fileName) {
 
   const regex = /\*\s*\@[A-Za-z0-9]+\b/g;
   const matchResult = apiNote.match(regex);
-  console.log(matchResult)
   let hasCodeStyleError = false;
   let errorInfo = "";
   if (matchResult) {
@@ -56,6 +55,7 @@ function checkAPIDecorators(node, sourcefile, fileName) {
       const errorMessage = {
         "error_type": "unknow decorator",
         "file": fileName,
+        "pos": node.pos,
         "column": posOfNode.character + 1,
         "line": posOfNode.line + 1,
         "error_info": errorInfo
