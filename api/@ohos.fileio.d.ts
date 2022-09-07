@@ -84,6 +84,7 @@ declare namespace fileIO {
     export { writeSync };
     export { Dir };
     export { Dirent };
+    export { Filter };
     export { ReadOut };
     export { Stat };
     export { Stream };
@@ -1153,6 +1154,51 @@ declare interface Dirent {
      * @returns {boolean} is or not
      */
     isSymbolicLink(): boolean;
+}
+
+declare interface Filter {
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    suffix: Array<string>;
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    displayName: Array<string>;
+    /**
+     * @type {Array<string>}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    mimeType: Array<string>;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    fileSizeOver: number;
+    /**
+     * @type {number}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    lastModifiedAfter: number;
+    /**
+     * @type {boolean}
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 9
+     * @readonly
+     */
+    excludeMedia: boolean;
 }
 
 /**

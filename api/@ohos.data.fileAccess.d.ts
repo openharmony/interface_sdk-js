@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from "./basic";
 import { Want } from './ability/want';
 import Context from './application/Context';
-import Fliter from '@ohos.fileio'
+import Filter from '@ohos.fileio'
 
 /**
  * This module provides the capability to access user public files.
@@ -71,15 +71,68 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @systemapi
      * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param uri Indicates the path of the file.
+     * @param fileName Indicates the name of the file.
+     * @param mode Indicates the mode of the file.
+     * @param size Indicates the size of the file.
+     * @param mtime Indicates the mtime of the file.
+     * @param mimetype Indicates the mimetype of the file.
      */
     interface FileInfo {
+        /**
+         * @type {string}
+         * @readonly
+         */
         uri: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
         fileName: string;
+        /**
+         * @type {number}
+         * @readonly
+         */
         mode: number;
+        /**
+         * @type {number}
+         * @readonly
+         */
         size: number;
+        /**
+         * @type {number}
+         * @readonly
+         */
         mtime: number;
+        /**
+         * @type {string}
+         * @readonly
+         */
         mimetype: string;
-        listFile(fliter?: Fliter): FileIterator;
+
+        /**
+         * List files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the FileIterator Object.
+         */
+        listFile(filter?: Filter): FileIterator;
+
+        /**
+         * Recursively list all files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the FileIterator Object.
+         */
+        scanFile(filter?: Filter): FileIterator;
     }
 	
     /**
@@ -103,11 +156,50 @@ declare namespace fileAccess {
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      */
     interface RootInfo {
+        /**
+         * @type {number}
+         * @readonly
+         */
         deviceType: number;
+        /**
+         * @type {string}
+         * @readonly
+         */
         uri: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
         displayName: string;
+        /**
+         * @type {number}
+         * @readonly
+         */
         deviceFlags: number;
-        listFile(fliter?: Fliter): FileIterator;
+
+        /**
+         * List files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the RootIterator Object.
+         */
+        listFile(filter?: Filter): FileIterator;
+
+        /**
+         * Recursively list all files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the RootIterator Object.
+         */
+        scanFile(filter?: Filter): FileIterator;
     }
 	
     /**
