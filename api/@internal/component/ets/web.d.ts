@@ -477,7 +477,7 @@ declare class HttpAuthHandler {
    constructor();
 
   /**
-   * Confirm to use an SSL certificate.
+   * Confirm to use the SSL certificate.
    * @since 9
    */
    handleConfirm(): void;
