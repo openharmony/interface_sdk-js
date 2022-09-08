@@ -13,6 +13,9 @@
 * limitations under the License.
 */
 
+import { AsyncCallback } from './basic';
+import image from './@ohos.multimedia.image';
+
 /**
  * @name  effectKit
  * @since 9
