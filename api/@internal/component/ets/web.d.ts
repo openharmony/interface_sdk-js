@@ -1257,7 +1257,7 @@ declare class WebCookie {
 
   /**
    * Clears the ssl cache in the Web.
-   * @since 8
+   * @since 9
    */
    clearSslCache(): void;
 }
