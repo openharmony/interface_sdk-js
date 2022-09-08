@@ -463,6 +463,17 @@ declare namespace sim {
   }
 
   /**
+   * Checks whether cellular data services are enabled.
+   *
+   * <p>Requires Permission: {@code ohos.permission.GET_NETWORK_INFO}.
+   *
+   * @return Returns default cellular data slot id.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getDefaultCellularDataSlotIdSync(): number;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 7
    */
