@@ -60,7 +60,7 @@ declare namespace fileAccess {
      * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.
      */
-    function createFileAccessHelper(context: Context, Array<Want>): FileAccessHelper;
+    function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
 	
     /**
      * File Object
