@@ -36,7 +36,7 @@ declare namespace fileAccess {
      */
     function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
     function getFileAccessAbilityInfo(): Promise<Array<Want>>;
-	
+
     /**
      * Obtains the fileAccessHelper that connects all fileaccess servers in the system.
      * @since 9
@@ -61,7 +61,7 @@ declare namespace fileAccess {
      * @return Returns the fileAccessHelper.
      */
     function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
-	
+
     /**
      * File Object
      * @since 9
@@ -132,7 +132,7 @@ declare namespace fileAccess {
          */
         scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * FileIterator Object
      * @since 9
@@ -199,7 +199,7 @@ declare namespace fileAccess {
          */
         scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * RootIterator Object
      * @since 9
@@ -244,7 +244,7 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the path of the file to open. 
+         * @param uri Indicates the path of the file to open.
          * @param flags Indicate options of opening a file. The default value is read-only.
          * @return Returns the file descriptor.
          */
@@ -306,8 +306,8 @@ declare namespace fileAccess {
          * @param destFile Represents the destonation folder.
          * @return Returns the generated new file or directory.
          */
-        move(sourceFile: FileInfo, destFile: FileInfo) : Promise<FileInfo>;
-        move(sourceFile: FileInfo, destFile: FileInfo, callback: AsyncCallback<FileInfo>) : void;
+        move(sourceFile: string, destFile: string) : Promise<string>;
+        move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
 
         /**
          * Rename the selected file or directory.
