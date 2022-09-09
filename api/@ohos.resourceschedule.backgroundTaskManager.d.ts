@@ -20,7 +20,7 @@ import Context from './application/BaseContext';
 /**
  * Manages background tasks.
  *
- * @since 7
+ * @since 9
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  */
 declare namespace backgroundTaskManager {
@@ -28,7 +28,7 @@ declare namespace backgroundTaskManager {
      * The info of delay suspend.
      *
      * @name DelaySuspendInfo
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      */
     interface DelaySuspendInfo {
@@ -45,7 +45,7 @@ declare namespace backgroundTaskManager {
     /**
      * Cancels delayed transition to the suspended state.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -55,7 +55,7 @@ declare namespace backgroundTaskManager {
     /**
      * Obtains the remaining time before an application enters the suspended state.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -67,7 +67,7 @@ declare namespace backgroundTaskManager {
     /**
      * Requests delayed transition to the suspended state.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param reason Indicates the reason for delayed transition to the suspended state.
      * @param callback The callback delay time expired.
@@ -80,7 +80,7 @@ declare namespace backgroundTaskManager {
      * Service ability uses this method to request start running in background.
      * system will publish a notification related to the this service.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param context app running context.
@@ -94,7 +94,7 @@ declare namespace backgroundTaskManager {
     /**
      * Service ability uses this method to request stop running in background.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @param context app running context.
      * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -108,10 +108,9 @@ declare namespace backgroundTaskManager {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return True if efficiency resources apply success, else false.
      * @systemapi Hide this for inner system use.
      */
-     function applyEfficiencyResources(request: EfficiencyResourcesRequest): boolean;
+     function applyEfficiencyResources(request: EfficiencyResourcesRequest): void;
 
      /**
       * Reset all efficiency resources apply.
@@ -125,14 +124,14 @@ declare namespace backgroundTaskManager {
     /**
      * supported background mode.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      */
     export enum BackgroundMode {
         /**
          * data transfer mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         DATA_TRANSFER = 1,
@@ -140,7 +139,7 @@ declare namespace backgroundTaskManager {
         /**
          * audio playback mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_PLAYBACK = 2,
@@ -148,7 +147,7 @@ declare namespace backgroundTaskManager {
         /**
          * audio recording mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         AUDIO_RECORDING = 3,
@@ -156,7 +155,7 @@ declare namespace backgroundTaskManager {
         /**
          * location mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         LOCATION = 4,
@@ -164,7 +163,7 @@ declare namespace backgroundTaskManager {
         /**
          * bluetooth interaction mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         BLUETOOTH_INTERACTION = 5,
@@ -172,7 +171,7 @@ declare namespace backgroundTaskManager {
         /**
          * multi-device connection mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         MULTI_DEVICE_CONNECTION = 6,
@@ -180,7 +179,7 @@ declare namespace backgroundTaskManager {
         /**
          * wifi interaction mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
@@ -189,7 +188,7 @@ declare namespace backgroundTaskManager {
         /**
          * Voice over Internet Phone mode
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
@@ -199,7 +198,7 @@ declare namespace backgroundTaskManager {
          * background continuous calculate mode, for example 3D render.
          * only supported in particular device
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
          */
         TASK_KEEPING = 9,

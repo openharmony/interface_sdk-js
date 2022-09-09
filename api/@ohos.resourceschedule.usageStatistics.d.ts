@@ -24,12 +24,12 @@ import { AsyncCallback , Callback} from './basic';
  * The system stores the query result in a {@link BundleStateInfo} or {@link BundleActiveState} instance and
  * then returns it to you.
  *
- * @since 7
+ * @since 9
  */
 declare namespace usageStatistics {
 
     /**
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
     interface BundleStateInfo {
@@ -80,7 +80,7 @@ declare namespace usageStatistics {
          * Merges a specified {@link BundleActiveInfo} object with this {@link BundleActiveInfo} object.
          * The bundle name of both objects must be the same.
          *
-         * @since 7
+         * @since 9
          * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
          * @param toMerge Indicates the {@link BundleActiveInfo} object to merge.
          * if the bundle names of the two {@link BundleActiveInfo} objects are different.
@@ -199,7 +199,7 @@ declare namespace usageStatistics {
     }
 
     /**
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
      interface BundleActiveState {
@@ -259,7 +259,7 @@ declare namespace usageStatistics {
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @param bundleName Indicates the bundle name of the application to query.
      * @throws { BusinessError } If the input parameter is not valid parameter.
@@ -276,7 +276,7 @@ declare namespace usageStatistics {
      * <p>The priority defined in a priority group restricts the resource usage of an application,
      * for example, restricting the running of background tasks. </p>
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @throws { BusinessError } If the input parameter is not valid parameter.
      * @return Returns the usage priority group of the calling application.
@@ -285,7 +285,7 @@ declare namespace usageStatistics {
     function queryAppUsagePriorityGroup(): Promise<number>;
 
     /**
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
      interface BundleActiveInfoResponse {
@@ -297,7 +297,7 @@ declare namespace usageStatistics {
      *
      * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
@@ -312,7 +312,7 @@ declare namespace usageStatistics {
     /**
      * Declares interval type.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
     export enum IntervalType {
@@ -345,7 +345,7 @@ declare namespace usageStatistics {
     /**
      * Queries usage information about each bundle within a specified period at a specified interval.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
@@ -363,7 +363,7 @@ declare namespace usageStatistics {
     /**
      * Queries state data of all bundles within a specified period identified by the start and end time.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
@@ -378,7 +378,7 @@ declare namespace usageStatistics {
     /**
      * Queries state data of the current bundle within a specified period.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
@@ -468,7 +468,6 @@ declare namespace usageStatistics {
      * @param bundleName, name of the application.
      * @param newGroup,the group of the application whose name is bundleName.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the result of setBundleGroup, true of false.
      */
     function setBundleGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
     function setBundleGroup(bundleName: string, newGroup: GroupType): Promise<void>;
@@ -482,7 +481,7 @@ declare namespace usageStatistics {
      * @systemapi Hide this for inner system use.
      * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed. the result of AsyncCallback is true or false.
+     * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed.
      */
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>, callback: AsyncCallback<void>): void;
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>): Promise<void>;
@@ -495,7 +494,6 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the result of unRegisterGroupCallBack, true of false.
      */
     function unRegisterGroupCallBack(callback: AsyncCallback<void>): void;
     function unRegisterGroupCallBack(): Promise<void>;

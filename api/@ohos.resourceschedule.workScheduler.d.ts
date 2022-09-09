@@ -107,9 +107,8 @@ declare namespace workScheduler {
      * @StageModelOnly
      * @param work The info of work.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return true if success, otherwise false.
      */
-    function startWork(work: WorkInfo): boolean;
+    function startWork(work: WorkInfo): void;
 
     /**
      * Stop a work.
@@ -120,9 +119,8 @@ declare namespace workScheduler {
      * @param work The info of work.
      * @param needCancel True if need to be canceled after being stopped, otherwise false.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return true if success, otherwise false.
      */
-    function stopWork(work: WorkInfo, needCancel?: boolean): boolean;
+    function stopWork(work: WorkInfo, needCancel?: boolean): void;
 
     /**
      * Obtains the work info of the wordId.
@@ -154,9 +152,8 @@ declare namespace workScheduler {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @return true if success, otherwise false.
      */
-    function stopAndClearWorks(): boolean;
+    function stopAndClearWorks(): void;
 
     /**
      * Check whether last work running is timeout. The interface is for repeating work.
