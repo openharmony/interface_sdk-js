@@ -490,6 +490,36 @@ declare class HttpAuthHandler {
 }
 
 /**
+ * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
+ * @since 9
+ */
+ declare class ClientAuthenticationHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Confirm to use the specified private key and client certificate chain.
+   * @since 9
+   */
+   Confirm(priKeyFile : string, certChainFile : string): void;
+
+  /**
+   * Cancel this certificate request.
+   * @since 9
+   */
+   Cancel(): void;
+  
+  /**
+   * Ignore this certificate request temporarily
+   * @since 9
+   */
+   Ignore(): void;
+}
+
+/**
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  * @since 9
  */
@@ -1260,6 +1290,12 @@ declare class WebCookie {
    * @since 9
    */
    clearSslCache(): void;
+
+  /**
+   * Clears the client authentication certificate cache in the Web.
+   * @since 9
+   */
+  clearClientAuthenticationCache(): void;
 }
 
 /**
@@ -1733,6 +1769,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
    onSslErrorEventReceive(callback: (event: { handler: SslErrorHandler, error: SslError }) => void): WebAttribute;
+
+  /**
+   * Triggered when the Web page needs ssl client certificate from the user.
+   * @param callback The triggered callback when needs ssl client certificate from the user.
+   *
+   * @since 9
+   */
+  onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
+      keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
