@@ -513,7 +513,7 @@ declare class HttpAuthHandler {
    Cancel(): void;
   
   /**
-   * Ignore this certificate request temporarily
+   * Ignore this certificate request temporarily.
    * @since 9
    */
    Ignore(): void;
