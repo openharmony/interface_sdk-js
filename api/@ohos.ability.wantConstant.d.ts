@@ -222,7 +222,7 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload",
+    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
 
     /**
      * Indicates the action of an application crowdtested from the application market.
