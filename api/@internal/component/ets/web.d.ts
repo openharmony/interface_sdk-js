@@ -502,21 +502,24 @@ declare class HttpAuthHandler {
 
   /**
    * Confirm to use the specified private key and client certificate chain.
+   * @param priKeyFile The file that store private key.
+   * @param certChainFile The file that store client certificate chain.
+   *
    * @since 9
    */
-   Confirm(priKeyFile : string, certChainFile : string): void;
+  Confirm(priKeyFile : string, certChainFile : string): void;
 
   /**
    * Cancel this certificate request.
    * @since 9
    */
-   Cancel(): void;
+  Cancel(): void;
   
   /**
    * Ignore this certificate request temporarily.
    * @since 9
    */
-   Ignore(): void;
+  Ignore(): void;
 }
 
 /**
