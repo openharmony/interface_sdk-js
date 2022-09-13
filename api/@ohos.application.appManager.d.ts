@@ -39,10 +39,8 @@ declare namespace appManager {
     export enum ApplicationState {
         STATE_CREATE,
         STATE_FOREGROUND,
-        STATE_VISIBLE,
         STATE_ACTIVE,
-        STATE_SUSPEND,
-        STATE_KEEP_BACKGROUND,
+        STATE_KEEP_ALIVE,
         STATE_BACKGROUND,
         STATE_DESTROY
     }
@@ -58,10 +56,8 @@ declare namespace appManager {
     export enum ProcessState {
         STATE_CREATE,
         STATE_FOREGROUND,
-        STATE_VISIBLE,
         STATE_ACTIVE,
-        STATE_SUSPEND,
-        STATE_KEEP_BACKGROUND,
+        STATE_KEEP_ALIVE,
         STATE_BACKGROUND,
         STATE_DESTROY
     }
