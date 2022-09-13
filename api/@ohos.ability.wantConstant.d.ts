@@ -225,12 +225,16 @@ declare namespace wantConstant {
     ACTION_MARKER_DOWNLOAD = "ohos.want.action.marketDownload",
 
     /**
-     * Indicates the param of sandbox flag.
-    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
-
-    /**
      * Indicates the action of an application crowdtested from the application market.
      *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest",
+
+    /**
+     * Indicates the param of sandbox flag.
+     * 
      * @since 9
      * @systemapi Hide this for inner system use.
      */
