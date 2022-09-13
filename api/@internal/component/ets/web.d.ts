@@ -507,19 +507,19 @@ declare class HttpAuthHandler {
    *
    * @since 9
    */
-  Confirm(priKeyFile : string, certChainFile : string): void;
+  confirm(priKeyFile : string, certChainFile : string): void;
 
   /**
    * Cancel this certificate request.
    * @since 9
    */
-  Cancel(): void;
+  cancel(): void;
   
   /**
    * Ignore this certificate request temporarily.
    * @since 9
    */
-  Ignore(): void;
+  ignore(): void;
 }
 
 /**
