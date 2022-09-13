@@ -48,4 +48,31 @@ export default class ProcessData {
      * @systemapi hide for inner use.
      */
     uid: number;
+
+    /**
+     * The process state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    state: number;
+
+    /**
+     * Whether the process is continuous task.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isContinuousTask: boolean;
+
+    /**
+     * Whether the process is keep alive.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi hide for inner use.
+     */
+    isKeepAlive: boolean;
 }
