@@ -71,7 +71,7 @@ export default class ApplicationStateObserver {
     onProcessDied(processData: ProcessData): void;
 
     /**
-     * Will be called when process state change.
+     * Called when process state changes.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
