@@ -119,12 +119,9 @@ ohos_copy("ets_component") {
   ]
   if (sdk_build_public) {
     sources -= [
-      "api/@internal/component/ets/ability_component.d.ts",
       "api/@internal/component/ets/animator.d.ts",
       "api/@internal/component/ets/calendar.d.ts",
       "api/@internal/component/ets/form_component.d.ts",
-      "api/@internal/component/ets/plugin_component.d.ts",
-      "api/@internal/component/ets/remote_window.d.ts",
     ]
   }
   outputs = [ target_out_dir + "/$target_name/{{source_file_part}}" ]
