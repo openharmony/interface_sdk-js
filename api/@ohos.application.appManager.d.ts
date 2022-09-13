@@ -40,7 +40,6 @@ declare namespace appManager {
         STATE_CREATE,
         STATE_FOREGROUND,
         STATE_ACTIVE,
-        STATE_KEEP_ALIVE,
         STATE_BACKGROUND,
         STATE_DESTROY
     }
@@ -57,7 +56,6 @@ declare namespace appManager {
         STATE_CREATE,
         STATE_FOREGROUND,
         STATE_ACTIVE,
-        STATE_KEEP_ALIVE,
         STATE_BACKGROUND,
         STATE_DESTROY
     }
