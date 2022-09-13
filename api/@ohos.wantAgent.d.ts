@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback , Callback} from './basic';
-import Want from './@ohos.application.want';
-import { WantAgentInfo } from './wantAgent/wantAgentInfo';
-import { TriggerInfo } from './wantAgent/triggerInfo';
+import Want from './@ohos.application.Want';
+import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
+import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -81,6 +81,16 @@ declare namespace wantAgent {
    * @param callback Indicates the callback method to be called after the {@link WantAgent} is triggered.
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
+
+  /**
+   * Triggers a WantAgent.
+   *
+   * @since 9
+   * @param WantAgent to trigger.
+   * @param Trigger parameters.
+   * @param callback Indicates the AsyncCallback method to be called after the {@link WantAgent} is triggered.
+   */
+  function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
    * Checks whether two WantAgent objects are equal.
@@ -229,6 +239,24 @@ declare namespace wantAgent {
      */
     extraInfo?: {[key: string]: any};
   }
+
+  /**
+   * Provides the information required for triggering a WantAgent.
+   *
+   * @name TriggerInfo
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  export type TriggerInfo = _TriggerInfo
+
+  /**
+   * Provides the information required for triggering a WantAgent.
+   *
+   * @name WantAgentInfo
+   * @since 9
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   */
+  export type WantAgentInfo = _WantAgentInfo
 }
 
 /**

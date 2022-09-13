@@ -79,7 +79,7 @@ declare namespace usb {
      * Sets the current USB function list in Device mode.
      *
      * @param funcs Numeric mask combination of the supported function list.
-      * @return Returns **true** if the setting is successful; returns **false** otherwise.
+     * @return Returns **true** if the setting is successful; returns **false** otherwise.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -518,7 +518,7 @@ declare namespace usb {
      * Enumerates power role types.
      *
      * @syscap SystemCapability.USB.USBManager
-     *
+     * @systemapi
      * @since 9
      */
     export enum PowerRoleType {
@@ -546,7 +546,7 @@ declare namespace usb {
      * Enumerates data role types.
      *
      * @syscap SystemCapability.USB.USBManager
-     *
+     * @systemapi
      * @since 9
      */
     export enum DataRoleType {
@@ -574,7 +574,7 @@ declare namespace usb {
      * Enumerates port mode types
      *
      * @syscap SystemCapability.USB.USBManager
-     *
+     * @systemapi
      * @since 9
      */
     export enum PortModeType {
@@ -614,7 +614,7 @@ declare namespace usb {
      * Enumerates USB device port roles.
      *
      * @syscap SystemCapability.USB.USBManager
-     *
+     * @systemapi
      * @since 9
      */
     interface USBPortStatus {
@@ -644,7 +644,7 @@ declare namespace usb {
      * Represents a USB device port.
      *
      * @syscap SystemCapability.USB.USBManager
-     *
+     * @systemapi
      * @since 9
      */
     interface USBPort {
@@ -799,6 +799,7 @@ declare namespace usb {
      * Enumerates function modes.
      *
      * @syscap SystemCapability.USB.USBManager
+     * @systemapi
      * @since 9
      */
     export enum FunctionType {

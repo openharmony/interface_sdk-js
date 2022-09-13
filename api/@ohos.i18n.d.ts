@@ -52,6 +52,13 @@ export function getDisplayLanguage(language: string, locale: string, sentenceCas
  * @since 7
  * @systemapi Hide this for inner system use.
  */
+/**
+ * Obtain all languages supported by the system.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @return Returns all languages supported by the system.
+ * @since 9
+ */
 export function getSystemLanguages(): Array<string>;
 
 /**
@@ -62,6 +69,14 @@ export function getSystemLanguages(): Array<string>;
  * @return Returns all regions supported by the system in the language.
  * @since 7
  * @systemapi Hide this for inner system use.
+ */
+/**
+ * Obtain all regions supported by the system in the language.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param { string } language - The language used to get the list of regions.
+ * @return Returns all regions supported by the system in the language.
+ * @since 9
  */
 export function getSystemCountries(language: string): Array<string>;
 
@@ -74,6 +89,15 @@ export function getSystemCountries(language: string): Array<string>;
  * @return Returns whether the current language or region is recommended.
  * @since 7
  * @systemapi Hide this for inner system use.
+ */
+/**
+ * Determine whether the current language or region is recommended.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @param { string } language - The language code.
+ * @param { string } region - The region code.
+ * @return Returns whether the current language or region is recommended.
+ * @since 9
  */
 export function isSuggested(language: string, region?: string): boolean;
 
@@ -142,10 +166,12 @@ export function setSystemLocale(locale: string): boolean;
  *
  * @syscap SystemCapability.Global.I18n
  * @since 8
+ * @deprecated since 9
+ * @useinstead I18NUitl
  */
 export interface Util {
     /**
-     * Convert from unit to to unit and format according to the locale.
+     * Convert from unit to unit and format according to the locale.
      *
      * @syscap SystemCapability.Global.I18n
      * @param fromUnit Information of the unit to be converted.
@@ -154,19 +180,42 @@ export interface Util {
      * @param locale The locale to be used.
      * @param style The style of format.
      * @since 8
+     * @deprecated since 9
+     * @useinstead I18NUtil.unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+}
+
+/**
+ * Provides util functions.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+ export class I18NUtil {
+    /**
+     * Convert from unit to unit and format according to the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { UnitInfo } fromUnit - Information of the unit to be converted.
+     * @param { UnitInfo } toUnit - Information about the unit to be converted to.
+     * @param { number } value - Indicates the number to be formatted.
+     * @param { string } locale - The locale to be used.
+     * @param { string } [ style ] - The style of format.
+     * @since 9
+     */
+    static unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
 
     /**
      * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
      * 'y' stands for year, 'L' stands for month, d stands for day.
      *
      * @syscap SystemCapability.Global.I18n
-     * @param locale Information of the locale
+     * @param { string } locale - Information of the locale
      * @return Returns the string of 'y', 'L', 'd' joined by '-'.
      * @since 9
      */
-    getDateOrder(locale: string): string;
+    static getDateOrder(locale: string): string;
 }
 
 /**
@@ -196,8 +245,17 @@ export interface UnitInfo {
 export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
+     *
+     * @type { string } type
+     * @since 8
      */
-    type: string;
+    /**
+     * Indicates the type to format phone number.
+     *
+     * @type { string } [ type ]
+     * @since 9
+     */
+    type?: string;
 }
 
 /**
@@ -546,10 +604,12 @@ export class IndexUtil {
 }
 
 /**
- * Provides the API for accessing unicode character properties, sunch as whether a character is a digit.
+ * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
  *
  * @syscap SystemCapability.Global.I18n
  * @since 8
+ * @deprecated since 9
+ * @useinstead Unicode
  */
 export class Character {
     /**
@@ -558,6 +618,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a digit character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isDigit
      */
     isDigit(char: string): boolean;
 
@@ -567,6 +630,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a space character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isSpaceChar
      */
     isSpaceChar(char: string): boolean;
 
@@ -576,6 +642,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a whitespace character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isWhitespace
      */
     isWhitespace(char: string): boolean;
 
@@ -585,6 +654,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a RTL character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isRTL
      */
     isRTL(char: string): boolean;
 
@@ -594,6 +666,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a Ideographic character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isIdeograph
      */
     isIdeograph(char: string): boolean;
 
@@ -603,6 +678,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a Letter
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isLetter
      */
     isLetter(char: string): boolean;
 
@@ -612,6 +690,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a LowerCase character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isLowerCase
      */
     isLowerCase(char: string): boolean;
 
@@ -621,6 +702,9 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns true if the character is a UpperCase character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isUpperCase
      */
     isUpperCase(char: string): boolean;
 
@@ -630,8 +714,109 @@ export class Character {
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
      * @return Returns the general category of the specified character.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.getType
      */
     getType(char: string): string;
+}
+
+/**
+ * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+ export class Unicode {
+    /**
+     * Determines whether the specified code point is a digit character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a digit character
+     * @since 9
+     */
+    static isDigit(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a space character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a space character
+     * @since 9
+     */
+    static isSpaceChar(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a whitespace character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a whitespace character
+     * @since 9
+     */
+    static isWhitespace(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a RTL character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a RTL character
+     * @since 9
+     */
+    static isRTL(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Ideographic character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a Ideographic character
+     * @since 9
+     */
+    static isIdeograph(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Letter or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a Letter
+     * @since 9
+     */
+    static isLetter(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a LowerCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a LowerCase character
+     * @since 9
+     */
+    static isLowerCase(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a UpperCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns true if the character is a UpperCase character
+     * @since 9
+     */
+    static isUpperCase(char: string): boolean;
+
+    /**
+     * Get the general category value of the specified character.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @return Returns the general category of the specified character.
+     * @since 9
+     */
+    static getType(char: string): string;
 }
 
 /**

@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import ErrorObserver from './application/ErrorObserver';
+import * as _ErrorObserver from './application/ErrorObserver';
 
 /**
  * This module provides the function of error manager.
@@ -46,6 +46,14 @@ declare namespace errorManager {
      */
     function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
     function unregisterErrorObserver(observerId: number): Promise<void>;
+
+    /**
+     * The observer will be called by system when an error occurs.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    export type ErrorObserver = _ErrorObserver.default
 }
 
 export default errorManager;

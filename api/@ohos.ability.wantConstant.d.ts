@@ -130,14 +130,14 @@ declare namespace wantConstant {
      *
      * @since 8
      */
-     ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
+    ACTION_IMAGE_CAPTURE = "ohos.want.action.imageCapture",
 
     /**
      * Indicates the action of starting a Page ability for Take a video.
      *
      * @since 8
      */
-     ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
+    ACTION_VIDEO_CAPTURE = "ohos.want.action.videoCapture",
 
     /**
      * Indicates the action of showing the application selection dialog box.
@@ -217,7 +217,7 @@ declare namespace wantConstant {
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
 
     /**
-     * Indicates the action of downloading application from application market.
+     * Indicates the action of an application downloaded from the application market.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -226,6 +226,10 @@ declare namespace wantConstant {
 
     /**
      * Indicates the param of sandbox flag.
+    ACTION_MARKET_DOWNLOAD = "ohos.want.action.marketDownload",
+
+    /**
+     * Indicates the action of an application crowdtested from the application market.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -262,21 +266,12 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    DLP_PARAMS_INDEX = "ohos.dlp.params.index",
-
-    /**
-     * Indicates the param of dlp security flag.
-     * 
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     * @permission ohos.permission.ACCESS_DLP_FILE
-     */
-    DLP_PARAMS_INDEX = "ohos.dlp.params.securityFlag"
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
   }
 
   /**
    * the constant for Entity of the want
-   * @name Action
+   * @name Entity
    * @since 6
    * @syscap SystemCapability.Ability.AbilityBase
    * @permission N/A

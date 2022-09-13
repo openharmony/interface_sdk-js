@@ -219,7 +219,16 @@ declare namespace formError {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        ERR_IN_RECOVERY = 36
+        ERR_IN_RECOVERY = 36,
+
+        /**
+         * Distributed scheduling failed
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         * @systemapi hide for inner use.
+         */
+        ERR_DISTRIBUTED_SCHEDULE_FAILED = 37
     }
 }
 export default formError;

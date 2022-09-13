@@ -44,7 +44,7 @@ export interface OnReleaseCallBack {
  * @return rpc.Sequenceable
  * @StageModelOnly
  */
-export interface CaleeCallBack {
+export interface CalleeCallBack {
     (indata: rpc.MessageParcel): rpc.Sequenceable;
 }
 
@@ -123,7 +123,7 @@ export interface Callee {
      * @return -
      * @StageModelOnly
      */
-     on(method: string, callback: CaleeCallBack): void;
+     on(method: string, callback: CalleeCallBack): void;
 
      /**
      * Unregister data listener callback.
@@ -302,4 +302,16 @@ export default class Ability {
      * @StageModelOnly
      */
     dump(params: Array<string>): Array<string>;
+
+    /**
+     * Called when the system has determined to trim the memory, for example, when the ability is running in the
+     * background and there is no enough memory for running as many background processes as possible.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param level Indicates the memory trim level, which shows the current memory usage status.
+     * @return -
+     * @StageModelOnly
+     */
+     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

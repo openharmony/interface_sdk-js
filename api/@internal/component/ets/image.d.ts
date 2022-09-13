@@ -143,6 +143,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   syncLoad(value: boolean): ImageAttribute;
 
   /**
+   * Sets the color filter effect on the image.
+   * @param value ColorFilter object.
+   * @since 9
+   */
+  colorFilter(value: ColorFilter): ImageAttribute;
+
+  /**
+   * Allow replication.
+   * @since 9
+   */
+  copyOption(value: CopyOptions): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    * @since 7
@@ -162,6 +175,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 7
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
+
+  /**
+   * This callback is triggered when an exception occurs during image loading.
+   * The field of "message" carries the detailed information of failed image loading.
+   * @since 9
+   */
+  onError(callback: (event?: { componentWidth: number; componentHeight: number; message: string }) => void): ImageAttribute;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.

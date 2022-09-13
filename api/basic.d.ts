@@ -41,22 +41,28 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  * Defines the basic async callback.
  * @since 6
  */
-export interface AsyncCallback<T> {
+export interface AsyncCallback<T, E = void> {
   /**
    * Defines the callback data.
    * @since 6
    */
-  (err: BusinessError, data: T): void;
+  (err: BusinessError<E>, data: T): void;
 }
 
 /**
  * Defines the error interface.
  * @since 6
  */
-export interface BusinessError extends Error {
+export interface BusinessError<T = void> extends Error {
   /**
    * Defines the basic error code.
    * @since 6
    */
   code: number;
+  /**
+   * Defines the additional information for business
+   * @type { ?T }
+   * @since 9
+   */
+  data?: T;
 }

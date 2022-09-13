@@ -122,6 +122,12 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   show(value: boolean): PanelAttribute;
 
   /**
+   * Called when the panel background mask is requested.
+   * @since 9
+   */
+  backgroundMask(color: ResourceColor): PanelAttribute;
+
+  /**
    * Called when the state of the slidable panel changes.
    * @since 7
    */
@@ -146,6 +152,12 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
       mode: PanelMode,
     ) => void,
   ): PanelAttribute;
+
+  /**
+   * Called when height of the panel is changed
+   * @since 9
+   */
+   onHeightChange(callback: (value: number) => void): PanelAttribute;
 }
 
 declare const Panel: PanelInterface;

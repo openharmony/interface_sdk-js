@@ -22,7 +22,12 @@
 */
 
 declare namespace process {
-
+    /**
+    * The childprocess object can be used to create a new process.
+    * @since 7
+    * @syscap SystemCapability.Utils.Lang
+    * @systemapi Hide this for inner system use
+    */
     export interface ChildProcess {
         /**
         * return pid is the pid of the current process
@@ -263,7 +268,7 @@ declare namespace process {
     * @return Return a child process object.
     */
     function runCmd(command: string,
-        options?: { timeout : number, killSignal : number | string, maxBuffer : number }): ChildProcess;
+        options?: { timeout?: number, killSignal?: number | string, maxBuffer?: number }): ChildProcess;
 
     /**
     * Abort current process

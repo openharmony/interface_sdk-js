@@ -338,7 +338,7 @@ declare namespace reminderAgent {
    * Alarm reminder information.
    *
    * @since 7
-   * @syscap Define alarm reminder object.
+   * @syscap SystemCapability.Notification.ReminderAgent
    */
   interface ReminderRequestAlarm extends ReminderRequest {
     /**

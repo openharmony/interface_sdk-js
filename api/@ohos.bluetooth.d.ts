@@ -178,8 +178,7 @@ declare namespace bluetooth {
      *
      * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
-     * @permission ohos.permission.LOCATION
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
      */
     function startBluetoothDiscovery(): boolean;
 
@@ -363,7 +362,7 @@ declare namespace bluetooth {
      * @return Returns instance of profile.
      * @since 9
      */
-    function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
+    function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
 
     /**
      * Base interface of profile.
@@ -436,16 +435,7 @@ declare namespace bluetooth {
          *
          * @param device The address of the remote device.
          * @return Returns {@link PlayingState} of the remote device.
-         * @deprecated since 9
          * @since 8
-         */
-        /**
-         * Obtains the playing state of device.
-         *
-         * @param device The address of the remote device.
-         * @return Returns {@link PlayingState} of the remote device.
-         * @since 9
-         * @permission ohos.permission.USE_BLUETOOTH
          */
         getPlayingState(device: string): PlayingState;
     }
@@ -628,9 +618,7 @@ declare namespace bluetooth {
          * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
          * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
          * @since 7
-         * @permission ohos.permission.DISCOVER_BLUETOOTH
-         * @permission ohos.permission.MANAGE_BLUETOOTH
-         * @permission ohos.permission.LOCATION
+         * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH and ohos.permission.LOCATION
          */
         function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import AbilityConstant from "./@ohos.application.AbilityConstant";
 import AbilityStageContext from "./application/AbilityStageContext";
 import Want from './@ohos.application.Want';
 import { Configuration } from './@ohos.application.Configuration';
@@ -68,4 +69,16 @@ export default class AbilityStage {
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
+
+    /**
+     * Called when the system has determined to trim the memory, for example, when the ability is running in the
+     * background and there is no enough memory for running as many background processes as possible.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param level Indicates the memory trim level, which shows the current memory usage status.
+     * @return -
+     * @StageModelOnly
+     */
+     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

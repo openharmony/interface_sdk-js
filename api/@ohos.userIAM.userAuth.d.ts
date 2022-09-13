@@ -19,7 +19,6 @@ import { AsyncCallback } from './basic';
  * User authentication
  * @since 6
  * @syscap SystemCapability.UserIAM.UserAuth.Core
- * @permission ohos.permission.ACCESS_BIOMETRIC
  */
 declare namespace userAuth {
     export enum AuthenticationResult {
@@ -106,6 +105,7 @@ declare namespace userAuth {
         /**
          * Execute authentication.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param type Indicates the authentication type.
          * @param level Indicates the security level.
          * @return Returns authentication result, which is specified by AuthenticationResult.
@@ -141,6 +141,7 @@ declare namespace userAuth {
          * Get version information.
          * @since 8
          * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @permission ohos.permission.ACCESS_BIOMETRIC
          * @return Returns version information.
          */
         getVersion() : number;

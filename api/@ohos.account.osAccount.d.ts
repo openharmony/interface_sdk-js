@@ -14,7 +14,7 @@
  */
 
 import distributedAccount from './@ohos.account.distributedAccount'
-import {AsyncCallback} from "./basic";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * This module provides the capability to manage os accounts.
@@ -422,6 +422,7 @@ declare namespace osAccount {
          * @since 9
          * @return Returns {@code true} if current process belongs to the main os account;
          *         returns {@code false} otherwise.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @systemapi Hide this for inner system use.
          */
         isMainOsAccount(callback: AsyncCallback<boolean>): void;
@@ -809,10 +810,11 @@ declare namespace osAccount {
          * @param authType Indicates the authentication type.
          * @param callback Indicates the callback to get all registered credential information of
          * the specified type for the current user.
-         * @permission ohos.permission.ACCESS_USER_IDM
+         * @permission ohos.permission.USE_USER_IDM
          * @systemapi Hide this for inner system use.
          */
-        getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>, authType?: AuthType): void;
+        getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
+        getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
         getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
     }
 
@@ -849,10 +851,11 @@ declare namespace osAccount {
          * Notifies to get data.
          *
          * @since 8
+         * @param pinSubType Indicates the credential subtype for authentication.
          * @param callback Indicates the password data callback.
          * @systemapi Hide this for inner system use.
          */
-        onGetData: (callback: IInputData) => void;
+        onGetData: (pinSubType: AuthSubType, callback: IInputData) => void;
     }
 
     /**

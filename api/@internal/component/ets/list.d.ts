@@ -62,6 +62,30 @@ declare enum ListItemAlign {
 }
 
 /**
+ * Declare item group sticky style.
+ * @since 9
+ */
+ declare enum StickyStyle {
+  /**
+   * The header and footer of each item group will not be pinned.
+   * @since 9
+   */
+  None = 0,
+
+  /**
+   * The header of each item group will be pinned.
+   * @since 9
+   */
+  Header = 1,
+
+  /**
+   * The footer of each item group will be pinned.
+   * @since 9
+   */
+  Footer = 2,
+}
+
+/**
  * The list interface is extended.
  * @since 7
  */
@@ -143,6 +167,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @since 7
    */
   chainAnimation(value: boolean): ListAttribute;
+
+  /**
+   * Called when header or footer of item group will be pinned.
+   * @since 9
+   */
+  sticky(value: StickyStyle): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

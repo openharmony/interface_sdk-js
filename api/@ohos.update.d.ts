@@ -75,6 +75,15 @@ declare namespace update {
         getNewVersionInfo(): Promise<NewVersionInfo>;
 
         /**
+         * Get new version description.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @since 9
+         */
+        getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
+        getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
+
+        /**
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
@@ -82,6 +91,15 @@ declare namespace update {
          */
         getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
         getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
+
+        /**
+         * Get current version description.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @since 9
+         */
+        getCurrentVersionDescription(descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
+        getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
         /**
          * Get task info.
@@ -156,8 +174,8 @@ declare namespace update {
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
-        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<number>): void;
-        setUpgradePolicy(policy: UpgradePolicy): Promise<number>;
+        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
+        setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
         /**
          * terminate upgrade task.
@@ -215,8 +233,8 @@ declare namespace update {
          * @permission ohos.permission.UPDATE_SYSTEM
          * @since 9
          */
-        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<number>): void;
-        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<number>;
+        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
+        verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
         /**
          * Apply local update package.
@@ -348,6 +366,13 @@ declare namespace update {
      */
     export interface VersionComponent {
         /**
+         * Component id
+         *
+         * @since 9
+         */
+        componentId: string;
+
+        /**
          * Component type
          *
          * @since 9
@@ -388,6 +413,48 @@ declare namespace update {
          * @since 9
          */
         effectiveMode: EffectiveMode;
+
+        /**
+         * Description info
+         *
+         * @since 9
+         */
+        descriptionInfo: DescriptionInfo;
+    }
+
+    /**
+     * Represents description options.
+     *
+     * @since 9
+     */
+    export interface DescriptionOptions {
+        /**
+         * Description format
+         *
+         * @since 9
+         */
+        format: DescriptionFormat;
+
+        /**
+         * Description language
+         *
+         * @since 9
+         */
+        language: string;
+    }
+
+    /**
+     * Represents version component description.
+     *
+     * @since 9
+     */
+    export interface ComponentDescription {
+        /**
+         * Component id
+         *
+         * @since 9
+         */
+        componentId: string;
 
         /**
          * Description info
@@ -759,8 +826,7 @@ declare namespace update {
      * @since 9
      */
     export enum BusinessSubType {
-        FIRMWARE = 1,
-        PARAM = 2
+        FIRMWARE = 1
     }
 
     /**
@@ -804,6 +870,16 @@ declare namespace update {
     }
 
     /**
+     * Enumerates description format.
+     *
+     * @since 9
+     */
+    export enum DescriptionFormat {
+        STANDARD = 0,
+        SIMPLIFIED = 1
+    }
+
+    /**
      * Enumerates network type.
      *
      * @since 9
@@ -811,7 +887,9 @@ declare namespace update {
     export enum NetType {
         CELLULAR = 1,
         METERED_WIFI = 2,
-        NOT_METERED_WIFI = 4
+        NOT_METERED_WIFI = 4,
+        WIFI = 6,
+        CELLULAR_AND_WIFI = 7
     }
 
     /**
@@ -822,7 +900,9 @@ declare namespace update {
     export enum Order {
         DOWNLOAD = 1,
         INSTALL = 2,
-        APPLY = 4
+        DOWNLOAD_AND_INSTALL = 3,
+        APPLY = 4,
+        INSTALL_AND_APPLY = 6
     }
 
     /**

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
-import Want from "./@ohos.application.want";
-import rpc from "./@ohos.rpc"
+import { AsyncCallback, Callback } from './basic';
+import Want from './@ohos.application.Want';
+import rpc from './@ohos.rpc'
 
 /**
  * This module provides the capability to manage application accounts.
@@ -262,6 +262,16 @@ declare namespace appAccount {
          */
         getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): void;
         getAssociatedData(name: string, key: string): Promise<string>;
+
+        /**
+         * Obtains data associated with the specified account synchronously.
+         *
+         * @since 9
+         * @param name Indicates the name of the application account.
+         * @param key Indicates the key of the data to obtain.
+         * @return Returns the associated data of the application account.
+         */
+        getAssociatedDataSync(name: string, key: string): string;
 
         /**
          * Subscribes to the change events of accounts of the specified owners.

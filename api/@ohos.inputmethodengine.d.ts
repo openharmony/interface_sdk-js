@@ -14,11 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
-import { ConnectOptions } from "./ability/connectOptions";
-import ExtensionContext from './application/ExtensionContext';
-import { ExtensionAbilityInfo } from "./bundle/extensionAbilityInfo";
 
 /**
  * inputmethodengine
@@ -59,6 +54,34 @@ declare namespace inputMethodEngine {
     const OPTION_NO_FULLSCREEN: number;
 
     /**
+     * The move direction of cursor: UP
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_UP: number;
+
+    /**
+     * The move direction of cursor: DOWN
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_DOWN: number;
+
+    /**
+     * The move direction of cursor: LEFT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_LEFT: number;
+
+    /**
+     * The move direction of cursor: RIGHT
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_RIGHT: number;
+
+    /**
      * The window styles for inputmethod ability.
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -77,11 +100,48 @@ declare namespace inputMethodEngine {
 
     interface InputMethodEngine {
         on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
-
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
-        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
+        /**
+         * Subscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
+        on(type: 'inputStop', callback: () => void): void;
 
+        /**
+         * Unsubscribe 'inputStop'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type inputStop
+         * @param callback
+         * @return -
+         */
+        off(type: 'inputStop', callback: () => void): void;
+
+        /**
+         * Subscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
+        on(type: 'setCallingWindow', callback: (wid:number) => void): void;
+
+        /**
+         * Unsubscribe 'setCallingWindow'.
+         * @since 9
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @param type setCallingWindow
+         * @param callback
+         * @return -
+         */
+        off(type: 'setCallingWindow', callback: (wid:number) => void): void;
+        on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
     }
 
@@ -115,11 +175,12 @@ declare namespace inputMethodEngine {
         getEditorAttribute(): Promise<EditorAttribute>;
 
         /**
-         * Move curosr from input method.
+         * Move cursor from input method.
          *
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param direction Indicates the distance of cursor to be moved.
+         * @param callback
          * @return -
          * @StageModelOnly
          */
@@ -163,83 +224,6 @@ declare namespace inputMethodEngine {
     interface KeyEvent {
         readonly keyCode: number;
         readonly keyAction: number;
-    }
-
-    /**
-     * The extension context class of input method.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    class InputMethodExtensionContext extends ExtensionContext {
-
-        /**
-         * Input method extension uses this method to start a specific ability.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the ability to start.
-         * @param options Indicates the start options.
-         * @return -
-         * @StageModelOnly
-         */
-        startAbility(want: Want, callback: AsyncCallback<void>): void;
-        startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
-        startAbility(want: Want, options?: StartOptions): Promise<void>;
-
-        /**
-         * Destroy the input method extension.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @return -
-         * @StageModelOnly
-         */
-        terminateSelf(callback: AsyncCallback<void>): void;
-        terminateSelf(): Promise<void>;
-
-    }
-
-    /**
-     * The extension ability class of input method.
-     *
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
-     */
-    class InputMethodExtensionAbility {
-
-        /**
-         * Indicates input method extension ability context.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
-         */
-        context: InputMethodExtensionContext;
-        
-        /**
-         * Called back when a input method extension is started for initialization.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param want Indicates the want of created service extension.
-         * @return -
-         * @StageModelOnly
-         */
-        onCreate(want: Want): void;
-
-        /**
-         * Called back before a input method extension is destroyed.
-         *
-         * @since 9
-         * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @return -
-         * @StageModelOnly
-         */
-        onDestroy(): void;
-
     }
 }
 

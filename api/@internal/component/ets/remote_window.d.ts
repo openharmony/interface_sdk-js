@@ -43,6 +43,8 @@ interface WindowAnimationTarget {
   readonly abilityName: string;
 
   readonly windowBounds: RRect;
+
+  readonly missionId: number;
 }
 
 /**

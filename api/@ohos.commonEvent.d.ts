@@ -837,6 +837,20 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = "common.event.IVI_ACTIVE",
 
     /**
+     * @since 9
+     * The usb state change events.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_STATE = "usual.event.hardware.usb.action.USB_STATE",
+
+    /**
+     * @since 9
+     * The usb port changed.
+     * This is a protected common event that can only be sent by system.
+     */
+    COMMON_EVENT_USB_PORT_CHANGED = "usual.event.hardware.usb.action.USB_PORT_CHANGED",
+
+    /**
      * The usb device attached.
      * This is a protected common event that can only be sent by system.
      */
@@ -978,7 +992,14 @@ declare namespace commonEvent {
      * This common event can be triggered only by system.
      * @since 9
      */
-    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
+
+    /**
+     * Indicate the result of quick fix apply.
+     * This common event can be triggered only by system.
+     * @since 9
+     */
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
   }
 }
 

@@ -51,6 +51,14 @@ declare namespace screenLock {
   function unlockScreen():Promise<void>;
 
   /**
+   * Lock the screen.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function lockScreen(callback: AsyncCallback<boolean>): void;
+  function lockScreen():Promise<boolean>;
+
+  /**
    * Receives {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation} called. 
    * This callback is invoked when {beginWakeUp|endWakeUp|beginScreenOn|endScreenOn|beginScreenOff|endScreenOff|unlockScreen|beginExitAnimation}
    * is called by runtime

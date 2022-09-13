@@ -32,7 +32,7 @@ declare namespace distributedMissionManager {
    * Start sync missions from remote device.
    *
    * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @param parameter Parameters corresponding to mission.
    * @systemapi Hide this for inner system use.
    */
@@ -43,7 +43,7 @@ declare namespace distributedMissionManager {
    * Stop sync missions from remote device.
    *
    * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @param parameter Parameters corresponding to mission.
    * @systemapi Hide this for inner system use.
    */
