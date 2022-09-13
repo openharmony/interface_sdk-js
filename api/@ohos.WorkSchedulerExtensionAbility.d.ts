@@ -21,6 +21,8 @@ import workScheduler from "./@ohos.workScheduler";
  * @since 9
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.resourceschedule.WorkSchedulerExtensionAbility
  */
 export default class WorkSchedulerExtensionAbility {
     /**
@@ -30,6 +32,8 @@ export default class WorkSchedulerExtensionAbility {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @param work The info of work.
+     * @deprecated since 9
+     * @useinstead @ohos.resourceschedule.WorkSchedulerExtensionAbility.onWorkStart
      */
     onWorkStart(work: workScheduler.WorkInfo): void;
 
@@ -40,6 +44,8 @@ export default class WorkSchedulerExtensionAbility {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @param work The info of work.
+     * @deprecated since 9
+     * @useinstead @ohos.resourceschedule.WorkSchedulerExtensionAbility.onWorkStop
      */
     onWorkStop(work: workScheduler.WorkInfo): void;
 }
