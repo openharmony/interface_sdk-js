@@ -17,8 +17,10 @@ const ts = require("typescript");
 const fs = require("fs");
 const { hasAPINote, getAPINote, overwriteIndexOf } = require("./utils");
 const result = require("../check_result.json");
-
-const content = fs.readFileSync("../plugin/dictionaries.txt", "utf-8");
+const path = require('path');
+const content = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8')
+// used in local test
+// const content = fs.readFileSync("../plugin/dictionaries.txt", "utf-8");
 const dictionariesArr = content.split("\n");
 const dictionariesSet = new Set(dictionariesArr);
 
