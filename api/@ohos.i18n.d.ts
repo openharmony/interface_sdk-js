@@ -156,134 +156,134 @@ export function setSystemLocale(locale: string): boolean;
  * @since 9
  * @useinstead I18NUitl
  */
-export interface System {
-	/**
-	 * Obtains the country or region name localized for display on a given locale.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @param country The locale whose country or region name will be displayed.
-	 * @param locale The locale used to display the country or region.
-	 * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
-	 * @throws {BusinessError} if type of country is not valid
-	 * @throws {BusinessError} if type of locale is not valid
-	 * @throws {BusinessError} if country or locale is missed
-	 * @return Returns the country or region name localized for display on a given locale.
-	 * @since 9
-	 */
-	getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
+export class System {
+    /**
+     * Obtains the country or region name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param country The locale whose country or region name will be displayed.
+     * @param locale The locale used to display the country or region.
+     * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
+     * @throws {BusinessError} if type of country is not valid
+     * @throws {BusinessError} if type of locale is not valid
+     * @throws {BusinessError} if country or locale is missed
+     * @return Returns the country or region name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
-	/**
-	 * Obtains the language name localized for display on a given locale.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @param language The locale whose language name will be displayed.
-	 * @param locale The locale used to display the language.
-	 * @param sentenceCase Specifies whether the language name is displayed in sentence case.
-	 * @throws {BusinessError} if type of language is not valid
-	 * @throws {BusinessError} if type of locale is not valid
-	 * @throws {BusinessError} if language or locale is missed
-	 * @return Returns the language name localized for display on a given locale.
-	 * @since 9
-	 */
-	getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
+    /**
+     * Obtains the language name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The locale whose language name will be displayed.
+     * @param locale The locale used to display the language.
+     * @param sentenceCase Specifies whether the language name is displayed in sentence case.
+     * @throws {BusinessError} if type of language is not valid
+     * @throws {BusinessError} if type of locale is not valid
+     * @throws {BusinessError} if language or locale is missed
+     * @return Returns the language name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
-	/**
-	 * Obtain all languages supported by the system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns all languages supported by the system.
-	 * @since 9
-	 */
-	getSystemLanguages(): Array<string>;
+    /**
+     * Obtain all languages supported by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns all languages supported by the system.
+     * @since 9
+     */
+    static getSystemLanguages(): Array<string>;
 
-	/**
-	 * Obtain all regions supported by the system in the language.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @param language The language used to get the list of regions.
-	 * @throws {BusinessError} if type of language is not valid
-	 * @throws {BusinessError} if language is missed
-	 * @return Returns all regions supported by the system in the language.
-	 * @since 9
-	 */
-	getSystemCountries(language: string): Array<string>;
+    /**
+     * Obtain all regions supported by the system in the language.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language used to get the list of regions.
+     * @throws {BusinessError} if type of language is not valid
+     * @throws {BusinessError} if language is missed
+     * @return Returns all regions supported by the system in the language.
+     * @since 9
+     */
+    static getSystemCountries(language: string): Array<string>;
 
-	/**
-	 * Determine whether the current language or region is recommended.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @param language The language code.
-	 * @param region The region code.
-	 * @throws {BusinessError} if type of language is not valid
-	 * @throws {BusinessError} if type of region is not valid
-	 * @throws {BusinessError} if language or region is missed
-	 * @return Returns whether the current language or region is recommended.
-	 * @since 9
-	 */
-	isSuggested(language: string, region?: string);
+    /**
+     * Determine whether the current language or region is recommended.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language code.
+     * @param region The region code.
+     * @throws {BusinessError} if type of language is not valid
+     * @throws {BusinessError} if type of region is not valid
+     * @throws {BusinessError} if language or region is missed
+     * @return Returns whether the current language or region is recommended.
+     * @since 9
+     */
+    static isSuggested(language: string, region?: string);
 
-	/**
-	 * Obtain the language currently used by the system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns the language currently used by the system.
-	 * @since 9
-	 */
-	getSystemLanguage(): string;
+    /**
+     * Obtain the language currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the language currently used by the system.
+     * @since 9
+     */
+    static getSystemLanguage(): string;
 
-	/**
-	 * Set the language currently used by the system.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param language The language to be used.
-	 * @throws {BusinessError} if language is missed
-	 * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @since 9
-	 */
-	setSystemLanguage(language: string);
+    /**
+     * Set the language currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language to be used.
+     * @throws {BusinessError} if language is missed
+     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @since 9
+     */
+    static setSystemLanguage(language: string);
 
-	/**
-	 * Obtain the region currently used by the system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns the region currently used by the system.
-	 * @since 9
-	 */
-	getSystemRegion(): string;
+    /**
+     * Obtain the region currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the region currently used by the system.
+     * @since 9
+     */
+    static getSystemRegion(): string;
 
-	/**
-	 * Set the region currently used by the system.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param region The region to be used.
-	 * @throws {BusinessError} if region is missed
-	 * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @since 9
-	 */
-	setSystemRegion(region: string);
+    /**
+     * Set the region currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param region The region to be used.
+     * @throws {BusinessError} if region is missed
+     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @since 9
+     */
+    static setSystemRegion(region: string);
 
-	/**
-	 * Obtain the locale currently used by the system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns the locale currently used by the system.
-	 * @since 9
-	 */
-	getSystemLocale(): string;
+    /**
+     * Obtain the locale currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the locale currently used by the system.
+     * @since 9
+     */
+    static getSystemLocale(): string;
 
-	/**
-	 * Set the locale currently used by the system.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param locale The locale to be used.
-	 * @throws {BusinessError} if locale is missed
-	 * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @since 9
-	 */
-	setSystemLocale(locale: string);
+    /**
+     * Set the locale currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param locale The locale to be used.
+     * @throws {BusinessError} if locale is missed
+     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @since 9
+     */
+    static setSystemLocale(locale: string);
 }
 
 /**
