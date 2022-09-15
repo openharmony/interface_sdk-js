@@ -320,83 +320,83 @@ export class System {
      */
     static setSystemLocale(locale: string);
 
-	/**
-	 * check out whether system is 24-hour system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns a boolean represent whether system is 24-hour system.
-	 * @since 9
-	 */
-	static is24HourClock(): boolean;
+    /**
+     * check out whether system is 24-hour system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a boolean represent whether system is 24-hour system.
+     * @since 9
+     */
+    static is24HourClock(): boolean;
 
-	/**
-	 * set 24-hour system.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param option represent the boolean to be set.
+    /**
+     * set 24-hour system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param option represent the boolean to be set.
      * @throws {BusinessError} with I18N_NOT_VALID if option is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @return Returns a boolean represent whether setting 24-hour system success.
-	 * @since 9
-	 */
-	static set24HourClock(option: boolean): boolean;
+     * @return Returns a boolean represent whether setting 24-hour system success.
+     * @since 9
+     */
+    static set24HourClock(option: boolean): boolean;
 
-	/**
-	 * Add one language to preferred language List.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param language the language to be added.
-	 * @param index the position of preferred language list to be inserted. 
+    /**
+     * Add one language to preferred language List.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language the language to be added.
+     * @param index the position of preferred language list to be inserted. 
      * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @return Returns a boolean represent whether language added success.
-	 * @since 9
-	 */
-	static addPreferredLanguage(language: string, index?: number): boolean;
+     * @return Returns a boolean represent whether language added success.
+     * @since 9
+     */
+    static addPreferredLanguage(language: string, index?: number): boolean;
 
-	/**
-	 * Remove one language from preferred language list.
-	 *
-	 * @permission ohos.permission.UPDATE_CONFIGURATION
-	 * @syscap SystemCapability.Global.I18n
-	 * @param index the position of removed language in preferred language list.
+    /**
+     * Remove one language from preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param index the position of removed language in preferred language list.
      * @throws {BusinessError} with I18N_NOT_FOUND if index is missed
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-	 * @return Returns a boolean represent whether removed success.
-	 * @since 9
-	 */
-	static removePreferredLanguage(index: number): boolean;
+     * @return Returns a boolean represent whether removed success.
+     * @since 9
+     */
+    static removePreferredLanguage(index: number): boolean;
 
-	/**
-	 * Access the system preferred language list.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns a string Array represent the preferred language list.
-	 * @since 9
-	 */
-	static getPreferredLanguageList(): Array<string>;
+    /**
+     * Access the system preferred language list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string Array represent the preferred language list.
+     * @since 9
+     */
+    static getPreferredLanguageList(): Array<string>;
 
-	/**
-	 * Get the first preferred language of system.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns a string represent the first preferred language of system.
-	 * @since 9
-	 */
-	static getFirstPreferredLanguage(): string;
+    /**
+     * Get the first preferred language of system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represent the first preferred language of system.
+     * @since 9
+     */
+    static getFirstPreferredLanguage(): string;
 
-	/**
-	 * Get the preferred language of App.
-	 *
-	 * @syscap SystemCapability.Global.I18n
-	 * @return Returns a string represent the preferred language of App.
-	 * @since 9
-	 */
-	 static getAppPreferredLanguage(): string;
+    /**
+     * Get the preferred language of App.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represent the preferred language of App.
+     * @since 9
+     */
+     static getAppPreferredLanguage(): string;
 }
 
 /**
