@@ -3344,7 +3344,7 @@ declare namespace distributedData {
          * otherwise closing the database will fail. If you are attempting to close a database that is already closed, an error
          * will be returned.
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param kvStore Indicates the {@code KvStoreV9} database to close.
          * @throws {BusinessError} if process failed.
@@ -3361,7 +3361,7 @@ declare namespace distributedData {
          *
          * <p>You can use this method to delete a {@code KvStoreV9} database not in use. After the database is deleted, all its data will be
          * lost.
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param storeId Identifies the {@code KvStoreV9} database to delete.
          * @throws {BusinessError} if process failed.
@@ -3378,7 +3378,7 @@ declare namespace distributedData {
          * Obtains the storeId of all {@code KvStoreV9} databases that are created by using the {@code getKvStoreV9} method and not deleted by
          * calling the {@code deleteKvStore} method.
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns the storeId of all created {@code KvStore} databases.
          * @throws {BusinessError} if process failed.
@@ -3393,7 +3393,7 @@ declare namespace distributedData {
         /**
          * register DeviceChangeCallback to get notification when device's status changed
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback}
          * @throws {BusinessError} if process failed.
@@ -3405,7 +3405,7 @@ declare namespace distributedData {
         /**
          * unRegister DeviceChangeCallback and can not receive notification
          *
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
          * @throws {BusinessError} if process failed.
