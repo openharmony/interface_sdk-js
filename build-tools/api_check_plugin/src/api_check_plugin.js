@@ -78,6 +78,6 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  return JSON.stringify(result.scanResult);
+  return result.scanResult;
 }
 exports.scanEntry = scanEntry;
