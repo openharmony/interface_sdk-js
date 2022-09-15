@@ -297,12 +297,34 @@ declare namespace deviceManager {
    * @permission NA
    */
   export enum DMErrorCode{
+    /**
+     * Parameter error.
+     */
     NO_PERMISSION = 201,
+
+    /**
+     * Permission denied.
+     */
     INVALID_PARAMS = 401,
 
+    /**
+     * Failed to obtain the service.
+     */
     DM_ERR_OBTAIN_SERVICE = 11600101,
+
+    /**
+     * Wait for device manager service starting timeout.
+     */
     DM_ERR_WAIT_SERVICE_TIMEOUT = 11600102,
+
+    /**
+     * Repeated invocation.
+     */
     DM_ERR_REPEATED_INVOCATION = 11600103,
+
+    /**
+     * Failed to execute the function.
+     */
     DM_ERR_FAILED = 11600104,
   }
 
