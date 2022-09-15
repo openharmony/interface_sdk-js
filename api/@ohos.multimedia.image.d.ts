@@ -45,7 +45,7 @@ declare namespace image {
     RGB_565 = 2,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Components R, G, B, and A each occupies 8 bits
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      * @since 7
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -53,7 +53,7 @@ declare namespace image {
     RGBA_8888 = 3,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Components B, G, R, and A each occupies 8 bits
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -61,7 +61,7 @@ declare namespace image {
     BGRA_8888 = 4,
 
     /**
-     * Indicates that each pixel is stored on 24 bits. Only the R, G, and B each occupies 8 bits
+     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
      * and are stored from the higher-order to the lower-order bits.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -69,7 +69,7 @@ declare namespace image {
     RGB_888 = 5,
 
     /**
-     * Indicates that each pixel is stored on 8 bits. Only the ALPHA which occupies 8 bits
+     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
      * and is stored from the higher-order to the lower-order bits.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -77,7 +77,7 @@ declare namespace image {
     ALPHA_8 = 6,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Components B, G, R, and A each occupies 8 bits
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
      * and are stored from the higher-order to the lower-order bits in F16.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -438,8 +438,8 @@ declare namespace image {
     quality: number;
 
     /**
-     * BufferSize of the target image. The value is an integer which better not be too big.
-     * if this bufferSize is less than or equal to 0, it will be converted to 10MB.
+     * BufferSize of the target image. The value is an integer.
+     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
      * image quality but larger space occupied.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
@@ -1362,7 +1362,7 @@ declare namespace image {
     readonly format: ImageFormat;
 
     /**
-     * get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
+     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
      * and uses a callback to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -1371,7 +1371,7 @@ declare namespace image {
     getReceivingSurfaceId(callback: AsyncCallback<string>): void;
 
     /**
-     * get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
+     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
      * and uses a promise to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -1458,7 +1458,7 @@ declare namespace image {
     readonly format: ImageFormat;
 
     /**
-     * apply for new graphic buffer from free queue and uses a callback to return the result.
+     * Apply for new graphic buffer from free queue and uses a callback to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @param callback Callback to return the operation result.
@@ -1466,7 +1466,7 @@ declare namespace image {
     dequeueImage(callback: AsyncCallback<Image>): void;
 
     /**
-     * apply for new graphic buffer from free queue and uses a promise to return the result.
+     * Apply for new graphic buffer from free queue and uses a promise to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @return A Promise instance used to return the operation result.
@@ -1474,7 +1474,7 @@ declare namespace image {
     dequeueImage(): Promise<Image>;
 
     /**
-     * queue buffer to dirty queue and uses a callback to return the result.
+     * Queue buffer to dirty queue and uses a callback to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @param callback Callback to return the operation result.
@@ -1482,7 +1482,7 @@ declare namespace image {
     queueImage(interface: Image, callback: AsyncCallback<void>): void;
 
     /**
-     * queue buffer to dirty queue and uses a promise to return the result.
+     * Queue buffer to dirty queue and uses a promise to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @return A Promise instance used to return the operation result.
