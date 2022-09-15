@@ -21,7 +21,7 @@ import { AsyncCallback , Callback} from './basic';
  *
  * <p>You can use the methods defined in this class to query
  * the usage history and states of bundles in a specified period.
- * The system stores the query result in a {@link BundleStateInfo} or {@link BundleActiveState} instance and
+ * The system stores the query result in a {@link BundleStatsInfo} instance and
  * then returns it to you.
  *
  * @since 9
@@ -32,9 +32,9 @@ declare namespace usageStatistics {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
-    interface BundleStateInfo {
+    interface BundleStatsInfo {
         /**
-         * the identifier of BundleStateInfo.
+         * the identifier of BundleStatsInfo.
          */
         id: number;
         /**
@@ -85,7 +85,7 @@ declare namespace usageStatistics {
          * @param toMerge Indicates the {@link BundleActiveInfo} object to merge.
          * if the bundle names of the two {@link BundleActiveInfo} objects are different.
          */
-        merge(toMerge: BundleStateInfo): void;
+        merge(toMerge: BundleStatsInfo): void;
     }
 
     /**
@@ -93,7 +93,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      */
-    interface BundleActiveFormInfo {
+    interface HapFormInfo {
         /**
          * the form name.
          */
@@ -121,7 +121,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      */
-    interface BundleActiveModuleInfo {
+    interface HapModuleInfo {
         /**
          * the device id of module.
          */
@@ -173,7 +173,7 @@ declare namespace usageStatistics {
         /**
          * the form usage record list of current module.
          */
-        formRecords: Array<BundleActiveFormInfo>;
+        formRecords: Array<HapModuleInfo>;
     }
 
     /**
@@ -181,7 +181,7 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      */
-    interface BundleActiveEventState {
+    interface DeviceEventStats {
         /**
          * the bundle name or system event name.
          */
@@ -202,11 +202,11 @@ declare namespace usageStatistics {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
-     interface BundleActiveState {
+     interface BundleEvents {
         /**
-         * the usage priority group of the application.
+         * the usage group of the application.
          */
-        appUsagePriorityGroup?: number;
+        appUsageGroup?: number;
         /**
          * the bundle name.
          */
@@ -222,18 +222,18 @@ declare namespace usageStatistics {
         /**
          * the time when this state occurred, in milliseconds.
          */
-        stateOccurredTime?: number;
+        eventOccurredTime?: number;
         /**
-         * the state type.
+         * the event type.
          */
-        stateType?: number;
+        eventId?: number;
     }
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      */
-    interface BundleActiveGroupCallbackInfo {
+    interface AppGroupCallbackInfo {
         /*
          * the usage old group of the application
          */
@@ -271,7 +271,7 @@ declare namespace usageStatistics {
     function isIdleState(bundleName: string): Promise<boolean>;
 
     /**
-     * Queries the usage priority group of the calling application.
+     * Queries the app group of the calling application.
      *
      * <p>The priority defined in a priority group restricts the resource usage of an application,
      * for example, restricting the running of background tasks. </p>
@@ -279,17 +279,17 @@ declare namespace usageStatistics {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the usage priority group of the calling application.
+     * @return Returns the app group of the calling application.
      */
-    function queryAppUsagePriorityGroup(callback: AsyncCallback<number>): void;
-    function queryAppUsagePriorityGroup(): Promise<number>;
+    function queryAppGroup(callback: AsyncCallback<number>): void;
+    function queryAppGroup(): Promise<number>;
 
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
-     interface BundleActiveInfoResponse {
-        [key: string]: BundleStateInfo;
+     interface BundleStatsMap {
+        [key: string]: BundleStatsInfo;
     }
 
     /**
@@ -304,10 +304,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
+     * @return Returns the {@link BundleStatsMap} objects containing the usage information about each bundle.
      */
-    function queryBundleStateInfos(begin: number, end: number, callback: AsyncCallback<BundleActiveInfoResponse>): void;
-    function queryBundleStateInfos(begin: number, end: number): Promise<BundleActiveInfoResponse>;
+    function queryBundleStatsInfos(begin: number, end: number, callback: AsyncCallback<BundleStatsMap>): void;
+    function queryBundleStatsInfos(begin: number, end: number): Promise<BundleStatsMap>;
 
     /**
      * Declares interval type.
@@ -355,10 +355,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
+     * @return Returns the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
      */
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
-    function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
+    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStatsInfo>>): void;
+    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStatsInfo>>;
 
     /**
      * Queries state data of all bundles within a specified period identified by the start and end time.
@@ -370,10 +370,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
+     * @return Returns the list of {@link BundleEvents} objects containing the state data of all bundles.
      */
-    function queryBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
-    function queryBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
+    function queryBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
+    function queryBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
 
     /**
      * Queries state data of the current bundle within a specified period.
@@ -383,10 +383,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the {@link BundleActiveState} object Array containing the state data of the current bundle.
+     * @return Returns the {@link BundleEvents} object Array containing the state data of the current bundle.
      */
-    function queryCurrentBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
-    function queryCurrentBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
+    function queryCurrentBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
+    function queryCurrentBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
 
     /**
      * Queries recently module usage records.
@@ -397,10 +397,23 @@ declare namespace usageStatistics {
      * @systemapi Hide this for inner system use.
      * @param maxNum Indicates max record number in result, max value is 1000, default value is 1000.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the {@link BundleActiveModuleInfo} object Array containing the usage data of the modules.
+     * @return Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
      */
-    function getRecentlyUsedModules(maxNum?: number, callback: AsyncCallback<Array<BundleActiveModuleInfo>>): void;
-    function getRecentlyUsedModules(maxNum?: number): Promise<Array<BundleActiveModuleInfo>>;
+    function queryModuleUsageRecords(maxNum: number, callback: AsyncCallback<Array<HapModuleInfo>>): void;
+    function queryModuleUsageRecords(maxNum: number): Promise<Array<HapModuleInfo>>;
+
+    /**
+     * Queries recently module usage records.
+     *
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @systemapi Hide this for inner system use.
+     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @return Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     */
+    function queryModuleUsageRecords(callback: AsyncCallback<Array<HapModuleInfo>>): void;
+    function queryModuleUsageRecords(): Promise<Array<HapModuleInfo>>;
 
     /**
      * Queries the usage priority group of the calling application.
@@ -416,8 +429,8 @@ declare namespace usageStatistics {
      * @throws { BusinessError } If the input parameter is not valid parameter.
      * @return Returns the usage priority group of the calling application.
      */
-     function queryAppUsagePriorityGroup(bundleName? : string, callback: AsyncCallback<number>): void;
-     function queryAppUsagePriorityGroup(bundleName? : string): Promise<number>;
+     function queryAppGroup(bundleName? : string, callback: AsyncCallback<number>): void;
+     function queryAppGroup(bundleName? : string): Promise<number>;
 
      /**
      * Declares group type.
@@ -430,47 +443,47 @@ declare namespace usageStatistics {
         /**
          * Indicates the alive group.
          */
-        ACTIVE_GROUP_ALIVE = 10,
+        ALIVE_GROUP = 10,
 
         /**
          * Indicates the daily group.
          */
-        ACTIVE_GROUP_DAILY = 20,
+        DAILY_GROUP = 20,
 
         /**
          * Indicates the fixed group.
          */
-        ACTIVE_GROUP_FIXED = 30,
+        FIXED_GROUP = 30,
 
         /**
          * Indicates the rare group.
          */
-        ACTIVE_GROUP_RARE = 40,
+        RARE_GROUP = 40,
 
         /**
          * Indicates the limit group.
          */
-         ACTIVE_GROUP_LIMIT = 50,
+         LIMITED_GROUP = 50,
 
          /**
          * Indicates the never group.
          */
-         ACTIVE_GROUP_NEVER = 60
+         NEVER_GROUP = 60
     }
 
     /**
-     * set bundle group by bundleName and number.
+     * set app group by bundleName and number.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
      * @param bundleName, name of the application.
-     * @param newGroup,the group of the application whose name is bundleName.
+     * @param newGroup, the group of the application whose name is bundleName.
      * @throws { BusinessError } If the input parameter is not valid parameter.
      */
-    function setBundleGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
-    function setBundleGroup(bundleName: string, newGroup: GroupType): Promise<void>;
+    function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
+    function setAppGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
     /**
      * register callback to service.
@@ -481,10 +494,10 @@ declare namespace usageStatistics {
      * @systemapi Hide this for inner system use.
      * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed.
+     * @return Returns AppGroupCallbackInfo when the group of bundle changed.
      */
-    function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>, callback: AsyncCallback<void>): void;
-    function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>): Promise<void>;
+    function registerAppGroupCallBack(callback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
+    function registerAppGroupCallBack(callback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
     /**
      * unRegister callback from service.
@@ -495,8 +508,8 @@ declare namespace usageStatistics {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } If the input parameter is not valid parameter.
      */
-    function unRegisterGroupCallBack(callback: AsyncCallback<void>): void;
-    function unRegisterGroupCallBack(): Promise<void>;
+    function unRegisterAppGroupCallBack(callback: AsyncCallback<void>): void;
+    function unRegisterAppGroupCallBack(): Promise<void>;
 
     /*
      * Queries system event states data within a specified period identified by the start and end time.
@@ -508,10 +521,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
+     * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
      */
-    function queryBundleActiveEventStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
-    function queryBundleActiveEventStates(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
+    function queryDeviceEventStates(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+    function queryDeviceEventStates(begin: number, end: number): Promise<Array<DeviceEventStats>>;
 
     /**
      * Queries app notification number within a specified period identified by the start and end time.
@@ -523,10 +536,10 @@ declare namespace usageStatistics {
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
      * @throws { BusinessError } If the input parameter is not valid parameter.
-     * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
+     * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
      */
-    function queryAppNotificationNumber(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
-    function queryAppNotificationNumber(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
+    function queryNotificationNumber(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+    function queryNotificationNumber(begin: number, end: number): Promise<Array<DeviceEventStats>>;
 }
 
 export default usageStatistics;
