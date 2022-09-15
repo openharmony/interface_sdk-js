@@ -15,6 +15,41 @@
 import {BusinessError} from "./basic";
 
 /**
+ * Enumerates error code.
+ *
+ * @since 9
+ */
+export enum I18NErrorCode {
+    /**
+     * The app don't have requested permission
+     *
+     * @since 9
+     */
+    I18N_NO_PERMISSION = 201,
+
+    /**
+     * Input parameter is missing
+     *
+     * @since 9
+     */
+    I18N_NOT_FOUND = 401,
+
+    /**
+     * Unspported para value
+     *
+     * @since 9
+     */
+    I18N_NOT_VALID = 890001,
+
+    /**
+     * Unspported option value
+     *
+     * @since 9
+     */
+    I18N_OPTION_NOT_VALID = 890002,
+}
+
+/**
  * Provides international settings related APIs.
  *
  * @syscap SystemCapability.Global.I18n
@@ -179,9 +214,9 @@ export class System {
      * @param language The locale whose language name will be displayed.
      * @param locale The locale used to display the language.
      * @param sentenceCase Specifies whether the language name is displayed in sentence case.
-     * @throws {BusinessError} if type of language is not valid
-     * @throws {BusinessError} if type of locale is not valid
-     * @throws {BusinessError} if language or locale is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if type of language is not valid
+     * @throws {BusinessError} with I18N_NOT_VALID if type of locale is not valid
+     * @throws {BusinessError} with I18N_NOT_FOUND if language or locale is missed
      * @return Returns the language name localized for display on a given locale.
      * @since 9
      */
@@ -201,8 +236,8 @@ export class System {
      *
      * @syscap SystemCapability.Global.I18n
      * @param language The language used to get the list of regions.
-     * @throws {BusinessError} if type of language is not valid
-     * @throws {BusinessError} if language is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if type of language is not valid
+     * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
      * @return Returns all regions supported by the system in the language.
      * @since 9
      */
@@ -214,9 +249,9 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @param language The language code.
      * @param region The region code.
-     * @throws {BusinessError} if type of language is not valid
-     * @throws {BusinessError} if type of region is not valid
-     * @throws {BusinessError} if language or region is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if type of language is not valid
+     * @throws {BusinessError} with I18N_NOT_VALID if type of region is not valid
+     * @throws {BusinessError} with I18N_NOT_FOUND if language or region is missed
      * @return Returns whether the current language or region is recommended.
      * @since 9
      */
@@ -237,8 +272,8 @@ export class System {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @syscap SystemCapability.Global.I18n
      * @param language The language to be used.
-     * @throws {BusinessError} if language is missed
-     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
+     * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
     static setSystemLanguage(language: string);
@@ -258,8 +293,8 @@ export class System {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @syscap SystemCapability.Global.I18n
      * @param region The region to be used.
-     * @throws {BusinessError} if region is missed
-     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @throws {BusinessError} with I18N_NOT_FOUND if region is missed
+     * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
     static setSystemRegion(region: string);
@@ -279,8 +314,8 @@ export class System {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @syscap SystemCapability.Global.I18n
      * @param locale The locale to be used.
-     * @throws {BusinessError} if locale is missed
-     * @throws {BusinessError} the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @throws {BusinessError} with I18N_NOT_FOUND if locale is missed
+     * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
     static setSystemLocale(locale: string);
