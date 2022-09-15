@@ -298,12 +298,12 @@ declare namespace deviceManager {
    */
   export enum DMErrorCode{
     /**
-     * Parameter error.
+     * Permission denied.
      */
     NO_PERMISSION = 201,
 
     /**
-     * Permission denied.
+     * Parameter error.
      */
     INVALID_PARAMS = 401,
 
