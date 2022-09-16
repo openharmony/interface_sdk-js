@@ -308,19 +308,19 @@ declare namespace deviceManager {
     DM_ERR_OBTAIN_SERVICE = 11600102,
 
     /**
-     * Authention invalid.
+     * Authentication invalid.
      */
-    DM_ERR_AUTHENTION_INVALID = 11600103,
+    DM_ERR_AUTHENTICATION_INVALID = 11600103,
 
     /**
-     * Discovery invaild.
+     * Discovery invalid.
      */
-    DM_ERR_DISCOVERY_INVAILD = 11600104,
+    DM_ERR_DISCOVERY_INVALID = 11600104,
 
     /**
-     * Pubilsh invaild.
+     * Publish invalid.
      */
-    DM_ERR_PUBLISH_INVAILD = 11600105,
+    DM_ERR_PUBLISH_INVALID = 11600105,
   }
 
   /**
@@ -457,7 +457,7 @@ declare namespace deviceManager {
      * @param subscribeInfo subscribe info to discovery device
      * @throws {BusinessError} Input parameter error.
      * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Discovery invaild.
+     * @throws {BusinessError} Discovery invalid.
      * @throws {BusinessError} Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
@@ -471,7 +471,7 @@ declare namespace deviceManager {
      * @param filterOptions filterOptions to filter discovery device
      * @throws {BusinessError} Input parameter error.
      * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Discovery invaild.
+     * @throws {BusinessError} Discovery invalid.
      * @throws {BusinessError} Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
@@ -494,7 +494,7 @@ declare namespace deviceManager {
      * @param publishInfo publish info to Publish discovery device
      * @throws {BusinessError} Input parameter error.
      * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Pubilsh invaild.
+     * @throws {BusinessError} Publish invalid.
      * @throws {BusinessError} Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
