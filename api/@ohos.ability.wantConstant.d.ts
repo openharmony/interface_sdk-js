@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -230,7 +230,47 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest"
+    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest",
+
+    /**
+     * Indicates the param of sandbox flag.
+     * 
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_SANDBOX = "ohos.dlp.params.sandbox",
+
+    /**
+     * Indicates the param of dlp bundle name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_BUNDLE_NAME = "ohos.dlp.params.bundleName",
+
+    /**
+     * Indicates the param of dlp module name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_MODULE_NAME = "ohos.dlp.params.moduleName",
+
+    /**
+     * Indicates the param of dlp ability name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_ABILITY_NAME = "ohos.dlp.params.abilityName",
+
+    /**
+     * Indicates the param of dlp bundle index.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
   }
 
   /**
