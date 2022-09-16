@@ -22,7 +22,7 @@ function checkEntryLocalText(url) {
   result = scanEntry(url);
   const { removeDir } = require(path.resolve(__dirname, "../src/utils"));
   removeDir(path.resolve(__dirname, "../node_modules"));
-  console.log(result)
+  console.log(JSON.stringify(result))
 }
 
 checkEntryLocalText("./mdFiles.txt");
