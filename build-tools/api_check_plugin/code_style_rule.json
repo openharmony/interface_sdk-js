@@ -99,5 +99,10 @@
       "name",
       "undocumented"
     ]
-  }
+  },
+  "namingWhitelist": [
+    "Symbol",
+    "StageModelOnly",
+    "FAModelOnly"
+  ]
 }
