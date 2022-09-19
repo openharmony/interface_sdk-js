@@ -29,6 +29,8 @@ import { ShellCmdResult } from './shellCmdResult';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegator from 'application/abilityDelegator.d'
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.abilityDelegator
  */
 export interface AbilityDelegator {
     /**

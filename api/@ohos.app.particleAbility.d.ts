@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,110 +15,104 @@
 
 import { AsyncCallback } from './basic';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
-import { DataAbilityHelper } from './ability/dataAbilityHelper';
+import { DataAbilityHelper } from './@ohos.app.ability.dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';
 import { ConnectOptions } from './ability/connectOptions';
 import Want from './@ohos.application.Want';
 
 /**
  * A Particle Ability represents an ability with service.
- * @name particleAbility
- * @since 7
+ * @namespace particleAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @permission N/A
- * @FAModelOnly
+ * @famodelonly
+ * @since 9
  */
 declare namespace particleAbility {
   /**
    * Service ability uses this method to start a specific ability.
-   *
-   * @since 7
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param parameter Indicates the ability to start.
-   * @return -
-   * @FAModelOnly
+   * @famodelonly
+   * @since 9
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
+
+  /**
+   * Service ability uses this method to start a specific ability.
+   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @famodelonly
+   * @since 9
+   */
   function startAbility(parameter: StartAbilityParameter): Promise<void>;
 
   /**
    * Destroys this service ability.
-   *
-   * @since 7
+   * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
-   * @FAModelOnly
+   * @famodelonly
+   * @since 9
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
+
+  /**
+   * Destroys this service ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @famodelonly
+   * @since 9
+   */
   function terminateSelf(): Promise<void>;
 
   /**
    * Obtains the dataAbilityHelper.
-   *
-   * @since 7
+   * @param { string } uri - Indicates the path of the file to open.
+   * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param uri Indicates the path of the file to open.
-   * @return Returns the dataAbilityHelper.
-   * @FAModelOnly
+   * @famodelonly
+   * @since 9
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
   /**
-   * Keep this Service ability in the background and display a notification bar.
-   *
-   * @since 7
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param id Identifies the notification bar information.
-   * @param request Indicates the notificationRequest instance containing information for displaying a notification bar.
-   * @FAModelOnly
-   * @deprecated
-   */
-  function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
-  function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
-
-  /**
-   * Cancel background running of this ability to free up system memory.
-   *
-   * @since 7
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @FAModelOnly
-   * @deprecated
-   */
-  function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
-  function cancelBackgroundRunning(): Promise<void>;
-
-  /**
    * Connects an ability to a Service ability.
-   *
-   * @since 7
+   * @param { Want } request - Indicates the Service ability to connect.
+   * @param { ConnectOptions } options - Callback object for the client. If this parameter is null, an exception is thrown.
+   * @returns { number } Returns the unique identifier of the connection between the client and the service side.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @param request Indicates the Service ability to connect.
-   * @param options Callback object for the client. If this parameter is null, an exception is thrown.
-   * @return unique identifier of the connection between the client and the service side.
-   * @FAModelOnly
+   * @famodelonly
+   * @since 9
    */
-   function connectAbility(request: Want, options:ConnectOptions): number;
+  function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
-  * Disconnects ability to a Service ability.
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @param connection the connection id returned from connectAbility api.
-  * @FAModelOnly
-  */
-   function disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-   function disconnectAbility(connection: number): Promise<void>;
+   * Disconnects ability to a Service ability.
+   * @param { number } connection - the connection id returned from connectAbility api.
+   * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @famodelonly
+   * @since 9
+   */
+  function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-  * Obtain the errorCode.
-  *
-  * @since 7
-  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-  * @FAModelOnly
-  */
-  export enum ErrorCode {
-    INVALID_PARAMETER = -1
-  }
+   * Disconnects ability to a Service ability.
+   * @param { number } connection - the connection id returned from connectAbility api.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @famodelonly
+   * @since 9
+   */
+  function disconnectAbility(connection: number): Promise<void>;
 }
 export default particleAbility;

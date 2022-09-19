@@ -27,6 +27,8 @@ import Want from './@ohos.application.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.particleAbility
  */
 declare namespace particleAbility {
   /**

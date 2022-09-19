@@ -18,40 +18,45 @@ import * as _ErrorObserver from './application/ErrorObserver';
 
 /**
  * This module provides the function of error manager.
- *
- * @since 9
+ * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import errorManager from '@ohos.application.errorManager'
- * @permission N/A
+ * @since 9
  */
 declare namespace errorManager {
     /**
      * Register error observer.
-     *
-     * @default -
-     * @since 9
+     * @param { ErrorObserver } observer - The error observer.
+     * @returns { number } Returns the number code of the observer.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The error observer.
-     * @return Returns the number code of the observer.
+     * @since 9
      */
     function registerErrorObserver(observer: ErrorObserver): number;
 
     /**
      * Unregister error observer.
-     *
-     * @since 9
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @param { AsyncCallback<void> } callback - The callback of unregisterErrorObserver.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observerId Indicates the number code of the observer.
-     * @return -
+     * @since 9
      */
-    function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
+    function unregisterErrorObserver(observerId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unregister error observer.
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     function unregisterErrorObserver(observerId: number): Promise<void>;
 
     /**
      * The observer will be called by system when an error occurs.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export type ErrorObserver = _ErrorObserver.default
 }

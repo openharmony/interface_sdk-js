@@ -27,6 +27,8 @@ import ApplicationContext from "./ApplicationContext";
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.Context
  */
 export default class Context extends BaseContext {
     /**

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,22 +13,21 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from '../basic';
-import ResultSet from '../data/rdb/resultSet';
-import { PacMap } from './dataAbilityHelper';
-import { DataAbilityOperation } from './dataAbilityOperation';
-import { DataAbilityResult } from './dataAbilityResult';
-import dataAbility from '../@ohos.data.dataAbility';
-import rdb from '../@ohos.data.rdb';
+import { AsyncCallback } from './basic';
+import { ResultSet } from './data/rdb/resultSet';
+import { DataAbilityOperation } from './ability/dataAbilityOperation';
+import { DataAbilityResult } from './ability/dataAbilityResult';
+import dataAbility from './@ohos.data.dataAbility';
+import rdb from './@ohos.data.rdb';
 
 /**
- * DataAbilityUtils
+ * DataAbilityHelper
  * @interface
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @famodelonly
  * @since 9
  */
-export interface DataAbilityUtils {
+export interface DataAbilityHelper {
     /**
      * Opens a file in a specified remote path.
      * @param { string } uri - Indicates the path of the file to open.
@@ -38,7 +37,7 @@ export interface DataAbilityUtils {
      *                          "rw" for read and write access on any existing data, or "rwt" for read and write access
      *                          that truncates any existing file.
      * @param { AsyncCallback<number> } callback - The callback is used to return the file descriptor.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -54,7 +53,7 @@ export interface DataAbilityUtils {
      *                          "rw" for read and write access on any existing data, or "rwt" for read and write access
      *                          that truncates any existing file.
      * @returns { Promise<number> } Returns the promise of file descriptor.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -66,7 +65,7 @@ export interface DataAbilityUtils {
      * @param { string } type - dataChange.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback when dataChange.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -78,7 +77,7 @@ export interface DataAbilityUtils {
      * @param { string } type - dataChange.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback when dataChange.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -89,7 +88,7 @@ export interface DataAbilityUtils {
      * Obtains the MIME type of the date specified by the given URI.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<string> } callback - The callback is used to return the MIME type.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -100,7 +99,7 @@ export interface DataAbilityUtils {
      * Obtains the MIME type of the date specified by the given URI.
      * @param { string } uri - Indicates the path of the data to operate.
      * @returns { Promise<string> } Returns the promise of MIME type that matches the data specified by uri.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -112,7 +111,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of the files to obtain.
      * @param { string } mimeTypeFilter - Indicates the MIME types of the files to obtain.
      * @param { AsyncCallback<Array<string>> } callback - The callback is used to return the matched MIME types Array.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -124,7 +123,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of the files to obtain.
      * @param { string } mimeTypeFilter - Indicates the MIME types of the files to obtain.
      * @returns { Promise<Array<string>> } Returns the promise of matched MIME types Array.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -135,7 +134,7 @@ export interface DataAbilityUtils {
      * Converts the given uri that refers to the Data ability into a normalized uri.
      * @param { string } uri - Indicates the uri object to normalize.
      * @param { AsyncCallback<string> } callback - The callback is used to return the normalized uri object.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -146,7 +145,7 @@ export interface DataAbilityUtils {
      * Converts the given uri that refers to the Data ability into a normalized uri.
      * @param { string } uri - Indicates the uri object to normalize.
      * @returns { Promise<string> } Returns the promise of normalized uri object.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -157,7 +156,7 @@ export interface DataAbilityUtils {
      * Converts the given normalized uri generated by normalizeUri(uri) into a denormalized one.
      * @param { string } uri - Indicates the uri object to normalize.
      * @param { AsyncCallback<string> } callback - The callback is used to return the denormalized uri object.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -168,7 +167,7 @@ export interface DataAbilityUtils {
      * Converts the given normalized uri generated by normalizeUri(uri) into a denormalized one.
      * @param { string } uri - Indicates the uri object to normalize.
      * @returns { Promise<string> } Returns the denormalized uri object.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -179,7 +178,7 @@ export interface DataAbilityUtils {
      * Notifies the registered observers of a change to the data resource specified by uri.
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { AsyncCallback<void> } callback - The callback of notifyChange.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -190,7 +189,7 @@ export interface DataAbilityUtils {
      * Notifies the registered observers of a change to the data resource specified by uri.
      * @param { string } uri - Indicates the path of the data to operate.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -203,7 +202,7 @@ export interface DataAbilityUtils {
      * @param { rdb.ValuesBucket } valuesBucket - Indicates the data record to insert. If this parameter is null,
      *                                            a blank row will be inserted.
      * @param { AsyncCallback<number> } callback - The callback is used to return the index of the inserted data record.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -216,7 +215,7 @@ export interface DataAbilityUtils {
      * @param { rdb.ValuesBucket } valuesBucket - Indicates the data record to insert. If this parameter is null,
      *                                            a blank row will be inserted.
      * @returns { Promise<number> } Returns the index of the inserted data record.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -228,7 +227,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of the data to batchInsert.
      * @param { Array<rdb.ValuesBucket> } valuesBuckets - Indicates the data records to insert.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of data records inserted.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -240,7 +239,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of the data to batchInsert.
      * @param { Array<rdb.ValuesBucket> } valuesBuckets - Indicates the data records to insert.
      * @returns { Promise<number> } Returns the number of data records inserted.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -254,7 +253,7 @@ export interface DataAbilityUtils {
      *                                                           processing logic when this parameter is null.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of data records deleted.
      * @returns { Promise<number> } Returns the number of data records deleted.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -267,7 +266,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define the
      *                                                           processing logic when this parameter is null.
      * @returns { Promise<number> } Returns the number of data records deleted.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -278,7 +277,7 @@ export interface DataAbilityUtils {
      * Deletes one or more data records from the database.
      * @param { string } uri - Indicates the path of the data to delete.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of data records deleted.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -292,7 +291,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define
      *                                                           the processing logic when this parameter is null.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of data records updated.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -306,7 +305,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define
      *                                                           the processing logic when this parameter is null.
      * @returns { Promise<number> } Returns the number of data records updated.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -318,7 +317,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of data to update.
      * @param { rdb.ValuesBucket } valuesBucket - Indicates the data to update.
      * @param { AsyncCallback<number> } callback - The callback is used to return the number of data records updated.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -332,7 +331,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define
      *                                                           the processing logic when this parameter is null.
      * @param { AsyncCallback<ResultSet> } callback - The callback is used to return the query result {@link ResultSet}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -343,7 +342,7 @@ export interface DataAbilityUtils {
      * Queries data in the database.
      * @param { string } uri - Indicates the path of data to query.
      * @param { AsyncCallback<ResultSet> } callback - The callback is used to return the query result {@link ResultSet}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -355,7 +354,7 @@ export interface DataAbilityUtils {
      * @param { string } uri - Indicates the path of data to query.
      * @param { Array<string> } columns - Indicates the columns to query. If this parameter is null, all columns are queried.
      * @param { AsyncCallback<ResultSet> } callback - The callback is used to return the query result {@link ResultSet}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -368,7 +367,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define
      *                                                           the processing logic when this parameter is null.
      * @param { AsyncCallback<ResultSet> } callback - The callback is used to return the query result {@link ResultSet}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -382,7 +381,7 @@ export interface DataAbilityUtils {
      * @param { dataAbility.DataAbilityPredicates } predicates - Indicates filter criteria. You should define
      *                                                           the processing logic when this parameter is null.
      * @returns { Promise<ResultSet> } Returns the query result {@link ResultSet}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -400,7 +399,7 @@ export interface DataAbilityUtils {
      * If the PacMap object is to be transferred to a non-OHOS process,
      * values of primitive types are supported, but not custom Sequenceable objects.
      * @param { AsyncCallback<PacMap> } callback - The callback is used to return the query result {@link PacMap}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -418,7 +417,7 @@ export interface DataAbilityUtils {
      * If the PacMap object is to be transferred to a non-OHOS process,
      * values of primitive types are supported, but not custom Sequenceable objects.
      * @returns { Promise<PacMap> } Returns the query result {@link PacMap}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -432,7 +431,7 @@ export interface DataAbilityUtils {
      *                                                     multiple operations on the database.
      * @param { AsyncCallback<Array<DataAbilityResult>> } callback - The callback is used to return the result of each
      *                                                               operation, in array {@link DataAbilityResult}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
@@ -445,10 +444,31 @@ export interface DataAbilityUtils {
      * @param { Array<DataAbilityOperation> } operations - Indicates the data operation list, which can contain
      *                                                     multiple operations on the database.
      * @returns { Promise<Array<DataAbilityResult>> } Returns the result of each operation, in array {@link DataAbilityResult}.
-     * @throws { BusinessError } If the input parameter is not valid parameter.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @famodelonly
      * @since 9
      */
     executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;
+}
+
+/**
+ * Defines a PacMap object for storing a series of values.
+ * @typedef PacMap
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @famodelonly
+ * @since 9
+ */
+export interface PacMap {
+    /**
+     * Indicates the parameter of the PacMap type.
+     * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+     * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+     * If the PacMap object is to be transferred to a non-OHOS process,
+     * values of primitive types are supported, but not custom Sequenceable objects.
+     * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @famodelonly
+     * @since 9
+     */
+    [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }

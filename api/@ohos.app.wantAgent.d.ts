@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,108 +21,174 @@ import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
  * the bundle name, UID of an {@link WantAgent} object.
- *
- * @name wantAgent
- * @since 7
+ * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import wantAgent from '@ohos.wantAgent';
- * @permission N/A
+ * @since 9
  */
 declare namespace wantAgent {
   /**
    * Obtains the bundle name of a WantAgent.
-   *
-   * @param WantAgent whose bundle name to obtain.
-   * @return Returns the bundle name of the {@link WantAgent} if any.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
+
+  /**
+   * Obtains the bundle name of a WantAgent.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<string> } Returns the bundle name.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function getBundleName(agent: WantAgent): Promise<string>;
 
   /**
    * Obtains the UID of a WantAgent.
-   *
-   * @param WantAgent whose UID to obtain.
-   * @return Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
+   * @returns { Promise<number> } Returns the UID.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
-   *
-   * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
-   * @systemapi Hide this for inner system use.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { AsyncCallback<Want> } callback - The callback is used to return the Want.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
    */
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
    * Obtains the {@link Want} of an {@link WantAgent}.
-   *
-   * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
-   * @systemapi Hide this for inner system use.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<Want> } Returns the Want.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 9
    */
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
    * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
-   *
-   * @param WantAgent to cancel.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { AsyncCallback<void> } callback - The callback of cancel.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function cancel(agent: WantAgent): Promise<void>;
 
   /**
    * Triggers a WantAgent.
-   *
-   * @param WantAgent to trigger.
-   * @param Trigger parameters.
-   * @param callback Indicates the callback method to be called after the {@link WantAgent} is triggered.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
+   * @param { Callback<CompleteData> } callback - The callback is used to return the CompleteData.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
 
   /**
    * Triggers a WantAgent.
-   *
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
+   * @param { AsyncCallback<CompleteData> } callback - The callback is used to return the CompleteData.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
-   * @param WantAgent to trigger.
-   * @param Trigger parameters.
-   * @param callback Indicates the AsyncCallback method to be called after the {@link WantAgent} is triggered.
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
    * Checks whether two WantAgent objects are equal.
-   *
-   * @param WantAgent to compare.
-   * @param WantAgent to compare.
-   * @return Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
+   * @param { AsyncCallback<boolean> } callback - Returns true if the two WantAgents are the same.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether two WantAgent objects are equal.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
+   * @returns { Promise<boolean> } Returns true if the two WantAgents are the same.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
   /**
    * Obtains a WantAgent object.
-   *
-   * @param Information about the WantAgent object to obtain.
-   * @return Returns the created {@link WantAgent} object.
+   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
+   * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
+
+  /**
+   * Obtains a WantAgent object.
+   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
+   * @returns { Promise<WantAgent> } Returns the created WantAgent.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
   /**
    * Obtains the {@link OperationType} of a {@link WantAgent}.
-   *
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
-   * @param agent Indicates the {@link WantAgent} whose {@link OperationType} is to be obtained.
-   * @return Returns the {@link OperationType} of the {@link WantAgent}.
    */
   function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the {@link OperationType} of a {@link WantAgent}.
+   * @param { WantAgent } agent - Indicates the WantAgent.
+   * @returns { Promise<number> } Returns the OperationType of the WantAgent.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
+   */
   function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
    * Enumerates flags for using a WantAgent.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   export enum WantAgentFlags {
     /**
@@ -182,6 +248,9 @@ declare namespace wantAgent {
 
   /**
    * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   export enum OperationType {
     /**
@@ -212,49 +281,63 @@ declare namespace wantAgent {
 
   /**
    * Describes the data returned by after wantAgent.trigger is called.
+   * @typedef CompleteData
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   export interface CompleteData {
     /**
      * Triggered WantAgent.
+     * @type { WantAgent }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     info: WantAgent;
 
     /**
      * Existing Want that is triggered.
+     * @type { Want }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     want: Want;
 
     /**
      * Request code used to trigger the WantAgent.
+     * @type { number }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     finalCode: number;
 
     /**
      * Final data collected by the common event.
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     finalData: string;
 
     /**
      * Extra data collected by the common event.
+     * @type { { [key: string]: any } }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
-    extraInfo?: {[key: string]: any};
+    extraInfo?: { [key: string]: any };
   }
 
   /**
    * Provides the information required for triggering a WantAgent.
-   *
-   * @name TriggerInfo
-   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   export type TriggerInfo = _TriggerInfo
 
   /**
    * Provides the information required for triggering a WantAgent.
-   *
-   * @name WantAgentInfo
-   * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 9
    */
   export type WantAgentInfo = _WantAgentInfo
 }

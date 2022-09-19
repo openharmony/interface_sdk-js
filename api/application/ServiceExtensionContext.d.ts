@@ -29,6 +29,8 @@ import StartOptions from "../@ohos.application.StartOptions";
  * @systemapi hide for inner use.
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.ServiceExtensionContext
  */
 export default class ServiceExtensionContext extends ExtensionContext {
     /**

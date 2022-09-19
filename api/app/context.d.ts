@@ -34,6 +34,8 @@ import bundle from '../@ohos.bundle';
  * @import import abilityManager from 'app/context'
  * @permission N/A
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.featureAbility.context
  */
 export interface Context extends BaseContext {
 
@@ -275,6 +277,8 @@ export interface Context extends BaseContext {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.featureAbility.context
  */
 interface PermissionRequestResult {
     /**
@@ -308,6 +312,8 @@ interface PermissionRequestResult {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.featureAbility.context
  */
 interface PermissionOptions {
  /**

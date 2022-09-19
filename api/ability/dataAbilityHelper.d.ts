@@ -27,7 +27,7 @@ import rdb from '../@ohos.data.rdb';
  * @since 7
  * @FAModelOnly
  * @deprecated since 9
- * @useinstead DataAbilityUtils
+ * @useinstead @ohos.app.ability.dataAbilityHelper
  */
 export interface DataAbilityHelper {
     /**
@@ -43,8 +43,6 @@ export interface DataAbilityHelper {
      * @param callback Indicates the callback when openfile success
      * @return Returns the file descriptor.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.openFile
      */
     openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
     openFile(uri: string, mode: string): Promise<number>;
@@ -59,8 +57,6 @@ export interface DataAbilityHelper {
      * @param callback Indicates the callback when dataChange.
      * @return -
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.on
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
@@ -74,8 +70,6 @@ export interface DataAbilityHelper {
      * @param callback Indicates the registered callback.
      * @return -
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.off
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
@@ -87,8 +81,6 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to operate.
      * @return Returns the MIME type that matches the data specified by uri.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.getType
      */
     getType(uri: string, callback: AsyncCallback<string>): void;
     getType(uri: string): Promise<string>;
@@ -102,8 +94,6 @@ export interface DataAbilityHelper {
      * @param mimeTypeFilter Indicates the MIME types of the files to obtain.
      * @return Returns the matched MIME types Array.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.getFileTypes
      */
     getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
     getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array<string>>;
@@ -116,8 +106,6 @@ export interface DataAbilityHelper {
      * @param uri Indicates the uri object to normalize.
      * @return Returns the normalized uri object if the Data ability supports URI normalization or null.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.normalizeUri
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
     normalizeUri(uri: string): Promise<string>;
@@ -130,8 +118,6 @@ export interface DataAbilityHelper {
      * @param uri Indicates the uri object to normalize.
      * @return Returns the denormalized uri object if the denormalization is successful.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.denormalizeUri
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
     denormalizeUri(uri: string): Promise<string>;
@@ -144,8 +130,6 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of the data to operate.
      * @return -
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.notifyChange
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
     notifyChange(uri: string): Promise<void>;
@@ -159,8 +143,6 @@ export interface DataAbilityHelper {
      * @param valuesBucket Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
      * @return Returns the index of the inserted data record.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.insert
      */
     insert(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
     insert(uri: string, valuesBucket: rdb.ValuesBucket): Promise<number>;
@@ -174,8 +156,6 @@ export interface DataAbilityHelper {
      * @param valuesBuckets Indicates the data records to insert.
      * @return Returns the number of data records inserted.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.batchInsert
      */
     batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
     batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>): Promise<number>;
@@ -189,8 +169,6 @@ export interface DataAbilityHelper {
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the number of data records deleted.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.delete
      */
     delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
     delete(uri: string, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -206,8 +184,6 @@ export interface DataAbilityHelper {
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the number of data records updated.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.update
      */
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -223,8 +199,6 @@ export interface DataAbilityHelper {
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
      * @return Returns the query result {@link ResultSet}.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.query
      */
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
     query(uri: string, callback: AsyncCallback<ResultSet>): void;
@@ -247,8 +221,6 @@ export interface DataAbilityHelper {
      * values of primitive types are supported, but not custom Sequenceable objects.
      * @return Returns the query result {@link PacMap}.
      * @FAModelOnly
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.call
      */
     call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
     call(uri: string, method: string, arg: string, extras: PacMap): Promise<PacMap>;
@@ -261,8 +233,6 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of data to query.
      * @param operations Indicates the data operation list, which can contain multiple operations on the database.
      * @return Returns the result of each operation, in array {@link DataAbilityResult}.
-     * @deprecated since 9
-     * @useinstead DataAbilityUtils.executeBatch
      */
      executeBatch(uri: string, operations: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
      executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;
@@ -273,6 +243,8 @@ export interface DataAbilityHelper {
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.dataAbilityHelper
  */
  export interface PacMap {
   

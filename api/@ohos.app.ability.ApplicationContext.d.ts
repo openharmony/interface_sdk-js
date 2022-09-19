@@ -13,63 +13,81 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import Context from "./Context";
-import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
-import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
+import { AsyncCallback } from "./basic";
+import Context from "./@ohos.app.ability.Context";
+import AbilityLifecycleCallback from "./@ohos.application.AbilityLifecycleCallback";
+import EnvironmentCallback from "./@ohos.application.EnvironmentCallback";
 
 /**
  * The context of an application. It allows access to application-specific resources.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
- * @StageModelOnly
+ * @stagemodelonly
+ * @since 9
  */
 export default class ApplicationContext extends Context {
     /**
      * Register ability lifecycle callback.
-     *
-     * @since 9
+     * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
+     * @returns { number } Returns the number code of the callback.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The ability lifecycle callback.
-     * @return Returns the number code of the callback.
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     registerAbilityLifecycleCallback(callback: AbilityLifecycleCallback): number;
 
     /**
      * Unregister ability lifecycle callback.
-     *
-     * @since 9
+     * @param { number } callbackId - Indicates the number code of the callback.
+     * @param { AsyncCallback<void> } callback - The callback of unregisterAbilityLifecycleCallback.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @return -
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
-    unregisterAbilityLifecycleCallback(callbackId: number,  callback: AsyncCallback<void>): void;
+    unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unregister ability lifecycle callback.
+     * @param { number } callbackId - Indicates the number code of the callback.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
     unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
 
     /**
      * Register environment callback.
-     *
-     * @since 9
+     * @param { EnvironmentCallback } callback - The environment callback.
+     * @returns { number } Returns the number code of the callback.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The environment callback.
-     * @return Returns the number code of the callback.
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     registerEnvironmentCallback(callback: EnvironmentCallback): number;
 
     /**
      * Unregister environment callback.
-     *
-     * @since 9
+     * @param { number } callbackId - Indicates the number code of the callback.
+     * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @return -
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
-    unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
+    unregisterEnvironmentCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unregister environment callback.
+     * @param { number } callbackId - Indicates the number code of the callback.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
     unregisterEnvironmentCallback(callbackId: number): Promise<void>;
 }
