@@ -35,11 +35,9 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/action_sheet.d.ts",
     "api/@internal/component/ets/alert_dialog.d.ts",
     "api/@internal/component/ets/alphabet_indexer.d.ts",
-    "api/@internal/component/ets/animator.d.ts",
     "api/@internal/component/ets/badge.d.ts",
     "api/@internal/component/ets/blank.d.ts",
     "api/@internal/component/ets/button.d.ts",
-    "api/@internal/component/ets/calendar.d.ts",
     "api/@internal/component/ets/canvas.d.ts",
     "api/@internal/component/ets/checkbox.d.ts",
     "api/@internal/component/ets/checkboxgroup.d.ts",
@@ -57,7 +55,6 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/enums.d.ts",
     "api/@internal/component/ets/flex.d.ts",
     "api/@internal/component/ets/for_each.d.ts",
-    "api/@internal/component/ets/form_component.d.ts",
     "api/@internal/component/ets/gauge.d.ts",
     "api/@internal/component/ets/gesture.d.ts",
     "api/@internal/component/ets/grid.d.ts",
@@ -117,8 +114,8 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/web.d.ts",
     "api/@internal/component/ets/xcomponent.d.ts",
   ]
-  if (sdk_build_public) {
-    sources -= [
+  if (!sdk_build_public) {
+    sources += [
       "api/@internal/component/ets/animator.d.ts",
       "api/@internal/component/ets/calendar.d.ts",
       "api/@internal/component/ets/form_component.d.ts",
