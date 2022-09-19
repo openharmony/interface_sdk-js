@@ -12,15 +12,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const result = require("../check_result.json");
 
 // print compile info
-function formatCompileInfo(sourceFile, diagnosises) {
-  const formatDiagnosises = [];
-  diagnosises.forEach((diagnosis, index) => {
-    const posOfNode = sourceFile.getLineAndCharacterOfPosition(diagnosis.pos);
-    diagnosis.column = posOfNode.character + 1;
-    diagnosis.line = posOfNode.line + 1;
-    diagnosis.messageText = ``;
-    formatDiagnosises.push(diagnosis);
-  });
+function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo) {
+  const checkFailFileNameSet = new Set(result.apiFiles);
+    if (!checkFailFileNameSet.has(fileName)) {
+      result.apiFiles.push(fileName);
+    }
+    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
+    // const errorMessage = {
+    //   "error_type": "misspell words",
+    //   "file": fileName,
+    //   "pos": node.pos,
+    //   "column": posOfNode.character + 1,
+    //   "line": posOfNode.line + 1,
+    //   "error_info": `Error basic words in [${nodeText}]: ${errorWords}. ` +
+    //     `Do you want to spell it as [${suggest}]?`
+    // };
+    const errorMessage = `API check error of [${errorType}] in ${fileName}(line:${posOfNode.line + 1}, col:` +
+      `${posOfNode.character + 1}): ${errorInfo}`;
+    const scanResultSet = new Set(result.scanResult);
+    scanResultSet.add(errorMessage);
+    result.scanResult = [...scanResultSet];
 }
+exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

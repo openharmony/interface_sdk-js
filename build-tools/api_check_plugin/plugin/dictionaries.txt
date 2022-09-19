@@ -14935,6 +14935,7 @@ damped
 dampen
 dampener
 damper
+damping
 dampness
 damsel
 damselfly
@@ -30629,6 +30630,7 @@ indubitable
 indubitableness
 indubitably
 induce
+induced
 inducement
 inducer
 inducible
@@ -51536,6 +51538,7 @@ replaces
 replacewith
 replacing
 replay
+replayed
 replenish
 replenishment
 replete

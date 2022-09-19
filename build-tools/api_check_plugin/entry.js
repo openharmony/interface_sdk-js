@@ -27,6 +27,7 @@ function checkEntry(url) {
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
+    result = error;
   }
   return result;
 }

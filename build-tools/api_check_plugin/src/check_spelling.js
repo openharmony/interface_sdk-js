@@ -13,16 +13,15 @@
  * limitations under the License.
  */
 
-const ts = require("typescript");
 const fs = require("fs");
-const { hasAPINote, getAPINote, overwriteIndexOf } = require("./utils");
-const result = require("../check_result.json");
-const path = require('path');
-const content = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8')
-// used in local test
-// const content = fs.readFileSync("../plugin/dictionaries.txt", "utf-8");
+const path = require("path");
+const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
+const { hasAPINote, getAPINote, overwriteIndexOf, error_type } = require("./utils");
+const { addAPICheckErrorLogs } = require("./compile_info");
+const rules = require("../code_style_rule.json");
+const content = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
 const dictionariesArr = content.split("\n");
-const dictionariesSet = new Set(dictionariesArr);
+const dictionariesSet = new Set([...dictionariesArr, ...rules.decorators.customDoc, ...rules.decorators.jsDoc]);
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
@@ -62,23 +61,8 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName) {
         suggest.push(dictionariesArr[indexArr[i]]);
       }
     });
-    const checkFailFileNameSet = new Set(result.apiFiles);
-    if (!checkFailFileNameSet.has(fileName)) {
-      result.apiFiles.push(fileName);
-    }
-    const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-    const errorMessage = {
-      "error_type": "misspell words",
-      "file": fileName,
-      "pos": node.pos,
-      "column": posOfNode.character + 1,
-      "line": posOfNode.line + 1,
-      "error_info": `Error basic words in [${nodeText}]: ${errorWords}. ` +
-        `Do you want to spell it as [${suggest}]?`
-    };
-    const scanResultSet = new Set(result.scanResult);
-    scanResultSet.add(errorMessage);
-    result.scanResult = [...scanResultSet];
+    const errorInfo = `Error words in [${nodeText}]: {${errorWords}}.Do you want to spell it as [${suggest}]?`;
+    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.MISSPELL_WORDS, errorInfo);
   }
 }
 
