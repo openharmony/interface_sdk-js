@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,164 +21,262 @@ import StartOptions from "./@ohos.application.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
- *
- * @name missionManager
- * @since 8
- * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission ohos.permission.MANAGE_MISSIONS
- * @systemapi hide for inner use.
+ * @namespace missionManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+ * @systemapi
+ * @since 9
  */
 declare namespace missionManager {
     /**
      * Register the missionListener to ams.
-     *
-     * @since 8
+     * @param { MissionListener } listener - Indicates the MissionListener to be registered.
+     * @returns { number } Returns the index number of the MissionListener.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param listener Indicates the MissionListener to be registered.
-     * @return The index number of the MissionListener.
+     * @since 9
      */
     function registerMissionListener(listener: MissionListener): number;
 
     /**
      * Unrgister the missionListener to ams.
-     *
-     * @since 8
+     * @param { number } listenerId - Indicates the listener id to be unregistered.
+     * @param { AsyncCallback<void> } callback - The callback of unregisterMissionListener.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param listenerId Indicates the listener id to be unregistered.
-     * @return -
+     * @since 9
      */
     function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unrgister the missionListener to ams.
+     * @param { number } listenerId - Indicates the listener id to be unregistered.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function unregisterMissionListener(listenerId: number): Promise<void>;
 
     /**
      * Get the missionInfo with the given missionId.
-     *
-     * @since 8
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @return the {@link MissionInfo} of the given id.
+     * @since 9
      */
     function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
+
+    /**
+     * Get the missionInfo with the given missionId.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
     /**
      * Get the missionInfo with the given missionId.
-     *
-     * @since 8
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } numMax - Indicates the maximum number of returned missions.
+     * @param { AsyncCallback<Array<MissionInfo>> } callback - The callback is used to return the array of the MissionInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param numMax Indicates the maximum number of returned missions.
-     * @return The array of the {@link MissionInfo}.
+     * @since 9
      */
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
+
+    /**
+     * Get the missionInfo with the given missionId.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } numMax - Indicates the maximum number of returned missions.
+     * @returns { Promise<Array<MissionInfo>> } Returns the array of the MissionInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
 
     /**
      * Get the mission snapshot with the given missionId.
-     *
-     * @since 8
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @return The {@link MissionSnapshot} of the given id.
+     * @since 9
      */
     function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
+
+    /**
+     * Get the mission snapshot with the given missionId.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
      * Get the mission low resolution snapshot with the given missionId.
-     *
-     * @since 9
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @return The {@link MissionSnapshot} of the given id.
+     * @since 9
      */
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
+    function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
+
+    /**
+     * Get the mission low resolution snapshot with the given missionId.
+     * @param { string } deviceId - Indicates the device to be queried.
+     * @param { number } missionId - Indicates mission id to be queried.
+     * @returns { Promise<MissionSnapshot> } Returns the MissionSnapshot of the given id.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
+    function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
      * Lock the mission.
-     *
-     * @since 8
+     * @param { number } missionId - Indicates mission id to be locked.
+     * @param { AsyncCallback<void> } callback - The callback of lockMission.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param missionId Indicates mission id to be locked.
-     * @return -
+     * @since 9
      */
     function lockMission(missionId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Lock the mission.
+     * @param { number } missionId - Indicates mission id to be locked.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function lockMission(missionId: number): Promise<void>;
 
     /**
      * Unlock the mission.
-     *
-     * @since 8
+     * @param { number } missionId - Indicates mission id to be unlocked.
+     * @param { AsyncCallback<void> } callback - The callback of unlockMission.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param missionId Indicates mission id to be unlocked.
-     * @return -
+     * @since 9
      */
     function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unlock the mission.
+     * @param { number } missionId - Indicates mission id to be unlocked.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function unlockMission(missionId: number): Promise<void>;
 
     /**
      * Clear the given mission in the ability manager service.
-     *
-     * @since 8
+     * @param { number } missionId - Indicates mission id to be cleared.
+     * @param { AsyncCallback<void> } callback - The callback of clearMission.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param missionId Indicates mission id to be cleared.
-     * @return -
+     * @since 9
      */
     function clearMission(missionId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Clear the given mission in the ability manager service.
+     * @param { number } missionId - Indicates mission id to be cleared.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function clearMission(missionId: number): Promise<void>;
 
     /**
      * Clear all missions in the ability manager service.
-     *
-     * @since 8
+     * @param { AsyncCallback<void> } callback - The callback of clearAllMissions.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @return -
+     * @since 9
      */
     function clearAllMissions(callback: AsyncCallback<void>): void;
+
+    /**
+     * Clear all missions in the ability manager service.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function clearAllMissions(): Promise<void>;
 
     /**
      * Schedule the given mission to foreground.
-     *
-     * @since 8
+     * @param { number } missionId - Indicates mission id to be moved to foreground.
+     * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param missionId Indicates mission id to be moved to foreground.
-     * @param options Indicates the start options.
-     * @return -
+     * @since 9
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Schedule the given mission to foreground.
+     * @param { number } missionId - Indicates mission id to be moved to foreground.
+     * @param { StartOptions } options - Indicates the start options.
+     * @param { AsyncCallback<void> } callback - The callback of moveMissionToFront.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Schedule the given mission to foreground.
+     * @param { number } missionId - Indicates mission id to be moved to foreground.
+     * @param { StartOptions } options - Indicates the start options.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @since 9
+     */
     function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
 
     /**
      * Mission information corresponding to ability.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type MissionInfo = _MissionInfo
 
     /**
      * MissionListener registered by app.
-     *
-     * @name MissionListener
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type MissionListener = _MissionListener
 
     /**
      * Mission snapshot corresponding to mission.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type MissionSnapshot = _MissionSnapshot
 }

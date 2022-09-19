@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,55 +13,56 @@
  * limitations under the License.
  */
 
+import { BusinessError } from './basic';
+
 /**
  * A utility class used for handling objects that use the DataAbilityHelper scheme.
- * @name dataUriUtils
- * @since 7
+ * @namespace dataUriUtils
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 9
  */
 declare namespace dataUriUtils {
-  /**
-   * Obtains the ID attached to the end of the path component of the given uri.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri object from which the ID is to be obtained.
-   * @return Returns the ID attached to the end of the path component;
-   */
-  function getId(uri: string): number
+    /**
+     * Obtains the ID attached to the end of the path component of the given uri.
+     * @param { string } uri - Indicates the uri object from which the ID is to be obtained.
+     * @returns { number } Returns the ID attached to the end of the path component.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function getId(uri: string): number
 
-  /**
-   * Attaches the given ID to the end of the path component of the given uri.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri string from which the ID is to be obtained.
-   * @param id Indicates the ID to attach.
-   * @return Returns the uri object with the given ID attached.
-   */
-  function attachId(uri: string, id: number): string
+    /**
+     * Attaches the given ID to the end of the path component of the given uri.
+     * @param { string } uri - Indicates the uri string from which the ID is to be obtained.
+     * @param { number } id - Indicates the ID to attach.
+     * @returns { number } Returns the uri object with the given ID attached.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function attachId(uri: string, id: number): string
 
-  /**
-   * Deletes the ID from the end of the path component of the given uri.
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri object from which the ID is to be deleted.
-   * @return Returns the uri object with the ID deleted.
-   */
-  function deleteId(uri: string): string
+    /**
+     * Deletes the ID from the end of the path component of the given uri.
+     * @param { string } uri - Indicates the uri object from which the ID is to be deleted.
+     * @returns { string } Returns the uri object with the ID deleted.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function deleteId(uri: string): string
 
-  /**
-   * Updates the ID in the specified uri
-   *
-   * @since 7
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @param uri Indicates the uri object to be updated.
-   * @param id Indicates the new ID.
-   * @return Returns the updated uri object.
-   */
-  function updateId(uri: string, id: number): string
+    /**
+     * Updates the ID in the specified uri.
+     * @param { string } uri - Indicates the uri object to be updated.
+     * @param { number } id - Indicates the new ID.
+     * @returns { string } Returns the updated uri object.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function updateId(uri: string, id: number): string
 
 }
 export default dataUriUtils;

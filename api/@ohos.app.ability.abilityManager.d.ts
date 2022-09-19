@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,19 +21,18 @@ import { ElementName }  from './bundle/elementName';
 
 /**
  * The class of an ability manager.
- *
- * @since 8
+ * @namespace abilityManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi Hide this for inner system use
- * @permission N/A
+ * @systemapi
+ * @since 9
  */
 declare namespace abilityManager {
     /**
-     * @name AbilityState
-     * @since 8
+     * Enum for the ability state
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
+     * @systemapi
+     * @since 9
      */
     export enum AbilityState {
         INITIAL = 0,
@@ -45,68 +44,107 @@ declare namespace abilityManager {
 
     /**
      * Updates the configuration by modifying the configuration.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the new configuration.
-     * @systemapi Hide this for inner system use.
-     * @return -
      * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { Configuration } config - Indicates the new configuration.
+     * @param { AsyncCallback<void> } callback - The callback of updateConfiguration.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
     function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
+
+    /**
+     * Updates the configuration by modifying the configuration.
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { Configuration } config - Indicates the new configuration.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function updateConfiguration(config: Configuration): Promise<void>;
 
     /**
-     * Get information about running abilitys
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link AbilityRunningInfo}.
+     * Get information about running abilities
      * @permission ohos.permission.GET_RUNNING_INFO
+     * @returns { Promise<Array<AbilityRunningInfo>> } Returns the array of AbilityRunningInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
+
+    /**
+     * Get information about running abilities
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of AbilityRunningInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
 
     /**
      * Get information about running extensions
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param upperLimit Get the maximum limit of the number of messages
-     * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link ExtensionRunningInfo}.
      * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { number } upperLimit - Get the maximum limit of the number of messages.
+     * @returns { Promise<Array<ExtensionRunningInfo>> } Returns the array of ExtensionRunningInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
+
+    /**
+     * Get information about running extensions
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { number } upperLimit - Get the maximum limit of the number of messages.
+     * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - The callback is used to return the array of ExtensionRunningInfo.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
 
     /**
      * Get the top ability information of the display.
-     *
-     * @since 9
+     * @returns { Promise<ElementName> } Returns the elementName info of the top ability.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @return Returns the {@link ElementName} info of the top ability.
+     * @systemapi
+     * @since 9
      */
     function getTopAbility(): Promise<ElementName>;
+
+    /**
+     * Get the top ability information of the display.
+     * @param { AsyncCallback<ElementName> } callback - The callback is used to return the elementName info of the top ability.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
     /**
      * The class of an ability running information.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
+     * @systemapi
+     * @since 9
      */
     export type AbilityRunningInfo = _AbilityRunningInfo
 
     /**
      * The class of an extension running information.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
+     * @systemapi
+     * @since 9
      */
     export type ExtensionRunningInfo = _ExtensionRunningInfo
 }

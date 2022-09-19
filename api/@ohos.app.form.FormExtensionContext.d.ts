@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,30 +13,28 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "../basic";
-import ExtensionContext from "./ExtensionContext";
-import formBindingData from '../@ohos.application.formBindingData';
-import Want from '../@ohos.application.Want';
+import { AsyncCallback } from "./basic";
+import ExtensionContext from "./application/ExtensionContext";
+import formBindingData from './@ohos.app.form.formBindingData';
+import Want from './@ohos.application.Want';
 
 /**
  * The context of form extension. It allows access to
  * formExtension-specific resources.
- *
- * @since 9
  * @syscap SystemCapability.Ability.Form
- * @permission N/A
- * @StageModelOnly
+ * @stagemodelonly
+ * @since 9
  */
 export default class FormExtensionContext extends ExtensionContext {
     /**
      * start an ability within the same bundle.
-     *
-     * @since 9
+     * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Ability.Form
-     * @systemapi hide for inner use
-     * @param want includes ability name, parameters and relative info sending to an ability.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
     startAbility(want: Want): Promise<void>;

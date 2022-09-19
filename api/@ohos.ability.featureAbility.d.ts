@@ -32,6 +32,8 @@ import window from './@ohos.window';
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @permission N/A
  * @FAModelOnly
+ * @deprecated since 9
+ * @useinstead @ohos.app.featureAbility
  */
 declare namespace featureAbility {
   /**

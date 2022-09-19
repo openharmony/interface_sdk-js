@@ -22,6 +22,8 @@ import { AsyncCallback } from "./basic";
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.QuickFix
  * @systemapi Hide this for inner system use.
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.quickFixManager
  */
 declare namespace quickFixManager {
     /**
