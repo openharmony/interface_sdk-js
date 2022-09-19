@@ -14,7 +14,6 @@
  */
 
 import Want from "../@ohos.application.Want";
-import { Resource } from "../global/resource";
 
 /**
  * Mission information corresponding to ability.
@@ -88,28 +87,4 @@ export interface MissionInfo {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      */
      continuable: boolean;
-
-    /**
-     * Indicates labelId of the mission.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    labelRes: Resource;
-
-    /**
-     * Indicates label id of the mission setted by user.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-     userLabelRes: Resource;
-
-     /**
-     * Indicates label string of the mission setted by user.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     */
-    userLabel: string;
 }

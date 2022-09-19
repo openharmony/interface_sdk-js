@@ -26,7 +26,6 @@ import { Configuration } from '../@ohos.application.Configuration';
 import Caller from '../@ohos.application.Ability';
 import { LocalStorage } from '../@internal/component/ets/stateManagement';
 import image from '../@ohos.multimedia.image';
-import { Resource } from "../global/resource";
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -267,17 +266,6 @@ export default class AbilityContext extends Context {
      */
      setMissionLabel(label: string, callback:AsyncCallback<void>): void;
      setMissionLabel(label: string): Promise<void>;
-
-    /**
-     * Set mission label id of current ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param label The resource of label of the ability that showed in recent missions.
-     * @StageModelOnly
-     */
-    setMissionLabelResource(label: Resource, callback:AsyncCallback<void>): void;
-    setMissionLabelResource(label: Resource): Promise<void>;
 
     /**
      * Set mission icon of current ability.
