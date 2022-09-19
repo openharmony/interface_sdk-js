@@ -55,10 +55,7 @@ import { AsyncCallback, Callback } from './basic';
          * Checks whether a specified application has been granted the given permission.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified.
-         * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
-         * @throws { BusinessError } with 12100002 If the specified permissionName is invalid.
-         * @throws { BusinessError } with 12100009 If the application specified by the tokenID did not request the specified permission.
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @return Returns permission verify result.
          * @since 9
          */
@@ -68,10 +65,7 @@ import { AsyncCallback, Callback } from './basic';
          * Checks whether a specified application has been granted the given permission synchronously.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified.
-         * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
-         * @throws { BusinessError } with 12100002 If the specified permissionName is invalid.
-         * @throws { BusinessError } with 12100009 If the application specified by the tokenID did not request the specified permission.
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @return Returns permission verify result
          * @since 9
          */
@@ -82,14 +76,8 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @param permissionFlag Flag of permission state.
-         * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
-         * @throws { BusinessError } with 12100002 If the specified permissionName is invalid.
-         * @throws { BusinessError } with 12100003 If the specified permissionFlag is invalid.
-         * @throws { BusinessError } with 12100004 If cross-device operation is not supported.
-         * @throws { BusinessError } with 12100009 If the application specified by the tokenID did not request the specified permission.
-         * @throws { BusinessError } with 12100010 If the application specified by the tokenID is prohibited from granting the specified permission.
-         * @throws { BusinessError } with 201 If interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @returns {void | Promise<void>} No callback return Promise otherwise return void.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -102,13 +90,8 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
          * @param permissionFlag Flag of permission state.
-         * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
-         * @throws { BusinessError } with 12100002 If the specified permissionName is invalid.
-         * @throws { BusinessError } with 12100003 If the specified permissionFlag is invalid.
-         * @throws { BusinessError } with 12100004 If cross-device operation is not supported.
-         * @throws { BusinessError } with 12100009 If the application specified by the tokenID did not request the specified permission.
-         * @throws { BusinessError } with 201 If interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @returns {void | Promise<void>} No callback return Promise otherwise return void.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -121,11 +104,7 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @return Return permission flag.
-         * @throws { BusinessError } with 12100001 If the specified tokenID is invalid.
-         * @throws { BusinessError } with 12100002 If the specified permissionName is invalid.
-         * @throws { BusinessError } with 12100009 If the application specified by the tokenID did not request the specified permission.
-         * @throws { BusinessError } with 201 If interface caller does not have specified permission.
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -156,11 +135,7 @@ import { AsyncCallback, Callback } from './basic';
          *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications changes.
          *        </li>
          *        </ul>
-         * @throws { BusinessError } with 12100005 If the specified tokenID or permissionName in the input list is all invalid or the list size has exceeded the limit.
-         * @throws { BusinessError } with 12100006 If the interface is called repeatedly.
-         * @throws { BusinessError } with 12100008 If the maximum enrollment limit is exceeded.
-         * @throws { BusinessError } with 201 If interface caller does not have specified permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS.
          * @param callback Callback used to listen for the permission state changed event.
          * @systemapi
@@ -173,9 +148,7 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenIDList A list of tokenids that specifies the applications being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
          * @param permissionNameList A list of permissions that specifies the permissions being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
          * @param callback Callback used to listen for the permission state changed event.
-         * @throws { BusinessError } with 12100007 If the use of the interface does not match with function "on".
-         * @throws { BusinessError } with 201 If interface caller does not have specified permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
-         * @throws { BusinessError } with 401 If the input parameter is not valid parameter.
+         * @throws { BusinessError } 401 The parameter is invalid.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 9
