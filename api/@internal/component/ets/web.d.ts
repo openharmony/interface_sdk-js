@@ -158,6 +158,24 @@ declare enum CacheMode {
 }
 
 /**
+ * Defines the hander to exit full screen mode, related to the {@link onFullScreenEnter} event.
+ * @since 9
+ */
+declare class FullScreenExitHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   *
+   * @since 9
+   */
+  exitFullScreen(): void;
+}
+
+/**
  * Define html5 web message port.
  * @since 9
  */
@@ -1696,6 +1714,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
+
+  /**
+   * Triggered when the web compenent exit the full screen mode.
+   * @param callback The triggered function when the web compenent exit the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenExit(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when the web compenent enter the full screen mode.
+   * @param callback The triggered function when the web compenent enter the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler}) => void): WebAttribute;
 
   /**
    * Triggered when the scale of WebView changed.
