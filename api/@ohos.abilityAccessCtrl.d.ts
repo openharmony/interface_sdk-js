@@ -144,6 +144,7 @@ import { AsyncCallback, Callback } from './basic';
 
     /**
      * Enum for permision state change type.
+     * @systemapi
      * @since 9
      */
     export enum PermissionStateChangeType {
@@ -159,8 +160,8 @@ import { AsyncCallback, Callback } from './basic';
 
     /**
      * Indicates the information of permission state change.
-     *
      * @name PermissionStateChangeInfo
+     * @systemapi
      * @since 9
      */
     interface PermissionStateChangeInfo {
