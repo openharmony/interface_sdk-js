@@ -48,6 +48,18 @@ declare namespace connection {
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
+   * Obtains the data network that is activated by default.
+   *
+   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
+   * @return Returns the {@link NetHandle} object;
+   *      returns {@code null} if the default network is not activated.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getDefaultNetSync(): NetHandle;
+
+  /**
    * Obtains the list of data networks that are activated.
    *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
