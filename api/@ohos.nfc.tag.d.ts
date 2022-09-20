@@ -208,7 +208,7 @@ declare namespace tag {
     *
     * @since 9
     */
-    uid: string;
+    uid: number[];
 
    /**
     * The supported technology list of this tag.
