@@ -19,6 +19,7 @@ import {AsyncCallback} from "./basic";
  * Provides file path related APIS.
  *
  * @since 8
+ * @systemapi
  * @syscap SystemCapability.Customization.ConfigPolicy
  */
 declare namespace configPolicy {
