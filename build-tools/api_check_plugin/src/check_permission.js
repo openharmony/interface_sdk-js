@@ -16,6 +16,7 @@
 const result = require("../check_result.json");
 const rules = require("../code_style_rule.json");
 const { getAPINote, error_type } = require('./utils');
+const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkPermission(node, sourcefile, fileName) {
     const permissionTagsPart = [...rules.decorators["permission"]];
@@ -62,17 +63,7 @@ function checkPermission(node, sourcefile, fileName) {
     });
 
     if (hasPermissionError) {
-        const checkFailFileNameSet = new Set(result.apiFiles);
-        if (!checkFailFileNameSet.has(fileName)) {
-            result.apiFiles.push(fileName);
-        }
-        const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-        const errorMessage = `API check error of [${error_type.UNKNOW_PERMISSION}] in ${fileName} (line:` +
-            `${posOfNode.line + 1},col:${posOfNode.character + 1}): ${errorInfo}`;
-
-        const scanResultSet = new Set(result.scanResult);
-        scanResultSet.add(errorMessage);
-        result.scanResult = [...scanResultSet];
+        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_PERMISSION, errorInfo);
     }
 }
 exports.checkPermission = checkPermission;
