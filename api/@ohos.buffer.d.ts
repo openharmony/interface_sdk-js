@@ -304,7 +304,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a signed, big-endian 64-bit integer 
          */
-        readBigInt64BE(offset?: number): number;
+        readBigInt64BE(offset?: number): bigint;
 
         /**
          * Reads a signed, little-endian 64-bit integer from buf at the specified offset
@@ -313,7 +313,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a signed, little-endian 64-bit integer 
          */
-        readBigInt64LE(offset?: number): number;
+        readBigInt64LE(offset?: number): bigint;
 
         /**
          * Reads a unsigned, big-endian 64-bit integer from buf at the specified offset
@@ -322,7 +322,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a unsigned, big-endian 64-bit integer 
          */
-        readBigUInt64BE(offset?: number): number;
+        readBigUInt64BE(offset?: number): bigint;
 
         /**
          * Reads a unsigned, little-endian 64-bit integer from buf at the specified offset
@@ -331,7 +331,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
          * @return Return a unsigned, little-endian 64-bit integer 
          */
-        readBigUInt64LE(offset?: number): number;
+        readBigUInt64LE(offset?: number): bigint;
 
         /**
          * Reads a 64-bit, big-endian double from buf at the specified offset
@@ -511,7 +511,7 @@ declare namespace buffer {
          * @param [end = buf.length] Where the new Buffer will end (not inclusive)
          * @return Returns a new Buffer that references the same memory as the original
          */
-        subarray(start: number, end: number): Buffer;
+        subarray(start?: number, end?: number): Buffer;
 
         /**
          * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
@@ -575,7 +575,7 @@ declare namespace buffer {
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
          */
-        writeBigInt64BE(value: number, offset?: number): number;
+        writeBigInt64BE(value: bigint, offset?: number): number;
 
         /**
          * Writes value to buf at the specified offset as little-endian.
@@ -585,7 +585,7 @@ declare namespace buffer {
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
          */
-        writeBigInt64LE(value: number, offset?: number): number;
+        writeBigInt64LE(value: bigint, offset?: number): number;
 
         /**
          * Writes value to buf at the specified offset as big-endian.
@@ -595,7 +595,7 @@ declare namespace buffer {
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
          */
-        writeBigUInt64BE(value: number, offset?: number): number;
+        writeBigUInt64BE(value: bigint, offset?: number): number;
 
         /**
          * Writes value to buf at the specified offset as little-endian.
@@ -605,7 +605,7 @@ declare namespace buffer {
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
          * @return offset plus the number of bytes written
          */
-        writeBigUInt64LE(value: number, offset?: number): number;
+        writeBigUInt64LE(value: bigint, offset?: number): number;
 
          /**
          * Writes value to buf at the specified offset as big-endian.
@@ -804,7 +804,7 @@ declare namespace buffer {
          *                 endings:  One of either 'transparent' or 'native'. 
          *                 type: The Blob content-type
          */
-        constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] , options: Object);
+        constructor(sources: string[] | ArrayBuffer[] | TypedArray[] | DataView[] | Blob[] , options?: Object);
 
         /**
          * The total size of the Blob in bytes
