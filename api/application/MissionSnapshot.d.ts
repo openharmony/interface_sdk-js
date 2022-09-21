@@ -14,7 +14,7 @@
  */
 
 import { ElementName } from '../bundle/elementName';
-import { image } from '../@ohos.multimedia.image';
+import image from '../@ohos.multimedia.image';
 
 /**
  * Mission snapshot corresponding to mission.
