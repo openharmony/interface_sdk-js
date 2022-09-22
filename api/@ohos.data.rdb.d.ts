@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import {AsyncCallback, Callback} from './basic';
-import { ResultSet } from './data/rdb/resultSet';
+import { ResultSet as _ResultSet } from './data/rdb/resultSet';
 import Context from "./application/Context";
 
 /**
@@ -680,6 +680,8 @@ declare namespace rdb {
          */
         notIn(field: string, value: Array<ValueType>): RdbPredicates;
     }
+
+    export type ResultSet = _ResultSet
 }
 
 export default rdb;
