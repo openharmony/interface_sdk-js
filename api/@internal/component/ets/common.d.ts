@@ -1130,6 +1130,12 @@ declare interface PopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
@@ -1184,6 +1190,12 @@ declare interface CustomPopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
