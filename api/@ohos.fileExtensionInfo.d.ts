@@ -46,8 +46,8 @@ declare namespace fileExtensionInfo {
      * @StageModelOnly
      */
     namespace DeviceFlag {
-        const SUPPORTS_READ = 1;
-        const SUPPORTS_WRITE = 1 << 1;
+        const SUPPORTS_READ = 0b1;
+        const SUPPORTS_WRITE = 0b10;
     }
 
     /**
@@ -58,10 +58,10 @@ declare namespace fileExtensionInfo {
      * @StageModelOnly
      */
     namespace DocumentFlag {
-        const REPRESENTS_FILE = 1;
-        const REPRESENTS_DIR = 1 << 1;
-        const SUPPORTS_READ = 1 << 2;
-        const SUPPORTS_WRITE = 1 << 3;
+        const REPRESENTS_FILE = 0b1;
+        const REPRESENTS_DIR = 0b10;
+        const SUPPORTS_READ = 0b100;
+        const SUPPORTS_WRITE = 0b1000;
     }
 }
 

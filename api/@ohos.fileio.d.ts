@@ -84,7 +84,7 @@ declare namespace fileIO {
     export { writeSync };
     export { Dir };
     export { Dirent };
-    export { Filter };
+
     export { ReadOut };
     export { Stat };
     export { Stream };
@@ -1156,7 +1156,7 @@ declare interface Dirent {
     isSymbolicLink(): boolean;
 }
 
-declare interface Filter {
+export type Filter = {
     /**
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
