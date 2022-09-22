@@ -84,7 +84,6 @@ declare namespace fileIO {
     export { writeSync };
     export { Dir };
     export { Dirent };
-
     export { ReadOut };
     export { Stat };
     export { Stream };
