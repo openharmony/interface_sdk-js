@@ -68,6 +68,7 @@ declare namespace screenLock {
   /**
    * Register system event related to syscreen lock 
    * @params callback The callback function for indcating the system event related screen lock
+   * @return Returns {@code true} if register system event is success; returns {@code false} otherwise.
    * @throws {BusinessError} Parameter error
    * @systemapi Hide this for inner system use.
    * @since 9
