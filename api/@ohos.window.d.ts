@@ -13,10 +13,10 @@
 * limitations under the License.
 */
 
-/// <reference path="../component/state_management.d.ts"/>
+/// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback, Callback } from './basic' ;
-import { Context } from './application/BaseContext';
+import Context from './application/BaseContext';
 import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
