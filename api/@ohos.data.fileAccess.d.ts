@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import Want  from './@ohos.application.Want';
+import Want from './@ohos.application.Want';
 import Context from './application/Context';
 import { Filter } from './@ohos.fileio';
 
