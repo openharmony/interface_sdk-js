@@ -22,7 +22,7 @@ import { AsyncCallback } from '../../basic'
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @import import data_rdb from '@ohos.data.rdb';
  */
-export default interface ResultSet {
+export interface ResultSet {
     /**
      * Obtains the names of all columns in a result set.
      *
