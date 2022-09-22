@@ -370,7 +370,7 @@ declare namespace deviceManager {
    *
    * @param bundleName Indicates the bundle name of the application.
    * @param callback Indicates the callback to be invoked upon {@code DeviceManager} instance creation.
-   * @throws {BusinessError} Input parameter error.
+   * @throws {BusinessError} 401 - Input parameter error.
    * @systemapi this method can be used only by system applications.
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
@@ -382,7 +382,7 @@ declare namespace deviceManager {
     /**
      * Releases the {@code DeviceManager} instance after the methods for device management are no longer used.
      *
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     release(): void;
@@ -390,8 +390,8 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -402,7 +402,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -412,7 +412,7 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -422,8 +422,8 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -434,7 +434,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -444,7 +444,7 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
@@ -455,10 +455,10 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param subscribeInfo subscribe info to discovery device
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Discovery invalid.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600104 - Discovery invalid.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
@@ -469,10 +469,10 @@ declare namespace deviceManager {
      * @since 9
      * @param subscribeInfo subscribe info to discovery device
      * @param filterOptions filterOptions to filter discovery device
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Discovery invalid.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600104 - Discovery invalid.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
@@ -481,9 +481,9 @@ declare namespace deviceManager {
      * Stop to discover device.
      *
      * @param subscribeId Service subscribe ID
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     stopDeviceDiscovery(subscribeId: number): void;
@@ -492,10 +492,10 @@ declare namespace deviceManager {
      * Publish discover device.
      * @since 9
      * @param publishInfo publish info to Publish discovery device
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Publish invalid.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600105 - Publish invalid.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     publishDeviceDiscovery(publishInfo: PublishInfo): void;
@@ -504,9 +504,9 @@ declare namespace deviceManager {
      * UnPublish discover device.
      * @since 9
      * @param publishId Service publish ID, identify a publish operation, should be a unique id in package range
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     unPublishDeviceDiscovery(publishId: number): void;
@@ -517,7 +517,7 @@ declare namespace deviceManager {
      * @param deviceInfo deviceInfo of device to authenticate
      * @param authParam authParam of device to authenticate
      * @param callback Indicates the callback to be invoked upon authenticateDevice
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     authenticateDevice(deviceInfo: DeviceInfo, authParam: AuthParam, callback: AsyncCallback<{deviceId: string, pinToken ?: number}>): void;
@@ -527,9 +527,9 @@ declare namespace deviceManager {
      *
      * @since 8
      * @param deviceInfo deviceInfo of device to unAuthenticate
-     * @throws {BusinessError} Input parameter error.
-     * @throws {BusinessError} Permission verify failed.
-     * @throws {BusinessError} Failed to execute the function.
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @throws {BusinessError} 201 - Permission verify failed.
+     * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @systemapi this method can be used only by system applications.
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void
@@ -539,7 +539,7 @@ declare namespace deviceManager {
      *
      * @param authInfo device auth info o verify
      * @param callback Indicates the callback to be invoked upon verifyAuthInfo
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
@@ -550,7 +550,7 @@ declare namespace deviceManager {
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
@@ -560,7 +560,7 @@ declare namespace deviceManager {
      *
      * @param bundleName Indicates the bundle name of the application.
      * @param callback Indicates the device state callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
@@ -569,7 +569,7 @@ declare namespace deviceManager {
      * Register a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'deviceFound', callback: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
@@ -578,7 +578,7 @@ declare namespace deviceManager {
      * UnRegister a device found callback so that the application can be notified when the device was found
      *
      * @param callback Indicates the device found callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'deviceFound', callback?: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
@@ -587,7 +587,7 @@ declare namespace deviceManager {
      * Register a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'discoverFail', callback: Callback<{ subscribeId: number, reason: number }>): void;
@@ -596,7 +596,7 @@ declare namespace deviceManager {
      * UnRegister a device found result callback so that the application can be notified when the device discover was failed
      *
      * @param callback Indicates the device found result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
@@ -606,7 +606,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
      on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
@@ -616,7 +616,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
      off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
@@ -626,7 +626,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
      on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
@@ -636,7 +636,7 @@ declare namespace deviceManager {
      *
      * @since 9
      * @param callback Indicates the device publish result callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
      off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
@@ -645,7 +645,7 @@ declare namespace deviceManager {
      * Register a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'serviceDie', callback: () => void): void;
@@ -654,7 +654,7 @@ declare namespace deviceManager {
      * UnRegister a serviceError callback so that the application can be notified when devicemanager service died
      *
      * @param callback Indicates the service error callback to register.
-     * @throws {BusinessError} Input parameter error.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     off(type: 'serviceDie', callback?: () => void): void;
