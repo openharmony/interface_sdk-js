@@ -73,6 +73,7 @@ ohos_copy("ets_component") {
     "api/@internal/component/ets/list_item.d.ts",
     "api/@internal/component/ets/loading_progress.d.ts",
     "api/@internal/component/ets/marquee.d.ts",
+    "api/@internal/component/ets/matrix2d.d.ts",
     "api/@internal/component/ets/navigation.d.ts",
     "api/@internal/component/ets/navigator.d.ts",
     "api/@internal/component/ets/page_transition.d.ts",
