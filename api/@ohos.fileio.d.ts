@@ -1161,6 +1161,7 @@ declare interface Filter {
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     suffix: Array<string>;
@@ -1168,6 +1169,7 @@ declare interface Filter {
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     displayName: Array<string>;
@@ -1175,6 +1177,7 @@ declare interface Filter {
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     mimeType: Array<string>;
@@ -1182,6 +1185,7 @@ declare interface Filter {
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     fileSizeOver: number;
@@ -1189,6 +1193,7 @@ declare interface Filter {
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     lastModifiedAfter: number;
@@ -1196,6 +1201,7 @@ declare interface Filter {
      * @type {boolean}
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 9
+     * @systemapi
      * @readonly
      */
     excludeMedia: boolean;
