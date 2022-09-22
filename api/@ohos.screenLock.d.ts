@@ -61,8 +61,8 @@ declare namespace screenLock {
   type EventType = 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
 
   interface SystemEvent {
-    eventType: EventType, // event type of the system event
-    params: string // event params of the system event
+    eventType: EventType,
+    params: string
   }
   
   /**
