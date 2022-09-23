@@ -152,7 +152,7 @@ export interface IsoDepTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getHistoricalBytes(): string;
+  getHistoricalBytes(): number[];
 
  /**
   * Get HiLayerResponse bytes of the tag.
@@ -160,7 +160,7 @@ export interface IsoDepTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getHiLayerResponse(): string;
+  getHiLayerResponse(): number[];
 
  /**
   * Check if externded apdu length supported or not.
@@ -183,13 +183,13 @@ export interface NdefRecord {
   tnf: number;
 
    /** RTD type of NdefRecord */
-  rtdType: string;
+  rtdType: number[];
 
    /** id of NdefRecord */
-  id: string;
+  id: number[];
 
    /** payload of NdefRecord */
-  payload: string;
+  payload: number[];
 }
 
 /**
@@ -271,7 +271,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeMimeRecord(mimeType: string, mimeData: string): NdefRecord;
+  makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord;
 
  /**
   * Create a ndef record with external data.
@@ -282,7 +282,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeExternalRecord(domainName: string, serviceName: string, externalData: string): NdefRecord;
+  makeExternalRecord(domainName: string, serviceName: string, externalData: number[]): NdefRecord;
 
  /**
   * Parse a ndef message into raw bytes.
@@ -291,7 +291,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  messageToString(ndefMessage: NdefMessage): string;
+  messageToBytes(ndefMessage: NdefMessage): number[];
 }
 
 /**
@@ -331,7 +331,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  createNdefMessage(data: string): NdefMessage;
+  createNdefMessage(data: number[]): NdefMessage;
 
  /**
   * Create a ndef message with record list.
@@ -480,8 +480,8 @@ export interface MifareClassicTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  readSingleBlock(blockIndex: number): Promise<string>;
-  readSingleBlock(blockIndex: number, callback: AsyncCallback<string>): void;
+  readSingleBlock(blockIndex: number): Promise<number[]>;
+  readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void;
 
  /**
   * Write a block, one block size is 16 bytes.
@@ -491,8 +491,8 @@ export interface MifareClassicTag extends TagSession {
   * @since 9
   * @permission ohos.pemission.NFC_TAG
   */
-  writeSingleBlock(blockIndex: number, data: string): Promise<number>;
-  writeSingleBlock(blockIndex: number, data: string, callback: AsyncCallback<number>): void;
+  writeSingleBlock(blockIndex: number, data: number[]): Promise<number>;
+  writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<number>): void;
 
  /**
   * Increment a value block
@@ -627,8 +627,8 @@ export interface MifareUltralightTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  readMultiplePages(pageIndex: number): Promise<string>;
-  readMultiplePages(pageIndex: number, callback: AsyncCallback<string>): void;
+  readMultiplePages(pageIndex: number): Promise<number[]>;
+  readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void;
 
  /**
   * Write a page, total 4 bytes.
@@ -638,8 +638,8 @@ export interface MifareUltralightTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  writeSinglePages(pageIndex: number, data: string): Promise<number>;
-  writeSinglePages(pageIndex: number, data: string, callback: AsyncCallback<number>): void;
+  writeSinglePages(pageIndex: number, data: number[]): Promise<number>;
+  writeSinglePages(pageIndex: number, data: number[], callback: AsyncCallback<number>): void;
 
   /**
   * Get the type of the MifareUltralight tag in bytes.
