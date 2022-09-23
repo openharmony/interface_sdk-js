@@ -16,6 +16,7 @@
 import rpc from "./@ohos.rpc";
 import ExtensionContext from "./application/ExtensionContext";
 import Want from './@ohos.application.Want';
+import window from './@ohos.window';
 
 /**
  * class of window extension ability.
@@ -68,6 +69,6 @@ export default class WindowExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-    onWindowReady(window: Window): void;
+    onWindowReady(window: window.Window): void;
 }
 
