@@ -49,7 +49,7 @@ declare namespace filemanager {
  * @systemapi
  */
 declare function listFile(path: string, type: string, options?: {dev?: DevInfo, offset?: number, count?: number}): Promise<FileInfo[]>;
-declare function listFile(callback: AsyncCallback<FileInfo[]>): void;
+declare function listFile(path: string, type: string, callback: AsyncCallback<FileInfo[]>): void;
 declare function listFile(path: string, type: string, options: {dev?: DevInfo, offset?: number, count?: number}, callback: AsyncCallback<FileInfo[]>): void;
 
 /**
@@ -89,7 +89,7 @@ declare function getRoot(options: {dev?: DevInfo}, callback: AsyncCallback<FileI
  * @systemapi
  */
 declare function createFile(path: string, filename: string, options?: {dev?: DevInfo}): Promise<string>;
-declare function createFile(callback: AsyncCallback<string>): void;
+declare function createFile(path: string, filename: string, callback: AsyncCallback<string>): void;
 declare function createFile(path: string, filename: string, options: {dev?: DevInfo}, callback: AsyncCallback<string>): void;
 
 /**
