@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import { Want } from './ability/want';
+import Want from './@ohos.application.Want';
 import Context from './application/Context';
-import Filter from '@ohos.fileio'
+import { Filter } from './@ohos.fileio';
 
 /**
  * This module provides the capability to access user public files.
@@ -74,7 +74,7 @@ declare namespace fileAccess {
      * @param mode Indicates the mode of the file.
      * @param size Indicates the size of the file.
      * @param mtime Indicates the mtime of the file.
-     * @param mimetype Indicates the mimetype of the file.
+     * @param mimeType Indicates the mimeType of the file.
      */
     interface FileInfo {
         /**
@@ -106,7 +106,7 @@ declare namespace fileAccess {
          * @type {string}
          * @readonly
          */
-        mimetype: string;
+        mimeType: string;
 
         /**
          * List files in the current directory.
@@ -217,6 +217,7 @@ declare namespace fileAccess {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
+     * @systemapi
      */
     enum OPENFLAGS {
         /** file is openFile only_read */
