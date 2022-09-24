@@ -99,7 +99,6 @@
 /// <reference path="./video.d.ts" />
 /// <reference path="./web.d.ts" />
 /// <reference path="./xcomponent.d.ts" />
-/// <reference path="./inspector.d.ts" />
 /// <reference path="./sidebar.d.ts" />
 /// <reference path="./ability_component.d.ts" />
 /// <reference path="./remote_window.d.ts" />
