@@ -26,58 +26,98 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
  * @systemapi hide for inner use
  */
 declare namespace inputMonitor {
-    /**
-     * Callback used to receive touch input events. If **true** is returned, the touch input is consumed, and the system performs the closing operation.
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     */
-    interface TouchEventReceiver {
-        (touchEvent:TouchEvent): Boolean;
-    }
+  /**
+   * Callback used to receive touch input events. If **true** is returned, the touch input is consumed, and the system performs the closing operation.
+   * @since 7
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   */
+  interface TouchEventReceiver {
+    (touchEvent: TouchEvent): Boolean;
+  }
 
-    /**
-     * Listens for touch input events.
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
-     * @param receiver Callback used to receive the reported data.
-     */
-    function on(type:"touch", receiver:TouchEventReceiver):void;
+  /**
+   * Event type
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   */
+  enum EventType {
+    TOUCH = 0,
+    MOUSE = 1,
+  }
 
-    /**
-     * Listens for mouse input events.
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
-     * @param receiver Callback used to receive the reported data.
-     */
-    function on(type:"mouse", receiver:Callback<MouseEvent>):void;
+  /**
+   * Listens for touch input events.
+   * @since 7
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param type Event type.
+   * @param receiver Callback used to receive the reported data.
+   * @deprecated since 9
+   */
+  function on(type: "touch", receiver: TouchEventReceiver): void;
 
-    /**
-     * Cancels listening for touch input events.
-     * @since 7
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
-     * @param receiver Callback used to receive the reported data.
-     */
-    function off(type:"touch", receiver?:TouchEventReceiver):void;
+  /**
+   * Cancels listening for touch input events.
+   * @since 7
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param type Event type.
+   * @param receiver Callback used to receive the reported data.
+   * @deprecated since 9
+   */
+  function off(type: "touch", receiver?: TouchEventReceiver): void;
 
-    /**
-     * Cancels listening for mouse input events.
-     * @since 9
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @permission ohos.permission.INPUT_MONITORING
-     * @param type Event type.
-     * @param receiver Callback used to receive the reported data.
-     */
-    function off(type:"mouse", receiver?:Callback<MouseEvent>):void;
+  /**
+   * Listens for mouse input events.
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param type Event type.
+   * @param receiver Callback used to receive the reported data.
+   * @throws {BusinessError} 401 Parameter error.
+   */
+  function on(type: EventType, receiver: Callback<MouseEvent>): void;
+
+  /**
+   * Cancels listening for mouse input events.
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param type Event type.
+   * @param receiver Callback used to receive the reported data.
+   * @throws {BusinessError} 401 Parameter error.
+   */
+  function off(type: EventType, receiver?: Callback<MouseEvent>): void;
+
+  /**
+    * Listens for touch input events.
+    * @since 9
+    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+    * @systemapi hide for inner use
+    * @permission ohos.permission.INPUT_MONITORING
+    * @param type Event type.
+    * @param receiver Callback used to receive the reported data.
+    * @throws {BusinessError} 401 Parameter error.
+    */
+  function on(type: EventType, receiver: TouchEventReceiver): void;
+
+  /**
+   * Cancels listening for touch input events.
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param type Event type.
+   * @param receiver Callback used to receive the reported data.
+   * @throws {BusinessError} 401 Parameter error.
+   */
+  function off(type: EventType, receiver?: TouchEventReceiver): void;
 }
 export default inputMonitor;

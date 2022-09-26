@@ -21,7 +21,7 @@ declare namespace inputDeviceCooperate {
    * Enumerates mouse traversal events.
    * 
    * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.Cooperator.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
    */
   enum EventMsg {
@@ -63,19 +63,34 @@ declare namespace inputDeviceCooperate {
 
   /**
    * Enable or disable the mouse traversal.
-   * 
+   *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @param enable Whether to enable mouse traversal.
    * @param callback Asynchronous callback function.
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 4400002 Incorrect ID of the input device for screen hop.
+   * @throws {BusinessError} 4400003 Screen hop failed.
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enable or disable the mouse traversal.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @param enable Whether to enable mouse traversal.
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 4400002 Incorrect ID of the input device for screen hop.
+   * @throws {BusinessError} 4400003 Screen hop failed.
+   */
   function enable(enable: boolean): Promise<void>;
 
   /**
    * Starts mouse traversal.
-   * 
+   *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -84,22 +99,40 @@ declare namespace inputDeviceCooperate {
    * @param callback Asynchronous callback function.
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts mouse traversal.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
+   * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
   /**
    * Stops mouse traversal.
-   * 
+   *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @param callback Asynchronous callback function.
    */
   function stop(callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops mouse traversal.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   */
   function stop(): Promise<void>;
 
   /**
    * Obtains the status of the mouse traversal switch.
-   * 
+   *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -107,6 +140,15 @@ declare namespace inputDeviceCooperate {
    * @param callback Asynchronous callback used to receive the status of the mouse traversal switch.
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
+
+  /**
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @param deviceDescriptor Descriptor of the target network for mouse traversal.
+   */
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
   /**
