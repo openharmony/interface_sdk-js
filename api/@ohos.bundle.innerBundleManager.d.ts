@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { BundleStatusCallback } from './bundle/bundleStatusCallback';
+import { BundleStatusCallback as _BundleStatusCallback } from './bundle/bundleStatusCallback';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
 import * as _ShortCutInfo from './bundle/shortcutInfo';
 
@@ -103,6 +103,15 @@ declare namespace innerBundleManager {
    * @systemapi hide this for inner system use
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
+
+  /**
+   * Contains basic launcher Ability information, which uniquely identifies an launcher StatusCallback.
+   * 
+   * @since 9
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi hide this for inner system use
+   */
+  export type BundleStatusCallback = _BundleStatusCallback;
 
   /**
    * Provides information about a shortcut, including the shortcut ID and label.
