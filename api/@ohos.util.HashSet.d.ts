@@ -16,7 +16,7 @@
 declare class HashSet<T> {
   /**
    * A constructor used to create a HashSet object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The HashSet's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -30,7 +30,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contains elements
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -39,8 +39,8 @@ declare class HashSet<T> {
    * Returns whether the Set object contain s the elements
    * @param value need to determine whether to include the element
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed
+   * @throws {ContainerBindError}: The has method cannot be bound.
+   * @throws {TypeError}: The type of "value" must be not null. Received value is: [value]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -49,8 +49,8 @@ declare class HashSet<T> {
    * If the set does not contain the element, the specified element is added
    * @param value Added element
    * @returns the boolean type(Is there contain this element)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed
+   * @throws {ContainerBindError}: The add method cannot be bound.
+   * @throws {TypeError}: The type of "value" must be not null. Received value is: [value]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -59,23 +59,23 @@ declare class HashSet<T> {
    * Remove a specified element from a Set object
    * @param value  Target to be deleted
    * @return the boolean type(Is there contain this element)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed
+   * @throws {ContainerBindError}: The remove method cannot be bound.
+   * @throws {TypeError}: The type of "value" must be not null. Received value is: [value]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
    remove(value: T): boolean;
   /**
    * Clears all element groups in a set
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   clear(): void;
   /**
    * Executes a provided function once for each value in the Set object.
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -83,21 +83,21 @@ declare class HashSet<T> {
   thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the values contained in this set
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The values method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   values(): IterableIterator<T>;
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The entries method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   entries(): IterableIterator<[T, T]>;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

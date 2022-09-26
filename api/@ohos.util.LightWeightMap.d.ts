@@ -16,7 +16,7 @@
 declare class LightWeightMap<K, V> {
   /**
    * A constructor used to create a LightWeightMap object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The LightWeightMap's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,8 +31,8 @@ declare class LightWeightMap<K, V> {
    * Returns whether this map has all the object in a specified map
    * @param map the Map object to compare
    * @return the boolean type
-   * @throws {TypeError} Parameter check failed.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {TypeError}: The type of "map" must be LightWeightMap. Received value is: [map]
+   * @throws {ContainerBindError}: The hasAll method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -41,7 +41,7 @@ declare class LightWeightMap<K, V> {
    * Returns whether a key is contained in this map
    * @param key need to determine whether to include the key
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The hasKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -50,7 +50,7 @@ declare class LightWeightMap<K, V> {
    * Returns whether a value is contained in this map
    * @param value need to determine whether to include the value
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The hasValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -59,15 +59,15 @@ declare class LightWeightMap<K, V> {
    * Ensures that the capacity of an LightWeightMap container is greater than or equal to a apecified value,
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The increaseCapacityTo method cannot be bound.
+   * @throws {TypeError}: The type of "minimumCapacity" must be number. Received value is: [minimumCapacity]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   increaseCapacityTo(minimumCapacity: number): void;
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The entries method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -76,7 +76,7 @@ declare class LightWeightMap<K, V> {
    * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
    * @param key the index in LightWeightMap
    * @return value or undefined
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The get method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -85,7 +85,7 @@ declare class LightWeightMap<K, V> {
    * Obtains the index of the key equal to a specified key in an LightWeightMap container
    * @param key Looking for goals
    * @return Subscript corresponding to target
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getIndexOfKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -94,7 +94,7 @@ declare class LightWeightMap<K, V> {
    * Obtains the index of the value equal to a specified value in an LightWeightMap container
    * @param value Looking for goals
    * @return Subscript corresponding to target
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getIndexOfValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -102,7 +102,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns whether the Map object contains elements
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -111,16 +111,16 @@ declare class LightWeightMap<K, V> {
    * Obtains the key at the loaction identified by index in an LightWeightMap container
    * @param index Target subscript for search
    * @return the key of key-value pairs
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The getKeyAt method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getKeyAt(index: number): K;
   /**
    * Obtains a ES6 iterator that contains all the keys of an LightWeightMap container
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The keys method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -128,8 +128,8 @@ declare class LightWeightMap<K, V> {
   /**
    * Adds all element groups in one map to another map
    * @param map the Map object to add members
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The setAll method cannot be bound.
+   * @throws {TypeError}: The type of "map" must be LightWeightMap. Received value is: [map]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -139,7 +139,7 @@ declare class LightWeightMap<K, V> {
    * @param key Added or updated targets
    * @param value Added or updated value
    * @returns the map object after set
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The set method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -148,7 +148,7 @@ declare class LightWeightMap<K, V> {
    * Remove the mapping for this key from this map if present
    * @param key  Target to be deleted
    * @return Target mapped value
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -157,8 +157,8 @@ declare class LightWeightMap<K, V> {
    * Deletes a key-value pair at the loaction identified by index from an LightWeightMap container
    * @param index  Target subscript for search
    * @return the boolean type(Is there a delete value)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The removeAt method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -166,7 +166,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Removes all of the mapping from this map
    * The map will be empty after this call returns
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -176,9 +176,9 @@ declare class LightWeightMap<K, V> {
    * @param index Target subscript for search
    * @param value Updated the target mapped value
    * @return the boolean type(Is there a value corresponding to the subscript)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The setValueAt method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -186,8 +186,8 @@ declare class LightWeightMap<K, V> {
   /**
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -195,14 +195,14 @@ declare class LightWeightMap<K, V> {
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   [Symbol.iterator](): IterableIterator<[K, V]>;
   /**
    * Obtains a string that contains all the keys and values in an LightWeightMap container
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The toString method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -211,16 +211,16 @@ declare class LightWeightMap<K, V> {
    * Obtains the value identified by index in an LightWeightMap container
    * @param index Target subscript for search
    * @return the value of key-value pairs
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The getValueAt method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getValueAt(index: number): V;
   /**
    * Returns an iterator of the values contained in this map
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The values method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

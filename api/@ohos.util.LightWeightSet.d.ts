@@ -16,7 +16,7 @@
 declare class LightWeightSet<T> {
   /**
    * A constructor used to create a LightWeightSet object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The LightWeightSet's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,7 +31,7 @@ declare class LightWeightSet<T> {
    * If the set does not contain the element, the specified element is added
    * @param value Added element
    * @returns the boolean type(Is there contain this element)
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,8 +40,8 @@ declare class LightWeightSet<T> {
    * Adds all the objects in a specified LightWeightSet container to the current LightWeightSet container
    * @param set the Set object to provide the added element
    * @returns the boolean type(Is there any new data added successfully)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The addAll method cannot be bound.
+   * @throws {TypeError}: The type of "set" must be LightWeightSet. Received value is: [set]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -50,8 +50,8 @@ declare class LightWeightSet<T> {
    * Returns whether this set has all the object in a specified set
    * @param set the Set object to compare
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The hasAll method cannot be bound.
+   * @throws {TypeError}: The type of "set" must be LightWeightSet. Received value is: [set]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -60,7 +60,7 @@ declare class LightWeightSet<T> {
    * Checks whether an LightWeightSet container has a specified key
    * @param key need to determine whether to include the key
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -69,7 +69,7 @@ declare class LightWeightSet<T> {
    * Checks whether an the objects of an LightWeighSet containeer are of the same type as a specified Object LightWeightSet
    * @param obj need to determine whether to include the obj
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The equal method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -78,9 +78,9 @@ declare class LightWeightSet<T> {
    * Ensures that the capacity of an LightWeightSet container is greater than or equal to a apecified value,
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
-   * @throws {RangeError} Index out of range.
+   * @throws {ContainerBindError}: The increaseCapacityTo method cannot be bound.
+   * @throws {TypeError}: The type of "minimumCapacity" must be number. Received value is: [minimumCapacity]
+   * @throws {RangeError}: The value of "minimumCapacity" is out of range. It must be > [currentCapacity]. Received value is: [minimumCapacity]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -89,7 +89,7 @@ declare class LightWeightSet<T> {
    * Obtains the index of s key of a specified Object type in an LightWeightSet container
    * @param key Looking for goals
    * @return Subscript corresponding to target
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -98,7 +98,7 @@ declare class LightWeightSet<T> {
    * Deletes an object of a specified Object type from an LightWeightSet container
    * @param key  Target to be deleted
    * @return Target element
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -107,8 +107,8 @@ declare class LightWeightSet<T> {
    * Deletes an object at the loaction identified by index from an LightWeightSet container
    * @param index  Target subscript for search
    * @return the boolean type(Is there a delete value)
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The removeAt method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -116,7 +116,7 @@ declare class LightWeightSet<T> {
   /**
    * Removes all of the mapping from this map
    * The map will be empty after this call returns
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -124,8 +124,8 @@ declare class LightWeightSet<T> {
   /**
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -133,7 +133,7 @@ declare class LightWeightSet<T> {
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -146,7 +146,7 @@ declare class LightWeightSet<T> {
   toString(): String;
   /**
    * Obtains an Array that contains all the objects of an LightWeightSet container.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The toArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -155,29 +155,29 @@ declare class LightWeightSet<T> {
    * Obtains the object at the location  identified by index in an LightWeightSet container
    * @param index Target subscript for search
    * @return the value of key-value pairs
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The getValueAt method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getValueAt(index: number): T;
   /**
    * Returns a ES6 iterator of the values contained in this Set
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The values method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   values(): IterableIterator<T>;
   /**
    * Returns a Iterator object that contains the [key, value] pairs for each element in the Set object in insertion order
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The entries method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   entries(): IterableIterator<[T, T]>;
   /**
    * Returns whether the set object contains elements
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

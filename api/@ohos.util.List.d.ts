@@ -16,7 +16,7 @@
 declare class List<T> {
   /**
    * A constructor used to create a List object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The List's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,7 +31,7 @@ declare class List<T> {
    * Appends the specified element to the end of this list.
    * @param element to be appended to this list
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,9 +40,9 @@ declare class List<T> {
    * Inserts the specified element at the specified position in this list.
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The insert method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -52,8 +52,8 @@ declare class List<T> {
    * or returns undefined if this list is empty
    * @param index specified position
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed
+   * @throws {ContainerBindError}: The get method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -62,7 +62,7 @@ declare class List<T> {
    * Check if list contains the specified element
    * @param element element to be contained
    * @return the boolean type,if list contains the specified element,return true,else return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -72,7 +72,7 @@ declare class List<T> {
    * in this list, or -1 if this list does not contain the element.
    * @param element element to be contained
    * @return the number type ,returns the lowest index such that or -1 if there is no such index.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -82,9 +82,9 @@ declare class List<T> {
    * @param index the index in the list
    * @return the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The removeByIndex method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -95,7 +95,7 @@ declare class List<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -105,7 +105,7 @@ declare class List<T> {
    * or -1 if the list does not contain the element.
    * @param element element to find
    * @return the number type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -114,7 +114,7 @@ declare class List<T> {
    * Returns the first element (the item at index 0) of this list.
    * or returns undefined if list is empty
    * @return the T type ,returns undefined if list is empty
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -123,7 +123,7 @@ declare class List<T> {
    * Returns the Last element (the item at index length-1) of this list.
    * or returns undefined if list is empty
    * @return the T type ,returns undefined if list is empty
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -133,9 +133,9 @@ declare class List<T> {
    * @param element replaced element
    * @param index index to find
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The set method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -145,7 +145,7 @@ declare class List<T> {
    * return true, otherwise return false.
    * @param obj Compare objects
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The equal method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -159,8 +159,8 @@ declare class List<T> {
    * @param List (Optional) The list object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -174,8 +174,8 @@ declare class List<T> {
    * minus firstValue, it returns an list sorted in descending order;
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next elements
-   * @throws {TypeError} Parameter check failed.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {TypeError}: The type of "comparator" must be callable. Received value is: [comparator]
+   * @throws {ContainerBindError}: The sort method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -183,7 +183,7 @@ declare class List<T> {
   /**
    * Removes all of the elements from this list.The list will
    * be empty after this call returns.length becomes 0
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -192,9 +192,11 @@ declare class List<T> {
    * Returns a view of the portion of this list between the specified fromIndex,inclusize,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The getSubList method cannot be bound.
+   * @throws {RangeError}: The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
+   * @throws {RangeError}: The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
+   * @throws {TypeError}: The type of "fromIndex" must be number. Received value is: [fromIndex]
+   * @throws {TypeError}: The type of "toIndex" must be number. Received value is: [toIndex]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -208,8 +210,8 @@ declare class List<T> {
    * @param list (Optional) The list object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The replaceAllElements method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -218,7 +220,7 @@ declare class List<T> {
   /**
    * convert list to array
    * @return the Array type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -226,14 +228,14 @@ declare class List<T> {
   /**
    * Determine whether list is empty and whether there is an element
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   isEmpty(): boolean;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

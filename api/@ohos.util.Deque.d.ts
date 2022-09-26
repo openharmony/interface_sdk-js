@@ -16,7 +16,7 @@
 declare class Deque<T> {
   /**
    * A constructor used to create a Deque object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The Deque's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -30,7 +30,7 @@ declare class Deque<T> {
   /**
    * Inserts an element into the deque header.
    * @param element to be appended to this deque
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The insertFront method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -38,7 +38,7 @@ declare class Deque<T> {
   /**
    * Inserting an element at the end of a deque
    * @param element to be appended to this deque
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The insertEnd method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -47,7 +47,7 @@ declare class Deque<T> {
    * Check if deque contains the specified element
    * @param element element to be contained
    * @return the boolean type,if deque contains the specified element,return true,else return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -55,7 +55,7 @@ declare class Deque<T> {
   /**
    * Obtains the header element of a deque.
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -63,7 +63,7 @@ declare class Deque<T> {
   /**
    * Obtains the end element of a deque.
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -71,7 +71,7 @@ declare class Deque<T> {
   /**
    * Obtains the header element of a deque and delete the element.
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The popFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -79,7 +79,7 @@ declare class Deque<T> {
   /**
    * Obtains the end element of a deque and delete the element.
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The popLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -92,8 +92,8 @@ declare class Deque<T> {
    * @param deque (Optional) The deque object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {TypeError} Parameter check failed.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -101,7 +101,7 @@ declare class Deque<T> {
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

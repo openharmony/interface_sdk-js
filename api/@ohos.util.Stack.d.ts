@@ -16,7 +16,7 @@
 declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The Stack's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -30,7 +30,7 @@ declare class Stack<T> {
   /**
    * Tests if this stack is empty
    * @return the boolean type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -39,7 +39,7 @@ declare class Stack<T> {
    * Looks at the object at the top of this stack without removing it from the stack
    * Return undfined if this stack is empty
    * @return the top value or undefined
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The peek method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -48,7 +48,7 @@ declare class Stack<T> {
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
    * @returns Stack top value or undefined
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The pop method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -57,7 +57,7 @@ declare class Stack<T> {
    * Pushes an item onto the top of this stack
    * @param item to be appended to this Stack
    * @returns the T type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The push method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -66,7 +66,7 @@ declare class Stack<T> {
    * Returns the 1-based position where an object is on this stack
    * @param element Target to be deleted
    * @returns the T type,If there is no such element, return -1
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The locate method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -80,8 +80,8 @@ declare class Stack<T> {
    * @param stack (Optional) The Stack object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -89,7 +89,7 @@ declare class Stack<T> {
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

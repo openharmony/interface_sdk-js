@@ -16,7 +16,7 @@
 declare class LinkedList<T> {
   /**
    * A constructor used to create a LinkedList object.
-   * @throws {NewTargetIsNullError} Parameter check failed.
+   * @throws {NewTargetIsNullError}: The LinkedList's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,7 +31,7 @@ declare class LinkedList<T> {
    * Appends the specified element to the end of this linkedlist.
    * @param element to be appended to this linkedlist
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,9 +40,9 @@ declare class LinkedList<T> {
    * Inserts the specified element at the specified position in this linkedlist.
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
-   * @throws {RangeError} Index out of range.
+   * @throws {ContainerBindError}: The insert method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -52,8 +52,8 @@ declare class LinkedList<T> {
    * or returns undefined if this linkedlist is empty
    * @param index specified position
    * @return the T type
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The get method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -61,7 +61,7 @@ declare class LinkedList<T> {
   /**
    * Inserts the specified element at the beginning of this LinkedList.
    * @param element the element to add
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The addFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -69,7 +69,7 @@ declare class LinkedList<T> {
   /**
    * Retrieves and removes the head (first element) of this linkedlist.
    * @return the head of this list
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The removeFirst method cannot be bound.
    * @throws {ContainerIsEmptyError} Container is Empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -78,7 +78,7 @@ declare class LinkedList<T> {
   /**
    * Removes and returns the last element from this linkedlist.
    * @return the head of this list
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The removeLast method cannot be bound.
    * @throws {ContainerIsEmptyError} Container is Empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -88,7 +88,7 @@ declare class LinkedList<T> {
    * Check if linkedlist contains the specified element
    * @param element element to be contained
    * @return the boolean type,if linkedList contains the specified element,return true,else return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -98,7 +98,7 @@ declare class LinkedList<T> {
    * in this linkedlist, or -1 if this linkedlist does not contain the element.
    * @param element element to be contained
    * @return the number type ,returns the lowest index such that or -1 if there is no such index.
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -108,9 +108,9 @@ declare class LinkedList<T> {
    * @param index the index in the linkedlist
    * @return the T type ,returns undefined if linkedlist is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
-   * @throws {RangeError} Index out of range.
+   * @throws {ContainerBindError}: The removeByIndex method cannot be bound.
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -121,7 +121,7 @@ declare class LinkedList<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -132,7 +132,7 @@ declare class LinkedList<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The removeFirstFound method cannot be bound.
    * @throws {ContainerIsEmptyError} Container is Empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -144,7 +144,7 @@ declare class LinkedList<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The removeLastFound method cannot be bound.
    * @throws {ContainerIsEmptyError} Container is Empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -155,7 +155,7 @@ declare class LinkedList<T> {
    * or -1 if the linkedlist does not contain the element.
    * @param element element to find
    * @return the number type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -164,7 +164,7 @@ declare class LinkedList<T> {
    * Returns the first element (the item at index 0) of this linkedlist.
    * or returns undefined if linkedlist is empty
    * @return the T type ,returns undefined if linkedList is empty
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -173,7 +173,7 @@ declare class LinkedList<T> {
    * Returns the Last element (the item at index length-1) of this linkedlist.
    * or returns undefined if linkedlist is empty
    * @return the T type ,returns undefined if linkedList is empty
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -183,9 +183,9 @@ declare class LinkedList<T> {
    * @param element replaced element
    * @param index index to find
    * @return the T type ,returns undefined if linkedList is empty
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {RangeError} Index out of range.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The set method cannot be bound.
+   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -199,8 +199,8 @@ declare class LinkedList<T> {
    * @param LinkedList (Optional) The linkedlist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError} Method not support bind.
-   * @throws {TypeError} Parameter check failed.
+   * @throws {ContainerBindError}: The forEach method cannot be bound.
+   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -209,7 +209,7 @@ declare class LinkedList<T> {
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will
    * be empty after this call returns.length becomes 0
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -217,7 +217,7 @@ declare class LinkedList<T> {
   /**
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
    * @return this linkedlist instance
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The clone method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -225,14 +225,14 @@ declare class LinkedList<T> {
   /**
    * convert linkedlist to array
    * @return the Array type
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   convertToArray(): Array<T>;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError} Method not support bind.
+   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
