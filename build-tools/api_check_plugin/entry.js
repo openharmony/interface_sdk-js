@@ -14,6 +14,7 @@
  */
 
 const path = require("path");
+const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "API CHECK FAILED!";
@@ -23,11 +24,12 @@ function checkEntry(url) {
     execSync("cd ../../interface/sdk-js/build-tools/api_check_plugin && npm install");
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result = scanEntry(url);
+    writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
     result = error;
   }
-  return result;
 }
+checkEntry(process.argv[2]);

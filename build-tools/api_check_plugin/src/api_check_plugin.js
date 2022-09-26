@@ -20,6 +20,8 @@ const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
 const { checkAPINameOfHump } = require("./check_hump");
 const { checkPermission } = require("./check_permission");
+const { checkSyscap } = require('./check_syscap');
+const { checkDeprecated } = require('./check_deprecated');
 const { hasAPINote } = require("./utils");
 let result = require("../check_result.json");
 
@@ -63,13 +65,17 @@ function checkAPICodeStyleCallback(fileName) {
 
 function checkAllNode(node, sourcefile, fileName) {
   if (!ts.isImportDeclaration) {
-    
+
   }
   if (hasAPINote(node)) {
     // check decorator
     checkAPIDecorators(node, sourcefile, fileName);
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
+    // check syscap
+    checkSyscap(node, sourcefile, fileName);
+    // check deprecated
+    checkDeprecated(node, sourcefile, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling

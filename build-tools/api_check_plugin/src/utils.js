@@ -70,6 +70,9 @@ const error_type = {
   UNKNOW_DECORATOR: 'unknow decorator',
   MISSPELL_WORDS: 'misspell words',
   NAMING_ERRORS: 'naming errors',
-  UNKNOW_PERMISSION: 'unknow permission'
+  UNKNOW_PERMISSION: 'unknow permission',
+  UNKNOW_SYSCAP: 'unknow syscap',
+  UNKNOW_DEPRECATED: 'unknow deprecated',
+  INVALID_IMPORT: 'invalid import'
 }
 exports.error_type = error_type;

@@ -19,16 +19,18 @@ import execjs
 
 def run_scan(path):
     result = []
-    js_context = execjs.compile(js_from_file("../../interface/sdk-js/build-tools/api_check_plugin/entry.js"))
-    result = js_context.call("checkEntry", os.path.abspath(path))
-    if len(result) == 0:
+    subprocess.check_output("node ../../interface/sdk-js/build-tools/api_check_plugin/entry.js" + os.path.abspath(path))
+    file_object = open("../../interface/sdk-js/build-tools/api_check_plugin/Result.txt","r")
+    try:
+        result = file_object.read()
+    finally:
+        file_object.close()
+
+os.remove(os.path.abspath("../../interface/sdk-js/build-tools/api_check_plugin/Result.txt"))
+    if result == "[]"
         return True, "check success"
     else:
-        return False, result
-
-def del_files(dir_path):
-    shutil.rmtree(dir_path)
-    print("delete")
+        return False,result
 
 def js_from_file(file_name):
     with open(file_name, "r", encoding="UTF-8") as file:
