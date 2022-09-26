@@ -101,8 +101,6 @@ declare namespace buffer {
      * @param [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
      * @return Return a view of the ArrayBuffer
      * @throws TypeError: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received [message]
-     * @throws BufferRangeError: Start offset [number] is outside the bounds of the buffer
-     * @throws BufferRangeError: "length" is outside of buffer bounds
      */
     function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
@@ -346,7 +344,6 @@ declare namespace buffer {
          * @return Return a signed, big-endian 64-bit integer 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigInt64BE(offset?: number): number;
 
@@ -358,7 +355,6 @@ declare namespace buffer {
          * @return Return a signed, little-endian 64-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds 
          */
         readBigInt64LE(offset?: number): number;
 
@@ -370,7 +366,6 @@ declare namespace buffer {
          * @return Return a unsigned, big-endian 64-bit integer 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferBufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigUInt64BE(offset?: number): number;
 
@@ -382,7 +377,6 @@ declare namespace buffer {
          * @return Return a unsigned, little-endian 64-bit integer 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readBigUInt64LE(offset?: number): number;
 
@@ -394,7 +388,6 @@ declare namespace buffer {
          * @return Return a 64-bit, big-endian double 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readDoubleBE(offset?: number): number;
 
@@ -406,7 +399,6 @@ declare namespace buffer {
          * @return Return a 64-bit, little-endian double 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readDoubleLE(offset?: number): number;
 
@@ -418,7 +410,6 @@ declare namespace buffer {
          * @return Return  a 32-bit, big-endian float 
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readFloatBE(offset?: number): number;
 
@@ -430,7 +421,6 @@ declare namespace buffer {
          * @return Return  a 32-bit, little-endian float
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readFloatLE(offset?: number): number;
 
@@ -442,7 +432,6 @@ declare namespace buffer {
          * @return Return  a signed 8-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt8(offset?: number): number;
 
@@ -454,7 +443,6 @@ declare namespace buffer {
          * @return Return a signed, big-endian 16-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt16BE(offset?: number): number;
 
@@ -466,7 +454,6 @@ declare namespace buffer {
          * @return Return a signed, little-endian 16-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt16LE(offset?: number): number;
 
@@ -478,7 +465,6 @@ declare namespace buffer {
          * @return Return a signed, big-endian 32-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt32BE(offset?: number): number;
 
@@ -490,7 +476,6 @@ declare namespace buffer {
          * @return Return a signed, little-endian 32-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readInt32LE(offset?: number): number;
 
@@ -506,7 +491,6 @@ declare namespace buffer {
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
          * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readIntBE(offset: number, byteLength: number): number;
 
@@ -522,7 +506,6 @@ declare namespace buffer {
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
          * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readIntLE(offset: number, byteLength: number): number;
 
@@ -534,7 +517,6 @@ declare namespace buffer {
          * @return Reads an unsigned 8-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt8(offset?: number): number;
 
@@ -546,7 +528,6 @@ declare namespace buffer {
          * @return Reads an unsigned, big-endian 16-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt16BE(offset?: number): number;
 
@@ -558,7 +539,6 @@ declare namespace buffer {
          * @return Reads an unsigned, little-endian 16-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt16LE(offset?: number): number;
 
@@ -570,7 +550,6 @@ declare namespace buffer {
          * @return Reads an unsigned, big-endian 32-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt32BE(offset?: number): number;
 
@@ -582,7 +561,6 @@ declare namespace buffer {
          * @return Reads an unsigned, little-endian 32-bit integer
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received [offset]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUInt32LE(offset?: number): number;
 
@@ -598,7 +576,6 @@ declare namespace buffer {
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
          * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUIntBE(offset: number, byteLength: number): number;
 
@@ -614,7 +591,6 @@ declare namespace buffer {
          * @throws TypeError: The "offset" argument must be of type number. Received [message]
          * @throws RangeError: The value of "offset" is out of range. It must be >= 0 and <= buf.length - byteLength. Received [offset]
          * @throws RangeError: The value of "byteLength" is out of range. It must be >= 1 and <= 6. Received [byteLength]
-         * @throws BufferRangeError: Attempt to access memory outside buffer bounds
          */
         readUIntLE(offset: number, byteLength: number): number;
 
