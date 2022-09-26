@@ -19,6 +19,7 @@ const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require("./check_decorator");
 const { checkSpelling } = require("./check_spelling");
 const { checkAPINameOfHump } = require("./check_hump");
+const { checkPermission } = require("./check_permission");
 const { hasAPINote } = require("./utils");
 let result = require("../check_result.json");
 
@@ -75,6 +76,8 @@ function checkAllNode(node, sourcefile, fileName) {
     checkSpelling(node, sourcefile, fileName);
     // check hump naming
     checkAPINameOfHump(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
