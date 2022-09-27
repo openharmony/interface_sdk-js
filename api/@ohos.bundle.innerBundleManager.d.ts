@@ -105,7 +105,7 @@ declare namespace innerBundleManager {
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 
   /**
-   * Contains basic launcher Ability information, which uniquely identifies an launcher StatusCallback.
+   * Contains basic launcher Ability information, which uniquely identifies a launcher StatusCallback.
    * 
    * @since 9
    * @syscap SystemCapability.BundleManager.BundleFramework
