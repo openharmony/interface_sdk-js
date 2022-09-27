@@ -14,7 +14,7 @@
  */
 
 import Want from "../../@ohos.application.Want";
-import ResultSet from "../../data/rdb/resultSet";
+import { ResultSet } from "../../data/rdb/resultSet";
 import { AbilityInfo } from "../../bundle/abilityInfo";
 import { DataAbilityResult } from "../../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../../ability/dataAbilityOperation";
