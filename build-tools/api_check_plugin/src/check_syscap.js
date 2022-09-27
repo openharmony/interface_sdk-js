@@ -24,7 +24,7 @@ const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkSyscap(node, sourcefile, fileName) {
     // check invalid import
-    const program = ts.createProgram({newLine:ts.NewLineKINd.LineFeed});
+    const program = ts.createProgram({ rootNames: fileName, option: {} });
     const diagnostic = program.getSuggestionDiagnostics(sourcefile);
     const invalidImport = '';
     if (invalidImport !== "") {
