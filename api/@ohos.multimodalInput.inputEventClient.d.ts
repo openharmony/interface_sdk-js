@@ -25,7 +25,8 @@
 declare namespace inputEventClient {
   /**
    * Defines event of key that user want to inject.
-   *
+   * 
+   * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @param isPressed The status of key.

@@ -16,7 +16,6 @@
 import { AsyncCallback } from "./basic";
 
 declare namespace inputDeviceCooperate {
-
   /**
    * Enumerates mouse traversal events.
    * 

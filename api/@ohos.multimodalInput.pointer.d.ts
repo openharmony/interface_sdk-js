@@ -16,13 +16,12 @@
 import { AsyncCallback } from "./basic";
 
 /**
-* Declares interfaces related to mouse pointer attributes.
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Pointer
-* @import import pointer from '@ohos.multimodalInput.pointer';
-*/
-
+ * Declares interfaces related to mouse pointer attributes.
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ * @import import pointer from '@ohos.multimodalInput.pointer';
+ */
 declare namespace pointer {
   /**
    * Pointer style.

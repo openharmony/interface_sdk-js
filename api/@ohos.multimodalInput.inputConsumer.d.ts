@@ -16,18 +16,18 @@
 import { Callback } from './basic';
 
 /**
-* The event of key input management module is configured to subscribe and unsubscribe system keys.
-*
-* @since 8
-* @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-* @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
-* @systemapi hide for inner use
-*/
-
+ * The event of key input management module is configured to subscribe and unsubscribe system keys.
+ *
+ * @since 8
+ * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+ * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
+ * @systemapi hide for inner use
+ */
 declare namespace inputConsumer {
   /**
    * Defines event of key that user want to subscribe or unsubscribe.
    *
+   * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @param preKeys The pre-keys that want to subscribe or unsubscribe.
