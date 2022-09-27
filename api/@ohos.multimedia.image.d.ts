@@ -334,7 +334,7 @@ declare namespace image {
 
   /**
    * Describes region information.
-   * @since 7
+   * @since 8
    * @syscap SystemCapability.Multimedia.Image.Core
    */
   interface Region {
