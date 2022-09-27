@@ -184,13 +184,13 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition wathcer for system event information.
+   * Definition watcher for system event information.
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
-  interface Watcher{
+  interface Watcher {
     /**
      * rule of filter system event
      */
@@ -314,11 +314,11 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} wathcer watch system event
+   * @param {Watcher} watcher watch system event
    * @return {number} 0 success, 1 fail
    * @since 9
    */
-  function removeWatcher(wathcer: Watcher): number;
+  function removeWatcher(watcher: Watcher): number;
 
   /**
    * query system event
