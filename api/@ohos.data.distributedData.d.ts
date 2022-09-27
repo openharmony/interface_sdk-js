@@ -718,6 +718,8 @@ declare namespace distributedData {
          * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
          * final position is invalid, false will be returned.
          * @returns Returns true if the operation succeeds; return false otherwise.
+         * @throws throws {BusinessError} if process failed.
+         * @errorcode 401
          */
         move(offset: number): boolean;
         /**
@@ -727,6 +729,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param position Indicates the absolute position.
          * @returns Returns true if the operation succeeds; return false otherwise.
+         * @throws throws {BusinessError} if process failed.
+         * @errorcode 401
          */
         moveToPosition(position: number): boolean;
         /**
@@ -1363,6 +1367,8 @@ declare namespace distributedData {
          * @param total Indicates the number of results.
          * @param offset Indicates the start position.
          * @returns Returns the {@coed QueryV9} object.
+         * @throws throws {BusinessError} if process failed.
+         * @errorcode 401
          */
         limit(total: number, offset: number): QueryV9;
         /**
