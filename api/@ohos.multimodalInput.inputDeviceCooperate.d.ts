@@ -69,8 +69,6 @@ declare namespace inputDeviceCooperate {
    * @param enable Whether to enable mouse traversal.
    * @param callback Asynchronous callback function.
    * @throws {BusinessError} 401 Parameter error.
-   * @throws {BusinessError} 4400002 Incorrect ID of the input device for screen hop.
-   * @throws {BusinessError} 4400003 Screen hop failed.
    */
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -82,8 +80,6 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param enable Whether to enable mouse traversal.
    * @throws {BusinessError} 401 Parameter error.
-   * @throws {BusinessError} 4400002 Incorrect ID of the input device for screen hop.
-   * @throws {BusinessError} 4400003 Screen hop failed.
    */
   function enable(enable: boolean): Promise<void>;
 
@@ -96,6 +92,9 @@ declare namespace inputDeviceCooperate {
    * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @param callback Asynchronous callback function.
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 4400001 Incorrect descriptor for the target device.
+   * @throws {BusinessError} 4400002 Screen hop failed.
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
@@ -107,6 +106,9 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 4400001 Incorrect descriptor for the target device.
+   * @throws {BusinessError} 4400002 Screen hop failed.
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
@@ -117,6 +119,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @param callback Asynchronous callback function.
+   * @throws {BusinessError} 401 Parameter error.
    */
   function stop(callback: AsyncCallback<void>): void;
 
@@ -137,6 +140,7 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
    * @param callback Asynchronous callback used to receive the status of the mouse traversal switch.
+   * @throws {BusinessError} 401 Parameter error.
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
 
@@ -147,6 +151,7 @@ declare namespace inputDeviceCooperate {
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
    * @param deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @throws {BusinessError} 401 Parameter error.
    */
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
@@ -158,6 +163,7 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param type Registration type.
    * @param callback Asynchronous callback used to receive mouse traversal events.
+   * @throws {BusinessError} 401 Parameter error.
    */
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
 
@@ -169,6 +175,7 @@ declare namespace inputDeviceCooperate {
    * @systemapi hide for inner use
    * @param type Registration type.
    * @param callback Asynchronous callback used to return the result.
+   * @throws {BusinessError} 401 Parameter error.
    */
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
 
