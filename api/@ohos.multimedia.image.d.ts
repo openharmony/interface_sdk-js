@@ -85,7 +85,7 @@ declare namespace image {
     RGBA_F16 = 7,
 
     /**
-     * Indicates that The storage order is to store Y first and then V U alternately each occupies 8 bits
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
      * and are stored from the higher-order to the lower-order bits.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -93,7 +93,7 @@ declare namespace image {
     NV21 = 8,
 
     /**
-     * Indicates that The storage order is to store Y first and then U V alternately each occupies 8 bits
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
      * and are stored from the higher-order to the lower-order bits.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -430,8 +430,7 @@ declare namespace image {
     format: string;
 
     /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better
-     * image quality but larger space occupied.
+     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
      * @since 6
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      */
@@ -440,7 +439,6 @@ declare namespace image {
     /**
      * BufferSize of the target image. The value is an integer.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     * image quality but larger space occupied.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      */
@@ -1458,7 +1456,7 @@ declare namespace image {
     readonly format: ImageFormat;
 
     /**
-     * Apply for new graphic buffer from free queue and uses a callback to return the result.
+     * Apply for new graphic buffer from free queue and use a callback to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @param callback Callback to return the operation result.
