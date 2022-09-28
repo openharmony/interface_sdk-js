@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,124 +21,107 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
  * Common event defination
- * @name commonEvent
- * @since 7
+ *
+ * @name commonEventManager
+ * @since 9
  * @syscap SystemCapability.Notification.CommonEvent
+ * @throws { BusinessError } If the input parameter is not valid parameter.
  * @permission N/A
- * @deprecated since 9
- * @useinstead commonEventManager
  */
-declare namespace commonEvent {
+declare namespace commonEventManager {
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @since 7
    * @param event name of the common event.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
-   * @deprecated since 9
-   * @useinstead commonEventManager.publish
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event.
    *
-   * @since 7
    * @param event name of the common event.
    * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
-   * @deprecated since 9
-   * @useinstead commonEventManager.publish
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
-   * @since 8
    * @param event Specified the names of the common events.
    * @param userId Specified the user to receive the common events.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
    *
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead commonEventManager.publishAsUser
    */
    function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
-   * @since 8
    * @param event Specified the names of the common events.
    * @param userId Specified the user to receive the common events.
    * @param options Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
    *
    * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead commonEventManager.publishAsUser
    */
   function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
    * creates a CommonEventSubscriber for the SubscriberInfo.
    *
-   * @since 7
    * @param subscribeInfo Indicates the information of the subscriber.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
-   * @deprecated since 9
-   * @useinstead commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void;
 
   /**
    * create the CommonEventSubscriber for the SubscriberInfo.
    *
-   * @since 7
    * @param subscribeInfo Indicates the information of the subscriber.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return Returns common event subscriber object
-   * @deprecated since 9
-   * @useinstead commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
    * subscribe an ordered, sticky, or standard common event.
    *
-   * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
-   * @deprecated since 9
-   * @useinstead commonEventManager.subscribe
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
    * unsubscribe from an ordered, sticky, or standard common event.
    *
-   * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
+   * @throws { BusinessError } If the input parameter is not valid parameter.
    * @return -
-   * @deprecated since 9
-   * @useinstead commonEventManager.unsubscribe
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
    * the event type that the commonEvent supported
+   *
    * @name Support
-   * @since 7
+   * @since 9
    * @permission N/A
-   * @deprecated since 9
-   * @useinstead commonEventManager.Support
    */
   export enum Support {
     /**
@@ -193,7 +176,6 @@ declare namespace commonEvent {
 
     /**
      * this commonEvent means when the thermal state level change
-     * @since 8
      */
      COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
@@ -276,7 +258,6 @@ declare namespace commonEvent {
 
     /**
      * this commonEvent means the user has cleared the package cache.
-     * @since 9
      */
      COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
 
@@ -857,14 +838,12 @@ declare namespace commonEvent {
     COMMON_EVENT_IVI_ACTIVE = "common.event.IVI_ACTIVE",
 
     /**
-     * @since 9
      * The usb state change events.
      * This is a protected common event that can only be sent by system.
      */
     COMMON_EVENT_USB_STATE = "usual.event.hardware.usb.action.USB_STATE",
 
     /**
-     * @since 9
      * The usb port changed.
      * This is a protected common event that can only be sent by system.
      */
@@ -937,35 +916,30 @@ declare namespace commonEvent {
     /**
      * The external storage was removed.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
     COMMON_EVENT_VOLUME_REMOVED = "usual.event.data.VOLUME_REMOVED",
 
     /**
      * The external storage was unmounted.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
     COMMON_EVENT_VOLUME_UNMOUNTED = "usual.event.data.VOLUME_UNMOUNTED",
 
     /**
      * The external storage was mounted.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
     COMMON_EVENT_VOLUME_MOUNTED = "usual.event.data.VOLUME_MOUNTED",
 
     /**
      * The external storage was bad removal.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
     COMMON_EVENT_VOLUME_BAD_REMOVAL = "usual.event.data.VOLUME_BAD_REMOVAL",
 
     /**
      * The external storage was eject.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
     COMMON_EVENT_VOLUME_EJECT = "usual.event.data.VOLUME_EJECT",
 
@@ -996,31 +970,27 @@ declare namespace commonEvent {
 
     /**
      * sent by the window manager service when the window mode is split.
-     * @since 8
      */
     COMMON_EVENT_SPLIT_SCREEN = "common.event.SPLIT_SCREEN",
 
     /**
      * The notification slot has been updated.
      * This is a protected common event that can only be sent by system.
-     * @since 9
      */
      COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
 
     /**
      * Indicate the action of a common event that the spn display information has been updated.
      * This common event can be triggered only by system.
-     * @since 9
      */
     COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
 
     /**
      * Indicate the result of quick fix apply.
      * This common event can be triggered only by system.
-     * @since 9
      */
     COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
   }
 }
 
-export default commonEvent;
+export default commonEventManager;
