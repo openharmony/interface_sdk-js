@@ -711,6 +711,21 @@ declare namespace distributedData {
          * Moves the read position by a relative offset to the current position.
          * 
          * @since 8
+         * @deprecated since 9
+         * @useinstead moveV9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param offset Indicates the relative offset to the current position. Anegative offset indicates moving backwards, and a
+         * positive offset indicates moving forewards. Forexample, if the current position is entry 1 and thisoffset is 2,
+         * the destination position will be entry 3; ifthe current position is entry 3 and this offset is -2,
+         * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
+         * final position is invalid, false will be returned.
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        move(offset: number): boolean;
+        /**
+         * Moves the read position by a relative offset to the current position.
+         *
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param offset Indicates the relative offset to the current position. Anegative offset indicates moving backwards, and a
          * positive offset indicates moving forewards. Forexample, if the current position is entry 1 and thisoffset is 2,
@@ -721,18 +736,29 @@ declare namespace distributedData {
          * @throws throws {BusinessError} if process failed.
          * @errorcode 401
          */
-        move(offset: number): boolean;
+        moveV9(offset: number): boolean;
         /**
          * Moves the read position from 0 to an absolute position.
          * 
          * @since 8
+         * @deprecated since 9
+         * @useinstead moveToPositionV9
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @param position Indicates the absolute position.
+         * @returns Returns true if the operation succeeds; return false otherwise.
+         */
+        moveToPosition(position: number): boolean;
+        /**
+         * Moves the read position from 0 to an absolute position.
+         *
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param position Indicates the absolute position.
          * @returns Returns true if the operation succeeds; return false otherwise.
          * @throws throws {BusinessError} if process failed.
          * @errorcode 401
          */
-        moveToPosition(position: number): boolean;
+        moveToPositionV9(position: number): boolean;
         /**
          * Checks whether the read position is the first line.
          * 
