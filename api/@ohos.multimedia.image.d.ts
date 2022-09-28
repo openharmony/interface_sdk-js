@@ -437,7 +437,7 @@ declare namespace image {
     quality: number;
 
     /**
-     * BufferSize of the target image. The value is an integer.
+     * BufferSize of the target image.
      * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
@@ -762,7 +762,7 @@ declare namespace image {
   /**
    * PixelMap instance.
    * @since 7
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
+   * @syscap SystemCapability.Multimedia.Image.Core
    */
   interface PixelMap {
     /**
