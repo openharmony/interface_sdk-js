@@ -19,24 +19,20 @@ import { AsyncCallback } from './basic';
 import { Resource } from 'GlobalResource';
 
 /**
+ * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- * @import prompt from '@ohos.prompt';
- * @deprecated since 9
- * @useinstead ohos.promptAction
+ * @since 9
+ * @import prompt from '@ohos.promptAction';
  */
-declare namespace prompt {
+declare namespace promptAction {
 
   /**
-   * @since 8
+   * @typedef ShowToastOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface ShowToastOptions {
 
-    /**
-     * Text to display.
-     * @type { string }
-     * @since 8
-     */
     /**
      * Text to display.
      * @type { string | Resource }
@@ -46,38 +42,34 @@ declare namespace prompt {
 
     /**
      * Duration of toast dialog box. The default value is 1500.
-     * The recommended value ranges from 1500 ms to 10000ms.
-     * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
-     * @since 8
+     * The recommended value ranges from 1500ms to 10000ms.
+     * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000ms.
+     * @type { number }
+     * @since 9
      */
     duration?: number;
 
     /**
      * The distance between toast dialog box and the bottom of screen.
-     * @since 8
+     * @type { string | number }
+     * @since 9
      */
     bottom?: string | number;
   }
 
   /**
-   * @since 8
+   * @typedef Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface Button {
 
-    /**
-     * @type { string }
-     * @since 8
-     */
     /**
      * @type { string | Resource }
      * @since 9
      */
     text: string | Resource;
 
-    /**
-     * @type { string }
-     * @since 8
-     */
     /**
      * @type { string | Resource }
      * @since 9
@@ -86,26 +78,26 @@ declare namespace prompt {
   }
 
   /**
-   * @since 8
+   * @typedef ShowDialogSuccessResponse
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface ShowDialogSuccessResponse {
 
     /**
-    * @since 8
+     * @type { number }
+    * @since 9
     */
     index: number;
   }
 
   /**
-   * @since 8
+   * @typedef ShowDialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface ShowDialogOptions {
 
-    /**
-     * Title of the text to display.
-     * @type { string }
-     * @since 8
-     */
     /**
      * Title of the text to display.
      * @type { string | Resource }
@@ -113,11 +105,6 @@ declare namespace prompt {
      */
     title?: string | Resource;
 
-    /**
-     * Text body.
-     * @type { string }
-     * @since 8
-     */
     /**
      * Text body.
      * @type { string | Resource }
@@ -129,32 +116,32 @@ declare namespace prompt {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
-     * @since 8
+     * @since 9
      */
     buttons?: [Button, Button?, Button?];
   }
 
   /**
-   * @since 8
+   * @typedef ActionMenuSuccessResponse
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface ActionMenuSuccessResponse {
 
     /**
-     * @since 8
+     * @type { number }
+     * @since 9
      */
     index: number;
   }
 
   /**
-   * @since 8
+   * @typedef ActionMenuOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   interface ActionMenuOptions {
 
-    /**
-     * Title of the text to display.
-     * @type { string }
-     * @since 8
-     */
     /**
      * Title of the text to display.
      * @type { string | Resource }
@@ -166,32 +153,64 @@ declare namespace prompt {
      * Array of buttons in the dialog box.
      * The array structure is {text:'button', color: '#666666'}.
      * One to six buttons are supported.
-     * @since 8
+     * @since 9
      */
     buttons: [Button, Button?, Button?, Button?, Button?, Button?];
   }
 
   /**
    * Displays the notification text.
-   * @param options Options.
-   * @since 8
+   * @param { ShowToastOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @throws { BusinessError } 401 - if the type of message is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   function showToast(options: ShowToastOptions):void;
 
   /**
    * Displays the dialog box.
-   * @param options Options.
-   * @since 8
+   * @param { ShowDialogOptions } options - Options.
+   * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - the callback of showDialog.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>):void;
+
+  /**
+   * Displays the dialog box.
+   * @param { ShowDialogOptions } options - Options.
+   * @returns { Promise<ShowDialogSuccessResponse> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
   /**
    * Displays the menu.
-   * @param options Options.
-   * @since 8
+   * @param { ActionMenuOptions } options - Options.
+   * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    */
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>):void;
+
+  /**
+   * Displays the dialog box.
+   * @param { ActionMenuOptions } options - Options.
+   * @returns { Promise<ActionMenuSuccessResponse> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
 
