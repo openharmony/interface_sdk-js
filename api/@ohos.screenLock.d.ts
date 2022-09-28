@@ -28,9 +28,19 @@ declare namespace screenLock {
    * @return Returns {@code true} if the screen is currently locked; returns {@code false}
    * otherwise.
    * @since 7
+   * @deprecated since 9
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
   function isScreenLocked(): Promise<boolean>;
+
+  /**
+   * Checks whether the screen is currently locked.
+   *
+   * @return Returns {@code true} if the screen is currently locked; returns {@code false}
+   * otherwise.
+   * @since 9
+   */
+  function isScreenLockedSync(): boolean;
 
   /**
    * Checks whether the screen lock of the current device is secure.
@@ -38,20 +48,42 @@ declare namespace screenLock {
    * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
    * otherwise.
    * @since 7
+   * @deprecated since 9
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
   function isSecureMode(): Promise<boolean>;
+  
+  /**
+   * Checks whether the screen lock of the current device is secure.
+   *
+   * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
+   * otherwise.
+   * @since 9
+   */
+  function isSecureModeSync(): boolean;
 
   /**
    * Unlocks the screen.
    * return -
    * @since 7
+   * @deprecated since 9
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
   function unlockScreen():Promise<void>;
+  
+  /**
+   * Unlocks the screen.
+   * @return Returns {@code true} if the screen unlocked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} Parameter error
+   * @since 9
+   */
+  function unlockScreenWithException(callback: AsyncCallback<boolean>): void;
+  function unlockScreenWithException():Promise<boolean>;
 
   /**
    * Lock the screen.
+   * @return Returns {@code true} if the screen locked successfully; returns {@code false} otherwise.
+   * @throws {BusinessError} Parameter error
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -77,7 +109,8 @@ declare namespace screenLock {
 
   /**
    * screenlockAPP send event to screenlockSA
-   *
+   * @params parameter The params of the event.
+   * @throws {BusinessError} Parameter error.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
