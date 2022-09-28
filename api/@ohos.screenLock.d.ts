@@ -64,6 +64,7 @@ declare namespace screenLock {
 
   /**
    * Unlocks the screen.
+   * 
    * return -
    * @since 7
    * @deprecated since 9
@@ -73,6 +74,7 @@ declare namespace screenLock {
   
   /**
    * Unlocks the screen.
+   * 
    * @return Returns {@code true} if the screen unlocked successfully; returns {@code false} otherwise.
    * @throws {BusinessError} Parameter error
    * @since 9
@@ -82,6 +84,7 @@ declare namespace screenLock {
 
   /**
    * Lock the screen.
+   * 
    * @return Returns {@code true} if the screen locked successfully; returns {@code false} otherwise.
    * @throws {BusinessError} Parameter error
    * @systemapi Hide this for inner system use.
@@ -99,6 +102,7 @@ declare namespace screenLock {
   
   /**
    * Register system event related to syscreen lock 
+   * 
    * @params callback The callback function for indcating the system event related screen lock
    * @return Returns {@code true} if register system event is success; returns {@code false} otherwise.
    * @throws {BusinessError} Parameter error
@@ -109,6 +113,7 @@ declare namespace screenLock {
 
   /**
    * screenlockAPP send event to screenlockSA
+   * 
    * @params parameter The params of the event.
    * @throws {BusinessError} Parameter error.
    * @systemapi Hide this for inner system use.

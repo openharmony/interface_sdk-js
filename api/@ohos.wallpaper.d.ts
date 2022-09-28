@@ -35,6 +35,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the wallpaper colors for the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return RgbaColor type of array callback function
      * @deprecated since 9
@@ -44,6 +45,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the wallpaper colors for the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return RgbaColor type of array callback function
      * @throws {BusinessError} Parameter error.
@@ -53,6 +55,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the ID of the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return an integer greater than or equal to {@code 0} representing the wallpaper ID
      * if the specified type of wallpaper has been set; returns {@code -1} otherwise.
@@ -64,6 +67,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the ID of the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return an integer greater than or equal to {@code 0} representing the wallpaper ID
      * if the specified type of wallpaper has been set; returns {@code -1} otherwise.
@@ -75,6 +79,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains a file of the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
      * ohos.permission.READ_USER_STORAGE.
@@ -87,6 +92,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains a file of the wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
      * @return the file descriptor.
@@ -97,6 +103,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the minimum height of the wallpaper.
+     * 
      * @return the minimum height, in pixels; returns {@code 0} if no wallpaper has been set.
      * @deprecated since 9
      */
@@ -105,6 +112,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the minimum height of the wallpaper.
+     * 
      * @return the minimum height, in pixels; returns {@code 0} if no wallpaper has been set.
      * @since 9
      */
@@ -112,6 +120,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the minimum width of the wallpaper.
+     * 
      * @return the minimum width, in pixels; returns {@code 0} if no wallpaper has been set.
      * @deprecated since 9
      */
@@ -120,6 +129,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the minimum width of the wallpaper.
+     * 
      * @return the minimum width, in pixels; returns {@code 0} if no wallpaper has been set.
      * @since 9
      */
@@ -127,6 +137,7 @@ declare namespace wallpaper {
 
     /**
      * Checks whether to allow the application to change the wallpaper for the current user.
+     * 
      * @return true if the application is allowed to set a wallpaper for the current user;
      * @deprecated since 9
      */
@@ -135,6 +146,7 @@ declare namespace wallpaper {
 
     /**
      * Checks whether to allow the application to change the wallpaper for the current user.
+     * 
      * @return true if the application is allowed to set a wallpaper for the current user;
      * @since 9
      */
@@ -142,6 +154,7 @@ declare namespace wallpaper {
 
     /**
      * Checks whether a user is allowed to set wallpapers.
+     * 
      * @return true if a user is allowed to set wallpapers; returns false otherwise.
      * @deprecated since 9
      */
@@ -150,6 +163,7 @@ declare namespace wallpaper {
 
     /**
      * Checks whether a user is allowed to set wallpapers.
+     * 
      * @return true if a user is allowed to set wallpapers; returns false otherwise.
      * @since 9
      */
@@ -157,6 +171,7 @@ declare namespace wallpaper {
 
     /**
      * Removes a wallpaper of the specified type and restores the default one.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
      * @deprecated since 9
@@ -166,6 +181,7 @@ declare namespace wallpaper {
 
     /**
      * Removes a wallpaper of the specified type and restores the default one.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @throws {BusinessError} Parameter error.
      * @throws {BusinessError} Permission denied.
@@ -177,6 +193,7 @@ declare namespace wallpaper {
 
     /**
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
+     * 
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
@@ -186,6 +203,7 @@ declare namespace wallpaper {
 
     /**
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
+     * 
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
      * @throws {BusinessError} Parameter error.
@@ -198,6 +216,7 @@ declare namespace wallpaper {
 
     /**
      * Obtains the default pixel map of a wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return the default pixel map.
      * @permission ohos.permission.GET_WALLPAPER
@@ -209,6 +228,7 @@ declare namespace wallpaper {
     /**
      *
      * Obtains the default pixel map of a wallpaper of the specified type.
+     * 
      * @param wallpaperType Indicates the wallpaper type.
      * @return the default pixel map.
      * @throws {BusinessError} Parameter error.
@@ -222,6 +242,7 @@ declare namespace wallpaper {
 
     /**
      * Screen shot live wallpaper
+     * 
      * @param scale scale the PixelMap
      * @param pixelFormat pixel format
      * @return the pixel map of wallpaper.
@@ -231,6 +252,7 @@ declare namespace wallpaper {
      */
     /**
      * Screen shot live wallpaper
+     * 
      * @param scale scale the PixelMap
      * @param pixelFormat pixel format
      * @return the pixel map of wallpaper.
@@ -245,12 +267,14 @@ declare namespace wallpaper {
 
     /**
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
+     * 
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      * @since 7
      */
     /**
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
+     * 
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      * @throws {BusinessError} Parameter error.
@@ -260,12 +284,14 @@ declare namespace wallpaper {
 
     /**
      * Unregisters a listener for wallpaper color changes.
+     * 
      * @param type Incoming 'colorChange' table delete receiver to pick up a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      * @since 7
      */
     /**
      * Unregisters a listener for wallpaper color changes.
+     * 
      * @param type Incoming 'colorChange' table delete receiver to pick up a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
      * @throws {BusinessError} Parameter error.
