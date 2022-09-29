@@ -24,7 +24,6 @@ declare namespace screenLock {
 
   /**
    * Checks whether the screen is currently locked.
-   *
    * @return Returns {@code true} if the screen is currently locked; returns {@code false}
    * otherwise.
    * @since 7
@@ -34,17 +33,14 @@ declare namespace screenLock {
   function isScreenLocked(): Promise<boolean>;
 
   /**
-   * Checks whether the screen is currently locked.
-   *
-   * @return Returns {@code true} if the screen is currently locked; returns {@code false}
-   * otherwise.
+   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
+   * @returns { boolean } the boolean returned by the function.
    * @since 9
    */
   function isLocked(): boolean;
 
   /**
    * Checks whether the screen lock of the current device is secure.
-   *
    * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
    * otherwise.
    * @since 7
@@ -54,17 +50,14 @@ declare namespace screenLock {
   function isSecureMode(): Promise<boolean>;
   
   /**
-   * Checks whether the screen lock of the current device is secure.
-   *
-   * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
-   * otherwise.
+   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
+   * @returns { boolean } the boolean returned by the function.
    * @since 9
    */
   function isSecure(): boolean;
 
   /**
    * Unlocks the screen.
-   * 
    * return -
    * @since 7
    * @deprecated since 9
@@ -73,9 +66,8 @@ declare namespace screenLock {
   function unlockScreen():Promise<void>;
   
   /**
-   * Unlocks the screen.
-   * 
-   * @return Returns {@code true} if the screen unlocked successfully; returns {@code false} otherwise.
+   * Unlocks the screen. Returns true if the screen unlocked successfully. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * @throws {BusinessError} Parameter error
    * @since 9
    */
@@ -83,9 +75,8 @@ declare namespace screenLock {
   function unlock():Promise<boolean>;
 
   /**
-   * Lock the screen.
-   * 
-   * @return Returns {@code true} if the screen locked successfully; returns {@code false} otherwise.
+   * Lock the screen. Returns true if the screen locked successfully. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * @throws {BusinessError} Parameter error
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -101,10 +92,9 @@ declare namespace screenLock {
   }
   
   /**
-   * Register system event related to syscreen lock 
-   * 
+   * Register system event related to syscreen lock. Returns true if register system event is success. returns false otherwise.
    * @params callback The callback function for indcating the system event related screen lock
-   * @return Returns {@code true} if register system event is success; returns {@code false} otherwise.
+   * @returns { boolean } the boolean returned by the function.
    * @throws {BusinessError} Parameter error
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -113,7 +103,6 @@ declare namespace screenLock {
 
   /**
    * screenlockAPP send event to screenlockSA
-   * 
    * @params parameter The params of the event.
    * @throws {BusinessError} Parameter error.
    * @systemapi Hide this for inner system use.
