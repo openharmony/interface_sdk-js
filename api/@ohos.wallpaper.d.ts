@@ -150,7 +150,7 @@ declare namespace wallpaper {
      * @return true if the application is allowed to set a wallpaper for the current user;
      * @since 9
      */
-    function isChangePermittedSync(): boolean;
+    function isChangeAllowed(): boolean;
 
     /**
      * Checks whether a user is allowed to set wallpapers.
@@ -167,7 +167,7 @@ declare namespace wallpaper {
      * @return true if a user is allowed to set wallpapers; returns false otherwise.
      * @since 9
      */
-    function isOperationAllowedSync(): boolean;
+    function isUserChangeAllowed(): boolean;
 
     /**
      * Removes a wallpaper of the specified type and restores the default one.
@@ -211,8 +211,8 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
-    function setWallpaperWithException(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
-    function setWallpaperWithException(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
+    function set(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
+    function set(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
     /**
      * Obtains the default pixel map of a wallpaper of the specified type.
@@ -237,8 +237,8 @@ declare namespace wallpaper {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    function getPixelMapWithException(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
-    function getPixelMapWithException(wallpaperType: WallpaperType): Promise<image.PixelMap>;
+    function getWallpaper(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
+    function getWallpaper(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
     /**
      * Screen shot live wallpaper

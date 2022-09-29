@@ -40,7 +40,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 9
    */
-  function isScreenLockedSync(): boolean;
+  function isLocked(): boolean;
 
   /**
    * Checks whether the screen lock of the current device is secure.
@@ -60,7 +60,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 9
    */
-  function isSecureModeSync(): boolean;
+  function isSecure(): boolean;
 
   /**
    * Unlocks the screen.
@@ -79,8 +79,8 @@ declare namespace screenLock {
    * @throws {BusinessError} Parameter error
    * @since 9
    */
-  function unlockScreenWithException(callback: AsyncCallback<boolean>): void;
-  function unlockScreenWithException():Promise<boolean>;
+  function unlock(callback: AsyncCallback<boolean>): void;
+  function unlock():Promise<boolean>;
 
   /**
    * Lock the screen.
@@ -90,8 +90,8 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lockScreen(callback: AsyncCallback<boolean>): void;
-  function lockScreen():Promise<boolean>;
+  function lock(callback: AsyncCallback<boolean>): void;
+  function lock():Promise<boolean>;
 
   type EventType = 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
 
