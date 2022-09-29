@@ -307,8 +307,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  canSetReadOnly(): Promise<boolean>;
-  canSetReadOnly(callback: AsyncCallback<boolean>): void;
+  canSetReadOnly(): boolean;
 
  /**
   * Set ndef tag read-only

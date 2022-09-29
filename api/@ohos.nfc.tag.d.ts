@@ -122,18 +122,18 @@ declare namespace tag {
   }
 
   /**
-   * RTD types definitions, see NFC Record Type Definition (RTD) Specification.
+   * RTD type TEXT, see NFC Record Type Definition (RTD) Specification.
    *
    * @since 9
-   * @syscap SystemCapability.Communication.NFC.Core
    */
-   enum RtdType {
-    /** RTD type text */
-    RTD_TEXT = 'T',
+  const RTD_TEXT: number[];
 
-    /** RTD type URI */
-    RTD_URI = 'U',
-  }
+  /**
+   * RTD type URI, see NFC Record Type Definition (RTD) Specification.
+   *
+   * @since 9
+   */
+  const RTD_URI: number[];
 
   /**
    * MifareClassic Type definition
@@ -143,16 +143,16 @@ declare namespace tag {
    */
   enum MifareClassicType {
     /** Mifare Type unknown */
-    TYPE_UNKNOWN = -1,
+    TYPE_UNKNOWN = 0,
 
     /** Mifare Classic */
-    TYPE_CLASSIC = 0,
+    TYPE_CLASSIC = 1,
 
     /** Mifare Plus */
-    TYPE_PLUS = 1,
+    TYPE_PLUS = 2,
 
     /** Mifare Pro */
-    TYPE_PRO = 2,
+    TYPE_PRO = 3,
   }
 
   /**
@@ -183,7 +183,7 @@ declare namespace tag {
    */
   enum MifareUltralightType {
     /** Mifare Type unknown */
-    TYPE_UNKOWN = -1,
+    TYPE_UNKNOWN = 0,
 
     /** Mifare Ultralight */
     TYPE_ULTRALIGHT = 1,
