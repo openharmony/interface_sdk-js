@@ -23,8 +23,8 @@ import { Callback } from './basic';
 declare namespace screenLock {
 
   /**
-   * Checks whether the screen is currently locked.
-   * @return Returns {@code true} if the screen is currently locked; returns {@code false}
+   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * otherwise.
    * @since 7
    * @deprecated since 9
@@ -40,8 +40,8 @@ declare namespace screenLock {
   function isLocked(): boolean;
 
   /**
-   * Checks whether the screen lock of the current device is secure.
-   * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
+   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * otherwise.
    * @since 7
    * @deprecated since 9
@@ -102,7 +102,7 @@ declare namespace screenLock {
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
   /**
-   * screenlockAPP send event to screenlockSA
+   * screenlockAPP send event to screenlockSA.
    * @params parameter The params of the event.
    * @throws {BusinessError} Parameter error.
    * @systemapi Hide this for inner system use.
@@ -110,7 +110,6 @@ declare namespace screenLock {
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
-
 }
 
 export default screenLock;

@@ -34,51 +34,49 @@ declare namespace wallpaper {
     }
 
     /**
-     * Obtains the wallpaper colors for the wallpaper of the specified type.
+     * Obtains the wallpaper colors for the wallpaper of the specified type. Returns rgbaColor type of array callback function.
      * @param wallpaperType Indicates the wallpaper type.
-     * @return RgbaColor type of array callback function
+     * @returns { Promise<Array<RgbaColor>> } the Promise<Array<RgbaColor>> returned by the function.
      * @deprecated since 9
      */
     function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
     function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
 
     /**
-     * Obtains the wallpaper colors for the wallpaper of the specified type.
+     * Obtains the wallpaper colors for the wallpaper of the specified type. Returns rgbaColor type of array callback function.
      * @param wallpaperType Indicates the wallpaper type.
-     * @returns RgbaColor type of array callback function
+     * @returns { Array<RgbaColor> } the Array<RgbaColor> returned by the function.
      * @throws {BusinessError} Parameter error.
      * @since 9
      */
     function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
 
     /**
-     * Obtains the ID of the wallpaper of the specified type.
+     * Obtains the ID of the wallpaper of the specified type. Returns an integer greater than or equal to {@code 0} representing the wallpaper ID.
+     * if the specified type of wallpaper has been set; returns {@code -1} otherwise. The return value is an integer ranging from -1 to 2^31 - 1.
      * @param wallpaperType Indicates the wallpaper type.
-     * @return an integer greater than or equal to {@code 0} representing the wallpaper ID
-     * if the specified type of wallpaper has been set; returns {@code -1} otherwise.
-     * The return value is an integer ranging from -1 to 2^31 - 1.
+     * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
      */
     function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getId(wallpaperType: WallpaperType): Promise<number>;
 
     /**
-     * Obtains the ID of the wallpaper of the specified type.
+     * Obtains the ID of the wallpaper of the specified type. Returns an integer greater than or equal to {@code 0} representing the wallpaper ID.
+     * if the specified type of wallpaper has been set; returns {@code -1} otherwise. The return value is an integer ranging from -1 to 2^31 - 1.
      * @param wallpaperType Indicates the wallpaper type.
-     * @returns an integer greater than or equal to {@code 0} representing the wallpaper ID
-     * if the specified type of wallpaper has been set; returns {@code -1} otherwise.
-     * The return value is an integer ranging from -1 to 2^31 - 1.
+     * @returns { number } the number returned by the function.
      * @throws {BusinessError} Parameter error.
      * @since 9
      */
     function getIdSync(wallpaperType: WallpaperType): number;
 
     /**
-     * Obtains a file of the wallpaper of the specified type.
+     * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
      * ohos.permission.READ_USER_STORAGE.
-     * @return the file descriptor.
+     * @returns { Promise<number> } the Promise<number> returned by the function.
      * @since 8
      * @deprecated since 9
      */
@@ -86,18 +84,18 @@ declare namespace wallpaper {
     function getFile(wallpaperType: WallpaperType): Promise<number>;
 
     /**
-     * Obtains a file of the wallpaper of the specified type.
+     * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
-     * @returns the file descriptor.
+     * @returns { number } the number returned by the function.
      * @throws {BusinessError} Parameter error.
      * @since 9
      */
     function getFileSync(wallpaperType: WallpaperType): number;
 
     /**
-     * Obtains the minimum height of the wallpaper.
-     * @return the minimum height, in pixels; returns {@code 0} if no wallpaper has been set.
+     * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
+     * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
      */
     function getMinHeight(callback: AsyncCallback<number>): void;
@@ -111,9 +109,8 @@ declare namespace wallpaper {
     function getMinHeightSync(): number;
 
     /**
-     * Obtains the minimum width of the wallpaper.
-     * 
-     * @return the minimum width, in pixels; returns {@code 0} if no wallpaper has been set.
+     * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
+     * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
      */
     function getMinWidth(callback: AsyncCallback<number>): void;
@@ -128,7 +125,8 @@ declare namespace wallpaper {
 
     /**
      * Checks whether to allow the application to change the wallpaper for the current user.
-     * @return true if the application is allowed to set a wallpaper for the current user;
+     * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
+     * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
      */
     function isChangePermitted(callback: AsyncCallback<boolean>): void;
@@ -144,7 +142,8 @@ declare namespace wallpaper {
 
     /**
      * Checks whether a user is allowed to set wallpapers.
-     * @return true if a user is allowed to set wallpapers; returns false otherwise.
+     * Returns true if a user is allowed to set wallpapers. returns false otherwise.
+     * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
      */
     function isOperationAllowed(callback: AsyncCallback<boolean>): void;
@@ -200,9 +199,9 @@ declare namespace wallpaper {
     function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
     /**
-     * Obtains the default pixel map of a wallpaper of the specified type.
+     * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
-     * @return the default pixel map.
+     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      */
@@ -211,9 +210,9 @@ declare namespace wallpaper {
 
     /**
      *
-     * Obtains the default pixel map of a wallpaper of the specified type.
+     * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
-     * @returns the default pixel map.
+     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @throws {BusinessError} Parameter error.
      * @throws {BusinessError} Permission denied.
      * @permission ohos.permission.GET_WALLPAPER
@@ -224,19 +223,19 @@ declare namespace wallpaper {
     function getImage(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
     /**
-     * Screen shot live wallpaper
+     * Screen shot live wallpaper. Return the pixel map of wallpaper.
      * @param scale scale the PixelMap
      * @param pixelFormat pixel format
-     * @return the pixel map of wallpaper.
+     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @permission ohos.permission.CAPTURE_SCREEN
      * @systemapi Hide this for inner system use.
      * @since 7
      */
     /**
-     * Screen shot live wallpaper
+     * Screen shot live wallpaper. Return the pixel map of wallpaper.
      * @param scale scale the PixelMap
      * @param pixelFormat pixel format
-     * @return the pixel map of wallpaper.
+     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @throws {BusinessError} Parameter error.
      * @throws {BusinessError} Permission denied.
      * @permission ohos.permission.CAPTURE_SCREEN
