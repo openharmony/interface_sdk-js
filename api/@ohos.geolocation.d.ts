@@ -34,7 +34,7 @@ declare namespace geolocation {
      * @param request Indicates the location request parameters.
      * @param callback Indicates the callback for reporting the location result.
      */
-    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>) : void;
+    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
     /**
      * unsubscribe location changed
@@ -44,7 +44,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
-    function off(type: 'locationChange', callback?: Callback<Location>) : void;
+    function off(type: 'locationChange', callback?: Callback<Location>): void;
 
     /**
      * subscribe location switch changed
@@ -54,7 +54,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
-    function on(type: 'locationServiceState', callback: Callback<boolean>) : void;
+    function on(type: 'locationServiceState', callback: Callback<boolean>): void;
 
     /**
      * unsubscribe location switch changed
@@ -64,7 +64,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
-    function off(type: 'locationServiceState', callback?: Callback<boolean>) : void;
+    function off(type: 'locationServiceState', callback?: Callback<boolean>): void;
 
     /**
      * subscribe to cache GNSS locations update messages
@@ -75,7 +75,7 @@ declare namespace geolocation {
      * @param request Indicates the cached GNSS locations request parameters.
      * @param callback Indicates the callback for reporting the cached GNSS locations.
      */
-    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>) : void;
+    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
     /**
      * unsubscribe to cache GNSS locations update messages
@@ -85,7 +85,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached gnss locations.
      */
-    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>) : void;
+    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>): void;
 
     /**
      * subscribe gnss status changed
@@ -95,7 +95,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
-    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>) : void;
+    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
     /**
      * unsubscribe gnss status changed
@@ -105,7 +105,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the gnss status change.
      */
-    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>) : void;
+    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
     /**
      * subscribe nmea message changed
@@ -115,7 +115,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
-    function on(type: 'nmeaMessageChange', callback: Callback<string>) : void;
+    function on(type: 'nmeaMessageChange', callback: Callback<string>): void;
 
     /**
      * unsubscribe nmea message changed
@@ -125,7 +125,7 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the nmea message.
      */
-    function off(type: 'nmeaMessageChange', callback?: Callback<string>) : void;
+    function off(type: 'nmeaMessageChange', callback?: Callback<string>): void;
 
     /**
      * add a geofence and subscribe geo fence status changed
@@ -136,7 +136,7 @@ declare namespace geolocation {
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the fence status.
      */
-    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
+    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * remove a geofence and unsubscribe geo fence status changed
@@ -147,7 +147,7 @@ declare namespace geolocation {
      * @param request Indicates the Geo-fence configuration parameters.
      * @param callback Indicates the callback for reporting the remove fence result.
      */
-    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
+    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * registering the callback function for listening to country code changes.
@@ -156,7 +156,7 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @param callback Indicates the callback for reporting country code changes.
      */
-    function on(type: 'countryCodeChange', callback: Callback<CountryCode>) : void;
+    function on(type: 'countryCodeChange', callback: Callback<CountryCode>): void;
 
     /**
      * unregistering the callback function for listening to country code changes.
@@ -165,7 +165,7 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @param callback Indicates the callback for reporting country code changes.
      */
-    function off(type: 'countryCodeChange', callback?: Callback<CountryCode>) : void;
+    function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
     /**
      * obtain current location
@@ -175,9 +175,9 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
-    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(request?: CurrentLocationRequest) : Promise<Location>;
+    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
     /**
      * obtain last known location
@@ -187,8 +187,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location result.
      */
-    function getLastLocation(callback: AsyncCallback<Location>) : void;
-    function getLastLocation() : Promise<Location>;
+    function getLastLocation(callback: AsyncCallback<Location>): void;
+    function getLastLocation(): Promise<Location>;
 
     /**
      * obtain current location switch status
@@ -198,8 +198,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch result.
      */
-    function isLocationEnabled(callback: AsyncCallback<boolean>) : void;
-    function isLocationEnabled() : Promise<boolean>;
+    function isLocationEnabled(callback: AsyncCallback<boolean>): void;
+    function isLocationEnabled(): Promise<boolean>;
 
     /**
      * request enable location
@@ -209,8 +209,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch status.
      */
-    function requestEnableLocation(callback: AsyncCallback<boolean>) : void;
-    function requestEnableLocation() : Promise<boolean>;
+    function requestEnableLocation(callback: AsyncCallback<boolean>): void;
+    function requestEnableLocation(): Promise<boolean>;
 
     /**
      * enable location switch
@@ -221,8 +221,8 @@ declare namespace geolocation {
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
-    function enableLocation(callback: AsyncCallback<boolean>) : void;
-    function enableLocation() : Promise<boolean>;
+    function enableLocation(callback: AsyncCallback<boolean>): void;
+    function enableLocation(): Promise<boolean>;
 
     /**
      * disable location switch
@@ -233,8 +233,8 @@ declare namespace geolocation {
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param callback Indicates the callback for reporting the location switch result.
      */
-    function disableLocation(callback: AsyncCallback<boolean>) : void;
-    function disableLocation() : Promise<boolean>;
+    function disableLocation(callback: AsyncCallback<boolean>): void;
+    function disableLocation(): Promise<boolean>;
 
     /**
      * obtain address info from location
@@ -244,8 +244,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the address info.
      */
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain latitude and longitude info from location address
@@ -255,8 +255,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the latitude and longitude result.
      */
-    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocationName(request: GeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain geocode service status
@@ -266,8 +266,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the geocode service status.
      */
-    function isGeoServiceAvailable(callback: AsyncCallback<boolean>) : void;
-    function isGeoServiceAvailable() : Promise<boolean>;
+    function isGeoServiceAvailable(callback: AsyncCallback<boolean>): void;
+    function isGeoServiceAvailable(): Promise<boolean>;
 
     /**
      * obtain the number of cached GNSS locations reported at a time
@@ -277,8 +277,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the cached GNSS locations size.
      */
-    function getCachedGnssLocationsSize(callback: AsyncCallback<number>) : void;
-    function getCachedGnssLocationsSize() : Promise<number>;
+    function getCachedGnssLocationsSize(callback: AsyncCallback<number>): void;
+    function getCachedGnssLocationsSize(): Promise<number>;
 
     /**
      * all prepared GNSS locations are returned to the application through the callback function,
@@ -289,8 +289,8 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the result.
      */
-    function flushCachedGnssLocations(callback: AsyncCallback<boolean>) : void;
-    function flushCachedGnssLocations() : Promise<boolean>;
+    function flushCachedGnssLocations(callback: AsyncCallback<boolean>): void;
+    function flushCachedGnssLocations(): Promise<boolean>;
 
     /**
      * send extended commands to location subsystem.
@@ -301,8 +301,8 @@ declare namespace geolocation {
      * @param command Indicates the extended Command Message Body.
      * @param callback Indicates the callback for reporting the send command result.
      */
-    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>) : void;
-    function sendCommand(command: LocationCommand) : Promise<boolean>;
+    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>): void;
+    function sendCommand(command: LocationCommand): Promise<boolean>;
 
     /**
      * obtain the current country code.
@@ -311,8 +311,8 @@ declare namespace geolocation {
      * @syscap SystemCapability.Location.Location.Core
      * @param callback Indicates the callback for reporting the country code.
      */
-    function getCountryCode(callback: AsyncCallback<CountryCode>) : void;
-    function getCountryCode() : Promise<CountryCode>;
+    function getCountryCode(callback: AsyncCallback<CountryCode>): void;
+    function getCountryCode(): Promise<CountryCode>;
 
     /**
      * enable the geographical location simulation function.
@@ -325,8 +325,10 @@ declare namespace geolocation {
      * of enabling the location simulation function. If the enabling fails, the error message will
      * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
      */
-    function enableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
-    function enableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
+    function enableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<void>): void;
+    function enableLocationMock(callback: AsyncCallback<void>): void;
+    function enableLocationMock(scenario: LocationRequestScenario): Promise<void>;
+    function enableLocationMock(): Promise<void>;
 
     /**
      * disable the geographical location simulation function.
@@ -339,8 +341,10 @@ declare namespace geolocation {
      * of disabling the location simulation function. If the disabling fails, the error message will
      * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
      */
-    function disableLocationMock(scenario?: LocationRequestScenario, callback: AsyncCallback<void>) : void;
-    function disableLocationMock(scenario?: LocationRequestScenario) : Promise<void>;
+    function disableLocationMock(scenario: LocationRequestScenario, callback: AsyncCallback<void>): void;
+    function disableLocationMock(callback: AsyncCallback<void>): void;
+    function disableLocationMock(scenario: LocationRequestScenario): Promise<void>;
+    function disableLocationMock(): Promise<void>;
 
     /**
      * set the configuration parameters for location simulation.
@@ -353,8 +357,8 @@ declare namespace geolocation {
      * the simulation locations. If the setting fails, the error message will be carried in the first 
      * parameter err of AsyncCallback. If the setting succeeds, no data will be returned.
      */
-    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<void>) : void;
-    function setMockedLocations(config: LocationMockConfig) : Promise<void>;
+    function setMockedLocations(config: LocationMockConfig, callback: AsyncCallback<void>): void;
+    function setMockedLocations(config: LocationMockConfig): Promise<void>;
 
     /**
      * enable the reverse geocoding simulation function.
@@ -366,8 +370,8 @@ declare namespace geolocation {
      * of enabling the reverse geocode simulation function. If the enabling fails, the error message will
      * be carried in the first parameter err of AsyncCallback, If enabling succeeds, no data will be returned.
      */
-    function enableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
-    function enableReverseGeocodingMock() : Promise<void>;
+    function enableReverseGeocodingMock(callback: AsyncCallback<void>): void;
+    function enableReverseGeocodingMock(): Promise<void>;
 
     /**
      * disable the reverse geocoding simulation function.
@@ -379,8 +383,8 @@ declare namespace geolocation {
      * of disabling the reverse geocode simulation function. If the disabling fails, the error message will
      * be carried in the first parameter err of AsyncCallback, If disabling succeeds, no data will be returned.
      */
-    function disableReverseGeocodingMock(callback: AsyncCallback<void>) : void;
-    function disableReverseGeocodingMock() : Promise<void>;
+    function disableReverseGeocodingMock(callback: AsyncCallback<void>): void;
+    function disableReverseGeocodingMock(): Promise<void>;
 
     /**
      * set the configuration parameters for simulating reverse geocoding.
@@ -394,8 +398,8 @@ declare namespace geolocation {
      * the error message will be carried in the first parameter err of AsyncCallback. 
      * If the setting succeeds, no data will be returned.
      */
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<void>) : void;
-    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>) : Promise<void>;
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>, callback: AsyncCallback<void>): void;
+    function setReverseGeocodingMockInfo(mockInfos: Array<ReverseGeocodingMockInfo>): Promise<void>;
 
     /**
      * configuration parameters for simulating reverse geocoding.
@@ -486,8 +490,8 @@ declare namespace geolocation {
      * @param type indicates location privacy protocol type.
      * @param callback indicates the callback for reporting the location privacy protocol confirmation status.
      */
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType, callback: AsyncCallback<boolean>) : void;
-    function isLocationPrivacyConfirmed(type : LocationPrivacyType,) : Promise<boolean>;
+    function isLocationPrivacyConfirmed(type: LocationPrivacyType, callback: AsyncCallback<boolean>): void;
+    function isLocationPrivacyConfirmed(type: LocationPrivacyType,): Promise<boolean>;
 
     /**
      * set location privacy protocol confirmation status.
@@ -500,8 +504,8 @@ declare namespace geolocation {
      * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
      * @param callback Indicates the callback for reporting whether the action is set successfully.
      */
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean, callback: AsyncCallback<boolean>) : void;
-    function setLocationPrivacyConfirmStatus(type : LocationPrivacyType, isConfirmed : boolean) : Promise<boolean>;
+    function setLocationPrivacyConfirmStatus(type: LocationPrivacyType, isConfirmed: boolean, callback: AsyncCallback<boolean>): void;
+    function setLocationPrivacyConfirmStatus(type: LocationPrivacyType, isConfirmed: boolean): Promise<boolean>;
 
     /**
      * configuring parameters in reverse geocode requests
