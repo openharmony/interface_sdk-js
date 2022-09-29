@@ -211,8 +211,8 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
-    function set(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
-    function set(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
+    function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
+    function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
     /**
      * Obtains the default pixel map of a wallpaper of the specified type.
@@ -237,8 +237,8 @@ declare namespace wallpaper {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    function getWallpaper(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
-    function getWallpaper(wallpaperType: WallpaperType): Promise<image.PixelMap>;
+    function getImage(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
+    function getImage(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
     /**
      * Screen shot live wallpaper
