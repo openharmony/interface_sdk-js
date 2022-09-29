@@ -175,6 +175,17 @@ declare namespace connection {
     netId: number;
 
     /**
+     * Binds a TCPSocket or UDPSocket to the current network. All data flows from
+     * the socket will use this network, without being subject to {@link setAppNet}.
+     * Before using this method, ensure that the socket is disconnected.
+     *
+     * @param socketParam Indicates the TCPSocket or UDPSocket object.
+     * @since 9
+     */
+    bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
+    bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
+
+    /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
