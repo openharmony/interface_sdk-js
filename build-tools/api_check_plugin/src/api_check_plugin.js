@@ -76,14 +76,14 @@ function checkAllNode(node, sourcefile, fileName) {
     checkSyscap(node, sourcefile, fileName);
     // check deprecated
     checkDeprecated(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
   }
   if (ts.isIdentifier(node)) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
     // check hump naming
     checkAPINameOfHump(node, sourcefile, fileName);
-    // check permission
-    checkPermission(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }

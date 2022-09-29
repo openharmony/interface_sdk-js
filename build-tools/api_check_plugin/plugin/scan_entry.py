@@ -19,18 +19,19 @@ import execjs
 
 def run_scan(path):
     result = []
-    subprocess.check_output("node ../../interface/sdk-js/build-tools/api_check_plugin/entry.js" + os.path.abspath(path))
-    file_object = open("../../interface/sdk-js/build-tools/api_check_plugin/Result.txt","r")
+    rootDir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_file_))))
+    entryDir = os.path.join(rootDir, "interface/sdk-js/build-tools/api_check_plugin/entry.js").replace("\\","/")
+    resultDir = os.path.join(rootDir, "interface/sdk-js/build-tools/api_check_plugin/Result.txt").replace("\\","/")
+    cmdDir = "node" + entryDir + " " + os.path.join(rootDir,path)
+    subprocess.check_output(cmdDir, shell=True)
+    file_object = open(resultDir,"r")
     try:
         result = file_object.read()
     finally:
         file_object.close()
 
-os.remove(os.path.abspath("../../interface/sdk-js/build-tools/api_check_plugin/Result.txt"))
-    if result == "[]"
-        return True, "check success"
-    else:
-        return False,result
+    os.remove(os.path.abspath(resultDir))
+    return True,result
 
 def js_from_file(file_name):
     with open(file_name, "r", encoding="UTF-8") as file:
@@ -38,4 +39,4 @@ def js_from_file(file_name):
     return result
 
 if __name__ == "__main__":
-    run_scan("../mdFiles.txt")
+    run_scan("ci-tools/ci-build/mdFiles.txt")
