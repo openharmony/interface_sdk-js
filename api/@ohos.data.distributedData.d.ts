@@ -3047,7 +3047,7 @@ declare namespace distributedData {
          * @param deviceIds Indicates the list of IDs of devices whose
          * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * {@code DeviceKVStore} databases are to be synchronized.
-         * @param query Indicates the {@code Query} object.
+         * @param query Indicates the {@code QueryV9} object.
          * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
          * {@code PUSH_PULL}.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -3057,7 +3057,7 @@ declare namespace distributedData {
          * @errorcode 15100004
          * @errorcode 401
          */
-        sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
+        sync(deviceIds: string[], query: QueryV9, mode: SyncMode, delayMs?: number): void;
 
         /**
          * Register Synchronizes DeviceKVStore databases callback.
