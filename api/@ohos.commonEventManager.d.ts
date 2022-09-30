@@ -386,24 +386,24 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_STOPPED = "usual.event.USER_STOPPED",
 
     /**
-     * HW id login successfully.
+     * distributed account login successfully.
      */
-    COMMON_EVENT_HWID_LOGIN = "common.event.HWID_LOGIN",
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGIN = "common.event.DISTRIBUTED_ACCOUNT_LOGIN",
 
     /**
-     * HW id logout successfully.
+     * distributed account logout successfully.
      */
-    COMMON_EVENT_HWID_LOGOUT = "common.event.HWID_LOGOUT",
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT = "common.event.DISTRIBUTED_ACCOUNT_LOGOUT",
 
     /**
-     * HW id is invalid.
+     * distributed account is invalid.
      */
-    COMMON_EVENT_HWID_TOKEN_INVALID = "common.event.HWID_TOKEN_INVALID",
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID = "common.event.DISTRIBUTED_ACCOUNT_TOKEN_INVALID",
 
     /**
-     * HW id logs off.
+     * distributed account logs off.
      */
-    COMMON_EVENT_HWID_LOGOFF = "common.event.HWID_LOGOFF",
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF = "common.event.DISTRIBUTED_ACCOUNT_LOGOFF",
 
     /**
      * WIFI state.
