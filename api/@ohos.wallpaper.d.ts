@@ -38,7 +38,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<Array<RgbaColor>> } the Promise<Array<RgbaColor>> returned by the function.
      * @deprecated since 9
-     * @useinstead getColorsSync
+     * @useinstead ohos.wallpaper.getColorsSync
      */
     function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
     function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
@@ -58,7 +58,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
-     * @useinstead getIdSync
+     * @useinstead ohos.wallpaper.getIdSync
      */
     function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getId(wallpaperType: WallpaperType): Promise<number>;
@@ -81,7 +81,7 @@ declare namespace wallpaper {
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @since 8
      * @deprecated since 9
-     * @useinstead getFileSync
+     * @useinstead ohos.wallpaper.getFileSync
      */
     function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getFile(wallpaperType: WallpaperType): Promise<number>;
@@ -101,7 +101,7 @@ declare namespace wallpaper {
      * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
-     * @useinstead getMinHeightSync
+     * @useinstead ohos.wallpaper.getMinHeightSync
      */
     function getMinHeight(callback: AsyncCallback<number>): void;
     function getMinHeight(): Promise<number>;
@@ -117,7 +117,7 @@ declare namespace wallpaper {
      * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
-     * @useinstead getMinWidthSync
+     * @useinstead ohos.wallpaper.getMinWidthSync
      */
     function getMinWidth(callback: AsyncCallback<number>): void;
     function getMinWidth(): Promise<number>;
@@ -134,7 +134,7 @@ declare namespace wallpaper {
      * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
-     * @useinstead isChangeAllowed
+     * @useinstead ohos.wallpaper.isChangeAllowed
      */
     function isChangePermitted(callback: AsyncCallback<boolean>): void;
     function isChangePermitted(): Promise<boolean>;
@@ -152,7 +152,7 @@ declare namespace wallpaper {
      * Returns true if a user is allowed to set wallpapers. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
-     * @useinstead isUserChangeAllowed
+     * @useinstead ohos.wallpaper.isUserChangeAllowed
      */
     function isOperationAllowed(callback: AsyncCallback<boolean>): void;
     function isOperationAllowed(): Promise<boolean>;
@@ -170,7 +170,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
      * @deprecated since 9
-     * @useinstead recovery
+     * @useinstead ohos.wallpaper.recovery
      */
     function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function reset(wallpaperType: WallpaperType): Promise<void>;
@@ -192,7 +192,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
      * @deprecated since 9
-     * @useinstead setImage
+     * @useinstead ohos.wallpaper.setImage
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
@@ -216,7 +216,7 @@ declare namespace wallpaper {
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead getImage
+     * @useinstead ohos.wallpaper.getImage
      */
     function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
     function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;

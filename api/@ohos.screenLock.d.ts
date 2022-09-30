@@ -28,7 +28,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 7
    * @deprecated since 9
-   * @useinstead isLocked
+   * @useinstead ohos.screenLock.isLocked
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
   function isScreenLocked(): Promise<boolean>;
@@ -46,7 +46,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 7
    * @deprecated since 9
-   * @useinstead isSecure
+   * @useinstead ohos.screenLock.isSecure
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
   function isSecureMode(): Promise<boolean>;
@@ -63,7 +63,7 @@ declare namespace screenLock {
    * return -
    * @since 7
    * @deprecated since 9
-   * @useinstead unlock
+   * @useinstead ohos.screenLock.unlock
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
   function unlockScreen():Promise<void>;
