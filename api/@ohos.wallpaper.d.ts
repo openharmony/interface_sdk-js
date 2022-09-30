@@ -38,6 +38,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<Array<RgbaColor>> } the Promise<Array<RgbaColor>> returned by the function.
      * @deprecated since 9
+     * @useinstead getColorsSync
      */
     function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
     function getColors(wallpaperType: WallpaperType): Promise<Array<RgbaColor>>;
@@ -46,7 +47,8 @@ declare namespace wallpaper {
      * Obtains the wallpaper colors for the wallpaper of the specified type. Returns rgbaColor type of array callback function.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Array<RgbaColor> } the Array<RgbaColor> returned by the function.
-     * @throws {BusinessError} Parameter error.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @since 9
      */
     function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
@@ -57,6 +59,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
+     * @useinstead getIdSync
      */
     function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getId(wallpaperType: WallpaperType): Promise<number>;
@@ -66,7 +69,8 @@ declare namespace wallpaper {
      * if the specified type of wallpaper has been set; returns {@code -1} otherwise. The return value is an integer ranging from -1 to 2^31 - 1.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { number } the number returned by the function.
-     * @throws {BusinessError} Parameter error.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @since 9
      */
     function getIdSync(wallpaperType: WallpaperType): number;
@@ -79,6 +83,7 @@ declare namespace wallpaper {
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @since 8
      * @deprecated since 9
+     * @useinstead getFileSync
      */
     function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
     function getFile(wallpaperType: WallpaperType): Promise<number>;
@@ -88,7 +93,11 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
      * @returns { number } the number returned by the function.
-     * @throws {BusinessError} Parameter error.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 201 Permission denied.
+     * @throws {BusinessError} 13100001 Failed to open the file.
+     * @throws {BusinessError} 13100002 The image format is incorrect.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @since 9
      */
     function getFileSync(wallpaperType: WallpaperType): number;
@@ -97,6 +106,7 @@ declare namespace wallpaper {
      * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
+     * @useinstead getMinHeightSync
      */
     function getMinHeight(callback: AsyncCallback<number>): void;
     function getMinHeight(): Promise<number>;
@@ -112,6 +122,7 @@ declare namespace wallpaper {
      * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @deprecated since 9
+     * @useinstead getMinWidthSync
      */
     function getMinWidth(callback: AsyncCallback<number>): void;
     function getMinWidth(): Promise<number>;
@@ -128,6 +139,7 @@ declare namespace wallpaper {
      * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
+     * @useinstead isChangeAllowed
      */
     function isChangePermitted(callback: AsyncCallback<boolean>): void;
     function isChangePermitted(): Promise<boolean>;
@@ -145,6 +157,7 @@ declare namespace wallpaper {
      * Returns true if a user is allowed to set wallpapers. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
      * @deprecated since 9
+     * @useinstead isUserChangeAllowed
      */
     function isOperationAllowed(callback: AsyncCallback<boolean>): void;
     function isOperationAllowed(): Promise<boolean>;
@@ -162,6 +175,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
      * @deprecated since 9
+     * @useinstead recovery
      */
     function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function reset(wallpaperType: WallpaperType): Promise<void>;
@@ -169,8 +183,9 @@ declare namespace wallpaper {
     /**
      * Removes a wallpaper of the specified type and restores the default one.
      * @param wallpaperType Indicates the wallpaper type.
-     * @throws {BusinessError} Parameter error.
-     * @throws {BusinessError} Permission denied.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 201 Permission denied.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
@@ -183,6 +198,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
      * @deprecated since 9
+     * @useinstead setImage
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
@@ -191,8 +207,11 @@ declare namespace wallpaper {
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
-     * @throws {BusinessError} Parameter error.
-     * @throws {BusinessError} Permission denied.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 201 Permission denied.
+     * @throws {BusinessError} 13100001 Failed to open the file.
+     * @throws {BusinessError} 13100002 The image format is incorrect.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
@@ -206,6 +225,7 @@ declare namespace wallpaper {
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
+     * @useinstead getImage
      */
     function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
     function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
@@ -215,8 +235,11 @@ declare namespace wallpaper {
      * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
-     * @throws {BusinessError} Parameter error.
-     * @throws {BusinessError} Permission denied.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 201 Permission denied.
+     * @throws {BusinessError} 13100001 Failed to open the file.
+     * @throws {BusinessError} 13100002 The image format is incorrect.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -234,7 +257,8 @@ declare namespace wallpaper {
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
-     * @throws {BusinessError} Parameter error.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @since 9
      */
     function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
@@ -249,7 +273,8 @@ declare namespace wallpaper {
      * Unregisters a listener for wallpaper color changes.
      * @param type Incoming 'colorChange' table delete receiver to pick up a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
-     * @throws {BusinessError} Parameter error.
+     * @throws {BusinessError} 401 Parameter error.
+     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
      * @since 9
      */
     function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;

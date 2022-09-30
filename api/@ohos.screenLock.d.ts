@@ -28,6 +28,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 7
    * @deprecated since 9
+   * @useinstead isLocked
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
   function isScreenLocked(): Promise<boolean>;
@@ -45,6 +46,7 @@ declare namespace screenLock {
    * otherwise.
    * @since 7
    * @deprecated since 9
+   * @useinstead isSecure
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
   function isSecureMode(): Promise<boolean>;
@@ -61,6 +63,7 @@ declare namespace screenLock {
    * return -
    * @since 7
    * @deprecated since 9
+   * @useinstead unlock
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
   function unlockScreen():Promise<void>;
@@ -68,7 +71,9 @@ declare namespace screenLock {
   /**
    * Unlocks the screen. Returns true if the screen unlocked successfully. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-   * @throws {BusinessError} Parameter error
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 13200002 The user canceled the unlock operation.
+   * @throws {BusinessError} 13200002 The screenlock management service is abnormal.
    * @since 9
    */
   function unlock(callback: AsyncCallback<boolean>): void;
@@ -77,7 +82,8 @@ declare namespace screenLock {
   /**
    * Lock the screen. Returns true if the screen locked successfully. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-   * @throws {BusinessError} Parameter error
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 13200002 The screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -95,7 +101,8 @@ declare namespace screenLock {
    * Register system event related to syscreen lock. Returns true if register system event is success. returns false otherwise.
    * @params callback The callback function for indcating the system event related screen lock
    * @returns { boolean } the boolean returned by the function.
-   * @throws {BusinessError} Parameter error
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 13200002 The screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -104,7 +111,8 @@ declare namespace screenLock {
   /**
    * screenlockAPP send event to screenlockSA.
    * @params parameter The params of the event.
-   * @throws {BusinessError} Parameter error.
+   * @throws {BusinessError} 401 Parameter error.
+   * @throws {BusinessError} 13200002 The screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
