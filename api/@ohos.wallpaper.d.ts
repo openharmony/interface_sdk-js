@@ -182,6 +182,7 @@ declare namespace wallpaper {
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
+     * @deprecated since 9
      */
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
     function setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
@@ -204,6 +205,7 @@ declare namespace wallpaper {
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
+     * @deprecated since 9
      */
     function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
     function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
@@ -221,29 +223,6 @@ declare namespace wallpaper {
      */
     function getImage(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
     function getImage(wallpaperType: WallpaperType): Promise<image.PixelMap>;
-
-    /**
-     * Screen shot live wallpaper. Return the pixel map of wallpaper.
-     * @param scale scale the PixelMap
-     * @param pixelFormat pixel format
-     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @systemapi Hide this for inner system use.
-     * @since 7
-     */
-    /**
-     * Screen shot live wallpaper. Return the pixel map of wallpaper.
-     * @param scale scale the PixelMap
-     * @param pixelFormat pixel format
-     * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
-     * @throws {BusinessError} Parameter error.
-     * @throws {BusinessError} Permission denied.
-     * @permission ohos.permission.CAPTURE_SCREEN
-     * @systemapi Hide this for inner system use.
-     * @since 9
-     */
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat, callback: AsyncCallback<image.PixelMap>): void;
-    function screenshotLiveWallpaper(scale: number, pixelFormat: image.PixelMapFormat): Promise<image.PixelMap>;
 
     /**
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
