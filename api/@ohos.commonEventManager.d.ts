@@ -20,108 +20,103 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * Common event defination
- *
- * @name commonEventManager
- * @since 9
+ * Common event definition
+ * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
- * @throws { BusinessError } If the input parameter is not valid parameter.
- * @permission N/A
+ * @since 9
  */
 declare namespace commonEventManager {
   /**
    * Publishes an ordered, sticky, or standard common event.
-   *
-   * @param event name of the common event.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event.
-   *
-   * @param event name of the common event.
-   * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
-   *
-   * @param event Specified the names of the common events.
-   * @param userId Specified the user to receive the common events.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
-   *
-   * @systemapi Hide this for inner system use.
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 9
    */
-   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
+  function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
-   *
-   * @param event Specified the names of the common events.
-   * @param userId Specified the user to receive the common events.
-   * @param options Indicates the CommonEventPublishData containing the common event content and attributes.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
-   *
-   * @systemapi Hide this for inner system use.
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 9
    */
   function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
   /**
    * creates a CommonEventSubscriber for the SubscriberInfo.
-   *
-   * @param subscribeInfo Indicates the information of the subscriber.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void;
 
   /**
-   * create the CommonEventSubscriber for the SubscriberInfo.
-   *
-   * @param subscribeInfo Indicates the information of the subscriber.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return Returns common event subscriber object
+   * creates a CommonEventSubscriber for the SubscriberInfo.
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
    * subscribe an ordered, sticky, or standard common event.
-   *
-   * @param subscriber Indicate the subscriber of the common event.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
    * unsubscribe from an ordered, sticky, or standard common event.
-   *
-   * @param subscriber Indicate the subscriber of the common event.
-   * @param callback Specified callback method.
-   * @throws { BusinessError } If the input parameter is not valid parameter.
-   * @return -
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 9
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
    * the event type that the commonEvent supported
-   *
-   * @name Support
+   * @enum { string }
+   * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
-   * @permission N/A
    */
   export enum Support {
     /**
@@ -177,7 +172,7 @@ declare namespace commonEventManager {
     /**
      * this commonEvent means when the thermal state level change
      */
-     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
+    COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
      * this commonEvent means when the user is present after the device waked up.
@@ -259,7 +254,7 @@ declare namespace commonEventManager {
     /**
      * this commonEvent means the user has cleared the package cache.
      */
-     COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
+    COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
 
     /**
      * this commonEvent means the packages have been suspended.
@@ -977,7 +972,7 @@ declare namespace commonEventManager {
      * The notification slot has been updated.
      * This is a protected common event that can only be sent by system.
      */
-     COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
+    COMMON_EVENT_SLOT_CHANGE = "usual.event.SLOT_CHANGE",
 
     /**
      * Indicate the action of a common event that the spn display information has been updated.
