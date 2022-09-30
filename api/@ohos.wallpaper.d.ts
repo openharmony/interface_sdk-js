@@ -47,8 +47,7 @@ declare namespace wallpaper {
      * Obtains the wallpaper colors for the wallpaper of the specified type. Returns rgbaColor type of array callback function.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Array<RgbaColor> } the Array<RgbaColor> returned by the function.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
      * @since 9
      */
     function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
@@ -69,8 +68,7 @@ declare namespace wallpaper {
      * if the specified type of wallpaper has been set; returns {@code -1} otherwise. The return value is an integer ranging from -1 to 2^31 - 1.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { number } the number returned by the function.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
      * @since 9
      */
     function getIdSync(wallpaperType: WallpaperType): number;
@@ -93,11 +91,8 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER.
      * @returns { number } the number returned by the function.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 201 Permission denied.
-     * @throws {BusinessError} 13100001 Failed to open the file.
-     * @throws {BusinessError} 13100002 The image format is incorrect.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
      * @since 9
      */
     function getFileSync(wallpaperType: WallpaperType): number;
@@ -183,9 +178,8 @@ declare namespace wallpaper {
     /**
      * Removes a wallpaper of the specified type and restores the default one.
      * @param wallpaperType Indicates the wallpaper type.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 201 Permission denied.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
@@ -207,11 +201,8 @@ declare namespace wallpaper {
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 201 Permission denied.
-     * @throws {BusinessError} 13100001 Failed to open the file.
-     * @throws {BusinessError} 13100002 The image format is incorrect.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
@@ -235,11 +226,8 @@ declare namespace wallpaper {
      * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 201 Permission denied.
-     * @throws {BusinessError} 13100001 Failed to open the file.
-     * @throws {BusinessError} 13100002 The image format is incorrect.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
+     * @throws {BusinessError} 201 - permission denied.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -257,8 +245,7 @@ declare namespace wallpaper {
      * Registers a listener for wallpaper color changes to receive notifications about the changes.
      * @param type The incoming colorChange table open receiver pick a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
      * @since 9
      */
     function on(type: 'colorChange', callback: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
@@ -273,8 +260,7 @@ declare namespace wallpaper {
      * Unregisters a listener for wallpaper color changes.
      * @param type Incoming 'colorChange' table delete receiver to pick up a color change wallpaper wallpaper color changes
      * @param callback Provides dominant colors of the wallpaper.
-     * @throws {BusinessError} 401 Parameter error.
-     * @throws {BusinessError} 13100003 The wallpaper management service is abnormal.
+     * @throws {BusinessError} 401 - parameter error.
      * @since 9
      */
     function off(type: 'colorChange', callback?: (colors: Array<RgbaColor>, wallpaperType: WallpaperType) => void): void;
