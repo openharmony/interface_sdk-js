@@ -511,6 +511,31 @@ declare namespace deviceManager {
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
 
     /**
+     * Set user Operation from devicemanager Sea, this interface can only used by devicemanager Sea.
+     *
+     * @param operateAction User Operation Actions.
+     * @systemapi this method can be used only by system applications.
+     */  
+    setUserOperation(operateAction: number, params: string): void;
+
+    /**
+     * Register a callback from deviceManager service so that the devicemanager Sea can be notified when some events happen.
+     * this interface can only used by devicemanager Sea.
+     *
+     * @param callback for devicemanager ui to register.
+     * @systemapi this method can be used only by system applications.
+     */
+    on(type: 'uiStatueChange', callback: Callback<{ param: string}>): void;
+
+     /**
+      * UnRegister dmSeaCallback, this interface can only used by devicemanager ui.
+      *
+      * @param callback for devicemanager Sea to register.
+      * @systemapi this method can be used only by system applications.
+      */
+    off(type: 'uiStatueChange', callback?: Callback<{ param: string}>): void;
+
+    /**
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
      *
