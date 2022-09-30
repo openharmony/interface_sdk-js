@@ -50,7 +50,7 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * @import import notification from '@ohos.notification';
  * @permission N/A
  * @deprecated since 9
- * @useinstead notificationManager
+ * @useinstead ohos.notificationManager and ohos.notificationSubscribe
  */
 declare namespace notification {
   /**
@@ -62,7 +62,7 @@ declare namespace notification {
    * @param request notification request
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.publish
+   * @useinstead ohos.notificationManager.publish
    */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
   function publish(request: NotificationRequest): Promise<void>;
@@ -76,7 +76,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.publish
+   * @useinstead ohos.notificationManager.publish
    *
    */
    function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
@@ -92,7 +92,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.publishAsBundle
+   * @useinstead ohos.notificationManager.publishAsBundle
    *
    */
     function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
@@ -104,7 +104,7 @@ declare namespace notification {
    * @param id of the notification to cancel, which must be unique in the application.
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.cancel
+   * @useinstead ohos.notificationManager.cancel
    */
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
@@ -115,7 +115,7 @@ declare namespace notification {
    * @param label Label of the notification to cancel.
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.cancel
+   * @useinstead ohos.notificationManager.cancel
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
@@ -131,7 +131,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.cancelAsBundle
+   * @useinstead ohos.notificationManager.cancelAsBundle
    */
   function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
@@ -139,7 +139,7 @@ declare namespace notification {
   /**
    * Cancels all notifications of the current application.
    * @deprecated since 9
-   * @useinstead notificationManager.cancelAll
+   * @useinstead ohos.notificationManager.cancelAll
    */
   function cancelAll(callback: AsyncCallback<void>): void;
   function cancelAll(): Promise<void>;
@@ -153,7 +153,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @useinstead ohos.notificationManager.addSlot
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -166,7 +166,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @useinstead ohos.notificationManager.addSlot
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -176,7 +176,7 @@ declare namespace notification {
    * @param type Slot type to add.
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.addSlot
+   * @useinstead ohos.notificationManager.addSlot
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
   function addSlot(type: SlotType): Promise<void>;
@@ -190,7 +190,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.addSlots
+   * @useinstead ohos.notificationManager.addSlots
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -203,7 +203,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.addSlots
+   * @useinstead ohos.notificationManager.addSlots
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -214,7 +214,7 @@ declare namespace notification {
    * @param callback callback function
    * @return Returns the created {@link NotificationSlot}.
    * @deprecated since 9
-   * @useinstead notificationManager.getSlot
+   * @useinstead ohos.notificationManager.getSlot
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
@@ -224,7 +224,7 @@ declare namespace notification {
    *
    * @return Returns all notification slots of this application.
    * @deprecated since 9
-   * @useinstead notificationManager.getSlots
+   * @useinstead ohos.notificationManager.getSlots
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
   function getSlots(): Promise<Array<NotificationSlot>>;
@@ -235,7 +235,7 @@ declare namespace notification {
    * @param slotType Type of the NotificationSlot to remove.
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.removeSlot
+   * @useinstead ohos.notificationManager.removeSlot
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
   function removeSlot(slotType: SlotType): Promise<void>;
@@ -243,7 +243,7 @@ declare namespace notification {
   /**
    * Removes all NotificationSlot objects created by the current application.
    * @deprecated since 9
-   * @useinstead notificationManager.removeAllSlots
+   * @useinstead ohos.notificationManager.removeAllSlots
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
   function removeAllSlots(): Promise<void>;
@@ -251,7 +251,7 @@ declare namespace notification {
   /**
    * Describes NotificationSlot types.
    * @deprecated since 9
-   * @useinstead notificationManager.SlotType
+   * @useinstead ohos.notificationManager.SlotType
    */
   export enum SlotType {
     /**
@@ -288,7 +288,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.ContentType
+   * @useinstead ohos.notificationManager.ContentType
    */
   export enum ContentType {
     /**
@@ -321,7 +321,7 @@ declare namespace notification {
    * Indicates the level of the slot
    *
    * @deprecated since 9
-   * @useinstead notificationManager.SlotLevel
+   * @useinstead ohos.notificationManager.SlotLevel
    */
   export enum SlotLevel {
     /**
@@ -360,7 +360,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationSubscribe.subscribe
+   * @useinstead ohos.notificationSubscribe.subscribe
    */
   function subscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -370,7 +370,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationSubscribe.subscribe
+   * @useinstead ohos.notificationSubscribe.subscribe
    */
   function subscribe(subscriber: NotificationSubscriber, info: NotificationSubscribeInfo, callback: AsyncCallback<void>): void;
 
@@ -380,7 +380,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationSubscribe.subscribe
+   * @useinstead ohos.notificationSubscribe.subscribe
    */
   function subscribe(subscriber: NotificationSubscriber, info?: NotificationSubscribeInfo): Promise<void>;
 
@@ -390,7 +390,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationSubscribe.unsubscribe
+   * @useinstead ohos.notificationSubscribe.unsubscribe
    */
   function unsubscribe(subscriber: NotificationSubscriber, callback: AsyncCallback<void>): void;
 
@@ -400,7 +400,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationSubscribe.unsubscribe
+   * @useinstead ohos.notificationSubscribe.unsubscribe
    */
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
@@ -410,7 +410,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setNotificationEnable
+   * @useinstead ohos.notificationManager.setNotificationEnable
    */
   function enableNotification(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -420,7 +420,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setNotificationEnable
+   * @useinstead ohos.notificationManager.setNotificationEnable
    */
   function enableNotification(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -430,7 +430,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @useinstead ohos.notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -440,7 +440,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @useinstead ohos.notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(bundle: BundleOption): Promise<boolean>;
 
@@ -450,7 +450,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @useinstead ohos.notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -460,7 +460,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @useinstead ohos.notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -471,7 +471,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isNotificationEnabled
+   * @useinstead ohos.notificationManager.isNotificationEnabled
    */
   function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
   function isNotificationEnabled(userId: number): Promise<boolean>;
@@ -482,7 +482,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.displayBadge
+   * @useinstead ohos.notificationManager.displayBadge
    */
   function displayBadge(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -492,7 +492,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.displayBadge
+   * @useinstead ohos.notificationManager.displayBadge
    */
   function displayBadge(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -502,7 +502,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isBadgeDisplayed
+   * @useinstead ohos.notificationManager.isBadgeDisplayed
    */
   function isBadgeDisplayed(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -512,7 +512,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isBadgeDisplayed
+   * @useinstead ohos.notificationManager.isBadgeDisplayed
    */
   function isBadgeDisplayed(bundle: BundleOption): Promise<boolean>;
 
@@ -522,7 +522,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setSlotByBundle
+   * @useinstead ohos.notificationManager.setSlotByBundle
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -532,7 +532,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setSlotByBundle
+   * @useinstead ohos.notificationManager.setSlotByBundle
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -542,7 +542,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getSlotsByBundle
+   * @useinstead ohos.notificationManager.getSlotsByBundle
    */
   function getSlotsByBundle(bundle: BundleOption, callback: AsyncCallback<Array<NotificationSlot>>): void;
 
@@ -552,7 +552,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getSlotsByBundle
+   * @useinstead ohos.notificationManager.getSlotsByBundle
    */
   function getSlotsByBundle(bundle: BundleOption): Promise<Array<NotificationSlot>>;
 
@@ -562,7 +562,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getSlotNumByBundle
+   * @useinstead ohos.notificationManager.getSlotNumByBundle
    */
   function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -572,7 +572,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getSlotNumByBundle
+   * @useinstead ohos.notificationManager.getSlotNumByBundle
    */
   function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
 
@@ -582,7 +582,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @useinstead ohos.notificationSubscribe.remove
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -592,7 +592,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @useinstead ohos.notificationSubscribe.remove
    */
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
@@ -602,7 +602,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @useinstead ohos.notificationSubscribe.remove
    */
   function remove(hashCode: string, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
@@ -612,7 +612,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.remove
+   * @useinstead ohos.notificationSubscribe.remove
    */
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
@@ -622,7 +622,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @useinstead ohos.notificationSubscribe.removeAll
    */
   function removeAll(bundle: BundleOption, callback: AsyncCallback<void>): void;
 
@@ -632,7 +632,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @useinstead ohos.notificationSubscribe.removeAll
    */
   function removeAll(callback: AsyncCallback<void>): void;
 
@@ -643,7 +643,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @useinstead ohos.notificationSubscribe.removeAll
    */
    function removeAll(userId: number, callback: AsyncCallback<void>): void;
    function removeAll(userId: number): Promise<void>;
@@ -654,7 +654,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.removeAll
+   * @useinstead notificationSubscribe.removeAll
    */
   function removeAll(bundle?: BundleOption): Promise<void>;
 
@@ -665,7 +665,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getAllActiveNotifications
+   * @useinstead ohos.notificationManager.getAllActiveNotifications
    */
   function getAllActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
 
@@ -676,7 +676,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getAllActiveNotifications
+   * @useinstead ohos.notificationManager.getAllActiveNotifications
    */
   function getAllActiveNotifications(): Promise<Array<NotificationRequest>>;
 
@@ -684,7 +684,7 @@ declare namespace notification {
    * Obtains the number of all active notifications.
    *
    * @deprecated since 9
-   * @useinstead notificationManager.getActiveNotificationCount
+   * @useinstead ohos.notificationManager.getActiveNotificationCount
    */
   function getActiveNotificationCount(callback: AsyncCallback<number>): void;
   function getActiveNotificationCount(): Promise<number>;
@@ -693,7 +693,7 @@ declare namespace notification {
    * Obtains an array of active notifications.
    *
    * @deprecated since 9
-   * @useinstead notificationManager.cancelGroup
+   * @useinstead ohos.notificationManager.cancelGroup
    */
   function getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void;
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
@@ -703,7 +703,7 @@ declare namespace notification {
    *
    * @since 8
    * @deprecated since 9
-   * @useinstead notificationManager.cancelGroup
+   * @useinstead ohos.notificationManager.cancelGroup
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
   function cancelGroup(groupName: string): Promise<void>;
@@ -715,7 +715,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.removeGroupByBundle
+   * @useinstead ohos.notificationManager.removeGroupByBundle
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
@@ -727,7 +727,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setDoNotDisturbDate
+   * @useinstead ohos.notificationManager.setDoNotDisturbDate
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
@@ -739,7 +739,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setDoNotDisturbDate
+   * @useinstead ohos.notificationManager.setDoNotDisturbDate
    */
    function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
    function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
@@ -751,7 +751,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getDoNotDisturbDate
+   * @useinstead ohos.notificationManager.getDoNotDisturbDate
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
@@ -763,7 +763,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use under the specified user.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getDoNotDisturbDate
+   * @useinstead ohos.notificationManager.getDoNotDisturbDate
    */
    function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
    function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
@@ -775,7 +775,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.supportDoNotDisturbMode
+   * @useinstead ohos.notificationManager.supportDoNotDisturbMode
    */
   function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
   function supportDoNotDisturbMode(): Promise<boolean>;
@@ -787,7 +787,7 @@ declare namespace notification {
    * @param templateName Name of template to be Obtained
    * @param callback callback function
    * @deprecated since 9
-   * @useinstead notificationManager.isSupportTemplate
+   * @useinstead ohos.notificationManager.isSupportTemplate
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
   function isSupportTemplate(templateName: string): Promise<boolean>;
@@ -797,7 +797,7 @@ declare namespace notification {
    *
    * @since 8
    * @deprecated since 9
-   * @useinstead notificationManager.requestEnableNotification
+   * @useinstead ohos.notificationManager.requestEnableNotification
    */
    function requestEnableNotification(callback: AsyncCallback<void>): void;
    function requestEnableNotification(): Promise<void>;
@@ -809,7 +809,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setDistributedEnable
+   * @useinstead ohos.notificationManager.setDistributedEnable
    */
   function enableDistributed(enable: boolean, callback: AsyncCallback<void>): void;
   function enableDistributed(enable: boolean): Promise<void>;
@@ -819,7 +819,7 @@ declare namespace notification {
    *
    * @since 8
    * @deprecated since 9
-   * @useinstead notificationManager.isDistributedEnabled
+   * @useinstead ohos.notificationManager.isDistributedEnabled
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
   function isDistributedEnabled(): Promise<boolean>;
@@ -831,7 +831,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setDistributedEnableByBundle
+   * @useinstead ohos.notificationManager.setDistributedEnableByBundle
    */
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
   function enableDistributedByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
@@ -843,7 +843,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.isDistributedEnabledByBundle
+   * @useinstead ohos.notificationManager.isDistributedEnabledByBundle
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
@@ -855,7 +855,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.getDeviceRemindType
+   * @useinstead ohos.notificationManager.getDeviceRemindType
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
   function getDeviceRemindType(): Promise<DeviceRemindType>;
@@ -867,7 +867,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @deprecated since 9
-   * @useinstead notificationManager.setNotificationEnableSlot
+   * @useinstead ohos.notificationManager.setNotificationEnableSlot
    */
    function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
    function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
@@ -879,7 +879,7 @@ declare namespace notification {
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     * @deprecated since 9
-    * @useinstead notificationManager.isNotificationSlotEnabled
+    * @useinstead ohos.notificationManager.isNotificationSlotEnabled
     */
    function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
    function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
@@ -891,7 +891,7 @@ declare namespace notification {
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     * @deprecated since 9
-    * @useinstead notificationManager.setSyncNotificationEnabledWithoutApp
+    * @useinstead ohos.notificationManager.setSyncNotificationEnabledWithoutApp
     */
     function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
     function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
@@ -903,7 +903,7 @@ declare namespace notification {
     * @systemapi Hide this for inner system use.
     * @permission ohos.permission.NOTIFICATION_CONTROLLER
     * @deprecated since 9
-    * @useinstead notificationManager.getSyncNotificationEnabledWithoutApp
+    * @useinstead ohos.notificationManager.getSyncNotificationEnabledWithoutApp
     */
    function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
    function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
@@ -912,7 +912,7 @@ declare namespace notification {
    * Describes a BundleOption.
    *
    * @deprecated since 9
-   * @useinstead notificationManager.BundleOption
+   * @useinstead ohos.notificationManager.BundleOption
    */
   export interface BundleOption {
     bundle: string;
@@ -923,7 +923,7 @@ declare namespace notification {
    * Describes a NotificationKey, which can be used to identify a notification.
    *
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationKey
+   * @useinstead ohos.notificationManager.NotificationKey
    */
   export interface NotificationKey {
     id: number;
@@ -936,7 +936,7 @@ declare namespace notification {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.DoNotDisturbType
+   * @useinstead ohos.notificationManager.DoNotDisturbType
    */
   export enum DoNotDisturbType {
     /**
@@ -965,7 +965,7 @@ declare namespace notification {
    *
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.DoNotDisturbDate
+   * @useinstead ohos.notificationManager.DoNotDisturbDate
    */
   export interface DoNotDisturbDate {
     /**
@@ -996,7 +996,7 @@ declare namespace notification {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.DeviceRemindType
+   * @useinstead ohos.notificationManager.DeviceRemindType
    */
   export enum DeviceRemindType {
     /**
@@ -1026,7 +1026,7 @@ declare namespace notification {
    * @since 8
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.SourceType
+   * @useinstead ohos.notificationManager.SourceType
    */
   export enum SourceType {
     /**
@@ -1051,7 +1051,7 @@ declare namespace notification {
    * @since 9
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.RemoveReason
+   * @useinstead ohos.notificationManager.RemoveReason
    */
   export enum RemoveReason {
     /**
@@ -1072,7 +1072,7 @@ declare namespace notification {
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationActionButton
+   * @useinstead ohos.notificationManager.NotificationActionButton
    */
   export type NotificationActionButton = _NotificationActionButton
 
@@ -1083,7 +1083,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationBasicContent
+   * @useinstead ohos.notificationManager.NotificationBasicContent
    */
   export type NotificationBasicContent = _NotificationBasicContent
 
@@ -1094,7 +1094,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationContent
+   * @useinstead ohos.notificationManager.NotificationContent
    */
   export type NotificationContent = _NotificationContent
 
@@ -1105,7 +1105,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationLongTextContent
+   * @useinstead ohos.notificationManager.NotificationLongTextContent
    */
   export type NotificationLongTextContent = _NotificationLongTextContent
 
@@ -1116,7 +1116,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationMultiLineContent
+   * @useinstead ohos.notificationManager.NotificationMultiLineContent
    */
   export type NotificationMultiLineContent = _NotificationMultiLineContent
 
@@ -1127,7 +1127,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationPictureContent
+   * @useinstead ohos.notificationManager.NotificationPictureContent
    */
   export type NotificationPictureContent = _NotificationPictureContent
 
@@ -1138,7 +1138,7 @@ declare namespace notification {
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationFlags
+   * @useinstead ohos.notificationManager.NotificationFlags
    */
   export type NotificationFlags =  _NotificationFlags
 
@@ -1149,7 +1149,7 @@ declare namespace notification {
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationFlagStatus
+   * @useinstead ohos.notificationManager.NotificationFlagStatus
    */
   export type NotificationFlagStatus = _NotificationFlagStatus
 
@@ -1160,7 +1160,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationRequest
+   * @useinstead ohos.notificationManager.NotificationRequest
    */
   export type NotificationRequest = _NotificationRequest
 
@@ -1171,7 +1171,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.DistributedOptions
+   * @useinstead ohos.notificationManager.DistributedOptions
    */
   export type DistributedOptions = _DistributedOptions
 
@@ -1182,7 +1182,7 @@ declare namespace notification {
    * @permission N/A
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationSlot
+   * @useinstead ohos.notificationManager.NotificationSlot
    */
   export type NotificationSlot = _NotificationSlot
 
@@ -1194,7 +1194,7 @@ declare namespace notification {
    * @permission N/A
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationSorting
+   * @useinstead ohos.notificationManager.NotificationSorting
    */
   export type NotificationSorting = _NotificationSorting
 
@@ -1254,7 +1254,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationTemplate
+   * @useinstead ohos.notificationManager.NotificationTemplate
    */
   export type NotificationTemplate = _NotificationTemplate
 
@@ -1265,7 +1265,7 @@ declare namespace notification {
    * @syscap SystemCapability.Notification.Notification
    * @permission N/A
    * @deprecated since 9
-   * @useinstead notificationManager.NotificationUserInput
+   * @useinstead ohos.notificationManager.NotificationUserInput
    */
   export type NotificationUserInput = _NotificationUserInput
 }

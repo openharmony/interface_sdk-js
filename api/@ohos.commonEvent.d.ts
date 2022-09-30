@@ -26,7 +26,7 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
  * @deprecated since 9
- * @useinstead commonEventManager
+ * @useinstead ohos.commonEventManager
  */
 declare namespace commonEvent {
   /**
@@ -37,7 +37,7 @@ declare namespace commonEvent {
    * @param callback Specified callback method.
    * @return -
    * @deprecated since 9
-   * @useinstead commonEventManager.publish
+   * @useinstead ohos.commonEventManager.publish
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -50,7 +50,7 @@ declare namespace commonEvent {
    * @param callback Specified callback method.
    * @return -
    * @deprecated since 9
-   * @useinstead commonEventManager.publish
+   * @useinstead ohos.commonEventManager.publish
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -65,7 +65,7 @@ declare namespace commonEvent {
    *
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead commonEventManager.publishAsUser
+   * @useinstead ohos.commonEventManager.publishAsUser
    */
    function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -81,7 +81,7 @@ declare namespace commonEvent {
    *
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
-   * @useinstead commonEventManager.publishAsUser
+   * @useinstead ohos.commonEventManager.publishAsUser
    */
   function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -93,7 +93,7 @@ declare namespace commonEvent {
    * @param callback Specified callback method.
    * @return -
    * @deprecated since 9
-   * @useinstead commonEventManager.createSubscriber
+   * @useinstead ohos.commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void;
 
@@ -104,7 +104,7 @@ declare namespace commonEvent {
    * @param subscribeInfo Indicates the information of the subscriber.
    * @return Returns common event subscriber object
    * @deprecated since 9
-   * @useinstead commonEventManager.createSubscriber
+   * @useinstead ohos.commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -116,7 +116,7 @@ declare namespace commonEvent {
    * @param callback Specified callback method.
    * @return -
    * @deprecated since 9
-   * @useinstead commonEventManager.subscribe
+   * @useinstead ohos.commonEventManager.subscribe
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
@@ -128,7 +128,7 @@ declare namespace commonEvent {
    * @param callback Specified callback method.
    * @return -
    * @deprecated since 9
-   * @useinstead commonEventManager.unsubscribe
+   * @useinstead ohos.commonEventManager.unsubscribe
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -138,7 +138,7 @@ declare namespace commonEvent {
    * @since 7
    * @permission N/A
    * @deprecated since 9
-   * @useinstead commonEventManager.Support
+   * @useinstead ohos.commonEventManager.Support
    */
   export enum Support {
     /**
