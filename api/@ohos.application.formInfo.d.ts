@@ -501,21 +501,21 @@ declare namespace formInfo {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      */
-    interface VisibilityType {
+    enum VisibilityType {
         /**
          * Indicates the type of the form is visible.
-         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
          * changing to visible.
          * @since 9
          */
-        FORM_VISIBLE: number,
+        FORM_VISIBLE = 1,
         /**
          * Indicates the type of the form is invisible.
-         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
          * changing to invisible.
          * @since 9
          */
-        FORM_INVISIBLE: number
+        FORM_INVISIBLE,
     }
 }
 export default formInfo;
