@@ -1370,15 +1370,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
-   * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
-   * {@code false} otherwise.
-   *
-   * @since 9
-   */
-  fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
-
-  /**
    * Sets whether to allow image resources to be loaded from the network.
    * @param onlineImageAccess {@code true} means the Web can allow image resources to be loaded from the network;
    * {@code false} otherwise.
