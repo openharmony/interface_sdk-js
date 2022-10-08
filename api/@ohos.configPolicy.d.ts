@@ -16,20 +16,6 @@
 import {AsyncCallback} from "./basic";
 
 /**
- * Enumerates error code.
- *
- * @since 8
- */
-export enum ConfigPolicyErrorCode {
-  /**
-   * Input parameter is missing or invalid.
-   *
-   * @since 8
-   */
-   PARAM_ERROR = 401,
-}
-
-/**
  * Provides file path related APIS.
  *
  * @since 8
@@ -45,7 +31,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns the path of the highest priority config file.
-   * @throws { BusinessError } PARAM_ERROR - the parameter check failed.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>);
   function getOneCfgFile(relPath: string): Promise<string>;
@@ -58,7 +44,7 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @param relPath the relative path of the config file.
    * @return Returns paths of config files.
-   * @throws { BusinessError } PARAM_ERROR - the parameter check failed.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>);
   function getCfgFiles(relPath: string): Promise<Array<string>>;
@@ -70,7 +56,7 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @return Returns paths of config directories.
-   * @throws { BusinessError } PARAM_ERROR - the parameter check failed.
+   * @throws { BusinessError } 401 - invalid input parameter.
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>);
   function getCfgDirList(): Promise<Array<string>>;
