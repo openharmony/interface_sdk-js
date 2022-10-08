@@ -183,8 +183,8 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @since 9
      */
-    function recovery(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
-    function recovery(wallpaperType: WallpaperType): Promise<void>;
+    function restore(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
+    function restore(wallpaperType: WallpaperType): Promise<void>;
 
     /**
      * Sets a wallpaper of the specified type based on the uri path from a JPEG or PNG file or the pixel map of a PNG file.
