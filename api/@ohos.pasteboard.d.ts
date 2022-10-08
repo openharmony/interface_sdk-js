@@ -65,7 +65,7 @@ declare namespace pasteboard {
    * @return Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
-   * @useinstead createData
+   * @useinstead ohos.pasteboard.pasteboard#createData
    */
   function createHtmlData(htmlText: string): PasteData;
 
@@ -75,7 +75,7 @@ declare namespace pasteboard {
    * @return Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
-   * @useinstead createData
+   * @useinstead ohos.pasteboard.pasteboard#createData
    */
   function createWantData(want: Want): PasteData;
 
@@ -85,7 +85,7 @@ declare namespace pasteboard {
    * @return Containing the contents of the clipboard content object.
    * @since 6
    * @deprecated since 9
-   * @useinstead createData
+   * @useinstead ohos.pasteboard.pasteboard#createData
    */
   function createPlainTextData(text: string): PasteData;
 
@@ -95,7 +95,7 @@ declare namespace pasteboard {
    * @return Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
-   * @useinstead createData
+   * @useinstead ohos.pasteboard.pasteboard#createData
    */
   function createUriData(uri: string): PasteData;
 
@@ -104,7 +104,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } if type of value is not one of ValueType.
+   * @throws { BusinessError } 401 - if type of value is not one of ValueType.
    * @since 9
    */
   function createData(mimeType: string, value: ValueType): PasteData;
@@ -115,7 +115,7 @@ declare namespace pasteboard {
    * @return The content of a new record
    * @since 7
    * @deprecated since 9
-   * @useinstead createRecord
+   * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
   function createHtmlTextRecord(htmlText: string): PasteDataRecord;
 
@@ -125,7 +125,7 @@ declare namespace pasteboard {
    * @return The content of a new record
    * @since 7
    * @deprecated since 9
-   * @useinstead createRecord
+   * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
   function createWantRecord(want: Want): PasteDataRecord;
 
@@ -135,7 +135,7 @@ declare namespace pasteboard {
    * @return The content of a new record
    * @since 7
    * @deprecated since 9
-   * @useinstead createRecord
+   * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
   function createPlainTextRecord(text: string): PasteDataRecord;
 
@@ -145,7 +145,7 @@ declare namespace pasteboard {
    * @return The content of a new record
    * @since 7
    * @deprecated since 9
-   * @useinstead createRecord
+   * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
   function createUriRecord(uri: string): PasteDataRecord;
 
@@ -154,7 +154,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } if type of mimeType is not one of ValueType.
+   * @throws { BusinessError } 401 - if type of mimeType is not one of ValueType.
    * @since 9
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
@@ -272,7 +272,7 @@ declare namespace pasteboard {
      * @return callback Type string callback function
      * @since 7
      * @deprecated since 9
-     * @useinstead convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
      */
     convertToText(callback: AsyncCallback<string>): void;
     convertToText(): Promise<string>;
@@ -280,7 +280,7 @@ declare namespace pasteboard {
     /**
      * Converts data in PasteData to text format.
      * @param { AsyncCallback<string> } callback - the callback of convertToTextV9.
-     * @throws { BusinessError } if type of callback is not AsyncCallback<string>.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<string>.
      * @since 9
      */
     convertToTextV9(callback: AsyncCallback<string>): void;
@@ -299,7 +299,7 @@ declare namespace pasteboard {
      * @param htmlText To save the Html text content.
      * @since 7
      * @deprecated since 9
-     * @useinstead addRecord
+     * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
     addHtmlRecord(htmlText: string): void;
 
@@ -308,7 +308,7 @@ declare namespace pasteboard {
      * @param want To save the want content.
      * @since 7
      * @deprecated since 9
-     * @useinstead addRecord
+     * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
     addWantRecord(want: Want): void;
 
@@ -324,7 +324,7 @@ declare namespace pasteboard {
      * @param text To save the text of content.
      * @since 7
      * @deprecated since 9
-     * @useinstead addRecord
+     * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
     addTextRecord(text: string): void;
 
@@ -333,7 +333,7 @@ declare namespace pasteboard {
      * @param uri To save the uri of content.
      * @since 7
      * @deprecated since 9
-     * @useinstead addRecord
+     * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
     addUriRecord(uri: string): void;
 
@@ -341,8 +341,8 @@ declare namespace pasteboard {
      * Adds a record with mimeType and value to a PasteData object.
      * @param { string } mimeType - indicates the MIME type of value.
      * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } if type of mimeType is not one of ValueType.
-     * @throws { BusinessError } if the count of records in PasteData exceeds MAX_RECORD_NUM.
+     * @throws { BusinessError } 401 - if type of mimeType is not one of ValueType.
+     * @throws { BusinessError } 12900002 - if the count of records in PasteData exceeds MAX_RECORD_NUM.
      * @since 9
      */
     addRecord(mimeType: string, value: ValueType): void;
@@ -406,7 +406,7 @@ declare namespace pasteboard {
     /**
      * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
      * @param { PasteDataProperty } property - save property to PasteData object.
-     * @throws { BusinessError } if type of property is not PasteDataProperty.
+     * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
      * @since 9
      */
     setProperty(property: PasteDataProperty): void;
@@ -417,7 +417,7 @@ declare namespace pasteboard {
      * @return PasteDataRecord type of PasteDataRecord
      * @since 7
      * @deprecated since 9
-     * @useinstead getRecord
+     * @useinstead ohos.pasteboard.pasteboard#getRecord
      */
     getRecordAt(index: number): PasteDataRecord;
 
@@ -425,8 +425,8 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } if type of index is not number.
-     * @throws { BusinessError } if index is out of the record count of PasteData.
+     * @throws { BusinessError } 12900001 - if type of index is not number.
+     * @throws { BusinessError } 12900002 - if index is out of the record count of PasteData.
      * @since 9
      */
     getRecord(index: number): PasteDataRecord;
@@ -451,7 +451,7 @@ declare namespace pasteboard {
      * @return if having mimeType in PasteData returns true, else returns false.
      * @since 7
      * @deprecated since 9
-     * @useinstead hasType
+     * @useinstead ohos.pasteboard.pasteboard#hasType
      */
     hasMimeType(mimeType: string): boolean;
 
@@ -459,7 +459,7 @@ declare namespace pasteboard {
      * Checks whether there is a specified MIME type of data in DataProperty.
      * @param { string } mimeType - indicates to query data type.
      * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } if type of path is not string.
+     * @throws { BusinessError } 401 - if type of path is not string.
      * @since 9
      */
     hasType(mimeType: string): boolean;
@@ -470,15 +470,15 @@ declare namespace pasteboard {
      * @return The query returns True on success, or False on failure.
      * @since 7
      * @deprecated since 9
-     * @useinstead removeRecord
+     * @useinstead ohos.pasteboard.pasteboard#removeRecord
      */
     removeRecordAt(index: number): boolean;
 
     /**
      * Removes a Record based on a specified index.
      * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } if type of index is not number.
-     * @throws { BusinessError } if index is out of the record count of PasteData.
+     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 12900002 - if index is out of the record count of PasteData.
      * @since 9
      */
     removeRecord(index: number): void;
@@ -489,7 +489,7 @@ declare namespace pasteboard {
      * @return The query returns True on success, or False on failure.
      * @since 7
      * @deprecated since 9
-     * @useinstead replaceRecord
+     * @useinstead ohos.pasteboard.pasteboard#replaceRecord
      */
     replaceRecordAt(index: number, record: PasteDataRecord): boolean;
 
@@ -497,8 +497,8 @@ declare namespace pasteboard {
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in PasteData.
      * @param { PasteDataRecord } record - the content of a new record.
-     * @throws { BusinessError } if type of index is not number or type of record is not PasteDataRecord.
-     * @throws { BusinessError } if index is out of the record count of PasteData.
+     * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
+     * @throws { BusinessError } 12900002 - if index is out of the record count of PasteData.
      * @since 9
      */
     replaceRecord(index: number, record: PasteDataRecord): void;
@@ -509,7 +509,7 @@ declare namespace pasteboard {
      * Callback invoked when pasteboard content changes.
      * @param { string } type - indicates pasteboard content changed.
      * @param { () => void } callback - the callback to add.
-     * @throws { BusinessError } if type is not string or callback is not () => void.
+     * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @since 7
      */
     on(type: 'update', callback: () => void): void;
@@ -517,7 +517,7 @@ declare namespace pasteboard {
      * Remove a callback invoked when pasteboard content changes.
      * @param { string } type - indicates pasteboard content changed.
      * @param { () => void } [callback] - the callback to remove.
-     * @throws { BusinessError } if type is not string or callback is not () => void.
+     * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @since 7
      */
     off(type: 'update', callback?: () => void): void;
@@ -526,7 +526,7 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @since 7
      * @deprecated since 9
-     * @useinstead clearData
+     * @useinstead ohos.pasteboard.pasteboard#clearData
      */
     clear(callback: AsyncCallback<void>): void;
     clear(): Promise<void>;
@@ -534,7 +534,7 @@ declare namespace pasteboard {
     /**
      * Clears the pasteboard.
      * @param { AsyncCallback<void> } callback - the callback of clearData.
-     * @throws { BusinessError } if callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
      * @since 9
      */
     clearData(callback: AsyncCallback<void>): void;
@@ -551,7 +551,7 @@ declare namespace pasteboard {
      * @return PasteData callback data in a PasteData object.
      * @since 6
      * @deprecated since 9
-     * @useinstead getData
+     * @useinstead ohos.pasteboard.pasteboard#getData
      */
     getPasteData(callback: AsyncCallback<PasteData>): void;
     getPasteData(): Promise<PasteData>;
@@ -559,8 +559,8 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
-     * @throws { BusinessError } if type of callback is not AsyncCallback<PasteData>.
-     * @throws { BusinessError } if another getData is being processed.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 12900003 - if another getData is being processed.
      * @since 9
      */
     getData(callback: AsyncCallback<PasteData>): void;
@@ -568,7 +568,7 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } if another getData is being processed.
+     * @throws { BusinessError } 1290003 - if another getData is being processed.
      * @since 9
      */
     getData(): Promise<PasteData>;
@@ -578,7 +578,7 @@ declare namespace pasteboard {
      * @return boolean The callback success to true to false failure
      * @since 7
      * @deprecated since 9
-     * @useinstead hasData
+     * @useinstead ohos.pasteboard.pasteboard#hasData
      */
     hasPasteData(callback: AsyncCallback<boolean>): void;
     hasPasteData(): Promise<boolean>;
@@ -586,7 +586,7 @@ declare namespace pasteboard {
     /**
      * Checks whether there is content in the system pasteboard.
      * @param { AsyncCallback<boolean> } callback - the callback of hasData.
-     * @throws { BusinessError } if type of callback is not AsyncCallback<boolean>.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
      * @since 9
      */
     hasData(callback: AsyncCallback<boolean>): void;
@@ -603,7 +603,7 @@ declare namespace pasteboard {
      * @param  data Containing the contents of the clipboard content object.
      * @since 6
      * @deprecated since 9
-     * @useinstead setData
+     * @useinstead ohos.pasteboard.pasteboard#setData
      */
     setPasteData(data: PasteData, callback: AsyncCallback<void>): void;
     setPasteData(data: PasteData): Promise<void>;
@@ -612,8 +612,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
-     * @throws { BusinessError } if type of data is not PasteData or type of callback is not AsyncCallback<void>.
-     * @throws { BusinessError } if another setData is being processed or the system prohibits copying.
+     * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 12900003 - if another setData is being processed or the system prohibits copying.
      * @since 9
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
@@ -622,8 +622,8 @@ declare namespace pasteboard {
      * Writes PasteData to the system pasteboard.
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } if type of data is not PasteData.
-     * @throws { BusinessError } if another setData is being processed or the system prohibits copying.
+     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 12900003 - if another setData is being processed or the system prohibits copying.
      * @since 9
      */
     setData(data: PasteData): Promise<void>;
