@@ -511,11 +511,11 @@ declare namespace deviceManager {
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{deviceId: string, level: number}>): void;
 
     /**
-     * Set user Operation from devicemanager Sea, this interface can only used by devicemanager Sea.
+     * Set user Operation from devicemanager Sea, this interface can only be used by devicemanager Sea.
      *
      * @since 9
      * @param operateAction User Operation Actions.
-     * @param params User Input Param.
+     * @param params Indicates the input param of the user.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */  
@@ -525,16 +525,16 @@ declare namespace deviceManager {
      * Register a callback from deviceManager service so that the devicemanager Sea can be notified when ui statue
      * changes based on the application bundle name.
      *
-     * @param callback for devicemanager ui to register.
+     * @param callback Indicates the devicemanager ui state to register.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'uiStatueChange', callback: Callback<{ param: string}>): void;
 
      /**
-      * UnRegister uiStatueChange, this interface can only used by devicemanager ui.
+      * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
       *
-      * @param callback for devicemanager ui to unregister.
+      * @param callback Indicates the devicemanager ui state to unregister.
       * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
       */
