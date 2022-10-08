@@ -131,27 +131,64 @@ declare namespace call {
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
   /**
-   * @systemapi Hide this for inner system use.
+   * Answers the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to answer.
    * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
    * @since 7
    */
   function answer(callId: number, callback: AsyncCallback<void>): void;
-  function answer(callId: number): Promise<void>;
+  function answer(callId?: number): Promise<void>;
 
   /**
+   * Answers the incoming call without callId.
+   *
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function answer(callback: AsyncCallback<void>): void;
+
+  /**
+   * Hangups the foreground call.
+   *
+   * @param callId Indicates the identifier of the call to hangup.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function hangup(callId: number, callback: AsyncCallback<void>): void;
-  function hangup(callId: number): Promise<void>;
+  function hangup(callId?: number): Promise<void>;
 
   /**
+   * Hangups the foreground call without callId.
+   *
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function hangup(callback: AsyncCallback<void>): void;
+
+  /**
+   * Rejects the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function reject(callId: number, callback: AsyncCallback<void>): void;
   function reject(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
-  function reject(callId: number, options?: RejectMessageOptions): Promise<void>;
+  function reject(callId?: number, options?: RejectMessageOptions): Promise<void>;
+
+  /**
+   * Rejects the incoming call without callId.
+   *
+   * @param options Indicates the text message to reject.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function reject(callback: AsyncCallback<void>): void;
+  function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -275,6 +312,26 @@ declare namespace call {
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
 
   /**
+   * Observe the result of MMI code
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of MMI code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
+
+   /**
+    * Unobserve the result of MMI code
+    *
+    * @param type Indicates the observer type.
+    * @param callback Return the result of MMI code.
+    * @systemapi Hide this for inner system use.
+    * @since 9
+    */
+  function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
+
+  /**
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -339,11 +396,26 @@ declare namespace call {
   function cancelMuted(): Promise<void>;
 
   /**
+   * Set the audio device
+   *
+   * @param device Indicates the device of audio.
+   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
-  function setAudioDevice(device: AudioDevice): Promise<void>;
+
+  /**
+   * Set the audio device with options.
+   *
+   * @param device Indicates the device of audio.
+   * @param options Indicates additional information, such as address of bluetooth.
+   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setAudioDevice(device: AudioDevice, options: AudioDeviceOptions, callback: AsyncCallback<void>): void;
+  function setAudioDevice(device: AudioDevice, options?: AudioDeviceOptions): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -397,7 +469,7 @@ declare namespace call {
    * @since 8
    */
   export enum AudioDevice {
-    DEVICE_MIC,
+    DEVICE_EARPIECE,
     DEVICE_SPEAKER,
     DEVICE_WIRED_HEADSET,
     DEVICE_BLUETOOTH_SCO
@@ -676,6 +748,36 @@ declare namespace call {
    */
   export interface NumberFormatOptions {
     countryCode?: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface AudioDeviceOptions {
+    bluetoothAddress?: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface MmiCodeResults {
+    /** Indicates the result of MMI code. */
+    result: MmiCodeResult;
+    /** Indicates the message of MMI code. */
+    message: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum MmiCodeResult {
+    /** Indicates the result of a successful MMI code. */
+    MMI_CODE_SUCCESS = 0,
+    /** Indicates the result of a failed MMI code. */
+    MMI_CODE_FAILED = 1
   }
 
   /**
