@@ -217,7 +217,6 @@ declare namespace enterpriseDeviceManager {
     * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
     * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
     * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
     * @throws { BusinessError } 9200007 - the system ability work abnormally.
     * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
     * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -235,7 +234,6 @@ declare namespace enterpriseDeviceManager {
     * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
     * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
     * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
     * @throws { BusinessError } 9200007 - the system ability work abnormally.
     * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
     * @throws { BusinessError } 201 - the application does not have permission to call this function.
