@@ -53,12 +53,14 @@ declare namespace enterpriseDeviceManager {
   }
 
   export enum ManagedEvent {
+    
     /**
      * The event of bundle added.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
+
     /**
      * The event of bundle removed.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -180,7 +182,6 @@ declare namespace enterpriseDeviceManager {
    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
    * @param { AsyncCallback<void> } callback - the callback of subscribeManagedEvent.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -190,6 +191,7 @@ declare namespace enterpriseDeviceManager {
    * @since 9
    */
    function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+
    /**
     * Subscribes the managed event of admin.
     * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
@@ -197,7 +199,6 @@ declare namespace enterpriseDeviceManager {
     * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
     * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
     * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200007 - the system ability work abnormally.
     * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
     * @throws { BusinessError } 201 - the application does not have permission to call this function.
     * @throws { BusinessError } 401 - invalid input parameter.
@@ -215,7 +216,6 @@ declare namespace enterpriseDeviceManager {
     * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
     * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
     * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200007 - the system ability work abnormally.
     * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
     * @throws { BusinessError } 201 - the application does not have permission to call this function.
     * @throws { BusinessError } 401 - invalid input parameter.
@@ -225,6 +225,7 @@ declare namespace enterpriseDeviceManager {
     * @since 9
     */
    function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+
    /**
     * Unsubscribes the managed event of admin.
     * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
@@ -232,7 +233,6 @@ declare namespace enterpriseDeviceManager {
     * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
     * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
     * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-    * @throws { BusinessError } 9200007 - the system ability work abnormally.
     * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
     * @throws { BusinessError } 201 - the application does not have permission to call this function.
     * @throws { BusinessError } 401 - invalid input parameter.
@@ -242,7 +242,6 @@ declare namespace enterpriseDeviceManager {
     * @since 9
     */
    function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
-
 }
 
 export default enterpriseDeviceManager;
