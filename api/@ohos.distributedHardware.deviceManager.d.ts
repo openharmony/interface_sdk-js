@@ -513,24 +513,29 @@ declare namespace deviceManager {
     /**
      * Set user Operation from devicemanager Sea, this interface can only used by devicemanager Sea.
      *
+     * @since 9
      * @param operateAction User Operation Actions.
+     * @param params User Input Param.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */  
     setUserOperation(operateAction: number, params: string): void;
 
     /**
-     * Register a callback from deviceManager service so that the devicemanager Sea can be notified when some events happen.
-     * this interface can only used by devicemanager Sea.
+     * Register a callback from deviceManager service so that the devicemanager Sea can be notified when ui statue
+     * changes based on the application bundle name.
      *
      * @param callback for devicemanager ui to register.
+     * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
     on(type: 'uiStatueChange', callback: Callback<{ param: string}>): void;
 
      /**
-      * UnRegister dmSeaCallback, this interface can only used by devicemanager ui.
+      * UnRegister uiStatueChange, this interface can only used by devicemanager ui.
       *
-      * @param callback for devicemanager Sea to register.
+      * @param callback for devicemanager ui to unregister.
+      * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
       */
     off(type: 'uiStatueChange', callback?: Callback<{ param: string}>): void;
