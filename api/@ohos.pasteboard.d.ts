@@ -14,7 +14,7 @@
  */
 import { AsyncCallback } from './basic';
 import Want from './@ohos.application.Want';
-import { image } from './@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 
 /**
  * systemPasteboard
