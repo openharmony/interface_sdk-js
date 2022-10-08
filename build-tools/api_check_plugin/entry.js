@@ -18,6 +18,7 @@ const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "API CHECK FAILED!";
+  __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
