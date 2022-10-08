@@ -522,14 +522,14 @@ declare namespace deviceManager {
     setUserOperation(operateAction: number, params: string): void;
 
     /**
-     * Register a callback from deviceManager service so that the devicemanager Sea can be notified when ui statue
-     * changes based on the application bundle name.
+     * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
+     * changes.
      *
      * @param callback Indicates the devicemanager ui state to register.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
      */
-    on(type: 'uiStatueChange', callback: Callback<{ param: string}>): void;
+    on(type: 'uiStateChange', callback: Callback<{ param: string}>): void;
 
      /**
       * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
@@ -538,7 +538,7 @@ declare namespace deviceManager {
       * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
       */
-    off(type: 'uiStatueChange', callback?: Callback<{ param: string}>): void;
+    off(type: 'uiStateChange', callback?: Callback<{ param: string}>): void;
 
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
