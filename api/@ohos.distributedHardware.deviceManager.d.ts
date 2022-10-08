@@ -513,7 +513,7 @@ declare namespace deviceManager {
     /**
      * Set user Operation from devicemanager Sea, this interface can only be used by devicemanager Sea.
      *
-     * @since 9
+     * @since_2013 9
      * @param operateAction User Operation Actions.
      * @param params Indicates the input param of the user.
      * @throws {BusinessError} 401 - Input parameter error.
@@ -525,6 +525,7 @@ declare namespace deviceManager {
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
      * changes.
      *
+     * @since_2013 9
      * @param callback Indicates the devicemanager ui state to register.
      * @throws {BusinessError} 401 - Input parameter error.
      * @systemapi this method can be used only by system applications.
@@ -534,6 +535,7 @@ declare namespace deviceManager {
      /**
       * Unregister uiStatueChange, this interface can only be used by devicemanager ui.
       *
+      * @since_2013 9
       * @param callback Indicates the devicemanager ui state to unregister.
       * @throws {BusinessError} 401 - Input parameter error.
       * @systemapi this method can be used only by system applications.
