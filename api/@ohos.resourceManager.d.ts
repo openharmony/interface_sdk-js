@@ -15,6 +15,7 @@
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
+import { AsyncCallback } from './basic';
 
 /**
  * Provides resource related APIs.
@@ -182,14 +183,6 @@ export class DeviceCapability {
      * @since 6
      */
     deviceType: DeviceType
-}
-
-/**
- * The ResourceManager callback.
- * @since 6
- */
-export interface AsyncCallback<T> {
-    (err: Error, data: T): void;
 }
 
 /**
