@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
+
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -689,8 +691,16 @@ declare class ConsoleMessage {
    * @param messageLevel The console log level.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.ConsoleMessage#constructor
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
+
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
 
   /**
    * Gets the message of a console message.
@@ -1021,6 +1031,7 @@ declare class WebCookie {
    * Sets the cookie.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#setCookie
    */
   setCookie();
 
@@ -1034,6 +1045,7 @@ declare class WebCookie {
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#saveCookieAsync
    */
   saveCookie();
 
@@ -1086,23 +1098,30 @@ declare class WebCookie {
 /**
  * Defines the Web controller.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.web.webview.webview.WebviewController
  */
  declare class WebController {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
 
   /**
    * Let the Web inactive.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onInactive
    */
   onInactive(): void;
 
   /**
    * Let the Web active.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onActive
    */
   onActive(): void;
 
@@ -1111,6 +1130,8 @@ declare class WebCookie {
    * @param factor The zoom factor.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#zoom
    */
   zoom(factor: number): void;
 
@@ -1129,6 +1150,8 @@ declare class WebCookie {
   /**
    * Clears the history in the Web.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#clearHistory
    */
   clearHistory(): void;
 
@@ -1137,6 +1160,8 @@ declare class WebCookie {
    * @param options The options with a piece of code and a callback.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#runJavaScript
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
 
@@ -1160,6 +1185,8 @@ declare class WebCookie {
    * @param options The options with the data or URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadData
    */
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
@@ -1168,18 +1195,24 @@ declare class WebCookie {
    * @param options The options with the URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadUrl
    */
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#refresh
    */
   refresh();
 
   /**
    * Stops the current load.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#stop
    */
   stop();
 
@@ -1188,6 +1221,8 @@ declare class WebCookie {
    * @param options The option with the JavaScript object and method list.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#registerJavaScriptProxy
    */
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
@@ -1196,12 +1231,16 @@ declare class WebCookie {
    * @param name The name of a registered JavaScript object to be deleted.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#deleteJavaScriptRegister
    */
   deleteJavaScriptRegister(name: string);
 
   /**
    * Gets the type of HitTest.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#getHitTest
    */
   getHitTest(): HitTestType;
 
@@ -1238,18 +1277,24 @@ declare class WebCookie {
   /**
    * Gets the request focus.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#requestFocus
    */
   requestFocus();
 
   /**
    * Checks whether the web page can go back.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessBackward
    */
   accessBackward(): boolean;
 
   /**
    * Checks whether the web page can go forward.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessForward
    */
   accessForward(): boolean;
 
@@ -1258,18 +1303,24 @@ declare class WebCookie {
    * @param step The number of steps.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessStep
    */
   accessStep(step: number): boolean;
 
   /**
    * Goes back in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#backward
    */
   backward();
 
   /**
    * Goes forward in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#forward
    */
   forward();
 
@@ -1331,9 +1382,15 @@ declare interface WebOptions {
   src: string | Resource;
   /**
    * Sets the controller of the Web.
+   * @type { (WebController) }
    * @since 8
    */
-  controller: WebController;
+    /**
+   * Sets the controller of the Web.
+   * @type { (WebController | WebviewController) }
+   * @since 9
+    */
+  controller: WebController | WebviewController;
 }
 
 /**
@@ -1422,10 +1479,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScript object into window and invoke the function in window.
    * @param javaScriptProxy The JavaScript object to be injected.
    *
+   * @type {controller : WebController}
    * @since 8
    */
+    /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   * @param javaScriptProxy The JavaScript object to be injected.
+   *
+   * @type {controller : WebController | WebviewController}
+   * @since 9
+   */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController }): WebAttribute;
+    controller: WebController | WebviewController }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
