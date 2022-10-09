@@ -16,7 +16,7 @@
 declare class PlainArray<T> {
   /**
    * A constructor used to create a PlainArray object.
-   * @throws {NewTargetIsNullError}: The PlainArray's constructor cannot be directly invoked.
+   * @throws { BusinessError } 10200012 - The PlainArray's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,22 +31,22 @@ declare class PlainArray<T> {
    * Appends a key-value pair to PlainArray
    * @param key Added the key of key-value
    * @param value Added the value of key-value
-   * @throws {ContainerBindError}: The add method cannot be bound.
-   * @throws {TypeError}: The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   add(key: number, value: T): void;
   /**
    * Clears the current PlainArray object
-   * @throws {ContainerBindError}: The clear method cannot be bound.
+   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   clear(): void;
   /**
    * Obtains a clone of the current PlainArray object
-   * @throws {ContainerBindError}: The clone method cannot be bound.
+   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -55,8 +55,8 @@ declare class PlainArray<T> {
    * Checks whether the current PlainArray object contains the specified key
    * @param key need to determine whether to include the key
    * @return the boolean type
-   * @throws {ContainerBindError}: The has method cannot be bound.
-   * @throws {TypeError}: The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 10200011 - The has method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -65,8 +65,8 @@ declare class PlainArray<T> {
    * Queries the value associated with the specified key
    * @param key Looking for goals
    * @return the value of key-value pairs
-   * @throws {ContainerBindError}: The get method cannot be bound.
-   * @throws {TypeError}: The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -75,8 +75,8 @@ declare class PlainArray<T> {
    * Queries the index for a specified key
    * @param key Looking for goals
    * @return Subscript corresponding to target
-   * @throws {ContainerBindError}: The getIndexOfKey method cannot be bound.
-   * @throws {TypeError}: The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -85,7 +85,7 @@ declare class PlainArray<T> {
     * Queries the index for a specified value
     * @param value Looking for goals
     * @return Subscript corresponding to target
-    * @throws {ContainerBindError}: The getIndexOfValue method cannot be bound.
+    * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
     */
@@ -93,7 +93,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object is empty
    * @return the boolean type
-   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -102,8 +102,8 @@ declare class PlainArray<T> {
    * Queries the key at a specified index
    * @param index Target subscript for search
    * @return the key of key-value pairs
-   * @throws {ContainerBindError}: The getKeyAt method cannot be bound.
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -112,8 +112,8 @@ declare class PlainArray<T> {
    * Remove the key-value pair based on a specified key if it exists and return the value
    * @param key  Target to be deleted
    * @return Target mapped value
-   * @throws {ContainerBindError}: The remove method cannot be bound.
-   * @throws {TypeError}: The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -122,8 +122,8 @@ declare class PlainArray<T> {
    * Remove the key-value pair at a specified index if it exists and return the value
    * @param index  Target subscript for search
    * @return the T type
-   * @throws {ContainerBindError}: The removeAt method cannot be bound.
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -133,9 +133,9 @@ declare class PlainArray<T> {
    * @param index  remove start index
    * @param size Expected deletion quantity
    * @return Actual deleted quantity
-   * @throws {ContainerBindError}: The removeRangeFrom method cannot be bound.
-   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -144,16 +144,16 @@ declare class PlainArray<T> {
    * Update value on specified index
    * @param index Target subscript for search
    * @param value Updated the target mapped value
-   * @throws {ContainerBindError}: The setValueAt method cannot be bound.
-   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   setValueAt(index: number, value: T): void;
   /**
    * Obtains the string representation of the PlainArray object
-   * @throws {ContainerBindError}: The toString method cannot be bound.
+   * @throws { BusinessError } 10200011 - The toString method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -162,17 +162,17 @@ declare class PlainArray<T> {
    * Queries the value at a specified index
    * @param index Target subscript for search
    * @return the value of key-value pairs
-   * @throws {ContainerBindError}: The getValueAt method cannot be bound.
-   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getValueAt(index: number): T;
   /**
    * Executes a provided function once for each value in the PlainArray object.
-   * @throws {ContainerBindError}: The forEach method cannot be bound.
-   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -180,7 +180,7 @@ declare class PlainArray<T> {
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

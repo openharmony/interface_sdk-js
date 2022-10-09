@@ -16,7 +16,7 @@
 declare class ArrayList<T> {
   /**
    * A constructor used to create a ArrayList object.
-   * @throws {NewTargetIsNullError}: The ArrayList's constructor cannot be directly invoked.
+   * @throws { BusinessError } 10200012 - The ArrayList's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,7 +31,7 @@ declare class ArrayList<T> {
    * Appends the specified element to the end of this arraylist.
    * @param element to be appended to this arraylist
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
-   * @throws {ContainerBindError}: The add method cannot be bound.
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -42,9 +42,9 @@ declare class ArrayList<T> {
    * any subsequent elements to the right (adds one to their index).
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws {ContainerBindError}: The insert method cannot be bound.
-   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The insert method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -53,7 +53,7 @@ declare class ArrayList<T> {
    * Check if arraylist contains the specified element
    * @param element element to be contained
    * @return the boolean type,if arraylist contains the specified element,return true,else return false
-   * @throws {ContainerBindError}: The has method cannot be bound.
+   * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -63,7 +63,7 @@ declare class ArrayList<T> {
    * in this arraylist, or -1 if this arraylist does not contain the element.
    * @param element element to be contained
    * @return the number type ,returns the lowest index such that or -1 if there is no such index.
-   * @throws {ContainerBindError}: The getIndexOf method cannot be bound.
+   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,9 +73,9 @@ declare class ArrayList<T> {
    * delete the element, and move the index of all elements to the right of the element forward by one.
    * @param index the index in the arraylist
    * @return the T type ,returns undefined if arraylist is empty,If the index is
-   * @throws {ContainerBindError}: The removeByIndex method cannot be bound.
-   * @throws {RangeError}: The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws {TypeError}: The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -86,7 +86,7 @@ declare class ArrayList<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
-   * @throws {ContainerBindError}: The remove method cannot be bound.
+   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -96,7 +96,7 @@ declare class ArrayList<T> {
    * or -1 if the arraylist does not contain the element.
    * @param element element to find
    * @return the number type
-   * @throws {ContainerBindError}: The getLastIndexOf method cannot be bound.
+   * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -105,11 +105,11 @@ declare class ArrayList<T> {
    * Removes from this arraylist all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws {ContainerBindError}: The removeByRange method cannot be bound.
-   * @throws {RangeError}: The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
-   * @throws {RangeError}: The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
-   * @throws {TypeError}: The type of "fromIndex" must be number. Received value is: [fromIndex]
-   * @throws {TypeError}: The type of "toIndex" must be number. Received value is: [toIndex]
+   * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
+   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
+   * @throws { BusinessError } 401 - The type of "fromIndex" must be number. Received value is: [fromIndex]
+   * @throws { BusinessError } 401 - The type of "toIndex" must be number. Received value is: [toIndex]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -123,8 +123,8 @@ declare class ArrayList<T> {
    * @param arrlist (Optional) The arraylist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError}: The replaceAllElements method cannot be bound.
-   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -139,8 +139,8 @@ declare class ArrayList<T> {
    * @param arrlist (Optional) The arraylist object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError}: The forEach method cannot be bound.
-   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -155,8 +155,8 @@ declare class ArrayList<T> {
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next elements
    * If this parameter is empty, it will default to ASCII sorting
-   * @throws {ContainerBindError}: The sort method cannot be bound.
-   * @throws {TypeError}: The type of "comparator" must be callable. Received value is: [comparator]
+   * @throws { BusinessError } 10200011 - The sort method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "comparator" must be callable. Received value is: [comparator]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -165,11 +165,11 @@ declare class ArrayList<T> {
    * Returns a view of the portion of this arraylist between the specified fromIndex,inclusize,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws {ContainerBindError}: The subArrayList method cannot be bound.
-   * @throws {RangeError}: The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
-   * @throws {RangeError}: The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
-   * @throws {TypeError}: The type of "fromIndex" must be number. Received value is: [fromIndex]
-   * @throws {TypeError}: The type of "toIndex" must be number. Received value is: [toIndex]
+   * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
+   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
+   * @throws { BusinessError } 401 - The type of "fromIndex" must be number. Received value is: [fromIndex]
+   * @throws { BusinessError } 401 - The type of "toIndex" must be number. Received value is: [toIndex]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -177,7 +177,7 @@ declare class ArrayList<T> {
   /**
    * Removes all of the elements from this arraylist.The arraylist will
    * be empty after this call returns.length becomes 0
-   * @throws {ContainerBindError}: The clear method cannot be bound.
+   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -185,7 +185,7 @@ declare class ArrayList<T> {
   /**
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
    * @return this arraylist instance
-   * @throws {ContainerBindError}: The clone method cannot be bound.
+   * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -193,7 +193,7 @@ declare class ArrayList<T> {
   /**
    * returns the capacity of this arraylist
    * @return the number type
-   * @throws {ContainerBindError}: The getCapacity method cannot be bound.
+   * @throws { BusinessError } 10200011 - The getCapacity method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -201,7 +201,7 @@ declare class ArrayList<T> {
   /**
    * convert arraylist to array
    * @return the Array type
-   * @throws {ContainerBindError}: The convertToArray method cannot be bound.
+   * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -209,7 +209,7 @@ declare class ArrayList<T> {
   /**
    * Determine whether arraylist is empty and whether there is an element
    * @return the boolean type
-   * @throws {ContainerBindError}: The isEmpty method cannot be bound.
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -217,22 +217,22 @@ declare class ArrayList<T> {
   /**
    * If the newCapacity provided by the user is greater than or equal to length,
    * change the capacity of the arraylist to newCapacity, otherwise the capacity will not be changed
-   * @throws {ContainerBindError}: The increaseCapacityTo method cannot be bound.
-   * @throws {TypeError}: The type of "newCapacity" must be number. Received value is: [newCapacity]
+   * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "newCapacity" must be number. Received value is: [newCapacity]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   increaseCapacityTo(newCapacity: number): void;
   /**
    * Limit the capacity to the current length
-   * @throws {ContainerBindError}: The trimToCurrentLength method cannot be bound.
+   * @throws { BusinessError } 10200011 - The trimToCurrentLength method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   trimToCurrentLength(): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

@@ -16,7 +16,7 @@
 declare class Queue<T> {
   /**
    * A constructor used to create a Queue object.
-   * @throws {NewTargetIsNullError}: The Queue's constructor cannot be directly invoked.
+   * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -32,7 +32,7 @@ declare class Queue<T> {
    * so immediately without violating capacity restrictions.
    * @param element to be appended to this queue
    * @return the boolean type
-   * @throws {ContainerBindError}: The add method cannot be bound.
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -40,7 +40,7 @@ declare class Queue<T> {
   /**
    * Obtains the header element of a queue.
    * @return the T type
-   * @throws {ContainerBindError}: The getFirst method cannot be bound.
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -48,7 +48,7 @@ declare class Queue<T> {
   /**
    * Retrieves and removes the head of this queue
    * @return the T type
-   * @throws {ContainerBindError}: The pop method cannot be bound.
+   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -62,8 +62,8 @@ declare class Queue<T> {
    * @param Queue (Optional) The queue object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
-   * @throws {ContainerBindError}: The forEach method cannot be bound.
-   * @throws {TypeError}: The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -71,7 +71,7 @@ declare class Queue<T> {
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
-   * @throws {ContainerBindError}: The Symbol.iterator method cannot be bound.
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
