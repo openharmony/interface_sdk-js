@@ -276,7 +276,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static setSystemLanguage(language: string);
+    static setSystemLanguage(language: string): void;
 
     /**
      * Obtain the region currently used by the system.
@@ -297,7 +297,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static setSystemRegion(region: string);
+    static setSystemRegion(region: string): void;
 
     /**
      * Obtain the locale currently used by the system.
@@ -318,7 +318,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static setSystemLocale(locale: string);
+    static setSystemLocale(locale: string): void;
 
     /**
      * check out whether system is 24-hour system.
@@ -339,7 +339,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static set24HourClock(option: boolean);
+    static set24HourClock(option: boolean): void;
 
     /**
      * Add one language to preferred language List.
@@ -353,7 +353,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static addPreferredLanguage(language: string, index?: number);
+    static addPreferredLanguage(language: string, index?: number): void;
 
     /**
      * Remove one language from preferred language list.
@@ -366,7 +366,7 @@ export class System {
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      */
-    static removePreferredLanguage(index: number);
+    static removePreferredLanguage(index: number): void;
 
     /**
      * Access the system preferred language list.
@@ -405,7 +405,7 @@ export class System {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    static setUsingLocalDigit(flag: boolean);
+    static setUsingLocalDigit(flag: boolean): void;
 
      /**
       * Get whether to use local digit.
