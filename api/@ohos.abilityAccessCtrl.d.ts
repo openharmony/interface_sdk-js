@@ -38,6 +38,7 @@ import { AsyncCallback, Callback } from './basic';
          * @return Returns permission verify result.
          * @since 8
          * @deprecated since 9
+         * @useinstead checkAccessToken
          */
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
@@ -45,9 +46,10 @@ import { AsyncCallback, Callback } from './basic';
          * Checks whether a specified application has been granted the given permission synchronously.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified.
-         * @return Returns permission verify result
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+         * @return Returns permission verify result.
          * @since 9
-         * @deprecated since 9
          */
         verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
 
@@ -55,29 +57,26 @@ import { AsyncCallback, Callback } from './basic';
          * Checks whether a specified application has been granted the given permission.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified.
-         * @throws { BusinessError } 401 The parameter is invalid.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
          * @return Returns permission verify result.
          * @since 9
          */
         checkAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
         /**
-         * Checks whether a specified application has been granted the given permission synchronously.
-         * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be verified.
-         * @throws { BusinessError } 401 The parameter is invalid.
-         * @return Returns permission verify result
-         * @since 9
-         */
-        checkAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
-
-        /**
          * Grants a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @param permissionFlag Flag of permission state.
-         * @returns {void | Promise<void>} No callback return Promise otherwise return void.
-         * @throws { BusinessError } 401 The parameter is invalid.
+         * @returns { void | Promise<void> } No callback return Promise otherwise return void.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
+         * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+         * @throws { BusinessError } 12100003 - The specified permission does not exist.
+         * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission. Either the application does not request the permission or the tokenID is from a remote device.
+         * @throws { BusinessError } 12100007 - Service is not running.
          * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -90,8 +89,14 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
          * @param permissionFlag Flag of permission state.
-         * @returns {void | Promise<void>} No callback return Promise otherwise return void.
-         * @throws { BusinessError } 401 The parameter is invalid.
+         * @returns { void | Promise<void> } No callback return Promise otherwise return void.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
+         * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+         * @throws { BusinessError } 12100003 - The specified permission does not exist.
+         * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission. Either the application does not request the permission or the tokenID is from a remote device.
+         * @throws { BusinessError } 12100007 - Service is not running.
          * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -104,7 +109,13 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
          * @return Return permission flag.
-         * @throws { BusinessError } 401 The parameter is invalid.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+         * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+         * @throws { BusinessError } 12100003 - The specified permission does not exist.
+         * @throws { BusinessError } 12100006 - The operation is not allowd. Either the application does not request the permission or the tokenID is from a remote device.
+         * @throws { BusinessError } 12100007 - Service is not running.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 8
@@ -135,9 +146,15 @@ import { AsyncCallback, Callback } from './basic';
          *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications changes.
          *        </li>
          *        </ul>
-         * @throws { BusinessError } 401 The parameter is invalid.
-         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS.
          * @param callback Callback used to listen for the permission state changed event.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+         * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
+         * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
+         * @throws { BusinessError } 12100007 - Service is not running.
+         * @throws { BusinessError } 12100008 - Out of memory.
+         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 9
          */
@@ -148,7 +165,12 @@ import { AsyncCallback, Callback } from './basic';
          * @param tokenIDList A list of tokenids that specifies the applications being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
          * @param permissionNameList A list of permissions that specifies the permissions being listened on. it should correspond to the value registered by function of "on", whose type is "permissionStateChange".
          * @param callback Callback used to listen for the permission state changed event.
-         * @throws { BusinessError } 401 The parameter is invalid.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID in list is all invalid, or the permissionName in list is all invalid.
+         * @throws { BusinessError } 12100004 - The interface is not used with "on".
+         * @throws { BusinessError } 12100007 - Service is not running.
+         * @throws { BusinessError } 12100008 - Out of memory.
          * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS.
          * @systemapi
          * @since 9
