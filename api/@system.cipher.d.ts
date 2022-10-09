@@ -187,7 +187,7 @@ export interface CipherAesOptions {
 
 /**
  * Defines the cipher functions.
- * @Deprecated
+ * @deprecated
  * @since 3
  * @syscap SystemCapability.Security.Cipher
  * @permission N/A
@@ -195,7 +195,7 @@ export interface CipherAesOptions {
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
-   * @Deprecated
+   * @deprecated
    * @param options RSA options
    * @syscap SystemCapability.Security.Cipher
    */
@@ -203,7 +203,7 @@ export default class Cipher {
 
   /**
    * Encrypts or decrypts data using AES.
-   * @Deprecated
+   * @deprecated
    * @param options AES options
    * @syscap SystemCapability.Security.Cipher
    */
