@@ -74,6 +74,16 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(): Promise<void>;
 
   /**
+   * Proactively requests to update location information.
+   *
+   * @param { number } [ slotId ] - indicates the card slot index number.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function sendUpdateCellLocationRequest(slotId: number, callback: AsyncCallback<void>): void;
+  function sendUpdateCellLocationRequest(slotId: number): Promise<void>;
+
+  /**
    * @permission ohos.permission.LOCATION
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -814,6 +824,7 @@ declare namespace radio {
     /** Manual network selection modes. */
     NETWORK_SELECTION_MANUAL
   }
+
   /**
    * @systemapi Hide this for inner system use.
    * @since 9
