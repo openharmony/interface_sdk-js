@@ -255,7 +255,7 @@ export class System {
      * @return Returns whether the current language or region is recommended.
      * @since 9
      */
-    static isSuggested(language: string, region?: string);
+    static isSuggested(language: string, region?: string): boolean;
 
     /**
      * Obtain the language currently used by the system.
@@ -337,10 +337,9 @@ export class System {
      * @param option represent the boolean to be set.
      * @throws {BusinessError} with I18N_NOT_VALID if option is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-     * @return Returns a boolean represent whether setting 24-hour system success.
      * @since 9
      */
-    static set24HourClock(option: boolean): boolean;
+    static set24HourClock(option: boolean);
 
     /**
      * Add one language to preferred language List.
@@ -352,10 +351,9 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-     * @return Returns a boolean represent whether language added success.
      * @since 9
      */
-    static addPreferredLanguage(language: string, index?: number): boolean;
+    static addPreferredLanguage(language: string, index?: number);
 
     /**
      * Remove one language from preferred language list.
@@ -366,10 +364,9 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_FOUND if index is missed
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-     * @return Returns a boolean represent whether removed success.
      * @since 9
      */
-    static removePreferredLanguage(index: number): boolean;
+    static removePreferredLanguage(index: number);
 
     /**
      * Access the system preferred language list.
@@ -405,11 +402,10 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @param flag a boolean variable represents whether to use local digit.
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
-     * @return Returns a boolean represents whether set successful.
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    static setUsingLocalDigit(flag: boolean): boolean;
+    static setUsingLocalDigit(flag: boolean);
 
      /**
       * Get whether to use local digit.
