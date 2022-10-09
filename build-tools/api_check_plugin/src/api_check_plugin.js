@@ -73,7 +73,7 @@ function checkAllNode(node, sourcefile, fileName) {
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
     // check syscap
-    checkSyscap(node, sourcefile, fileName);
+    // checkSyscap(node, sourcefile, fileName);
     // check deprecated
     checkDeprecated(node, sourcefile, fileName);
     // check permission
