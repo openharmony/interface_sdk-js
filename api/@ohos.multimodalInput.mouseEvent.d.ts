@@ -60,7 +60,7 @@ export declare enum Action {
 }
 
 /**
- * Button
+ * Mouse button
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core

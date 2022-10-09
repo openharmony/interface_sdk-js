@@ -37,7 +37,7 @@ declare namespace inputMonitor {
   }
 
   /**
-   * Event type
+   * Type of events to listen for
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
@@ -54,7 +54,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @permission ohos.permission.INPUT_MONITORING
-   * @param type Event type.
+   * @param type Type of events to monitor.
    * @param receiver Callback used to receive the reported data.
    * @deprecated since 9
    */
@@ -66,7 +66,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @permission ohos.permission.INPUT_MONITORING
-   * @param type Event type.
+   * @param type Type of event to cancel.
    * @param receiver Callback used to receive the reported data.
    * @deprecated since 9
    */
@@ -78,7 +78,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @permission ohos.permission.INPUT_MONITORING
-   * @param type Event type.
+   * @param type Type of events to monitor.
    * @param receiver Callback used to receive the reported data.
    * @throws {BusinessError} 401 Parameter error.
    */
@@ -90,7 +90,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @permission ohos.permission.INPUT_MONITORING
-   * @param type Event type.
+   * @param type Type of event to cancel.
    * @param receiver Callback used to receive the reported data.
    * @throws {BusinessError} 401 Parameter error.
    */
@@ -102,7 +102,7 @@ declare namespace inputMonitor {
     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
     * @systemapi hide for inner use
     * @permission ohos.permission.INPUT_MONITORING
-    * @param type Event type.
+    * @param type Type of events to monitor.
     * @param receiver Callback used to receive the reported data.
     * @throws {BusinessError} 401 Parameter error.
     */
@@ -114,7 +114,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @permission ohos.permission.INPUT_MONITORING
-   * @param type Event type.
+   * @param type Type of event to cancel.
    * @param receiver Callback used to receive the reported data.
    * @throws {BusinessError} 401 Parameter error.
    */

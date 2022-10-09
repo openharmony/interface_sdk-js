@@ -62,9 +62,9 @@ declare namespace inputConsumer {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @param type type of the inputevent about input which is to be subscribed.
-   * @param keyOptions the key events about input which is to be subscribed.
-   * @param callback callback function, receive reported data.
+   * @param type Type of the inputevent about input which is to be subscribed.
+   * @param keyOptions The key events about input which is to be subscribed.
+   * @param callback Callback function, receive reported data.
    * @deprecated since 9
    */
   function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
@@ -75,9 +75,9 @@ declare namespace inputConsumer {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @param type type of the inputevent about input which is to be subscribed.
-   * @param keyOptions the key events about input which is to be subscribed.
-   * @param callback callback function, receive reported data.
+   * @param type Type of the inputevent about input which is to be subscribed.
+   * @param keyOptions The key events about input which is to be subscribed.
+   * @param callback Callback function, receive reported data.
    * @deprecated since 9
    */
   function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
@@ -88,9 +88,9 @@ declare namespace inputConsumer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @param type type of the inputevent about input which is to be subscribed.
-   * @param keyOptions the key events about input which is to be subscribed.
-   * @param callback callback function, receive reported data.
+   * @param type Type of the inputevent about input which is to be subscribed.
+   * @param keyOptions The key events about input which is to be subscribed.
+   * @param callback Callback function, receive reported data.
    * @throws {BusinessError} 401 Parameter error.
    */
   function on(type: SubscribeType, keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
@@ -101,9 +101,9 @@ declare namespace inputConsumer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
-   * @param type type of the inputevent about input which is to be subscribed.
-   * @param keyOptions the key events about input which is to be subscribed.
-   * @param callback callback function, receive reported data.
+   * @param type Type of the inputevent about input which is to be subscribed.
+   * @param keyOptions The key events about input which is to be subscribed.
+   * @param callback Callback function, receive reported data.
    * @throws {BusinessError} 401 Parameter error.
    */
   function off(type: SubscribeType, keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;

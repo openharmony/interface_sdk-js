@@ -47,8 +47,9 @@ declare namespace inputEventClient {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @param KeyEvent the key event to be injected.
+   * @param KeyEvent The key event to be injected.
    * @deprecated since 9
+   * @useinstead injectKeyEvent
    */
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
@@ -58,7 +59,7 @@ declare namespace inputEventClient {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
-   * @param KeyEvent the key event to be injected.
+   * @param KeyEvent The key event to be injected.
    * @throws {BusinessError} 401 Parameter error.
    */
   function injectKeyEvent({ KeyEvent: KeyEvent }): void;

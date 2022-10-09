@@ -233,8 +233,9 @@ declare namespace inputDevice {
    *
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param callback callback function, receive reported data
+   * @param callback Callback function, receive reported data
    * @deprecated since 9
+   * @useinstead getDeviceList
    */
   function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
 
@@ -244,6 +245,7 @@ declare namespace inputDevice {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @deprecated since 9
+   * @useinstead getDeviceList
    */
   function getDeviceIds(): Promise<Array<number>>;
 
@@ -253,8 +255,9 @@ declare namespace inputDevice {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device whose information is to be obtained.
-   * @param callback callback function, receive reported data
+   * @param callback Callback function, receive reported data
    * @deprecated since 9
+   * @useinstead getDeviceInfo
    */
   function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
@@ -265,6 +268,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device whose information is to be obtained.
    * @deprecated since 9
+   * @useinstead getDeviceInfo
    */
   function getDevice(deviceId: number): Promise<InputDeviceData>;
 
@@ -273,7 +277,7 @@ declare namespace inputDevice {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param callback callback function, receive reported data
+   * @param callback Callback function, receive reported data
    * @throws {BusinessError} 401 Parameter error.
    */
   function getDeviceList(callback: AsyncCallback<Array<number>>): void;
@@ -292,7 +296,7 @@ declare namespace inputDevice {
   * @since 9
   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
   * @param deviceId ID of the input device whose information is to be obtained.
-  * @param callback callback function, receive reported data
+  * @param callback Callback function, receive reported data
   * @throws {BusinessError} 401 Parameter error.
   */
   function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
