@@ -31,7 +31,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the count value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -49,7 +49,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 12100001 - The parameter is invalid. the value of flag in request is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -69,7 +69,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
      * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input. It means the application specified by the tokenID has been using the specified permission.
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -89,7 +89,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
      * @throws { BusinessError } 12100004 - The interface is not used with "startUsingPermission".
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -106,7 +106,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
      * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
      * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -121,7 +121,7 @@ import {AsyncCallback, Callback} from './basic'
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
      * @throws { BusinessError } 12100001 - The parameter is invalid. The permissionName in list is all invalid or the list size is larger than 1024.
      * @throws { BusinessError } 12100004 - The interface is not used with "on".
-     * @throws { BusinessError } 12100007 - Service is not running.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
