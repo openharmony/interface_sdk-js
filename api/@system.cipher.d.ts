@@ -187,15 +187,16 @@ export interface CipherAesOptions {
 
 /**
  * Defines the cipher functions.
- * @deprecated
  * @since 3
+ * @deprecated since 9
+ * @useinstead ohos.security.cryptoFramework.Cipher
  * @syscap SystemCapability.Security.Cipher
  * @permission N/A
  */
 export default class Cipher {
   /**
    * Encrypts or decrypts data using RSA.
-   * @deprecated
+   * @deprecated since 9
    * @param options RSA options
    * @syscap SystemCapability.Security.Cipher
    */
@@ -203,7 +204,7 @@ export default class Cipher {
 
   /**
    * Encrypts or decrypts data using AES.
-   * @deprecated
+   * @deprecated since 9
    * @param options AES options
    * @syscap SystemCapability.Security.Cipher
    */
