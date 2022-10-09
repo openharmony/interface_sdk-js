@@ -275,6 +275,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static setSystemLanguage(language: string): void;
 
@@ -296,6 +297,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_FOUND if region is missed
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static setSystemRegion(region: string): void;
 
@@ -317,6 +319,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_FOUND if locale is missed
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static setSystemLocale(locale: string): void;
 
@@ -338,6 +341,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_VALID if option is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static set24HourClock(option: boolean): void;
 
@@ -352,6 +356,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static addPreferredLanguage(language: string, index?: number): void;
 
@@ -365,6 +370,7 @@ export class System {
      * @throws {BusinessError} with I18N_NOT_VALID if index is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
+     * @systemapi Hide this for inner system use.
      */
     static removePreferredLanguage(index: number): void;
 
