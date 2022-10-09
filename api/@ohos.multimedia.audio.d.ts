@@ -1521,6 +1521,24 @@ declare namespace audio {
      * @systemapi
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Select the input device. This method uses an asynchronous callback to return the result.
+     * @param inputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectInputDevice(inputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the input device. This method uses a promise to return the result.
+     * @param inputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
   }
 
   /**
