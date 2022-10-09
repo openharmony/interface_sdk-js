@@ -396,7 +396,29 @@ export class System {
      * @return Returns a string represent the preferred language of App.
      * @since 9
      */
-     static getAppPreferredLanguage(): string;
+    static getAppPreferredLanguage(): string;
+
+    /**
+     * Set whether to use local digit.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param flag a boolean variable represents whether to use local digit.
+     * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
+     * @return Returns a boolean represents whether set successful.
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setUsingLocalDigit(flag: boolean): boolean;
+
+     /**
+      * Get whether to use local digit.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @return Returns a boolean represents whether to use local digit.
+      * @since 9
+      */
+    static getUsingLocalDigit(): boolean;
 }
 
 /**
@@ -1268,26 +1290,5 @@ export class Transliterator {
      */
     transform(text: string): string;
 }
-
-/**
- * Set whether to use local digit.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param flag a boolean variable represents whether to use local digit.
- * @return Returns a boolean represents whether set successful.
- * @since 9
- * @systemapi Hide this for inner system use.
- */
-export function setUsingLocalDigit(flag: boolean): boolean;
-
- /**
-  * Get whether to use local digit.
-  *
-  * @syscap SystemCapability.Global.I18n
-  * @return Returns a boolean represents whether to use local digit.
-  * @since 9
-  */
-export function getUsingLocalDigit(): boolean;
 }
 export default i18n;
