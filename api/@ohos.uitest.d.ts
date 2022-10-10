@@ -521,7 +521,6 @@ declare class On {
    * @param pattern the {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -533,7 +532,6 @@ declare class On {
    * @param id the id value.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -545,7 +543,6 @@ declare class On {
    * @param tp the type value.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -557,7 +554,6 @@ declare class On {
    * @param b the clickable status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -569,7 +565,6 @@ declare class On {
    * @param b the clickable status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -581,7 +576,6 @@ declare class On {
    * @param b the scrollable status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -593,7 +587,6 @@ declare class On {
    * @param b the enabled status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -605,7 +598,6 @@ declare class On {
    * @param b the focused status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -617,7 +609,6 @@ declare class On {
    * @param b the selected status,default to true.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -629,7 +620,6 @@ declare class On {
    * @param b the checked status,default to false.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -641,7 +631,6 @@ declare class On {
    * @param b the checkable status,default to false.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -654,7 +643,6 @@ declare class On {
    * @param on describes the attribute requirements of Component which the target one is in front of.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -667,7 +655,6 @@ declare class On {
    * @param on describes the attribute requirements of Component which the target one is in back of.
    * @return Returns this {@link On} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -688,7 +675,6 @@ declare class Component {
    * @since 9
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @test
    */
   click(): Promise<void>;
@@ -699,7 +685,6 @@ declare class Component {
    * @since 9
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @test
    */
   doubleClick(): Promise<void>;
@@ -710,7 +695,6 @@ declare class Component {
    * @since 9
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @test
    */
   longClick(): Promise<void>;
@@ -721,7 +705,6 @@ declare class Component {
    * @returns the id value.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -732,7 +715,6 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -744,7 +726,6 @@ declare class Component {
    * @returns the type name.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -756,7 +737,6 @@ declare class Component {
    * @returns the clickable status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -768,7 +748,6 @@ declare class Component {
    * @returns the longClickable status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -780,7 +759,6 @@ declare class Component {
    * @returns the scrollable status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -792,7 +770,6 @@ declare class Component {
    * @returns the enabled status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -804,7 +781,6 @@ declare class Component {
    * @returns the focused status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -816,7 +792,6 @@ declare class Component {
    * @returns the selected status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -828,7 +803,6 @@ declare class Component {
    * @returns the checked status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -840,7 +814,6 @@ declare class Component {
    * @returns the checkable status.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -853,7 +826,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -864,7 +836,6 @@ declare class Component {
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -877,7 +848,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -890,7 +860,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -904,7 +873,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -916,7 +884,6 @@ declare class Component {
    * @return the bounds rect object.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -928,7 +895,6 @@ declare class Component {
    * @return the boundsCenter object.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -941,7 +907,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -954,7 +919,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -967,7 +931,6 @@ declare class Component {
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -988,7 +951,6 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @returns the {@link Driver} object.
    * @throws {BusinessError} 17000001 if the test framework failed to initialize.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1000,7 +962,6 @@ declare class Driver {
    * @param duration the delay duration in milliseconds.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1013,7 +974,6 @@ declare class Driver {
    * @returns the first matched {@link Component} or undefined.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1026,7 +986,6 @@ declare class Driver {
    * @returns the first matched {@link UiWindow} or undefined.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1040,7 +999,6 @@ declare class Driver {
    * @returns the first matched {@link Component} or undefined.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1053,7 +1011,6 @@ declare class Driver {
    * @returns the matched {@link Component}s list.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1065,7 +1022,7 @@ declare class Driver {
    * @param on the attribute requirements of the target {@link Component}.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
+   * @throws {BusinessError} 17000003 if the assertion failed.
    * @since 9
    * @test
    */
@@ -1075,7 +1032,6 @@ declare class Driver {
    * Press the BACK key.
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1087,7 +1043,6 @@ declare class Driver {
    * @param keyCode the target keyCode.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1101,7 +1056,6 @@ declare class Driver {
    * @param key2 the third keyCode.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1114,7 +1068,6 @@ declare class Driver {
    * @param y the y-coordinate.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1127,7 +1080,6 @@ declare class Driver {
    * @param y the y-coordinate.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1140,7 +1092,6 @@ declare class Driver {
    * @param y the y-coordinate.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1156,7 +1107,6 @@ declare class Driver {
    * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1172,7 +1122,6 @@ declare class Driver {
    * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1185,7 +1134,6 @@ declare class Driver {
    * @returns true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1197,7 +1145,6 @@ declare class Driver {
    * @param rotation the target rotation to set.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1208,7 +1155,6 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @returns the current display rotation.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1220,7 +1166,6 @@ declare class Driver {
    * @param enabled enable the rotation or not.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1231,7 +1176,6 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @returns the size of the device display.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1242,7 +1186,6 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @returns the density of the device display.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1252,7 +1195,6 @@ declare class Driver {
    * Wake up the device display.
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1262,7 +1204,6 @@ declare class Driver {
    * Press the home key.
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1276,7 +1217,6 @@ declare class Driver {
    * @returns true if wait for idle succeed in the timeout, false otherwise.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1291,7 +1231,6 @@ declare class Driver {
    * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1305,7 +1244,6 @@ declare class Driver {
    * @returns true if the operation finished, false
    * @throws {BusinessError} 401 if the input parameters are invalid.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1324,7 +1262,6 @@ declare class UiWindow {
    * @returns the bundle name.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1336,7 +1273,6 @@ declare class UiWindow {
    * @return the bounds rect object.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1348,7 +1284,6 @@ declare class UiWindow {
    * @returns the title value.
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1360,7 +1295,6 @@ declare class UiWindow {
    * @returns the {@link WindowMode} object
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1372,7 +1306,6 @@ declare class UiWindow {
    * @returns the focused status
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1384,7 +1317,6 @@ declare class UiWindow {
    * @returns the actived status
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1395,7 +1327,6 @@ declare class UiWindow {
    * @syscap SystemCapability.Test.UiTest
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1410,7 +1341,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1426,7 +1356,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1438,7 +1367,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1450,7 +1378,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1462,7 +1389,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1474,7 +1400,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1486,7 +1411,6 @@ declare class UiWindow {
    * @throws {BusinessError} 17000002 if the async function was not called with await.
    * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
    * @throws {BusinessError} 17000005 if the action is not supported on this window.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1509,7 +1433,6 @@ declare class PointerMatrix {
    * @param steps the number of steps of each finger trace.
    * @returns the {@link PointerMatrix} object.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
    * @since 9
    * @test
    */
@@ -1522,7 +1445,7 @@ declare class PointerMatrix {
    * @param step the index of target step to set.
    * @param point the coordinate of target step to set.
    * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000006 if there is a system internal error.
+
    * @since 9
    * @test
    */
