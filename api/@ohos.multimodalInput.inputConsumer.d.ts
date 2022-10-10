@@ -66,7 +66,6 @@ declare namespace inputConsumer {
    * @param keyOptions The key events about input which is to be subscribed.
    * @param callback Callback function, receive reported data.
    * @deprecated since 9
-   * @useinstead on(SubscribeType.Key, keyOptions, callback)
    */
   function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
@@ -80,7 +79,6 @@ declare namespace inputConsumer {
    * @param keyOptions The key events about input which is to be subscribed.
    * @param callback Callback function, receive reported data.
    * @deprecated since 9
-   * @useinstead off(SubscribeType.Key, keyOptions, callback)
    */
   function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 

@@ -57,7 +57,6 @@ declare namespace inputMonitor {
    * @param type Type of events to monitor.
    * @param receiver Callback used to receive the reported data.
    * @deprecated since 9
-   * @useinstead on(EventType.TOUCH, receiver)
    */
   function on(type: "touch", receiver: TouchEventReceiver): void;
 
@@ -70,7 +69,6 @@ declare namespace inputMonitor {
    * @param type Type of event to cancel.
    * @param receiver Callback used to receive the reported data.
    * @deprecated since 9
-   * @useinstead off(EventType.TOUCH, receiver)
    */
   function off(type: "touch", receiver?: TouchEventReceiver): void;
 
