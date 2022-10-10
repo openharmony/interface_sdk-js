@@ -116,14 +116,16 @@ declare namespace inputMethod {
     /**
      * Input method setting
      * @since 8
-     * @deprecated since 9, use 'getSetting' instead.
+     * @deprecated since 9
+     * @useinstead ohos.inputmethod.getController
      */
     function getInputMethodSetting(): InputMethodSetting;
 
     /**
      * Input method controller
      * @since 6
-     * @deprecated since 9, use 'getController' instead.
+     * @deprecated since 9
+     * @useinstead ohos.inputmethod.getController
      */
     function getInputMethodController(): InputMethodController;
 
