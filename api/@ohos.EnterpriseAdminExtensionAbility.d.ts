@@ -38,4 +38,24 @@ export default class EnterpriseAdminExtensionAbility {
      * @StageModelOnly
      */
     onAdminDisabled(): void;
+
+    /**
+     * Called back when a bundle is installed.
+     * @param { string } bundleName - bundleName indicates the name of the bundle installed.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    onBundleAdded(bundleName: string): void;
+
+    /**
+     * Called back when a bundle is uninstalled.
+     * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    onBundleRemoved(bundleName: string): void;
 }

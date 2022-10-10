@@ -52,6 +52,23 @@ declare namespace enterpriseDeviceManager {
     ADMIN_TYPE_SUPER = 0x01
   }
 
+  export enum ManagedEvent {
+    
+    /**
+     * The event of bundle added.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
+    MANAGED_EVENT_BUNDLE_ADDED = 0,
+
+    /**
+     * The event of bundle removed.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
+    MANAGED_EVENT_BUNDLE_REMOVED = 1,
+  }
+
   /**
    * Enables the given ability as a administrator of the device.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
@@ -327,6 +344,73 @@ declare namespace enterpriseDeviceManager {
   function getDeviceSettingsManager(callback: AsyncCallback<DeviceSettingsManager>): void;
   function getDeviceSettingsManager(): Promise<DeviceSettingsManager>;
 
+  /**
+   * Subscribes the managed event of admin.
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @param { AsyncCallback<void> } callback - the callback of subscribeManagedEvent.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   */
+   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+
+   /**
+    * Subscribes the managed event of admin.
+    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+    * @param { Want } admin - admin indicates the administrator ability information.
+    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+    * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
+    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+    * @throws { BusinessError } 401 - invalid input parameter.
+    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+    * @systemapi
+    * @stagemodelonly
+    * @since 9
+    */
+   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
+ 
+   /**
+    * Unsubscribes the managed event of admin.
+    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+    * @param { Want } admin - admin indicates the administrator ability information.
+    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+    * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
+    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+    * @throws { BusinessError } 401 - invalid input parameter.
+    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+    * @systemapi
+    * @stagemodelonly
+    * @since 9
+    */
+   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
+
+   /**
+    * Unsubscribes the managed event of admin.
+    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+    * @param { Want } admin - admin indicates the administrator ability information.
+    * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+    * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
+    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+    * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+    * @throws { BusinessError } 401 - invalid input parameter.
+    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+    * @systemapi
+    * @stagemodelonly
+    * @since 9
+    */
+   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 }
 
 export default enterpriseDeviceManager;
