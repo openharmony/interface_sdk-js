@@ -44,10 +44,10 @@
      */
     missionId: number;
     /**
-     * Indicates the extended params.
+     * Indicates the extended param.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
-    wantParams: {[key: string]: any};
+    wantParam: {[key: string]: any};
 }
