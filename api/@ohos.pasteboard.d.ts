@@ -104,7 +104,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value.
    * @param { ValueType } value - indicates the content that is set to PasteData.
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of value is not one of ValueType.
+   * @throws { BusinessError } 401 - if type of mimeType isn't one of ValueType,or it can't match the value type correctly.
    * @since 9
    */
   function createData(mimeType: string, value: ValueType): PasteData;
@@ -154,7 +154,7 @@ declare namespace pasteboard {
    * @param { string } mimeType - indicates MIME type of value.
    * @param { ValueType } value - content to be saved.
    * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - if type of mimeType is not one of ValueType.
+   * @throws { BusinessError } 401 - if type of mimeType isn't one of ValueType,or it can't match the value type correctly.
    * @since 9
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
@@ -341,7 +341,7 @@ declare namespace pasteboard {
      * Adds a record with mimeType and value to a PasteData object.
      * @param { string } mimeType - indicates the MIME type of value.
      * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - if type of mimeType is not one of ValueType.
+     * @throws { BusinessError } 401 - if type of mimeType isn't one of ValueType,or it can't match the value type correctly.
      * @throws { BusinessError } 12900002 - if the count of records in PasteData exceeds MAX_RECORD_NUM.
      * @since 9
      */
