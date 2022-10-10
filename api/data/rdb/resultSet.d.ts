@@ -374,6 +374,7 @@ export default interface ResultSetV9 {
      * @param columnName Indicates the name of the specified column in the result set.
      * @return Returns the index of the specified column.
      * @throws {BusinessError} if process failed
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
      * @errorcode 401 Parameter error.
      */
     getColumnIndex(columnName: string): number;
@@ -387,7 +388,7 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the index of the specified column in the result set.
      * @return Returns the name of the specified column.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800012 The result set is empty or the specified location is invalid.
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
      * @errorcode 401 Parameter error.
      */
     getColumnName(columnIndex: number): string;
