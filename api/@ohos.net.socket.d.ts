@@ -15,6 +15,7 @@
 
 import {AsyncCallback, Callback, ErrorCallback} from "./basic";
 import connection from "./@ohos.net.connection";
+import cryptoFramework from "./@ohos.security.cryptoFramework";
 
 /**
  * Provides TCP and UDP Socket APIs.
@@ -24,6 +25,7 @@ import connection from "./@ohos.net.connection";
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
+  export type X509CertRawData = cryptoFramework.EncodingBlob;
 
   /**
    * Creates a UDPSocket object.
@@ -34,6 +36,20 @@ declare namespace socket {
    * Creates a TCPSocket object.
    */
   function constructTCPSocketInstance(): TCPSocket;
+
+  /**
+   * Creates a TLSSocket object.
+   *
+   * @since 9
+   */
+  function constructTLSSocketInstance(): TLSSocket;
+
+  /**
+   * Creates a Local Socket object.
+   *
+   * @since 10
+   */
+  function constructLocalSocketInstance(name: string, isServer?: boolean): LocalSocket;
 
   export interface UDPSendOptions {
     /**
@@ -219,7 +235,7 @@ declare namespace socket {
     /**
      * Socket linger.
      */
-    socketLinger: {on: boolean, linger: number};
+    socketLinger?: {on: boolean, linger: number};
   }
 
   export interface TCPSocket {
@@ -313,6 +329,111 @@ declare namespace socket {
      * Cancels listening for error events of the TCPSocket connection.
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSSocket extends TCPSocket {
+
+    /**
+     * Returns an object representing a local certificate.
+     */
+    getCertificate(callback: AsyncCallback<X509CertRawData>): void;
+    getCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * an empty object will be returned. If the socket is destroyed, null is returned.
+     * If needChain is true, it contains the complete certificate chain. Otherwise,
+     * it only contains the peer's certificate.
+     */
+    getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
+    getRemoteCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     */
+    getProtocol(callback: AsyncCallback<string>): void;
+    getProtocol(): Promise<string>;
+
+    /**
+     * Returns an object containing the negotiated cipher suite information.
+     * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
+     */
+    getCipherSuite(callback: AsyncCallback<Array<string>>): void;
+    getCipherSuite(): Promise<Array<string>>;
+
+    /**
+     * The list of signature algorithms shared between the server and the client, in descending order of priority.
+     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     */
+    getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
+    getSignatureAlgorithms(): Promise<Array<string>>;
+
+    /**
+     * @permission ohos.permission.INTERNET
+     */
+    connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
+    connect(options: TLSConnectOptions): Promise<void>;
+
+    /**
+     * Sends data over a TLSSocket connection.
+     *
+     * @param data Optional parameters {@link string}.
+     * @permission ohos.permission.INTERNET
+     */
+    send(data: string, callback: AsyncCallback<void>): void;
+    send(data: string): Promise<void>;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSSecureOptions {
+    ca: string | Array<string>;
+    cert: string;
+    key: string;
+    passwd?: string;
+    protocols?: Protocol | Array<Protocol>;
+    /**
+     * default is false, use local cipher.
+     */
+    useRemoteCipherPrefer?: boolean;
+    /**
+     * Supported signature algorithms. This list can contain summary algorithms（SHA256、MD5、etc）、
+     * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
+     * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
+     */
+    signatureAlgorithms?: string;
+
+    /**
+     * Crypto suite specification
+     */
+    cipherSuite?: string;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSConnectOptions {
+    address: NetAddress;
+    secureOptions: TLSSecureOptions;
+    checkServerIdentity?: (hostname: string, cert: X509CertRawData) => Error | undefined;
+    /**
+     * Application layer protocol negotiation extension, supporting HTTP, HTTP/2
+     */
+    ALPNProtocols?: Array<string>;
+  }
+
+  /**
+   * @since 9
+   */
+  export enum Protocol {
+    TLSv12 = "TLSv1.2",
+    TLSv13 = "TLSv1.3",
   }
 }
 
