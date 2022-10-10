@@ -18,7 +18,7 @@ import { Callback } from './basic';
  /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
  *
- * @since 9
+ * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @systemapi hide for inner use
@@ -45,7 +45,7 @@ declare namespace inputConsumer {
     /**
      * Subscribe system keys.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @param type type of the inputevent about input which is to be subscribed.
@@ -58,7 +58,7 @@ declare namespace inputConsumer {
     /**
      * Subscribe system keys.
      *
-     * @since 9
+     * @since 8
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @param type type of the inputevent about input which is to be subscribed.

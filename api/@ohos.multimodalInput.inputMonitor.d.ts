@@ -19,7 +19,7 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 /**
  * Global input event listener
  * System API, available only to system processes
- * @since 9
+ * @since 7
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @import import inputMonitor from '@ohos.multimodalInput.inputMonitor';
  * @permission ohos.permission.INPUT_MONITORING
@@ -28,7 +28,7 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 declare namespace inputMonitor {
     /**
      * Callback used to receive touch input events. If **true** is returned, the touch input is consumed, and the system performs the closing operation.
-     * @since 9
+     * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      */
@@ -38,7 +38,7 @@ declare namespace inputMonitor {
 
     /**
      * Listens for touch input events.
-     * @since 9
+     * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
      * @permission ohos.permission.INPUT_MONITORING
