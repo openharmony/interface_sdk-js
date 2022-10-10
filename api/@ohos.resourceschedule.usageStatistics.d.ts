@@ -258,6 +258,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000002 - Parcel operation failed.
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
+     * @throws { BusinessError } 10000006 - Get application info failed.
      * @return Returns {@code true} if the application is idle in a particular period;
      * returns {@code false} otherwise. The time range of the particular period is defined by the system,
      * which may be hours or days.
@@ -281,6 +282,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000005 - Application is not installed.
+     * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10100002 - Get Application group info failed.
      * @return Returns the app group of the calling application.
      */
@@ -546,6 +548,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000002 - Parcel operation failed.
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
+     * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10100001 - Application group operation repeated.
      */
     function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
