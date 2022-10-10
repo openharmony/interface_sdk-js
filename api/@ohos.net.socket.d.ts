@@ -44,18 +44,12 @@ declare namespace socket {
    */
   function constructTLSSocketInstance(): TLSSocket;
 
-  /**
-   * Creates a Local Socket object.
-   *
-   * @since 10
-   */
-  function constructLocalSocketInstance(name: string, isServer?: boolean): LocalSocket;
-
   export interface UDPSendOptions {
     /**
      * Data to send.
      */
     data: string | ArrayBuffer;
+
     /**
      * Destination address.
      */
@@ -67,14 +61,17 @@ declare namespace socket {
      * Size of the receive buffer, in MBS.
      */
     receiveBufferSize?: number;
+
     /**
      * Size of the send buffer, in MBS.
      */
     sendBufferSize?: number;
+
     /**
      * Whether to reuse addresses. The default value is false.
      */
     reuseAddress?: boolean;
+
     /**
      * Timeout duration of the UDPSocket connection, in milliseconds.
      */
@@ -93,10 +90,12 @@ declare namespace socket {
      * Whether the connection is in the bound state.
      */
     isBound: boolean;
+
     /**
      * Whether the connection is in the closed state.
      */
     isClose: boolean;
+
     /**
      * Whether the connection is in the connected state.
      */
@@ -108,14 +107,17 @@ declare namespace socket {
      * Bound IP address.
      */
     address: string;
+
     /**
      * Network protocol type. The options are as follows: IPv4, IPv6.
      */
     family: 'IPv4' | 'IPv6';
+
     /**
      * Port number. The value ranges from 0 to 65535.
      */
     port: number;
+
     /**
      * Length of the server response message, in bytes.
      */
@@ -202,6 +204,7 @@ declare namespace socket {
      * Bound IP address and port number.
      */
     address: NetAddress;
+
     /**
      * Timeout duration of the TCPSocket connection, in milliseconds.
      */
@@ -213,6 +216,7 @@ declare namespace socket {
      * Data to send.
      */
     data: string | ArrayBuffer;
+
     /**
      * Character encoding format.
      */
@@ -224,14 +228,17 @@ declare namespace socket {
      * Whether to keep the connection alive. The default value is false.
      */
     keepAlive?: boolean;
+
     /**
      * Whether to enable OOBInline. The default value is false.
      */
     OOBInline?: boolean;
+
     /**
      * Whether to enable no-delay on the TCPSocket connection. The default value is false.
      */
     TCPNoDelay?: boolean;
+
     /**
      * Socket linger.
      */
@@ -398,10 +405,12 @@ declare namespace socket {
     key: string;
     passwd?: string;
     protocols?: Protocol | Array<Protocol>;
+
     /**
      * default is false, use local cipher.
      */
     useRemoteCipherPrefer?: boolean;
+
     /**
      * Supported signature algorithms. This list can contain summary algorithms（SHA256、MD5、etc）、
      * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
@@ -422,6 +431,7 @@ declare namespace socket {
     address: NetAddress;
     secureOptions: TLSSecureOptions;
     checkServerIdentity?: (hostname: string, cert: X509CertRawData) => Error | undefined;
+
     /**
      * Application layer protocol negotiation extension, supporting HTTP, HTTP/2
      */

@@ -66,7 +66,9 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    */
   export interface InterfaceConfiguration {
-    /*See {@link IPSetMode}*/
+    /**
+     *See {@link IPSetMode}
+     */
     mode: IPSetMode;
     ipAddr: string;
     route: string;
