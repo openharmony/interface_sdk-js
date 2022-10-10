@@ -1335,6 +1335,13 @@ declare class WebCookie {
    * @since 9
    */
   clearClientAuthenticationCache(): void;
+
+  /**
+   * Gets the url of current Web page.
+   * @return the url of current Web page.
+   * @since 9
+   */
+  getUrl(): string;
 }
 
 /**
