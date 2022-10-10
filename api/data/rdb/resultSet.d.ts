@@ -374,8 +374,7 @@ export default interface ResultSetV9 {
      * @param columnName Indicates the name of the specified column in the result set.
      * @return Returns the index of the specified column.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 401 Parameter error.
      */
     getColumnIndex(columnName: string): number;
 
@@ -388,8 +387,8 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the index of the specified column in the result set.
      * @return Returns the name of the specified column.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
+     * @errorcode 401 Parameter error.
      */
     getColumnName(columnIndex: number): string;
 
@@ -404,8 +403,8 @@ export default interface ResultSetV9 {
      * @return Returns true if the result set is moved successfully and does not go beyond the range;
      * returns false otherwise.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
-     * @errorcode 401
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
+     * @errorcode 401 Parameter error.
      */
     goTo(offset: number): boolean;
 
@@ -418,8 +417,8 @@ export default interface ResultSetV9 {
      * @param rowIndex Indicates the index of the specified row, which starts from 0.
      * @return Returns true if the result set is moved successfully; returns false otherwise.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
-     * @errorcode 401
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
+     * @errorcode 401 Parameter error.
      */
     goToRow(position: number): boolean;
 
@@ -432,7 +431,7 @@ export default interface ResultSetV9 {
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
      */
     goToFirstRow(): boolean;
 
@@ -445,7 +444,7 @@ export default interface ResultSetV9 {
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is empty.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
      */
     goToLastRow(): boolean;
 
@@ -458,7 +457,7 @@ export default interface ResultSetV9 {
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the last row.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
      */
     goToNextRow(): boolean;
 
@@ -471,7 +470,7 @@ export default interface ResultSetV9 {
      * @return Returns true if the result set is moved successfully;
      * returns false otherwise, for example, if the result set is already in the first row.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
      */
     goToPreviousRow(): boolean;
 
@@ -485,8 +484,8 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the specified column index, which starts from 0.
      * @return Returns the value of the specified column as a byte array.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
+     * @errorcode 401 Parameter error.
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -500,8 +499,8 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the specified column index, which starts from 0.
      * @return Returns the value of the specified column as a string.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
+     * @errorcode 401 Parameter error.
      */
     getString(columnIndex: number): string;
 
@@ -515,8 +514,8 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the specified column index, which starts from 0.
      * @return Returns the value of the specified column as a long.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
+     * @errorcode 401 Parameter error.
      */
     getLong(columnIndex: number): number;
 
@@ -530,8 +529,8 @@ export default interface ResultSetV9 {
      * @param columnIndex Indicates the specified column index, which starts from 0.
      * @return Returns the value of the specified column as a double.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
+     * @errorcode 401 Parameter error.
      */
     getDouble(columnIndex: number): number;
 
@@ -545,8 +544,8 @@ export default interface ResultSetV9 {
      * @return Returns true if the value of the specified column in the current row is null;
      * returns false otherwise.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800003
-     * @errorcode 401
+     * @errorcode 14800013 The column value is null or the column type is incompatible.
+     * @errorcode 401 Parameter error.
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -558,7 +557,7 @@ export default interface ResultSetV9 {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @return Returns true if the result set is closed; returns false otherwise.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800002
+     * @errorcode 14800012 The result set is empty or the specified location is invalid.
      */
     close(): void;
 }
