@@ -1057,7 +1057,7 @@ declare namespace rpc {
          * @throws { BusinessError } 1900009 - write data to message sequence failed
          * @since 9
          */
-        writeParcelableArray(val: Parcelable): void;
+        writeParcelable(val: Parcelable): void;
 
         /**
          * Writes a byte array into the {@link MessageSequence} object.
@@ -1158,12 +1158,12 @@ declare namespace rpc {
 
         /**
          * Writes a {@link Parcelable} object array into the {@link MessageSequence} object.
-         * @param parcelableArrayArray Indicates the {@link Parcelable} object array to write.
+         * @param parcelableArray Indicates the {@link Parcelable} object array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
          * @since 9
          */
-        writeParcelableArrayArray(parcelableArrayArray: Parcelable[]): void;
+        writeParcelableArray(parcelableArray: Parcelable[]): void;
 
         /**
          * Writes an array of {@link IRemoteObject} objects to this {@link MessageSequence} object.
@@ -1255,7 +1255,7 @@ declare namespace rpc {
          * @throws { BusinessError } 1900012 - call js callback function failed
          * @since 9
          */
-        readParcelableArray(dataIn: Parcelable) : void;
+        readParcelable(dataIn: Parcelable) : void;
 
         /**
          * Writes a byte array into the {@link MessageSequence} object.
@@ -1414,13 +1414,13 @@ declare namespace rpc {
 
         /**
          * Reads the specified {@link Parcelable} array from this {@link MessageSequence} object.
-         * @param parcelableArrayArray Parcelable array to read.
+         * @param parcelableArray Parcelable array to read.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @throws { BusinessError } 1900012 - call js callback function failed
          * @since 9
          */
-        readParcelableArrayArray(parcelableArrayArray: Parcelable[]): void;
+        readParcelableArray(parcelableArray: Parcelable[]): void;
 
         /**
          * Reads the specified {@link IRemoteObject} array from this {@link MessageSequence} object.
