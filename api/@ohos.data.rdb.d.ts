@@ -62,7 +62,7 @@ declare namespace rdb {
      * @throws {BusinessError} if process failed
      * @errorcode 14800010 Invalid database name
      * @errorcode 14800011 Database corrupted
-     * @errorcode 401
+     * @errorcode 401 Parameter error. 
      */
     function getRdbStoreV9(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStoreV9>): void;
     function getRdbStoreV9(context: Context, config: StoreConfig, version: number): Promise<RdbStoreV9>;
@@ -91,7 +91,7 @@ declare namespace rdb {
      * @return Returns true if the database is deleted; returns false otherwise.
      * @throws {BusinessError} if process failed
      * @errorcode 14800010 Invalid database name
-     * @errorcode 401
+     * @errorcode 401 Parameter error. 
      */
     function deleteRdbStoreV9(context: Context, name: string, callback: AsyncCallback<void>): void;
     function deleteRdbStoreV9(context: Context, name: string): Promise<void>;
@@ -410,8 +410,7 @@ declare namespace rdb {
          * @param values Indicates the row of data to be inserted into the table.
          * @return Returns the row ID if the operation is successful; returns -1 otherwise.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
         insert(table: string, values: ValuesBucket): Promise<number>;
@@ -425,8 +424,7 @@ declare namespace rdb {
          * @param values Indicates the rows of data to be inserted into the table.
          * @return Returns the number of values that were inserted if the operation is successful; returns -1 otherwise.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
         batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
@@ -440,8 +438,7 @@ declare namespace rdb {
          * @param predicates Indicates the specified update condition by the instance object of RdbPredicatesV9.
          * @return Returns the number of affected rows.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         update(values: ValuesBucket, predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
         update(values: ValuesBucket, predicates: RdbPredicatesV9): Promise<number>;
@@ -457,8 +454,7 @@ declare namespace rdb {
          * @param predicates Indicates the specified update condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -471,8 +467,7 @@ declare namespace rdb {
          * @param predicates Indicates the specified delete condition by the instance object of RdbPredicatesV9.
          * @return Returns the number of affected rows.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         delete(predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
         delete(predicates: RdbPredicatesV9): Promise<number>;
@@ -487,8 +482,7 @@ declare namespace rdb {
          * @param predicates Indicates the specified delete condition by the instance object of DataSharePredicates.
          * @return Returns the number of affected rows.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -502,8 +496,7 @@ declare namespace rdb {
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSetV9 object if the operation is successful;
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         query(predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
         query(predicates: RdbPredicatesV9, columns?: Array<string>): Promise<ResultSetV9>;
@@ -519,8 +512,7 @@ declare namespace rdb {
          * @param columns Indicates the columns to query. If the value is null, the query applies to all columns.
          * @return Returns a ResultSet object if the operation is successful;
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSetV9>;
@@ -536,8 +528,7 @@ declare namespace rdb {
          * @param columns Indicates the columns to remote query. If the value is null, the remote query applies to all columns.
          * @return Returns a ResultSetV9 object if the operation is successful;
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
         remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>): Promise<ResultSetV9>;
@@ -551,8 +542,7 @@ declare namespace rdb {
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          * @return Returns a ResultSetV9 object if the operation is successful;
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSetV9>): void;
         querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSetV9>;
@@ -565,8 +555,7 @@ declare namespace rdb {
          * @param sql Indicates the SQL statement to execute.
          * @param bindArgs Indicates the values of the parameters in the SQL statement. The values are strings.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
@@ -577,7 +566,6 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
          */
         beginTransaction():void;
 
@@ -587,7 +575,6 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
          */
         commit():void;
 
@@ -597,7 +584,6 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
          */
         rollBack():void;
 
@@ -608,8 +594,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param destName Indicates the name that saves the database backup.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         backup(destName:string, callback: AsyncCallback<void>):void;
         backup(destName:string): Promise<void>;
@@ -621,8 +606,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @param srcName Indicates the name that saves the database file.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800004
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         restore(srcName:string, callback: AsyncCallback<void>):void;
         restore(srcName:string): Promise<void>;
@@ -635,9 +619,7 @@ declare namespace rdb {
          * @param tables the tables name you want to set
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed
-         * @errorcode 14900001
-         * @errorcode 201
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
         setDistributedTables(tables: Array<string>): Promise<void>;
@@ -653,9 +635,7 @@ declare namespace rdb {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @return the distributed table name.
          * @throws {BusinessError} if process failed
-         * @errorcode 14900001
-         * @errorcode 201
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
         obtainDistributedTableName(device: string, table: string): Promise<string>;
@@ -670,9 +650,7 @@ declare namespace rdb {
          * @param callback Indicates the callback used to send the synchronization result to the caller.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed
-         * @errorcode 14900001
-         * @errorcode 201
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         sync(mode: SyncMode, predicates: RdbPredicatesV9, callback: AsyncCallback<Array<[string, number]>>): void;
         sync(mode: SyncMode, predicates: RdbPredicatesV9): Promise<Array<[string, number]>>;
@@ -687,9 +665,7 @@ declare namespace rdb {
          * @param observer Indicates the observer of data change events in the distributed database.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed
-         * @errorcode 14900001
-         * @errorcode 201
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -702,9 +678,7 @@ declare namespace rdb {
          * @param observer Indicates the data change observer already registered.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed
-         * @errorcode 14900001
-         * @errorcode 201
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
@@ -1124,8 +1098,7 @@ declare namespace rdb {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         constructor(name: string)
 
@@ -1138,8 +1111,7 @@ declare namespace rdb {
          * @param devices Indicates specified remote devices.
          * @return Returns the RdbPredicatesV9 self.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         inDevices(devices: Array<string>): RdbPredicatesV9;
 
@@ -1151,8 +1123,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicatesV9 self.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         inAllDevices(): RdbPredicatesV9;
 
@@ -1167,8 +1138,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with the RdbPredicatesV9.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         equalTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1183,8 +1153,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with the RdbPredicatesV9.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         notEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1196,8 +1165,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicatesV9 with the left parenthesis.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         beginWrap(): RdbPredicatesV9;
 
@@ -1210,8 +1178,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicatesV9 with the right parenthesis.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         endWrap(): RdbPredicatesV9;
 
@@ -1223,8 +1190,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicatesV9 with the or condition.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         or(): RdbPredicatesV9;
 
@@ -1236,8 +1202,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the RdbPredicatesV9 with the and condition.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         and(): RdbPredicatesV9;
 
@@ -1252,8 +1217,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with the RdbPredicatesV9.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         contains(field: string, value: string): RdbPredicatesV9;
 
@@ -1268,8 +1232,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with the RdbPredicatesV9.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         beginsWith(field: string, value: string): RdbPredicatesV9;
 
@@ -1284,8 +1247,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with the RdbPredicatesV9.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         endsWith(field: string, value: string): RdbPredicatesV9;
 
@@ -1298,8 +1260,7 @@ declare namespace rdb {
          * @param field Indicates the column name in the database table.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         isNull(field: string): RdbPredicatesV9;
 
@@ -1312,8 +1273,7 @@ declare namespace rdb {
          * @param field Indicates the column name in the database table.
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         isNotNull(field: string): RdbPredicatesV9;
 
@@ -1329,8 +1289,7 @@ declare namespace rdb {
          * is a wildcard (like * in a regular expression).
          * @return Returns the RdbPredicatesV9 that match the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         like(field: string, value: string): RdbPredicatesV9;
 
@@ -1345,8 +1304,7 @@ declare namespace rdb {
          * @param value Indicates the value to match with RdbPredicatesV9.
          * @return Returns the SQL statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         glob(field: string, value: string): RdbPredicatesV9;
 
@@ -1360,8 +1318,7 @@ declare namespace rdb {
          * @param high Indicates the maximum value.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         between(field: string, low: ValueType, high: ValueType): RdbPredicatesV9;
 
@@ -1376,8 +1333,7 @@ declare namespace rdb {
          * @param high Indicates the maximum value to match with DataAbilityPredicates.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         notBetween(field: string, low: ValueType, high: ValueType): RdbPredicatesV9;
 
@@ -1390,8 +1346,7 @@ declare namespace rdb {
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         greaterThan(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1404,8 +1359,7 @@ declare namespace rdb {
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         lessThan(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1418,8 +1372,7 @@ declare namespace rdb {
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1432,8 +1385,7 @@ declare namespace rdb {
          * @param value Indicates the String field.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         lessThanOrEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1446,8 +1398,7 @@ declare namespace rdb {
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         orderByAsc(field: string): RdbPredicatesV9;
 
@@ -1460,8 +1411,7 @@ declare namespace rdb {
          * @param field Indicates the column name for sorting the return list.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         orderByDesc(field: string): RdbPredicatesV9;
 
@@ -1472,8 +1422,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         distinct(): RdbPredicatesV9;
 
@@ -1485,8 +1434,7 @@ declare namespace rdb {
          * @param value Indicates the max length of the return list.
          * @return Returns the SQL query statement with the specified RdbPredicatesV9.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         limitAs(value: number): RdbPredicatesV9;
 
@@ -1499,8 +1447,7 @@ declare namespace rdb {
          * @param rowOffset Indicates the start position of the returned result. The value is a positive integer.
          * @return Returns the SQL query statement with the specified AbsPredicates.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         offsetAs(rowOffset: number): RdbPredicatesV9;
 
@@ -1512,8 +1459,7 @@ declare namespace rdb {
          * @param fields Indicates the specified columns by which query results are grouped.
          * @return Returns the RdbPredicatesV9 with the specified columns by which query results are grouped.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         groupBy(fields: Array<string>): RdbPredicatesV9;
 
@@ -1526,8 +1472,7 @@ declare namespace rdb {
          * @param indexName Indicates the name of the index column.
          * @return Returns RdbPredicatesV9 with the specified index column.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         indexedBy(field: string): RdbPredicatesV9;
 
@@ -1541,8 +1486,7 @@ declare namespace rdb {
          * @param values Indicates the values to match with RdbPredicatesV9.
          * @return Returns RdbPredicatesV9 that matches the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         in(field: string, value: Array<ValueType>): RdbPredicatesV9;
 
@@ -1556,8 +1500,7 @@ declare namespace rdb {
          * @param values Indicates the values to match with RdbPredicatesV9.
          * @return Returns RdbPredicatesV9 that matches the specified field.
          * @throws {BusinessError} if process failed
-         * @errorcode 14800005
-         * @errorcode 401
+         * @errorcode 401 Parameter error. 
          */
         notIn(field: string, value: Array<ValueType>): RdbPredicatesV9;
     }
