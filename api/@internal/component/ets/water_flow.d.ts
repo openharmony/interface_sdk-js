@@ -37,7 +37,7 @@ declare interface WaterFlowOptions {
  */
 interface WaterFlowInterface {
   /**
-   * WaterFlow is returned when the parameter is transferred. only support api: scrollToIndex
+   * WaterFlow is returned when the parameter is transferred. Only support api: scrollToIndex
    * @since 9
    */
   (options?: WaterFlowOptions): WaterFlowAttribute;
@@ -60,25 +60,25 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   itemConstraintSize(value: ConstraintSizeOptions): WaterFlowAttribute;
 
   /**
-   * Lets you set the number of rows in the current waterflow。
+   * Set the number of rows in the current waterflow.
    * @since 9
    */
   rowsTemplate(value: string): WaterFlowAttribute;
 
   /**
-   * Allows you to set the spacing between columns.
+   * Set the spacing between columns.
    * @since 9
    */
   columnsGap(value: Length): WaterFlowAttribute;
 
   /**
-   * Lets you set the spacing between rows.
+   * Set the spacing between rows.
    * @since 9
    */
   rowsGap(value: Length): WaterFlowAttribute;
 
   /**
-   * control WaterFlowDirection of the WaterFlow.
+   * Control layout direction of the WaterFlow.
    * @since 9
    */
   layoutDirection(value: FlexDirection): WaterFlowAttribute;

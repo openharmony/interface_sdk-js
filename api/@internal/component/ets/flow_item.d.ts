@@ -19,7 +19,7 @@
  */
 interface FlowItemInterface {
   /**
-   * Return to get flowItem.
+   * Construct the flow item.
    * @since 9
    */
   (): FlowItemAttribute;
