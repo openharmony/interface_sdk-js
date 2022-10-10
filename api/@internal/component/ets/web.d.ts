@@ -589,6 +589,24 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onWindowNew callback, related to {@link onWindowNew} method.
+ * @since 9
+ */
+declare class ControllerHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+   constructor();
+
+  /**
+   * Set WebController object.
+   * @since 9
+   */
+  setWebController(controller: WebController): void;
+}
+
+/**
 * Defines the context menu param, related to {@link WebContextMenuParam} method.
 * @since 9
 */
@@ -1806,6 +1824,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
       keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to create a window.
+   * @param callback The triggered callback when web page requires the user to create a window.
+   *
+   * @since 9
+   */
+  onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
+      handler: ControllerHandler}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to close a window.
+   * @param callback The triggered callback when web page requires the user to close a window.
+   *
+   * @since 9
+   */
+  onWindowExit(callback: () => void): WebAttribute;
+
+  /**
+   * Set whether multiple windows are supported.
+   * @param multiWindow True if it needs to be triggered manually by the user else false.
+   *
+   * @since 9
+   */
+  multiWindowAccess(multiWindow: boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;
