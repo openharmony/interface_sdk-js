@@ -16,7 +16,7 @@
 import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import accessibility from "../@ohos.accessibility";
-import { GesturePath } from "../@ohos.application.AccessibilityExtensionAbility";
+import { GesturePath } from "../@ohos.accessibility.GesturePath";
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
