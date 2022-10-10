@@ -60,7 +60,8 @@ declare namespace rdb {
      * @param version Indicates the database version for upgrade or downgrade.
      * @return Returns an RDB store {@link ohos.data.rdb.RdbStore}.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800004
+     * @errorcode 14800010 Invalid database name
+     * @errorcode 14800011 Database corrupted
      * @errorcode 401
      */
     function getRdbStoreV9(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStoreV9>): void;
@@ -89,7 +90,7 @@ declare namespace rdb {
      * @param name Indicates the database name.
      * @return Returns true if the database is deleted; returns false otherwise.
      * @throws {BusinessError} if process failed
-     * @errorcode 14800004
+     * @errorcode 14800010 Invalid database name
      * @errorcode 401
      */
     function deleteRdbStoreV9(context: Context, name: string, callback: AsyncCallback<void>): void;
