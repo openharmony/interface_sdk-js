@@ -75,17 +75,6 @@ declare namespace usageStatistics {
          * in milliseconds.
          */
         infosEndTime?: number;
-
-        /**
-         * Merges a specified {@link BundleActiveInfo} object with this {@link BundleActiveInfo} object.
-         * The bundle name of both objects must be the same.
-         *
-         * @since 9
-         * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-         * @param toMerge Indicates the {@link BundleActiveInfo} object to merge.
-         * if the bundle names of the two {@link BundleActiveInfo} objects are different.
-         */
-        merge(toMerge: BundleStatsInfo): void;
     }
 
     /**
