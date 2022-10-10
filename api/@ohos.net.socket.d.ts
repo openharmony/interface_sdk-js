@@ -430,7 +430,6 @@ declare namespace socket {
   export interface TLSConnectOptions {
     address: NetAddress;
     secureOptions: TLSSecureOptions;
-    checkServerIdentity?: (hostname: string, cert: X509CertRawData) => Error | undefined;
 
     /**
      * Application layer protocol negotiation extension, supporting HTTP, HTTP/2

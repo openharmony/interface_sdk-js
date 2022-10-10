@@ -23,9 +23,6 @@ import socket, {X509CertRawData} from './@ohos.net.socket'
  * @syscap SystemCapability.Communication.NetStack
  */
 declare namespace http {
-  type TLSSecureOptions = socket.TLSSecureOptions;
-  type X509CertRawData = socket.X509CertRawData;
-
   /**
    * Creates an HTTP request task.
    */
@@ -79,13 +76,6 @@ declare namespace http {
      * @since 9
      */
     usingProtocol?: HttpProtocol; // default is automatically specified by the system.
-
-    /**
-     * For https.
-     *
-     * @since 9
-     */
-    secureOptions?: TLSSecureOptions;
   }
 
   export interface HttpRequest {
@@ -207,19 +197,8 @@ declare namespace http {
    * @since 9
    */
   export enum HttpDataType {
-    /**
-     * The returned type is string.
-     */
     STRING,
-
-    /**
-     * The returned type is Object.
-     */
     OBJECT = 1,
-
-    /**
-     * The returned type is ArrayBuffer.
-     */
     ARRAY_BUFFER = 2,
   }
 
