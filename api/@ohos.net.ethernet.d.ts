@@ -67,7 +67,7 @@ declare namespace ethernet {
    */
   export interface InterfaceConfiguration {
     /**
-     *See {@link IPSetMode}
+     * See {@link IPSetMode}
      */
     mode: IPSetMode;
     ipAddr: string;
