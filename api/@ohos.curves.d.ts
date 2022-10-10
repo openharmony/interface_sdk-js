@@ -108,6 +108,7 @@ declare namespace curves {
    * Constructs a spring motion when called.
    * If one parameter is not specified, it uses the corresponding default values.
    * @since 9
+   * @systemapi
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -115,6 +116,7 @@ declare namespace curves {
    * Constructs a responsive spring motion when called.
    * If one parameter is not specified, it uses the corresponding default values.
    * @since 9
+   * @systemapi
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
