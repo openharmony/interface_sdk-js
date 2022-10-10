@@ -15,98 +15,58 @@
 
 import { Callback } from './basic';
 
-/**
+ /**
  * The event of key input management module is configured to subscribe and unsubscribe system keys.
  *
- * @since 8
+ * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @systemapi hide for inner use
  */
+
 declare namespace inputConsumer {
-  /**
-   * Defines event of key that user want to subscribe or unsubscribe.
-   *
-   * @since 8
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @param preKeys The pre-keys that want to subscribe or unsubscribe.
-   * @param finalKey The post position key that want to subscribe or unsubscribe.
-   * @param isFinalKeyDown The final key press down or up.
-   * @param finalKeyDownDuration Duration of final key press.
-   */
-  interface KeyOptions {
-    preKeys: Array<number>;
-    finalKey: number;
-    isFinalKeyDown: boolean;
-    finalKeyDownDuration: number;
-  }
-
-  /**
-   * Defines event of key that user want to subscribe or unsubscribe.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   */
-  enum SubscribeType {
     /**
-     * @since 9
+     * Defines event of key that user want to subscribe or unsubscribe.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @param preKeys The pre-keys that want to subscribe or unsubscribe.
+     * @param finalKey The post position key that want to subscribe or unsubscribe.
+     * @param isFinalKeyDown The final key press down or up.
+     * @param finalKeyDownDuration Duration of final key press.
      */
-    KEY = 0,
-  }
+    interface KeyOptions {
+        preKeys: Array<number>;
+        finalKey: number;
+        isFinalKeyDown: boolean;
+        finalKeyDownDuration: number;
+    }
 
-  /**
-   * Subscribe system keys.
-   *
-   * @since 8
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @param type Type of the inputevent about input which is to be subscribed.
-   * @param keyOptions The key events about input which is to be subscribed.
-   * @param callback Callback function, receive reported data.
-   * @deprecated since 9
-   */
-  function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
+    /**
+     * Subscribe system keys.
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @param type type of the inputevent about input which is to be subscribed.
+     * @param keyOptions the key events about input which is to be subscribed.
+     * @param callback callback function, receive reported data.
+     * @throws {BusinessError} 401 Parameter error.
+     */
+    function on(type: "key", keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
-  /**
-   * Subscribe system keys.
-   *
-   * @since 8
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @param type Type of the inputevent about input which is to be subscribed.
-   * @param keyOptions The key events about input which is to be subscribed.
-   * @param callback Callback function, receive reported data.
-   * @deprecated since 9
-   */
-  function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
-
-  /**
-   * Subscribe system keys.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @param type Type of the inputevent about input which is to be subscribed.
-   * @param keyOptions The key events about input which is to be subscribed.
-   * @param callback Callback function, receive reported data.
-   * @throws {BusinessError} 401 Parameter error.
-   */
-  function on(type: SubscribeType, keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
-
-  /**
-   * Subscribe system keys.
-   *
-   * @since 9
-   * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @systemapi hide for inner use
-   * @param type Type of the inputevent about input which is to be subscribed.
-   * @param keyOptions The key events about input which is to be subscribed.
-   * @param callback Callback function, receive reported data.
-   * @throws {BusinessError} 401 Parameter error.
-   */
-  function off(type: SubscribeType, keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
+    /**
+     * Subscribe system keys.
+     *
+     * @since 9
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @systemapi hide for inner use
+     * @param type type of the inputevent about input which is to be subscribed.
+     * @param keyOptions the key events about input which is to be subscribed.
+     * @param callback callback function, receive reported data.
+     * @throws {BusinessError} 401 Parameter error.
+     */
+    function off(type: "key", keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 }
 
 export default inputConsumer;
