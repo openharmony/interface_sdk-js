@@ -30,8 +30,10 @@ declare namespace continuationManager {
      * Called when the user selects devices from the candidate device list.
      * You can implement your own processing logic in this callback to initiate the hop process.
      *
-     * @param type deviceConnect.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param type deviceSelected.
      * @return callback Indicates the information about the selected devices.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
@@ -39,15 +41,17 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
-    function on(type: "deviceConnect", token: number, callback: Callback<Array<ContinuationResult>>): void;
-    function off(type: "deviceConnect", token: number): void;
+    function on(type: "deviceSelected", token: number, callback: Callback<Array<ContinuationResult>>): void;
+    function off(type: "deviceSelected", token: number): void;
  
     /**
      * Called when devices are disconnected from the continuation manager service.
      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
      *
-     * @param type deviceDisconnect.
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param type deviceUnselected.
      * @return callback Indicates the ID of the disconnected devices.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
@@ -55,8 +59,8 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
-    function on(type: "deviceDisconnect", token: number, callback: Callback<Array<string>>): void;
-    function off(type: "deviceDisconnect", token: number): void;
+    function on(type: "deviceUnselected", token: number, callback: Callback<Array<string>>): void;
+    function off(type: "deviceUnselected", token: number): void;
 
     /**
      * Called when the user selects a device from the candidate device list.
@@ -149,9 +153,11 @@ declare namespace continuationManager {
      * Registers an ability to be hopped with the continuation manager service and obtains the registration token
      * assigned to the ability.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param options Indicates the {@link ExtraParams} object containing the extra parameters used to filter
      * the list of available devices.
      * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
@@ -166,8 +172,10 @@ declare namespace continuationManager {
      * Unregisters a specified ability from the continuation manager service based on the token obtained during ability
      * registration.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param token Indicates the registration token of the ability.
      * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
@@ -180,10 +188,12 @@ declare namespace continuationManager {
     /**
      * Updates the connection state of the device where the specified ability is successfully hopped.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param token Indicates the registration token of the ability.
      * @param deviceId Indicates the ID of the device whose connection state is to be updated.
      * @param status Indicates the connection state to update.
      * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
@@ -196,10 +206,12 @@ declare namespace continuationManager {
     /**
      * Start to manage the devices that can be selected for continuation.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param token Indicates the registration token of the ability.
      * @param options Indicates the extraParams object containing the extra parameters used to filter
      * the list of available devices. This parameter can be null.
      * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
      * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
