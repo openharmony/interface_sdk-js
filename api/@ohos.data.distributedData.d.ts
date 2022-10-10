@@ -809,7 +809,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns a key-value pair.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100004
          * @errorcode 15100006
          */
@@ -1744,7 +1743,6 @@ declare namespace distributedData {
          * Spaces before and after the key will be cleared.
          * @param value Indicates the string value, which must be less than 4 MB as a UTF-8 byte array.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -1761,7 +1759,6 @@ declare namespace distributedData {
          * @param value Indicates the data record to put.
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -1777,7 +1774,6 @@ declare namespace distributedData {
          * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 15100006
@@ -1794,7 +1790,6 @@ declare namespace distributedData {
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 15100006
@@ -1810,7 +1805,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param file Indicates the name that saves the database backup.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100005
          * @errorcode 15100006
          * @errorcode 401
@@ -1825,7 +1819,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param file Indicates the name that saves the database file.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100005
          * @errorcode 15100006
          * @errorcode 401
@@ -1856,7 +1849,6 @@ declare namespace distributedData {
          * @throws {BusinessError} if process failed.
          * @errorcode 15100001
          * @errorcode 15100006
-         * @errorcode 15100007
          * @errorcode 401
          */
         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
@@ -1878,7 +1870,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          * @errorcode 401
          */
@@ -1901,7 +1892,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param entries Indicates the key-value pairs to be inserted in batches.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -1916,7 +1906,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param keys Indicates the key-value pairs to be deleted in batches.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 15100006
@@ -1933,7 +1922,6 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          */
         startTransaction(callback: AsyncCallback<void>): void;
@@ -1946,7 +1934,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param callback
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          */
         commit(callback: AsyncCallback<void>): void;
@@ -1958,7 +1945,6 @@ declare namespace distributedData {
          * @since 9
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          */
         rollback(callback: AsyncCallback<void>): void;
@@ -1972,7 +1958,6 @@ declare namespace distributedData {
          * @param enabled Specifies whether to enable synchronization. The value true means to enable
          * synchronization, and false means the opposite.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
@@ -1988,7 +1973,6 @@ declare namespace distributedData {
          * @param localLabels Indicates the synchronization labels of the local device.
          * @param remoteSupportLabels Indicates the labels of the devices with which data will be synchronized.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
@@ -2258,7 +2242,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 15100006
@@ -2276,7 +2259,6 @@ declare namespace distributedData {
          * @param keyPrefix Indicates the key prefix to match.
          * @returns Returns the list of all key-value pairs that match the specified key prefix.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2293,7 +2275,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the list of key-value pairs matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100005
          * @errorcode 15100006
@@ -2314,7 +2295,6 @@ declare namespace distributedData {
          * @import N/A
          * @param keyPrefix Indicates the key prefix to match.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2330,7 +2310,6 @@ declare namespace distributedData {
          * @import N/A
          * @param query Indicates the {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2347,7 +2326,6 @@ declare namespace distributedData {
          * @param predicates Indicates the datasharePredicates.
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2363,7 +2341,6 @@ declare namespace distributedData {
          * @import N/A
          * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
@@ -2378,7 +2355,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the number of results matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2394,7 +2370,6 @@ declare namespace distributedData {
          * @import N/A
          * @param deviceId Indicates the device to be removed data.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          * @errorcode 401
          */
@@ -2411,7 +2386,6 @@ declare namespace distributedData {
          * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 401
@@ -2429,7 +2403,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 401
@@ -2447,7 +2420,6 @@ declare namespace distributedData {
          * @throws {BusinessError} if process failed.
          * @errorcode 15100001
          * @errorcode 15100006
-         * @errorcode 15100007
          * @errorcode 401
          */
         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
@@ -2469,7 +2441,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          * @errorcode 401
          */
@@ -2492,7 +2463,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
@@ -2505,7 +2475,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          */
         getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
@@ -2806,7 +2775,6 @@ declare namespace distributedData {
          * @param key Indicates the key of the value to be queried.
          * @return Returns the value matching the given criteria.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 15100006
@@ -2824,7 +2792,6 @@ declare namespace distributedData {
          * @param keyPrefix Indicates the key prefix to match.
          * @returns Returns the list of all key-value pairs meeting the given criteria.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2840,7 +2807,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the list of key-value pairs matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100005
          * @errorcode 15100006
@@ -2858,7 +2824,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the list of key-value pairs matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100005
          * @errorcode 15100006
@@ -2881,7 +2846,6 @@ declare namespace distributedData {
          * @param keyPrefix Indicates the key prefix to match.
          * @returns Returns the {@code KvStoreResultSet} objects.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2897,7 +2861,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2914,7 +2877,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the {@code KvStoreResultSet} object matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2931,7 +2893,6 @@ declare namespace distributedData {
          * @systemapi
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2948,7 +2909,6 @@ declare namespace distributedData {
          * @param deviceId Indicates the ID of the device to which the results belong.
          * Spaces before and after the key will be cleared.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2963,7 +2923,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
@@ -2977,7 +2936,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the number of results matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -2994,7 +2952,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code QueryV9} object.
          * @returns Returns the number of results matching the specified {@code QueryV9} object.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100006
          * @errorcode 401
@@ -3011,7 +2968,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          * @errorcode 401
          */
@@ -3031,7 +2987,6 @@ declare namespace distributedData {
          * {@code PUSH_PULL}.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 401
@@ -3052,7 +3007,6 @@ declare namespace distributedData {
          * {@code PUSH_PULL}.
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100003
          * @errorcode 15100004
          * @errorcode 401
@@ -3082,7 +3036,6 @@ declare namespace distributedData {
          * @throws {BusinessError} if process failed.
          * @errorcode 15100001
          * @errorcode 15100006
-         * @errorcode 15100007
          * @errorcode 401
          */
         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
@@ -3094,7 +3047,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100006
          * @errorcode 401
          */
@@ -3267,7 +3219,6 @@ declare namespace distributedData {
          * and different applications can share the same value.
          * @return Returns a {@code KVStoreV9}, or {@code SingleKVStoreV9}.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100002
          * @errorcode 15100003
          * @errorcode 401
@@ -3306,7 +3257,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @param storeId Identifies the {@code KvStoreV9} database to delete.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 15100004
          * @errorcode 401
          */
@@ -3321,7 +3271,6 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @returns Returns the storeId of all created {@code KvStore} databases.
          * @throws {BusinessError} if process failed.
-         * @errorcode 15100001
          * @errorcode 401
          */
         getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
