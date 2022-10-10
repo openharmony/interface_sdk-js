@@ -79,7 +79,6 @@ declare namespace dataShare {
          * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
          * @return Returns the index of the inserted data record.
          * @throws {BusinessError} if process failed
-         * @errorcode 15700000
          * @errorcode 401
          * @StageModelOnly
          */
@@ -95,7 +94,6 @@ declare namespace dataShare {
          * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
          * @return Returns the number of data records deleted.
          * @throws {BusinessError} if process failed
-         * @errorcode 15700000
          * @errorcode 401
          * @StageModelOnly
          */
@@ -112,7 +110,6 @@ declare namespace dataShare {
          * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
          * @return Returns the query result.
          * @throws {BusinessError} if process failed
-         * @errorcode 15700000
          * @errorcode 401
          * @StageModelOnly
          */
@@ -129,7 +126,6 @@ declare namespace dataShare {
          * @param value Indicates the data to update. This parameter can be null.
          * @return Returns the number of data records updated.
          * @throws {BusinessError} if process failed
-         * @errorcode 15700000
          * @errorcode 401
          * @StageModelOnly
          */
@@ -145,7 +141,6 @@ declare namespace dataShare {
          * @param values Indicates the data records to insert.
          * @return Returns the number of data records inserted.
          * @throws {BusinessError} if process failed
-         * @errorcode 15700000
          * @errorcode 401
          * @StageModelOnly
          */
