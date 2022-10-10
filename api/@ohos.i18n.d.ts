@@ -199,8 +199,8 @@ export class System {
      * @param country The locale whose country or region name will be displayed.
      * @param locale The locale used to display the country or region.
      * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
-     * @throws {BusinessError} if type of country or locale is not valid
-     * @throws {BusinessError} if country or locale is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if type of country or locale is not valid
+     * @throws {BusinessError} with I18N_NOT_FOUND if country or locale is missed
      * @return Returns the country or region name localized for display on a given locale.
      * @since 9
      */
