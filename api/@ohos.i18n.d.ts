@@ -270,6 +270,7 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @param language The language to be used.
      * @throws {BusinessError} with I18N_NOT_FOUND if language is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if language is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -292,6 +293,7 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @param region The region to be used.
      * @throws {BusinessError} with I18N_NOT_FOUND if region is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if region is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -314,6 +316,7 @@ export class System {
      * @syscap SystemCapability.Global.I18n
      * @param locale The locale to be used.
      * @throws {BusinessError} with I18N_NOT_FOUND if locale is missed
+     * @throws {BusinessError} with I18N_NOT_VALID if locale is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -335,6 +338,7 @@ export class System {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @syscap SystemCapability.Global.I18n
      * @param option represent the boolean to be set.
+     * @throws {BusinessError} with I18N_NOT_FOUND if option is missed
      * @throws {BusinessError} with I18N_NOT_VALID if option is not valid
      * @throws {BusinessError} with I18N_NO_PERMISSION the application does not have ohos.permission.UPDATE_CONFIGURATION permission
      * @since 9
