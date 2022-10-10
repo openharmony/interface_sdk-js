@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+import rpc from "./@ohos.rpc";
 import Want from './@ohos.application.Want';
-
+import ExtensionAbility from './@ohos.application.ExtensionAbility';
 import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
 
 /**
@@ -24,7 +25,7 @@ import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @StageModelOnly
  */
-export default class InputMethodExtensionAbility {
+export default class InputMethodExtensionAbility extends ExtensionAbility {
     /**
      * Indicates input method extension ability context.
      *
@@ -41,6 +42,7 @@ export default class InputMethodExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates the want of created service extension.
      * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
      * @StageModelOnly
      */
     onCreate(want: Want): void;
@@ -51,8 +53,60 @@ export default class InputMethodExtensionAbility {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
      * @StageModelOnly
      */
     onDestroy(): void;
 
+    /**
+     * Called back when a input method extension is started.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @param want Indicates the want of service extension to start.
+     * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
+     *     incremented by 1 every time the service extension is started. For example, if the service extension
+     *     has been started for six times.
+     * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
+     * @StageModelOnly
+     */
+    onRequest(want: Want, startId: number): void;
+
+    /**
+     * Called back when a input method extension is first connected to an ability.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @param want Indicates connection information about the Service ability.
+     * @return Returns the proxy of the Service ability.
+     * @throws {BusinessError} 12800201 - parameter error.
+     * @StageModelOnly
+     */
+    onConnect(want: Want): rpc.RemoteObject;
+
+    /**
+     * Called back when all abilities connected to a input method extension are disconnected.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @param want Indicates disconnection information about the service extension.
+     * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
+     * @StageModelOnly
+     */
+    onDisconnect(want: Want): void;
+
+    /**
+     * Called when a new client attempts to connect to a input method extension after all previous client connections to it
+     * are disconnected.
+     *
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @param want Indicates the want of the service extension being connected.
+     * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
+     * @StageModelOnly
+     */
+    onReconnect(want: Want): void;
 }

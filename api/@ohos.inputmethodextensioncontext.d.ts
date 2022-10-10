@@ -14,8 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -27,18 +25,15 @@ import ExtensionContext from './application/ExtensionContext';
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
     /**
-     * Input method extension uses this method to start a specific ability.
+     * Destroy the input method extension.
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @param want Indicates the ability to start.
-     * @param options Indicates the start options.
      * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
      * @StageModelOnly
      */
-    startAbility(want: Want, callback: AsyncCallback<void>): void;
-    startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
-    startAbility(want: Want, options?: StartOptions): Promise<void>;
+    destroy(callback: AsyncCallback<void>): void;
 
     /**
      * Destroy the input method extension.
@@ -46,8 +41,8 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
+     * @throws {BusinessError} 12800201 - parameter error.
      * @StageModelOnly
      */
-    terminateSelf(callback: AsyncCallback<void>): void;
-    terminateSelf(): Promise<void>;
+    destroy(): Promise<void>;
 }
