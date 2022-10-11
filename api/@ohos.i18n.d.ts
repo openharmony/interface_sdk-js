@@ -50,17 +50,6 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain all languages supported by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns all languages supported by the system.
- * @since 7
- * @deprecated since 9
- * @systemapi Hide this for inner system use.
- */
-export function getSystemLanguages(): Array<string>;
-
-/**
  * Obtain the language currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
