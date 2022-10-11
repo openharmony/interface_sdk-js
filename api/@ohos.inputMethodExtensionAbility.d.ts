@@ -16,7 +16,7 @@
 import rpc from "./@ohos.rpc";
 import Want from './@ohos.application.Want';
 import ExtensionAbility from './@ohos.application.ExtensionAbility';
-import InputMethodExtensionContext from "./@ohos.inputMethodExtensionContext";
+import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
 
 /**
  * The extension ability class of input method.
