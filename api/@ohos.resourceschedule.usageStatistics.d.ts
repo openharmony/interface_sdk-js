@@ -195,7 +195,7 @@ declare namespace usageStatistics {
         /**
          * the usage group of the application.
          */
-        appUsageGroup?: number;
+        appGroup?: number;
         /**
          * the bundle name.
          */
@@ -226,11 +226,11 @@ declare namespace usageStatistics {
         /*
          * the usage old group of the application
          */
-        appUsageOldGroup: number;
+        appOldGroup: number;
         /*
          * the usage new group of the application
          */
-        appUsageNewGroup: number;
+        appNewGroup: number;
         /*
          * the use id
          */
@@ -637,8 +637,8 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
      * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
      */
-    function queryNotificationNumber(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
-    function queryNotificationNumber(begin: number, end: number): Promise<Array<DeviceEventStats>>;
+    function queryNotificationEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+    function queryNotificationEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
 }
 
 export default usageStatistics;
