@@ -87,7 +87,6 @@ export function getSystemLocale(): string;
  *
  * @syscap SystemCapability.Global.I18n
  * @since 9
- * @useinstead I18NUitl
  */
 export class System {
     /**
