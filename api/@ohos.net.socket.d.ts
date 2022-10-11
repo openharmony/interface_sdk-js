@@ -15,6 +15,7 @@
 
 import {AsyncCallback, Callback, ErrorCallback} from "./basic";
 import connection from "./@ohos.net.connection";
+import cryptoFramework from "./@ohos.security.cryptoFramework";
 
 /**
  * Provides TCP and UDP Socket APIs.
@@ -24,6 +25,7 @@ import connection from "./@ohos.net.connection";
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
+  export type X509CertRawData = cryptoFramework.EncodingBlob;
 
   /**
    * Creates a UDPSocket object.
@@ -35,11 +37,19 @@ declare namespace socket {
    */
   function constructTCPSocketInstance(): TCPSocket;
 
+  /**
+   * Creates a TLSSocket object.
+   *
+   * @since 9
+   */
+  function constructTLSSocketInstance(): TLSSocket;
+
   export interface UDPSendOptions {
     /**
      * Data to send.
      */
     data: string | ArrayBuffer;
+
     /**
      * Destination address.
      */
@@ -51,14 +61,17 @@ declare namespace socket {
      * Size of the receive buffer, in MBS.
      */
     receiveBufferSize?: number;
+
     /**
      * Size of the send buffer, in MBS.
      */
     sendBufferSize?: number;
+
     /**
      * Whether to reuse addresses. The default value is false.
      */
     reuseAddress?: boolean;
+
     /**
      * Timeout duration of the UDPSocket connection, in milliseconds.
      */
@@ -77,10 +90,12 @@ declare namespace socket {
      * Whether the connection is in the bound state.
      */
     isBound: boolean;
+
     /**
      * Whether the connection is in the closed state.
      */
     isClose: boolean;
+
     /**
      * Whether the connection is in the connected state.
      */
@@ -92,14 +107,17 @@ declare namespace socket {
      * Bound IP address.
      */
     address: string;
+
     /**
      * Network protocol type. The options are as follows: IPv4, IPv6.
      */
     family: 'IPv4' | 'IPv6';
+
     /**
      * Port number. The value ranges from 0 to 65535.
      */
     port: number;
+
     /**
      * Length of the server response message, in bytes.
      */
@@ -186,6 +204,7 @@ declare namespace socket {
      * Bound IP address and port number.
      */
     address: NetAddress;
+
     /**
      * Timeout duration of the TCPSocket connection, in milliseconds.
      */
@@ -197,6 +216,7 @@ declare namespace socket {
      * Data to send.
      */
     data: string | ArrayBuffer;
+
     /**
      * Character encoding format.
      */
@@ -208,18 +228,21 @@ declare namespace socket {
      * Whether to keep the connection alive. The default value is false.
      */
     keepAlive?: boolean;
+
     /**
      * Whether to enable OOBInline. The default value is false.
      */
     OOBInline?: boolean;
+
     /**
      * Whether to enable no-delay on the TCPSocket connection. The default value is false.
      */
     TCPNoDelay?: boolean;
+
     /**
      * Socket linger.
      */
-    socketLinger: {on: boolean, linger: number};
+    socketLinger?: {on: boolean, linger: number};
   }
 
   export interface TCPSocket {
@@ -313,6 +336,132 @@ declare namespace socket {
      * Cancels listening for error events of the TCPSocket connection.
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSSocket extends TCPSocket {
+
+    /**
+     * Returns an object representing a local certificate.
+     */
+    getCertificate(callback: AsyncCallback<X509CertRawData>): void;
+    getCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns an object representing the peer certificate. If the peer does not provide a certificate,
+     * an empty object will be returned. If the socket is destroyed, null is returned.
+     * If needChain is true, it contains the complete certificate chain. Otherwise,
+     * it only contains the peer's certificate.
+     */
+    getRemoteCertificate(callback: AsyncCallback<X509CertRawData>): void;
+    getRemoteCertificate(): Promise<X509CertRawData>;
+
+    /**
+     * Returns a string containing the negotiated SSL/TLS protocol version of the current connection.
+     * For connected sockets that have not completed the handshake process, the value 'unknown' will be returned.
+     * Server sockets or disconnected client sockets will return a value of null.
+     */
+    getProtocol(callback: AsyncCallback<string>): void;
+    getProtocol(): Promise<string>;
+
+    /**
+     * Returns an object containing the negotiated cipher suite information.
+     * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
+     */
+    getCipherSuite(callback: AsyncCallback<Array<string>>): void;
+    getCipherSuite(): Promise<Array<string>>;
+
+    /**
+     * The list of signature algorithms shared between the server and the client, in descending order of priority.
+     * @see https://www.openssl.org/docs/man1.1.1/man3/SSL_get_shared_sigalgs.html
+     */
+    getSignatureAlgorithms(callback: AsyncCallback<Array<string>>): void;
+    getSignatureAlgorithms(): Promise<Array<string>>;
+
+    /**
+     * @permission ohos.permission.INTERNET
+     */
+    connect(options: TLSConnectOptions, callback: AsyncCallback<void>): void;
+    connect(options: TLSConnectOptions): Promise<void>;
+
+    /**
+     * Sends data over a TLSSocket connection.
+     *
+     * @param data Optional parameters {@link string}.
+     * @permission ohos.permission.INTERNET
+     */
+    send(data: string, callback: AsyncCallback<void>): void;
+    send(data: string): Promise<void>;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSSecureOptions {
+    /**
+     * Certificate used to verify the identity of the server
+     */
+    ca: string | Array<string>;
+
+    /**
+     * Certificate proving the identity of the client
+     */
+    cert: string;
+
+    /**
+     * Private key of client certificate
+     */
+    key: string;
+
+    /**
+     * Password of the private key
+     */
+    passwd?: string;
+
+    /**
+     * TLS protocol version
+     */
+    protocols?: Protocol | Array<Protocol>;
+
+    /**
+     * default is false, use local cipher.
+     */
+    useRemoteCipherPrefer?: boolean;
+
+    /**
+     * Supported signature algorithms. This list can contain summary algorithms（SHA256、MD5、etc）、
+     * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
+     * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
+     */
+    signatureAlgorithms?: string;
+
+    /**
+     * Crypto suite specification
+     */
+    cipherSuite?: string;
+  }
+
+  /**
+   * @since 9
+   */
+  export interface TLSConnectOptions {
+    address: NetAddress;
+    secureOptions: TLSSecureOptions;
+
+    /**
+     * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
+     */
+    ALPNProtocols?: Array<string>;
+  }
+
+  /**
+   * @since 9
+   */
+  export enum Protocol {
+    TLSv12 = "TLSv1.2",
+    TLSv13 = "TLSv1.3",
   }
 }
 
