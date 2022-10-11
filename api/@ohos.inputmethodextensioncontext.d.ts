@@ -30,7 +30,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -41,7 +41,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     destroy(): Promise<void>;

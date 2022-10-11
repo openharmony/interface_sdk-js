@@ -16,7 +16,7 @@
 import rpc from "./@ohos.rpc";
 import Want from './@ohos.application.Want';
 import ExtensionAbility from './@ohos.application.ExtensionAbility';
-import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
+import InputMethodExtensionContext from "./@ohos.inputMethodExtensionContext";
 
 /**
  * The extension ability class of input method.
@@ -42,7 +42,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates the want of created service extension.
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onCreate(want: Want): void;
@@ -53,7 +53,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onDestroy(): void;
@@ -68,7 +68,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      *     incremented by 1 every time the service extension is started. For example, if the service extension
      *     has been started for six times.
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onRequest(want: Want, startId: number): void;
@@ -80,7 +80,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates connection information about the Service ability.
      * @return Returns the proxy of the Service ability.
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onConnect(want: Want): rpc.RemoteObject;
@@ -92,7 +92,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates disconnection information about the service extension.
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onDisconnect(want: Want): void;
@@ -105,7 +105,7 @@ export default class InputMethodExtensionAbility extends ExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates the want of the service extension being connected.
      * @return -
-     * @throws {BusinessError} 12800201 - parameter error.
+     * @throws {BusinessError} 201 - parameter error.
      * @StageModelOnly
      */
     onReconnect(want: Want): void;
