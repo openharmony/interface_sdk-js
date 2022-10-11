@@ -22,129 +22,196 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
 declare namespace dataShare {
     /**
      * Obtains the dataShareHelper.
-     * @since 9
+     * @param { context } Context - Indicates the application context.
+     * @param { uri } string - Indicates the path of the file to open.
+     * @param { AsyncCallback<DataShareHelper> } callback - the dataShareHelper.
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @param context Indicates the application context.
-     * @param uri Indicates the path of the file to open.
-     * @return Returns the dataShareHelper.
-     * @throws {BusinessError} if process failed
-     * @errorcode 157000010
-     * @errorcode 401
      * @StageModelOnly
+     * @since 9
      */
     function createDataShareHelper(context: Context, uri: string, callback: AsyncCallback<DataShareHelper>): void;
+
+    /**
+     * Obtains the dataShareHelper.
+     * @param { context } Context - Indicates the application context.
+     * @param { uri } string - Indicates the path of the file to open.
+     * @returns { Promise<DataShareHelper> } the dataShareHelper.
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @throws { BusinessError } 15700010 - the parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     function createDataShareHelper(context: Context, uri: string): Promise<DataShareHelper>;
 
     /**
      * DataShareHelper
-     * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
+     * @since 9
      */
     interface DataShareHelper {
         /**
          * Registers an observer to observe data specified by the given uri.
-         * @since 9
+         * @param { type } 'dataChange' - dataChange.
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { AsyncCallback<void> } callback - Indicates the callback when dataChange.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param type dataChange.
-         * @param uri Indicates the path of the data to operate.
-         * @param callback Indicates the callback when dataChange.
-         * @return -
          * @StageModelOnly
+         * @since 9
          */
         on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
 
         /**
          * Deregisters an observer used for monitoring data specified by the given uri.
-         * @since 9
+         * @param { type } 'dataChange' - dataChange.
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { AsyncCallback<void> } callback - Indicates the callback when dataChange.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param type dataChange.
-         * @param uri Indicates the path of the data to operate.
-         * @param callback Indicates the registered callback.
-         * @return -
          * @StageModelOnly
+         * @since 9
          */
         off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
 
         /**
          * Inserts a single data record into the database.
-         * @since 9
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { value } ValueBucket - Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
+         * @param { AsyncCallback<number> } callback - the index of the inserted data record.
+         * @throws { BusinessError } 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param uri Indicates the path of the data to operate.
-         * @param value Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
-         * @return Returns the index of the inserted data record.
-         * @throws {BusinessError} if process failed
-         * @errorcode 401
          * @StageModelOnly
+         * @since 9
          */
         insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts a single data record into the database.
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { value } ValueBucket - Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
+         * @returns { Promise<number> } the index of the inserted data record.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         insert(uri: string, value: ValuesBucket): Promise<number>;
 
         /**
          * Deletes one or more data records from the database.
-         * @since 9
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param { AsyncCallback<number> } callback - the number of data records deleted.
+         * @throws { BusinessError } 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param uri Indicates the path of the data to operate.
-         * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-         * @return Returns the number of data records deleted.
-         * @throws {BusinessError} if process failed
-         * @errorcode 401
          * @StageModelOnly
+         * @since 9
          */
         delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+
+        /**
+         * Deletes one or more data records from the database.
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @returns { Promise<number> } the number of data records deleted.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database.
-         * @since 9
+         * @param { uri } string - Indicates the path of data to query.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param { columns } Array<string> - Indicates the columns to query. If this parameter is null, all columns are queried.
+         * @param { AsyncCallback<DataShareResultSet> } callback - the query result.
+         * @throws { BusinessError } 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param uri Indicates the path of data to query.
-         * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-         * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
-         * @return Returns the query result.
-         * @throws {BusinessError} if process failed
-         * @errorcode 401
          * @StageModelOnly
+         * @since 9
          */
         query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
+
+        /**
+         * Queries data in the database.
+         * @param { uri } string - Indicates the path of data to query.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param { columns } Array<string> - Indicates the columns to query. If this parameter is null, all columns are queried.
+         * @returns { Promise<DataShareResultSet> } - the query result.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
 
         /**
          * Updates data records in the database.
-         * @since 9
+         * @param { uri } string - Indicates the path of data to update.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param { value } ValueBucket - Indicates the data to update. This parameter can be null.
+         * @param { AsyncCallback<number> } callback - the number of data records updated.
+         * @throws { BusinessError } 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param uri Indicates the path of data to update.
-         * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-         * @param value Indicates the data to update. This parameter can be null.
-         * @return Returns the number of data records updated.
-         * @throws {BusinessError} if process failed
-         * @errorcode 401
          * @StageModelOnly
+         * @since 9
          */
         update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
+
+        /**
+         * Updates data records in the database.
+         * @param { uri } string - Indicates the path of data to update.
+         * @param { predicates } dataSharePredicates.DataSharePredicates - Indicates filter criteria. You should define the processing logic when this parameter is null.
+         * @param { value } ValueBucket - Indicates the data to update. This parameter can be null.
+         * @returns { Promise<number> } the number of data records updated.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
 
         /**
          * Inserts multiple data records into the database.
-         * @since 9
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { values } Array<ValuesBucket> - Indicates the data records to insert.
+         * @param { AsyncCallback<number> } callback - the number of data records inserted.
+         * @throws { BusinessError } 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
-         * @param uri Indicates the path of the data to operate.
-         * @param values Indicates the data records to insert.
-         * @return Returns the number of data records inserted.
-         * @throws {BusinessError} if process failed
-         * @errorcode 401
          * @StageModelOnly
+         * @since 9
          */
         batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts multiple data records into the database.
+         * @param { uri } string - Indicates the path of the data to operate.
+         * @param { values } Array<ValuesBucket> - Indicates the data records to insert.
+         * @returns { Promise<number> } the number of data records inserted.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+         * @systemapi
+         * @StageModelOnly
+         * @since 9
+         */
         batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
 
         /**
