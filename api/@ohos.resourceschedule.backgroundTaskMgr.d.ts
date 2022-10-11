@@ -21,7 +21,7 @@ import Context from './application/BaseContext';
  * Manages background tasks.
  *
  * @since 9
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+ * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.TransientTask
  */
 declare namespace backgroundTaskManager {
     /**
@@ -29,7 +29,7 @@ declare namespace backgroundTaskManager {
      *
      * @name DelaySuspendInfo
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.TransientTask
      */
     interface DelaySuspendInfo {
         /**
@@ -46,7 +46,7 @@ declare namespace backgroundTaskManager {
      * Cancels delayed transition to the suspended state.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -62,7 +62,7 @@ declare namespace backgroundTaskManager {
      * Obtains the remaining time before an application enters the suspended state.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -80,7 +80,7 @@ declare namespace backgroundTaskManager {
      * Requests delayed transition to the suspended state.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.TransientTask
      * @param reason Indicates the reason for delayed transition to the suspended state.
      * @param callback The callback delay time expired.
      * @throws { BusinessError } 401 - Parameter error.
@@ -99,7 +99,7 @@ declare namespace backgroundTaskManager {
      * system will publish a notification related to the this service.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param context app running context.
      * @param bgMode Indicates which background mode to request.
@@ -121,7 +121,7 @@ declare namespace backgroundTaskManager {
      * Service ability uses this method to request stop running in background.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
      * @param context app running context.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -140,7 +140,7 @@ declare namespace backgroundTaskManager {
      * Apply or unapply efficiency resources.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.EfficiencyResourcesApply
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -156,7 +156,7 @@ declare namespace backgroundTaskManager {
       * Reset all efficiency resources apply.
       *
       * @since 9
-      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.EfficiencyResourcesApply
       * @systemapi Hide this for inner system use.
       * @throws { BusinessError } 201 - Permission denied.
       * @throws { BusinessError } 401 - Parameter error.
@@ -172,14 +172,14 @@ declare namespace backgroundTaskManager {
      * supported background mode.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
      */
     export enum BackgroundMode {
         /**
          * data transfer mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         DATA_TRANSFER = 1,
 
@@ -187,7 +187,7 @@ declare namespace backgroundTaskManager {
          * audio playback mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         AUDIO_PLAYBACK = 2,
 
@@ -195,7 +195,7 @@ declare namespace backgroundTaskManager {
          * audio recording mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         AUDIO_RECORDING = 3,
 
@@ -203,7 +203,7 @@ declare namespace backgroundTaskManager {
          * location mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         LOCATION = 4,
 
@@ -211,7 +211,7 @@ declare namespace backgroundTaskManager {
          * bluetooth interaction mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         BLUETOOTH_INTERACTION = 5,
 
@@ -219,7 +219,7 @@ declare namespace backgroundTaskManager {
          * multi-device connection mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         MULTI_DEVICE_CONNECTION = 6,
 
@@ -227,7 +227,7 @@ declare namespace backgroundTaskManager {
          * wifi interaction mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         WIFI_INTERACTION = 7,
@@ -236,7 +236,7 @@ declare namespace backgroundTaskManager {
          * Voice over Internet Phone mode
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          * @systemapi Hide this for inner system use.
          */
         VOIP = 8,
@@ -246,7 +246,7 @@ declare namespace backgroundTaskManager {
          * only supported in particular device
          *
          * @since 9
-         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+         * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.ContinuousTask
          */
         TASK_KEEPING = 9,
     }
@@ -255,7 +255,7 @@ declare namespace backgroundTaskManager {
      * The type of resource.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      */
      export enum ResourceType {
@@ -300,7 +300,7 @@ declare namespace backgroundTaskManager {
      *
      * @name EfficiencyResourcesRequest
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskMgr.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      */
     export interface EfficiencyResourcesRequest {
