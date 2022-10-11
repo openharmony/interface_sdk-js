@@ -93,8 +93,8 @@ declare namespace inputDeviceCooperate {
    * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @param callback Asynchronous callback function.
    * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 4400001 Incorrect descriptor for the target device.
-   * @throws {BusinessError} 4400002 Screen hop failed.
+   * @throws {BusinessError} 4400001 - Incorrect descriptor for the target device.
+   * @throws {BusinessError} 4400002 - Screen hop failed.
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
@@ -107,8 +107,8 @@ declare namespace inputDeviceCooperate {
    * @param sinkDeviceDescriptor Descriptor of the target network for mouse traversal.
    * @param srcInputDeviceId Identifier of the peripheral device for mouse traversal.
    * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 4400001 Incorrect descriptor for the target device.
-   * @throws {BusinessError} 4400002 Screen hop failed.
+   * @throws {BusinessError} 4400001 - Incorrect descriptor for the target device.
+   * @throws {BusinessError} 4400002 - Screen hop failed.
    */
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
