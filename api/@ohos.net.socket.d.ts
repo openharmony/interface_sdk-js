@@ -400,10 +400,29 @@ declare namespace socket {
    * @since 9
    */
   export interface TLSSecureOptions {
+    /**
+     * Certificate used to verify the identity of the server
+     */
     ca: string | Array<string>;
+
+    /**
+     * Certificate proving the identity of the client
+     */
     cert: string;
+
+    /**
+     * Private key of client certificate
+     */
     key: string;
+
+    /**
+     * Password of the private key
+     */
     passwd?: string;
+
+    /**
+     * TLS protocol version
+     */
     protocols?: Protocol | Array<Protocol>;
 
     /**
@@ -432,7 +451,7 @@ declare namespace socket {
     secureOptions: TLSSecureOptions;
 
     /**
-     * Application layer protocol negotiation extension, supporting HTTP, HTTP/2
+     * Application layer protocol negotiation extension, such as "spdy/1", "http/1.1", "h2"
      */
     ALPNProtocols?: Array<string>;
   }
