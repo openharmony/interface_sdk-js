@@ -16,14 +16,15 @@
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * interface of screen manager
+ * Interface of screen manager
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9
  */
 declare namespace screen {
   /**
-   * get all screen
+   * Get all screen
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function getAllScreens(callback: AsyncCallback<Array<Screen>>): void;
@@ -32,6 +33,7 @@ declare namespace screen {
   /**
    * Register the callback for screen changes.
    * @param eventType: type of callback
+   * @throws {BusinessError} 401 - If param is invalid
    * @since 9
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
@@ -39,29 +41,36 @@ declare namespace screen {
   /**
    * Unregister the callback for screen changes.
    * @param eventType: type of callback
+   * @throws {BusinessError} 401 - If param is invalid
    * @since 9
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
 
   /**
-   * make screens as expand-screen
+   * Make screens as expand-screen
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function makeExpand(options:Array<ExpandOption>, callback: AsyncCallback<number>): void;
   function makeExpand(options:Array<ExpandOption>): Promise<number>;
 
   /**
-   * make screens as mirror-screen
+   * Make screens as mirror-screen
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function makeMirror(mainScreen:number, mirrorScreen:Array<number>, callback: AsyncCallback<number>): void;
   function makeMirror(mainScreen:number, mirrorScreen:Array<number>): Promise<number>;
 
   /**
-   * Create virtual screen.
+   * Create virtual screen. if surfaceId is valid, this permission is necessary.
    * @param options Indicates the options of the virtual screen.
-   * @permission ohos.permission.CAPTURE_SCREEN. if VirtualScreenOption.surfaceId is valid,
-   *             this permission is necessary.
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @throws {BusinessError} 201 - If there is no permission
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
@@ -70,6 +79,8 @@ declare namespace screen {
   /**
    * Destroy virtual screen.
    * @param screenId Indicates the screen id of the virtual screen.
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400002 - If operation other screen
    * @since 9
    */
   function destroyVirtualScreen(screenId:number, callback: AsyncCallback<void>): void;
@@ -80,6 +91,9 @@ declare namespace screen {
    * @param screenId Indicates the screen id of the virtual screen.
    * @param surfaceId Indicates the surface id.
    * @permission ohos.permission.CAPTURE_SCREEN
+   * @throws {BusinessError} 201 - If there is no permission
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function setVirtualScreenSurface(screenId:number, surfaceId: string, callback: AsyncCallback<void>): void;
@@ -95,29 +109,30 @@ declare namespace screen {
   /**
    * Set screen rotation lock status.
    * @param isLocked Indicates whether the screen rotation switch is locked.
+   * @throws {BusinessError} 401 - If param is invalid
    * @since 9
    */
   function setScreenRotationLocked(isLocked:boolean, callback: AsyncCallback<void>): void;
   function setScreenRotationLocked(isLocked:boolean): Promise<void>;
 
   /**
-   * the parameter of making expand screen
+   * The parameter of making expand screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
   interface ExpandOption {
     /**
-     * screen id
+     * Screen id
      */
     screenId: number;
 
     /**
-     * the start coordinate X of the screen origin
+     * The start coordinate X of the screen origin
      */
     startX: number;
 
     /**
-     * the start coordinate Y of the screen origin
+     * The start coordinate Y of the screen origin
      */
     startY: number;
   }
@@ -155,58 +170,64 @@ declare namespace screen {
   }
 
   /**
-   * interface for screen
+   * Interface for screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
   interface Screen {
     /**
-     * screen id
+     * Screen id
      */
     readonly id: number;
 
     /**
-     * group id
+     * Group id
      */
     readonly parent: number;
 
     /**
-     * mode supported by the screen
+     * Mode supported by the screen
      */
     readonly supportedModeInfo: Array<ScreenModeInfo>;
 
     /**
-     * currently active mode
+     * Currently active mode
      */
     readonly activeModeIndex: number;
 
     /**
-     * orientation of the screen
+     * Orientation of the screen
      */
     readonly orientation: Orientation;
 
     /**
-     * set the orientation of the screen
+     * Set the orientation of the screen
+     * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 1400003 - If system state is abnormally
      * @since 9
      */
     setOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * active the mode
+     * Active the mode
+     * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 1400003 - If system state is abnormally
      */
     setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
     setScreenActiveMode(modeIndex: number): Promise<void>;
 
     /**
-     * set display density of the screen
+     * Set display density of the screen
+     * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 1400003 - If system state is abnormally
      */
     setDensityDpi(densityDpi: number, callback: AsyncCallback<void>): void;
     setDensityDpi(densityDpi: number): Promise<void>;
   }
 
   /**
-   * screen orientation
+   * Screen orientation
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -219,7 +240,7 @@ declare namespace screen {
   }
 
   /**
-   * the infomation of the screen
+   * The infomation of the screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
