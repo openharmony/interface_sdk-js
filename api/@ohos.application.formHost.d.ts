@@ -25,6 +25,8 @@ import formInfo from './@ohos.application.formInfo'
  * @since 8
  * @syscap SystemCapability.Ability.Form
  * @systemapi hide for inner use.
+ * @deprecated since 9
+ * @useinstead @ohos.app.form.formHost
  */
 declare namespace formHost {
     /**

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import formBindingData from './@ohos.application.formBindingData';
+import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from "./@ohos.application.formInfo";
 import FormExtensionContext from "./application/FormExtensionContext";
 import Want from './@ohos.application.Want';
