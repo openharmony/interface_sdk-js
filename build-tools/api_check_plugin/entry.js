@@ -30,7 +30,7 @@ function checkEntry(url) {
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = error
+    result = `CATCHERROR : ${error}`;
   }
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
