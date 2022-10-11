@@ -566,14 +566,14 @@ declare namespace inputMethod {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-         readonly name: string;
+         readonly name?: string;
 
          /**
           * The id of input method
           * @since 9
           * @syscap SystemCapability.MiscServices.InputMethodFramework
           */
-         readonly id: string;
+         readonly id?: string;
 
         /**
          * The label of input method
@@ -601,7 +601,7 @@ declare namespace inputMethod {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-        extra: object;
+        extra?: object;
     }
 }
 
