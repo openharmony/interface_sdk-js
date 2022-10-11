@@ -28,7 +28,6 @@ import InputMethodExtensionContext from "./@ohos.inputMethodExtensionContext";
 export default class InputMethodExtensionAbility extends ExtensionAbility {
     /**
      * Indicates input method extension ability context.
-     *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
