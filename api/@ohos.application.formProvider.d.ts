@@ -25,7 +25,7 @@ import Want from './@ohos.application.Want';
  * @since 8
  * @syscap SystemCapability.Ability.Form
  * @deprecated since 9
- * @useinstead @ohos.app.form.formProvider
+ * @useinstead ohos.app.form.formProvider
  */
 declare namespace formProvider {
     /**

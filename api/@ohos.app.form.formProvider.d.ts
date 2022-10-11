@@ -19,7 +19,7 @@ import formInfo from "./@ohos.application.formInfo";
 import Want from "./@ohos.application.Want"
 
 /**
- * interface of formProvider.
+ * Interface of formProvider.
  * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
  * @since 9
@@ -72,7 +72,7 @@ declare namespace formProvider {
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 
     /**
-     * Get infos of all forms belonging to current bundle.
+     * Get info of all forms belonging to current bundle.
      * Client to communication with FormManagerService.
      * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
      * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the formInfo.

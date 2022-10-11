@@ -16,7 +16,7 @@
 import { BusinessError } from './basic';
 
 /**
- * interface of formBindingData.
+ * Interface of formBindingData.
  * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @since 9
