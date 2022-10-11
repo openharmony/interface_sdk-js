@@ -15,12 +15,12 @@
 import { InputEvent } from './@ohos.multimodalInput.inputEvent'
 
 /**
-* Action
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {Action} from '@ohos.multimodalInput.touchEvent';
-*/
+ * Action
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @import import {Action} from '@ohos.multimodalInput.touchEvent';
+ */
 export declare enum Action {
   /**
    * Touch cancelled
@@ -44,12 +44,12 @@ export declare enum Action {
 }
 
 /**
-* ToolType
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {ToolType} from '@ohos.multimodalInput.touchEvent';
-*/
+ * ToolType
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @import import {ToolType} from '@ohos.multimodalInput.touchEvent';
+ */
 export declare enum ToolType {
   /**
    * Finger
@@ -90,12 +90,12 @@ export declare enum ToolType {
 }
 
 /**
-* SourceType
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {SourceType} from '@ohos.multimodalInput.touchEvent';
-*/
+ * SourceType
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @import import {SourceType} from '@ohos.multimodalInput.touchEvent';
+ */
 export declare enum SourceType {
   /**
    * Touchscreen
@@ -114,12 +114,12 @@ export declare enum SourceType {
 }
 
 /**
-* Touch
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {Touch} from '@ohos.multimodalInput.touchEvent';
-*/
+ * Touch
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @import import {Touch} from '@ohos.multimodalInput.touchEvent';
+ */
 export declare interface Touch {
   /**
    * Pointer identifier
@@ -213,12 +213,12 @@ export declare interface Touch {
 }
 
 /**
-* TouchEvent
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {TouchEvent} from '@ohos.multimodalInput.touchEvent';
-*/
+ * TouchEvent
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @import import {TouchEvent} from '@ohos.multimodalInput.touchEvent';
+ */
 export declare interface TouchEvent extends InputEvent {
   /**
    * Touch action
