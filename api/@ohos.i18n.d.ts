@@ -133,7 +133,7 @@ export class System {
      * @param language The language used to get the list of regions.
      * @throws {BusinessError} 401 - check param failed
      * @throws {BusinessError} 890001 - param value not valid
-     * @return Returns all regions supported by the system in the language.
+     * @return Returns all countries or regions supported by the system in the language.
      * @since 9
      */
     static getSystemCountries(language: string): Array<string>;
