@@ -568,7 +568,7 @@ declare namespace pasteboard {
     /**
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 1290003 - if another getData is being processed.
+     * @throws { BusinessError } 12900003 - if another getData is being processed.
      * @since 9
      */
     getData(): Promise<PasteData>;
