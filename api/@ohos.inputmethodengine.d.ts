@@ -265,7 +265,6 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} if exception occurs
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800002 - input method engine error.

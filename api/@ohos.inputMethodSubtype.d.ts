@@ -14,7 +14,7 @@
  */
 
 /**
- * input method subtype
+ * Input method subtype
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  */
