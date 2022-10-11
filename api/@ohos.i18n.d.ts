@@ -987,6 +987,7 @@ export class Character {
  * @return Returns a boolean represent whether system is 24-hour system.
  * @since 7
  * @deprecated since 9
+ * @useinstead ohos.System.is24HourClock
  */
  export function is24HourClock(): boolean;
 
