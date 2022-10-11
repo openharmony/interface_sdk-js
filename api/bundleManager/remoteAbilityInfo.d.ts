@@ -16,34 +16,34 @@
 import { ElementName }  from './elementName';
 
 /**
- * @name Contains basic remote ability information.
- * @since 8
+ * Contains basic remote ability information.
+ * @typedef RemoteAbilityInfo
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
- *
- * @permission N/A
- * @deprecated since 9
- * @useinstead ohos.bundle.distributedBundle.RemoteAbilityInfo
+ * @since 9
  */
 export interface RemoteAbilityInfo {
-    /**
-     * @default Indicates the ability information
-     * @since 8
-     * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-     */
-    readonly elementName: ElementName;
-  
-    /**
-    * @default Indicates the label of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly label: string;
-  
-    /**
-    * @default Indicates the icon of the ability
-    * @since 8
-    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
-    */
-    readonly icon: string;
+  /**
+   * Indicates the ability information
+   * @type {ElementName}
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @since 9
+   */
+  readonly elementName: ElementName;
+
+  /**
+   * Indicates the label of the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @since 9
+   */
+  readonly label: string;
+
+  /**
+   * Indicates the icon of the ability
+   * @type {string}
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @since 9
+   */
+  readonly icon: string;
 }

@@ -24,6 +24,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityI
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead ohos.bundle.distributeBundle
  */
  declare namespace distributedBundle {
   /**
@@ -35,6 +37,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityI
    * @return Returns the ability info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
+   * @deprecated since 9
+   * @useinstead ohos.bundle.distributeBundle#getRemoteAbilityInfo
    */
    function getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>): void;
    function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
@@ -48,6 +52,8 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundle/remoteAbilityI
    * @return Returns the ability infos of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
+   * @deprecated since 9
+   * @useinstead ohos.bundle.distributeBundle#getRemoteAbilityInfo
    */
    function getRemoteAbilityInfos(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
    function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;

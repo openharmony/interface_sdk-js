@@ -22,6 +22,8 @@
  * @syscap SystemCapability.BundleManager.BundleFramework
  *
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.ElementName
  */
  export interface ElementName {
   /**
