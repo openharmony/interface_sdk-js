@@ -14,6 +14,8 @@
  */
 
 import {AsyncCallback} from './basic';
+import Want from './@ohos.application.Want';
+import StartOptions from "./@ohos.application.StartOptions";
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -24,6 +26,34 @@ import ExtensionContext from './application/ExtensionContext';
  * @StageModelOnly
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
+    /**
+     * Input method extension uses this method to start a specific ability.
+     *
+     * @since 9
+     * @deprecated since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @param want Indicates the ability to start.
+     * @param options Indicates the start options.
+     * @return -
+     * @StageModelOnly
+     */
+     startAbility(want: Want, callback: AsyncCallback<void>): void;
+     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+     startAbility(want: Want, options?: StartOptions): Promise<void>;
+    
+     /**
+      * Destroy the input method extension.
+      *
+      * @since 9
+      * @deprecated since 9
+      * @useinstead ohos.inputmethodextensioncontext.InputMethodExtensionContext.destroy
+      * @syscap SystemCapability.MiscServices.InputMethodFramework
+      * @return -
+      * @StageModelOnly
+      */
+     terminateSelf(callback: AsyncCallback<void>): void;
+     terminateSelf(): Promise<void>;
+
     /**
      * Destroy the input method extension.
      *
