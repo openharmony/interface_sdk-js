@@ -26,7 +26,7 @@ function checkEntry(url) {
     result = scanEntry(url);
     const content = fs.readFileSync(path.resolve(__dirname, "./Result.txt"), "utf-8");
     result += `mdFilePath = ${url}, content = ${content}`
-    writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
+    // writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
