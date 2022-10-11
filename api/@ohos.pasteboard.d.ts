@@ -425,7 +425,7 @@ declare namespace pasteboard {
      * Gets record by index in PasteData.
      * @param { number } index - indicates the record index in PasteData.
      * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 12900001 - if type of index is not number.
+     * @throws { BusinessError } 401 - if type of index is not number.
      * @throws { BusinessError } 12900002 - if index is out of the record count of PasteData.
      * @since 9
      */
@@ -613,7 +613,8 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard
      * @param { AsyncCallback<void> } callback - the callback of setData.
      * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
-     * @throws { BusinessError } 12900003 - if another setData is being processed or the system prohibits copying.
+     * @throws { BusinessError } 12900003 - if another setData is being processed.
+     * @throws { BusinessError } 12900004 - if the system prohibits copying.
      * @since 9
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
@@ -623,7 +624,8 @@ declare namespace pasteboard {
      * @param { PasteData } data - PasteData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if type of data is not PasteData.
-     * @throws { BusinessError } 12900003 - if another setData is being processed or the system prohibits copying.
+     * @throws { BusinessError } 12900003 - if another setData is being processed.
+     * @throws { BusinessError } 12900004 - if the system prohibits copying.
      * @since 9
      */
     setData(data: PasteData): Promise<void>;
