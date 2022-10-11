@@ -54,26 +54,31 @@ declare enum MatchPattern {
  *
  * @since 8
  * @deprecated since 9
+ * @useinstead {@link On}
  * @syscap SystemCapability.Test.UiTest
  */
 declare class By {
   /**
    * Specifies the text for the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param txt the text value.
-   * @param pattern the {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}
+   * @param txt The text value.
+   * @param pattern The {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.text}
    * @test
    */
   text(txt: string, pattern?: MatchPattern): By;
 
   /**
-   * Specifies the inspectorKey of the target UiComponent.
+   * Specifies the inspector key of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param key the inspectorKey value.
+   * @param key The inspectorKey value.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.id}
    * @test
    */
   key(key: string): By;
@@ -81,9 +86,10 @@ declare class By {
   /**
    * Specifies the id of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param id the id value.
+   * @param id The id value.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
    * @test
    */
   id(id: number): By;
@@ -91,9 +97,11 @@ declare class By {
   /**
    * Specifies the type of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param tp the type value.
+   * @param tp The type value.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.type}
    * @test
    */
   type(tp: string): By;
@@ -101,9 +109,11 @@ declare class By {
   /**
    * Specifies the clickable status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the clickable status,default to true.
+   * @param b The clickable status,default to true.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.clickable}
    * @test
    */
   clickable(b?: boolean): By;
@@ -111,9 +121,11 @@ declare class By {
   /**
    * Specifies the scrollable status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the scrollable status,default to true.
+   * @param b The scrollable status,default to true.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.scrollable}
    * @test
    */
   scrollable(b?: boolean): By;
@@ -121,9 +133,11 @@ declare class By {
   /**
    * Specifies the enabled status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the enabled status,default to true.
+   * @param b The enabled status,default to true.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.enabled}
    * @test
    */
   enabled(b?: boolean): By;
@@ -131,9 +145,11 @@ declare class By {
   /**
    * Specifies the focused status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the focused status,default to true.
+   * @param b The focused status,default to true.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.focused}
    * @test
    */
   focused(b?: boolean): By;
@@ -141,31 +157,37 @@ declare class By {
   /**
    * Specifies the selected status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the selected status,default to true.
+   * @param b The selected status,default to true.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.selected}
    * @test
    */
   selected(b?: boolean): By;
 
   /**
-   * Requires that the target UiComponent which is before another UiComponent that specified by the given {@link By}
+   * Requires the target UiComponent which is before another UiComponent that specified by the given {@link By}
    * object,used to locate UiComponent relatively.
    * @syscap SystemCapability.Test.UiTest
-   * @param by describes the attribute requirements of UiComponent which the target one is in front of.
+   * @param by Describes the attribute requirements of UiComponent which the target one is in front of.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.isBefore}
    * @test
    */
   isBefore(by: By): By;
 
   /**
-   * Requires that the target UiComponent which is after another UiComponent that specified by the given {@link By}
+   * Requires the target UiComponent which is after another UiComponent that specified by the given {@link By}
    * object,used to locate UiComponent relatively.
    * @syscap SystemCapability.Test.UiTest
-   * @param by describes the attribute requirements of UiComponent which the target one is in back of.
+   * @param by Describes the attribute requirements of UiComponent which the target one is in back of.
    * @return Returns this {@link By} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link On.isAfter}
    * @test
    */
   isAfter(by: By): By;
@@ -176,6 +198,7 @@ declare class By {
  *
  * @since 8
  * @deprecated since 9
+ * @useinstead {@link Component}
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
@@ -184,6 +207,8 @@ declare class UiComponent {
    * Click this {@link UiComponent}.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.click}
    * @test
    */
   click(): Promise<void>;
@@ -192,6 +217,8 @@ declare class UiComponent {
    * Double click this {@link UiComponent}.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.doubleClick}
    * @test
    */
   doubleClick(): Promise<void>;
@@ -200,6 +227,8 @@ declare class UiComponent {
    * Long click this {@link UiComponent}.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.longClick}
    * @test
    */
   longClick(): Promise<void>;
@@ -209,6 +238,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the id value.
    * @since 8
+   * @deprecated since 9
    * @test
    */
   getId(): Promise<number>;
@@ -218,6 +248,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the inspectorKey value.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.getId}
    * @test
    */
   getKey(): Promise<string>;
@@ -226,6 +258,8 @@ declare class UiComponent {
    * Get the text attribute value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.getText}
    * @test
    */
   getText(): Promise<string>;
@@ -235,6 +269,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the type name.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.getType}
    * @test
    */
   getType(): Promise<string>;
@@ -244,6 +280,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the clickable status.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.isClickable}
    * @test
    */
   isClickable(): Promise<boolean>;
@@ -253,6 +291,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the scrollable status.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.isScrollable}
    * @test
    */
   isScrollable(): Promise<boolean>;
@@ -262,6 +302,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the enabled status.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.isEnabled}
    * @test
    */
   isEnabled(): Promise<boolean>;
@@ -271,6 +313,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the focused status.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.isFocused}
    * @test
    */
   isFocused(): Promise<boolean>;
@@ -280,6 +324,8 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @returns the selected status.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.isSelected}
    * @test
    */
   isSelected(): Promise<boolean>;
@@ -287,8 +333,10 @@ declare class UiComponent {
   /**
    * Inject text to this {@link UiComponent},applicable to TextInput.
    * @syscap SystemCapability.Test.UiTest
-   * @param text the text to inject.
+   * @param text The text to inject.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.inputText}
    * @test
    */
   inputText(text: string): Promise<void>;
@@ -296,9 +344,11 @@ declare class UiComponent {
   /**
    * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
-   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param by The attribute requirements of the target {@link UiComponent}.
    * @return the found result,or undefined if not found.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Component.scrollSearch}
    * @test
    */
   scrollSearch(by: By): Promise<UiComponent>;
@@ -310,6 +360,7 @@ declare class UiComponent {
  *
  * @since 8
  * @deprecated since 9
+ * @useinstead {@link Driver}
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
@@ -319,6 +370,8 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @returns the {@link UiDriver} object.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.create}
    * @test
    */
   static create(): UiDriver;
@@ -326,8 +379,10 @@ declare class UiDriver {
   /**
    * Delay with specified duration.
    * @syscap SystemCapability.Test.UiTest
-   * @param duration the delay duration in milliseconds.
+   * @param duration The delay duration in milliseconds.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.delayMs}
    * @test
    */
   delayMs(duration: number): Promise<void>;
@@ -335,9 +390,11 @@ declare class UiDriver {
   /**
    * Find the first matched {@link UiComponent} on current UI.
    * @syscap SystemCapability.Test.UiTest
-   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param by The attribute requirements of the target {@link UiComponent}.
    * @returns the first matched {@link UiComponent} or undefined.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.findComponent}
    * @test
    */
   findComponent(by: By): Promise<UiComponent>;
@@ -345,9 +402,11 @@ declare class UiDriver {
   /**
    * Find all the matched {@link UiComponent}s on current UI.
    * @syscap SystemCapability.Test.UiTest
-   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param by The attribute requirements of the target {@link UiComponent}.
    * @returns the matched {@link UiComponent}s list.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.findComponents}
    * @test
    */
   findComponents(by: By): Promise<Array<UiComponent>>;
@@ -355,9 +414,11 @@ declare class UiDriver {
   /**
    * Assert t the matched {@link UiComponent}s exists on current UI;if not,assertError will be raised.
    * @syscap SystemCapability.Test.UiTest
-   * @param by the attribute requirements of the target {@link UiComponent}.
+   * @param by The attribute requirements of the target {@link UiComponent}.
    * @throws Throws this exception if following error occurs:{@code ComponentExistAssertion Failure}.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.assertComponentExist}
    * @test
    */
   assertComponentExist(by: By): Promise<void>;
@@ -366,6 +427,8 @@ declare class UiDriver {
    * Press the BACK key.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.pressBack}
    * @test
    */
   pressBack(): Promise<void>;
@@ -375,6 +438,8 @@ declare class UiDriver {
    * @syscap SystemCapability.Test.UiTest
    * @param keyCode the target keyCode.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.pressHome}
    * @test
    */
   triggerKey(keyCode: number): Promise<void>;
@@ -382,9 +447,11 @@ declare class UiDriver {
   /**
    * Click on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.click}
    * @test
    */
   click(x: number, y: number): Promise<void>;
@@ -392,9 +459,11 @@ declare class UiDriver {
   /**
    * DoubleClick on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.doubleClick}
    * @test
    */
   doubleClick(x: number, y: number): Promise<void>;
@@ -402,9 +471,11 @@ declare class UiDriver {
   /**
    * LongClick on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.longClick}
    * @test
    */
   longClick(x: number, y: number): Promise<void>;
@@ -412,11 +483,13 @@ declare class UiDriver {
   /**
    * Swipe on the screen between the specified points.
    * @syscap SystemCapability.Test.UiTest
-   * @param startx the x-coordinate of the starting point.
-   * @param starty the y-coordinate of the starting point.
-   * @param endx the x-coordinate of the ending point.
-   * @param endy the y-coordinate of the ending point.
+   * @param startx The x-coordinate of the starting point.
+   * @param starty The y-coordinate of the starting point.
+   * @param endx The x-coordinate of the ending point.
+   * @param endy The y-coordinate of the ending point.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.swipe}
    * @test
    */
   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
@@ -427,6 +500,8 @@ declare class UiDriver {
    * @param savePath the path where to store the picture.
    * @returns true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @since 8
+   * @deprecated since 9
+   * @useinstead {@link Driver.screenCap}
    * @test
    */
   screenCap(savePath: string): Promise<boolean>;
@@ -517,10 +592,10 @@ declare class On {
   /**
    * Specifies the text for the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param txt the text value.
-   * @param pattern the {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
+   * @param txt The text value.
+   * @param pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -529,9 +604,9 @@ declare class On {
   /**
    * Specifies the id of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param id the id value.
+   * @param id The id value.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -540,9 +615,9 @@ declare class On {
   /**
    * Specifies the type of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param tp the type value.
+   * @param tp The type value.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -551,9 +626,9 @@ declare class On {
   /**
    * Specifies the clickable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the clickable status,default to true.
+   * @param b The clickable status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -562,9 +637,9 @@ declare class On {
   /**
    * Specifies the longClickable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the clickable status,default to true.
+   * @param b The clickable status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -573,9 +648,9 @@ declare class On {
   /**
    * Specifies the scrollable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the scrollable status,default to true.
+   * @param b The scrollable status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -584,9 +659,9 @@ declare class On {
   /**
    * Specifies the enabled status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the enabled status,default to true.
+   * @param b The enabled status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -595,9 +670,9 @@ declare class On {
   /**
    * Specifies the focused status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the focused status,default to true.
+   * @param b The focused status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -606,9 +681,9 @@ declare class On {
   /**
    * Specifies the selected status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the selected status,default to true.
+   * @param b The selected status,default to true.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -617,9 +692,9 @@ declare class On {
   /**
    * Specifies the checked status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the checked status,default to false.
+   * @param b The checked status,default to false.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -628,9 +703,9 @@ declare class On {
   /**
    * Specifies the checkable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param b the checkable status,default to false.
+   * @param b The checkable status,default to false.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -640,9 +715,9 @@ declare class On {
    * Requires that the target Component which is before another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    * @syscap SystemCapability.Test.UiTest
-   * @param on describes the attribute requirements of Component which the target one is in front of.
+   * @param on Describes the attribute requirements of Component which the target one is in front of.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -652,9 +727,9 @@ declare class On {
    * Requires that the target Component which is after another Component that specified by the given {@link On}
    * object,used to locate Component relatively.
    * @syscap SystemCapability.Test.UiTest
-   * @param on describes the attribute requirements of Component which the target one is in back of.
+   * @param on Describes the attribute requirements of Component which the target one is in back of.
    * @return Returns this {@link On} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -673,8 +748,8 @@ declare class Component {
    * Click this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @test
    */
   click(): Promise<void>;
@@ -683,8 +758,8 @@ declare class Component {
    * Double click this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @test
    */
   doubleClick(): Promise<void>;
@@ -693,8 +768,8 @@ declare class Component {
    * Long click this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @test
    */
   longClick(): Promise<void>;
@@ -703,8 +778,8 @@ declare class Component {
    * Get the id attribute value.
    * @syscap SystemCapability.Test.UiTest
    * @returns the id value.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -713,8 +788,8 @@ declare class Component {
   /**
    * Get the text attribute value.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -724,8 +799,8 @@ declare class Component {
    * Get the type name.
    * @syscap SystemCapability.Test.UiTest
    * @returns the type name.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -735,8 +810,8 @@ declare class Component {
    * Get the clickable status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the clickable status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -746,8 +821,8 @@ declare class Component {
    * Get the longClickable status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the longClickable status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -757,8 +832,8 @@ declare class Component {
    * Get the scrollable status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the scrollable status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -768,8 +843,8 @@ declare class Component {
    * Get the enabled status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the enabled status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -779,8 +854,8 @@ declare class Component {
    * Get the focused status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the focused status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -790,8 +865,8 @@ declare class Component {
    * Get the selected status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the selected status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -801,8 +876,8 @@ declare class Component {
    * Get the checked status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the checked status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -812,8 +887,8 @@ declare class Component {
    * Get the checkable status of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the checkable status.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -822,10 +897,10 @@ declare class Component {
   /**
    * Inject text to this {@link Component},applicable to TextInput.
    * @syscap SystemCapability.Test.UiTest
-   * @param text the text to inject.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param text The text to inject.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -834,8 +909,8 @@ declare class Component {
   /**
    * Clear text of this {@link Component},applicable to TextInput.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -844,10 +919,10 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -856,10 +931,10 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -868,11 +943,11 @@ declare class Component {
   /**
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
-   * @param on the attribute requirements of the target {@link Component}.
+   * @param on The attribute requirements of the target {@link Component}.
    * @return the found result,or undefined if not found.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -882,8 +957,8 @@ declare class Component {
    * Get the bounds rect of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @return the bounds rect object.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -893,8 +968,8 @@ declare class Component {
    * Get the boundsCenter of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
    * @return the boundsCenter object.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -903,10 +978,10 @@ declare class Component {
   /**
    * Drag this {@link Component} to the bounds rect of target Component.
    * @syscap SystemCapability.Test.UiTest
-   * @param target the target {@link Component}.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param target The target {@link Component}.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -915,10 +990,10 @@ declare class Component {
   /**
    * Pinch enlarge this {@link Component} to the target scale.
    * @syscap SystemCapability.Test.UiTest
-   * @param scale the scale of the pinch enlarge this {@link Component}'s size.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param scale The scale of the pinch enlarge this {@link Component}'s size.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -927,10 +1002,10 @@ declare class Component {
   /**
    * Pinch shrink this {@link Component} to the target scale.
    * @syscap SystemCapability.Test.UiTest
-   * @param scale the scale of the pinch shrink this {@link Component}'s size.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the component is invisible or destroyed.
+   * @param scale The scale of the pinch shrink this {@link Component}'s size.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -950,7 +1025,7 @@ declare class Driver {
    * Create an {@link Driver} object.
    * @syscap SystemCapability.Test.UiTest
    * @returns the {@link Driver} object.
-   * @throws {BusinessError} 17000001 if the test framework failed to initialize.
+   * @throws {BusinessError} 17000001 - if the test framework failed to initialize.
    * @since 9
    * @test
    */
@@ -959,9 +1034,9 @@ declare class Driver {
   /**
    * Delay with specified duration.
    * @syscap SystemCapability.Test.UiTest
-   * @param duration the delay duration in milliseconds.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param duration The delay duration in milliseconds.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -970,10 +1045,10 @@ declare class Driver {
   /**
    * Find the first matched {@link Component} on current UI.
    * @syscap SystemCapability.Test.UiTest
-   * @param on the attribute requirements of the target {@link Component}.
+   * @param on The attribute requirements of the target {@link Component}.
    * @returns the first matched {@link Component} or undefined.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -982,10 +1057,10 @@ declare class Driver {
   /**
    * Find the first matched {@link UiWindow} window.
    * @syscap SystemCapability.Test.UiTest
-   * @param filter the filer condition of the target {@link UiWindow}.
+   * @param filter The filer condition of the target {@link UiWindow}.
    * @returns the first matched {@link UiWindow} or undefined.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -994,11 +1069,11 @@ declare class Driver {
   /**
    * Find the first matched {@link Component} on current UI during the time given.
    * @syscap SystemCapability.Test.UiTest
-   * @param on the attribute requirements of the target {@link Component}.
-   * @param time duration of finding in milliseconds
+   * @param on The attribute requirements of the target {@link Component}.
+   * @param time Duration of finding in milliseconds
    * @returns the first matched {@link Component} or undefined.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1007,10 +1082,10 @@ declare class Driver {
   /**
    * Find all the matched {@link Component}s on current UI.
    * @syscap SystemCapability.Test.UiTest
-   * @param on the attribute requirements of the target {@link Component}.
+   * @param on The attribute requirements of the target {@link Component}.
    * @returns the matched {@link Component}s list.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1019,10 +1094,10 @@ declare class Driver {
   /**
    * Assert t the matched {@link Component}s exists on current UI;if not,assertError will be raised.
    * @syscap SystemCapability.Test.UiTest
-   * @param on the attribute requirements of the target {@link Component}.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000003 if the assertion failed.
+   * @param on The attribute requirements of the target {@link Component}.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000003 - if the assertion failed.
    * @since 9
    * @test
    */
@@ -1031,7 +1106,7 @@ declare class Driver {
   /**
    * Press the BACK key.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1041,8 +1116,8 @@ declare class Driver {
    * Press the specified key.
    * @syscap SystemCapability.Test.UiTest
    * @param keyCode the target keyCode.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1054,8 +1129,8 @@ declare class Driver {
    * @param key0 the first keyCode.
    * @param key1 the second keyCode.
    * @param key2 the third keyCode.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1064,10 +1139,10 @@ declare class Driver {
   /**
    * Click on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1076,10 +1151,10 @@ declare class Driver {
   /**
    * DoubleClick on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1088,10 +1163,10 @@ declare class Driver {
   /**
    * LongClick on the specified location on the screen.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x-coordinate.
-   * @param y the y-coordinate.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param x The x-coordinate.
+   * @param y The y-coordinate.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1100,13 +1175,13 @@ declare class Driver {
   /**
    * Swipe on the screen between the specified points.
    * @syscap SystemCapability.Test.UiTest
-   * @param startx the x-coordinate of the starting point.
-   * @param starty the y-coordinate of the starting point.
-   * @param endx the x-coordinate of the ending point.
-   * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param startx The x-coordinate of the starting point.
+   * @param starty The y-coordinate of the starting point.
+   * @param endx The x-coordinate of the ending point.
+   * @param endy The y-coordinate of the ending point.
+   * @param speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1115,13 +1190,13 @@ declare class Driver {
   /**
    * Drag on the screen between the specified points.
    * @syscap SystemCapability.Test.UiTest
-   * @param startx the x-coordinate of the starting point.
-   * @param starty the y-coordinate of the starting point.
-   * @param endx the x-coordinate of the ending point.
-   * @param endy the y-coordinate of the ending point.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param startx The x-coordinate of the starting point.
+   * @param starty The y-coordinate of the starting point.
+   * @param endx The x-coordinate of the ending point.
+   * @param endy The y-coordinate of the ending point.
+   * @param speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1132,8 +1207,8 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @param savePath the path where to store the picture.
    * @returns true if screen-capturing and file-storing are completed successfully,false otherwise.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1142,9 +1217,9 @@ declare class Driver {
   /**
    * Set the rotation of the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param rotation the target rotation to set.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param rotation The target rotation to set.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1154,7 +1229,7 @@ declare class Driver {
    * Get the rotation of the device display.
    * @syscap SystemCapability.Test.UiTest
    * @returns the current display rotation.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1163,9 +1238,9 @@ declare class Driver {
   /**
    * Enable/disable the rotation of device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param enabled enable the rotation or not.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param enabled Enable the rotation or not.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1175,7 +1250,7 @@ declare class Driver {
    * Get the size of the device display.
    * @syscap SystemCapability.Test.UiTest
    * @returns the size of the device display.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1185,7 +1260,7 @@ declare class Driver {
    * Get the density of the device display.
    * @syscap SystemCapability.Test.UiTest
    * @returns the density of the device display.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1194,7 +1269,7 @@ declare class Driver {
   /**
    * Wake up the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1203,7 +1278,7 @@ declare class Driver {
   /**
    * Press the home key.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1213,10 +1288,10 @@ declare class Driver {
    * Wait for the UI become idle.
    * @syscap SystemCapability.Test.UiTest
    * @param idleTime the threshold of UI idle time, in millisecond.
-   * @param timeout the maximum time to wait for idle, in millisecond.
+   * @param timeout The maximum time to wait for idle, in millisecond.
    * @returns true if wait for idle succeed in the timeout, false otherwise.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1225,12 +1300,12 @@ declare class Driver {
   /**
    * Inject fling on the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param from the coordinate point where the finger touches the screen.
-   * @param to the coordinate point where the finger leaves the screen.
+   * @param from The coordinate point where the finger touches the screen.
+   * @param to The coordinate point where the finger leaves the screen.
    * @param stepLen the length of each step, in pixels.
-   * @param speed the speed of fling (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @param speed The speed of fling (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1239,11 +1314,11 @@ declare class Driver {
   /**
    * Inject multi-pointer action on the device display.
    * @syscap SystemCapability.Test.UiTest
-   * @param pointers the two-dimensional array of pointers to inject.
-   * @param speed the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
+   * @param pointers The two-dimensional array of pointers to inject.
+   * @param speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 15000,set it 600 if out of range.
    * @returns true if the operation finished, false
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @since 9
    * @test
    */
@@ -1260,8 +1335,8 @@ declare class UiWindow {
    * Get the bundle name of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the bundle name.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1271,8 +1346,8 @@ declare class UiWindow {
    * Get the bounds rect of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @return the bounds rect object.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1282,8 +1357,8 @@ declare class UiWindow {
    * Get the title of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the title value.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1293,8 +1368,8 @@ declare class UiWindow {
    * Get the window mode of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the {@link WindowMode} object
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1304,8 +1379,8 @@ declare class UiWindow {
    * Get the focused status of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the focused status
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1315,8 +1390,8 @@ declare class UiWindow {
    * Get the active status of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
    * @returns the actived status
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1325,8 +1400,8 @@ declare class UiWindow {
   /**
    * Set the focused status of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9
    * @test
    */
@@ -1335,12 +1410,12 @@ declare class UiWindow {
   /**
    * Move this {@link UiWindow} to the specified points.
    * @syscap SystemCapability.Test.UiTest
-   * @param x the x coordinate of destination.
-   * @param y the y coordinate of destination.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @param x The x coordinate of destination.
+   * @param y The y coordinate of destination.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1349,13 +1424,13 @@ declare class UiWindow {
   /**
    * Resize this {@link UiWindow} to the specified size for the specified direction.
    * @syscap SystemCapability.Test.UiTest
-   * @param wide the expected wide of the window after resizing.
-   * @param height the expected height of the window after resizing.
-   * @param direction the expected direction of the window after resizing.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @param wide The expected wide of the window after resizing.
+   * @param height The expected height of the window after resizing.
+   * @param direction The expected direction of the window after resizing.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1364,9 +1439,9 @@ declare class UiWindow {
   /**
    * Change this {@link UiWindow} into split screen mode.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1375,9 +1450,9 @@ declare class UiWindow {
   /**
    * Maximize this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1386,9 +1461,9 @@ declare class UiWindow {
   /**
    * Minimize this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1397,9 +1472,9 @@ declare class UiWindow {
   /**
    * Resume this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1408,9 +1483,9 @@ declare class UiWindow {
   /**
    * Close this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @throws {BusinessError} 17000002 if the async function was not called with await.
-   * @throws {BusinessError} 17000004 if the window is invisible or destroyed.
-   * @throws {BusinessError} 17000005 if the action is not supported on this window.
+   * @throws {BusinessError} 17000002 - if the async function was not called with await.
+   * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
+   * @throws {BusinessError} 17000005 - if the action is not supported on this window.
    * @since 9
    * @test
    */
@@ -1429,10 +1504,10 @@ declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
    * @syscap SystemCapability.Test.UiTest
-   * @param fingers the number of fingers.
-   * @param steps the number of steps of each finger trace.
+   * @param fingers The number of fingers.
+   * @param steps The number of steps of each finger trace.
    * @returns the {@link PointerMatrix} object.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
    */
@@ -1441,10 +1516,10 @@ declare class PointerMatrix {
   /**
    * Set the point value of an element in the PointerMatrix.
    * @syscap SystemCapability.Test.UiTest
-   * @param finger the index of target finger to set.
-   * @param step the index of target step to set.
-   * @param point the coordinate of target step to set.
-   * @throws {BusinessError} 401 if the input parameters are invalid.
+   * @param finger The index of target finger to set.
+   * @param step The index of target step to set.
+   * @param point The coordinate of target step to set.
+   * @throws {BusinessError} 401 - if the input parameters are invalid.
 
    * @since 9
    * @test
@@ -1457,6 +1532,7 @@ declare class PointerMatrix {
  * @syscap SystemCapability.Test.UiTest
  * @since 8
  * @deprecated since 9
+ * @useinstead {@link ON}
  * @test
  */
 declare const BY: By;
