@@ -14,7 +14,6 @@
  */
 
 import {AsyncCallback, Callback} from "./basic";
-import socket, {X509CertRawData} from './@ohos.net.socket'
 
 /**
  * Provides http related APIs.
