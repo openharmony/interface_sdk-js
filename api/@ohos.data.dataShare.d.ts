@@ -19,6 +19,13 @@ import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
+/**
+* This module provides the dataShare capability for consumer.
+* @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+* @systemapi
+* @StageModelOnly
+* @since 9
+ */
 declare namespace dataShare {
     /**
      * Obtains the dataShareHelper.
