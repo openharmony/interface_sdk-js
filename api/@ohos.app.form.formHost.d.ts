@@ -19,7 +19,7 @@ import Want from './@ohos.application.Want';
 import formInfo from './@ohos.application.formInfo'
 
 /**
- * interface of formHost.
+ * Interface of formHost.
  * @namespace formHost
  * @syscap SystemCapability.Ability.Form
  * @systemapi
@@ -242,7 +242,7 @@ declare namespace formHost {
     function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
     /**
-     * Notifys the form framework to make the specified forms non updatable.
+     * Notify the form framework to make the specified forms non-updatable.
      * <p>You can use this method to set form refresh state to false, the form do not receive
      * new update from service.</p>
      * @permission ohos.permission.REQUIRE_FORM
@@ -256,7 +256,7 @@ declare namespace formHost {
     function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
-     * Notifys the form framework to make the specified forms non updatable.
+     * Notify the form framework to make the specified forms non updatable.
      * <p>You can use this method to set form refresh state to false, the form do not receive
      * new update from service.</p>
      * @permission ohos.permission.REQUIRE_FORM
@@ -429,7 +429,7 @@ declare namespace formHost {
     function off(type: "formUninstall", callback?: Callback<string>): void;
 
     /**
-     * notify form is Visible
+     * Notify form is Visible
      * <p>You can use this method to notify form visible state.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
@@ -443,7 +443,7 @@ declare namespace formHost {
     function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * notify form is Visible
+     * Notify form is Visible
      * <p>You can use this method to notify form visible state.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
@@ -457,7 +457,7 @@ declare namespace formHost {
     function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
     /**
-     * notify form enable update state.
+     * Notify form enable update state.
      * <p>You can use this method to notify form enable update state.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
@@ -471,7 +471,7 @@ declare namespace formHost {
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * notify form enable update state.
+     * Notify form enable update state.
      * <p>You can use this method to notify form enable update state.</p>
      * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.

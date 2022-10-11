@@ -20,7 +20,7 @@
  * @since 8
  * @syscap SystemCapability.Ability.Form
  * @deprecated since 9
- * @useinstead @ohos.app.form.formBindingData
+ * @useinstead ohos.app.form.formBindingData
  */
 declare namespace formBindingData {
     /**
