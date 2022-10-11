@@ -213,8 +213,17 @@ declare namespace wantConstant {
      * Indicates the action of providing oauth service.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead wantConstant.Action#ACTION_APP_ACCOUNT_AUTH
      */
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
+
+    /**
+     * Indicates the action of providing auth service.
+     *
+     * @since 9
+     */
+    ACTION_APP_ACCOUNT_AUTH = "account.appAccount.action.auth",
 
     /**
      * Indicates the action of an application downloaded from the application market.
