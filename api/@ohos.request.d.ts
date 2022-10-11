@@ -24,43 +24,43 @@ import BaseContext from './application/BaseContext';
  */
 declare namespace request {
   /**
-   * errorcode 201. the permissions check fails
+   * Error code 201. the permissions check fails
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_PERMISSION: number;
   /**
-   * errorcode 401. the parameters check fails
+   * Error code 401. the parameters check fails
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_PARAMCHECK: number;
   /**
-   * errorcode 801. call unsupported api
+   * Error code 801. call unsupported api
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_UNSUPPORTED: number;
   /**
-   * errorcode 13400001. file operation error
+   * Error code 13400001. file operation error
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_FILEIO: number;
   /**
-   * errorcode 13400002. bad file path
+   * Error code 13400002. bad file path
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_FILEPATH: number;
   /**
-   * errorcode 13400003. task manager service error
+   * Error code 13400003. task manager service error
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
   const EXCEPTION_SERVICE: number;
   /**
-   * errorcode 13499999. others error
+   * Error code 13499999. others error
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    */
@@ -243,12 +243,12 @@ declare namespace request {
   const SESSION_SUCCESSFUL: number;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @deprecated since 9
    * @useinstead ohos.request.downloadFile
-   * @param config download config
+   * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
    * @return -
@@ -257,13 +257,13 @@ declare namespace request {
   function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @deprecated since 9
    * @useinstead ohos.request.downloadFile
    * @param BaseContext Indicates the application BaseContext.
-   * @param config download config
+   * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
    * @return -
@@ -271,11 +271,11 @@ declare namespace request {
   function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
-   * @param config download config
+   * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
    * @return -
@@ -288,12 +288,12 @@ declare namespace request {
   function downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @deprecated since 9,
    * @useinstead ohos.request.downloadFile
-   * @param config download config
+   * @param config Download config
    * @permission ohos.permission.INTERNET
    * @return -
    * @FAModelOnly
@@ -301,24 +301,24 @@ declare namespace request {
   function download(config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @deprecated since 9,
    * @useinstead ohos.request.downloadFile
    * @param BaseContext Indicates the application BaseContext.
-   * @param config download config
+   * @param config Download config
    * @permission ohos.permission.INTERNET
    * @return -
    */
   function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Starts a download session.
+   * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
-   * @param config download config
+   * @param config Download config
    * @permission ohos.permission.INTERNET
    * @return -
    * @throws {BusinessError} 201 - the permissions check fails
@@ -330,12 +330,12 @@ declare namespace request {
   function downloadFile(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 6
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
-   * @param config upload config
+   * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
    * @return -
@@ -344,13 +344,13 @@ declare namespace request {
   function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
    * @param BaseContext Indicates the application BaseContext.
-   * @param config upload config
+   * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
    * @return -
@@ -358,11 +358,11 @@ declare namespace request {
   function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
-   * @param config upload config
+   * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @return -
    * @throws {BusinessError} 201 - the permissions check fails
@@ -372,12 +372,12 @@ declare namespace request {
   function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 6
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
-   * @param config upload config
+   * @param config Upload config
    * @permission ohos.permission.INTERNET
    * @return -
    * @FAModelOnly
@@ -385,24 +385,24 @@ declare namespace request {
   function upload(config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    * @deprecated since 9
    * @useinstead ohos.request.uploadFile
    * @param BaseContext Indicates the application BaseContext.
-   * @param config upload config
+   * @param config Upload config
    * @permission ohos.permission.INTERNET
    * @return -
    */
   function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * Starts a upload session.
+   * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
    * @param BaseContext Indicates the application BaseContext.
-   * @param config upload config
+   * @param config Upload config
    * @permission ohos.permission.INTERNET
    * @return -
    * @throws {BusinessError} 201 - the permissions check fails
