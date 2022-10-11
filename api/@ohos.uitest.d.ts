@@ -54,7 +54,7 @@ declare enum MatchPattern {
  *
  * @since 8
  * @deprecated since 9
- * @useinstead {@link On}
+ * @useinstead ohos.uitest.On
  * @syscap SystemCapability.Test.UiTest
  */
 declare class By {
@@ -66,7 +66,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.text}
+   * @useinstead ohos.uitest.On#text
    * @test
    */
   text(txt: string, pattern?: MatchPattern): By;
@@ -78,7 +78,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.id}
+   * @useinstead ohos.uitest.On#id
    * @test
    */
   key(key: string): By;
@@ -101,7 +101,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.type}
+   * @useinstead ohos.uitest.On#type
    * @test
    */
   type(tp: string): By;
@@ -113,7 +113,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.clickable}
+   * @useinstead ohos.uitest.On#clickable
    * @test
    */
   clickable(b?: boolean): By;
@@ -125,7 +125,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.scrollable}
+   * @useinstead ohos.uitest.On#scrollable
    * @test
    */
   scrollable(b?: boolean): By;
@@ -137,7 +137,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.enabled}
+   * @useinstead ohos.uitest.On#enabled
    * @test
    */
   enabled(b?: boolean): By;
@@ -149,7 +149,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.focused}
+   * @useinstead ohos.uitest.On#focused
    * @test
    */
   focused(b?: boolean): By;
@@ -161,7 +161,7 @@ declare class By {
    * @return Returns this {@link By} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link On.selected}
+   * @useinstead ohos.uitest.On#selected
    * @test
    */
   selected(b?: boolean): By;
@@ -198,7 +198,7 @@ declare class By {
  *
  * @since 8
  * @deprecated since 9
- * @useinstead {@link Component}
+ * @useinstead ohos.uitest.Component
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
@@ -208,7 +208,7 @@ declare class UiComponent {
    * @syscap SystemCapability.Test.UiTest
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link Component.click}
+   * @useinstead ohos.uitest.Component#click
    * @test
    */
   click(): Promise<void>;
@@ -360,7 +360,7 @@ declare class UiComponent {
  *
  * @since 8
  * @deprecated since 9
- * @useinstead {@link Driver}
+ * @useinstead ohos.uitest.Driver
  * @test
  * @syscap SystemCapability.Test.UiTest
  */
@@ -371,7 +371,7 @@ declare class UiDriver {
    * @returns the {@link UiDriver} object.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link Driver.create}
+   * @useinstead ohos.uitest.Driver#create
    * @test
    */
   static create(): UiDriver;
@@ -451,7 +451,7 @@ declare class UiDriver {
    * @param y The y-coordinate.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link Driver.click}
+   * @useinstead ohos.uitest.Driver#click
    * @test
    */
   click(x: number, y: number): Promise<void>;
@@ -489,7 +489,7 @@ declare class UiDriver {
    * @param endy The y-coordinate of the ending point.
    * @since 8
    * @deprecated since 9
-   * @useinstead {@link Driver.swipe}
+   * @useinstead ohos.uitest.Driver#swipe
    * @test
    */
   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
@@ -1532,7 +1532,7 @@ declare class PointerMatrix {
  * @syscap SystemCapability.Test.UiTest
  * @since 8
  * @deprecated since 9
- * @useinstead {@link ON}
+ * @useinstead ohos.uitest.ON
  * @test
  */
 declare const BY: By;
