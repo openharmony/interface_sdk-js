@@ -50,7 +50,7 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain the language currently used by the system.
+ * Obtains the language currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the language currently used by the system.
@@ -61,7 +61,7 @@ export function getDisplayLanguage(language: string, locale: string, sentenceCas
 export function getSystemLanguage(): string;
 
 /**
- * Obtain the region currently used by the system.
+ * Obtains the region currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the region currently used by the system.
@@ -72,7 +72,7 @@ export function getSystemLanguage(): string;
 export function getSystemRegion(): string;
 
 /**
- * Obtain the locale currently used by the system.
+ * Obtains the locale currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the locale currently used by the system.
@@ -118,7 +118,7 @@ export class System {
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
     /**
-     * Obtain all languages supported by the system.
+     * Obtains all languages supported by the system.
      *
      * @syscap SystemCapability.Global.I18n
      * @return Returns all languages supported by the system.
@@ -127,7 +127,7 @@ export class System {
     static getSystemLanguages(): Array<string>;
 
     /**
-     * Obtain all regions supported by the system in the language.
+     * Obtains all regions supported by the system in the language.
      *
      * @syscap SystemCapability.Global.I18n
      * @param language The language used to get the list of regions.
@@ -152,7 +152,7 @@ export class System {
     static isSuggested(language: string, region?: string): boolean;
 
     /**
-     * Obtain the language currently used by the system.
+     * Obtains the language currently used by the system.
      *
      * @syscap SystemCapability.Global.I18n
      * @return Returns the language currently used by the system.
@@ -174,7 +174,7 @@ export class System {
     static setSystemLanguage(language: string): void;
 
     /**
-     * Obtain the region currently used by the system.
+     * Obtains the region currently used by the system.
      *
      * @syscap SystemCapability.Global.I18n
      * @return Returns the region currently used by the system.
@@ -197,7 +197,7 @@ export class System {
     static setSystemRegion(region: string): void;
 
     /**
-     * Obtain the locale currently used by the system.
+     * Obtains the locale currently used by the system.
      *
      * @syscap SystemCapability.Global.I18n
      * @return Returns the locale currently used by the system.
@@ -220,7 +220,7 @@ export class System {
     static setSystemLocale(locale: string): void;
 
     /**
-     * check out whether system is 24-hour system.
+     * Check out whether system is 24-hour system.
      *
      * @syscap SystemCapability.Global.I18n
      * @return Returns a boolean represent whether system is 24-hour system.
@@ -229,7 +229,7 @@ export class System {
     static is24HourClock(): boolean;
 
     /**
-     * set 24-hour system.
+     * Set 24-hour system.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @syscap SystemCapability.Global.I18n
