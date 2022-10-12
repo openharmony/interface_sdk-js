@@ -24,17 +24,22 @@ declare namespace display {
   /**
    * Obtain the default display.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(callback: AsyncCallback<Display>): void;
 
   /**
    * Obtain the default display.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getDefaultDisplaySync
    */
   function getDefaultDisplay(): Promise<Display>;
 
   /**
    * Obtain the default display.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
    * @since 9
    */
   function getDefaultDisplaySync(): Display;
@@ -42,18 +47,38 @@ declare namespace display {
   /**
    * Obtain all displays.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getAllDisplays
    */
   function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
 
   /**
    * Obtain all displays.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.display#getAllDisplays
    */
   function getAllDisplay(): Promise<Array<Display>>;
 
   /**
+   * Obtain all displays.
+   * @throws {BusinessError} 1400001 - If display or screen is invalid
+   * @since 9
+   */
+   function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
+
+   /**
+    * Obtain all displays.
+    * @throws {BusinessError} 1400001 - If display or screen is invalid
+    * @since 9
+    */
+   function getAllDisplays(): Promise<Array<Display>>;
+
+  /**
    * Check whether there is a privacy window on the current display.
    * @param displayId Display id to query
+   * @throws {BusinessError} 401 - If param is invalid
+   * @throws {BusinessError} 1400003 - If system works abnormally
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -63,6 +88,7 @@ declare namespace display {
    * Register the callback for display changes.
    * @param type: type of callback
    * @since 7
+   * @throws {BusinessError} 401 - If param is invalid
    */
   function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
@@ -70,6 +96,7 @@ declare namespace display {
    * Unregister the callback for display changes.
    * @param type: type of callback
    * @since 7
+   * @throws {BusinessError} 401 - If param is invalid
    */
   function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
@@ -134,7 +161,7 @@ declare namespace display {
   }
 
   /**
-   * cutout information of the display.
+   * Cutout information of the display.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
@@ -223,12 +250,14 @@ declare namespace display {
 
     /**
      * Obtain the cutout info of the display.
+     * @throws {BusinessError} 1400001 - If display or screen is invalid
      * @since 9
      */
     getCutoutInfo(callback: AsyncCallback<CutoutInfo>): void;
 
     /**
      * Obtain the cutout info of the display.
+     * @throws {BusinessError} 1400001 - If display or screen is invalid
      * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;
