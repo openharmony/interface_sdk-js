@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback, BusinessError} from './basic';
+import {AsyncCallback, BusinessError, Callback} from './basic';
 
 /**
  * Provides thermal level-related callback and query APIs to obtain the information required for
@@ -72,18 +72,19 @@ declare namespace thermal {
      * @return Returns the thermal level.
      * @since 8
      * @deprecated since 9
-     * @useinstead {@link registerThermalLevelCallback}
+     * @useinstead {@link thermal#registerThermalLevelCallback}
      */
     function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
     /**
      * Registers to callbacks of thermal level changes.
      *
-     * @param {AsyncCallback<void>} callback Callback of thermal level changes.
-     * @throws {BusinessError} 401 If callback is not valid.
+     * @param {Callback<ThermalLevel>} callback Callback of thermal level changes.
+     * @throws {BusinessError} 401 - If callback is not valid.
+     * @throws {BusinessError} 4800101 If connecting to the service failed.
      * @since 9
      */
-    function registerThermalLevelCallback(callback: AsyncCallback<ThermalLevel>): void;
+    function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
     /**
      * Unsubscribes from the callbacks of thermal level changes.
@@ -91,19 +92,19 @@ declare namespace thermal {
      * @param callback Callback of thermal level changes.
      * @since 8
      * @deprecated since 9
-     * @useinstead {@link unregisterThermalLevelCallback}
+     * @useinstead {@link thermal#unregisterThermalLevelCallback}
      */
     function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
     /**
      * Unregisters from the callbacks of thermal level changes.
      *
-     * @param {AsyncCallback<void>} callback Callback of thermal level changes.
-     * @throws {BusinessError} 101 If connecting to the service failed.
-     * @throws {BusinessError} 401 If callback is not valid.
+     * @param {Callback<void>} callback Callback of thermal level changes.
+     * @throws {BusinessError} 401 - If callback is not valid.
+     * @throws {BusinessError} 4800101 If connecting to the service failed.
      * @since 9
      */
-    function unregisterThermalLevelCallback(callback?: AsyncCallback<void>): void;
+    function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
     /**
      * Obtains the current thermal level.
@@ -111,7 +112,7 @@ declare namespace thermal {
      * @return Returns the thermal level.
      * @since 8
      * @deprecated since 9
-     * @useinstead {@link getLevel}
+     * @useinstead {@link thermal#getLevel}
      */
     function getThermalLevel(): ThermalLevel;
 
@@ -119,7 +120,7 @@ declare namespace thermal {
      * Obtains the current thermal level.
      *
      * @return {ThermalLevel} The thermal level.
-     * @throws {BusinessError} 101 If connecting to the service failed.
+     * @throws {BusinessError} 4800101 If connecting to the service failed.
      * @since 9
      */
     function getLevel(): ThermalLevel;

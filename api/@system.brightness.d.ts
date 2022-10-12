@@ -20,7 +20,7 @@
  */
 export interface BrightnessResponse {
     /**
-     * Screen brightness, which ranges from 1 to 100.
+     * Screen brightness, which ranges from 1 to 255.
      * @since 3
      * @deprecated since 7
      */
@@ -62,9 +62,9 @@ export interface GetBrightnessOptions {
  */
 export interface SetBrightnessOptions {
     /**
-     * Screen brightness. The value is an integer ranging from 1 to 100.
+     * Screen brightness. The value is an integer ranging from 1 to 255.
      * If the value is less than or equal to 0, value 1 will be used.
-     * If the value is greater than 100, value 100 will be used.
+     * If the value is greater than 255, value 255 will be used.
      * If the value contains decimals, the integral part of the value will be used.
      * For example, if value is 8.1 is set, value 8 will be used.
      * @since 3
