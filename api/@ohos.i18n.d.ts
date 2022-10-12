@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {BusinessError} from "./basic";
 
 /**
  * Provides international settings related APIs.
@@ -29,6 +30,8 @@ declare namespace i18n {
  * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
  * @return Returns the country or region name localized for display on a given locale.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getDisplayCountry
  */
 export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -41,125 +44,283 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
  * @param sentenceCase Specifies whether the language name is displayed in sentence case.
  * @return Returns the language name localized for display on a given locale.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getDisplayLanguage
  */
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain all languages supported by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns all languages supported by the system.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-/**
- * Obtain all languages supported by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns all languages supported by the system.
- * @since 9
- */
-export function getSystemLanguages(): Array<string>;
-
-/**
- * Obtain all regions supported by the system in the language.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language used to get the list of regions.
- * @return Returns all regions supported by the system in the language.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-/**
- * Obtain all regions supported by the system in the language.
- *
- * @syscap SystemCapability.Global.I18n
- * @param { string } language - The language used to get the list of regions.
- * @return Returns all regions supported by the system in the language.
- * @since 9
- */
-export function getSystemCountries(language: string): Array<string>;
-
-/**
- * Determine whether the current language or region is recommended.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language code.
- * @param region The region code.
- * @return Returns whether the current language or region is recommended.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-/**
- * Determine whether the current language or region is recommended.
- *
- * @syscap SystemCapability.Global.I18n
- * @param { string } language - The language code.
- * @param { string } region - The region code.
- * @return Returns whether the current language or region is recommended.
- * @since 9
- */
-export function isSuggested(language: string, region?: string): boolean;
-
-/**
- * Obtain the language currently used by the system.
+ * Obtains the language currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the language currently used by the system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemLanguage
  */
 export function getSystemLanguage(): string;
 
 /**
- * Set the language currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param language The language to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemLanguage(language: string): boolean;
-
-/**
- * Obtain the region currently used by the system.
+ * Obtains the region currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the region currently used by the system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemRegion
  */
 export function getSystemRegion(): string;
 
 /**
- * Set the region currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param region The region to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemRegion(region: string): boolean;
-
-/**
- * Obtain the locale currently used by the system.
+ * Obtains the locale currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
  * @return Returns the locale currently used by the system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemLocale
  */
 export function getSystemLocale(): string;
 
 /**
- * Set the locale currently used by the system.
+ * Provides system functions.
  *
- * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
- * @param locale The locale to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
+ * @since 9
  */
-export function setSystemLocale(locale: string): boolean;
+export class System {
+    /**
+     * Obtains the country or region name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param country The locale whose country or region name will be displayed.
+     * @param locale The locale used to display the country or region.
+     * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @return Returns the country or region name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
+
+    /**
+     * Obtains the language name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The locale whose language name will be displayed.
+     * @param locale The locale used to display the language.
+     * @param sentenceCase Specifies whether the language name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @return Returns the language name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
+
+    /**
+     * Obtains all languages supported by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns all languages supported by the system.
+     * @since 9
+     */
+    static getSystemLanguages(): Array<string>;
+
+    /**
+     * Obtains all regions supported by the system in the language.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language used to get the list of regions.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @return Returns all countries or regions supported by the system in the language.
+     * @since 9
+     */
+    static getSystemCountries(language: string): Array<string>;
+
+    /**
+     * Determine whether the current language or region is recommended.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language code.
+     * @param region The region code.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @return Returns whether the current language or region is recommended.
+     * @since 9
+     */
+    static isSuggested(language: string, region?: string): boolean;
+
+    /**
+     * Obtains the language currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the language currently used by the system.
+     * @since 9
+     */
+    static getSystemLanguage(): string;
+
+    /**
+     * Set the language currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemLanguage(language: string): void;
+
+    /**
+     * Obtains the region currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the region currently used by the system.
+     * @since 9
+     */
+    static getSystemRegion(): string;
+
+    /**
+     * Set the region currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param region The region to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemRegion(region: string): void;
+
+    /**
+     * Obtains the locale currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns the locale currently used by the system.
+     * @since 9
+     */
+    static getSystemLocale(): string;
+
+    /**
+     * Set the locale currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param locale The locale to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemLocale(locale: string): void;
+
+    /**
+     * Check out whether system is 24-hour system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a boolean represent whether system is 24-hour system.
+     * @since 9
+     */
+    static is24HourClock(): boolean;
+
+    /**
+     * Set 24-hour system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param option represent the boolean to be set.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static set24HourClock(option: boolean): void;
+
+    /**
+     * Add one language to preferred language List.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language the language to be added.
+     * @param index the position of preferred language list to be inserted. 
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static addPreferredLanguage(language: string, index?: number): void;
+
+    /**
+     * Remove one language from preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param index the position of removed language in preferred language list.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static removePreferredLanguage(index: number): void;
+
+    /**
+     * Access the system preferred language list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string Array represent the preferred language list.
+     * @since 9
+     */
+    static getPreferredLanguageList(): Array<string>;
+
+    /**
+     * Get the first preferred language of system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represent the first preferred language of system.
+     * @since 9
+     */
+    static getFirstPreferredLanguage(): string;
+
+    /**
+     * Get the preferred language of App.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @return Returns a string represent the preferred language of App.
+     * @since 9
+     */
+    static getAppPreferredLanguage(): string;
+
+    /**
+     * Set whether to use local digit.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param flag a boolean variable represents whether to use local digit
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setUsingLocalDigit(flag: boolean): void;
+
+     /**
+      * Get whether to use local digit.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @return Returns a boolean represents whether to use local digit.
+      * @since 9
+      */
+    static getUsingLocalDigit(): boolean;
+}
 
 /**
  * Provides util functions.
@@ -825,6 +986,8 @@ export class Character {
  * @syscap SystemCapability.Global.I18n
  * @return Returns a boolean represent whether system is 24-hour system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.is24HourClock
  */
  export function is24HourClock(): boolean;
 
@@ -836,6 +999,8 @@ export class Character {
  * @param option represent the boolean to be set.
  * @return Returns a boolean represent whether setting 24-hour system success.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.set24HourClock
  */
   export function set24HourClock(option: boolean): boolean;
 
@@ -848,6 +1013,8 @@ export class Character {
  * @param index the position of preferred language list to be inserted. 
  * @return Returns a boolean represent whether language added success.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.addPreferredLanguage
  */
 export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -859,6 +1026,8 @@ export function addPreferredLanguage(language: string, index?: number): boolean;
  * @param index the position of removed language in preferred language list.
  * @return Returns a boolean represent whether removed success.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.removePreferredLanguage
  */
 export function removePreferredLanguage(index: number): boolean;
 
@@ -868,6 +1037,8 @@ export function removePreferredLanguage(index: number): boolean;
  * @syscap SystemCapability.Global.I18n
  * @return Returns a string Array represent the preferred language list.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.getPreferredLanguageList
  */
 export function getPreferredLanguageList(): Array<string>;
 
@@ -877,17 +1048,10 @@ export function getPreferredLanguageList(): Array<string>;
  * @syscap SystemCapability.Global.I18n
  * @return Returns a string represent the first preferred language of system.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.getFirstPreferredLanguage
  */
 export function getFirstPreferredLanguage(): string;
-
-/**
- * Get the preferred language of App.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns a string represent the preferred language of App.
- * @since 9
- */
- export function getAppPreferredLanguage(): string;
 
 /**
  * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
@@ -1023,26 +1187,5 @@ export class Transliterator {
      */
     transform(text: string): string;
 }
-
-/**
- * Set whether to use local digit.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param flag a boolean variable represents whether to use local digit.
- * @return Returns a boolean represents whether set successful.
- * @since 9
- * @systemapi Hide this for inner system use.
- */
-export function setUsingLocalDigit(flag: boolean): boolean;
-
- /**
-  * Get whether to use local digit.
-  *
-  * @syscap SystemCapability.Global.I18n
-  * @return Returns a boolean represents whether to use local digit.
-  * @since 9
-  */
-export function getUsingLocalDigit(): boolean;
 }
 export default i18n;
