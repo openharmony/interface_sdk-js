@@ -20,6 +20,8 @@
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
   * @systemapi Hide this for inner system use
+  * @deprecated since 9
+  * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
   */
   export interface ShortcutWant{
     /**
@@ -47,13 +49,15 @@
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @permission NA
-    *
+    * @deprecated since 9
+    * @useinstead ohos.bundle.launcherBundleManager.ShortcutInfo
     */
   export interface ShortcutInfo {
     /**
       * @default Indicates the ID of the application to which this shortcut belongs
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
+      * 
       */
     readonly id: string;
     /**
