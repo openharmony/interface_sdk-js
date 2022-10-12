@@ -27,8 +27,8 @@ declare namespace brightness {
      * Sets the screen brightness.
      *
      * @param {number} value Brightness value, ranging from 0 to 255.
-     * @throws {BusinessError} 101 If connecting to the service failed.
-     * @throws {BusinessError} 401 If the value is not valid.
+     * @throws {BusinessError} 401 - If the value is not valid.
+     * @throws {BusinessError} 4700101 - If connecting to the service failed.
      * @systemapi
      * @since 7
      */
