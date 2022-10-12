@@ -26,12 +26,12 @@ function checkEntry(url) {
     result = scanEntry(url);
     const content = fs.readFileSync(path.resolve(__dirname, "./Result.txt"), "utf-8");
     result += `mdFilePath = ${url}, content = ${content}`
-    writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = 'ERROR';
+    result = `CATCHERROR : ${error}`;
   }
+  writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
 checkEntry(process.argv[2]);
