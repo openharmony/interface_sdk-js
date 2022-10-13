@@ -55,6 +55,7 @@ declare namespace hichecker {
     * add one or more rule.
     * @param rule 
     * @since 8
+    * @deprecated since 9
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function addRule(rule: bigint) : void;
@@ -63,6 +64,7 @@ declare namespace hichecker {
     * remove one or more rule.
     * @param rule 
     * @since 8
+    * @deprecated since 9
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function removeRule(rule: bigint) : void;
@@ -80,8 +82,37 @@ declare namespace hichecker {
     * @param rule
     * @return the result of whether the query rule is added.
     * @since 8
+    * @deprecated since 9
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function contains(rule: bigint) : boolean;
+
+    /**
+    * add one or more rule.
+    * @param rule 
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws {error} if the param is invalid
+    */
+    function addRuleV9(rule: bigint) : void;
+
+    /**
+    * remove one or more rule.
+    * @param rule 
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws {error} if the param is invalid
+    */
+    function removeRuleV9(rule: bigint) : void;
+
+    /**
+    * whether the query rule is added
+    * @param rule
+    * @return the result of whether the query rule is added.
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws {error} if the param is invalid
+    */
+     function containsV9(rule: bigint) : boolean;
 }
 export default hichecker;
