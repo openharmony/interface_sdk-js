@@ -14,6 +14,7 @@
 */
 
 import {AsyncCallback, Callback} from './basic';
+import Context from './application/Context';
 
 /**
  * Provides interfaces to sync distributed object.
@@ -38,13 +39,14 @@ declare namespace distributedDataObject {
     /**
      * Create distributed object.
      *
+     * @param {Context} context - Indicates the application context.
      * @param {object} source - source Init data of distributed object.
      * @returns {DistributedObjectV9} - return the distributed object.
      * @throws {BusinessError} 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
      * @since 9
      */
-    function create(source: object): DistributedObjectV9;
+    function create(context: Context, source: object): DistributedObjectV9;
 
     /**
      * Generate a random sessionId.
