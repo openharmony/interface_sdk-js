@@ -653,6 +653,13 @@ declare namespace camera {
    */
    enum CameraFormat {
     /**
+     * RGBA 8888 Format.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+     CAMERA_FORMAT_RGBA_8888 = 3,
+
+    /**
      * YUV 420 Format.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -777,23 +784,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     FOCUS_STATE_UNFOCUSED = 2
-  }
-
-  /**
-   * Enum for exposure state.
-   * @since 9
-   */
-  enum ExposureState {
-    /**
-     * Scan state.
-     * @since 8
-     */
-    EXPOSURE_STATE_SCAN = 0,
-    /**
-     * Converged state.
-     * @since 8
-     */
-    EXPOSURE_STATE_CONVERGED = 1
   }
 
   /**
@@ -1408,15 +1398,6 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
-
-    /**
-     * Subscribes exposure status change event callback.
-     * @param type Event type.
-     * @param callback Callback used to get the exposure state change.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     */
-    on(type: 'exposureStateChange', callback: AsyncCallback<ExposureState>): void;
 
     /**
      * Subscribes error event callback.
