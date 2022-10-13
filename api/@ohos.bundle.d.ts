@@ -662,6 +662,8 @@ declare namespace bundle {
    * @return Returns the Want for starting the application's main ability if any; returns null if
    *         the given bundle does not exist or does not contain any main ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager#getLaunchWantForBundle
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
