@@ -213,8 +213,17 @@ declare namespace wantConstant {
      * Indicates the action of providing oauth service.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead wantConstant.Action#ACTION_APP_ACCOUNT_AUTH
      */
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
+
+    /**
+     * Indicates the action of providing auth service.
+     *
+     * @since 9
+     */
+    ACTION_APP_ACCOUNT_AUTH = "account.appAccount.action.auth",
 
     /**
      * Indicates the action of an application downloaded from the application market.
@@ -230,7 +239,47 @@ declare namespace wantConstant {
      * @since 9
      * @systemapi Hide this for inner system use.
      */
-    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest"
+    ACTION_MARKET_CROWDTEST = "ohos.want.action.marketCrowdTest",
+
+    /**
+     * Indicates the param of sandbox flag.
+     * 
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_SANDBOX = "ohos.dlp.params.sandbox",
+
+    /**
+     * Indicates the param of dlp bundle name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_BUNDLE_NAME = "ohos.dlp.params.bundleName",
+
+    /**
+     * Indicates the param of dlp module name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_MODULE_NAME = "ohos.dlp.params.moduleName",
+
+    /**
+     * Indicates the param of dlp ability name.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_ABILITY_NAME = "ohos.dlp.params.abilityName",
+
+    /**
+     * Indicates the param of dlp bundle index.
+     *
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    DLP_PARAMS_INDEX = "ohos.dlp.params.index"
   }
 
   /**

@@ -32,23 +32,49 @@ declare namespace http {
      * Request method.
      */
     method?: RequestMethod; // default is GET
+
     /**
      * Additional data of the request.
      * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
      */
     extraData?: string | Object | ArrayBuffer;
+
+    /**
+     * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
+     *
+     * @since 9
+     */
+    expectDataType?: HttpDataType;
+
+    /**
+     * @since 9
+     */
+    usingCache?: boolean; // default is true
+
+    /**
+     * @since 9
+     */
+    priority?: number; // [1, 1000], default is 1.
+
     /**
      * HTTP request header.
      */
     header?: Object; // default is 'content-type': 'application/json'
+
     /**
      * Read timeout period. The default value is 60,000, in ms.
      */
     readTimeout?: number; // default is 60s
+
     /**
      * Connection timeout interval. The default value is 60,000, in ms.
      */
     connectTimeout?: number; // default is 60s.
+
+    /**
+     * @since 9
+     */
+    usingProtocol?: HttpProtocol; // default is automatically specified by the system.
   }
 
   export interface HttpRequest {
@@ -154,23 +180,82 @@ declare namespace http {
     VERSION
   }
 
+  /**
+   * Supported protocols.
+   *
+   * @since 9
+   */
+  export enum HttpProtocol {
+    HTTP1_1,
+    HTTP2,
+  }
+
+  /**
+   * Indicates the type of the returned data.
+   *
+   * @since 9
+   */
+  export enum HttpDataType {
+    STRING,
+    OBJECT = 1,
+    ARRAY_BUFFER = 2,
+  }
+
   export interface HttpResponse {
     /**
      * result can be a string (API 6) or an ArrayBuffer(API 8). Object is deprecated from API 8.
+     * If {@link HttpRequestOptions#expectDataType} is set, the system preferentially returns this parameter.
      */
     result: string | Object | ArrayBuffer;
+
+    /**
+     * If the resultType is string, you can get result directly.
+     * If the resultType is Object, you can get result such as this: result['key'].
+     * If the resultType is ArrayBuffer, you can use ArrayBuffer to create the binary objects.
+     *
+     * @since 9
+     */
+    resultType: HttpDataType;
+
     /**
      * Server status code.
      */
     responseCode: ResponseCode | number;
+
     /**
      * All headers in the response from the server.
      */
     header: Object;
+
     /**
      * @since 8
      */
     cookies: string;
+  }
+
+  /**
+   * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
+   *
+   * @param cacheSize the size of cache, default is 10*1024*1024(10MB).
+   * @since 9
+   */
+  function createHttpResponseCache(cacheSize?: number): HttpResponseCache;
+
+  /**
+   * @since 9
+   */
+  export interface HttpResponseCache {
+    /**
+     * Writes data in the cache to the file system so that all the cached data can be accessed in the next HTTP request.
+     */
+    flush(callback: AsyncCallback<void>): void;
+    flush(): Promise<void>;
+
+    /**
+     * Disables a cache and deletes the data in it.
+     */
+    delete(callback: AsyncCallback<void>): void;
+    delete(): Promise<void>;
   }
 }
 

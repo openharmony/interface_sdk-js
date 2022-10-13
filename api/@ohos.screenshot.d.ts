@@ -27,14 +27,27 @@ declare namespace screenshot {
      * Takes a screenshot and saves it as a PixelMap object.
      * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
      * @permission ohos.permission.CAPTURE_SCREEN
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 401 - If param is invalid
      * @since 7
      */
-    function save(options?: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
+    function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
     /**
      * Takes a screenshot and saves it as a PixelMap object.
      * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
      * @permission ohos.permission.CAPTURE_SCREEN
+     * @throws {BusinessError} 201 - If there is no permission
+     * @since 7
+     */
+    function save(callback: AsyncCallback<image.PixelMap>): void;
+
+    /**
+     * Takes a screenshot and saves it as a PixelMap object.
+     * @param options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+     * @permission ohos.permission.CAPTURE_SCREEN
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 401 - If param is invalid
      * @since 7
      */
     function save(options?: ScreenshotOptions): Promise<image.PixelMap>;

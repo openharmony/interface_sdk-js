@@ -48,6 +48,18 @@ declare namespace connection {
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
+   * Obtains the data network that is activated by default.
+   *
+   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
+   * @return Returns the {@link NetHandle} object;
+   *      returns {@code null} if the default network is not activated.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   */
+  function getDefaultNetSync(): NetHandle;
+
+  /**
    * Obtains the list of data networks that are activated.
    *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
@@ -161,6 +173,17 @@ declare namespace connection {
 
   export interface NetHandle {
     netId: number;
+
+    /**
+     * Binds a TCPSocket or UDPSocket to the current network. All data flows from
+     * the socket will use this network, without being subject to {@link setAppNet}.
+     * Before using this method, ensure that the socket is disconnected.
+     *
+     * @param socketParam Indicates the TCPSocket or UDPSocket object.
+     * @since 9
+     */
+    bindSocket(socketParam: TCPSocket | UDPSocket, callback: AsyncCallback<void>): void;
+    bindSocket(socketParam: TCPSocket | UDPSocket): Promise<void>;
 
     /**
      * Resolves a host name to obtain all IP addresses based on the specified NetHandle.

@@ -24,7 +24,7 @@ import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundle/extensio
 import { PermissionDef as _PermissionDef } from  './bundle/PermissionDef';
 import { ElementName as _ElementName }  from './bundle/elementName';
 import { DispatchInfo as _DispatchInfo } from './bundle/dispatchInfo';
-import Want from './@ohos.application.want';
+import Want from './@ohos.application.Want';
 import image from './@ohos.multimedia.image';
 import pack from './bundle/packInfo';
 import * as _PackInfo from './bundle/packInfo';

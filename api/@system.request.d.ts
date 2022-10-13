@@ -15,12 +15,15 @@
 
 /**
  * @syscap SystemCapability.MiscServices.Upload
+ * @deprecated since 9,
+ * @useinstead ohos.request
  */
 export interface UploadResponse {
   /**
    * Status code returned by the server.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   code: number;
 
@@ -29,6 +32,7 @@ export interface UploadResponse {
    * The value type is determined by the returned content.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   data: string;
 
@@ -36,42 +40,49 @@ export interface UploadResponse {
    * Headers returned by the server.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   headers: Object;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Download
+ * @deprecated since 9
  */
 export interface DownloadResponse {
   /**
    * Download token, which is used to obtain the download status.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   token: string;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Download
+ * @deprecated since 9
  */
 export interface OnDownloadCompleteResponse {
   /**
    * URI of the download file.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   uri: string;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Upload
+ * @deprecated since 9
  */
 export interface RequestFile {
   /**
    * File name in the header when multipart is used.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   filename?: string;
 
@@ -79,6 +90,7 @@ export interface RequestFile {
    * Name of a form item when multipart is used. The default value is file.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   name?: string;
 
@@ -86,6 +98,7 @@ export interface RequestFile {
    * Local storage directory of a file.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   uri: string;
 
@@ -94,18 +107,21 @@ export interface RequestFile {
    * By default, the type is obtained based on the suffix of the file name or URI.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   type?: string;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Upload
+ * @deprecated since 9
  */
 export interface RequestData {
   /**
    * Name of the form element.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   name: string;
 
@@ -113,18 +129,21 @@ export interface RequestData {
    * Value of the form element.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   value: string;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Upload
+ * @deprecated since 9
  */
 export interface UploadRequestOptions {
   /**
    * Resource URL.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   url: string;
 
@@ -132,6 +151,7 @@ export interface UploadRequestOptions {
    * Form data in the request body.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   data?: Array<RequestData>;
 
@@ -139,6 +159,7 @@ export interface UploadRequestOptions {
    * List of files to upload, which is submitted through multipart/form-data.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   files: Array<RequestFile>;
 
@@ -146,6 +167,7 @@ export interface UploadRequestOptions {
    * Request header.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   header?: Object;
 
@@ -153,6 +175,7 @@ export interface UploadRequestOptions {
    * Request methods available: POST and PUT. The default value is POST.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   method?: string;
 
@@ -160,6 +183,7 @@ export interface UploadRequestOptions {
    * Called when the files are uploaded successfully.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   success?: (data: UploadResponse) => void;
 
@@ -167,6 +191,7 @@ export interface UploadRequestOptions {
    * Called when uploading fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: any, code: number) => void;
 
@@ -174,18 +199,21 @@ export interface UploadRequestOptions {
    * Called when the execution is completed.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
+   * @deprecated since 9
    */
   complete?: () => void;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Download
+ * @deprecated since 9
  */
 export interface DownloadRequestOptions {
   /**
    * Resource URL.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   url: string;
 
@@ -194,6 +222,7 @@ export interface DownloadRequestOptions {
    * The value is obtained from the current request or resource URL by default.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   filename?: string;
 
@@ -201,6 +230,7 @@ export interface DownloadRequestOptions {
    * Request header.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   header?: string;
 
@@ -209,6 +239,7 @@ export interface DownloadRequestOptions {
    * The default value is the file name.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   description?: string;
 
@@ -216,6 +247,7 @@ export interface DownloadRequestOptions {
    * Called when the files are successfully downloaded.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   success?: (data: DownloadResponse) => void;
 
@@ -223,6 +255,7 @@ export interface DownloadRequestOptions {
    * Called when downloading fails.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: any, code: number) => void;
 
@@ -230,18 +263,21 @@ export interface DownloadRequestOptions {
    * Called when the execution is completed.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   complete?: () => void;
 }
 
 /**
  * @syscap SystemCapability.MiscServices.Download
+ * @deprecated since 9
  */
 export interface OnDownloadCompleteOptions {
   /**
    * Token of the result returned by the download function.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   token: string;
 
@@ -249,6 +285,7 @@ export interface OnDownloadCompleteOptions {
    * Called when the downloads are successfully obtained
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   success?: (data: OnDownloadCompleteResponse) => void;
 
@@ -256,6 +293,7 @@ export interface OnDownloadCompleteOptions {
    * Called when the downloads fail to be obtained.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: any, code: number) => void;
 
@@ -263,15 +301,20 @@ export interface OnDownloadCompleteOptions {
    * Called when the execution is completed.
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
+   * @deprecated since 9
    */
   complete?: () => void;
 }
 
+/**
+ * @deprecated since 9
+ */
 export default class Request {
   /**
    * Upload files.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Upload
+   * @deprecated since 9
    */
   static upload(options: UploadRequestOptions): void;
 
@@ -279,6 +322,7 @@ export default class Request {
    * This API is used to download files.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Download
+   * @deprecated since 9
    */
   static download(options: DownloadRequestOptions): void;
 
@@ -286,6 +330,7 @@ export default class Request {
    * Listens to download task status.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Download
+   * @deprecated since 9
    */
   static onDownloadComplete(options: OnDownloadCompleteOptions): void;
 }

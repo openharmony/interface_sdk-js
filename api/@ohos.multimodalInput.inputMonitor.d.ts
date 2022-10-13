@@ -44,6 +44,8 @@ declare namespace inputMonitor {
      * @permission ohos.permission.INPUT_MONITORING
      * @param type Event type.
      * @param receiver Callback used to receive the reported data.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     function on(type:"touch", receiver:TouchEventReceiver):void;
 
@@ -55,6 +57,8 @@ declare namespace inputMonitor {
      * @permission ohos.permission.INPUT_MONITORING
      * @param type Event type.
      * @param receiver Callback used to receive the reported data.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     function on(type:"mouse", receiver:Callback<MouseEvent>):void;
 
@@ -66,6 +70,8 @@ declare namespace inputMonitor {
      * @permission ohos.permission.INPUT_MONITORING
      * @param type Event type.
      * @param receiver Callback used to receive the reported data.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     function off(type:"touch", receiver?:TouchEventReceiver):void;
 
@@ -77,6 +83,8 @@ declare namespace inputMonitor {
      * @permission ohos.permission.INPUT_MONITORING
      * @param type Event type.
      * @param receiver Callback used to receive the reported data.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 201 - Permission denied.
      */
     function off(type:"mouse", receiver?:Callback<MouseEvent>):void;
 }

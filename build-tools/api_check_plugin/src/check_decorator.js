@@ -14,8 +14,8 @@
  */
 
 const rules = require("../code_style_rule.json");
-const result = require("../check_result.json");
-const { getAPINote } = require("./utils");
+const { addAPICheckErrorLogs } = require('./compile_info');
+const { getAPINote, error_type } = require("./utils");
 
 // duplicate removal
 const API_ERROR_DECORATOR_POS = new Set([]);
@@ -28,7 +28,6 @@ function checkAPIDecorators(node, sourcefile, fileName) {
 
   const regex = /\*\s*\@[A-Za-z0-9]+\b/g;
   const matchResult = apiNote.match(regex);
-  console.log(matchResult)
   let hasCodeStyleError = false;
   let errorInfo = "";
   if (matchResult) {
@@ -48,21 +47,8 @@ function checkAPIDecorators(node, sourcefile, fileName) {
 
     if (hasCodeStyleError) {
       API_ERROR_DECORATOR_POS.add(node.pos);
-      const checkFailFileNameSet = new Set(result.apiFiles);
-      if (!checkFailFileNameSet.has(fileName)) {
-        result.apiFiles.push(fileName);
-      }
-      const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
-      const errorMessage = {
-        "error_type": "unknow decorator",
-        "file": fileName,
-        "column": posOfNode.character + 1,
-        "line": posOfNode.line + 1,
-        "error_info": errorInfo
-      };
-      const scanResultSet = new Set(result.scanResult);
-      scanResultSet.add(errorMessage);
-      result.scanResult = [...scanResultSet];
+      errorInfo += `.`;
+      addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DECORATOR, errorInfo);
     }
   }
 }

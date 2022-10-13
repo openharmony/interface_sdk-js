@@ -25,6 +25,8 @@ import formInfo from './@ohos.application.formInfo'
  * @since 8
  * @syscap SystemCapability.Ability.Form
  * @systemapi hide for inner use.
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formHost
  */
 declare namespace formHost {
     /**
@@ -281,5 +283,19 @@ declare namespace formHost {
      */
     function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
     function shareForm(formId: string, deviceId: string): Promise<void>;
+
+    /**
+     * notify form that privacy wether need to be protected.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     * @param formIds Indicates the specified form id.
+     * @param isProtected Indicates whether enable update.
+     * @systemapi hide for inner use.
+     * @return -
+     * @permission ohos.permission.REQUIRE_FORM.
+     */
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean, callback: AsyncCallback<void>): void;
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 }
 export default formHost;

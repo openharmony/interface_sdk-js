@@ -16,6 +16,7 @@
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.application.formBindingData";
 import formInfo from "./@ohos.application.formInfo";
+import Want from './@ohos.application.Want';
 
 /**
  * interface of formProvider.
@@ -23,6 +24,8 @@ import formInfo from "./@ohos.application.formInfo";
  * @name formProvider
  * @since 8
  * @syscap SystemCapability.Ability.Form
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formProvider
  */
 declare namespace formProvider {
     /**

@@ -72,6 +72,24 @@ declare namespace audio {
    */
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
+ /**
+  * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
+  * @param options Tone playing attribute.
+  * @return Promise used to return the tone player instance.
+  * @since 9
+  * @syscap SystemCapability.Multimedia.Audio.Tone
+  */
+   function createTonePlayer(options: AudioRendererInfo, callback: AsyncCallback<TonePlayer>): void;
+
+   /**
+    * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
+    * @param options Tone playing attribute.
+    * @return Promise used to return the tone player instance.
+    * @since 9
+    * @syscap SystemCapability.Multimedia.Audio.Tone
+    */
+   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
+
   /**
    * Enumerates the audio states.
    * @since 8
@@ -575,6 +593,12 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
     STREAM_USAGE_VOICE_COMMUNICATION = 2,
+    /**
+     * Voice assistant broadcast usage.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
      * Notification or ringtone usage.
      * @since 7
@@ -1521,6 +1545,31 @@ declare namespace audio {
      * @systemapi
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Select the input device. This method uses an asynchronous callback to return the result.
+     * @param inputAudioDevices Audio device description
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectInputDevice(inputAudioDevices: AudioDeviceDescriptors, callback: AsyncCallback<void>): void;
+    /**
+     * Select the input device. This method uses a promise to return the result.
+     * @param inputAudioDevices Audio device description
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     */
+    selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Listens for system microphone state change events. This method uses a callback to get microphone change events.
+     * @param callback Callback used to get the system microphone state change event.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
   }
 
   /**
@@ -2080,6 +2129,19 @@ declare namespace audio {
   }
 
   /**
+   * Describes the microphone state change event received by the app when the microphone state is changed.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   */
+   interface MicStateChangeEvent {
+    /**
+     * Mic mute state.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    mute: boolean;
+  }
+  /**
    * Describes the device change type and device information.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -2372,6 +2434,12 @@ declare namespace audio {
      */
     SOURCE_TYPE_MIC = 0,
     /**
+     * Voice recognition source type.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     */
+     SOURCE_TYPE_VOICE_RECOGNITION = 1,
+    /**
      * Voice communication source type.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2599,6 +2667,239 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+  }
+  enum ToneType {
+    /**
+     * Dial tone for key 0.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_0 = 0,
+    /**
+     * Dial tone for key 1.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_1 = 1,
+    /**
+     * Dial tone for key 2.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_2 = 2,
+    /**
+     * Dial tone for key 3.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_3 = 3,
+    /**
+     * Dial tone for key 4.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_4 = 4,
+    /**
+     * Dial tone for key 5.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_5 = 5,
+    /**
+     * Dial tone for key 6.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_6 = 6,
+    /**
+     * Dial tone for key 7.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_7 = 7,
+    /**
+     * Dial tone for key 8.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_8 = 8,
+    /**
+     * Dial tone for key 9.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_9 = 9,
+    /**
+     * Dial tone for key *.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_S = 10,
+    /**
+     * Dial tone for key #.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_P = 11,
+    /**
+     * Dial tone for key A.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_A = 12,
+    /**
+     * Dial tone for key B.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_B = 13,
+    /**
+     * Dial tone for key C.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_C = 14,
+    /**
+     * Dial tone for key D.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_DIAL_D = 15,
+    /**
+     * Supervisory tone for dial.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_DIAL = 100,
+    /**
+     * Supervisory tone for busy.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_BUSY = 101,
+    /**
+     * Supervisory tone for dial.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_CONGESTION = 102,
+    /**
+     * Supervisory tone for radio path acknowlegment.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_ACK = 103,
+    /**
+     * Supervisory tone for radio path not available.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RADIO_NOT_AVAILABLE = 104,
+    /**
+     * Supervisory tone for call waiting.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_CALL_WAITING = 106,
+    /**
+     * Supervisory tone for ringtone.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_SUPERVISORY_RINGTONE = 107,
+    /**
+     * Proprietary tone for beep.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
+    /**
+     * Proprietary tone for positive acknowlegment.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_ACK = 201,
+    /**
+     * Proprietary tone for prompt.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_PROMPT = 203,
+    /**
+     * Proprietary tone for double beep.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    TONE_TYPE_COMMON_PROPRIETARY_DOUBLE_BEEP = 204,
+  }
+
+  /**
+   * Provides APIs for tone playing.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Audio.Tone
+   */
+  interface TonePlayer {
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param type Tone type to play.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType, callback: AsyncCallback<void>): void;
+    /**
+     * Starts tplayerone. This method uses a promise to return the result.
+     * @param type Tone type to play.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    load(type: ToneType): Promise<void>;
+
+    /**
+     * Starts player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(callback: AsyncCallback<void>): void;
+    /**
+     * Starts player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    start(): Promise<void>;
+
+    /**
+     * Stops player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(callback: AsyncCallback<void>): void;
+    /**
+     * Stops player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    stop(): Promise<void>;
+
+    /**
+     * Releases the player. This method uses an asynchronous callback to return the result.
+     * @param callback Callback used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(callback: AsyncCallback<void>): void;
+    /**
+     * Releases the player. This method uses a promise to return the result.
+     * @return Promise used to return the result.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Audio.Tone
+     */
+    release(): Promise<void>;
   }
 }
 

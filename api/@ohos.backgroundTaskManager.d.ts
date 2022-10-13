@@ -111,7 +111,7 @@ declare namespace backgroundTaskManager {
       * Reset all efficiency resources apply.
       *
       * @since 9
-      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply.
+      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
       * @systemapi Hide this for inner system use.
       */
      function resetAllEfficiencyResources(): void;
@@ -203,7 +203,7 @@ declare namespace backgroundTaskManager {
      * The type of resource.
      *
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      */
      export enum ResourceType {
@@ -248,7 +248,7 @@ declare namespace backgroundTaskManager {
      *
      * @name EfficiencyResourcesRequest
      * @since 9
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      */
     export interface EfficiencyResourcesRequest {

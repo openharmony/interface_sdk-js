@@ -22,18 +22,12 @@ import { IsoDepTag as _IsoDepTag,
          MifareClassicTag as _MifareClassicTag,
          MifareUltralightTag as _MifareUltralightTag,
          NdefFormatableTag as _NdefFormatableTag} from './tag/nfctech';
-import { NdefRecord as _NdefRecord,
-         TnfType as _TnfType,
-         RtdType as _RtdType,
-         NdefMessage as _NdefMessage,
-         NfcForumType as _NfcForumType,
-         MifareClassicType as _MifareClassicType,
-         MifareTagSize as _MifareTagSize,
-         MifareUltralightType as _MifareUltralightType } from './tag/nfctech';
+import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
 import { PacMap } from "./ability/dataAbilityHelper";
 import rpc from "./@ohos.rpc";
 import { AsyncCallback, Callback } from './basic';
+import Want from './@ohos.application.Want';
 
 /**
  * Provides methods to operate or manage NFC tag.
@@ -44,22 +38,22 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.Communication.NFC.Core
  */
 declare namespace tag {
-  /** Indicates a NFC-A tag. */
+  /** Indicates an NFC-A tag. */
   const NFC_A = 1;
 
-  /** Indicates a NFC-B tag. */
+  /** Indicates an NFC-B tag. */
   const NFC_B = 2;
 
-  /** Indicates a ISO-DEP tag. */
+  /** Indicates an ISO-DEP tag. */
   const ISO_DEP = 3;
 
-  /** Indicates a NFC-F tag. */
+  /** Indicates an NFC-F tag. */
   const NFC_F = 4;
 
-  /** Indicates a NFC-V tag. */
+  /** Indicates an NFC-V tag. */
   const NFC_V = 5;
 
-  /** Indicates a NDEF tag. */
+  /** Indicates an NDEF tag. */
   const NDEF = 6;
 
   /** Indicates a MifareClassic tag. */
@@ -69,11 +63,134 @@ declare namespace tag {
   const MIFARE_ULTRALIGHT = 9;
 
   /**
-   * Indicates a NdefFormatable tag.
+   * Indicates an NdefFormatable tag.
    *
    * @since 9
    */
   const NDEF_FORMATABLE = 10;
+
+  /**
+   * TNF types definitions, see NFCForum-TS-NDEF_1.0.
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+   enum TnfType {
+    /** Empty */
+    TNF_EMPTY = 0x0,
+
+    /** NFC Forum well-known type [NFC RTD] */
+    TNF_WELL_KNOWN = 0x1,
+
+    /** Media-type as defined in RFC 2046 [RFC 2046] */
+    TNF_MEDIA = 0x2,
+
+    /** Absolute URI as defined in RFC 3986 [RFC 3986] */
+    TNF_ABSOLUTE_URI = 0x3,
+
+    /** NFC Forum external type [NFC RTD] */
+    TNF_EXT_APP = 0x4,
+
+    /** Unknown */
+    TNF_UNKNOWN = 0x5,
+
+    /** Unchanged (see section 2.3.3) */
+    TNF_UNCHANGED = 0x6,
+  }
+
+  /**
+   * NfcForum Type definition. The Ndef tag may use one of them.
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+  enum NfcForumType {
+    /** NFC FORUM TYPE 1 */
+    NFC_FORUM_TYPE_1 = 1,
+
+    /** NFC FORUM TYPE 2 */
+    NFC_FORUM_TYPE_2 = 2,
+
+    /** NFC FORUM TYPE 3 */
+    NFC_FORUM_TYPE_3 = 3,
+
+    /** NFC FORUM TYPE 4 */
+    NFC_FORUM_TYPE_4 = 4,
+
+    /** Mifare Classic */
+    MIFARE_CLASSIC = 101,
+  }
+
+  /**
+   * RTD type TEXT, see NFC Record Type Definition (RTD) Specification.
+   *
+   * @since 9
+   */
+  const RTD_TEXT: number[];
+
+  /**
+   * RTD type URI, see NFC Record Type Definition (RTD) Specification.
+   *
+   * @since 9
+   */
+  const RTD_URI: number[];
+
+  /**
+   * MifareClassic Type definition
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+  enum MifareClassicType {
+    /** Mifare Type unknown */
+    TYPE_UNKNOWN = 0,
+
+    /** Mifare Classic */
+    TYPE_CLASSIC = 1,
+
+    /** Mifare Plus */
+    TYPE_PLUS = 2,
+
+    /** Mifare Pro */
+    TYPE_PRO = 3,
+  }
+
+  /**
+   * MifareClassic Tag size.
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+  enum MifareClassicSize {
+    /** 5 sectors per tag, 4 blocks per sector */
+    MC_SIZE_MINI = 320,
+
+    /** 16 sectors per tag, 4 blocks per sector */
+    MC_SIZE_1K = 1024,
+
+    /** 32 sectors per tag, 4 blocks per sector */
+    MC_SIZE_2K = 2048,
+
+    /** 40 sectors per tag, 4 blocks per sector */
+    MC_SIZE_4K = 4096,
+  }
+
+  /**
+   * MifareUltralight Type definition
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+  enum MifareUltralightType {
+    /** Mifare Type unknown */
+    TYPE_UNKNOWN = 0,
+
+    /** Mifare Ultralight */
+    TYPE_ULTRALIGHT = 1,
+
+    /** Mifare UltralightC */
+    TYPE_ULTRALIGHT_C = 2
+  }
 
   /**
    * Obtains an {@link NfcATag} object based on the tag information.
@@ -193,6 +310,17 @@ declare namespace tag {
   function getNdefFormatableTag(tagInfo: TagInfo): NdefFormatableTag
 
   /**
+   * Parse a {@link TagInfo} object from Want.
+   *
+   * @param want The want object that contains the values of TagInfo.
+   * @return The TagInfo object that's parsed.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function getTagInfo(want: Want): TagInfo
+
+  /**
    * Provides tag information.
    *
    * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
@@ -208,7 +336,7 @@ declare namespace tag {
     *
     * @since 9
     */
-    uid: string;
+    uid: number[];
 
    /**
     * The supported technology list of this tag.
@@ -250,6 +378,26 @@ declare namespace tag {
     supportedProfiles: number[];
   }
 
+  /**
+   * NDEF records definition, see NFCForum-TS-NDEF_1.0.
+   *
+   * @since 9
+   * @syscap SystemCapability.Communication.NFC.Core
+   */
+  export interface NdefRecord {
+    /** tnf of NdefRecord */
+    tnf: number;
+
+    /** RTD type of NdefRecord */
+    rtdType: number[];
+
+    /** id of NdefRecord */
+    id: number[];
+
+    /** payload of NdefRecord */
+    payload: number[];
+  }
+
   export type NfcATag = _NfcATag
   export type NfcBTag = _NfcBTag
   export type NfcFTag = _NfcFTag
@@ -259,14 +407,7 @@ declare namespace tag {
   export type MifareClassicTag = _MifareClassicTag
   export type MifareUltralightTag = _MifareUltralightTag
   export type NdefFormatableTag = _NdefFormatableTag
-  export type NdefRecord = _NdefRecord
-  export type TnfType = _TnfType
-  export type RtdType = _RtdType
   export type NdefMessage = _NdefMessage
-  export type NfcForumType = _NfcForumType
-  export type MifareClassicType = _MifareClassicType
-  export type MifareTagSize = _MifareTagSize
-  export type MifareUltralightType = _MifareUltralightType
   export type TagSession = _TagSession
 }
 export default tag;

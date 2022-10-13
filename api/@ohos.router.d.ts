@@ -14,8 +14,10 @@
  */
 
 import {Callback} from './basic';
+import { AsyncCallback } from './basic';
 
 /**
+ * @namespace router
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  * @import router from '@ohos.router';
@@ -24,6 +26,7 @@ declare namespace router {
 
   /**
    * Router Mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   export enum RouterMode {
@@ -41,6 +44,8 @@ declare namespace router {
   }
 
   /**
+   * @typedef RouterOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 8
    */
   interface RouterOptions {
@@ -53,6 +58,7 @@ declare namespace router {
      *      pages/detail/detail
      * 2. Particular path. If the URI is a slash (/), the home page is displayed.
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @type {string}
      * @since 8
      */
     url: string;
@@ -62,12 +68,15 @@ declare namespace router {
      * After the destination page is displayed, the parameter can be directly used for the page.
      * For example, this.data1 (data1 is the key value of the params used for page navigation.)
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
+     * @type {Object}
      * @since 8
      */
     params?: Object;
   }
 
   /**
+   * @typedef RouterState
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface RouterState {
@@ -75,30 +84,36 @@ declare namespace router {
     /**
      * Index of the current page in the stack.
      * NOTE: The index starts from 1 from the bottom to the top of the stack.
+     * @type {number}
      * @since 8
      */
     index: number;
 
     /**
      * Name of the current page, that is, the file name.
+     * @type {string}
      * @since 8
      */
     name: string;
 
     /**
      * Path of the current page.
+     * @type {string}
      * @since 8
      */
     path: string;
   }
 
   /**
+   * @typedef EnableAlertOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   interface EnableAlertOptions {
 
     /**
      * dialog context.
+     * @type {string}
      * @since 8
      */
     message: string;
@@ -106,77 +121,190 @@ declare namespace router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param options Options.
+   * @param { RouterOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.router.router#pushUrl
    */
   function push(options: RouterOptions):void;
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param options Options.
-   * @param mode RouterMode
+   * @param { RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  function push(options: RouterOptions, mode: RouterMode):void;
+  function pushUrl(options: RouterOptions, callback: AsyncCallback<void>):void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  function pushUrl(options: RouterOptions): Promise<void>;
+
+   /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>):void;
+
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   * @param options Options.
+   * @param { RouterOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.router.router#replaceUrl
    */
   function replace(options: RouterOptions):void;
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   * @param options Options.
-   * @param mode RouterMode
+   * @param { RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 9
    */
-  function replace(options: RouterOptions, mode: RouterMode):void;
+  function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>):void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
+   */
+  function replaceUrl(options: RouterOptions): Promise<void>;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
+   */
+  function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>):void;
+
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { RouterOptions } options - Options.
+   * @param { RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not greater than or equal to 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
+   */
+  function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
    * Returns to the previous page or a specified page.
-   * @param options Options.
+   * @param { RouterOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function back(options?: RouterOptions):void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function clear():void;
 
   /**
    * Obtains the number of pages in the current stack.
-   * @returns Number of pages in the stack. The maximum value is 32.
+   * @returns { string } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function getLength():string;
 
   /**
    * Obtains information about the current page state.
-   * @returns Page state.
+   * @returns { RouterState }Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function getState():RouterState;
 
   /**
    * Pop up dialog to ask whether to back
-   * @param options Options.
+   * @param { EnableAlertOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.router.router#enableBackPageAlert
    */
   function enableAlertBeforeBackPage(options: EnableAlertOptions):void;
 
   /**
+   * Pop up dialog to ask whether to back
+   * @param { EnableAlertOptions } options - Options.
+   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  function enableBackPageAlert(options: EnableAlertOptions):void;
+
+  /**
    * cancel enableAlertBeforeBackPage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function disableAlertBeforeBackPage():void;
 
   /**
    * Obtains information about the current page params.
-   * @returns Page params.
+   * @returns { Object }Page params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   function getParams(): Object;

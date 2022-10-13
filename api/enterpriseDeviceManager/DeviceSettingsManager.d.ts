@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from "./../basic";
-import Want from "./../@ohos.application.want";
+import Want from "./../@ohos.application.Want";
 
 /**
  * @name Offers set settings policies on the devices.
@@ -24,14 +24,20 @@ import Want from "./../@ohos.application.want";
 export interface DeviceSettingsManager {
 
   /**
-   * Sets the system time.This function can be called by a super administrator.
-   *
-   * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @param admin Indicates the administrator ability information.
-   * @param time Target time stamp (ms)
-   * @return {@code true} if success.
+   * Sets the system time.
+   * This function can be called by a super administrator.
    * @permission ohos.permission.EDM_MANAGE_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } time - time indicates rhe target time stamp (ms).
+   * @returns { Promise<void> } the promise returned by the setDateTime.
+   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator applicayion does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
    */
   setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
   setDateTime(admin: Want, time: number): Promise<void>;

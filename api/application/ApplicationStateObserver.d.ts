@@ -69,6 +69,17 @@ export default class ApplicationStateObserver {
      * @return -
      */
     onProcessDied(processData: ProcessData): void;
+
+    /**
+     * Called when process state changes.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param processData Process info.
+     * @systemapi hide for inner use.
+     * @return -
+     */
+    onProcessStateChanged(processData: ProcessData): void;
 }
 
 /**

@@ -700,23 +700,27 @@ declare enum RepeatMode {
 /**
  * enum Blur style
  * @since 9
+ * @systemapi
  */
  declare enum BlurStyle {
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Thin,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Regular,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Thick,
 }
@@ -1130,6 +1134,12 @@ declare interface PopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
@@ -1184,6 +1194,12 @@ declare interface CustomPopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
@@ -1292,6 +1308,7 @@ declare class CommonMethod<T> {
    * Background blur style.
    * blurStyle:Blur style type.
    * @since 9
+   * @systemapi
    */
    backgroundBlurStyle(value: BlurStyle): T;
   
@@ -1999,6 +2016,82 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 }
 
 /**
+ * Sub component border info.
+ * @since 9
+ */
+declare interface LayoutBorderInfo {
+  borderWidth: number,
+  margin: Margin,
+  padding: Padding,
+}
+
+/**
+ * Sub component position info.
+ * @since 9
+ */
+declare interface LayoutPosition {
+  x: number,
+  y: number,
+}
+
+/**
+ * Sub component layout info.
+ * @since 9
+ */
+declare interface LayoutInfo {
+  position: LayoutPosition,
+  constraint: ConstraintSizeOptions,
+}
+
+/**
+ * Sub component info passed from framework when layout and measure happens.
+ * @since 9
+ */
+declare interface LayoutChild {
+  /**
+   * Sub component name.
+   * @since 9
+   */
+  name: string,
+
+  /**
+   * Sub component id.
+   * @since 9
+   */
+  id: string,
+
+  /**
+   * Sub component constraint.
+   * @since 9
+   */
+  constraint: ConstraintSizeOptions,
+
+  /**
+   * Sub component border info.
+   * @since 9
+   */
+  borderInfo: LayoutBorderInfo,
+
+  /**
+   * Sub component position.
+   * @since 9
+   */
+  position: LayoutPosition,
+
+  /**
+   * Call this measure method in onMeasure callback to supply sub component size.
+   * @since 9
+   */
+  measure(childConstraint: ConstraintSizeOptions),
+
+  /**
+   * Call this layout method in onLayout callback to assign layout info to sub component.
+   * @since 9
+   */
+  layout(childLayoutInfo: LayoutInfo)
+}
+
+/**
  * Custom Component
  * @since 7
  */
@@ -2025,6 +2118,18 @@ declare class CustomComponent extends CommonAttribute {
    * @since 7
    */
   aboutToDisappear?(): void;
+
+  /**
+   * Custom component override this method to layout each of its sub components.
+   * @since 9
+   */
+  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
+   * Custom component override this method to measure each of its sub components.
+   * @since 9
+   */
+  onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
   /**
    * onPageShow Method

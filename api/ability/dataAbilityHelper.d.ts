@@ -14,7 +14,7 @@
 */
 
 import { AsyncCallback } from '../basic';
-import ResultSet from '../data/rdb/resultSet';
+import { ResultSet } from '../data/rdb/resultSet';
 import { DataAbilityOperation } from './dataAbilityOperation';
 import { DataAbilityResult } from './dataAbilityResult';
 import dataAbility from '../@ohos.data.dataAbility';

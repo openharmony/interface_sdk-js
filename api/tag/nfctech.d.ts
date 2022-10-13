@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import tag from '../@ohos.nfc.tag';
 import { TagSession } from './tagSession';
 import { AsyncCallback, Callback } from '../basic';
 
@@ -152,7 +153,7 @@ export interface IsoDepTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getHistoricalBytes(): string;
+  getHistoricalBytes(): number[];
 
  /**
   * Get HiLayerResponse bytes of the tag.
@@ -160,7 +161,7 @@ export interface IsoDepTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getHiLayerResponse(): string;
+  getHiLayerResponse(): number[];
 
  /**
   * Check if externded apdu length supported or not.
@@ -172,69 +173,6 @@ export interface IsoDepTag extends TagSession {
   isExtendedApduSupported(callback: AsyncCallback<boolean>): void;
 }
 
-/**
- * NDEF records definition, see NFCForum-TS-NDEF_1.0.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export interface NdefRecord {
-  /** tnf of NdefRecord */
-  tnf: number;
-
-   /** RTD type of NdefRecord */
-  rtdType: string;
-
-   /** id of NdefRecord */
-  id: string;
-
-   /** payload of NdefRecord */
-  payload: string;
-}
-
-/**
- * TNF types definitions, see NFCForum-TS-NDEF_1.0.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum TnfType {
-  /** Empty */
-  TNF_EMPTY = 0x0,
-
-  /** NFC Forum well-known type [NFC RTD] */
-  TNF_WELL_KNOWN = 0x1,
-
-  /** Media-type as defined in RFC 2046 [RFC 2046] */
-  TNF_MEDIA = 0x2,
-
-  /** Absolute URI as defined in RFC 3986 [RFC 3986] */
-  TNF_ABSOLUTE_URI = 0x3,
-
-  /** NFC Forum external type [NFC RTD] */
-  TNF_EXT_APP = 0x4,
-
-  /** Unknown */
-  TNF_UNKNOWN = 0x5,
-
-  /** Unchanged (see section 2.3.3) */
-  TNF_UNCHANGED = 0x6,
-}
-
-/**
- * RTD types definitions, see NFC Record Type Definition (RTD) Specification.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export interface RtdType {
-  /** RTD type text */
-  RTD_TEXT: 'T';
-
-  /** RTD type URI */
-  RTD_URI: 'U';
-}
-
 export interface NdefMessage {
  /**
   * Get all records of a ndef message.
@@ -242,7 +180,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getNdefRecords(): NdefRecord[];
+  getNdefRecords(): tag.NdefRecord[];
 
  /**
   * Create a ndef record with uri data.
@@ -251,7 +189,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeUriRecord(uri: string): NdefRecord;
+  makeUriRecord(uri: string): tag.NdefRecord;
 
  /**
   * Create a ndef record with text data.
@@ -261,7 +199,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeTextRecord(text: string, locale: string): NdefRecord;
+  makeTextRecord(text: string, locale: string): tag.NdefRecord;
 
  /**
   * Create a ndef record with mime data.
@@ -271,7 +209,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeMimeRecord(mimeType: string, mimeData: string): NdefRecord;
+  makeMimeRecord(mimeType: string, mimeData: number[]): tag.NdefRecord;
 
  /**
   * Create a ndef record with external data.
@@ -282,7 +220,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  makeExternalRecord(domainName: string, serviceName: string, externalData: string): NdefRecord;
+  makeExternalRecord(domainName: string, serviceName: string, externalData: number[]): tag.NdefRecord;
 
  /**
   * Parse a ndef message into raw bytes.
@@ -291,30 +229,7 @@ export interface NdefMessage {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  messageToString(ndefMessage: NdefMessage): string;
-}
-
-/**
- * NfcForum Type definition. The Ndef tag may use one of them.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export enum NfcForumType {
-  /** NFC FORUM TYPE 1 */
-  NFC_FORUM_TYPE_1 = 1,
-
-  /** NFC FORUM TYPE 2 */
-  NFC_FORUM_TYPE_2 = 2,
-
-  /** NFC FORUM TYPE 3 */
-  NFC_FORUM_TYPE_3 = 3,
-
-  /** NFC FORUM TYPE 4 */
-  NFC_FORUM_TYPE_4 = 4,
-
-  /** Mifare Classic */
-  MIFARE_CLASSIC = 101,
+  messageToBytes(ndefMessage: NdefMessage): number[];
 }
 
 /**
@@ -331,7 +246,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  createNdefMessage(data: string): NdefMessage;
+  createNdefMessage(data: number[]): NdefMessage;
 
  /**
   * Create a ndef message with record list.
@@ -340,7 +255,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
+  createNdefMessage(ndefRecords: tag.NdefRecord[]): NdefMessage;
 
  /**
   * Get the type of the Ndef tag.
@@ -348,7 +263,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getNdefTagType(): NfcForumType;
+  getNdefTagType(): tag.NfcForumType;
 
  /**
   * Get the ndef message that was read from ndef tag when tag discovery.
@@ -392,8 +307,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  canSetReadOnly(): Promise<boolean>;
-  canSetReadOnly(callback: AsyncCallback<boolean>): void;
+  canSetReadOnly(): boolean;
 
  /**
   * Set ndef tag read-only
@@ -411,47 +325,7 @@ export interface NdefTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getNdefTagTypeString(type: NfcForumType): string;
-}
-
-/**
- * MifareClassic Type definition
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum MifareClassicType {
-  /** Mifare Type unknown */
-  TYPE_UNKNOWN = -1,
-
-  /** Mifare Classic */
-  TYPE_CLASSIC = 0,
-
-  /** Mifare Plus */
-  TYPE_PLUS = 1,
-
-  /** Mifare Pro */
-  TYPE_PRO = 2,
-}
-
-/**
- * MifareClassic Tag size.
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
-export enum MifareTagSize {
-  /** 5 sectors per tag, 4 blocks per sector */
-  MC_SIZE_MINI = 320,
-
-  /** 16 sectors per tag, 4 blocks per sector */
-  MC_SIZE_1K = 1024,
-
-  /** 32 sectors per tag, 4 blocks per sector */
-  MC_SIZE_2K = 2048,
-
-  /** 40 sectors per tag, 4 blocks per sector */
-  MC_SIZE_4K = 4096,
+  getNdefTagTypeString(type: tag.NfcForumType): string;
 }
 
 /**
@@ -480,8 +354,8 @@ export interface MifareClassicTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  readSingleBlock(blockIndex: number): Promise<string>;
-  readSingleBlock(blockIndex: number, callback: AsyncCallback<string>): void;
+  readSingleBlock(blockIndex: number): Promise<number[]>;
+  readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void;
 
  /**
   * Write a block, one block size is 16 bytes.
@@ -491,8 +365,8 @@ export interface MifareClassicTag extends TagSession {
   * @since 9
   * @permission ohos.pemission.NFC_TAG
   */
-  writeSingleBlock(blockIndex: number, data: string): Promise<number>;
-  writeSingleBlock(blockIndex: number, data: string, callback: AsyncCallback<number>): void;
+  writeSingleBlock(blockIndex: number, data: number[]): Promise<number>;
+  writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<number>): void;
 
  /**
   * Increment a value block
@@ -559,7 +433,7 @@ export interface MifareClassicTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getType(): MifareClassicType;
+  getType(): tag.MifareClassicType;
 
  /**
   * Get size of the tag in bytes, see {@code MifareTagSize}.
@@ -597,23 +471,6 @@ export interface MifareClassicTag extends TagSession {
 }
 
 /**
- * MifareUltralight Type definition
- *
- * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
- */
- export enum MifareUltralightType {
-  /** Mifare Type unknown */
-  TYPE_UNKOWN = -1,
-
-  /** Mifare Ultralight */
-  TYPE_ULTRALIGHT = 1,
-
-  /** Mifare UltralightC */
-  TYPE_ULTRALIGHT_C = 2
-}
-
-/**
  * Provides methods for accessing MifareUltralight tag.
  *
  * @since 9
@@ -627,8 +484,8 @@ export interface MifareUltralightTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  readMultiplePages(pageIndex: number): Promise<string>;
-  readMultiplePages(pageIndex: number, callback: AsyncCallback<string>): void;
+  readMultiplePages(pageIndex: number): Promise<number[]>;
+  readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void;
 
  /**
   * Write a page, total 4 bytes.
@@ -638,8 +495,8 @@ export interface MifareUltralightTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  writeSinglePages(pageIndex: number, data: string): Promise<number>;
-  writeSinglePages(pageIndex: number, data: string, callback: AsyncCallback<number>): void;
+  writeSinglePages(pageIndex: number, data: number[]): Promise<number>;
+  writeSinglePages(pageIndex: number, data: number[], callback: AsyncCallback<number>): void;
 
   /**
   * Get the type of the MifareUltralight tag in bytes.
@@ -647,7 +504,7 @@ export interface MifareUltralightTag extends TagSession {
   * @since 9
   * @permission ohos.permission.NFC_TAG
   */
-  getType(): MifareUltralightType;
+  getType(): tag.MifareUltralightType;
 }
 
 /**

@@ -18,12 +18,14 @@
  *
  * @since 9
  * @syscap SystemCapability.FileManagement.UserFileService
+ * @systemapi
  */
 declare namespace fileExtensionInfo {
     /**
      * DeviceType Indicates the type of device connected to the fileaccess server.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
      * @StageModelOnly
      */
     enum DeviceType {
@@ -40,24 +42,26 @@ declare namespace fileExtensionInfo {
      * Indicates the supported capabilities of the device.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
      * @StageModelOnly
      */
     namespace DeviceFlag {
-        const SUPPORTS_READ = 1;
-        const SUPPORTS_WRITE = 1 << 1;
+        const SUPPORTS_READ = 0b1;
+        const SUPPORTS_WRITE = 0b10;
     }
 
     /**
      * Indicate the supported capabilities of the file or directory.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
      * @StageModelOnly
      */
     namespace DocumentFlag {
-        const REPRESENTS_FILE = 1;
-        const REPRESENTS_DIR = 1 << 1;
-        const SUPPORTS_READ = 1 << 2;
-        const SUPPORTS_WRITE = 1 << 3;
+        const REPRESENTS_FILE = 0b1;
+        const REPRESENTS_DIR = 0b10;
+        const SUPPORTS_READ = 0b100;
+        const SUPPORTS_WRITE = 0b1000;
     }
 }
 

@@ -495,5 +495,27 @@ declare namespace formInfo {
          */
         Dimension_2_1,
     }
+    /**
+     * The visibility of a form.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.Form
+     */
+    interface VisibilityType {
+        /**
+         * Indicates the type of the form is visible.
+         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * changing to visible.
+         * @since 9
+         */
+        FORM_VISIBLE: number,
+        /**
+         * Indicates the type of the form is invisible.
+         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * changing to invisible.
+         * @since 9
+         */
+        FORM_INVISIBLE: number
+    }
 }
 export default formInfo;

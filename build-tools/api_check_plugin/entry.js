@@ -14,28 +14,24 @@
  */
 
 const path = require("path");
+const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "API CHECK FAILED!";
+  __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   try {
-    __dirname = "../../interface/sdk-js/build-tools/api_check_plugin";
     const execSync = require("child_process").execSync;
-    execSync("cd ../../interface/sdk-js/build-tools/api_check_plugin && npm install");
+    execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result = scanEntry(url);
+    const content = fs.readFileSync(path.resolve(__dirname, "./Result.txt"), "utf-8");
+    result += `mdFilePath = ${url}, content = ${content}`
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
+    result = `CATCHERROR : ${error}`;
   }
-  return result;
+  writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
-
-// function checkEntryLocalText(url) {
-//   let execSync = require("child_process").execSync;
-//   execSync("npm install");
-//   const { test } = require("./src/api_check_plugin");
-//   console.log("entry", test(url))
-// }
-
-// checkEntryLocalText("XXXX")
+checkEntry(process.argv[2]);

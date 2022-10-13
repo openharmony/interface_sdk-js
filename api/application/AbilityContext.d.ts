@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/ets/state_management.d.ts"/>
+/// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
 import { AbilityInfo } from "../bundle/abilityInfo";
 import { AbilityResult } from "../ability/abilityResult";

@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import { Want } from './ability/want';
+import Want  from './@ohos.application.Want';
 import Context from './application/Context';
-import Filter from '@ohos.fileio'
+import { Filter } from './@ohos.fileio';
 
 /**
  * This module provides the capability to access user public files.
@@ -36,7 +36,7 @@ declare namespace fileAccess {
      */
     function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
     function getFileAccessAbilityInfo(): Promise<Array<Want>>;
-	
+
     /**
      * Obtains the fileAccessHelper that connects all fileaccess servers in the system.
      * @since 9
@@ -61,7 +61,7 @@ declare namespace fileAccess {
      * @return Returns the fileAccessHelper.
      */
     function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
-	
+
     /**
      * File Object
      * @since 9
@@ -74,7 +74,7 @@ declare namespace fileAccess {
      * @param mode Indicates the mode of the file.
      * @param size Indicates the size of the file.
      * @param mtime Indicates the mtime of the file.
-     * @param mimetype Indicates the mimetype of the file.
+     * @param mimeType Indicates the mimeType of the file.
      */
     interface FileInfo {
         /**
@@ -106,7 +106,7 @@ declare namespace fileAccess {
          * @type {string}
          * @readonly
          */
-        mimetype: string;
+        mimeType: string;
 
         /**
          * List files in the current directory.
@@ -132,7 +132,7 @@ declare namespace fileAccess {
          */
         scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * FileIterator Object
      * @since 9
@@ -199,7 +199,7 @@ declare namespace fileAccess {
          */
         scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * RootIterator Object
      * @since 9
@@ -217,6 +217,7 @@ declare namespace fileAccess {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
+     * @systemapi
      */
     enum OPENFLAGS {
         /** file is openFile only_read */
@@ -244,7 +245,7 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the path of the file to open. 
+         * @param uri Indicates the path of the file to open.
          * @param flags Indicate options of opening a file. The default value is read-only.
          * @return Returns the file descriptor.
          */
@@ -306,8 +307,8 @@ declare namespace fileAccess {
          * @param destFile Represents the destonation folder.
          * @return Returns the generated new file or directory.
          */
-        move(sourceFile: FileInfo, destFile: FileInfo) : Promise<FileInfo>;
-        move(sourceFile: FileInfo, destFile: FileInfo, callback: AsyncCallback<FileInfo>) : void;
+        move(sourceFile: string, destFile: string) : Promise<string>;
+        move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
 
         /**
          * Rename the selected file or directory.
