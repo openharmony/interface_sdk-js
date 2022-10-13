@@ -32,7 +32,7 @@ declare class PlainArray<T> {
    * @param key Added the key of key-value
    * @param value Added the value of key-value
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -56,7 +56,7 @@ declare class PlainArray<T> {
    * @param key need to determine whether to include the key
    * @return the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -66,7 +66,7 @@ declare class PlainArray<T> {
    * @param key Looking for goals
    * @return the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -76,7 +76,7 @@ declare class PlainArray<T> {
    * @param key Looking for goals
    * @return Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -103,7 +103,7 @@ declare class PlainArray<T> {
    * @param index Target subscript for search
    * @return the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -113,7 +113,7 @@ declare class PlainArray<T> {
    * @param key  Target to be deleted
    * @return Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be number. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -123,7 +123,7 @@ declare class PlainArray<T> {
    * @param index  Target subscript for search
    * @return the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -134,8 +134,8 @@ declare class PlainArray<T> {
    * @param size Expected deletion quantity
    * @return Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -145,8 +145,8 @@ declare class PlainArray<T> {
    * @param index Target subscript for search
    * @param value Updated the target mapped value
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -163,8 +163,8 @@ declare class PlainArray<T> {
    * @param index Target subscript for search
    * @return the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -172,7 +172,7 @@ declare class PlainArray<T> {
   /**
    * Executes a provided function once for each value in the PlainArray object.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

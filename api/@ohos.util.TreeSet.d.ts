@@ -20,7 +20,7 @@ declare class TreeSet<T> {
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next element
    * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
-   * @throws { BusinessError } 401 - The type of "comparator" must be callable. Received value is: [comparator]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -52,7 +52,7 @@ declare class TreeSet<T> {
    * If the set does not contain the element, the specified element is added
    * @param value Added element
    * @returns the boolean type(Is there contain this element)
-   * @throws { BusinessError } 401 - The type of "value" must be not null. Received value is: [value]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -96,7 +96,7 @@ declare class TreeSet<T> {
    * @param key Objective of comparison
    * @return key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be not null. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -107,7 +107,7 @@ declare class TreeSet<T> {
    * @param key Objective of comparison
    * @return key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be not null. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -131,7 +131,7 @@ declare class TreeSet<T> {
   /**
    * Executes a provided function once for each value in the Set object.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

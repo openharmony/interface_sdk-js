@@ -41,8 +41,8 @@ declare class List<T> {
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -53,7 +53,7 @@ declare class List<T> {
    * @param index specified position
    * @return the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -83,8 +83,8 @@ declare class List<T> {
    * @return the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -134,8 +134,8 @@ declare class List<T> {
    * @param index index to find
    * @return the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -160,7 +160,7 @@ declare class List<T> {
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -174,7 +174,7 @@ declare class List<T> {
    * minus firstValue, it returns an list sorted in descending order;
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next elements
-   * @throws { BusinessError } 401 - The type of "comparator" must be callable. Received value is: [comparator]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -193,10 +193,8 @@ declare class List<T> {
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
-   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
-   * @throws { BusinessError } 401 - The type of "fromIndex" must be number. Received value is: [fromIndex]
-   * @throws { BusinessError } 401 - The type of "toIndex" must be number. Received value is: [toIndex]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -211,7 +209,7 @@ declare class List<T> {
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

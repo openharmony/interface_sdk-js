@@ -12,7 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// @deprecated since 9
+
+/**
+ * @syscap SystemCapability.Utils.Lang
+ * @since 8
+ * @deprecated since 9
+ */
 declare class Vector<T> {
   /**
    * A constructor used to create a Vector object.

@@ -42,9 +42,9 @@ declare class ArrayList<T> {
    * any subsequent elements to the right (adds one to their index).
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,9 +73,9 @@ declare class ArrayList<T> {
    * delete the element, and move the index of all elements to the right of the element forward by one.
    * @param index the index in the arraylist
    * @return the T type ,returns undefined if arraylist is empty,If the index is
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -105,11 +105,9 @@ declare class ArrayList<T> {
    * Removes from this arraylist all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
-   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
-   * @throws { BusinessError } 401 - The type of "fromIndex" must be number. Received value is: [fromIndex]
-   * @throws { BusinessError } 401 - The type of "toIndex" must be number. Received value is: [toIndex]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -124,7 +122,7 @@ declare class ArrayList<T> {
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -140,7 +138,7 @@ declare class ArrayList<T> {
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -156,7 +154,7 @@ declare class ArrayList<T> {
    * @param secondValue (Optional) next elements
    * If this parameter is empty, it will default to ASCII sorting
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "comparator" must be callable. Received value is: [comparator]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -165,11 +163,10 @@ declare class ArrayList<T> {
    * Returns a view of the portion of this arraylist between the specified fromIndex,inclusize,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "fromIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [fromIndex]
-   * @throws { BusinessError } 10200001 - The value of "toIndex" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [toIndex]
-   * @throws { BusinessError } 401 - The type of "fromIndex" must be number. Received value is: [fromIndex]
-   * @throws { BusinessError } 401 - The type of "toIndex" must be number. Received value is: [toIndex]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -218,7 +215,7 @@ declare class ArrayList<T> {
    * If the newCapacity provided by the user is greater than or equal to length,
    * change the capacity of the arraylist to newCapacity, otherwise the capacity will not be changed
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "newCapacity" must be number. Received value is: [newCapacity]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

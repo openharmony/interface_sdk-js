@@ -41,7 +41,7 @@ declare class LightWeightSet<T> {
    * @param set the Set object to provide the added element
    * @returns the boolean type(Is there any new data added successfully)
    * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "set" must be LightWeightSet. Received value is: [set]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -51,7 +51,7 @@ declare class LightWeightSet<T> {
    * @param set the Set object to compare
    * @return the boolean type
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "set" must be LightWeightSet. Received value is: [set]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -79,8 +79,8 @@ declare class LightWeightSet<T> {
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "minimumCapacity" must be number. Received value is: [minimumCapacity]
-   * @throws { BusinessError } 10200001 - The value of "minimumCapacity" is out of range. It must be > [currentCapacity]. Received value is: [minimumCapacity]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -108,7 +108,7 @@ declare class LightWeightSet<T> {
    * @param index  Target subscript for search
    * @return the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -125,7 +125,7 @@ declare class LightWeightSet<T> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -156,7 +156,7 @@ declare class LightWeightSet<T> {
    * @param index Target subscript for search
    * @return the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

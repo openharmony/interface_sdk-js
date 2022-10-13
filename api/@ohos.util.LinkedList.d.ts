@@ -41,8 +41,8 @@ declare class LinkedList<T> {
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -53,7 +53,7 @@ declare class LinkedList<T> {
    * @param index specified position
    * @return the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -70,7 +70,7 @@ declare class LinkedList<T> {
    * Retrieves and removes the head (first element) of this linkedlist.
    * @return the head of this list
    * @throws { BusinessError } 10200011 - The removeFirst method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is Empty.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -79,7 +79,7 @@ declare class LinkedList<T> {
    * Removes and returns the last element from this linkedlist.
    * @return the head of this list
    * @throws { BusinessError } 10200011 - The removeLast method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is Empty.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -109,8 +109,8 @@ declare class LinkedList<T> {
    * @return the T type ,returns undefined if linkedlist is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -133,7 +133,7 @@ declare class LinkedList<T> {
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The removeFirstFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is Empty.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -145,7 +145,7 @@ declare class LinkedList<T> {
    * @param element element to remove
    * @return the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The removeLastFound method cannot be bound.
-   * @throws { BusinessError } 10200010 - Container is Empty.
+   * @throws { BusinessError } 10200010 - Container is empty.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -184,8 +184,8 @@ declare class LinkedList<T> {
    * @param index index to find
    * @return the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -200,7 +200,7 @@ declare class LinkedList<T> {
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

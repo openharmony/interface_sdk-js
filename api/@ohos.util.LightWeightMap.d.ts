@@ -31,7 +31,7 @@ declare class LightWeightMap<K, V> {
    * Returns whether this map has all the object in a specified map
    * @param map the Map object to compare
    * @return the boolean type
-   * @throws { BusinessError } 401 - The type of "map" must be LightWeightMap. Received value is: [map]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -60,7 +60,7 @@ declare class LightWeightMap<K, V> {
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "minimumCapacity" must be number. Received value is: [minimumCapacity]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -112,8 +112,8 @@ declare class LightWeightMap<K, V> {
    * @param index Target subscript for search
    * @return the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -129,7 +129,7 @@ declare class LightWeightMap<K, V> {
    * Adds all element groups in one map to another map
    * @param map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "map" must be LightWeightMap. Received value is: [map]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -158,7 +158,7 @@ declare class LightWeightMap<K, V> {
    * @param index  Target subscript for search
    * @return the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -177,8 +177,8 @@ declare class LightWeightMap<K, V> {
    * @param value Updated the target mapped value
    * @return the boolean type(Is there a value corresponding to the subscript)
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -187,7 +187,7 @@ declare class LightWeightMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -212,8 +212,8 @@ declare class LightWeightMap<K, V> {
    * @param index Target subscript for search
    * @return the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The value of "index" is out of range. It must be >= 0 && <= [this.length - 1]. Received value is: [index]
-   * @throws { BusinessError } 401 - The type of "index" must be number. Received value is: [index]
+   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

@@ -40,7 +40,7 @@ declare class HashSet<T> {
    * @param value need to determine whether to include the element
    * @return the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "value" must be not null. Received value is: [value]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -50,7 +50,7 @@ declare class HashSet<T> {
    * @param value Added element
    * @returns the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "value" must be not null. Received value is: [value]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -60,7 +60,7 @@ declare class HashSet<T> {
    * @param value  Target to be deleted
    * @return the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "value" must be not null. Received value is: [value]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -75,7 +75,7 @@ declare class HashSet<T> {
   /**
    * Executes a provided function once for each value in the Set object.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

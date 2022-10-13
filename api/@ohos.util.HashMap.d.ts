@@ -66,7 +66,7 @@ declare class HashMap<K, V> {
    * Adds all element groups in one map to another map
    * @param map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "map" must be HashMap. Received value is: [map]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -77,7 +77,7 @@ declare class HashMap<K, V> {
    * @param value Added or updated value
    * @returns the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "key" must be not null. Received value is: [key]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -126,7 +126,7 @@ declare class HashMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - The type of "callbackfn" must be callable. Received value is: [callbackfn]
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
