@@ -162,7 +162,7 @@ declare namespace usageStatistics {
         /**
          * the form usage record list of current module.
          */
-        formRecords: Array<HapModuleInfo>;
+        formRecords: Array<HapFormInfo>;
     }
 
     /**
@@ -614,8 +614,8 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
      * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
      */
-    function queryDeviceEventStates(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
-    function queryDeviceEventStates(begin: number, end: number): Promise<Array<DeviceEventStats>>;
+    function queryDeviceEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
+    function queryDeviceEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
 
     /**
      * Queries app notification number within a specified period identified by the start and end time.

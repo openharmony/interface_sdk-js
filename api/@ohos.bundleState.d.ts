@@ -542,7 +542,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryDeviceEventStates
+     * @useinstead @ohos.resourceschedule.usageStatistics.queryDeviceEventStats
      */
     function queryBundleActiveEventStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
     function queryBundleActiveEventStates(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
