@@ -30,6 +30,8 @@ declare namespace distributedDataObject {
      * @param source Init data of distributed object
      * @return Returns the distributed object
      * @since 8
+     * @deprecated since 9
+     * @useinstead create
      */
     function createDistributedObject(source: object): DistributedObject;
 
@@ -92,8 +94,10 @@ declare namespace distributedDataObject {
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
+     * @deprecated since 9
      */
     interface DistributedObject {
+        
         /*
          * Change object session
          *
@@ -101,6 +105,7 @@ declare namespace distributedDataObject {
          * @return Operation result, true is success, false is failed
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @since 8
+         * @deprecated since 9
          */
         setSessionId(sessionId?: string): boolean;
 
@@ -109,6 +114,7 @@ declare namespace distributedDataObject {
          *
          * @param callback The callback of change
          * @since 8
+         * @deprecated since 9
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -117,6 +123,7 @@ declare namespace distributedDataObject {
          *
          * @param callback If not null, off the callback, if undefined, off all callbacks
          * @since 8
+         * @deprecated since 9
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -129,6 +136,7 @@ declare namespace distributedDataObject {
          *                 status: 'online' The object became online on the device and data can be synced to the device
          *                         'offline' The object became offline on the device and the object can not sync any data
          * @since 8
+         * @deprecated since 9
          */
         on(type: 'status', callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
 
@@ -137,6 +145,7 @@ declare namespace distributedDataObject {
          *
          * @param callback If not null, off the callback, if undefined, off all callbacks
          * @since 8
+         * @deprecated since 9
          */
         off(type: 'status', callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
     }
