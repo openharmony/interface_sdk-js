@@ -180,6 +180,7 @@ declare namespace distributedDataObject {
 
         /**
          * On watch of change
+         * 
          * @param { string } type - event type, fixed as' change ', indicates data change. 
          * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback 
          *          callback indicates the observer of object data changed. 
@@ -190,6 +191,7 @@ declare namespace distributedDataObject {
 
         /**
          * Off watch of change
+         * 
          * @param { string } type - event type, fixed as' change ', indicates data change. 
          * @param { Callback<{ sessionId: string, fields: Array<string> }> }callback 
          *          callback indicates the observer of object data changed.
@@ -201,6 +203,7 @@ declare namespace distributedDataObject {
 
         /**
          * On watch of status
+         * 
          * @param { string } type - event type, fixed as' status', indicates the online and offline of the object.
          * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
          *          callback indicates the observer of object status changed.
@@ -216,6 +219,7 @@ declare namespace distributedDataObject {
 
         /**
          * Off watch of status
+         * 
          * @param { string } type - event type, fixed as' status', indicates the online and offline of the object.
          * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
          *          callback Indicates the observer of object status changed.
@@ -233,6 +237,7 @@ declare namespace distributedDataObject {
          * 1. saved after 24h
          * 2. app uninstalled
          * 3. after resume data success, system will auto delete the saved data
+         * 
          * @param { string } deviceId - Indicates the device that will resume the object data.
          * @param { AsyncCallback<SaveSuccessResponse> } callback - Indicates the callback function.
          * @throws { BusinessError } 401 - the parameter check failed.
@@ -248,6 +253,7 @@ declare namespace distributedDataObject {
          * 1. saved after 24h
          * 2. app uninstalled
          * 3. after resume data success, system will auto delete the saved data
+         * 
          * @param { string } deviceId - Indicates the device that will resume the object data.
          * @returns { Promise<SaveSuccessResponse> } - the response of revokeSave success.
          * @throws { BusinessError } 401 - the parameter check failed.
@@ -258,6 +264,7 @@ declare namespace distributedDataObject {
         /**
          * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
          * if object is saved in other device, it will delete data in local device.
+         * 
          * @param { AsyncCallback<RevokeSaveSuccessResponse> } callback - Indicates the callback function.
          * @throws { BusinessError } 401 - the parameter check failed.
          * @since 9
@@ -267,6 +274,7 @@ declare namespace distributedDataObject {
         /**
          * Revoke save object, delete saved object immediately, if object is saved in local device, it will delete saved data on all trusted device
          * if object is saved in other device, it will delete data in local device.
+         * 
          * @returns { Promise<RevokeSaveSuccessResponse> } the response of revokeSave success.
          * @throws { BusinessError } 401 - the parameter check failed.
          * @since 9
