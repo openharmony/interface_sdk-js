@@ -157,7 +157,8 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 9
          */
-        query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>): void;
+        query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>,
+              callback: AsyncCallback<DataShareResultSet>): void;
 
         /**
          * Queries data in the database.
@@ -173,7 +174,8 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 9
          */
-        query(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>): Promise<DataShareResultSet>;
+        query(uri: string, predicates: dataSharePredicates.DataSharePredicates,
+              columns: Array<string>): Promise<DataShareResultSet>;
 
         /**
          * Updates data records in the database.
@@ -188,7 +190,8 @@ declare namespace dataShare {
          * @StageModelOnly
          * @since 9
          */
-        update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket, callback: AsyncCallback<number>): void;
+        update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket,
+               callback: AsyncCallback<number>): void;
 
         /**
          * Updates data records in the database.
