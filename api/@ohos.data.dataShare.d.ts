@@ -47,7 +47,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the file to open.
      * @returns { Promise<DataShareHelper> } the dataShareHelper.
      * @throws { BusinessError } 401 - the parameter check failed.
-     * @throws { BusinessError } 15700010 - the parameter check failed.
+     * @throws { BusinessError } 15700010 - the DataShareHelper is not initialized successfully.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @StageModelOnly
