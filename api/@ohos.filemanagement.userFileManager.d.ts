@@ -740,7 +740,6 @@ declare namespace userFileManager {
     * @param uri Uri of asset
     * @param callback No value returned
     * @throws {BusinessError} 13900020 - if type uri is not string
-    * @systemapi
     */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
