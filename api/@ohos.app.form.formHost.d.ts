@@ -490,13 +490,50 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID.
      * @param { string } deviceId - Indicates the remote device ID.
      * @param { AsyncCallback<void> } callback - The callback of shareForm.
-     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
      */
     function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Share form by formId and deviceId.
+     * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } formId - Indicates the form ID.
+     * @param { string } deviceId - Indicates the remote device ID.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
     function shareForm(formId: string, deviceId: string): Promise<void>;
+
+    /**
+     * Notify form that privacy whether to be protected.
+     * @permission ohos.permission.REQUIRE_FORM.
+     * @param { Array<string> } formIds - Indicates the specified form id.
+     * @param { boolean } isProtected - Indicates whether to be protected.
+     * @param { AsyncCallback<void> } callback - The callback of notifyFormsPrivacyProtected.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notify form that privacy whether to be protected.
+     * @permission ohos.permission.REQUIRE_FORM.
+     * @param { Array<string> } formIds - Indicates the specified form id.
+     * @param { boolean } isProtected - Indicates whether to be protected.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 }
 export default formHost;
