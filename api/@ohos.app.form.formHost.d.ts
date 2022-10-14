@@ -137,13 +137,13 @@ declare namespace formHost {
      * Converts a specified temporary form that has been obtained by the application into a normal form.
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the temporary form to convert.
-     * @param { AsyncCallback<void> } callback - The callback of castTempForm.
+     * @param { AsyncCallback<void> } callback - The callback of castToNormalForm.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
      */
-    function castTempForm(formId: string, callback: AsyncCallback<void>): void;
+    function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Converts a specified temporary form that has been obtained by the application into a normal form.
@@ -155,7 +155,7 @@ declare namespace formHost {
      * @systemapi
      * @since 9
      */
-    function castTempForm(formId: string): Promise<void>;
+    function castToNormalForm(formId: string): Promise<void>;
 
     /**
      * Sends a notification to the form framework to make the specified forms visible.

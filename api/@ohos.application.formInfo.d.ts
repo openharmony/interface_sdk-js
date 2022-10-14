@@ -190,7 +190,15 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        JS = 1
+        JS = 1,
+
+        /**
+         * eTS form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        eTS = 2
     }
 
     /**

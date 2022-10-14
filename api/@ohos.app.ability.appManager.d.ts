@@ -61,6 +61,7 @@ declare namespace appManager {
     /**
      * Register application state observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { string } type - applicationState.
      * @param { ApplicationStateObserver } observer - The application state observer.
      * @return { number } Returns the number code of the observer.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -68,11 +69,12 @@ declare namespace appManager {
      * @systemapi
      * @since 9
      */
-    function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
+    function on(type: "applicationState", observer: ApplicationStateObserver): number;
 
     /**
      * Register application state observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { string } type - applicationState.
      * @param { ApplicationStateObserver } observer - The application state observer.
      * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
      * @return { number } Returns the number code of the observer.
@@ -81,23 +83,25 @@ declare namespace appManager {
      * @systemapi
      * @since 9
      */
-    function registerApplicationStateObserver(observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+    function on(type: "applicationState", observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
     /**
      * Unregister application state observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { string } type - applicationState.
      * @param { number } observerId - Indicates the number code of the observer.
-     * @param { AsyncCallback<void> } callback - The callback of unregisterApplicationStateObserver.
+     * @param { AsyncCallback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @since 9
      */
-    function unregisterApplicationStateObserver(observerId: number, callback: AsyncCallback<void>): void;
+    function off(type: "applicationState", observerId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Unregister application state observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { string } type - applicationState.
      * @param { number } observerId - Indicates the number code of the observer.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -105,7 +109,7 @@ declare namespace appManager {
      * @systemapi
      * @since 9
      */
-    function unregisterApplicationStateObserver(observerId: number): Promise<void>;
+    function off(type: "applicationState", observerId: number): Promise<void>;
 
     /**
      * getForegroundApplications.
