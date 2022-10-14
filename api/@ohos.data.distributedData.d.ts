@@ -20,6 +20,8 @@ import { AsyncCallback, Callback } from './basic';
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @import N/A
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.data.kvStore
  */
 declare namespace distributedData {
     /**
@@ -28,6 +30,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.kvStore.KVManagerConfig
      */
     interface KVManagerConfig {
         /**
