@@ -50,7 +50,7 @@ declare namespace continuationManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param type deviceUnselected.
-     * @return callback Indicates the ID of the disconnected devices.
+     * @return callback Indicates the information about the unselected devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 16600001 - The system ability work abnormally.
