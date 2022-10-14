@@ -350,6 +350,7 @@ declare namespace distributedDataObject {
          * Revoke save object, delete saved object immediately, if object is saved in local device,
          * it will delete saved data on all trusted device.
          * if object is saved in other device, it will delete data in local device.
+         * 
          * @returns {Promise<RevokeSaveSuccessResponse>} {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
