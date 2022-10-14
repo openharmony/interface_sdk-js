@@ -361,7 +361,7 @@ declare namespace reminderAgentManager {
     snoozeContent?: string;
 
     /**
-     * notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
+     * Notification id. If there are reminders with the same ID, the later one will overwrite the earlier one.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
@@ -413,7 +413,7 @@ declare namespace reminderAgentManager {
     hour: number;
 
     /**
-     * minute portion of the reminder time.
+     * Minute portion of the reminder time.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
@@ -439,42 +439,42 @@ declare namespace reminderAgentManager {
 
   interface LocalDateTime {
     /**
-     * value of year.
+     * Value of year.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     year: number;
 
     /**
-     * value of month.
+     * Value of month.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     month: number;
 
     /**
-     * value of day.
+     * Value of day.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     day: number;
 
     /**
-     * value of hour.
+     * Value of hour.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     hour: number;
 
     /**
-     * value of minute.
+     * Value of minute.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
     minute: number;
 
     /**
-     * value of second.
+     * Value of second.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */
