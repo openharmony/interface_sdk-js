@@ -204,7 +204,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S0 = 0,
+        S0 = 1,
 
         /**
          * S1: mains the db is low level security
@@ -213,7 +213,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S1 = 1,
+        S1 = 2,
 
         /**
          * S2: mains the db is middle level security
@@ -222,7 +222,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S2 = 2,
+        S2 = 3,
 
         /**
          * S3: mains the db is high level security
@@ -231,7 +231,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S3 = 3,
+        S3 = 5,
 
         /**
          * S4: mains the db is critical level security
@@ -240,7 +240,7 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S4 = 4,
+        S4 = 6,
     }
 
     /**
