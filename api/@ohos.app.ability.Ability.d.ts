@@ -14,7 +14,7 @@
  */
 
 import AbilityConstant from "./@ohos.application.AbilityConstant";
-import AbilityContext from "./@ohos.app.ability.AbilityContext";
+import AbilityContext from "./application/AbilityContext";
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
 import { Configuration } from './@ohos.application.Configuration';

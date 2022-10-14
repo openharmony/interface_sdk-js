@@ -13,15 +13,15 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
-import { ApplicationInfo } from './bundle/applicationInfo';
-import { ProcessInfo } from './app/processInfo';
-import { ElementName } from './bundle/elementName';
-import BaseContext from './application/BaseContext';
-import { HapModuleInfo } from './bundle/hapModuleInfo';
-import { AppVersionInfo } from './app/appVersionInfo';
-import { AbilityInfo } from './bundle/abilityInfo';
-import bundle from './@ohos.bundle';
+import { AsyncCallback } from '../basic';
+import { ApplicationInfo } from '../bundle/applicationInfo';
+import { ProcessInfo } from './processInfo';
+import { ElementName } from '../bundle/elementName';
+import BaseContext from '../application/BaseContext';
+import { HapModuleInfo } from '../bundle/hapModuleInfo';
+import { AppVersionInfo } from './appVersionInfo';
+import { AbilityInfo } from '../bundle/abilityInfo';
+import bundle from '../@ohos.bundle';
 
 /**
  * The context of an ability or an application.  It allows access to
