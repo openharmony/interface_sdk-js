@@ -59,7 +59,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
-    function on(type: "deviceUnselected", token: number, callback: Callback<Array<string>>): void;
+    function on(type: "deviceUnselected", token: number, callback: Callback<Array<ContinuationResult>>): void;
     function off(type: "deviceUnselected", token: number): void;
 
     /**
