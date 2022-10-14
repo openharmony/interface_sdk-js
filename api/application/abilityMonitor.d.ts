@@ -34,12 +34,20 @@ export interface AbilityMonitor {
     abilityName: string;
 
     /**
+     * The name of the module to monitor.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     */
+    moduleName: string;
+
+    /**
      * Called back when the ability is started for initialization.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onAbilityCreate?:(data: Ability) => void;
+    onAbilityCreate?:(ability: Ability) => void;
 
     /**
      * Called back when the state of the ability changes to foreground.
@@ -47,7 +55,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onAbilityForeground?:(data: Ability) => void;
+    onAbilityForeground?:(ability: Ability) => void;
 
     /**
      * Called back when the state of the ability changes to background.
@@ -55,7 +63,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onAbilityBackground?:(data: Ability) => void;
+    onAbilityBackground?:(ability: Ability) => void;
 
     /**
      * Called back before the ability is destroyed.
@@ -63,7 +71,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onAbilityDestroy?:(data: Ability) => void;
+    onAbilityDestroy?:(ability: Ability) => void;
 
     /**
      * Called back when an ability window stage is created.
@@ -71,7 +79,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onWindowStageCreate?:(data: Ability) => void;
+    onWindowStageCreate?:(ability: Ability) => void;
 
     /**
      * Called back when an ability window stage is restored.
@@ -79,7 +87,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onWindowStageRestore?:(data: Ability) => void;
+    onWindowStageRestore?:(ability: Ability) => void;
 
     /**
      * Called back when an ability window stage is destroyed.
@@ -87,7 +95,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    onWindowStageDestroy?:(data: Ability) => void;
+    onWindowStageDestroy?:(ability: Ability) => void;
 }
 
 export default AbilityMonitor;

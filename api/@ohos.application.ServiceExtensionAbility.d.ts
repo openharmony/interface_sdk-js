@@ -133,6 +133,6 @@ export default class ServiceExtensionAbility {
      * @return The dump info array.
      * @StageModelOnly
      */
-    dump(params: Array<string>): Array<string>;
+    onDump(params: Array<string>): Array<string>;
 }
 

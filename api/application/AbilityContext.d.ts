@@ -104,6 +104,7 @@ export default class AbilityContext extends Context {
      * @returns { Promise<Caller> } Returns the Caller interface.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
      * @stagemodelonly
      * @since 9
      */
@@ -387,11 +388,10 @@ export default class AbilityContext extends Context {
      * @returns { number } Returns the number code of the ability connected
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    connectAbility(want: Want, options: ConnectOptions): number;
+    connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
@@ -406,7 +406,7 @@ export default class AbilityContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+    connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * The callback interface was connect successfully.
@@ -414,11 +414,10 @@ export default class AbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
+    disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
     /**
      * The callback interface was connect successfully.
@@ -426,11 +425,10 @@ export default class AbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    disconnectAbility(connection: number): Promise<void>;
+    disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
     /**
      * Set mission label of current ability.

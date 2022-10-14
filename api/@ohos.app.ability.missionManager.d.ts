@@ -30,33 +30,36 @@ import StartOptions from "./@ohos.application.StartOptions";
 declare namespace missionManager {
     /**
      * Register the missionListener to ams.
+     * @param { string } type - mission.
      * @param { MissionListener } listener - Indicates the MissionListener to be registered.
      * @returns { number } Returns the index number of the MissionListener.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
-    function registerMissionListener(listener: MissionListener): number;
+    function on(type: "mission", listener: MissionListener): number;
 
     /**
      * Unrgister the missionListener to ams.
+     * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
-     * @param { AsyncCallback<void> } callback - The callback of unregisterMissionListener.
+     * @param { AsyncCallback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
-    function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
+    function off(type: "mission", listenerId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Unrgister the missionListener to ams.
+     * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @since 9
      */
-    function unregisterMissionListener(listenerId: number): Promise<void>;
+    function off(type: "mission", listenerId: number): Promise<void>;
 
     /**
      * Get the missionInfo with the given missionId.

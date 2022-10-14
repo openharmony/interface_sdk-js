@@ -17,6 +17,7 @@ import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.application.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
+import { ProcessRunningInformation } from "./ProcessRunningInformation";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -27,6 +28,7 @@ import EnvironmentCallback from "../@ohos.application.EnvironmentCallback";
 export default class ApplicationContext extends Context {
     /**
      * Register ability lifecycle callback.
+     * @param { string } type - abilityLifecycle.
      * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
      * @returns { number } Returns the number code of the callback.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -34,21 +36,23 @@ export default class ApplicationContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    registerAbilityLifecycleCallback(callback: AbilityLifecycleCallback): number;
+    on(type: "abilityLifecycle", callback: AbilityLifecycleCallback): number;
 
     /**
      * Unregister ability lifecycle callback.
+     * @param { string } type - abilityLifecycle.
      * @param { number } callbackId - Indicates the number code of the callback.
-     * @param { AsyncCallback<void> } callback - The callback of unregisterAbilityLifecycleCallback.
+     * @param { AsyncCallback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 9
      */
-    unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+    off(type: "abilityLifecycle", callbackId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Unregister ability lifecycle callback.
+     * @param { string } type - abilityLifecycle.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -56,10 +60,11 @@ export default class ApplicationContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+    off(type: "abilityLifecycle", callbackId: number): Promise<void>;
 
     /**
      * Register environment callback.
+     * @param { string } type - environment.
      * @param { EnvironmentCallback } callback - The environment callback.
      * @returns { number } Returns the number code of the callback.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -67,10 +72,11 @@ export default class ApplicationContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    registerEnvironmentCallback(callback: EnvironmentCallback): number;
+    on(type: "environment", callback: EnvironmentCallback): number;
 
     /**
      * Unregister environment callback.
+     * @param { string } type - environment.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -78,10 +84,11 @@ export default class ApplicationContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    unregisterEnvironmentCallback(callbackId: number, callback: AsyncCallback<void>): void;
+    off(type: "environment", callbackId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Unregister environment callback.
+     * @param { string } type - environment.
      * @param { number } callbackId - Indicates the number code of the callback.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -89,5 +96,45 @@ export default class ApplicationContext extends Context {
      * @stagemodelonly
      * @since 9
      */
-    unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+    off(type: "environment", callbackId: number): Promise<void>;
+
+    /**
+     * Get information about running processes
+     * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+
+    /**
+     * Get information about running processes
+     * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+
+    /**
+     * Kill processes by self
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    killProcessesBySelf(): Promise<void>;
+
+    /**
+     * Kill processes by self
+     * @param { AsyncCallback<void> } callback - The callback of killProcessesBySelf.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    killProcessesBySelf(callback: AsyncCallback<void>);
 }

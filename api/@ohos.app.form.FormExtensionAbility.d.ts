@@ -26,7 +26,7 @@ import { Configuration } from './@ohos.application.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @StageModelOnly
  */
-export default class FormExtension {
+export default class FormExtensionAbility {
     /**
      * Indicates form extension context.
      *
@@ -48,7 +48,7 @@ export default class FormExtension {
      * @return Returns the created {@link formBindingData#FormBindingData} object.
      * @StageModelOnly
      */
-    onCreate(want: Want): formBindingData.FormBindingData;
+    onAddForm(want: Want): formBindingData.FormBindingData;
 
     /**
      * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
@@ -59,7 +59,7 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onCastToNormal(formId: string): void;
+    onCastToNormalForm(formId: string): void;
 
     /**
      * Called to notify the form provider to update a specified form.
@@ -70,7 +70,7 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onUpdate(formId: string): void;
+    onUpdateForm(formId: string): void;
 
     /**
      * Called when the form provider receives form events from the system.
@@ -85,7 +85,7 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onVisibilityChange(newStatus: { [key: string]: number }): void;
+    onChangeFormVisibility(newStatus: { [key: string]: number }): void;
 
     /**
      * Called when a specified message event defined by the form provider is triggered. This method is valid only for
@@ -100,7 +100,7 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onEvent(formId: string, message: string): void;
+    onFormEvent(formId: string, message: string): void;
 
     /**
      * Called to notify the form provider that a specified form has been destroyed. Override this method if
@@ -112,7 +112,7 @@ export default class FormExtension {
      * @return -
      * @StageModelOnly
      */
-    onDestroy(formId: string): void;
+    onRemoveForm(formId: string): void;
 
     /**
      * Called when the system configuration is updated.
@@ -150,5 +150,5 @@ export default class FormExtension {
      * @return Returns the wantParams object.
      * @StageModelOnly
      */
-    onShare?(formId: string): {[key: string]: any};
+    onFormToBeShared?(formId: string): {[key: string]: any};
 }

@@ -244,11 +244,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { number } Returns the connection id.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    connectAbility(want: Want, options: ConnectOptions): number;
+    connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
 
     /**
      * Connects an ability to a Service extension with account.
@@ -265,7 +264,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @stagemodelonly
      * @since 9
      */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+    connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
      * Disconnects an ability to a service extension, in contrast to {@link connectAbility}.
@@ -273,11 +272,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
+    disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
     /**
      * Disconnects an ability to a service extension, in contrast to {@link connectAbility}.
@@ -285,11 +283,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    disconnectAbility(connection: number): Promise<void>;
+    disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
     /**
      * Get the caller object of the startup capability

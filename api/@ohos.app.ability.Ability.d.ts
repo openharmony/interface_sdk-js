@@ -84,13 +84,35 @@ export interface Caller {
 
     /**
      * Register death listener notification callback.
+     * @param { string } type - release.
      * @param { OnReleaseCallBack } callback - Register a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9
      */
-    onRelease(callback: OnReleaseCallBack): void;
+    on(type: "release", callback: OnReleaseCallBack): void;
+
+    /**
+     * Unregister death listener notification callback.
+     * @param { string } type - release.
+     * @param { OnReleaseCallBack } callback - Unregister a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @since 9
+     */
+    off(type: "release", callback: OnReleaseCallBack): void;
+
+    /**
+     * Unregister all death listener notification callback.
+     * @param { string } type - release.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @since 9
+     */
+    off(type: "release"): void;
 }
 
 /**
@@ -265,7 +287,7 @@ export default class Ability {
      * @stagemodelonly
      * @since 9
      */
-    dump(params: Array<string>): Array<string>;
+    onDump(params: Array<string>): Array<string>;
 
     /**
      * Called when the system has determined to trim the memory, for example, when the ability is running in the
