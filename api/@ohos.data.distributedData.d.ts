@@ -14,10 +14,6 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { ValuesBucket } from './@ohos.data.ValuesBucket';
-import dataSharePredicates from './@ohos.data.dataSharePredicates';
-import DataShareResultSet from './@ohos.data.DataShareResultSet';
-import Context from './application/Context';
 
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
@@ -50,15 +46,6 @@ declare namespace distributedData {
          * @import N/A
          */
         bundleName: string;
-
-        /**
-         * Indicates the ability or hap context
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
-         * @Note: if swap the area, you should close all the KV store and use the new Context to create the KVManager
-         */
-        context: Context;
     }
 
     /**
@@ -1125,21 +1112,6 @@ declare namespace distributedData {
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
-         /**
-         * Writes a value of the valuesbucket type into the {@code KvStore} database.
-         * 
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @systemapi
-         * @param value Indicates the data record to put.
-         * Spaces before and after the key will be cleared.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
-         * {@code DB_ERROR}.
-         */
-        putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
-        putBatch(value: Array<ValuesBucket>): Promise<void>;
-
         /**
          * Deletes the key-value pair based on a specified key.
          *
@@ -1153,50 +1125,6 @@ declare namespace distributedData {
          */
         delete(key: string, callback: AsyncCallback<void>): void;
         delete(key: string): Promise<void>;
-
-         /**
-         * Deletes the key-value pair based on a specified key.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @systemapi
-         * @param predicates Indicates the datasharePredicates.
-         * Spaces before and after the key will be cleared.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
-         * {@code DB_ERROR}.
-         */
-        delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
-        delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
-        
-        /**
-         * Backs up a database in a specified name.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param file Indicates the name that saves the database backup.
-         */
-        backup(file:string, callback: AsyncCallback<void>):void;
-        backup(file:string): Promise<void>;
-
-        /**
-         * Restores a database from a specified database file.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param file Indicates the name that saves the database file.
-         */
-        restore(file:string, callback: AsyncCallback<void>):void;
-        restore(file:string): Promise<void>;
-
-        /**
-         * Delete a backup files based on a specified name.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param files list Indicates the name that backup file to delete.
-         */
-        deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
-        deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
 
         /**
          * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
@@ -1234,17 +1162,6 @@ declare namespace distributedData {
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          */
         off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
-
-        /**
-         * UnRegister Synchronizes {@code KvStore} database callback.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param syncCallback Indicates the callback used to send the synchronization result to caller.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
 
         /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
@@ -1416,21 +1333,6 @@ declare namespace distributedData {
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
         /**
-         * Obtains the KvStoreResultSet object matching the specified Predicate object.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @systemapi
-         * @param predicates Indicates the datasharePredicates.
-         * Spaces before and after the key will be cleared.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
-         * {@code DB_ERROR}.
-         */
-        getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
-        getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
-
-        /**
          * Closes a {@code KvStoreResultSet} object returned by getResultSet.
          * 
          * @since 8
@@ -1483,35 +1385,6 @@ declare namespace distributedData {
          sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void
 
         /**
-         * Synchronizes the database to the specified devices with the specified delay allowed.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIds Indicates the list of devices to which to synchronize the database.
-         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * @param query Indicates the {@code Query} object. 
-         * @throws Throws this exception if any of the following errors
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * occurs: {@code INVALID_ARGUMENT}, 
-         * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         */
-         sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
-	 
-        /**
-         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
-         * {@code KvStoreObserver} will be invoked.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param listener Indicates the observer of data change events in the distributed database.
-         * @throws Throws this exception if no {@code SingleKvStore} database is available.
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
-
-        /**
          * Register Synchronizes SingleKvStore databases callback. 
          * <p> Sync result is returned through asynchronous callback.
          * @since 8
@@ -1520,17 +1393,6 @@ declare namespace distributedData {
          * @throws Throws this exception if no {@code SingleKvStore} database is available.
          */
          on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
-
-        /**
-         * Unsubscribes from the SingleKvStore database based on the specified subscribeType and {@code KvStoreObserver}.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-         off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister Synchronizes SingleKvStore databases callback.
@@ -1676,36 +1538,6 @@ declare namespace distributedData {
          getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
          getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
-        /**
-         * Obtains the KvStoreResultSet object matching the specified Predicate object.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param predicates Indicates the datasharePredicates.
-         * @systemapi
-         * Spaces before and after the key will be cleared.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
-         * {@code DB_ERROR}.
-         */
-         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
-         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
-
-        /**
-         * Obtains the KvStoreResultSet object matching a specified Device ID and Predicate object.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @systemapi
-         * @param predicates Indicates the key.
-         * @param deviceId Indicates the ID of the device to which the results belong.
-         * Spaces before and after the key will be cleared.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and
-         * {@code DB_ERROR}.
-         */
-         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KvStoreResultSet>): void;
-         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KvStoreResultSet>;
-         
          /**
           * Closes a {@code KvStoreResultSet} object returned by getResultSet.
           * 
@@ -1774,23 +1606,6 @@ declare namespace distributedData {
         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
 
         /**
-         * Synchronizes {@code DeviceKVStore} databases.
-         *
-         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param deviceIds Indicates the list of IDs of devices whose
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * {@code DeviceKVStore} databases are to be synchronized.
-         * @param query Indicates the {@code Query} object. 
-         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or
-         * {@code PUSH_PULL}.
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @throws Throws this exception if no DeviceKVStore database is available.
-         */
-        sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
-
-        /**
          * Register Synchronizes DeviceKVStore databases callback.
          * 
          * <p>Sync result is returned through asynchronous callback.
@@ -1801,32 +1616,6 @@ declare namespace distributedData {
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
         
-        /**
-         * Registers a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback in 
-         * {@code KvStoreObserver} will be invoked.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param listener Indicates the observer of data change events in the distributed database.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-         on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
-
-        /**
-         * Unsubscribes from the DeviceKVStore database based on the specified subscribeType and {@code KvStoreObserver}.
-         *
-         * @since 9
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
-         * @throws Throws this exception if any of the following errors 
-         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
-         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
-         */
-         off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
-
         /**
          * UnRegister Synchronizes DeviceKVStore databases callback.
          * @since 8
