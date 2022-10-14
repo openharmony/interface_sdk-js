@@ -22,19 +22,18 @@ import { ProcessRunningInformation as _ProcessRunningInformation } from './appli
 
 /**
  * This module provides the function of app manager service.
- *
- * @since 8
+ * @namespace appManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import appManager from '@ohos.application.appManager'
- * @permission N/A
+ * @since 9
+ *
  */
 declare namespace appManager {
     /**
-     * @name ApplicationState
-     * @since 9
+     * Enum for the application state
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
+     * @systemapi
+     * @since 9
      */
     export enum ApplicationState {
         STATE_CREATE,
@@ -44,13 +43,12 @@ declare namespace appManager {
         STATE_DESTROY
     }
 
-
     /**
-     * @name ProcessState
-     * @since 9
+     * Enum for the process state
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
+     * @systemapi
+     * @since 9
      */
     export enum ProcessState {
         STATE_CREATE,
@@ -62,184 +60,260 @@ declare namespace appManager {
 
     /**
      * Register application state observer.
-     *
-     * @default -
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The application state observer.
-     * @systemapi hide this for inner system use
-     * @return Returns the number code of the observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { ApplicationStateObserver } observer - The application state observer.
+     * @return { number } Returns the number code of the observer.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
 
     /**
      * Register application state observer.
-     *
-     * @default -
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The application state observer.
-     * @param bundleNameList The list of bundleName. The max length is 128.
-     * @systemapi
-     * @return Returns the number code of the observer.
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { ApplicationStateObserver } observer - The application state observer.
+     * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+     * @return { number } Returns the number code of the observer.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
-     function registerApplicationStateObserver(observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+    function registerApplicationStateObserver(observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
     /**
      * Unregister application state observer.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observerId Indicates the number code of the observer.
-     * @systemapi hide this for inner system use
-     * @return -
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @param { AsyncCallback<void> } callback - The callback of unregisterApplicationStateObserver.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
-    function unregisterApplicationStateObserver(observerId: number,  callback: AsyncCallback<void>): void;
+    function unregisterApplicationStateObserver(observerId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unregister application state observer.
+     * @permission ohos.permission.RUNNING_STATE_OBSERVER
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function unregisterApplicationStateObserver(observerId: number): Promise<void>;
 
     /**
      * getForegroundApplications.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     * @return Returns the list of AppStateData.
      * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { AsyncCallback<Array<AppStateData>> } callback - The callback is used to return the list of AppStateData.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
-     function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
-     function getForegroundApplications(): Promise<Array<AppStateData>>;
+    function getForegroundApplications(callback: AsyncCallback<Array<AppStateData>>): void;
+
+    /**
+     * getForegroundApplications.
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @returns { Promise<Array<AppStateData>> } Returns the list of AppStateData.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
+    function getForegroundApplications(): Promise<Array<AppStateData>>;
 
     /**
      * Kill process with account.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName The process bundle name.
-     * @param accountId The account id.
-     * @systemapi hide this for inner system use
-     * @return -
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+     * @param { string } bundleName - The process bundle name.
+     * @param { number } accountId - The account id.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
     function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
-    function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
-
-     /**
-     * Is user running in stability test.
-     *
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return Returns true if user is running stability test.
-     */
-      function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
-      function isRunningInStabilityTest(): Promise<boolean>;
 
     /**
-    * Get information about running processes
-    *
-    * @since 8
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @return Returns the array of {@link ProcessRunningInfo}.
-    * @permission ohos.permission.GET_RUNNING_INFO
-    * @deprecated since 9
-    * @useinstead getProcessRunningInformation
-    */
-    function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
-    function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
+     * Kill process with account.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.CLEAN_BACKGROUND_PROCESSES
+     * @param { string } bundleName - The process bundle name.
+     * @param { number } accountId - The account id.
+     * @param { AsyncCallback<void> } callback - The callback of killProcessWithAccount.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
+    function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Is user running in stability test.
+     * @param { AsyncCallback<boolean> } callback - The callback is used to return true if user is running stability test.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function isRunningInStabilityTest(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Is user running in stability test.
+     * @returns { Promise<boolean> } Returns true if user is running stability test.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function isRunningInStabilityTest(): Promise<boolean>;
 
     /**
      * Kill processes by bundle name
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName bundle name.
-     * @systemapi hide this for inner system use
      * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
+     * @param { string } bundleName - bundle name.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
-     function killProcessesByBundleName(bundleName: string): Promise<void>;
-     function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+    function killProcessesByBundleName(bundleName: string): Promise<void>;
+
+    /**
+     * Kill processes by bundle name
+     * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
+     * @param { string } bundleName - bundle name.
+     * @param { AsyncCallback<void> } callback - The callback of killProcessesByBundleName.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
+    function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
 
     /**
      * Clear up application data by bundle name
-     * @since 8
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param bundleName bundle name.
-     * @systemapi hide this for inner system use
      * @permission ohos.permission.CLEAN_APPLICATION_DATA
+     * @param { string } bundleName - bundle name.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
      */
-     function clearUpApplicationData(bundleName: string): Promise<void>;
-     function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
+    function clearUpApplicationData(bundleName: string): Promise<void>;
+
+    /**
+     * Clear up application data by bundle name
+     * @permission ohos.permission.CLEAN_APPLICATION_DATA
+     * @param { string } bundleName - bundle name.
+     * @param { AsyncCallback<void> } callback - The callback of clearUpApplicationData.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
+    function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
 
     /**
      * Is it a ram-constrained device
-     * @since 7
+     * @returns { Promise<boolean> } Returns true if the device is ram-constrained.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return whether a ram-constrained device.
+     * @since 9
      */
     function isRamConstrainedDevice(): Promise<boolean>;
+
+    /**
+     * Is it a ram-constrained device
+     * @param { AsyncCallback<boolean> } callback - The callback is used to return true if the device is ram-constrained.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     function isRamConstrainedDevice(callback: AsyncCallback<boolean>): void;
 
     /**
      * Get the memory size of the application
-     * @since 7
+     * @returns { Promise<number> } Returns the application memory size.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return application memory size.
+     * @since 9
      */
     function getAppMemorySize(): Promise<number>;
+
+    /**
+     * Get the memory size of the application
+     * @param { AsyncCallback<number> } callback - The callback is used to return the application memory size.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
     function getAppMemorySize(callback: AsyncCallback<number>): void;
 
     /**
-    * Get information about running processes
-    *
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @return Returns the array of {@link ProcessRunningInformation}.
-    * @permission ohos.permission.GET_RUNNING_INFO
-    */
+     * Get information about running processes
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+
+    /**
+     * Get information about running processes
+     * @permission ohos.permission.GET_RUNNING_INFO
+     * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @since 9
+     */
     function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
 
     /**
      * The ability or extension state data.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type AbilityStateData = _AbilityStateData.default
 
     /**
      * The application state data.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type AppStateData = _AppStateData.default
 
     /**
      * The application state observer.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
+     * @systemapi
+     * @since 9
      */
     export type ApplicationStateObserver = _ApplicationStateObserver.default
 
     /**
      * The class of an process running information.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export type ProcessRunningInfo = _ProcessRunningInfo
 
     /**
-     * The class of an process running information.
-     *
-     * @since 9
+     * The class of a process running information.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export type ProcessRunningInformation = _ProcessRunningInformation
 }
