@@ -13,12 +13,12 @@
 * limitations under the License.
 */
 
-import { AsyncCallback } from './basic';
-import { ResultSet } from './data/rdb/resultSet';
-import { DataAbilityOperation } from './ability/dataAbilityOperation';
-import { DataAbilityResult } from './ability/dataAbilityResult';
-import dataAbility from './@ohos.data.dataAbility';
-import rdb from './@ohos.data.rdb';
+import { AsyncCallback } from '../basic';
+import { ResultSet } from '../data/rdb/resultSet';
+import { DataAbilityOperation } from './dataAbilityOperation';
+import { DataAbilityResult } from './dataAbilityResult';
+import dataAbility from '../@ohos.data.dataAbility';
+import rdb from '../@ohos.data.rdb';
 
 /**
  * DataAbilityHelper

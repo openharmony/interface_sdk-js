@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from './basic';
 import { StartAbilityParameter } from './ability/startAbilityParameter';
-import { DataAbilityHelper } from './@ohos.app.ability.dataAbilityHelper';
+import { DataAbilityHelper } from './ability/dataAbilityUtils';
 import { NotificationRequest } from './notification/notificationRequest';
 import { ConnectOptions } from './ability/connectOptions';
 import Want from './@ohos.application.Want';
