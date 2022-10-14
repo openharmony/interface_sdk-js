@@ -31,6 +31,7 @@ declare namespace usageStatistics {
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      */
     interface BundleStatsInfo {
         /**
@@ -190,6 +191,28 @@ declare namespace usageStatistics {
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     */
+     interface NotificationEventStats {
+        /**
+         * the bundle name or notification event name.
+         */
+        name: string;
+
+        /**
+         * the event id.
+         */
+        eventId: number;
+
+        /**
+         * the the event occurrence number.
+         */
+        count: number;
+    }
+
+    /**
+     * @since 9
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      */
      interface BundleEvents {
         /**
@@ -213,7 +236,7 @@ declare namespace usageStatistics {
          */
         eventOccurredTime?: number;
         /**
-         * the event type.
+         * the event id.
          */
         eventId?: number;
     }
@@ -292,6 +315,7 @@ declare namespace usageStatistics {
     /**
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      */
      interface BundleStatsMap {
         [key: string]: BundleStatsInfo;
@@ -327,6 +351,7 @@ declare namespace usageStatistics {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
      */
     export enum IntervalType {
         /**
@@ -487,6 +512,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000005 - Application is not installed.
+     * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10100002 - Get Application group info failed.
      * @return Returns the usage priority group of the calling application.
      */
@@ -595,7 +621,7 @@ declare namespace usageStatistics {
     function unRegisterAppGroupCallBack(): Promise<void>;
 
     /** 
-     * Queries system event states data within a specified period identified by the start and end time.
+     * Queries device event states data within a specified period identified by the start and end time.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
@@ -635,10 +661,10 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
+     * @return Returns the {@link NotificationEventStats} object Array containing the event states data.
      */
-    function queryNotificationEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
-    function queryNotificationEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
+    function queryNotificationEventStats(begin: number, end: number, callback: AsyncCallback<Array<NotificationEventStats>>): void;
+    function queryNotificationEventStats(begin: number, end: number): Promise<Array<NotificationEventStats>>;
 }
 
 export default usageStatistics;
