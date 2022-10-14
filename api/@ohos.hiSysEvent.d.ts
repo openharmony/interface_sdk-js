@@ -110,6 +110,15 @@ declare namespace hiSysEvent {
    * @static
    * @param {SysEventInfo} info system event information to be written.
    * @param {AsyncCallback} [callback] callback function.
+   * @throws {BusinessError} 401 - argument is invalid
+   * @throws {BusinessError} 11200001 - domain is invalid
+   * @throws {BusinessError} 11200002 - event name is invalid
+   * @throws {BusinessError} 11200003 - environment is abnormal
+   * @throws {BusinessError} 11200004 - size of event content is over limit
+   * @throws {BusinessError} 11200051 - name of param is invalid
+   * @throws {BusinessError} 11200052 - size of string type param is over limit
+   * @throws {BusinessError} 11200053 - count of params is over limit
+   * @throws {BusinessError} 11200054 - size of array type param is over limit
    * @return {void | Promise<void>} no callback return Promise otherwise return void.
    * @since 9
    */
@@ -277,11 +286,10 @@ declare namespace hiSysEvent {
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
-     * @param {number[]} seqs sequeue of infos.
      * @return {void} return void.
      * @since 9
      */
-    onQuery: (infos: SysEventInfo[], seqs: number[]) => void;
+    onQuery: (infos: SysEventInfo[]) => void;
 
     /**
      * notify Querier execute query has finished.
@@ -303,10 +311,14 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @return {number} 0 success, 1 fail
+   * @throws {BusinessError} 201 - has no permission
+   * @throws {BusinessError} 401 - argument is invalid
+   * @throws {BusinessError} 11200101 - count of watchers is over limit
+   * @throws {BusinessError} 11200102 - count of watch rules is over limit
+   * @return {void} return void.
    * @since 9
    */
-  function addWatcher(watcher: Watcher): number;
+  function addWatcher(watcher: Watcher): void;
 
   /**
    * remove watcher
@@ -315,10 +327,13 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @return {number} 0 success, 1 fail
+   * @throws {BusinessError} 201 - has no permission
+   * @throws {BusinessError} 401 - argument is invalid
+   * @throws {BusinessError} 11200201 - watcher is not exist
+   * @return {void} return void.
    * @since 9
    */
-  function removeWatcher(watcher: Watcher): number;
+  function removeWatcher(watcher: Watcher): void;
 
   /**
    * query system event
@@ -329,10 +344,16 @@ declare namespace hiSysEvent {
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
-   * @return {number} 0 success, 1 fail
+   * @throws {BusinessError} 201 - has no permission
+   * @throws {BusinessError} 401 - argument is invalid
+   * @throws {BusinessError} 11200301 - count of query rules is over limit
+   * @throws {BusinessError} 11200302 - query rule is invalid
+   * @throws {BusinessError} 11200303 - count of concurrent queries is over limit
+   * @throws {BusinessError} 11200304 - frequency of event query is over limit
+   * @return {void} return void.
    * @since 9
    */
-  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): number;
+  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 }
 
 export default hiSysEvent;
