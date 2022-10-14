@@ -94,7 +94,7 @@ declare namespace hichecker {
     * @syscap SystemCapability.HiviewDFX.HiChecker
     * @throws {error} if the param is invalid
     */
-    function addRuleV9(rule: bigint) : void;
+    function addCheckRule(rule: bigint) : void;
 
     /**
     * remove one or more rule.
@@ -103,7 +103,7 @@ declare namespace hichecker {
     * @syscap SystemCapability.HiviewDFX.HiChecker
     * @throws {error} if the param is invalid
     */
-    function removeRuleV9(rule: bigint) : void;
+    function removeCheckRule(rule: bigint) : void;
 
     /**
     * whether the query rule is added
@@ -113,6 +113,6 @@ declare namespace hichecker {
     * @syscap SystemCapability.HiviewDFX.HiChecker
     * @throws {error} if the param is invalid
     */
-     function containsV9(rule: bigint) : boolean;
+     function containsCheckRule(rule: bigint) : boolean;
 }
 export default hichecker;
