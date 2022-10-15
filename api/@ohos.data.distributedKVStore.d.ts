@@ -1593,89 +1593,6 @@ declare namespace distributedKVStore {
          */
         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
         removeDeviceData(deviceId: string): Promise<void>;
-
-        /**
-         * Synchronizes {@code DeviceKVStore} databases.
-         *
-         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param deviceIds Indicates the list of IDs of devices whose
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * {@code DeviceKVStore} databases are to be synchronized.
-         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100003 - if the database is corrupted.
-         * @throws {BusinessError} 15100004 - if the database not exist when sync data.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
-
-        /**
-         * Synchronizes {@code DeviceKVStore} databases.
-         *
-         * <p>This method returns immediately and sync result will be returned through asynchronous callback.
-         *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param deviceIds Indicates the list of IDs of devices whose
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * {@code DeviceKVStore} databases are to be synchronized.
-         * @param query Indicates the {@code Query} object.
-         * @param mode Indicates the synchronization mode, {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100003 - if the database is corrupted.
-         * @throws {BusinessError} 15100004 - if the database not exist when sync data.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void;
-
-        /**
-         * Register Synchronizes DeviceKVStore databases callback.
-         *
-         * <p>Sync result is returned through asynchronous callback.
-         *
-         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
-
-        /**
-         * Registers a {@code KVStoreObserver} for the database. When data in the distributed database changes, the callback in
-         * {@code KVStoreObserver} will be invoked.
-         *
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param listener Indicates the observer of data change events in the distributed database.
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100001 - if the database has been subscribed over the max subscription time limit.
-         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
-
-        /**
-         * Unsubscribes from the DeviceKVStore database based on the specified subscribeType and {@code KVStoreObserver}.
-         *
-         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KVStoreObserver)}.
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
-
-        /**
-         * UnRegister Synchronizes DeviceKVStore databases callback.
-         *
-         * @throws {BusinessError} 401 - if parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
-         */
-        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
     }
 
     /**
@@ -1718,8 +1635,8 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        getKVStore<T extends KVStore>(storeId: string, options: Options): Promise<T>;
-        getKVStore<T extends KVStore>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
+        getKVStore<T>(storeId: string, options: Options): Promise<T>;
+        getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
         /**
          * Closes the {@code KVStore} database.
@@ -1737,8 +1654,8 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        closeKVStore(appId: string, storeId: string, kvStore: KVStore, callback: AsyncCallback<void>): void;
-        closeKVStore(appId: string, storeId: string, kvStore: KVStore): Promise<void>;
+        closeKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
+        closeKVStore(appId: string, storeId: string): Promise<void>;
 
         /**
          * Deletes the {@code KVStore} database identified by storeId.
