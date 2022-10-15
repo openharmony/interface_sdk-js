@@ -21,7 +21,7 @@ import { AsyncCallback, Callback } from './basic';
  * @import N/A
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.data.kvStore
+ * @useinstead ohos.data.distributedKVStore
  */
 declare namespace distributedData {
     /**
@@ -31,7 +31,7 @@ declare namespace distributedData {
      * @import N/A
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.kvStore.KVManagerConfig
+     * @useinstead ohos.data.distributedKVStore.KVManagerConfig
      */
     interface KVManagerConfig {
         /**
@@ -39,6 +39,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         userInfo: UserInfo;
 
@@ -47,6 +48,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.KVManagerConfig.bundleName
          */
         bundleName: string;
     }
@@ -60,6 +63,7 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
      */
     interface UserInfo {
         /** 
@@ -67,6 +71,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         userId?: string;
 
@@ -75,6 +80,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         userType?: UserType;
     }
@@ -85,6 +91,7 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
      */
     enum UserType {
         /** 
@@ -92,6 +99,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         SAME_USER_ID = 0
     }
@@ -102,6 +110,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.Constants
      */
     namespace Constants {
         /**
@@ -109,6 +119,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_KEY_LENGTH
          */
         const MAX_KEY_LENGTH = 1024;
 
@@ -117,6 +129,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_VALUE_LENGTH
          */
         const MAX_VALUE_LENGTH = 4194303;
 
@@ -125,6 +139,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_KEY_LENGTH_DEVICEs
          */
         const MAX_KEY_LENGTH_DEVICE = 896;
 
@@ -133,6 +149,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_STORE_ID_LENGTH
          */
         const MAX_STORE_ID_LENGTH = 128;
 
@@ -141,6 +159,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_QUERY_LENGTH
          */
         const MAX_QUERY_LENGTH = 512000;
 
@@ -149,6 +169,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Constants.MAX_BATCH_SIZE
          */
         const MAX_BATCH_SIZE = 128;
     }
@@ -161,6 +183,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.ValueType
      */
     enum ValueType {
         /** 
@@ -168,6 +192,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.STRING
          */
         STRING = 0,
 
@@ -176,6 +202,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.INTEGER
          */
         INTEGER = 1,
 
@@ -184,6 +212,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.FLOAT
          */
         FLOAT = 2,
 
@@ -192,6 +222,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.BYTE_ARRAY
          * */
         BYTE_ARRAY = 3,
 
@@ -200,6 +232,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.BOOLEAN
          * */
         BOOLEAN = 4,
 
@@ -208,6 +242,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ValueType.DOUBLE
          */
         DOUBLE = 5
     }
@@ -218,6 +254,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.Value
      */
     interface Value {
         /**
@@ -228,6 +266,8 @@ declare namespace distributedData {
          * @type {number}
          * @memberof Value
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Value.type
          */
         type: ValueType;
         /**
@@ -235,6 +275,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Value.value
          */
         value: Uint8Array | string | number | boolean;
     }
@@ -245,6 +287,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.Entry
      */
     interface Entry {
         /**
@@ -252,6 +296,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Entry.key
          */
         key: string;
         /**
@@ -259,6 +305,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.Entry.value
          */
         value: Value;
     }
@@ -272,6 +320,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.ChangeNotification
      */
     interface ChangeNotification {
         /** 
@@ -279,6 +329,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ChangeNotification.insertEntries
          */
         insertEntries: Entry[];
         /** 
@@ -286,6 +338,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ChangeNotification.updateEntries
          */
         updateEntries: Entry[];
         /** 
@@ -293,6 +347,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ChangeNotification.deleteEntries
          */
         deleteEntries: Entry[];
         /**
@@ -300,6 +356,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.ChangeNotification.deviceId
          */
         deviceId: string;
     }
@@ -310,6 +368,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SyncMode
      */
     enum SyncMode {
         /** 
@@ -317,6 +377,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SyncMode.PULL_ONLY
          */
         PULL_ONLY = 0,
         /** 
@@ -324,6 +386,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SyncMode.PUSH_ONLY
          */
         PUSH_ONLY = 1,
         /** 
@@ -331,6 +395,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SyncMode.PUSH_PULL
          */
         PUSH_PULL = 2
     }
@@ -341,6 +407,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SubscribeType
      */
     enum SubscribeType {
         /** 
@@ -348,6 +416,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SubscribeType.SUBSCRIBE_TYPE_LOCAL
         */
         SUBSCRIBE_TYPE_LOCAL = 0,
 
@@ -356,6 +426,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
         */
         SUBSCRIBE_TYPE_REMOTE = 1,
 
@@ -364,6 +436,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SubscribeType.SUBSCRIBE_TYPE_ALL
          */
         SUBSCRIBE_TYPE_ALL = 2,
     }
@@ -374,6 +448,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.KVStoreType
      */
     enum KVStoreType {
         /** 
@@ -381,6 +457,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.KVStoreType.DEVICE_COLLABORATION
          */
         DEVICE_COLLABORATION = 0,
 
@@ -389,6 +467,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.KVStoreType.SINGLE_VERSION
          */
         SINGLE_VERSION = 1,
 
@@ -397,6 +477,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         MULTI_VERSION = 2,
     }
@@ -407,6 +488,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.SecurityLevel
      */
     enum SecurityLevel {
         /**
@@ -415,6 +498,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         NO_LEVEL = 0,
 
@@ -425,6 +509,7 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
          */
         S0 = 1,
 
@@ -435,6 +520,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SecurityLevel.S1
          */
         S1 = 2,
 
@@ -445,6 +532,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SecurityLevel.S2
          */
         S2 = 3,
 
@@ -455,6 +544,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SecurityLevel.S3
          */
         S3 = 5,
 
@@ -465,6 +556,8 @@ declare namespace distributedData {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @import N/A
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SecurityLevel.S4
          */
         S4 = 6,
     }
@@ -478,6 +571,8 @@ declare namespace distributedData {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @import N/A
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.distributedKVStore.Options
      */
     interface Options {
         /**
