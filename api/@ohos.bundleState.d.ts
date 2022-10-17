@@ -518,18 +518,18 @@ declare namespace bundleState {
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>): Promise<void>;
 
     /**
-     * UnRegister callback from service.
+     * Unregister callback from service.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @systemapi Hide this for inner system use.
-     * @return Returns the result of unRegisterGroupCallBack, true of false.
+     * @return Returns the result of unregisterGroupCallBack, true of false.
      * @deprecated since 9
-     * @useinstead ohos.resourceschedule.usageStatistics.unRegisterAppGroupCallBack
+     * @useinstead ohos.resourceschedule.usageStatistics.unregisterAppGroupCallBack
      */
-    function unRegisterGroupCallBack(callback: AsyncCallback<void>): void;
-    function unRegisterGroupCallBack(): Promise<void>;
+    function unregisterGroupCallBack(callback: AsyncCallback<void>): void;
+    function unregisterGroupCallBack(): Promise<void>;
 
     /*
      * Queries system event states data within a specified period identified by the start and end time.
