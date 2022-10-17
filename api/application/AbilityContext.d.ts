@@ -22,7 +22,7 @@ import { ConnectOptions } from "../ability/connectOptions";
 import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
-import StartOptions from "../@ohos.application.StartOptions";
+import StartOptions from "../@ohos.app.ability.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.application.Configuration';
 import { Caller } from '../@ohos.app.ability.Ability';
@@ -380,6 +380,52 @@ export default class AbilityContext extends Context {
      * @since 9
      */
     terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
+
+    /**
+     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want The element name of the service ability
+     * @param options The remote object instance
+     * @systemapi Hide this for inner system use.
+     * @return Returns the number code of the ability connected
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead connectServiceExtensionAbility
+     */
+    connectAbility(want: Want, options: ConnectOptions): number;
+
+    /**
+     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want The element name of the service ability
+     * @param accountId The account to connect
+     * @param options The remote object instance
+     * @systemapi hide for inner use.
+     * @return Returns the number code of the ability connected
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead connectServiceExtensionAbilityWithAccount
+     */
+    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+
+    /**
+     * The callback interface was connect successfully.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param connection The number code of the ability connected
+     * @systemapi Hide this for inner system use.
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead disconnectServiceExtensionAbility
+     */
+    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+    disconnectAbility(connection: number): Promise<void>;
 
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.

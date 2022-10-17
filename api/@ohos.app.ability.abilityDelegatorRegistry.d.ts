@@ -35,7 +35,7 @@ declare namespace abilityDelegatorRegistry {
     function getAbilityDelegator(): AbilityDelegator;
 
     /**
-     * Get unit test parameters stored in the AbilityDelegatorArgs object.
+     * Get unit test arguments stored in the AbilityDelegatorArgs object.
      * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9

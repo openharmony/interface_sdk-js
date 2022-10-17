@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Ability from '../@ohos.application.Ability';
+import Ability from '../@ohos.app.ability.Ability';
 
 /**
  * Provide methods for matching monitored Ability objects that meet specified conditions.
@@ -39,7 +39,7 @@ export interface AbilityMonitor {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      */
-    moduleName: string;
+    moduleName?: string;
 
     /**
      * Called back when the ability is started for initialization.

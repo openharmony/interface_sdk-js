@@ -104,12 +104,12 @@ export default class FormExtensionAbility {
 
     /**
      * Called when the system configuration is updated.
-     * @param { Configuration } config - Indicates the system configuration, such as language and color mode.
+     * @param { Configuration } newConfig - Indicates the system configuration, such as language and color mode.
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
      * @since 9
      */
-    onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called to return a {@link FormState} object.
@@ -134,5 +134,5 @@ export default class FormExtensionAbility {
      * @stagemodelonly
      * @since 9
      */
-    onFormToBeShared?(formId: string): { [key: string]: any };
+    onShareForm?(formId: string): { [key: string]: any };
 }

@@ -15,30 +15,30 @@
 
 import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
 import AbilityContext from "./application/AbilityContext";
+import rpc from './@ohos.rpc';
 import Want from './@ohos.application.Want';
 import window from './@ohos.window';
 import { Configuration } from './@ohos.application.Configuration';
-import rpc from './@ohos.rpc';
 
 /**
  * The prototype of the listener function interface registered by the Caller.
- * @typedef OnReleaseCallBack
+ * @typedef OnReleaseCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9
  */
-export interface OnReleaseCallBack {
+export interface OnReleaseCallback {
     (msg: string): void;
 }
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
- * @typedef CalleeCallBack
+ * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9
  */
-export interface CalleeCallBack {
+export interface CalleeCallback {
     (indata: rpc.MessageParcel): rpc.Sequenceable;
 }
 
@@ -84,25 +84,35 @@ export interface Caller {
 
     /**
      * Register death listener notification callback.
-     * @param { string } type - release.
-     * @param { OnReleaseCallBack } callback - Register a callback function for listening for notifications.
+     * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9
      */
-    on(type: "release", callback: OnReleaseCallBack): void;
+    onRelease(callback: OnReleaseCallback): void;
+
+    /**
+     * Register death listener notification callback.
+     * @param { string } type - release.
+     * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @since 9
+     */
+    on(type: "release", callback: OnReleaseCallback): void;
 
     /**
      * Unregister death listener notification callback.
      * @param { string } type - release.
-     * @param { OnReleaseCallBack } callback - Unregister a callback function for listening for notifications.
+     * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9
      */
-    off(type: "release", callback: OnReleaseCallBack): void;
+    off(type: "release", callback: OnReleaseCallback): void;
 
     /**
      * Unregister all death listener notification callback.
@@ -126,13 +136,13 @@ export interface Callee {
     /**
      * Register data listener callback.
      * @param { string } method - A string registered to listen for notification events.
-     * @param { CalleeCallBack } callback - Register a callback function that listens for notification events.
+     * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9
      */
-    on(method: string, callback: CalleeCallBack): void;
+    on(method: string, callback: CalleeCallback): void;
 
     /**
      * Unregister data listener callback.
@@ -271,12 +281,12 @@ export default class Ability {
 
     /**
      * Called when the system configuration is updated.
-     * @param { Configuration } config - Indicates the updated configuration.
+     * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9
      */
-    onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called when dump client information is required.

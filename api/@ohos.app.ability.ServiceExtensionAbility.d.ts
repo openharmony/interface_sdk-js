@@ -100,13 +100,13 @@ export default class ServiceExtensionAbility {
 
     /**
      * Called when the system configuration is updated.
-     * @param { Configuration } config - Indicates the updated configuration.
+     * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 9
      */
-    onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called when dump client information is required.

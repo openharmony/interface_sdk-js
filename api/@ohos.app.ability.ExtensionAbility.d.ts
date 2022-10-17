@@ -30,7 +30,7 @@ export default class ExtensionAbility {
      * @stagemodelonly
      * @since 9
      */
-    onConfigurationUpdated(newConfig: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called when the system has determined to trim the memory, for example, when the ability is running in the

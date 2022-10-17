@@ -56,12 +56,12 @@ export default class AbilityStage {
 
     /**
      * Called when the system configuration is updated.
-     * @param { Configuration } config - Indicates the updated configuration.
+     * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 9
      */
-    onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called when the system has determined to trim the memory, for example, when the ability is running in the
