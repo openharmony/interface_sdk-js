@@ -19,8 +19,6 @@
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
- * @deprecated since 9
- * @useinstead @ohos.app.ability.dataUriUtils
  */
 declare namespace dataUriUtils {
   /**
