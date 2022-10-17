@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,118 +20,103 @@ import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * class of service extension ability.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi hide for inner use.
- * @StageModelOnly
+ * @systemapi
+ * @stagemodelonly
+ * @since 9
  */
 export default class ServiceExtensionAbility {
     /**
      * Indicates service extension ability context.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     context: ServiceExtensionContext;
 
     /**
      * Called back when a service extension is started for initialization.
-     *
-     * @since 9
+     * @param { Want } want - Indicates the want of created service extension.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want of created service extension.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onCreate(want: Want): void;
 
     /**
      * Called back before a service extension is destroyed.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onDestroy(): void;
 
     /**
      * Called back when a service extension is started.
-     *
-     * @since 9
+     * @param { Want } want - Indicates the want of service extension to start.
+     * @param { number } startId - Indicates the number of times the service extension has been started.
+     *                             The {@code startId} is incremented by 1 every time the service extension is started.
+     *                             For example, if the service extension has been started for six times.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want of service extension to start.
-     * @param startId Indicates the number of times the service extension has been started. The {@code startId} is
-     *     incremented by 1 every time the service extension is started. For example, if the service extension
-     *     has been started for six times.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onRequest(want: Want, startId: number): void;
 
     /**
      * Called back when a service extension is first connected to an ability.
-     *
-     * @since 9
+     * @param { Want } want - Indicates connection information about the Service ability.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates connection information about the Service ability.
-     * @systemapi hide for inner use.
-     * @return Returns the proxy of the Service ability.
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onConnect(want: Want): rpc.RemoteObject;
 
     /**
      * Called back when all abilities connected to a service extension are disconnected.
-     *
-     * @since 9
+     * @param { Want } want - Indicates disconnection information about the service extension.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates disconnection information about the service extension.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onDisconnect(want: Want): void;
 
     /**
      * Called when a new client attempts to connect to a service extension after all previous client connections to it
      * are disconnected.
-     *
-     * @since 9
+     * @param { Want } want - Indicates the want of the service extension being connected.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want of the service extension being connected.
-     * @systemapi hide for inner use.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onReconnect(want: Want): void;
 
     /**
      * Called when the system configuration is updated.
-     *
-     * @since 9
+     * @param { Configuration } config - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the updated configuration.
-     * @return -
-     * @StageModelOnly
+     * @systemapi
+     * @stagemodelonly
+     * @since 9
      */
     onConfigurationUpdated(config: Configuration): void;
 
     /**
      * Called when dump client information is required.
      * It is recommended that developers don't DUMP sensitive information.
-     *
+     * @param { Array<string> } params - Indicates the params from command.
+     * @return { Array<string> } The dump info array.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @param params Indicates the params from command.
-     * @return The dump info array.
-     * @StageModelOnly
      */
     onDump(params: Array<string>): Array<string>;
 }
