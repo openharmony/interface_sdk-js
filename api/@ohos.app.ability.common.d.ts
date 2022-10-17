@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import * as _AbilityContext  from './application/AbilityContext';
-import * as _AbilityStageContext  from './application/AbilityStageContext';
-import * as _ApplicationContext  from './application/ApplicationContext';
-import * as _BaseContext  from './application/BaseContext';
-import * as _Context  from './application/Context';
-import * as _ExtensionContext  from './application/ExtensionContext';
-import * as _FormExtensionContext  from './application/FormExtensionContext';
-import * as _EventHub  from './application/EventHub';
-import * as _PermissionRequestResult  from './application/PermissionRequestResult';
+import * as _AbilityContext from './application/AbilityContext';
+import * as _AbilityStageContext from './application/AbilityStageContext';
+import * as _ApplicationContext from './application/ApplicationContext';
+import * as _BaseContext from './application/BaseContext';
+import * as _Context from './application/Context';
+import * as _ExtensionContext from './application/ExtensionContext';
+import * as _FormExtensionContext from './application/FormExtensionContext';
+import * as _EventHub from './application/EventHub';
+import * as _PermissionRequestResult from './application/PermissionRequestResult';
 
 /**
  * The context of an application. It allows access to application-specific resources.
