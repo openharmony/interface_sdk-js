@@ -22,7 +22,8 @@ import { Metadata } from './metadata'
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.HapModuleInfo
  */
 export interface HapModuleInfo {
   /**
