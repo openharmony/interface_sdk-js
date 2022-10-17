@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from '../basic';
 import Ability from '../@ohos.app.ability.Ability';
-import AbilityStage from '../@ohos.application.AbilityStage';
+import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityMonitor } from './abilityMonitor';
 import { AbilityStageMonitor } from './abilityStageMonitor';
 import Context from './Context';

@@ -50,6 +50,7 @@ declare namespace ability {
     /**
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
      */
     export type DataAbilityOperation = _DataAbilityOperation
 
@@ -57,24 +58,28 @@ declare namespace ability {
      * @name DataAbilityResult
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
      */
     export type DataAbilityResult = _DataAbilityResult
 
     /**
      * @since 9
      * @syscap SystemCapability.Ability.AbilityBase
+     * @FAModelOnly
      */
     export type AbilityResult = _AbilityResult
 
     /**
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @FAModelOnly
      */
     export type ConnectOptions = _ConnectOptions
 
     /**
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+     * @FAModelOnly
      */
     export type StartAbilityParameter = _StartAbilityParameter
 }

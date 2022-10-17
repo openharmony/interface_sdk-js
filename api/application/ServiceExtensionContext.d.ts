@@ -18,7 +18,7 @@ import { ConnectOptions } from "../ability/connectOptions";
 import { Caller } from '../@ohos.app.ability.Ability';
 import ExtensionContext from "./ExtensionContext";
 import Want from "../@ohos.application.Want";
-import StartOptions from "../@ohos.application.StartOptions";
+import StartOptions from "../@ohos.app.ability.StartOptions";
 
 /**
  * The context of service extension. It allows access to
@@ -233,6 +233,61 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @since 9
      */
     terminateSelf(): Promise<void>;
+
+    /**
+     * Connects an ability to a Service extension.
+     *
+     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
+     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+     * service extension when the Service extension is connected.</p>
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the service extension to connect.
+     * @param options Indicates the callback of connection.
+     * @systemapi hide for inner use.
+     * @return connection id, int value.
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead connectServiceExtensionAbility
+     */
+    connectAbility(want: Want, options: ConnectOptions): number;
+
+    /**
+     * Connects an ability to a Service extension with account.
+     *
+     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
+     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+     * service extension when the Service extension is connected.</p>
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param want Indicates the service extension to connect.
+     * @param accountId Indicates the account to connect.
+     * @param options Indicates the callback of connection.
+     * @systemapi hide for inner use.
+     * @return connection id, int value.
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead connectServiceExtensionAbilityWithAccount
+     */
+    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
+
+    /**
+     * Disconnects an ability to a service extension, in contrast to
+     * {@link connectAbility}.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @param connection the connection id returned from connectAbility api.
+     * @systemapi hide for inner use.
+     * @return -
+     * @StageModelOnly
+     * @deprecated since 9
+     * @useinstead disconnectServiceExtensionAbility
+     */
+    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
+    disconnectAbility(connection: number): Promise<void>;
 
     /**
      * Connects an ability to a Service extension.

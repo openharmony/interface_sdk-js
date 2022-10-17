@@ -78,7 +78,7 @@ declare namespace abilityManager {
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
 
     /**
-     * Get information about running abilities
+     * Get information about the running ability
      * @permission ohos.permission.GET_RUNNING_INFO
      * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - The callback is used to return the array of AbilityRunningInfo.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
