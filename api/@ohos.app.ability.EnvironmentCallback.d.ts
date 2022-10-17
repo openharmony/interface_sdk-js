@@ -17,19 +17,16 @@ import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * The environment callback.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
+ * @since 9
  */
 export default class EnvironmentCallback {
     /**
      * Called when the system configuration is updated.
-     *
-     * @since 9
+     * @param { Configuration } config - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @param config: Indicates the updated configuration.
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
-     onConfigurationUpdated(config: Configuration): void;
+    onConfigurationUpdated(config: Configuration): void;
 }
