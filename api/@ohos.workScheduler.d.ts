@@ -22,7 +22,7 @@ import {AsyncCallback} from './basic';
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead @ohos.resourceschedule.workScheduler
+ * @useinstead ohos.resourceschedule.workScheduler
  */
 declare namespace workScheduler {
     /**
@@ -33,7 +33,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.WorkInfo
+     * @useinstead ohos.resourceschedule.workScheduler.WorkInfo
      */
     export interface WorkInfo {
         /**
@@ -112,7 +112,7 @@ declare namespace workScheduler {
      * @param work The info of work.
      * @return true if success, otherwise false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.startWork
+     * @useinstead ohos.resourceschedule.workScheduler.startWork
      */
     function startWork(work: WorkInfo): boolean;
 
@@ -126,7 +126,7 @@ declare namespace workScheduler {
      * @param needCancel True if need to be canceled after being stopped, otherwise false.
      * @return true if success, otherwise false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.stopWork
+     * @useinstead ohos.resourceschedule.workScheduler.stopWork
      */
     function stopWork(work: WorkInfo, needCancel?: boolean): boolean;
 
@@ -138,7 +138,7 @@ declare namespace workScheduler {
      * @StageModelOnly
      * @param workId The id of work.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.getWorkStatus
+     * @useinstead ohos.resourceschedule.workScheduler.getWorkStatus
      */
     function getWorkStatus(workId: number, callback: AsyncCallback<WorkInfo>): void;
     function getWorkStatus(workId: number): Promise<WorkInfo>;
@@ -151,7 +151,7 @@ declare namespace workScheduler {
      * @StageModelOnly
      * @return the work info list.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.obtainAllWorks
+     * @useinstead ohos.resourceschedule.workScheduler.obtainAllWorks
      */
     function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
     function obtainAllWorks(): Promise<Array<WorkInfo>>;
@@ -164,7 +164,7 @@ declare namespace workScheduler {
      * @StageModelOnly
      * @return true if success, otherwise false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.stopAndClearWorks
+     * @useinstead ohos.resourceschedule.workScheduler.stopAndClearWorks
      */
     function stopAndClearWorks(): boolean;
 
@@ -177,7 +177,7 @@ declare namespace workScheduler {
      * @param workId The id of work.
      * @return true if last work running is timeout, otherwise false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.isLastWorkTimeOut
+     * @useinstead ohos.resourceschedule.workScheduler.isLastWorkTimeOut
      */
     function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
     function isLastWorkTimeOut(workId: number): Promise<boolean>;
@@ -190,7 +190,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.NetworkType
+     * @useinstead ohos.resourceschedule.workScheduler.NetworkType
     */
     export enum NetworkType {
         /**
@@ -227,7 +227,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.ChargingType
+     * @useinstead ohos.resourceschedule.workScheduler.ChargingType
     */
     export enum ChargingType {
         /**
@@ -256,7 +256,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.BatteryStatus
+     * @useinstead ohos.resourceschedule.workScheduler.BatteryStatus
     */
     export enum BatteryStatus {
         /**
@@ -281,7 +281,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.workScheduler.StorageRequest
+     * @useinstead ohos.resourceschedule.workScheduler.StorageRequest
     */
     export enum StorageRequest {
         /**

@@ -26,7 +26,7 @@ import { AsyncCallback , Callback} from './basic';
  *
  * @since 7
  * @deprecated since 9
- * @useinstead @ohos.resourceschedule.usageStatistics
+ * @useinstead ohos.resourceschedule.usageStatistics
  */
 declare namespace bundleState {
 
@@ -34,48 +34,48 @@ declare namespace bundleState {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.BundleStatsInfo
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo
      */
     interface BundleStateInfo {
         /**
-         * the identifier of BundleStateInfo.
+         * The identifier of BundleStateInfo.
          */
         id: number;
         /**
-         * the total duration, in milliseconds.
+         * The total duration, in milliseconds.
          */
         abilityInFgTotalTime?: number;
         /**
-         * the last time when the application was accessed, in milliseconds.
+         * The last time when the application was accessed, in milliseconds.
          */
         abilityPrevAccessTime?: number;
         /**
-         * the last time when the application was visible in the foreground, in milliseconds.
+         * The last time when the application was visible in the foreground, in milliseconds.
          */
         abilityPrevSeenTime?: number;
         /**
-         * the total duration, in milliseconds.
+         * The total duration, in milliseconds.
          */
         abilitySeenTotalTime?: number;
         /**
-         * the bundle name of the application.
+         * The bundle name of the application.
          */
         bundleName?: string;
         /**
-         * the total duration, in milliseconds.
+         * The total duration, in milliseconds.
          */
         fgAbilityAccessTotalTime?: number;
         /**
-         * the last time when the foreground application was accessed, in milliseconds.
+         * The last time when the foreground application was accessed, in milliseconds.
          */
         fgAbilityPrevAccessTime?: number;
         /**
-         * the time of the first bundle usage record in this {@code BundleActiveInfo} object,
+         * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
          * in milliseconds.
          */
         infosBeginTime?: number;
         /**
-         * the time of the last bundle usage record in this {@code BundleActiveInfo} object,
+         * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
          * in milliseconds.
          */
         infosEndTime?: number;
@@ -87,7 +87,7 @@ declare namespace bundleState {
          * @since 7
          * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
          * @param toMerge Indicates the {@link BundleActiveInfo} object to merge.
-         * if the bundle names of the two {@link BundleActiveInfo} objects are different.
+         * If the bundle names of the two {@link BundleActiveInfo} objects are different.
          */
         merge(toMerge: BundleStateInfo): void;
     }
@@ -97,27 +97,27 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.HapFormInfo
+     * @useinstead ohos.resourceschedule.usageStatistics.HapFormInfo
      */
     interface BundleActiveFormInfo {
         /**
-         * the form name.
+         * The form name.
          */
         formName: string;
         /**
-         * the form dimension.
+         * The form dimension.
          */
         formDimension: number;
         /**
-         * the form id.
+         * The form id.
          */
         formId: number;
         /**
-         * the last time when the form was accessed, in milliseconds..
+         * The last time when the form was accessed, in milliseconds..
          */
         formLastUsedTime: number;
         /**
-         * the click count of module.
+         * The click count of module.
          */
         count: number;
     }
@@ -127,59 +127,59 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.HapModuleInfo
+     * @useinstead ohos.resourceschedule.usageStatistics.HapModuleInfo
      */
     interface BundleActiveModuleInfo {
         /**
-         * the device id of module.
+         * The device id of module.
          */
         deviceId?: string;
         /**
-         * the bundle name.
+         * The bundle name.
          */
         bundleName: string;
         /**
-         * the module name.
+         * The module name.
          */
         moduleName: string;
         /**
-         * the main ability name of module.
+         * The main ability name of module.
          */
         abilityName?: string;
         /**
-         * the label id of application.
+         * The label id of application.
          */
         appLabelId?: number;
         /**
-         * the label id of module.
+         * The label id of module.
          */
         labelId?: number;
         /**
-         * the description id of application.
+         * The description id of application.
          */
         descriptionId?: number;
         /**
-         * the ability id of main ability.
+         * The ability id of main ability.
          */
         abilityLableId?: number;
         /**
-         * the description id of main ability.
+         * The description id of main ability.
          */
         abilityDescriptionId?: number;
         /**
-         * the icon id of main ability.
+         * The icon id of main ability.
          */
         abilityIconId?: number;
         /**
-         * the launch count of module.
+         * The launch count of module.
          */
         launchedCount: number;
         /**
-         * the last time when the module was accessed, in milliseconds.
+         * The last time when the module was accessed, in milliseconds.
          */
         lastModuleUsedTime: number;
         /**
-         * the form usage record list of current module.
+         * The form usage record list of current module.
          */
         formRecords: Array<BundleActiveFormInfo>;
     }
@@ -189,21 +189,21 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.DeviceEventStats
+     * @useinstead ohos.resourceschedule.usageStatistics.DeviceEventStats
      */
     interface BundleActiveEventState {
         /**
-         * the bundle name or system event name.
+         * The bundle name or system event name.
          */
         name: string;
 
         /**
-         * the event id.
+         * The event id.
          */
         eventId: number;
 
         /**
-         * the the event occurrence number.
+         * The the event occurrence number.
          */
         count: number;
     }
@@ -212,31 +212,31 @@ declare namespace bundleState {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.BundleEvents
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents
      */
      interface BundleActiveState {
         /**
-         * the usage priority group of the application.
+         * The usage priority group of the application.
          */
         appUsagePriorityGroup?: number;
         /**
-         * the bundle name.
+         * The bundle name.
          */
         bundleName?: string;
         /**
-         * the shortcut ID.
+         * The shortcut ID.
          */
         indexOfLink?: string;
         /**
-         * the class name.
+         * The class name.
          */
         nameOfClass?: string;
         /**
-         * the time when this state occurred, in milliseconds.
+         * The time when this state occurred, in milliseconds.
          */
         stateOccurredTime?: number;
         /**
-         * the state type.
+         * The state type.
          */
         stateType?: number;
     }
@@ -245,27 +245,27 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.AppGroupCallbackInfo
+     * @useinstead ohos.resourceschedule.usageStatistics.AppGroupCallbackInfo
      */
     interface BundleActiveGroupCallbackInfo {
         /*
-         * the usage old group of the application
+         * The usage old group of the application
          */
         appUsageOldGroup: number;
         /*
-         * the usage new group of the application
+         * The usage new group of the application
          */
         appUsageNewGroup: number;
         /*
-         * the use id
+         * The use id
          */
         userId: number;
         /*
-         * the change reason
+         * The change reason
          */
         changeReason: number;
         /*
-         * the bundle name
+         * The bundle name
          */
         bundleName: string;
     }
@@ -280,7 +280,7 @@ declare namespace bundleState {
      * returns {@code false} otherwise. The time range of the particular period is defined by the system,
      * which may be hours or days.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.isIdleState
+     * @useinstead ohos.resourceschedule.usageStatistics.isIdleState
      */
     function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
     function isIdleState(bundleName: string): Promise<boolean>;
@@ -295,7 +295,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @return Returns the usage priority group of the calling application.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryAppGroup
+     * @useinstead ohos.resourceschedule.usageStatistics.queryAppGroup
      */
     function queryAppUsagePriorityGroup(callback: AsyncCallback<number>): void;
     function queryAppUsagePriorityGroup(): Promise<number>;
@@ -304,7 +304,7 @@ declare namespace bundleState {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.BundleStatsMap
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsMap
      */
      interface BundleActiveInfoResponse {
         [key: string]: BundleStateInfo;
@@ -323,7 +323,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryBundleStatsInfos
+     * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfos
      */
     function queryBundleStateInfos(begin: number, end: number, callback: AsyncCallback<BundleActiveInfoResponse>): void;
     function queryBundleStateInfos(begin: number, end: number): Promise<BundleActiveInfoResponse>;
@@ -334,7 +334,7 @@ declare namespace bundleState {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.IntervalType
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType
      */
     export enum IntervalType {
         /**
@@ -377,7 +377,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryBundleStatsInfoByInterval
+     * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfoByInterval
      */
     function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStateInfo>>): void;
     function queryBundleStateInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStateInfo>>;
@@ -393,7 +393,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryBundleEvents
+     * @useinstead ohos.resourceschedule.usageStatistics.queryBundleEvents
      */
     function queryBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
     function queryBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
@@ -407,7 +407,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the {@link BundleActiveState} object Array containing the state data of the current bundle.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryCurrentBundleEvents
+     * @useinstead ohos.resourceschedule.usageStatistics.queryCurrentBundleEvents
      */
     function queryCurrentBundleActiveStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveState>>): void;
     function queryCurrentBundleActiveStates(begin: number, end: number): Promise<Array<BundleActiveState>>;
@@ -422,7 +422,7 @@ declare namespace bundleState {
      * @param maxNum Indicates max record number in result, max value is 1000, default value is 1000.
      * @return Returns the {@link BundleActiveModuleInfo} object Array containing the usage data of the modules.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryModuleUsageRecords
+     * @useinstead ohos.resourceschedule.usageStatistics.queryModuleUsageRecords
      */
     function getRecentlyUsedModules(maxNum?: number, callback: AsyncCallback<Array<BundleActiveModuleInfo>>): void;
     function getRecentlyUsedModules(maxNum?: number): Promise<Array<BundleActiveModuleInfo>>;
@@ -440,7 +440,7 @@ declare namespace bundleState {
      * @param bundleName, name of the application.
      * @return Returns the usage priority group of the calling application.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryAppGroup
+     * @useinstead ohos.resourceschedule.usageStatistics.queryAppGroup
      */
      function queryAppUsagePriorityGroup(bundleName? : string, callback: AsyncCallback<number>): void;
      function queryAppUsagePriorityGroup(bundleName? : string): Promise<number>;
@@ -452,7 +452,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.GroupType
+     * @useinstead ohos.resourceschedule.usageStatistics.GroupType
      */
       export enum GroupType {
         /**
@@ -487,7 +487,7 @@ declare namespace bundleState {
     }
 
     /**
-     * set bundle group by bundleName and number.
+     * Set bundle group by bundleName and number.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -497,13 +497,13 @@ declare namespace bundleState {
      * @param newGroup,the group of the application whose name is bundleName.
      * @return Returns the result of setBundleGroup, true of false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.setAppGroup
+     * @useinstead ohos.resourceschedule.usageStatistics.setAppGroup
      */
     function setBundleGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
     function setBundleGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
     /**
-     * register callback to service.
+     * Register callback to service.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -512,13 +512,13 @@ declare namespace bundleState {
      * @param Callback<BundleActiveGroupCallbackInfo>, callback when application group change,return the BundleActiveGroupCallbackInfo.
      * @return Returns BundleActiveGroupCallbackInfo when the group of bundle changed. the result of AsyncCallback is true or false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.registerAppGroupCallBack
+     * @useinstead ohos.resourceschedule.usageStatistics.registerAppGroupCallBack
      */
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>, callback: AsyncCallback<void>): void;
     function registerGroupCallBack(callback: Callback<BundleActiveGroupCallbackInfo>): Promise<void>;
 
     /**
-     * unRegister callback from service.
+     * UnRegister callback from service.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -526,7 +526,7 @@ declare namespace bundleState {
      * @systemapi Hide this for inner system use.
      * @return Returns the result of unRegisterGroupCallBack, true of false.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.unRegisterAppGroupCallBack
+     * @useinstead ohos.resourceschedule.usageStatistics.unRegisterAppGroupCallBack
      */
     function unRegisterGroupCallBack(callback: AsyncCallback<void>): void;
     function unRegisterGroupCallBack(): Promise<void>;
@@ -542,7 +542,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryDeviceEventStats
+     * @useinstead ohos.resourceschedule.usageStatistics.queryDeviceEventStats
      */
     function queryBundleActiveEventStates(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
     function queryBundleActiveEventStates(begin: number, end: number): Promise<Array<BundleActiveEventState>>;
@@ -558,7 +558,7 @@ declare namespace bundleState {
      * @param end Indicates the end time of the query period, in milliseconds.
      * @return Returns the {@link BundleActiveEventState} object Array containing the event states data.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.usageStatistics.queryNotificationEventStats
+     * @useinstead ohos.resourceschedule.usageStatistics.queryNotificationEventStats
      */
     function queryAppNotificationNumber(begin: number, end: number, callback: AsyncCallback<Array<BundleActiveEventState>>): void;
     function queryAppNotificationNumber(begin: number, end: number): Promise<Array<BundleActiveEventState>>;

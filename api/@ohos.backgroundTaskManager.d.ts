@@ -23,7 +23,7 @@ import Context from './application/BaseContext';
  * @since 7
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  * @deprecated since 9
- * @useinstead @ohos.resourceschedule.backgroundTaskManager
+ * @useinstead ohos.resourceschedule.backgroundTaskManager
  */
 declare namespace backgroundTaskManager {
     /**
@@ -33,7 +33,7 @@ declare namespace backgroundTaskManager {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.DelaySuspendInfo
      */
     interface DelaySuspendInfo {
         /**
@@ -53,7 +53,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.cancelSuspendDelay
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.cancelSuspendDelay
      */
     function cancelSuspendDelay(requestId: number): void;
 
@@ -65,7 +65,7 @@ declare namespace backgroundTaskManager {
      * @param requestId Indicates the identifier of the delay request.
      * @return The remaining delay time
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
      */
     function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
     function getRemainingDelayTime(requestId: number): Promise<number>;
@@ -79,7 +79,7 @@ declare namespace backgroundTaskManager {
      * @param callback The callback delay time expired.
      * @return Info of delay request
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
      */
     function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
@@ -94,7 +94,7 @@ declare namespace backgroundTaskManager {
      * @param bgMode Indicates which background mode to request.
      * @param wantAgent Indicates which ability to start when user click the notification bar.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
      */
     function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
     function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
@@ -106,7 +106,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @param context app running context.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
      */
     function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
     function stopBackgroundRunning(context: Context): Promise<void>;
@@ -119,7 +119,7 @@ declare namespace backgroundTaskManager {
      * @return True if efficiency resources apply success, else false.
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.applyEfficiencyResources
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.applyEfficiencyResources
      */
      function applyEfficiencyResources(request: EfficiencyResourcesRequest): boolean;
 
@@ -130,17 +130,17 @@ declare namespace backgroundTaskManager {
       * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
       * @systemapi Hide this for inner system use.
       * @deprecated since 9
-      * @useinstead @ohos.resourceschedule.backgroundTaskManager.resetAllEfficiencyResources
+      * @useinstead ohos.resourceschedule.backgroundTaskManager.resetAllEfficiencyResources
       */
      function resetAllEfficiencyResources(): void;
 
     /**
-     * supported background mode.
+     * Supported background mode.
      *
      * @since 8
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.BackgroundMode
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.BackgroundMode
      */
     export enum BackgroundMode {
         /**
@@ -226,7 +226,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.ResourceType
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.ResourceType
      */
      export enum ResourceType {
         /**
@@ -273,7 +273,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead @ohos.resourceschedule.backgroundTaskManager.EfficiencyResourcesRequest
+     * @useinstead ohos.resourceschedule.backgroundTaskManager.EfficiencyResourcesRequest
      */
     export interface EfficiencyResourcesRequest {
         /**
