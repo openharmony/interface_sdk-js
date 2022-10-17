@@ -580,7 +580,7 @@ declare namespace usageStatistics {
     function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
     /**
-     * UnRegister callback from service.
+     * Unregister callback from service.
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -595,8 +595,8 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10100001 - Application group operation repeated.
      */
-    function unRegisterAppGroupCallBack(callback: AsyncCallback<void>): void;
-    function unRegisterAppGroupCallBack(): Promise<void>;
+    function unregisterAppGroupCallBack(callback: AsyncCallback<void>): void;
+    function unregisterAppGroupCallBack(): Promise<void>;
 
     /** 
      * Queries device event states data within a specified period identified by the start and end time.
