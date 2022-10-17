@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,65 +20,56 @@ import { Configuration } from './@ohos.application.Configuration';
 
 /**
  * The class of an ability stage.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
- * @StageModelOnly
+ * @stagemodelonly
+ * @since 9
  */
 export default class AbilityStage {
     /**
      * Indicates configuration information about context.
-     *
-     * @since 9
+     * @type { AbilityStageContext }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     context: AbilityStageContext;
 
     /**
      * Called back when an ability stage is started for initialization.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return -
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     onCreate(): void;
 
     /**
      * Called back when start specified ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info of startd ability.
-     * @return The user returns an ability string ID. If the ability of this ID has been started before,
+     * @param { Want } want - Indicates the want info of startd ability.
+     * @return { string } The user returns an ability string ID. If the ability of this ID has been started before,
      *         do not create a new instance and pull it back to the top of the stack.
      *         Otherwise, create a new instance and start it.
-     * @StageModelOnly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
      */
     onAcceptWant(want: Want): string;
 
     /**
      * Called when the system configuration is updated.
-     *
-     * @since 9
+     * @param { Configuration } config - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param config Indicates the updated configuration.
-     * @return -
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     onConfigurationUpdated(config: Configuration): void;
 
     /**
      * Called when the system has determined to trim the memory, for example, when the ability is running in the
      * background and there is no enough memory for running as many background processes as possible.
-     *
+     * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @param level Indicates the memory trim level, which shows the current memory usage status.
-     * @return -
-     * @StageModelOnly
      */
-     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+    onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
