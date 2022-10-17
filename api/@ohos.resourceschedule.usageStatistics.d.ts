@@ -21,7 +21,7 @@ import { AsyncCallback , Callback} from './basic';
  *
  * <p>You can use the methods defined in this class to query
  * the usage history and states of bundles in a specified period.
- * The system stores the query result in a {@link BundleStatsInfo} instance and
+ * The system stores the query result in a {@link bundleStatsInfo} instance and
  * then returns it to you.
  *
  * @since 9
@@ -33,9 +33,9 @@ declare namespace usageStatistics {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      */
-    interface BundleStatsInfo {
+    interface bundleStatsInfo {
         /**
-         * The identifier of BundleStatsInfo.
+         * The identifier of bundleStatsInfo.
          */
         id: number;
         /**
@@ -322,7 +322,7 @@ declare namespace usageStatistics {
      * @systemapi Hide this for inner system use.
      */
      interface BundleStatsMap {
-        [key: string]: BundleStatsInfo;
+        [key: string]: bundleStatsInfo;
     }
 
     /**
@@ -405,10 +405,10 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
+     * @return Returns the list of {@link bundleStatsInfo} objects containing the usage information about each bundle.
      */
-    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStatsInfo>>): void;
-    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStatsInfo>>;
+    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<bundleStatsInfo>>): void;
+    function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<bundleStatsInfo>>;
 
     /**
      * Queries state data of all bundles within a specified period identified by the start and end time.
