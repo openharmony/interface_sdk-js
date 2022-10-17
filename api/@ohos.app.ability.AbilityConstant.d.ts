@@ -15,46 +15,43 @@
 
 /**
  * The definition of AbilityConstant.
- *
- * @since 9
+ * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
- * @StageModelOnly
+ * @stagemodelonly
+ * @since 9
  */
 declare namespace AbilityConstant {
     /**
      * Interface of launch param.
-     *
-     * @since 9
+     * @typedef LaunchParam
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export interface LaunchParam {
         /**
          * Indicates launch reason.
-         *
-         * @since 9
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @StageModelOnly
+         * @stagemodelonly
+         * @since 9
          */
         launchReason: LaunchReason;
 
         /**
          * Indicates last exit reason.
-         *
-         * @since 9
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @StageModelOnly
+         * @stagemodelonly
+         * @since 9
          */
         lastExitReason: LastExitReason;
     }
 
     /**
      * Type of launch reason.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum LaunchReason {
         UNKNOWN = 0,
@@ -65,10 +62,10 @@ declare namespace AbilityConstant {
 
     /**
      * Type of last exit reason.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum LastExitReason {
         UNKNOWN = 0,
@@ -78,10 +75,10 @@ declare namespace AbilityConstant {
 
     /**
      * Type of onContinue result.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum OnContinueResult {
         AGREE = 0,
@@ -91,10 +88,10 @@ declare namespace AbilityConstant {
 
     /**
      * Type of memory level.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum MemoryLevel {
         MEMORY_LEVEL_MODERATE = 0,
@@ -104,10 +101,10 @@ declare namespace AbilityConstant {
 
     /**
      * Type of window mode.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum WindowMode {
         WINDOW_MODE_UNDEFINED = 0,
