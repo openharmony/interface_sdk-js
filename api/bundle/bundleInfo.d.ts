@@ -23,6 +23,8 @@ import { HapModuleInfo } from './hapModuleInfo';
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.BundleInfo
  *
  */
 export interface UsedScene {

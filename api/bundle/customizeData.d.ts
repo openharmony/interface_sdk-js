@@ -18,6 +18,8 @@
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.Metadata
  *
  */
   export interface CustomizeData {
@@ -27,14 +29,14 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     name: string;
-  
+
     /**
       * @default Indicates the custom metadata value
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     value: string;
-  
+
     /**
     * @default Indicates the custom metadata resource
     * @since 8
