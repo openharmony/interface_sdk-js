@@ -1609,7 +1609,7 @@ declare namespace distributedKVStore {
      */
     interface KVManager {
         /**
-         * Creates and obtains a {@code SingleKVStore} database by specifying {@code Options} and {@code storeId}.
+         * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
          *
          * @param options Indicates the options used for creating and obtaining the KVStore database,
          * including {@code isCreateIfMissing}, {@code isEncrypt}, and {@code KVStoreType}.
