@@ -99,17 +99,17 @@ declare namespace avSession {
    */
   interface SessionToken {
     /**
-     * session id
+     * The unique session id of the avsession object
      * @since 9
      */
     sessionId: string;
     /**
-     * process id
+     * Process id of session
      * @since 9
      */
     pid: number;
     /**
-     * user id
+     * User id
      * @since 9
      */
     uid: number;
@@ -541,7 +541,7 @@ declare namespace avSession {
   }
 
   /**
-   * Playback position defination
+   * Playback position definition
    * @interface PlaybackPosition
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
@@ -932,7 +932,7 @@ declare namespace avSession {
                               'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite';
 
   /**
-   * The defination of command to be send to the session
+   * The definition of command to be sent to the session
    * @interface AVControlCommand
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
