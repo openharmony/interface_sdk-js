@@ -22,6 +22,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.ExtensionAbility
  */
 export default class ExtensionAbility {
     /**

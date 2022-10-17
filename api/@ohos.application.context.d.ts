@@ -29,6 +29,8 @@ import * as _PermissionRequestResult  from './application/PermissionRequestResul
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.common
  */
 declare namespace context {
 

@@ -22,6 +22,9 @@ import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
 import * as _EventHub from './application/EventHub';
 import * as _PermissionRequestResult from './application/PermissionRequestResult';
+import { PacMap as _PacMap } from "./ability/dataAbilityHelper";
+import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
+import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -120,6 +123,30 @@ declare namespace common {
      * @since 9
      */
     export type PermissionRequestResult = _PermissionRequestResult.default
+
+    /**
+     * Defines a PacMap object for storing a series of values.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type PacMap = _PacMap
+
+    /**
+     * Indicates the result of startAbility.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type AbilityResult = _AbilityResult
+
+    /**
+     * Indicates the callback of connection
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type ConnectOptions = _ConnectOptions
 }
 
 export default common;

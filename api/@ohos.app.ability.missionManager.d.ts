@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
-import StartOptions from "./@ohos.application.StartOptions";
+import StartOptions from "./@ohos.app.ability.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.

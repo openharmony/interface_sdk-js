@@ -16,7 +16,7 @@
 import { AsyncCallback } from "./basic";
 import { Callback } from "./basic";
 import Want from './@ohos.application.Want';
-import formInfo from './@ohos.application.formInfo'
+import formInfo from './@ohos.application.formInfo';
 
 /**
  * Interface of formHost.

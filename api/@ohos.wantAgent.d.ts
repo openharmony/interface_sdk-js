@@ -28,7 +28,7 @@ import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
  * @import import wantAgent from '@ohos.wantAgent';
  * @permission N/A
  * @deprecated since 9
- * @useinstead @ohos.app.wantAgent
+ * @useinstead ohos.app.ability.wantAgent
  */
 declare namespace wantAgent {
   /**

@@ -27,7 +27,7 @@ import { ElementName }  from './bundle/elementName';
  * @systemapi Hide this for inner system use
  * @permission N/A
  * @deprecated since 9
- * @useinstead @ohos.app.ability.abilityManager
+ * @useinstead ohos.app.ability.abilityManager
  */
 declare namespace abilityManager {
     /**
