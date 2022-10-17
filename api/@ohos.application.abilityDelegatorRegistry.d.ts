@@ -26,6 +26,8 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.abilityDelegatorRegistry
  */
 declare namespace abilityDelegatorRegistry {
     /**

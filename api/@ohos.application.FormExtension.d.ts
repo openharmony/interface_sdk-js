@@ -25,6 +25,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @since 9
  * @syscap SystemCapability.Ability.Form
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.form.FormExtensionAbility
  */
 export default class FormExtension {
     /**

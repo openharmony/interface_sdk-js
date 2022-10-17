@@ -24,7 +24,7 @@ import * as _ErrorObserver from './application/ErrorObserver';
  * @import import errorManager from '@ohos.application.errorManager'
  * @permission N/A
  * @deprecated since 9
- * @useinstead @ohos.app.ability.errorManager
+ * @useinstead ohos.app.ability.errorManager
  */
 declare namespace errorManager {
     /**

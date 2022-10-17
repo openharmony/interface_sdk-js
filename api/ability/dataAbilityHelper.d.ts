@@ -26,8 +26,6 @@ import rdb from '../@ohos.data.rdb';
  *
  * @since 7
  * @FAModelOnly
- * @deprecated since 9
- * @useinstead @ohos.app.ability.dataAbilityHelper
  */
 export interface DataAbilityHelper {
     /**
@@ -243,8 +241,6 @@ export interface DataAbilityHelper {
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @deprecated since 9
- * @useinstead @ohos.app.ability.dataAbilityHelper
  */
  export interface PacMap {
   

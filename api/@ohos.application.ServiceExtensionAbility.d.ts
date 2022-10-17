@@ -25,6 +25,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.ServiceExtensionAbility
  */
 export default class ServiceExtensionAbility {
     /**
@@ -133,6 +135,6 @@ export default class ServiceExtensionAbility {
      * @return The dump info array.
      * @StageModelOnly
      */
-    onDump(params: Array<string>): Array<string>;
+    dump(params: Array<string>): Array<string>;
 }
 

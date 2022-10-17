@@ -23,6 +23,8 @@ import window from './@ohos.window';
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.AbilityLifecycleCallback
  */
 export default class AbilityLifecycleCallback {
     /**
