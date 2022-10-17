@@ -535,7 +535,7 @@ declare namespace distributedKVStore {
          *
          * <p>Adding a child node makes this node a non-leaf node. Field value will be ignored if it has child node.
          *
-         * @param child The field node to append.
+         * @param {FieldNode} child - The field node to append.
          * @returns Returns true if the child node is successfully added to this {@code FieldNode}; returns false otherwise.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
@@ -565,7 +565,7 @@ declare namespace distributedKVStore {
     }
 
     /**
-     * Provide methods to obtain the result set of the {@code SingleKVStore} or {@code SingleKVStore} database.
+     * Provide methods to obtain the result set of the {@code SingleKVStore} or {@code DeviceKVStore} database.
      *
      * <p>The result set is created by using the {@code getResultSet} method in the {@code SingleKVStore} or
      * {@code DeviceKVStore} class. This interface also provides methods for moving the data read
@@ -635,9 +635,9 @@ declare namespace distributedKVStore {
         /**
          * Moves the read position by a relative offset to the current position.
          *
-         * @param offset Indicates the relative offset to the current position. Anegative offset indicates moving backwards, and a
-         * positive offset indicates moving forewards. Forexample, if the current position is entry 1 and thisoffset is 2,
-         * the destination position will be entry 3; ifthe current position is entry 3 and this offset is -2,
+         * @param {number} offset - Indicates the relative offset to the current position. Anegative offset indicates moving
+         * backwards, and a positive offset indicates moving forewards. Forexample, if the current position is entry 1 and
+         * thisoffset is 2, the destination position will be entry 3; ifthe current position is entry 3 and this offset is -2,
          * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
          * final position is invalid, false will be returned.
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -649,7 +649,7 @@ declare namespace distributedKVStore {
         /**
          * Moves the read position from 0 to an absolute position.
          *
-         * @param position Indicates the absolute position.
+         * @param {number} position - Indicates the absolute position.
          * @returns Returns true if the operation succeeds; return false otherwise.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -730,82 +730,82 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value IIndicates the long value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        equalTo(field: string, value: number|string|boolean): Query;
+        equalTo(field: string, value: number | string | boolean): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the int value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        notEqualTo(field: string, value: number|string|boolean): Query;
+        notEqualTo(field: string, value: number | string | boolean): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
          * specified int value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the int value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        greaterThan(field: string, value: number|string|boolean): Query;
+        greaterThan(field: string, value: number | string | boolean): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the int value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        lessThan(field: string, value: number|string): Query;
+        lessThan(field: string, value: number | string): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
          * equal to the specified int value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the int value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        greaterThanOrEqualTo(field: string, value: number|string): Query;
+        greaterThanOrEqualTo(field: string, value: number | string): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is less than or equal to the
          * specified int value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the int value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        lessThanOrEqualTo(field: string, value: number|string): Query;
+        lessThanOrEqualTo(field: string, value: number | string): Query;
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is null.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -816,8 +816,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified int value list.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param valueList Indicates the int value list.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number[]} valueList - Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -828,8 +828,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified string value list.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param valueList Indicates the string value list.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string[]} valueList - Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -840,8 +840,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified int value list.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param valueList Indicates the int value list.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {number[]} valueList - Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -852,8 +852,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified string value list.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param valueList Indicates the string value list.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string[]} valueList - Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -864,8 +864,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the specified string value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the string value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string} value - Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -876,8 +876,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the specified string value.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
-         * @param value Indicates the string value.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string} value - Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -910,7 +910,7 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to sort the query results in ascending order.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -921,7 +921,7 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to sort the query results in descending order.
          *
-         * @param field Indicates the field, which must start with $. and cannot contain ^.
+         * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -932,8 +932,8 @@ declare namespace distributedKVStore {
         /**
          * Constructs a {@code Query} object to specify the number of results and the start position.
          *
-         * @param total Indicates the number of results.
-         * @param offset Indicates the start position.
+         * @param {number} total - Indicates the number of results.
+         * @param {number} offset - Indicates the start position.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -944,7 +944,7 @@ declare namespace distributedKVStore {
         /**
          * Creates a {@code Query} condition with a specified field that is not null.
          *
-         * @param field Indicates the specified field.
+         * @param {string} field - Indicates the specified field.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -979,7 +979,7 @@ declare namespace distributedKVStore {
         /**
          * Creates a query condition with a specified key prefix.
          *
-         * @param prefix Indicates the specified key prefix.
+         * @param {string} prefix - Indicates the specified key prefix.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -990,7 +990,7 @@ declare namespace distributedKVStore {
         /**
          * Sets a specified index that will be preferentially used for query.
          *
-         * @param index Indicates the index to set.
+         * @param {string} index - Indicates the index to set.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -1001,7 +1001,7 @@ declare namespace distributedKVStore {
         /**
          * Add device ID key prefix.Used by {@code DeviceKVStore}.
          *
-         * @param deviceId Specify device id to query from.
+         * @param {string} deviceId - Specify device id to query from.
          * @return Returns the {@code Query} object with device ID prefix added.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
@@ -1044,9 +1044,10 @@ declare namespace distributedKVStore {
          *
          * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
          *
-         * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
-         * @param value Indicates the string value, which must be less than 4 MB as a UTF-8 byte array.
+         * @param {Uint8Array|string|number|boolean} value - Indicates the value to be inserted.
+         * @param {AsyncCallback<void>} callback - the callback of put.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1054,12 +1055,29 @@ declare namespace distributedKVStore {
          * @since 9
          */
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
+
+        /**
+         * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
+         *
+         * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local database.
+         *
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+         * Spaces before and after the key will be cleared.
+         * @param {Uint8Array|string|number|boolean} value - Indicates the value to be inserted.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
         /**
          * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
          *
-         * @param entries Indicates the key-value pairs to be inserted in batches.
+         * @param {Entry[]} entries - Indicates the key-value pairs to be inserted in batches.
+         * @param {AsyncCallback<void>} callback - the callback of putBatch.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1067,13 +1085,25 @@ declare namespace distributedKVStore {
          * @since 9
          */
         putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
+
+        /**
+         * Inserts key-value pairs into the {@code SingleKVStore} database in batches.
+         *
+         * @param {Entry[]} entries - Indicates the key-value pairs to be inserted in batches.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         putBatch(entries: Entry[]): Promise<void>;
 
         /**
-         * Writes a value of the valuesbucket type into the {@code SingleKVStore} database.
+         * Writes a value of the ValuesBucket type into the {@code SingleKVStore} database.
          *
-         * @param value Indicates the data record to put.
-         * Spaces before and after the key will be cleared.
+         * @param {Array<ValuesBucket>} value - Indicates the ValuesBucket array to be inserted.
+         * @param {AsyncCallback<void>} callback - the callback of putBatch.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1082,13 +1112,27 @@ declare namespace distributedKVStore {
          * @since 9
          */
         putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
+
+        /**
+         * Writes a value of the ValuesBucket type into the {@code SingleKVStore} database.
+         *
+         * @param {Array<ValuesBucket>} value - Indicates the ValuesBucket array to be inserted.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
+         * @since 9
+         */
         putBatch(value: Array<ValuesBucket>): Promise<void>;
 
         /**
          * Deletes the key-value pair based on a specified key.
          *
-         * @param key Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
+         * @param {AsyncCallback<void>} callback - the callback of delete.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when delete data.
@@ -1097,13 +1141,27 @@ declare namespace distributedKVStore {
          * @since 9
          */
         delete(key: string, callback: AsyncCallback<void>): void;
-        delete(key: string): Promise<void>;
 
         /**
          * Deletes the key-value pair based on a specified key.
          *
-         * @param predicates Indicates the datasharePredicates.
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
          * Spaces before and after the key will be cleared.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100004 - if the data not exist when delete data.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
+        delete(key: string): Promise<void>;
+
+        /**
+         * Deletes the key-value pairs based on the dataSharePredicates.
+         *
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
+         * @param {AsyncCallback<void>} callback - the callback of delete.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when delete data.
@@ -1113,12 +1171,27 @@ declare namespace distributedKVStore {
          * @since 9
          */
         delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
+
+        /**
+         * Deletes the key-value pairs based on the dataSharePredicates.
+         *
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100004 - if the data not exist when delete data.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
+         * @since 9
+         */
         delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
 
         /**
          * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
          *
-         * @param keys Indicates the key-value pairs to be deleted in batches.
+         * @param {string[]} keys - Indicates the key-value pairs to be deleted in batches.
+         * @param {AsyncCallback<void>} callback - the callback of deleteBatch.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when delete data.
@@ -1127,6 +1200,19 @@ declare namespace distributedKVStore {
          * @since 9
          */
         deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
+
+        /**
+         * Deletes key-value pairs in batches from the {@code SingleKVStore} database.
+         *
+         * @param {string[]} keys - Indicates the key-value pairs to be deleted in batches.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100004 - if the data not exist when delete data.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         deleteBatch(keys: string[]): Promise<void>;
 
         /**
@@ -1134,18 +1220,35 @@ declare namespace distributedKVStore {
          * synchronized from remote devices. This operation does not synchronize data to other databases or affect
          * subsequent data synchronization.
          *
-         * @param deviceId Identifies the device whose data is to be removed. The value cannot be the current device ID.
+         * @param {string} deviceId - Identifies the device whose data is to be removed. The value cannot be the current device ID.
+         * @param {AsyncCallback<void>} callback - the callback of removeDeviceData.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Removes data of a specified device from the current database. This method is used to remove only the data
+         * synchronized from remote devices. This operation does not synchronize data to other databases or affect
+         * subsequent data synchronization.
+         *
+         * @param {string} deviceId - Identifies the device whose data is to be removed. The value cannot be the current device ID.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         removeDeviceData(deviceId: string): Promise<void>;
 
         /**
-         * Obtains the {@code String} value of a specified key.
+         * Obtains the value of a specified key.
          *
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+         * @param {AsyncCallback<boolean|string|number|Uint8Array>} callback -
+         * {Uint8Array|string|boolean|number}: the returned value specified by the key.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when query data.
@@ -1154,14 +1257,30 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        get(key: string, callback: AsyncCallback<Uint8Array | string | boolean | number>): void;
-        get(key: string): Promise<Uint8Array | string | boolean | number>;
+        get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+
+        /**
+         * Obtains the value of a specified key.
+         *
+         * @param {string} key - Indicates the key. The length must be less than {@code MAX_KEY_LENGTH}.
+         * @returns {Promise<boolean|string|number|Uint8Array>}
+         * {Uint8Array|string|boolean|number}: the returned value specified by the key.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100004 - if the data not exist when query data.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
+        get(key: string): Promise<boolean | string | number | Uint8Array>;
 
         /**
          * Obtains all key-value pairs that match a specified key prefix.
          *
-         * @param keyPrefix Indicates the key prefix to match.
-         * @returns Returns the list of all key-value pairs that match the specified key prefix.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         \* @param {AsyncCallback<Entry[]>} callback - {Entry[]}: the list of all key-value pairs
+         * that match the specified key prefix.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1170,13 +1289,28 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+
+        /**
+         * Obtains all key-value pairs that match a specified key prefix.
+         *
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @returns {Promise<Entry[]>} {Entry[]}: the list of all key-value pairs that match the
+         * specified key prefix.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getEntries(keyPrefix: string): Promise<Entry[]>;
 
         /**
          * Obtains the list of key-value pairs matching the specified {@code Query} object.
          *
-         * @param query Indicates the {@code Query} object.
-         * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<Entry[]>} callback - {Entry[]}: the list of all key-value pairs
+         * matching the specified {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if not support the operation.
@@ -1186,6 +1320,21 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
+
+        /**
+         * Obtains the list of key-value pairs matching the specified {@code Query} object.
+         *
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @returns {Promise<Entry[]>} {Entry[]}: the list of all key-value pairs matching the
+         * specified {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100005 - if not support the operation.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getEntries(query: Query): Promise<Entry[]>;
 
         /**
@@ -1195,7 +1344,9 @@ declare namespace distributedKVStore {
          * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
          * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
          *
-         * @param keyPrefix Indicates the key prefix to match.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified keyPrefix.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1204,12 +1355,32 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the result sets with a specified prefix from a {@code SingleKVStore} database. The {@code KVStoreResultSet}
+         * object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
+         * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created
+         * four objects, calling this method will return a failure. Therefore, you are advised to call the closeResultSet
+         * method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
+         *
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified keyPrefix.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
         /**
          * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
          *
-         * @param query Indicates the {@code Query} object.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1218,13 +1389,28 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the {@code KVStoreResultSet} object matching the specified {@code Query} object.
+         *
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getResultSet(query: Query): Promise<KVStoreResultSet>;
 
         /**
          * Obtains the KVStoreResultSet object matching the specified Predicate object.
          *
-         * @param predicates Indicates the datasharePredicates.
-         * Spaces before and after the key will be cleared.
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the datasharePredicates.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1233,25 +1419,52 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the KVStoreResultSet object matching the specified Predicate object.
+         *
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the datasharePredicates.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
+         * @since 9
+         */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
         /**
          * Closes a {@code KVStoreResultSet} object returned by getResultSet.
          *
-         * @param resultSet Indicates the {@code KVStoreResultSet} object to close.
+         * @param {KVStoreResultSet} resultSet - Indicates the {@code KVStoreResultSet} object to close.
+         * @param {AsyncCallback<void>} callback - the callback of closeResultSet.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         closeResultSet(resultSet: KVStoreResultSet, callback: AsyncCallback<void>): void;
+
+        /**
+         * Closes a {@code KVStoreResultSet} object returned by getResultSet.
+         *
+         * @param {KVStoreResultSet} resultSet - Indicates the {@code KVStoreResultSet} object to close.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         closeResultSet(resultSet: KVStoreResultSet): Promise<void>;
 
         /**
          * Obtains the number of results matching the specified {@code Query} object.
          *
-         * @param query Indicates the {@code Query} object.
-         * @returns Returns the number of results matching the specified {@code Query} object.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<number>} callback - {number}: the number of results matching the
+         * specified {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1260,12 +1473,27 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSize(query: Query, callback: AsyncCallback<number>): void;
+
+        /**
+         * Obtains the number of results matching the specified {@code Query} object.
+         *
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @returns {Promise<number>} {number}: the number of results matching the specified
+         * {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @import N/A
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getResultSize(query: Query): Promise<number>;
 
         /**
          * Backs up a database in a specified name.
          *
-         * @param file Indicates the name that saves the database backup.
+         * @param {string} file - Indicates the name that saves the database backup.
+         * @param {AsyncCallback<void>} callback - the callback of backup.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100005 - if not support the operation.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1273,12 +1501,25 @@ declare namespace distributedKVStore {
          * @since 9
          */
         backup(file:string, callback: AsyncCallback<void>):void;
+
+        /**
+         * Backs up a database in a specified name.
+         *
+         * @param {string} file - Indicates the name that saves the database backup.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100005 - if not support the operation.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         backup(file:string): Promise<void>;
 
         /**
          * Restores a database from a specified database file.
          *
-         * @param file Indicates the name that saves the database file.
+         * @param {string} file - Indicates the name that saves the database file.
+         * @param {AsyncCallback<void>} callback - the callback of restore.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100005 - if not support the operation.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1286,17 +1527,43 @@ declare namespace distributedKVStore {
          * @since 9
          */
         restore(file:string, callback: AsyncCallback<void>):void;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @param {string} file - Indicates the name that saves the database file.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100005 - if not support the operation.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         restore(file:string): Promise<void>;
 
         /**
          * Delete a backup files based on a specified name.
          *
-         * @param files list Indicates the name that backup file to delete.
+         * @param {Array<string>} files - Indicates the backup files to be deleted.
+         * @param {AsyncCallback<Array<[string, number]>>} callback - {Array<[string, number]>}:
+         * the list of backup file and it's corresponding delete result which 0 means delete success
+         * and otherwise failed.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
+
+        /**
+         * Delete a backup files based on a specified name.
+         *
+         * @param {Array<string>} files - Indicates the backup files to be deleted.
+         * @returns {Promise<Array<[string, number]>>} {Array<[string, number]>}: the list of backup
+         * file and it's corresponding delete result which 0 means delete success and otherwise failed.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
 
         /**
@@ -1304,44 +1571,87 @@ declare namespace distributedKVStore {
          *
          * <p>After the database transaction is started, you can submit or roll back the operation.
          *
+         * @param {AsyncCallback<void>} callback - the callback of startTransaction.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         startTransaction(callback: AsyncCallback<void>): void;
+
+        /**
+         * Starts a transaction operation in the {@code SingleKVStore} database.
+         *
+         * <p>After the database transaction is started, you can submit or roll back the operation.
+         *
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         startTransaction(): Promise<void>;
 
         /**
          * Submits a transaction operation in the {@code SingleKVStore} database.
          *
-         * @param callback
+         * @param {AsyncCallback<void>} callback - the callback of commit.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         commit(callback: AsyncCallback<void>): void;
+
+        /**
+         * Submits a transaction operation in the {@code SingleKVStore} database.
+         *
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         commit(): Promise<void>;
 
         /**
          * Rolls back a transaction operation in the {@code SingleKVStore} database.
          *
+         * @param {AsyncCallback<void>} callback - the callback of rollback.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         rollback(callback: AsyncCallback<void>): void;
+
+        /**
+         * Rolls back a transaction operation in the {@code SingleKVStore} database.
+         *
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         rollback(): Promise<void>;
 
         /**
          * Sets whether to enable synchronization.
          *
-         * @param enabled Specifies whether to enable synchronization. The value true means to enable
-         * synchronization, and false means the opposite.
+         * @param {boolean} enabled - Specifies whether to enable synchronization. The value true
+         * means to enable synchronization, and false means the opposite.
+         * @param {AsyncCallback<void>} callback - the callback of enableSync.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
+
+        /**
+         * Sets whether to enable synchronization.
+         *
+         * @param {boolean} enabled - Specifies whether to enable synchronization. The value true
+         * means to enable synchronization, and false means the opposite.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         enableSync(enabled: boolean): Promise<void>;
 
         /**
@@ -1349,33 +1659,63 @@ declare namespace distributedKVStore {
          *
          * <p>The labels determine the devices with which data will be synchronized.
          *
-         * @param localLabels Indicates the synchronization labels of the local device.
-         * @param remoteSupportLabels Indicates the labels of the devices with which data will be synchronized.
+         * @param {string[]} localLabels - Indicates the synchronization labels of the local device.
+         * @param  {string[]} remoteSupportLabels - Indicates the labels of the devices with which
+         * data will be synchronized.
+         * @param {AsyncCallback<void>} callback - the callback of setSyncRange.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
+
+        /**
+         * Sets synchronization range labels.
+         *
+         * <p>The labels determine the devices with which data will be synchronized.
+         *
+         * @param {string[]} localLabels - Indicates the synchronization labels of the local device.
+         * @param  {string[]} remoteSupportLabels - Indicates the labels of the devices with which
+         * data will be synchronized.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
 
         /**
          * Sets the default delay allowed for database synchronization
          *
-         * @param defaultAllowedDelayMs Indicates the default delay allowed for the database synchronization, in milliseconds.
+         * @param {number} defaultAllowedDelayMs - Indicates the default delay allowed for the
+         * database synchronization, in milliseconds.
+         * @param {AsyncCallback<void>} callback - the callback of setSyncParam.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Sets the default delay allowed for database synchronization
+         *
+         * @param {number} defaultAllowedDelayMs - Indicates the default delay allowed for the
+         * database synchronization, in milliseconds.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
 
         /**
          * Synchronizes the database to the specified devices with the specified delay allowed.
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param deviceIds Indicates the list of devices to which to synchronize the database.
-         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
+         * @param {string[]} deviceIds - Indicates the list of devices to which to synchronize the database.
+         * @param {SyncMode} mode - Indicates the synchronization mode. The value can be {@code PUSH},
+         * {@code PULL}, or {@code PUSH_PULL}.
+         * @param {number} delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the database not exist when sync data.
@@ -1388,10 +1728,11 @@ declare namespace distributedKVStore {
          * Synchronizes the database to the specified devices with the specified delay allowed.
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
-         * @param deviceIds Indicates the list of devices to which to synchronize the database.
-         * @param mode Indicates the synchronization mode. The value can be {@code PUSH}, {@code PULL}, or {@code PUSH_PULL}.
-         * @param delayMs Indicates the delay allowed for the synchronization, in milliseconds.
-         * @param query Indicates the {@code Query} object.
+         * @param {string[]} deviceIds - Indicates the list of devices to which to synchronize the database.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {SyncMode} mode - Indicates the synchronization mode. The value can be {@code PUSH},
+         * {@code PULL}, or {@code PUSH_PULL}.
+         * @param {number} delayMs - Indicates the delay allowed for the synchronization, in milliseconds.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the database not exist when sync data.
@@ -1404,8 +1745,9 @@ declare namespace distributedKVStore {
          * Registers a {@code KVStoreObserver} for the database. When data in the distributed database changes, the callback in
          * {@code KVStoreObserver} will be invoked.
          *
-         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
-         * @param listener Indicates the observer of data change events in the distributed database.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param {Callback<ChangeNotification>} listener - {ChangeNotification}: the {@code ChangeNotification}
+         * object indicates the data change events in the distributed database.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100001 - if the database has been subscribed over the max subscription time limit.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1418,7 +1760,9 @@ declare namespace distributedKVStore {
          * Register Synchronizes SingleKVStore databases callback.
          * <p> Sync result is returned through asynchronous callback.
          *
-         * @param syncCallback Indicates the callback used to send the synchronization result to the caller.
+         * @param {Callback<Array<[string, number]>>} syncCallback - {Array<[string, number]>}: the
+         * deviceId and it's corresponding synchronization result which 0 means synchronization success
+         * and otherwise failed.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
@@ -1428,7 +1772,8 @@ declare namespace distributedKVStore {
         /**
          * Unsubscribes from the SingleKVStore database based on the specified subscribeType and {@code KVStoreObserver}.
          *
-         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KVStoreObserver)}.
+         * @param {Callback<ChangeNotification>} listener - {ChangeNotification}: the {@code ChangeNotification}
+         * object indicates the data change events in the distributed database.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1439,6 +1784,9 @@ declare namespace distributedKVStore {
         /**
          * UnRegister Synchronizes SingleKVStore databases callback.
          *
+         * @param {Callback<Array<[string, number]>>} syncCallback - {Array<[string, number]>}: the
+         * deviceId and it's corresponding synchronization result which 0 means synchronization success
+         * and otherwise failed.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
@@ -1448,12 +1796,23 @@ declare namespace distributedKVStore {
         /**
          * Get the security level of the database.
          *
-         * @returns SecurityLevel {@code SecurityLevel} the security level of the database.
+         * @param {AsyncCallback<SecurityLevel>} callback - {SecurityLevel}: the {@code SecurityLevel}
+         * object indicates the security level of the database.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
+
+        /**
+         * Get the security level of the database.
+         *
+         * @returns {Promise<SecurityLevel>} {SecurityLevel}: the {@code SecurityLevel} object indicates
+         * the security level of the database.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getSecurityLevel(): Promise<SecurityLevel>;
     }
 
@@ -1473,8 +1832,10 @@ declare namespace distributedKVStore {
         /**
          * Obtains the {@code String} value matching a specified device ID and key.
          *
-         * @param deviceId Indicates the device to be queried.
-         * @param key Indicates the key of the value to be queried.
+         * @param {string} deviceId - Indicates the device to be queried.
+         * @param {string} key - Indicates the key of the value to be queried.
+         * @param {AsyncCallback<boolean|string|number|Uint8Array>} callback -
+         * {boolean|string|number|Uint8Array}: the returned value specified by the deviceId and key.
          * @return Returns the value matching the given criteria.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
@@ -1483,14 +1844,32 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
-        get(deviceId: string, key: string, callback: AsyncCallback<boolean|string|number|Uint8Array>): void;
-        get(deviceId: string, key: string): Promise<boolean|string|number|Uint8Array>;
+        get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
+
+        /**
+         * Obtains the {@code String} value matching a specified device ID and key.
+         *
+         * @param {string} deviceId - Indicates the device to be queried.
+         * @param {string} key - Indicates the key of the value to be queried.
+         * @returns {Promise<boolean|string|number|Uint8Array>}
+         * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
+         * @return Returns the value matching the given criteria.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100004 - if the data not exist when query data.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
+        get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
 
         /**
          * Obtains all key-value pairs matching a specified device ID and key prefix.
          *
-         * @param deviceId Identifies the device whose data is to be queried.
-         * @param keyPrefix Indicates the key prefix to match.
+         * @param {string} deviceId - Identifies the device whose data is to be queried.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @param {AsyncCallback<Entry[]>} callback - {Entry[]}: the list of all key-value pairs
+         * that match the specified deviceId and key prefix.
          * @returns Returns the list of all key-value pairs meeting the given criteria.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
@@ -1499,14 +1878,30 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
+
+        /**
+         * Obtains all key-value pairs matching a specified device ID and key prefix.
+         *
+         * @param {string} deviceId - Identifies the device whose data is to be queried.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @returns {Promise<Entry[]>} {Entry[]}: the list of all key-value pairs that match the
+         * specified deviceId and key prefix.
+         * @returns Returns the list of all key-value pairs meeting the given criteria.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
 
         /**
          * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
          *
-         * @param deviceId Indicates the ID of the device to which the key-value pairs belong.
-         * @param query Indicates the {@code Query} object.
-         * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
+         * @param {string} deviceId - Indicates the ID of the device to which the key-value pairs belong.
+         * @param {string} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<Entry[]>} callback - {Entry[]}: the list of all key-value pairs
+         * matching the specified deviceId and {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if not support the operation.
@@ -1515,6 +1910,21 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
+
+        /**
+         * Obtains the list of key-value pairs matching a specified device ID and {@code Query} object.
+         *
+         * @param {string} deviceId - Indicates the ID of the device to which the key-value pairs belong.
+         * @param {string} query - Indicates the {@code Query} object.
+         * @returns {Promise<Entry[]>} {Entry[]}: the list of all key-value pairs matching the
+         * specified deviceId and {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100005 - if not support the operation.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
         /**
@@ -1525,9 +1935,10 @@ declare namespace distributedKVStore {
          * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
          * {@code KVStoreResultSet} objects in a timely manner.
          *
-         * @param deviceId Identifies the device whose data is to be queried.
-         * @param keyPrefix Indicates the key prefix to match.
-         * @returns Returns the {@code KVStoreResultSet} objects.
+         * @param {string} deviceId - Identifies the device whose data is to be queried.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and keyPrefix.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1535,14 +1946,34 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
+         *
+         * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
+         * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
+         * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
+         * {@code KVStoreResultSet} objects in a timely manner.
+         *
+         * @param {string} deviceId - Identifies the device whose data is to be queried.
+         * @param {string} keyPrefix - Indicates the key prefix to match.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and keyPrefix.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         getResultSet(deviceId: string, keyPrefix: string): Promise<KVStoreResultSet>;
 
         /**
          * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
          *
-         * @param deviceId Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
-         * @param query Indicates the {@code Query} object.
-         * @returns Returns the {@code KVStoreResultSet} object matching the specified {@code Query} object.
+         * @param {string} deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1550,13 +1981,29 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the {@code KVStoreResultSet} object matching a specified device ID and {@code Query} object.
+         *
+         * @param {string} deviceId - Indicates the ID of the device to which the {@code KVStoreResultSet} object belongs.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         getResultSet(deviceId: string, query: Query): Promise<KVStoreResultSet>;
 
         /**
          * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
          *
-         * @param predicates Indicates the key.
          * @param deviceId Indicates the ID of the device to which the results belong.
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
+         * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1565,14 +2012,30 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
+
+        /**
+         * Obtains the KVStoreResultSet object matching a specified Device ID and Predicate object.
+         *
+         * @param deviceId Indicates the ID of the device to which the results belong.
+         * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
+         * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
+         * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @systemapi
+         * @since 9
+         */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
         /**
          * Obtains the number of results matching a specified device ID and {@code Query} object.
          *
-         * @param deviceId Indicates the ID of the device to which the results belong.
-         * @param query Indicates the {@code Query} object.
-         * @returns Returns the number of results matching the specified {@code Query} object.
+         * @param {string} deviceId - Indicates the ID of the device to which the results belong.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @param {AsyncCallback<number>} callback - {number}: the number of results matching the
+         * specified deviceId and {@code Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
@@ -1580,6 +2043,20 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
+
+        /**
+         * Obtains the number of results matching a specified device ID and {@code Query} object.
+         *
+         * @param {string} deviceId - Indicates the ID of the device to which the results belong.
+         * @param {Query} query - Indicates the {@code Query} object.
+         * @returns {Promise<number>} {number}: the number of results matching the specified
+         * deviceId and {@code Query} object.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @throws {BusinessError} 15100006 - if the database or result set has been closed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
         getResultSize(deviceId: string, query: Query): Promise<number>;
     }
 
@@ -1589,14 +2066,28 @@ declare namespace distributedKVStore {
      * <p>You must pass {@link KVManagerConfig} to provide configuration information
      * for creating the {@link KVManager} instance.
      *
-     * @param config Indicates the KVStore configuration information,
+     * @param {KVManagerConfig} config - Indicates the KVStore configuration information,
      * including the user information and package name.
-     * @return Returns the {@code KVManager} instance.
+     * @param {AsyncCallback<KVManager>} callback - {KVManager}: the {@code KVManager} instance.
      * @throws {BusinessError} 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
     function createKVManager(config: KVManagerConfig, callback: AsyncCallback<KVManager>): void;
+
+    /**
+     * Creates a {@link KVManager} instance based on the configuration information.
+     *
+     * <p>You must pass {@link KVManagerConfig} to provide configuration information
+     * for creating the {@link KVManager} instance.
+     *
+     * @param {KVManagerConfig} config - Indicates the KVStore configuration information,
+     * including the user information and package name.
+     * @returns {Promise<KVManager>} {KVManager}: the {@code KVManager} instance.
+     * @throws {BusinessError} 401 - if parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 9
+     */
     function createKVManager(config: KVManagerConfig): Promise<KVManager>;
 
     /**
@@ -1611,12 +2102,27 @@ declare namespace distributedKVStore {
         /**
          * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
          *
-         * @param options Indicates the options used for creating and obtaining the KVStore database,
-         * including {@code isCreateIfMissing}, {@code isEncrypt}, and {@code KVStoreType}.
-         * @param storeId Identifies the KVStore database.
-         * The value of this parameter must be unique for the same application,
-         * and different applications can share the same value.
-         * @return Returns a {@code SingleKVStore}, or {@code DeviceKVStore}.
+         * @param {string} storeId - Identifies the KVStore database. The value of this parameter must be unique
+         * for the same application, and different applications can share the same value.
+         * @param {Options} options - Indicates the {@code Options} object used for creating and
+         * obtaining the KVStore database.
+         * @param {AsyncCallback<T>} callback - {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100002 - if open existed database with changed options.
+         * @throws {BusinessError} 15100003 - if the database is corrupted.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
+        getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
+
+        /**
+         * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+         *
+         * @param {string} storeId - Identifies the KVStore database. The value of this parameter must be unique
+         * for the same application, and different applications can share the same value.
+         * @param {Options} options - Indicates the {@code Options} object used for creating and
+         * obtaining the KVStore database.
+         * @returns {Promise<T>} {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100002 - if open existed database with changed options.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
@@ -1624,7 +2130,6 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getKVStore<T>(storeId: string, options: Options): Promise<T>;
-        getKVStore<T>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
         /**
          * Closes the KVStore database.
@@ -1636,11 +2141,32 @@ declare namespace distributedKVStore {
          * method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore, otherwise
          * closing the database will fail. If you are attempting to close a database that is already closed, an error will be returned.
          *
+         * @param {string} appId - Identifies the application that the database belong to.
+         * @param {string} storeId - Identifies the KVStore database to close.
+         * @param {AsyncCallback<void>} callback - the callback of closeKVStore.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         closeKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Closes the KVStore database.
+         *
+         * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running, your
+         * thread may crash.
+         *
+         * <p>The KVStore database to close must be an object created by using the {@code getKVStore} method. Before using this
+         * method, release the resources created for the database, for example, {@code KVStoreResultSet} for KVStore, otherwise
+         * closing the database will fail. If you are attempting to close a database that is already closed, an error will be returned.
+         *
+         * @param {string} appId - Identifies the application that the database belong to.
+         * @param {string} storeId - Identifies the KVStore database to close.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         closeKVStore(appId: string, storeId: string): Promise<void>;
 
         /**
@@ -1651,41 +2177,72 @@ declare namespace distributedKVStore {
          * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
          * lost.
          *
-         * @param storeId Identifies the KVStore database to delete.
+         * @param {string} appId - Identifies the application that the database belong to.
+         * @param {string} storeId - Identifies the KVStore database to delete.
+         * @param {AsyncCallback<void>} callback - the callback of deleteKVStore.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100004 - if the database not exist when delete database.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Deletes the KVStore database identified by storeId.
+         *
+         * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
+         *
+         * <p>You can use this method to delete a KVStore database not in use. After the database is deleted, all its data will be
+         * lost.
+         *
+         * @param {string} appId - Identifies the application that the database belong to.
+         * @param {string} storeId - Identifies the KVStore database to delete.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 15100004 - if the database not exist when delete database.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         deleteKVStore(appId: string, storeId: string): Promise<void>;
 
         /**
          * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
          * calling the {@code deleteKVStore} method.
          *
-         * @returns Returns the storeId of all created KVStore databases.
+         * @param {string} appId - Identifies the application that obtains the databases.
+         * @param {AsyncCallback<string[]>} callback - {string[]}: the storeId of all created KVStore databases.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
+
+        /**
+         * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
+         * calling the {@code deleteKVStore} method.
+         *
+         * @param {string} appId - Identifies the application that obtains the databases.
+         * @returns {Promise<string[]>} {string[]}: the storeId of all created KVStore databases.
+         * @throws {BusinessError} 401 - if parameter check failed.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         */
         getAllKVStoreId(appId: string): Promise<string[]>;
 
         /**
-         * register DeviceChangeCallback to get notification when device's status changed
+         * register DeathCallback to get notification when service died.
          *
-         * @param deathCallback device change callback {@code DeviceChangeCallback}
-         * @throws {BusinessError} 401 - if parameter check failed.
+         * @param {Callback<void>} deathCallback - the service died callback.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @throws {BusinessError} 401 - if parameter check failed.
          * @since 9
          */
         on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
 
         /**
-         * unRegister DeviceChangeCallback and can not receive notification
+         * unRegister DeathCallback and can not receive service died notification.
          *
-         * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
+         * @param {Callback<void>} deathCallback - the service died callback which has been registered.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
