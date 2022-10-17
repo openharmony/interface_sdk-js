@@ -229,19 +229,6 @@ declare namespace avSession {
     setLaunchAbility(ability: WantAgent): Promise<void>;
 
     /**
-     * Set audio stream id. Identifies the audio streams controlled by this session.
-     * If multiple streams are set, these streams will be simultaneously cast to the remote during the casting operation.
-     * @param streamId The audio streams
-     * @throws {BusinessError} 401 - parameter check failed
-     * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws {BusinessError} {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
-     */
-    setAudioStreamId(streamIds: Array<number>, callback: AsyncCallback<void>): void;
-    setAudioStreamId(streamIds: Array<number>): Promise<void>;
-
-    /**
      * Get the current session's own controller
      * @returns The instance of {@link AVSessionController}
      * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
