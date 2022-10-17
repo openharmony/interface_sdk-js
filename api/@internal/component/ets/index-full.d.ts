@@ -107,3 +107,5 @@
 /// <reference path="./common_ts_ets_api.d.ts" />
 /// <reference path="./grid_row.d.ts" />
 /// <reference path="./grid_col.d.ts" />
+/// <reference path="./water_flow.d.ts" />
+/// <reference path="./flow_item.d.ts" />
