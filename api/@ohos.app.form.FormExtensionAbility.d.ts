@@ -14,10 +14,10 @@
  */
 
 import formBindingData from './@ohos.app.form.formBindingData';
-import formInfo from "./@ohos.application.formInfo";
+import formInfo from "./@ohos.app.form.formInfo";
 import FormExtensionContext from "./application/FormExtensionContext";
-import Want from './@ohos.application.Want';
-import { Configuration } from './@ohos.application.Configuration';
+import Want from './@ohos.app.ability.Want';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * class of form extension.

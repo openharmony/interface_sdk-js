@@ -14,7 +14,7 @@
  */
 
 import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
-import { Configuration } from './@ohos.application.Configuration';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * class of extension.

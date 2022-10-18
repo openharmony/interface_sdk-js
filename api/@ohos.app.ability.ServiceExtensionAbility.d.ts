@@ -15,8 +15,8 @@
 
 import rpc from "./@ohos.rpc";
 import ServiceExtensionContext from "./application/ServiceExtensionContext";
-import Want from './@ohos.application.Want';
-import { Configuration } from './@ohos.application.Configuration';
+import Want from './@ohos.app.ability.Want';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * class of service extension ability.

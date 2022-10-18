@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import { Configuration } from './@ohos.application.Configuration';
+import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName }  from './bundle/elementName';

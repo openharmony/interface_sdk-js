@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Configuration } from './@ohos.application.Configuration';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * The environment callback.
