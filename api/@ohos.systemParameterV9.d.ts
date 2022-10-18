@@ -15,58 +15,6 @@
 
 import { AsyncCallback, BusinessError } from './basic';
 
-/**
- * Enumerates error code.
- *
- * @since 9
- */
-export enum SystemParameterErrorCode {
-    /**
-     * Input parameter is missing or invalid.
-     *
-     * @since 9
-     */
-    SYSPARAM_INVALID_INPUT = 401,
-
-    /**
-     * System parameter can not be found.</br>
-     * When getting system parameter values, if def value is specified, it will not return this error.
-     *
-     * @since 9
-     */
-    SYSPARAM_NOT_FOUND = 14700101,
-
-    /**
-     * System parameter value is invalid.</br>
-     *   - <p>When setting system parameters, the value length should not exceed 95 bytes.</p>
-     *   - <p>And system parameter has three value types: string, integer and bool.
-     *     if the value type is not matched, it will also return this error code.</p>
-     *
-     * @since 9
-     */
-    SYSPARAM_INVALID_VALUE = 14700102,
-
-    /**
-     * System permission operation permission denied.</br>
-     * <p>System parameter are system resources, each parameter is protected by DAC and MAC rules.
-     * <p>Typical permission checking include:</p>
-     *   - <p>systemapi: only system application can call system parameter related APIs</p>
-     *   - <p>DAC: each system parameter has user and group owner with get, set permissions.
-    *           Applications can only operate User/Group/Ownership matched system parameters.</p>
-     *   - <p>MAC: each system parameter is also protected by SELinux labels.</p>
-     *
-     * @since 9
-     */
-    SYSPARAM_PERMISSION_DENIED = 14700103,
-
-    /**
-     * System internal error including out of memory, deadlock etc.
-     *
-     * @since 9
-     */
-    SYSPARAM_SYSTEM_ERROR = 14700104,
-}
-
  /**
  * The interface of system parameters class.
  *
