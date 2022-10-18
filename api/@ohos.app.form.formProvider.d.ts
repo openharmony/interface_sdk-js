@@ -15,8 +15,8 @@
 
 import { AsyncCallback } from "./basic";
 import formBindingData from "./@ohos.app.form.formBindingData";
-import formInfo from "./@ohos.application.formInfo";
-import Want from "./@ohos.application.Want";
+import formInfo from "./@ohos.app.form.formInfo";
+import Want from "./@ohos.app.ability.Want";
 
 /**
  * Interface of formProvider.

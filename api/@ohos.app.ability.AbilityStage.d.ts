@@ -15,8 +15,8 @@
 
 import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
 import AbilityStageContext from "./application/AbilityStageContext";
-import Want from './@ohos.application.Want';
-import { Configuration } from './@ohos.application.Configuration';
+import Want from './@ohos.app.ability.Want';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * The class of an ability stage.

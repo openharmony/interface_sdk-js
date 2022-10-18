@@ -16,9 +16,9 @@
 import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
 import AbilityContext from "./application/AbilityContext";
 import rpc from './@ohos.rpc';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
-import { Configuration } from './@ohos.application.Configuration';
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * The prototype of the listener function interface registered by the Caller.

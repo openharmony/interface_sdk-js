@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
+import ConfigurationConstant from "./@ohos.app.ability.ConfigurationConstant";
 
 /**
  * configuration item.
