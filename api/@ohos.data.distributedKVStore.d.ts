@@ -1166,7 +1166,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when delete data.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
@@ -1181,7 +1181,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when delete data.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
@@ -1414,7 +1414,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
@@ -1429,7 +1429,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
@@ -2007,7 +2007,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
@@ -2023,7 +2023,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
          * @since 9
          */
