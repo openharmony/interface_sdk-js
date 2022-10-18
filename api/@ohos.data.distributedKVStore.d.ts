@@ -21,7 +21,6 @@ import Context from './application/Context';
 /**
  * Providers interfaces to create a {@link KVManager} istances.
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @import N/A
  * @since 9
  */
 declare namespace distributedKVStore {
@@ -29,14 +28,12 @@ declare namespace distributedKVStore {
      * Provides configuration information for {@link KVManager} instances,
      * including the caller's package name and distributed network type.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface KVManagerConfig {
         /**
          * Indicates the bundleName
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         bundleName: string;
@@ -44,7 +41,6 @@ declare namespace distributedKVStore {
         /**
          * Indicates the ability or hap context
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @Note: if swap the area, you should close all the KV store and use the new Context to create the KVManager
          * @since 9
          */
@@ -55,14 +51,12 @@ declare namespace distributedKVStore {
      * KVStore constants
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     namespace Constants {
         /**
          * max key length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_KEY_LENGTH = 1024;
@@ -70,7 +64,6 @@ declare namespace distributedKVStore {
         /**
          * max value length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_VALUE_LENGTH = 4194303;
@@ -78,7 +71,6 @@ declare namespace distributedKVStore {
         /**
          * max device coordinate key length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_KEY_LENGTH_DEVICE = 896;
@@ -86,7 +78,6 @@ declare namespace distributedKVStore {
         /**
          * max store id length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_STORE_ID_LENGTH = 128;
@@ -94,7 +85,6 @@ declare namespace distributedKVStore {
         /**
          * max query length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_QUERY_LENGTH = 512000;
@@ -102,7 +92,6 @@ declare namespace distributedKVStore {
         /**
          * max batch operation size.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         const MAX_BATCH_SIZE = 128;
@@ -114,14 +103,12 @@ declare namespace distributedKVStore {
      * <p>{@code ValueType} is obtained based on the value.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     enum ValueType {
         /** 
          * Indicates that the value type is string. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         STRING,
@@ -129,7 +116,6 @@ declare namespace distributedKVStore {
         /**
          * Indicates that the value type is int. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         INTEGER,
@@ -137,7 +123,6 @@ declare namespace distributedKVStore {
         /** 
          * Indicates that the value type is float. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         FLOAT,
@@ -145,7 +130,6 @@ declare namespace distributedKVStore {
         /** 
          * Indicates that the value type is byte array. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          * */
         BYTE_ARRAY,
@@ -153,7 +137,6 @@ declare namespace distributedKVStore {
         /** 
          * Indicates that the value type is boolean. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          * */
         BOOLEAN,
@@ -161,7 +144,6 @@ declare namespace distributedKVStore {
         /** 
          * Indicates that the value type is double. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         DOUBLE,
@@ -171,14 +153,12 @@ declare namespace distributedKVStore {
      * Obtains {@code Value} objects stored in a {@link SingleKVStore} or {@link DeviceKVStore} database.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface Value {
         /**
          * Indicates value type
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @see ValueType
          * @type {number}
          * @memberof Value
@@ -188,7 +168,6 @@ declare namespace distributedKVStore {
         /**
          * Indicates value
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         value: Uint8Array | string | number | boolean;
@@ -198,21 +177,18 @@ declare namespace distributedKVStore {
      * Provides key-value pairs stored in the distributed database.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface Entry {
         /**
          * Indicates key
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         key: string;
         /**
          * Indicates value
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         value: Value;
@@ -226,35 +202,30 @@ declare namespace distributedKVStore {
      * upon data insertion, update, or deletion.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface ChangeNotification {
         /**
          * Indicates data addition records.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         insertEntries: Entry[];
         /**
          * Indicates data update records.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         updateEntries: Entry[];
         /**
          * Indicates data deletion records.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         deleteEntries: Entry[];
         /**
          * Indicates from device id.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         deviceId: string;
@@ -264,28 +235,24 @@ declare namespace distributedKVStore {
      * Indicates the database synchronization mode.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     enum SyncMode {
         /**
          * Indicates that data is only pulled from the remote end.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         PULL_ONLY,
         /**
          * Indicates that data is only pushed from the local end.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         PUSH_ONLY,
         /**
          * Indicates that data is pushed from the local end, and then pulled from the remote end.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         PUSH_PULL,
@@ -295,14 +262,12 @@ declare namespace distributedKVStore {
      * Describes the subscription type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     enum SubscribeType {
         /**
          * Subscription to local data changes
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
         */
         SUBSCRIBE_TYPE_LOCAL,
@@ -310,7 +275,6 @@ declare namespace distributedKVStore {
         /**
          * Subscription to remote data changes
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
         */
         SUBSCRIBE_TYPE_REMOTE,
@@ -318,7 +282,6 @@ declare namespace distributedKVStore {
         /**
          * Subscription to both local and remote data changes
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         SUBSCRIBE_TYPE_ALL,
@@ -328,14 +291,12 @@ declare namespace distributedKVStore {
      * Describes the KVStore type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     enum KVStoreType {
         /**
          * Device-collaborated database, as specified by {@code DeviceKVStore}
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 9
          */
         DEVICE_COLLABORATION,
@@ -343,7 +304,6 @@ declare namespace distributedKVStore {
         /**
          * Single-version database, as specified by {@code SingleKVStore}
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         SINGLE_VERSION,
@@ -353,7 +313,6 @@ declare namespace distributedKVStore {
      * Describes the KVStore security level.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     enum SecurityLevel {
@@ -362,7 +321,6 @@ declare namespace distributedKVStore {
          * There are some low impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         S1,
@@ -372,7 +330,6 @@ declare namespace distributedKVStore {
          * There are some major impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         S2,
@@ -382,7 +339,6 @@ declare namespace distributedKVStore {
          * There are some severity impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         S3,
@@ -392,7 +348,6 @@ declare namespace distributedKVStore {
          * There are some critical impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         S4,
@@ -405,28 +360,24 @@ declare namespace distributedKVStore {
      * whether to encrypt the database, and the database type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface Options {
         /**
          * Indicates whether to createa database when the database file does not exist
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         createIfMissing?: boolean;
         /**
          * Indicates setting whether database files are encrypted
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         encrypt?: boolean;
         /**
          * Indicates setting whether to back up database files
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         backup?: boolean;
@@ -434,28 +385,24 @@ declare namespace distributedKVStore {
          * Indicates setting whether database files are automatically synchronized
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         autoSync?: boolean;
         /**
          * Indicates setting the databse type
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         kvStoreType?: KVStoreType;
         /**
          * Indicates setting the database security level
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 9
          */
         securityLevel: SecurityLevel;
         /**
          * Indicates schema object
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 9
          */
         schema?: Schema;
@@ -467,7 +414,6 @@ declare namespace distributedKVStore {
      * You can create Schema objects and put them in Options when creating or opening the database.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @import N/A
      * @since 9
      */
     class Schema {
@@ -518,7 +464,6 @@ declare namespace distributedKVStore {
      * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @import N/A
      * @since 9
      */
     class FieldNode {
@@ -572,7 +517,6 @@ declare namespace distributedKVStore {
      * position in the result set.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 9
      */
     interface KVStoreResultSet {
@@ -706,7 +650,6 @@ declare namespace distributedKVStore {
      *
      * <p>This class also provides methods for adding predicates to the {@code Query} instance.
      *
-     * @import N/A
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
@@ -722,7 +665,6 @@ declare namespace distributedKVStore {
          * Resets this {@code Query} object.
          *
          * @returns Returns the reset {@code Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -734,7 +676,6 @@ declare namespace distributedKVStore {
          * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -746,7 +687,6 @@ declare namespace distributedKVStore {
          * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -759,7 +699,6 @@ declare namespace distributedKVStore {
          * @param {number|string|boolean} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -771,7 +710,6 @@ declare namespace distributedKVStore {
          * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -784,7 +722,6 @@ declare namespace distributedKVStore {
          * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -797,7 +734,6 @@ declare namespace distributedKVStore {
          * @param {number|string} value - Indicates the value to be compared.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -808,7 +744,6 @@ declare namespace distributedKVStore {
          * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -820,7 +755,6 @@ declare namespace distributedKVStore {
          * @param {number[]} valueList - Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -832,7 +766,6 @@ declare namespace distributedKVStore {
          * @param {string[]} valueList - Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -844,7 +777,6 @@ declare namespace distributedKVStore {
          * @param {number[]} valueList - Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -856,7 +788,6 @@ declare namespace distributedKVStore {
          * @param {string[]} valueList - Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -868,7 +799,6 @@ declare namespace distributedKVStore {
          * @param {string} value - Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -880,7 +810,6 @@ declare namespace distributedKVStore {
          * @param {string} value - Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -891,7 +820,6 @@ declare namespace distributedKVStore {
          * <p>Multiple predicates should be connected using the and or or condition.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -902,7 +830,6 @@ declare namespace distributedKVStore {
          * <p>Multiple predicates should be connected using the and or or condition.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -913,7 +840,6 @@ declare namespace distributedKVStore {
          * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -924,7 +850,6 @@ declare namespace distributedKVStore {
          * @param {string} field - Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -936,7 +861,6 @@ declare namespace distributedKVStore {
          * @param {number} offset - Indicates the start position.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -947,7 +871,6 @@ declare namespace distributedKVStore {
          * @param {string} field - Indicates the specified field.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -959,7 +882,6 @@ declare namespace distributedKVStore {
          * whole to combine with other query conditions.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -971,7 +893,6 @@ declare namespace distributedKVStore {
          * whole to combine with other query conditions.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -982,7 +903,6 @@ declare namespace distributedKVStore {
          * @param {string} prefix - Indicates the specified key prefix.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -993,7 +913,6 @@ declare namespace distributedKVStore {
          * @param {string} index - Indicates the index to set.
          * @returns Returns the {@coed Query} object.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1004,7 +923,6 @@ declare namespace distributedKVStore {
          * @param {string} deviceId - Specify device id to query from.
          * @return Returns the {@code Query} object with device ID prefix added.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1016,7 +934,6 @@ declare namespace distributedKVStore {
          * The String length should be no longer than 500kb.
          *
          * @return String representing this {@code Query}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1033,7 +950,6 @@ declare namespace distributedKVStore {
      * The {@code SingleKVStore} database does not support
      * synchronous transactions, or data search using snapshots.
      *
-     * @import N/A
      * @version 1
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
@@ -1253,7 +1169,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when query data.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1269,7 +1184,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when query data.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1284,7 +1198,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1299,7 +1212,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1315,7 +1227,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if not support the operation.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1331,7 +1242,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if not support the operation.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1350,7 +1260,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1369,7 +1278,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1384,7 +1292,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1399,7 +1306,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1441,7 +1347,6 @@ declare namespace distributedKVStore {
          * @param {KVStoreResultSet} resultSet - Indicates the {@code KVStoreResultSet} object to close.
          * @param {AsyncCallback<void>} callback - the callback of closeResultSet.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1453,7 +1358,6 @@ declare namespace distributedKVStore {
          * @param {KVStoreResultSet} resultSet - Indicates the {@code KVStoreResultSet} object to close.
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 401 - if parameter check failed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1468,7 +1372,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1483,7 +1386,6 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100006 - if the database or result set has been closed.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1824,7 +1726,6 @@ declare namespace distributedKVStore {
      * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
      * into the database, the system automatically adds the ID of the device running the application to the key.
      *
-     * @import N/A
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
      */
@@ -2093,7 +1994,6 @@ declare namespace distributedKVStore {
     /**
      * Provides interfaces to manage a {@code SingleKVStore} database, including obtaining, closing, and deleting the {@code SingleKVStore}.
      *
-     * @import N/A
      * @version 1
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9

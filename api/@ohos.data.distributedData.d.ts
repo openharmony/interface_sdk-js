@@ -18,7 +18,6 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Providers interfaces to creat a {@link KVManager} istances.
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
- * @import N/A
  * @since 7
  * @deprecated since 9
  * @useinstead ohos.data.distributedKVStore
@@ -28,7 +27,6 @@ declare namespace distributedData {
      * Provides configuration information for {@link KVManager} instances,
      * including the caller's package name and distributed network type.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.KVManagerConfig
@@ -37,7 +35,6 @@ declare namespace distributedData {
         /**
          * Indicates the user information
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -46,7 +43,6 @@ declare namespace distributedData {
         /**
          * Indicates the bundleName
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.KVManagerConfig#bundleName
@@ -61,7 +57,6 @@ declare namespace distributedData {
      * and checking whether two users are the same.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      */
@@ -69,7 +64,6 @@ declare namespace distributedData {
         /** 
          * Indicates the user ID to set 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -78,7 +72,6 @@ declare namespace distributedData {
         /** 
          * Indicates the user type to set 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -89,7 +82,6 @@ declare namespace distributedData {
      * Enumerates user types.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      */
@@ -97,7 +89,6 @@ declare namespace distributedData {
         /** 
          * Indicates a user that logs in to different devices using the same account. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -108,7 +99,6 @@ declare namespace distributedData {
      * KVStore constants
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.Constants
@@ -117,7 +107,6 @@ declare namespace distributedData {
         /**
          * max key length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_KEY_LENGTH
@@ -127,7 +116,6 @@ declare namespace distributedData {
         /**
          * max value length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_VALUE_LENGTH
@@ -137,7 +125,6 @@ declare namespace distributedData {
         /**
          * max device coordinate key length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_KEY_LENGTH_DEVICEs
@@ -147,7 +134,6 @@ declare namespace distributedData {
         /**
          * max store id length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_STORE_ID_LENGTH
@@ -157,7 +143,6 @@ declare namespace distributedData {
         /**
          * max query length.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_QUERY_LENGTH
@@ -167,7 +152,6 @@ declare namespace distributedData {
         /**
          * max batch operation size.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Constants#MAX_BATCH_SIZE
@@ -181,7 +165,6 @@ declare namespace distributedData {
      * <p>{@code ValueType} is obtained based on the value.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.ValueType
@@ -190,7 +173,6 @@ declare namespace distributedData {
         /** 
          * Indicates that the value type is string. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueType#STRING
@@ -200,7 +182,6 @@ declare namespace distributedData {
         /**
          * Indicates that the value type is int. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueType#INTEGER
@@ -210,7 +191,6 @@ declare namespace distributedData {
         /** 
          * Indicates that the value type is float. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueType#FLOAT
@@ -220,7 +200,6 @@ declare namespace distributedData {
         /** 
          * Indicates that the value type is byte array. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueTypeB#YTE_ARRAY
@@ -230,7 +209,6 @@ declare namespace distributedData {
         /** 
          * Indicates that the value type is boolean. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueType#BOOLEAN
@@ -240,7 +218,6 @@ declare namespace distributedData {
         /** 
          * Indicates that the value type is double. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ValueType#DOUBLE
@@ -252,7 +229,6 @@ declare namespace distributedData {
      * Obtains {@code Value} objects stored in a {@link KVStore} database.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.Value
@@ -261,7 +237,6 @@ declare namespace distributedData {
         /**
          * Indicates value type
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @see ValueType
          * @type {number}
          * @memberof Value
@@ -273,7 +248,6 @@ declare namespace distributedData {
         /**
          * Indicates value
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Value#value
@@ -285,7 +259,6 @@ declare namespace distributedData {
      * Provides key-value pairs stored in the distributed database.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.Entry
@@ -294,7 +267,6 @@ declare namespace distributedData {
         /**
          * Indicates key
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Entry#key
@@ -303,7 +275,6 @@ declare namespace distributedData {
         /**
          * Indicates value
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Entry#value
@@ -318,7 +289,6 @@ declare namespace distributedData {
      * from the parameters in callback methods upon data insertion, update, or deletion.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.ChangeNotification
@@ -327,7 +297,6 @@ declare namespace distributedData {
         /** 
          * Indicates data addition records. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ChangeNotification#insertEntries
@@ -336,7 +305,6 @@ declare namespace distributedData {
         /** 
          * Indicates data update records.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ChangeNotification#updateEntries
@@ -345,7 +313,6 @@ declare namespace distributedData {
         /** 
          * Indicates data deletion records. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ChangeNotification#deleteEntries
@@ -354,7 +321,6 @@ declare namespace distributedData {
         /**
          * Indicates from device id.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.ChangeNotification#deviceId
@@ -366,7 +332,6 @@ declare namespace distributedData {
      * Indicates the database synchronization mode.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.SyncMode
@@ -375,7 +340,6 @@ declare namespace distributedData {
         /** 
          * Indicates that data is only pulled from the remote end.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SyncMode#PULL_ONLY
@@ -384,7 +348,6 @@ declare namespace distributedData {
         /** 
          * Indicates that data is only pushed from the local end. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SyncMode#PUSH_ONLY
@@ -393,7 +356,6 @@ declare namespace distributedData {
         /** 
          * Indicates that data is pushed from the local end, and then pulled from the remote end. 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SyncMode#PUSH_PULL
@@ -405,7 +367,6 @@ declare namespace distributedData {
      * Describes the subscription type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.SubscribeType
@@ -414,7 +375,6 @@ declare namespace distributedData {
         /** 
          * Subscription to local data changes 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SubscribeType#SUBSCRIBE_TYPE_LOCAL
@@ -424,7 +384,6 @@ declare namespace distributedData {
         /** 
          * Subscription to remote data changes 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SubscribeType#SUBSCRIBE_TYPE_REMOTE
@@ -434,7 +393,6 @@ declare namespace distributedData {
         /** 
          * Subscription to both local and remote data changes 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SubscribeType#SUBSCRIBE_TYPE_ALL
@@ -446,7 +404,6 @@ declare namespace distributedData {
      * Describes the {@code KVStore} type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.KVStoreType
@@ -455,7 +412,6 @@ declare namespace distributedData {
         /** 
          * Device-collaborated database, as specified by {@code DeviceKVStore} 
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.KVStoreType#DEVICE_COLLABORATION
@@ -465,7 +421,6 @@ declare namespace distributedData {
         /** 
          * Single-version database, as specified by {@code SingleKVStore} 
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.KVStoreType#SINGLE_VERSION
@@ -475,7 +430,6 @@ declare namespace distributedData {
         /** 
          * Multi-version database, as specified by {@code MultiKVStore} 
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -486,7 +440,6 @@ declare namespace distributedData {
      * Describes the {@code KVStore} type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.SecurityLevel
@@ -496,7 +449,6 @@ declare namespace distributedData {
          * NO_LEVEL: mains not set the security level.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -507,7 +459,6 @@ declare namespace distributedData {
          * There is no impact even if the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          */
@@ -518,7 +469,6 @@ declare namespace distributedData {
          * There are some low impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SecurityLevel#S1
@@ -530,7 +480,6 @@ declare namespace distributedData {
          * There are some major impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SecurityLevel#S2
@@ -542,7 +491,6 @@ declare namespace distributedData {
          * There are some severity impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SecurityLevel#S3
@@ -554,7 +502,6 @@ declare namespace distributedData {
          * There are some critical impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SecurityLevel#S4
@@ -569,7 +516,6 @@ declare namespace distributedData {
      * whether to encrypt the database, and the database type.
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.Options
@@ -578,7 +524,6 @@ declare namespace distributedData {
         /**
          * Indicates whether to createa database when the database file does not exist
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#createIfMissing
@@ -587,7 +532,6 @@ declare namespace distributedData {
         /**
          * Indicates setting whether database files are encrypted
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#encrypt
@@ -596,7 +540,6 @@ declare namespace distributedData {
         /**
          * Indicates setting whether to back up database files
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#backup
@@ -606,7 +549,6 @@ declare namespace distributedData {
          * Indicates setting whether database files are automatically synchronized
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#autoSync
@@ -615,7 +557,6 @@ declare namespace distributedData {
         /**
          * Indicates setting the databse type
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#kvStoreType
@@ -624,7 +565,6 @@ declare namespace distributedData {
         /**
          * Indicates setting the database security level
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @import N/A
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#securityLevel
@@ -633,7 +573,6 @@ declare namespace distributedData {
         /**
          * Indicates schema object 
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-         * @import N/A
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.Options#schema
@@ -647,7 +586,6 @@ declare namespace distributedData {
      * You can create Schema objects and put them in Options when creating or opening the database.
      * 
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @import N/A
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.Schema
@@ -710,7 +648,6 @@ declare namespace distributedData {
      * <p>The leaf node must have a value; the non-leaf node must have a child {@code FieldNode}.
      * 
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-     * @import N/A
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.FieldNode
@@ -775,7 +712,6 @@ declare namespace distributedData {
      * methods for moving the data read position in the result set.
      * 
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @import N/A
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.data.distributedKVStore.KVStoreResultSet
@@ -935,7 +871,6 @@ declare namespace distributedData {
      *
      * <p>This class also provides methods for adding predicates to the {@code Query} instance.
      *
-     * @import N/A
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8
      * @deprecated since 9
@@ -955,7 +890,6 @@ declare namespace distributedData {
          * Resets this {@code Query} object.
          *
          * @returns Returns the reset {@code Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -969,7 +903,6 @@ declare namespace distributedData {
          * @param value IIndicates the long value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -983,7 +916,6 @@ declare namespace distributedData {
          * @param value Indicates the int value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -998,7 +930,6 @@ declare namespace distributedData {
          * @param value Indicates the int value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1012,7 +943,6 @@ declare namespace distributedData {
          * @param value Indicates the int value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1027,7 +957,6 @@ declare namespace distributedData {
          * @param value Indicates the int value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1042,7 +971,6 @@ declare namespace distributedData {
          * @param value Indicates the int value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1055,7 +983,6 @@ declare namespace distributedData {
          * @param field Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1069,7 +996,6 @@ declare namespace distributedData {
          * @param valueList Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1083,7 +1009,6 @@ declare namespace distributedData {
          * @param valueList Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1097,7 +1022,6 @@ declare namespace distributedData {
          * @param valueList Indicates the int value list.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1111,7 +1035,6 @@ declare namespace distributedData {
          * @param valueList Indicates the string value list.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1125,7 +1048,6 @@ declare namespace distributedData {
          * @param value Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1139,7 +1061,6 @@ declare namespace distributedData {
          * @param value Indicates the string value.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1152,7 +1073,6 @@ declare namespace distributedData {
          * <p>Multiple predicates should be connected using the and or or condition.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1165,7 +1085,6 @@ declare namespace distributedData {
          * <p>Multiple predicates should be connected using the and or or condition.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1178,7 +1097,6 @@ declare namespace distributedData {
          * @param field Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1191,7 +1109,6 @@ declare namespace distributedData {
          * @param field Indicates the field, which must start with $. and cannot contain ^.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1204,7 +1121,6 @@ declare namespace distributedData {
          * @param total Indicates the number of results.
          * @param offset Indicates the start position.
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1217,7 +1133,6 @@ declare namespace distributedData {
          * @param field Indicates the specified field.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1231,7 +1146,6 @@ declare namespace distributedData {
          * whole to combine with other query conditions.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1245,7 +1159,6 @@ declare namespace distributedData {
          * whole to combine with other query conditions.
          *
          * @returns Returns the {@coed Query} object.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1258,7 +1171,6 @@ declare namespace distributedData {
          * @param prefix Indicates the specified key prefix.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1271,7 +1183,6 @@ declare namespace distributedData {
          * @param index Indicates the index to set.
          * @returns Returns the {@coed Query} object.
          * @throws Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1284,7 +1195,6 @@ declare namespace distributedData {
 		 * @param deviceId Specify device id to query from.
 		 * @return Returns the {@code Query} object with device ID prefix added.
 		 * @throw Throws this exception if input is invalid.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1298,7 +1208,6 @@ declare namespace distributedData {
 		 * The String length should be no longer than 500kb.
 		 *
 		 * @return String representing this {@code Query}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1316,7 +1225,6 @@ declare namespace distributedData {
      * including {@code SingleKVStore}.
      *
      *
-     * @import N/A
      * @version 1
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7
@@ -1507,7 +1415,6 @@ declare namespace distributedData {
      * The {@code SingleKVStore} database does not support
      * synchronous transactions, or data search using snapshots.
      *
-     * @import N/A
      * @version 1
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7
@@ -1521,7 +1428,6 @@ declare namespace distributedData {
          * @param key Indicates the key of the boolean value to be queried.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}, and {@code KEY_NOT_FOUND}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 7
          * @deprecated since 9
@@ -1537,7 +1443,6 @@ declare namespace distributedData {
          * @returns Returns the list of all key-value pairs that match the specified key prefix.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1553,7 +1458,6 @@ declare namespace distributedData {
          * @returns Returns the list of key-value pairs matching the specified {@code Query} object.
          * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1572,7 +1476,6 @@ declare namespace distributedData {
          * @param keyPrefix Indicates the key prefix to match.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1587,7 +1490,6 @@ declare namespace distributedData {
          * @param query Indicates the {@code Query} object.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1602,7 +1504,6 @@ declare namespace distributedData {
          * @param resultSet Indicates the {@code KvStoreResultSet} object to close.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1618,7 +1519,6 @@ declare namespace distributedData {
          * @returns Returns the number of results matching the specified {@code Query} object.
          * @throws Throws this exception if any of the following errors occurs:{@code INVALID_ARGUMENT},
          * {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, and {@code DB_ERROR}.
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1630,7 +1530,6 @@ declare namespace distributedData {
         /**
          * void removeDeviceData​({@link String} deviceId) throws {@link KvStoreException}
          *
-         * @import N/A
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 8
          * @deprecated since 9
@@ -1717,7 +1616,6 @@ declare namespace distributedData {
      * data by device, and cannot modify data synchronized from remote devices. When an application writes a key-value pair entry
      * into the database, the system automatically adds the ID of the device running the application to the key.
      *
-     * @import N/A
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8
      * @deprecated since 9
@@ -1960,7 +1858,6 @@ declare namespace distributedData {
     /**
      * Provides interfaces to manage a {@code KVStore} database, including obtaining, closing, and deleting the {@code KVStore}.
      *
-     * @import N/A
      * @version 1
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7
