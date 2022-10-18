@@ -44,6 +44,42 @@ declare namespace rdb {
     function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
     /**
+     * Obtains an RDB store.
+     *
+     * You can set parameters of the RDB store as required. In general, this method is recommended
+     * to obtain a rdb store.
+     *
+     * @param {Context} context - Indicates the context of application or capability.
+     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param {number} version - Indicates the database version for upgrade or downgrade.
+     * @param {AsyncCallback<RdbStoreV9>} callback - the RDB store {@link RdbStoreV9}.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
+     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    function getRdbStoreV9(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStoreV9>): void;
+
+    /**
+     * Obtains an RDB store.
+     *
+     * You can set parameters of the RDB store as required. In general, this method is recommended
+     * to obtain a rdb store.
+     *
+     * @param {Context} context - Indicates the context of application or capability.
+     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param {number} version - Indicates the database version for upgrade or downgrade.
+     * @returns {Promise<RdbStoreV9>} the RDB store {@link RdbStoreV9}.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
+     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    function getRdbStoreV9(context: Context, config: StoreConfig, version: number): Promise<RdbStoreV9>;
+
+    /**
      * Deletes the database with a specified name.
      *
      * @since 7
@@ -93,6 +129,59 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
+    }
+
+    /**
+     * Describes the {@code RdbStoreV9} type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    enum SecurityLevel {
+        /**
+         * S0: mains the db is public.
+         * There is no impact even if the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S0 = 0,
+
+        /**
+         * S1: mains the db is low level security
+         * There are some low impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S1 = 1,
+
+        /**
+         * S2: mains the db is middle level security
+         * There are some major impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S2 = 2,
+
+        /**
+         * S3: mains the db is high level security
+         * There are some severity impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S3 = 3,
+
+        /**
+         * S4: mains the db is critical level security
+         * There are some critical impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S4 = 4,
     }
 
     /**
