@@ -24,13 +24,19 @@ import { Callback } from './basic';
  * @import basic,abilityInfo
  */
 declare namespace accessibility {
-
   /**
    * The type of the Ability app.
+   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
-  type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual';
+  /**
+   * The type of the Ability app.
+   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' } 
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
+  type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all';
 
   /**
    * The action that the ability can execute.
@@ -98,7 +104,7 @@ declare namespace accessibility {
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
-  */
+   */
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
   function isOpenAccessibility(): Promise<boolean>;
 
@@ -108,7 +114,7 @@ declare namespace accessibility {
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
-  */
+   */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
   function isOpenTouchGuide(): Promise<boolean>;
 
@@ -119,24 +125,26 @@ declare namespace accessibility {
    * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns the list of abilityInfos.
-  */
+   * @deprecated since 9
+   * @useinstead ohos.accessibility#getAccessibilityExtensionList
+   */
   function getAbilityLists(abilityType: AbilityType, stateType: AbilityState,
     callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
   function getAbilityLists(abilityType: AbilityType,
     stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
 
+
   /**
    * Queries the list of accessibility abilities.
    * @since 9
-   * @param abilityType The all type of the accessibility ability.
+   * @param abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns the list of abilityInfos.
-  */
-  function getAbilityLists(abilityType: 'all', stateType: AbilityState,
-    callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
-  function getAbilityLists(abilityType: 'all',
-    stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
+   * @throws { BusinessError } 401 - Input parameter error.
+   */
+  function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
+  function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState, callback: AsyncCallback<Array<AccessibilityAbilityInfo>>): void;
 
   /**
    * Send accessibility Event.
@@ -145,46 +153,64 @@ declare namespace accessibility {
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if success ; returns {@code false} otherwise.
+   * @deprecated since 9
+   * @useinstead ohos.accessibility#sendAccessibilityEvent
    */
   function sendEvent(event: EventInfo, callback: AsyncCallback<void>): void;
   function sendEvent(event: EventInfo): Promise<void>;
 
   /**
-   * Register the observe of the accessibility state changed.
+   * Send accessibility event.
+   * @since 9
+   * @param event The object of the accessibility {@code EventInfo} .
+   * @param callback Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @return Returns {@code true} if success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
+   */
+  function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
+  function sendAccessibilityEvent(event: EventInfo): Promise<void>;
+
+  /**
+   * Register the observer of the accessibility state changed.
    * @since 7
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the touchGuide state changed.
+   * Register the observer of the touchGuide state changed.
    * @since 7
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Deregister the observe of the accessibility state changed.
+   * Unregister the observer of the accessibility state changed.
    * @since 7
    * @param type state event type
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
+   * @return Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Deregister the observe of the touchGuide state changed.
+   * Unregister the observer of the touchGuide state changed.
    * @since 7
    * @param type state event type
    * @param callback Asynchronous callback interface.
-   * @return Returns {@code true} if the deregister is success ; returns {@code false} otherwise.
+   * @return Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error.
    */
    function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
@@ -212,19 +238,26 @@ declare namespace accessibility {
      style: CaptionsStyle;
  
      /**
-      * Register the observe of the enable state.
+      * Register the observer of the enable state.
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      on(type: 'enableChange', callback: Callback<boolean>): void;
+
      /**
       * Register the observer of the style.
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
+
      /**
-      * Deregister the observe of the enable state.
+      * Unregister the observer of the enable state.
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      off(type: 'enableChange', callback?: Callback<boolean>): void;
+
      /**
-      * Deregister the observer of the style.
+      * Unregister the observer of the style.
+      * @throws { BusinessError } 401 - Input parameter error.
       */
      off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
    }
