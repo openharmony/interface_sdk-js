@@ -481,6 +481,42 @@ declare namespace rdb {
     /**
      * Manages relational database configurations.
      *
+     * @import import data_rdb from '@ohos.data.rdb';
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    interface StoreConfigV9 {
+        /**
+         * The database name.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        name: string;
+
+        /**
+         * Specifies whether the database is encrypted.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        securityLevel: SecurityLevel;
+
+        /**
+         * Specifies whether the database is encrypted.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        encrypt?: boolean;
+    }
+
+    /**
+     * Manages relational database configurations.
+     *
      * @since 7
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @import import data_rdb from '@ohos.data.rdb';
