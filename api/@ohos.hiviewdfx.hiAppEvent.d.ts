@@ -201,13 +201,13 @@ declare namespace hiAppEvent {
      * @param {AppEventInfo} info Application event information to be written.
      * @param {AsyncCallback} [callback] Callback function.
      * @throws {BusinessError} 401 - Parameter error.
-     * @throws {BusinessError} 11100001 - Function is disable.
+     * @throws {BusinessError} 11100001 - Function is disabled.
      * @throws {BusinessError} 11101001 - Invalid event domain.
      * @throws {BusinessError} 11101002 - Invalid event name.
-     * @throws {BusinessError} 11101003 - Invalid param num.
-     * @throws {BusinessError} 11101004 - Invalid string length.
-     * @throws {BusinessError} 11101005 - Invalid param name.
-     * @throws {BusinessError} 11101006 - Invalid array length.
+     * @throws {BusinessError} 11101003 - Invalid number of event parameters.
+     * @throws {BusinessError} 11101004 - Invalid string length of the event parameter.
+     * @throws {BusinessError} 11101005 - Invalid event parameter name.
+     * @throws {BusinessError} 11101006 - Invalid array length of the event parameter.
      */
      function write(info: AppEventInfo): Promise<void>;
      function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
@@ -263,7 +263,7 @@ declare namespace hiAppEvent {
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
          * @param {number} size Threshold size.
          * @throws {BusinessError} 401 - Parameter error.
-         * @throws {BusinessError} 11104001 - Size must be a positive integer.
+         * @throws {BusinessError} 11104001 - Invalid size value.
          */
         setSize(size: number): void;
 
@@ -356,10 +356,10 @@ declare namespace hiAppEvent {
      * @return {AppEventPackageHolder} Holder object, which is used to read the monitoring data of the watcher.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 11102001 - Invalid watcher name.
-     * @throws {BusinessError} 11102002 - Invalid filter domain.
-     * @throws {BusinessError} 11102003 - Row must be a positive integer.
-     * @throws {BusinessError} 11102004 - Size must be a positive integer.
-     * @throws {BusinessError} 11102005 - Timeout must be a positive integer.
+     * @throws {BusinessError} 11102002 - Invalid filtering event domain.
+     * @throws {BusinessError} 11102003 - Invalid row value.
+     * @throws {BusinessError} 11102004 - Invalid size value.
+     * @throws {BusinessError} 11102005 - Invalid timeout value.
      */
     function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
