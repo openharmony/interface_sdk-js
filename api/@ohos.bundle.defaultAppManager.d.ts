@@ -153,7 +153,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability and type does not match.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -173,7 +173,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability and type does not match.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -190,7 +190,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -208,7 +208,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager.defaultAppManager
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
