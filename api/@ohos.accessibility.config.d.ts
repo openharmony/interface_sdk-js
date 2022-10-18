@@ -77,10 +77,6 @@ declare namespace config {
    * Enable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param capability Indicates the ability.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Input parameter error.
-   * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
-   * @throws { BusinessError } 9300002 - Target ability already enabled.
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
   function enableAbility(name: string, capability: Array<accessibility.Capability>, callback: AsyncCallback<void>): void;
@@ -88,28 +84,23 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    * @param name Indicates the accessibility extension name, in "bundleName/abilityName" format.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Input parameter error.
-   * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    */
   function disableAbility(name: string): Promise<void>;
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
   /**
    * Register the listener that watches for changes in the enabled status of accessibility extensions.
-   * @param type Indicates the type of event.
+   * @param type Indicates the enableAbilityListsStateChanged type.
    * @param callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
    */
-  function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
+  function on(type: 'enableAbilityListsStateChanged', callback: Callback<void>): void;
 
   /**
-   * Unregister listener that watches for changes in the enabled status of accessibility extensions.
-   * @param type Indicates the type of event.
+   * Deregister listener that watches for changes in the enabled status of accessibility extensions.
+   * @param type Indicates the enableAbilityListsStateChanged type.
    * @param callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error.
    */
-  function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+  function off(type: 'enableAbilityListsStateChanged', callback?: Callback<void>): void;
 
   /**
    * Indicates setting, getting, and listening to changes in configuration.
@@ -118,8 +109,6 @@ declare namespace config {
     /**
      * Setting configuration value.
      * @param value Indicates the value.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     set(value: T): Promise<void>;
     set(value: T, callback: AsyncCallback<void>): void;
@@ -133,12 +122,11 @@ declare namespace config {
     /**
      * Register the listener to listen for configuration changes.
      * @param callback Indicates the listener.
-     * @throws { BusinessError } 401 - Input parameter error.
      */
     on(callback: Callback<T>): void;
 
     /**
-     * Unregister the listener to listen for configuration changes.
+     * Deregister the listener to listen for configuration changes.
      * @param callback Indicates the listener.
      */
     off(callback?: Callback<T>): void;
