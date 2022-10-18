@@ -201,7 +201,7 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): Promise<CameraOutputCapability>;
 
     /**
-     * Determine wether camera is muted.
+     * Determine whether camera is muted.
      * @return Is camera muted.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -209,7 +209,7 @@ declare namespace camera {
     isCameraMuted(): boolean;
 
     /**
-     * Determine wether camera mute is supported.
+     * Determine whether camera mute is supported.
      * @return Is camera mute supported.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
