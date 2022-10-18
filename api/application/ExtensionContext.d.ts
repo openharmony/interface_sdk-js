@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from "../bundle/hapModuleInfo";
+import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
 import { Configuration } from '../@ohos.application.Configuration';
 import Context from "./Context";
-import { ExtensionAbilityInfo } from "../bundle/extensionAbilityInfo";
+import { ExtensionAbilityInfo } from "../bundleManager/extensionAbilityInfo";
 
 /**
  * The context of an extension. It allows access to extension-specific resources.

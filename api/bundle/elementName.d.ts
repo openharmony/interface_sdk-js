@@ -70,13 +70,4 @@
    * @syscap SystemCapability.BundleManager.BundleFramework
    */
   shortName?: string;
-
- /**
-  * module name
-  * @default -
-  *
-  * @since 9
-  * @syscap SystemCapability.BundleManager.BundleFramework
-  */
-  moduleName?: string;
 }

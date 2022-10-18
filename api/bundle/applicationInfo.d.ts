@@ -15,8 +15,6 @@
 
 import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData';
-import { Metadata } from './metadata';
-import { Resource } from './../global/resource';
 
 /**
  * @name Obtains configuration information about an application
@@ -78,13 +76,6 @@ export interface ApplicationInfo {
   readonly labelId: string;
 
   /**
-    * @default Indicates the label index of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly labelIndex: number;
-
-  /**
     * @default Indicates the icon of the application
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
@@ -98,13 +89,6 @@ export interface ApplicationInfo {
     * @deprecated since 9, use iconIndex
     */
   readonly iconId: string;
-
-  /**
-    * @default Indicates the icon index of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly iconIndex: number;
 
   /**
     * @default Process of application, if user do not set it ,the value equal bundleName
@@ -163,13 +147,6 @@ export interface ApplicationInfo {
   readonly metaData: Map<string, Array<CustomizeData>>;
 
   /**
-    * @default Indicates the metadata of module
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly metadata: Map<string, Array<Metadata>>;
-
-  /**
     * @default Indicates whether or not this application may be removable
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
@@ -196,45 +173,4 @@ export interface ApplicationInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly entityType: string;
-
-  /**
-    * @default Indicates fingerprint of the certificate
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly fingerprint: string;
-
-    /**
-    * @default Indicates icon resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-    readonly iconResource: Resource;
-
-    /**
-    * @default Indicates label resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-     readonly labelResource: Resource;
-    /**
-    * @default Indicates description resource of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-     readonly descriptionResource: Resource;
-
-  /**
-    * @default Indicates the appDistributionType of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly appDistributionType: string;
-
-  /**
-    * @default Indicates the appProvisionType of the application
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-   readonly appProvisionType: string;
 }

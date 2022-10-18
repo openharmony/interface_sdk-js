@@ -31,12 +31,6 @@
       */
     readonly targetBundle: string;
     /**
-      * @default Indicates the target module of the shortcut want
-      * @since 9
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetModule: string;
-    /**
       * @default Indicates the target class of the shortcut want
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
@@ -126,11 +120,4 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly isEnabled?: boolean;
-
-    /**
-     * @default Indicates the moduleName of the shortcut
-     * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    readonly moduleName?: string;
   }
