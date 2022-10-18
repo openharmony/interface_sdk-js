@@ -19,7 +19,7 @@ import Context from './application/Context';
 /**
  * Provides interfaces to sync distributed object.
  *
- * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+ * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
  * @since 8
  */
 declare namespace distributedDataObject {
@@ -29,10 +29,10 @@ declare namespace distributedDataObject {
      *
      * @param {object} source - source Init data of distributed object.
      * @returns {DistributedObject} - return the distributed object.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
-     * @useinstead create
+     * @useinstead ohos.distributedDataObject.create
      */
     function createDistributedObject(source: object): DistributedObject;
 
@@ -43,7 +43,7 @@ declare namespace distributedDataObject {
      * @param {object} source - source Init data of distributed object.
      * @returns {DistributedObjectV9} - return the distributed object.
      * @throws {BusinessError} 401 - the parameter check failed.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
     function create(context: Context, source: object): DistributedObjectV9;
@@ -52,13 +52,16 @@ declare namespace distributedDataObject {
      * Generate a random sessionId.
      *
      * @returns {string} - return generated sessionId.
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      */
     function genSessionId(): string;
 
     /**
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * the response of save.
+     * Contains the parameter information of the save object.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
     interface SaveSuccessResponse {
@@ -88,7 +91,10 @@ declare namespace distributedDataObject {
     }
 
     /**
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * the response of revokeSave.
+     * Contains the sessionId of the changed object.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
     interface RevokeSaveSuccessResponse {
@@ -104,7 +110,7 @@ declare namespace distributedDataObject {
     /**
      * Object create by {@link createDistributedObject}.
      *
-     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
      */
@@ -116,7 +122,7 @@ declare namespace distributedDataObject {
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param {string} sessionId - sessionId The sessionId to be joined, if empty, leave all session.
          * @returns {boolean} - return a result of function.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
          */
@@ -130,7 +136,7 @@ declare namespace distributedDataObject {
          *          indicates the observer of object data changed. 
          *          {string} sessionId - the sessionId of the changed object.
          *          {Array<string>} fields - changed data.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
          */
@@ -145,7 +151,7 @@ declare namespace distributedDataObject {
          *          {string} sessionId - the sessionId of the changed object.
          *          {Array<string>} fields - changed data.
          *          callback If not null, off the callback, if undefined, off all callbacks.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
          */
@@ -162,7 +168,7 @@ declare namespace distributedDataObject {
          *          {string} status 
          *                   'online' The object became online on the device and data can be synced to the device.
          *                   'offline' The object became offline on the device and the object can not sync any data.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
          */
@@ -181,7 +187,7 @@ declare namespace distributedDataObject {
          *                   'online' The object became online on the device and data can be synced to the device.
          *                   'offline' The object became offline on the device and the object can not sync any data.
          *          callback If not null, off the callback, if undefined, off all callbacks.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
          */
@@ -206,7 +212,7 @@ declare namespace distributedDataObject {
          * @throws {BusinessError} 201 - the permissions check failed.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15400001 - create table failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
@@ -221,7 +227,7 @@ declare namespace distributedDataObject {
          * @throws {BusinessError} 201 - the permissions check failed.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 15400001 - create table failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         setSessionId(sessionId?: string): Promise<void>;
@@ -236,7 +242,7 @@ declare namespace distributedDataObject {
          *          {Array<string>} fields - changed data.
          *          sessionId the sessionId of the changed object.         
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
@@ -251,7 +257,7 @@ declare namespace distributedDataObject {
          *          {Array<string>} fields - changed data.
          *          callback If not null, off the callback, if undefined, off all callbacks.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
@@ -269,7 +275,7 @@ declare namespace distributedDataObject {
          *                   'offline' The object became offline on the device and the object can not sync any data.
          *                   'restored' The object restored success.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         on(type: 'status',
@@ -288,7 +294,7 @@ declare namespace distributedDataObject {
          *                   'offline' The object became offline on the device and the object can not sync any data.
          *          callback If not null, off the callback, if undefined, off all callbacks.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         off(type: 'status',
@@ -309,7 +315,7 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<SaveSuccessResponse>} callback
          *        {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
@@ -328,7 +334,7 @@ declare namespace distributedDataObject {
          * @param {string} deviceId - Indicates the device that will resume the object data.
          * @returns {Promise<SaveSuccessResponse>} {SaveSuccessResponse}: the response of save.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         save(deviceId: string): Promise<SaveSuccessResponse>;
@@ -341,7 +347,7 @@ declare namespace distributedDataObject {
          * @param {AsyncCallback<RevokeSaveSuccessResponse>} callback
          *        {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
@@ -353,7 +359,7 @@ declare namespace distributedDataObject {
          * 
          * @returns {Promise<RevokeSaveSuccessResponse>} {RevokeSaveSuccessResponse}: the response of revokeSave.
          * @throws {BusinessError} 401 - the parameter check failed.
-         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject.
+         * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 9
          */
         revokeSave(): Promise<RevokeSaveSuccessResponse>;
