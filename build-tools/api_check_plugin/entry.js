@@ -14,6 +14,7 @@
  */
 
 const path = require("path");
+const fs = require("fs");
 const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
