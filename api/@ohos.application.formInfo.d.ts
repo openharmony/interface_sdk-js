@@ -21,6 +21,8 @@ import Want from './@ohos.application.Want';
  * @name formInfo
  * @since 8
  * @syscap SystemCapability.Ability.Form
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formInfo
  */
 declare namespace formInfo {
     /**
