@@ -110,15 +110,15 @@ declare namespace hiSysEvent {
    * @static
    * @param {SysEventInfo} info system event information to be written.
    * @param {AsyncCallback} [callback] callback function.
-   * @throws {BusinessError} 401 - argument is invalid
-   * @throws {BusinessError} 11200001 - domain is invalid
-   * @throws {BusinessError} 11200002 - event name is invalid
-   * @throws {BusinessError} 11200003 - environment is abnormal
-   * @throws {BusinessError} 11200004 - size of event content is over limit
-   * @throws {BusinessError} 11200051 - name of param is invalid
-   * @throws {BusinessError} 11200052 - size of string type param is over limit
-   * @throws {BusinessError} 11200053 - count of params is over limit
-   * @throws {BusinessError} 11200054 - size of array type param is over limit
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200001 - Invalid event domain.
+   * @throws {BusinessError} 11200002 - Invalid event name.
+   * @throws {BusinessError} 11200003 - Abnormal environment.
+   * @throws {BusinessError} 11200004 - Length of the event is over limit.
+   * @throws {BusinessError} 11200051 - Invalid event parameter.
+   * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
+   * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
+   * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
    * @return {void | Promise<void>} no callback return Promise otherwise return void.
    * @since 9
    */
@@ -311,10 +311,10 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @throws {BusinessError} 201 - has no permission
-   * @throws {BusinessError} 401 - argument is invalid
-   * @throws {BusinessError} 11200101 - count of watchers is over limit
-   * @throws {BusinessError} 11200102 - count of watch rules is over limit
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200101 - Count of watchers is over limit.
+   * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
    * @return {void} return void.
    * @since 9
    */
@@ -327,9 +327,9 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @throws {BusinessError} 201 - has no permission
-   * @throws {BusinessError} 401 - argument is invalid
-   * @throws {BusinessError} 11200201 - watcher is not exist
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200201 - The watcher does not exist.
    * @return {void} return void.
    * @since 9
    */
@@ -344,12 +344,12 @@ declare namespace hiSysEvent {
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
-   * @throws {BusinessError} 201 - has no permission
-   * @throws {BusinessError} 401 - argument is invalid
-   * @throws {BusinessError} 11200301 - count of query rules is over limit
-   * @throws {BusinessError} 11200302 - query rule is invalid
-   * @throws {BusinessError} 11200303 - count of concurrent queries is over limit
-   * @throws {BusinessError} 11200304 - frequency of event query is over limit
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @throws {BusinessError} 11200303 - Count of concurrent queriers is over limit.
+   * @throws {BusinessError} 11200304 - Query frequency is over limit.
    * @return {void} return void.
    * @since 9
    */
