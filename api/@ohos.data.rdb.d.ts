@@ -36,10 +36,7 @@ declare namespace rdb {
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
      * @param {number} version - Indicates the database version for upgrade or downgrade.
-     * @param {AsyncCallback<RdbStoreV9>} callback - the RDB store {@link RdbStoreV9}.
-     * @throws {BusinessError} 401 - if the parameter type is incorrect.
-     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
-     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @param {AsyncCallback<RdbStore>} callback - the RDB store {@link RdbStore}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -55,10 +52,7 @@ declare namespace rdb {
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store. 
      * @param {number} version - Indicates the database version for upgrade or downgrade.
-     * @returns {Promise<RdbStoreV9>} the RDB store {@link RdbStoreV9}.
-     * @throws {BusinessError} 401 - if the parameter type is incorrect.
-     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
-     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @returns {Promise<RdbStore>} the RDB store {@link RdbStore}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
