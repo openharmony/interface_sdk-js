@@ -1171,7 +1171,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    displayName: Array<string>;
+    displayName?: Array<string>;
     /**
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1179,7 +1179,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    mimeType: Array<string>;
+    mimeType?: Array<string>;
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1187,7 +1187,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    fileSizeOver: number;
+    fileSizeOver?: number;
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1195,7 +1195,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    lastModifiedAfter: number;
+    lastModifiedAfter?: number;
     /**
      * @type {boolean}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1203,7 +1203,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    excludeMedia: boolean;
+    excludeMedia?: boolean;
 }
 
 /**
