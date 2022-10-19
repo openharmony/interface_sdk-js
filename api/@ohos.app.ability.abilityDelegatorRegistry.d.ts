@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,38 +21,32 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
 /**
  * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
  * during application startup.
- *
- * @since 8
+ * @namespace abilityDelegatorRegistry
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
- * @permission N/A
- * @deprecated since 9
- * @useinstead ohos.app.ability.abilityDelegatorRegistry
+ * @since 9
  */
 declare namespace abilityDelegatorRegistry {
     /**
      * Get the AbilityDelegator object of the application.
-     *
-     * @since 8
+     * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the AbilityDelegator object initialized when the application is started.
+     * @since 9
      */
     function getAbilityDelegator(): AbilityDelegator;
 
     /**
-     * Get unit test parameters stored in the AbilityDelegatorArgs object.
-     *
-     * @since 8
+     * Get unit test arguments stored in the AbilityDelegatorArgs object.
+     * @returns { AbilityDelegator } Return the previously registered AbilityDelegatorArgs object.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the previously registered AbilityDelegatorArgs object.
+     * @since 9
      */
     function getArguments(): AbilityDelegatorArgs;
 
     /**
      * Describes all lifecycle states of an ability.
-     *
-     * @since 8
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export enum AbilityLifecycleState {
         UNINITIALIZED,
@@ -64,38 +58,30 @@ declare namespace abilityDelegatorRegistry {
 
     /**
      * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityDelegator from 'application/abilityDelegator.d'
+     * @since 9
      */
     export type AbilityDelegator = _AbilityDelegator
 
     /**
      * Store unit testing-related parameters, including test case names, and test runner name.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
+     * @since 9
      */
     export type AbilityDelegatorArgs = _AbilityDelegatorArgs
 
     /**
      * Provide methods for matching monitored Ability objects that meet specified conditions.
      * The most recently matched Ability objects will be saved in the AbilityMonitor object.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityMonitor from 'application/abilityMonitor.d'
+     * @since 9
      */
     export type AbilityMonitor = _AbilityMonitor
 
     /**
      * A object that records the result of shell command executes.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import ShellCmdResult from 'application/shellCmdResult.d'
+     * @since 9
      */
     export type ShellCmdResult = _ShellCmdResult
 }

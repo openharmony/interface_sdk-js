@@ -15,19 +15,16 @@
 
 /**
  * The definition of ConfigurationConstant.
- *
- * @since 8
+ * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
- * @permission N/A
- * @deprecated since 9
- * @useinstead ohos.app.ability.ConfigurationConstant
+ * @since 9
  */
  declare namespace ConfigurationConstant {
     /**
-     * @name ColorMode
-     * @since 8
+     * ColorMode
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @since 9
      */
     export enum ColorMode {
         COLOR_MODE_NOT_SET = -1,
@@ -36,10 +33,10 @@
     }
 
     /**
-     * @name Direction
-     * @since 9
+     * Direction
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @since 9
      */
     export enum Direction {
         DIRECTION_NOT_SET = -1,
@@ -48,10 +45,11 @@
     }
 
     /**
+     * ScreenDensity
      * @name ScreenDensity
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
+     * @since 9
      */
     export enum ScreenDensity {
         SCREEN_DENSITY_NOT_SET = 0,

@@ -18,42 +18,48 @@ import * as _ErrorObserver from './application/ErrorObserver';
 
 /**
  * This module provides the function of error manager.
- *
- * @since 9
+ * @namespace errorManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import errorManager from '@ohos.application.errorManager'
- * @permission N/A
- * @deprecated since 9
- * @useinstead ohos.app.ability.errorManager
+ * @since 9
  */
 declare namespace errorManager {
     /**
      * Register error observer.
-     *
-     * @default -
-     * @since 9
+     * @param { string } type - error.
+     * @param { ErrorObserver } observer - The error observer.
+     * @returns { number } Returns the number code of the observer.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The error observer.
-     * @return Returns the number code of the observer.
+     * @since 9
      */
-    function registerErrorObserver(observer: ErrorObserver): number;
+    function on(type: "error", observer: ErrorObserver): number;
 
     /**
      * Unregister error observer.
-     *
-     * @since 9
+     * @param { string } type - error.
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @param { AsyncCallback<void> } callback - The callback of off.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observerId Indicates the number code of the observer.
-     * @return -
+     * @since 9
      */
-    function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
-    function unregisterErrorObserver(observerId: number): Promise<void>;
+    function off(type: "error", observerId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Unregister error observer.
+     * @param { string } type - error.
+     * @param { number } observerId - Indicates the number code of the observer.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
+     */
+    function off(type: "error", observerId: number): Promise<void>;
 
     /**
      * The observer will be called by system when an error occurs.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export type ErrorObserver = _ErrorObserver.default
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,39 +13,32 @@
  * limitations under the License.
  */
 
-import AbilityConstant from "./@ohos.application.AbilityConstant";
-import { Configuration } from './@ohos.application.Configuration';
+import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
+import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
  * class of extension.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @deprecated since 9
- * @useinstead ohos.app.ability.ExtensionAbility
+ * @stagemodelonly
+ * @since 9
  */
 export default class ExtensionAbility {
     /**
      * Called when the system configuration is updated.
-     *
-     * @since 9
+     * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param newConfig Indicates the updated configuration.
-     * @return -
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
-    onConfigurationUpdated(newConfig: Configuration): void;
+    onConfigurationUpdate(newConfig: Configuration): void;
 
     /**
      * Called when the system has determined to trim the memory, for example, when the ability is running in the
      * background and there is no enough memory for running as many background processes as possible.
-     *
+     * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @param level Indicates the memory trim level, which shows the current memory usage status.
-     * @return -
-     * @StageModelOnly
      */
-     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+    onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }

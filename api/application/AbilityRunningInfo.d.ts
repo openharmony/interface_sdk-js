@@ -14,7 +14,7 @@
  */
 
 import { ElementName } from '../bundle/elementName';
-import abilityManager from '../@ohos.application.abilityManager';
+import abilityManager from '../@ohos.app.ability.abilityManager';
 
 /**
  * The class of an ability running information.
