@@ -227,9 +227,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
 
   /**
    * Obtains own bundleInfo.
-   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -238,9 +237,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
 
   /**
    * Obtains own bundleInfo.
-   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of getting bundle info result.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -251,7 +249,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback } callback - The callback of getting bundle info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -270,7 +268,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Obtains bundleInfo based on bundleName, bundleFlags and options. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates BundleFlag, the value in bundleFlag can be used in or.
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<BundleInfo> } The result of getting the bundle info.
    * @throws { BusinessError } 201 - Permission denied.
@@ -288,7 +286,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - Indicates ApplicationFlag, the value in ApplicationFlag can be used in or.
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @param { AsyncCallback<ApplicationInfo> } callback - The callback of getting application info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -307,7 +305,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Obtains application info based on a given bundle name. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } appFlags - Indicates ApplicationFlag, the value in ApplicationFlag can be used in or.
+   * @param { number } appFlags - Indicates the flag used to specify information contained in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns { Promise<ApplicationInfo> } The result of getting the application info.
    * @throws { BusinessError } 201 - Permission denied.
@@ -429,7 +427,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
    * @param { ExtensionAbilityType } extensionAbilityType - Indicates ExtensionAbilityType.
-   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionInfo objects that will be returned.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the ExtensionAbilityInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
@@ -898,7 +896,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param  { string } bundleName - Indicates the application bundle name to be queried.
-   * @param  { number } bundleFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
+   * @param  { number } applicationFlags - Indicates the flag used to specify information contained in the ApplicationInfo object that will be returned.
    * @param { number } userId - Indicates the user ID or do not pass user ID.
    * @returns Returns the ApplicationInfo object.
    * @throws { BusinessError } 201 - Permission denied.
@@ -909,8 +907,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-   function getApplicationInfoSync(bundleName: string, bundleFlags: number, userId: number) : ApplicationInfo;
-   function getApplicationInfoSync(bundleName: string, bundleFlags: number) : ApplicationInfo;
+   function getApplicationInfoSync(bundleName: string, applicationFlags: number, userId: number) : ApplicationInfo;
+   function getApplicationInfoSync(bundleName: string, applicationFlags: number) : ApplicationInfo;
 
   /**
    * Obtains bundleInfo based on bundleName, bundleFlags and options.
@@ -966,11 +964,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
   /**
-   * Indicates the PermissionGrantStatus.
+   * Indicates the PermissionGrantState.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type PermissionGrantStatus = _BundleInfo.PermissionGrantStatus;
+  export type PermissionGrantState = _BundleInfo.PermissionGrantState;
 
     /**
    * Indicates the SignatureInfo.
