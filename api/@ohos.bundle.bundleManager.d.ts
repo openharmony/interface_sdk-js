@@ -546,6 +546,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700030 - The specified bundleName does not support cleaning cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
