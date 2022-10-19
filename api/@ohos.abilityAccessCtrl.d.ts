@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
+import { Permissions } from './permissions';
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -41,13 +42,23 @@ import { AsyncCallback, Callback } from './basic';
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
         /**
+         * Checks whether a specified application has been granted the given permission.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be verified. Permissions type only support the valid permission name.
+         * @return Returns permission verify result.
+         * @since 9
+         */
+        verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+
+        /**
          * Checks whether a specified application has been granted the given permission synchronously.
          * @param tokenID The tokenId of specified application.
-         * @param permissionName The permission name to be verified.
+         * @param permissionName The permission name to be verified. Permissions type only support the valid permission name.
          * @return Returns permission verify result
          * @since 9
          */
          verifyAccessTokenSync(tokenID: number, permissionName: string): GrantStatus;
+         verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
         /**
          * Grants a specified user_grant permission to the given application.
@@ -62,6 +73,18 @@ import { AsyncCallback, Callback } from './basic';
         grantUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
 
         /**
+         * Grants a specified user_grant permission to the given application.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be granted. Permissions type only support the valid permission name.
+         * @param permissionFlag Flag of permission state.
+         * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS.
+         * @systemapi
+         * @since 9
+         */
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<number>;
+        grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<number>): void;
+
+        /**
          * Revokes a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be revoked.
@@ -74,6 +97,18 @@ import { AsyncCallback, Callback } from './basic';
         revokeUserGrantedPermission(tokenID: number, permissionName: string, permissionFlag: number, callback: AsyncCallback<number>): void;
 
         /**
+         * Revokes a specified user_grant permission to the given application.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be revoked. Permissions type only support the valid permission name.
+         * @param permissionFlag Flag of permission state.
+         * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @systemapi
+         * @since 9
+         */
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number): Promise<number>;
+        revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlag: number, callback: AsyncCallback<number>): void;
+
+        /**
          * Queries specified permission flag of the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
@@ -83,6 +118,17 @@ import { AsyncCallback, Callback } from './basic';
          * @since 8
          */
         getPermissionFlags(tokenID: number, permissionName: string): Promise<number>;
+
+        /**
+         * Queries specified permission flag of the given application.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be granted. Permissions type only support the valid permission name.
+         * @return Return permission flag.
+         * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS or ohos.permission.REVOKE_SENSITIVE_PERMISSIONS.
+         * @systemapi
+         * @since 9
+         */
+        getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
 
         /**
          * Queries permission management version.
@@ -114,6 +160,7 @@ import { AsyncCallback, Callback } from './basic';
          * @since 9
          */
         on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback: Callback<PermissionStateChangeInfo>): void;
+        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback: Callback<PermissionStateChangeInfo>): void;
 
         /**
          * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
@@ -125,6 +172,7 @@ import { AsyncCallback, Callback } from './basic';
          * @since 9
          */
         off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<string>, callback?: Callback<PermissionStateChangeInfo>): void;
+        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionNameList: Array<Permissions>, callback?: Callback<PermissionStateChangeInfo>): void;
     }
   
     /**
