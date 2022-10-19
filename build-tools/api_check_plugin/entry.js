@@ -19,6 +19,7 @@ const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "API CHECK FAILED!";
+  const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   try {
     const execSync = require("child_process").execSync;
@@ -26,12 +27,12 @@ function checkEntry(url) {
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result = scanEntry(url);
     const content = fs.readFileSync(url, "utf-8");
-    result += `mdFilePath = ${url}, content = ${content}`
+    result += `mdFilePath = ${url}, content = ${content}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = `CATCHERROR : ${error}`;
+    result = `CATCHERROR : ${error}, mdFilePath = ${url}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
   }
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
