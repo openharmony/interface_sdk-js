@@ -966,11 +966,11 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
   export type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail;
 
   /**
-   * Indicates the PermissionGrantStatus.
+   * Indicates the PermissionGrantState.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  export type PermissionGrantStatus = _BundleInfo.PermissionGrantStatus;
+  export type PermissionGrantState = _BundleInfo.PermissionGrantState;
 
     /**
    * Indicates the SignatureInfo.

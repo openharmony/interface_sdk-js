@@ -24,7 +24,7 @@ import { HapModuleInfo } from './hapModuleInfo';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.BundleInfo
+ * @useinstead ohos.bundle.bundleManager.UsedScene
  *
  */
 export interface UsedScene {
@@ -48,7 +48,8 @@ export interface UsedScene {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.ReqPermissionDetail
  */
 export interface ReqPermissionDetail {
   /**
@@ -85,7 +86,8 @@ export interface ReqPermissionDetail {
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.BundleInfo
  */
 export interface BundleInfo {
   /**
