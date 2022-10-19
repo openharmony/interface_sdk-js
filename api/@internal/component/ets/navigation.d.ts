@@ -40,7 +40,7 @@ declare interface NavigationCustomTitle {
    * Sets the custom title builder.
    * @since 9
    */
-  builder: string;
+  builder: CustomBuilder;
 
   /**
    * Sets the custom title height.
