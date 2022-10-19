@@ -25,7 +25,7 @@ function checkEntry(url) {
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result = scanEntry(url);
-    const content = fs.readFileSync(path.resolve(__dirname, "./Result.txt"), "utf-8");
+    const content = fs.readFileSync(url, "utf-8");
     result += `mdFilePath = ${url}, content = ${content}`
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
