@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from './basic'
+import { Permissions } from './permissions'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -22,7 +23,7 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Adds access record of sensitive permission.
      * @param tokenID The tokenId of specified application.
-     * @param permissionName The permission name to be added.
+     * @param permissionName The permission name to be added. Permissions type only support the valid permission name.
      * @param successCount Access count.
      * @param failCount Reject account.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
@@ -32,6 +33,8 @@ import {AsyncCallback, Callback} from './basic'
      */
     function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<number>;
     function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<number>): void;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number): Promise<number>;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number, callback: AsyncCallback<number>): void;
 
     /**
      * Queries the access records of sensitive permission.
@@ -47,7 +50,7 @@ import {AsyncCallback, Callback} from './basic'
     /**
      * Start using sensitive permission.
      * @param tokenID The tokenId of specified application.
-     * @param permissionName The permission name to be started.
+     * @param permissionName The permission name to be started. Permissions type only support the valid permission name.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -55,11 +58,13 @@ import {AsyncCallback, Callback} from './basic'
      */
     function startUsingPermission(tokenID: number, permissionName: string): Promise<number>;
     function startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+    function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<number>;
+    function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<number>): void;
 
     /**
      * Stop using sensitive permission.
      * @param tokenID The tokenId of specified application.
-     * @param permissionName The permission name to be stopped.
+     * @param permissionName The permission name to be stopped. Permissions type only support the valid permission name.
      * @return Returns 0 if the method is called successfully, returns -1 otherwise.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
@@ -67,24 +72,28 @@ import {AsyncCallback, Callback} from './basic'
      */
     function stopUsingPermission(tokenID: number, permissionName: string): Promise<number>;
     function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<number>): void;
+    function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<number>;
+    function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<number>): void;
 
     /**
      * Subscribes to the change of active state of the specified permission.
-     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @param permissionNameLists Indicates the permission lists, which are specified. Permissions type only support the valid permission name.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
      */
     function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<ActiveChangeResponse>): void;
+    function on(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
 
     /**
      * Unsubscribes to the change of active state of the specified permission.
-     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @param permissionNameLists Indicates the permission lists, which are specified. Permissions type only support the valid permission name.
      * @permission ohos.permission.PERMISSION_USED_STATS.
      * @systemapi
      * @since 9
      */
     function off(type: 'activeStateChange', permissionNameList: Array<string>, callback?: Callback<ActiveChangeResponse>): void;
+    function off(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
 
     /**
      * Enum for permission for status.
