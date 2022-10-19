@@ -280,6 +280,7 @@ declare namespace enterpriseDeviceManager {
   /**
    * Set the information of the administrator's enterprise.
    * Only the administrator app can call this method.
+   * @permission ohos.permission.SET_ENTERPRISE_INFO
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AsyncCallback<void> } callback - the callback of setEnterpriseInfo.
