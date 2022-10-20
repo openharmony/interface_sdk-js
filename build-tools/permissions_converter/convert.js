@@ -56,7 +56,7 @@ const getPermissions = downloadPath => {
 
 const convertJsonToDTS = (permissions, outputFilePath) => {
   if (fs.existsSync(outputFilePath)) {
-    fs.rmSync(outputFilePath, { recursive: true, force: true });
+    fs.unlinkSync(outputFilePath);
   }
   fs.appendFileSync(outputFilePath, copyRight, 'utf8');
   fs.appendFileSync(outputFilePath, typeHead, 'utf8');
