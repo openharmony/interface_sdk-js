@@ -58,7 +58,7 @@ declare namespace distributedDataObject {
     function genSessionId(): string;
 
     /**
-     * the response of save.
+     * The response of save.
      * Contains the parameter information of the save object.
      * 
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -91,7 +91,7 @@ declare namespace distributedDataObject {
     }
 
     /**
-     * the response of revokeSave.
+     * The response of revokeSave.
      * Contains the sessionId of the changed object.
      * 
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -100,7 +100,7 @@ declare namespace distributedDataObject {
     interface RevokeSaveSuccessResponse {
 
         /**
-         * the sessionId of the changed object.
+         * The sessionId of the changed object.
          * 
          * @since 9
          */
@@ -113,10 +113,11 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.distributedDataObject.DistributedObjectV9
      */
     interface DistributedObject {
         
-        /*
+        /**
          * Change object session
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -125,6 +126,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.distributedDataObject.DistributedObjectV9.setSessionId
          */
         setSessionId(sessionId?: string): boolean;
 
@@ -139,6 +141,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.distributedDataObject.DistributedObjectV9.on
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -154,6 +157,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.distributedDataObject.DistributedObjectV9.off
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -171,6 +175,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.distributedDataObject.DistributedObjectV9.on
          */
         on(type: 'status',
            callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
@@ -190,6 +195,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.distributedDataObject.DistributedObjectV9.off
          */
         off(type: 'status',
             callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
@@ -306,7 +312,7 @@ declare namespace distributedDataObject {
          * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data,
          * you should encrypt it
          *
-         * the saved data will be released when
+         * The saved data will be released when
          * 1. saved after 24h.
          * 2. app uninstalled.
          * 3. after resume data success, system will auto delete the saved data.
@@ -326,7 +332,7 @@ declare namespace distributedDataObject {
          * the saved data secure level is S0, it is not safe, can only save public data, if there is privacy data,
          * you should encrypt it.
          *
-         * the saved data will be released when
+         * The saved data will be released when
          * 1. saved after 24h.
          * 2. app uninstalled.
          * 3. after resume data success, system will auto delete the saved data.
