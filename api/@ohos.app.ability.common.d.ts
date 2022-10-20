@@ -13,98 +13,89 @@
  * limitations under the License.
  */
 
-import * as _AbilityContext  from './application/AbilityContext';
-import * as _AbilityStageContext  from './application/AbilityStageContext';
-import * as _ApplicationContext  from './application/ApplicationContext';
-import * as _BaseContext  from './application/BaseContext';
-import * as _Context  from './application/Context';
-import * as _ExtensionContext  from './application/ExtensionContext';
-import * as _FormExtensionContext  from './application/FormExtensionContext';
-import * as _EventHub  from './application/EventHub';
-import * as _PermissionRequestResult  from './application/PermissionRequestResult';
+import * as _AbilityContext from './application/AbilityContext';
+import * as _AbilityStageContext from './application/AbilityStageContext';
+import * as _ApplicationContext from './application/ApplicationContext';
+import * as _BaseContext from './application/BaseContext';
+import * as _Context from './application/Context';
+import * as _ExtensionContext from './application/ExtensionContext';
+import * as _FormExtensionContext from './application/FormExtensionContext';
+import * as _EventHub from './application/EventHub';
+import * as _PermissionRequestResult from './application/PermissionRequestResult';
+import { PacMap as _PacMap } from "./ability/dataAbilityHelper";
+import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
+import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 
 /**
  * The context of an application. It allows access to application-specific resources.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @deprecated since 9
- * @useinstead ohos.app.ability.common
+ * @stagemodelonly
+ * @since 9
  */
-declare namespace context {
+declare namespace common {
 
     /**
      * The context of an ability. It allows access to ability-specific resources.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type AbilityContext = _AbilityContext.default
 
     /**
      * The context of an abilityStage. It allows access to abilityStage-specific resources.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type AbilityStageContext = _AbilityStageContext.default
 
     /**
      * The context of an application. It allows access to application-specific resources.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type ApplicationContext = _ApplicationContext.default
 
     /**
-     * The base context of 'app.Context' for FA Mode or
-     * 'application.Context' for Stage Mode.
-     *
-     * @since 9
+     * The base context of 'app.Context' for FA Mode or 'application.Context' for Stage Mode.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     export type BaseContext = _BaseContext.default
 
     /**
      * The base context of an ability or an application. It allows access to
      * application-specific resources.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type Context = _Context.default
 
     /**
      * The context of an extension. It allows access to extension-specific resources.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type ExtensionContext = _ExtensionContext.default
 
     /**
      * The context of form extension. It allows access to
      * formExtension-specific resources.
-     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
      * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @StageModelOnly
      */
     export type FormExtensionContext = _FormExtensionContext.default
 
     /**
      * File area mode
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export enum AreaMode {
         /**
@@ -119,21 +110,43 @@ declare namespace context {
 
     /**
      * The event center of a context, support the subscription and publication of events.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type EventHub = _EventHub.default
 
     /**
      * The result of requestPermissionsFromUser with asynchronous callback.
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
+     * @since 9
      */
     export type PermissionRequestResult = _PermissionRequestResult.default
+
+    /**
+     * Defines a PacMap object for storing a series of values.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type PacMap = _PacMap
+
+    /**
+     * Indicates the result of startAbility.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type AbilityResult = _AbilityResult
+
+    /**
+     * Indicates the callback of connection
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
+     */
+    export type ConnectOptions = _ConnectOptions
 }
 
-export default context;
+export default common;

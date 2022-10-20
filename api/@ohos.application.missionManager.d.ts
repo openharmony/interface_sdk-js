@@ -27,6 +27,8 @@ import StartOptions from "./@ohos.application.StartOptions";
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.missionManager
  */
 declare namespace missionManager {
     /**
