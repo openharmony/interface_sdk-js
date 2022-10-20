@@ -2148,10 +2148,10 @@ declare namespace window {
    * @StageModelOnly
    */
   enum WindowStageEventType {
-    FOREGROUND = 1,
+    SHOWN = 1,
     ACTIVE,
     INACTIVE,
-    BACKGROUND,
+    HIDDEN,
   }
   /**
    * WindowStage
