@@ -25,38 +25,42 @@ import { AsyncCallback, Callback } from './basic';
  * @since 8
  * @import import wifiext from '@ohos.wifiext';
  */
-declare namespace wifiext {
+declare namespace wifimanagerext {
     /**
      * Enables a Wi-Fi hotspot.
      *
-     * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2700001 - Unspecified error.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
      */
-     function enableHotspot(): boolean;
+     function enableHotspot(): void;
 
      /**
       * Disables a Wi-Fi hotspot.
       *
-      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-      * @since 8
+      * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2700001 - Unspecified error.
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
       * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
       */
-     function disableHotspot(): boolean;
+     function disableHotspot(): void;
 
     /**
      * Obtains the supported power model.
      *
      * @return Returns the array of supported power model.
      *
-     * @since 8
+      * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2700001 - Unspecified error.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
      */
      function getSupportedPowerModel(): Promise<Array<PowerModel>>;
      function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
@@ -66,10 +70,12 @@ declare namespace wifiext {
      *
      * @return Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2700001 - Unspecified error.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
      */
     function getPowerModel (): Promise<PowerModel>;
     function getPowerModel (callback: AsyncCallback<PowerModel>): void;
@@ -77,21 +83,20 @@ declare namespace wifiext {
     /**
      * Set the current Wi-Fi power mode.
      *
-     * @return Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
-     *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2700001 - Unspecified error.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
      */
-    function setPowerModel(model: PowerModel) : boolean
+    function setPowerModel(model: PowerModel) : void
 
     /**
      * The power model enumeration.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
      */
      export enum PowerModel {
         /** Sleeping model. */
@@ -105,4 +110,4 @@ declare namespace wifiext {
     }
 }
 
-export default wifiext;
+export default wifimanagerext;
