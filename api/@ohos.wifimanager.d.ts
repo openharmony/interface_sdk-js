@@ -18,45 +18,52 @@ import { AsyncCallback, Callback } from './basic';
 /**
  * Provides methods to operate or manage Wi-Fi.
  *
- * @since 6
- * @import import wifi from '@ohos.wifi';
+ * @since 9
+ * @import import wifimanager from '@ohos.wifimanager';
  */
-declare namespace wifi {
+declare namespace wifimanager {
     /**
      * Enables Wi-Fi.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function enableWifi(): boolean;
+    function enableWifi(): void;
 
     /**
      * Disables Wi-Fi.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function disableWifi(): boolean;
+    function disableWifi(): void;
 
     /**
      * Queries the Wi-Fi status
      *
      * @return Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function isWifiActive(): boolean;
 
@@ -67,10 +74,12 @@ declare namespace wifi {
      *
      * @return Returns {@code true} if the scanning is successful, returns {@code false} otherwise.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function scan(): boolean;
 
@@ -79,13 +88,16 @@ declare namespace wifi {
      *
      * @return Returns information about scanned Wi-Fi hotspots if any.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-     * @deprecated since 9
      */
-    function getScanInfos(): Promise<Array<WifiScanInfo>>;
-    function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
+    function getScanResults(): Promise<Array<WifiScanInfo>>;
+    function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
     /**
      * Obtains the scanned results.
@@ -93,11 +105,14 @@ declare namespace wifi {
      * @return Returns information about scanned Wi-Fi hotspots if any.
      *
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-     * @deprecated since 9
      */
-    function getScanInfosSync(): Array<WifiScanInfo>;
+    function getScanResultsSync(): Array<WifiScanInfo>;
 
     /**
      * Adds Wi-Fi connection configuration to the device.
@@ -107,11 +122,15 @@ declare namespace wifi {
      * @param config Indicates the device configuration for connection to the Wi-Fi network.
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
     function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
@@ -121,29 +140,37 @@ declare namespace wifi {
      *
      * <p>This method adds one configuration at a time. After this configuration is added,
      *     your device will determine whether to connect to the hotspot.
-     *
-     * @return Returns {@code true} if the untrusted hotspot configuration is added, returns {@code false} otherwise.
+     * @param config - device config which to be added.
+     * 
      * @since 7
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      * @deprecated since 9
      */
-     function addUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
-     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+     function addUntrustedConfig(config: WifiDeviceConfig): Promise<void>;
+     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<void>): void;
  
      /**
       * Removes a specified untrusted hotspot configuration.
       *
       * <p>This method removes one configuration at a time.
+      * @param config - device config which to be removed.
       *
-      * @return Returns {@code true} if the untrusted hotspot configuration is removed, returns {@code false} otherwise.
       * @since 7
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 401 - Invalid parameters.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2500001 - Unspecified error.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       * @deprecated since 9
       */
-     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
-     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
+     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<void>;
+     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<void>): void;
 
      /**
      * Adds a specified candidate hotspot configuration and returns the networkId.
@@ -155,9 +182,12 @@ declare namespace wifi {
      * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
      *
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated since 9
      */
      function addCandidateConfig(config: WifiDeviceConfig): Promise<number>;
      function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
@@ -171,9 +201,12 @@ declare namespace wifi {
       * @return {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
       *
       * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 401 - Invalid parameters.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2500001 - Unspecified error.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
-      * @deprecated since 9
       */
      function removeCandidateConfig(networkId: number): Promise<void>;
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
@@ -186,9 +219,12 @@ declare namespace wifi {
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
      *
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function getCandidateConfigs(): Array<WifiDeviceConfig>;
 
@@ -199,11 +235,13 @@ declare namespace wifi {
      * <p>This method connect to a configuration at a time.
      *
      * @param networkId - Network ID which will be connected.
-     * @throws {ErrCode} if operation is failed.
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated since 9
      */
      function connectToCandidateConfig(networkId: number): void;
 
@@ -211,41 +249,48 @@ declare namespace wifi {
      * Connects to Wi-Fi network.
      *
      * @param networkId ID of the connected network.
-     * @return Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function connectToNetwork(networkId: number): boolean;
+    function connectToNetwork(networkId: number): void;
 
     /**
      * Connects to Wi-Fi network.
      *
      * @param config Indicates the device configuration for connection to the Wi-Fi network.
-     * @return Returns {@code true} if the network connection is successful, returns {@code false} otherwise.
      *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
      * ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function connectToDevice(config: WifiDeviceConfig): boolean;
+    function connectToDevice(config: WifiDeviceConfig): void;
 
     /**
      * Disconnects Wi-Fi network.
      *
-     * @return Returns {@code true} for disconnecting network success, returns {@code false} otherwise.
-     *
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function disconnect(): boolean;
 
@@ -257,20 +302,27 @@ declare namespace wifi {
      * @return Returns Wi-Fi signal level ranging from 0 to 4.
      *
      * @since 6
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function getSignalLevel(rssi: number, band: number): number;
 
     /**
      * Obtains information about a Wi-Fi connection.
      *
-     * @return Returns the Wi-Fi connection information.
-     * @since 6
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function getLinkedInfo(): Promise<WifiLinkedInfo>;
     function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
@@ -279,10 +331,13 @@ declare namespace wifi {
      * Checks whether a Wi-Fi connection has been set up.
      *
      * @return Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function isConnected(): boolean;
 
@@ -292,11 +347,14 @@ declare namespace wifi {
      * <p>To check whether this device supports a specified feature.
      *
      * @return Returns the features supported by this device.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2400001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getSupportedFeatures(): number;
 
@@ -305,10 +363,13 @@ declare namespace wifi {
      *
      * @param featureId Indicates the ID of the feature.
      * @return Returns {@code true} if this device supports the specified feature, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2400001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function isFeatureSupported(featureId: number): boolean;
 
@@ -318,11 +379,14 @@ declare namespace wifi {
      * <p>The MAC address is unique and cannot be changed.
      *
      * @return Returns the MAC address of the Wi-Fi device.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getDeviceMacAddress(): string[];
 
@@ -333,9 +397,11 @@ declare namespace wifi {
      *
      * @return Returns the IP information of the Wi-Fi connection.
      * @since 7
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function getIpInfo(): IpInfo;
 
@@ -343,36 +409,42 @@ declare namespace wifi {
      * Obtains the country code of this device.
      *
      * @return Returns the country code of this device.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2400001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function getCountryCode(): string;
 
     /**
      * Re-associates to current network.
      *
-     * @return {@code true} if the Wi-Fi network is re-associate successfully.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function reassociate(): boolean;
+    function reassociate(): void;
 
     /**
      * Re-connects to current network.
      *
-     * @return {@code true} if the Wi-Fi network is re-connect successfully.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function reconnect(): boolean;
+    function reconnect(): void;
 
     /**
      * Obtains the list of all existing Wi-Fi configurations.
@@ -380,11 +452,15 @@ declare namespace wifi {
      * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
      * @return Returns the list of all existing Wi-Fi configurations you created on your application.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
@@ -395,11 +471,15 @@ declare namespace wifi {
      *
      * @return Returns the network ID in the updated Wi-Fi configuration if the update is successful;
      *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function updateNetwork(config: WifiDeviceConfig): number;
 
@@ -409,27 +489,30 @@ declare namespace wifi {
      * <p>The disabled network will not be associated with again.
      *
      * @param netId Identifies the network to disable.
-     * @return Returns {@code true} if the specified network is disabled, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function disableNetwork(netId: number): boolean;
+    function disableNetwork(netId: number): void;
 
     /**
      * Removes all the saved Wi-Fi configurations.
      *
-     * @return Returns {@code true} if all the saved Wi-Fi configurations are removed;
-     *     returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function removeAllNetwork(): boolean;
+    function removeAllNetwork(): void;
 
     /**
      * Deletes a Wi-Fi network with a specified ID.
@@ -440,28 +523,33 @@ declare namespace wifi {
      *
      * @param id Indicates the ID of the Wi-Fi network,
      *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
-     * @return Returns {@code true} if the Wi-Fi network is deleted successfully, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function removeDevice(id: number): boolean;
+    function removeDevice(id: number): void;
 
     /**
      * Enables a Wi-Fi hotspot.
      *
      * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
      *
-     * @return Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function enableHotspot(): boolean;
+    function enableHotspot(): void;
 
     /**
      * Disables a Wi-Fi hotspot.
@@ -469,23 +557,29 @@ declare namespace wifi {
      * <p>This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
      *
      * @return Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function disableHotspot(): boolean;
+    function disableHotspot(): void;
 
     /**
      * Checks whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
      *
      * @return Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
      function isHotspotDualBandSupported(): boolean;
 
@@ -493,11 +587,14 @@ declare namespace wifi {
      * Checks whether Wi-Fi hotspot is active on a device.
      *
      * @return Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function isHotspotActive(): boolean;
 
@@ -510,23 +607,30 @@ declare namespace wifi {
      *     The SSID and {@code securityType} must be available and correct.
      *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
      * @return Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function setHotspotConfig(config: HotspotConfig): boolean;
+    function setHotspotConfig(config: HotspotConfig): void;
 
     /**
      * Obtains the Wi-Fi hotspot configuration.
      *
      * @return Returns the configuration of an existing or enabled Wi-Fi hotspot.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getHotspotConfig(): HotspotConfig;
 
@@ -536,11 +640,14 @@ declare namespace wifi {
      * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
      *
      * @return Returns the list of clients that are connected to the Wi-Fi hotspot.
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getStations(): Array<StationInfo>;
 
@@ -548,10 +655,12 @@ declare namespace wifi {
      * Obtains information about a P2P connection.
      *
      * @return Returns the P2P connection information.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
     function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
@@ -560,10 +669,12 @@ declare namespace wifi {
      * Obtains information about the current group.
      *
      * @return Returns the current group information.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
     function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
@@ -572,10 +683,13 @@ declare namespace wifi {
      * Obtains the information about the found devices.
      *
      * @return Returns the found devices list.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
@@ -588,9 +702,11 @@ declare namespace wifi {
      *
      * @return Returns the information about own device info.
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-     * @deprecated since 9
      */
     function getP2pLocalDevice(): Promise<WifiP2pDevice>;
     function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
@@ -599,92 +715,109 @@ declare namespace wifi {
      * Creates a P2P group.
      *
      * @param config Indicates the configuration for creating a group.
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
-    function createGroup(config: WifiP2PConfig): boolean;
+    function createGroup(config: WifiP2PConfig): void;
 
     /**
      * Removes a P2P group.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
-    function removeGroup(): boolean;
+    function removeGroup(): void;
 
     /**
      * Initiates a P2P connection to a device with the specified configuration.
      *
      * @param config Indicates the configuration for connecting to a specific group.
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
-    function p2pConnect(config: WifiP2PConfig): boolean;
+    function p2pConnect(config: WifiP2PConfig): void;
 
     /**
      * Canceling a P2P connection.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
-    function p2pCancelConnect(): boolean;
+    function p2pCancelConnect(): void;
 
     /**
      * Discovers Wi-Fi P2P devices.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
-    function startDiscoverDevices(): boolean;
+    function startDiscoverDevices(): void;
 
     /**
      * Stops discovering Wi-Fi P2P devices.
      *
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
-    function stopDiscoverDevices(): boolean;
+    function stopDiscoverDevices(): void;
 
     /**
      * Deletes the persistent P2P group with the specified network ID.
      *
      * @param netId Indicates the network ID of the group to be deleted.
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function deletePersistentGroup(netId: number): boolean;
+    function deletePersistentGroup(netId: number): void;
 
     /**
      * Obtains information about the groups.
      *
      * @return Returns the groups information.
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
     function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
@@ -693,23 +826,29 @@ declare namespace wifi {
      * Sets the name of the Wi-Fi P2P device.
      *
      * @param devName Indicates the name to be set.
-     * @return Returns {@code true} if the operation is successful, returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
-    function setDeviceName(devName: string): boolean;
+    function setDeviceName(devName: string): void;
 
     /**
      * Subscribe Wi-Fi status change events.
      *
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "wifiStateChange", callback: Callback<number>): void;
 
@@ -718,10 +857,13 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "wifiStateChange", callback?: Callback<number>): void;
 
@@ -729,10 +871,13 @@ declare namespace wifi {
      * Subscribe Wi-Fi connection change events.
      *
      * @return Returns 0: disconnected, 1: connected
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "wifiConnectionChange", callback: Callback<number>): void;
 
@@ -741,10 +886,13 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
 
@@ -752,10 +900,13 @@ declare namespace wifi {
      * Subscribe Wi-Fi scan status change events.
      *
      * @return Returns 0: scan fail, 1: scan success
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "wifiScanStateChange", callback: Callback<number>): void;
 
@@ -764,10 +915,13 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
 
@@ -775,10 +929,13 @@ declare namespace wifi {
      * Subscribe Wi-Fi rssi change events.
      *
      * @return Returns RSSI value in dBm
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "wifiRssiChange", callback: Callback<number>): void;
 
@@ -787,10 +944,13 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "wifiRssiChange", callback?: Callback<number>): void;
 
@@ -798,11 +958,15 @@ declare namespace wifi {
      * Subscribe Wi-Fi stream change events.
      *
      * @return Returns 0: stream none, 1: stream down, 2: stream up, 3: stream bidirectional
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
      function on(type: "streamChange", callback: Callback<number>): void;
 
@@ -811,11 +975,15 @@ declare namespace wifi {
       *
       * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
       *
-      * @since 7
+      * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+      * @throws {BusinessError} 401 - Invalid parameters.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2500001 - Unspecified error.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.MANAGE_WIFI_CONNECTION
       * @systemapi Hide this for inner system use.
-      * @deprecated since 9
       */
      function off(type: "streamChange", callback?: Callback<number>): void;
 
@@ -824,10 +992,14 @@ declare namespace wifi {
      *
      * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
      function on(type: "deviceConfigChange", callback: Callback<number>): void;
 
@@ -836,10 +1008,14 @@ declare namespace wifi {
      *
      * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
      function off(type: "deviceConfigChange", callback?: Callback<number>): void;
 
@@ -847,10 +1023,14 @@ declare namespace wifi {
      * Subscribe Wi-Fi hotspot state change events.
      *
      * @return Returns 0: inactive, 1: active, 2: activating, 3: deactivating
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "hotspotStateChange", callback: Callback<number>): void;
 
@@ -859,10 +1039,14 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "hotspotStateChange", callback?: Callback<number>): void;
 
@@ -870,11 +1054,15 @@ declare namespace wifi {
      * Subscribe Wi-Fi hotspot sta join events.
      *
      * @return Returns StationInfo
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
 
@@ -883,11 +1071,15 @@ declare namespace wifi {
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
 
@@ -895,11 +1087,15 @@ declare namespace wifi {
      * Subscribe Wi-Fi hotspot sta leave events.
      *
      * @return Returns {@link #StationInfo} object
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
 
@@ -907,11 +1103,15 @@ declare namespace wifi {
      * Unsubscribe Wi-Fi hotspot sta leave events.
      *
      * @return Returns {@link #StationInfo} object
-     * @since 7
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2600001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
-     * @deprecated since 9
      */
     function off(type: "hotspotStaLeave", callback?: Callback<StationInfo>): void;
 
@@ -919,20 +1119,26 @@ declare namespace wifi {
      * Subscribe P2P status change events.
      *
      * @return Returns 1: idle, 2: starting, 3:started, 4: closing, 5: closed
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "p2pStateChange", callback: Callback<number>): void;
 
     /**
      * Unsubscribe P2P status change events.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "p2pStateChange", callback?: Callback<number>): void;
 
@@ -940,20 +1146,26 @@ declare namespace wifi {
      * Subscribe P2P connection change events.
      *
      * @return Returns WifiP2pLinkedInfo
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "p2pConnectionChange", callback: Callback<WifiP2pLinkedInfo>): void;
 
     /**
      * Unsubscribe P2P connection change events.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "p2pConnectionChange", callback?: Callback<WifiP2pLinkedInfo>): void;
 
@@ -961,10 +1173,13 @@ declare namespace wifi {
      * Subscribe P2P local device change events.
      *
      * @return Returns WifiP2pDevice
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function on(type: "p2pDeviceChange", callback: Callback<WifiP2pDevice>): void;
 
@@ -972,10 +1187,13 @@ declare namespace wifi {
      * Unsubscribe P2P local device change events.
      *
      * @return Returns WifiP2pDevice
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function off(type: "p2pDeviceChange", callback?: Callback<WifiP2pDevice>): void;
 
@@ -983,20 +1201,26 @@ declare namespace wifi {
      * Subscribe P2P peer device change events.
      *
      * @return Returns WifiP2pDevice[]
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function on(type: "p2pPeerDeviceChange", callback: Callback<WifiP2pDevice[]>): void;
 
     /**
      * Unsubscribe P2P peer device change events.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
-     * @deprecated since 9
      */
     function off(type: "p2pPeerDeviceChange", callback?: Callback<WifiP2pDevice[]>): void;
 
@@ -1004,20 +1228,26 @@ declare namespace wifi {
      * Subscribe P2P persistent group change events.
      *
      * @return Returns void
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "p2pPersistentGroupChange", callback: Callback<void>): void;
 
     /**
      * Unsubscribe P2P persistent group change events.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "p2pPersistentGroupChange", callback?: Callback<void>): void;
 
@@ -1025,20 +1255,26 @@ declare namespace wifi {
      * Subscribe P2P discovery events.
      *
      * @return Returns 0: initial state, 1: discovery succeeded
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function on(type: "p2pDiscoveryChange", callback: Callback<number>): void;
 
     /**
      * Unsubscribe P2P discovery events.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 401 - Invalid parameters.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2800001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
      */
     function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
@@ -1048,7 +1284,6 @@ declare namespace wifi {
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
      enum EapMethod {
         EAP_NONE,
@@ -1068,7 +1303,6 @@ declare namespace wifi {
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
      enum Phase2Method {
         PHASE2_NONE,
@@ -1087,7 +1321,6 @@ declare namespace wifi {
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface WifiEapConfig {
         /** EAP authentication method */
@@ -1133,9 +1366,8 @@ declare namespace wifi {
     /**
      * Wi-Fi device configuration information.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface WifiDeviceConfig {
         /** Wi-Fi SSID: the maximum length is 32 */
@@ -1183,10 +1415,7 @@ declare namespace wifi {
 
         /**
          * EAP config info.
-         *
-         * @since 9
          * @systemapi
-         * @syscap SystemCapability.Communication.WiFi.STA
          */
         eapConfig: WifiEapConfig;
     }
@@ -1194,10 +1423,9 @@ declare namespace wifi {
     /**
      * Wi-Fi IP configuration information.
      *
-     * @since 7
+     * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface IpConfig {
         ipAddress: number;
@@ -1212,7 +1440,6 @@ declare namespace wifi {
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface WifiInfoElem {
         /** Element id */
@@ -1226,7 +1453,6 @@ declare namespace wifi {
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     enum WifiChannelWidth {
         WIDTH_20MHZ = 0,
@@ -1240,9 +1466,8 @@ declare namespace wifi {
     /**
      * Describes the scanned Wi-Fi information.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface WifiScanInfo {
         /** Wi-Fi SSID: the maximum length is 32 */
@@ -1300,9 +1525,8 @@ declare namespace wifi {
     /**
      * Describes the wifi security type.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @deprecated since 9
      */
     enum WifiSecurityType {
         /** Invalid security type */
@@ -1364,9 +1588,8 @@ declare namespace wifi {
     /**
      * Wi-Fi connection information.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface WifiLinkedInfo {
         /** The SSID of the Wi-Fi hotspot */
@@ -1430,9 +1653,8 @@ declare namespace wifi {
     /**
      * Wi-Fi IP information.
      *
-     * @since 7
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     interface IpInfo {
         /** The IP address of the Wi-Fi connection */
@@ -1460,10 +1682,9 @@ declare namespace wifi {
     /**
      * Wi-Fi hotspot configuration information.
      *
-     * @since 7
+     * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @deprecated since 9
      */
     interface HotspotConfig {
         /** The SSID of the Wi-Fi hotspot */
@@ -1485,10 +1706,9 @@ declare namespace wifi {
     /**
      * Wi-Fi station information.
      *
-     * @since 7
+     * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @deprecated since 9
      */
     interface StationInfo {
         /** the network name of the Wi-Fi client */
@@ -1504,10 +1724,9 @@ declare namespace wifi {
     /**
      * Wi-Fi IP type enumeration.
      *
-     * @since 7
+     * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
      enum IpType {
         /** Use statically configured IP settings */
@@ -1523,10 +1742,9 @@ declare namespace wifi {
     /**
      * The state of the supplicant enumeration.
      *
-     * @since 6
+     * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     export enum SuppState {
         /** The supplicant is not associated with or is disconnected from the AP. */
@@ -1569,9 +1787,8 @@ declare namespace wifi {
     /**
      * The state of Wi-Fi connection enumeration.
      *
-     * @since 6
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
      */
     export enum ConnState {
         /** The device is searching for an available AP. */
@@ -1602,9 +1819,8 @@ declare namespace wifi {
     /**
      * P2P device information.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     interface WifiP2pDevice {
         /** Device name */
@@ -1626,9 +1842,8 @@ declare namespace wifi {
     /**
      * P2P config.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     interface WifiP2PConfig {
         /** Device mac address */
@@ -1653,9 +1868,8 @@ declare namespace wifi {
     /**
      * P2P group information.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     interface WifiP2pGroupInfo {
         /** Indicates whether it is group owner */
@@ -1689,9 +1903,8 @@ declare namespace wifi {
     /**
      * P2P connection status.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     enum P2pConnectState {
         DISCONNECTED = 0,
@@ -1701,9 +1914,8 @@ declare namespace wifi {
     /**
      * P2P linked information.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     interface WifiP2pLinkedInfo {
         /** Connection status */
@@ -1719,9 +1931,8 @@ declare namespace wifi {
     /**
      * P2P device status.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     enum P2pDeviceStatus {
         CONNECTED = 0,
@@ -1734,9 +1945,8 @@ declare namespace wifi {
     /**
      * P2P group owner band.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @deprecated since 9
      */
     enum GroupOwnerBand {
         GO_BAND_AUTO = 0,
@@ -1745,4 +1955,4 @@ declare namespace wifi {
     }
 }
 
-export default wifi;
+export default wifimanager;
