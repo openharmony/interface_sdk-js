@@ -22,8 +22,8 @@ import { AsyncCallback, Callback } from './basic';
  * These extended APIs are only used by some product types, such as routers. 
  * Common products should not use these APIs.</p>
  *
- * @since 8
- * @import import wifiext from '@ohos.wifiext';
+ * @since 9
+ * @import import wifimanagerext from '@ohos.wifimanagerext';
  */
 declare namespace wifimanagerext {
     /**
