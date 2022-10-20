@@ -42,6 +42,14 @@ import { Permissions } from './permissions';
          * @useinstead ohos.abilityAccessCtrl.AtManager#checkAccessToken
          */
         verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
+
+        /**
+         * Checks whether a specified application has been granted the given permission.
+         * @param tokenID The tokenId of specified application.
+         * @param permissionName The permission name to be verified. Permissions type only support the valid permission name.
+         * @return Returns permission verify result.
+         * @since 9
+         */
         verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
         /**
