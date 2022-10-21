@@ -201,6 +201,32 @@ declare namespace camera {
     getSupportedOutputCapability(camera: CameraDevice): Promise<CameraOutputCapability>;
 
     /**
+     * Determine whether camera is muted.
+     * @return Is camera muted.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     */
+    isCameraMuted(): boolean;
+
+    /**
+     * Determine whether camera mute is supported.
+     * @return Is camera mute supported.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    isCameraMuteSupported(): boolean;
+
+    /**
+     * Mute camera.
+     * @param mute Mute camera if TRUE, otherwise unmute camera.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    muteCamera(mute: boolean): void;
+
+    /**
      * Creates a CameraInput instance by camera.
      * @param camera Camera device used to create the instance.
      * @param callback Callback used to return the CameraInput instance.
@@ -344,6 +370,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
     on(type: 'cameraStatus', callback: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
+     * Subscribes camera mute change event callback.
+     * @param type Event type.
+     * @param callback Callback used to get the camera mute change.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     */
+    on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
   }
 
   /**
