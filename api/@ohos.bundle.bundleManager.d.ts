@@ -19,7 +19,7 @@ import { Metadata as _Metadata } from './bundleManager/metadata';
 import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
 import { ElementName as _ElementName }  from './bundleManager/elementName';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import * as _AbilityInfo from './bundleManager/abilityInfo';
 import * as _BundleInfo from './bundleManager/bundleInfo';
