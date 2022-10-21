@@ -14,7 +14,8 @@
  */
 
 import { ApplicationInfo } from './applicationInfo';
-import { Metadata } from './metadata'
+import { Metadata } from './metadata';
+import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Extension information about a bundle
@@ -81,11 +82,11 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Enumerates types of the extension ability info
-   * @type {ExtensionAbilityType}
+   * @type {bundleManager.ExtensionAbilityType}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly extensionAbilityType: ExtensionAbilityType;
+  readonly extensionAbilityType: bundleManager.ExtensionAbilityType;
 
   /**
    * The permissions that others need to use this extension ability info
@@ -134,119 +135,4 @@ export interface ExtensionAbilityInfo {
    * @since 9
    */
   readonly writePermission: string;
-}
-
-/**
- * This enumeration value is used to identify various types of extension ability
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
- export enum ExtensionAbilityType {
-  /**
-   * Indicates extension info with type of form
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  FORM = 0,
-
-  /**
-   * Indicates extension info with type of work schedule
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  WORK_SCHEDULER = 1,
-
-  /**
-   * Indicates extension info with type of input method
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  INPUT_METHOD = 2,
-
-  /**
-   * Indicates extension info with type of service
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
-  */
-  SERVICE = 3,
-
-  /**
-   * Indicates extension info with type of accessibility
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  ACCESSIBILITY = 4,
-
-  /**
-   * Indicates extension info with type of dataShare
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 9
-   */
-  DATA_SHARE = 5,
-
-  /**
-   * Indicates extension info with type of filesShare
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  FILE_SHARE = 6,
-
-  /**
-   * Indicates extension info with type of staticSubscriber
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  STATIC_SUBSCRIBER = 7,
-
-  /**
-   * Indicates extension info with type of wallpaper
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  WALLPAPER = 8,
-
-  /**
-   * Indicates extension info with type of backup
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  BACKUP = 9,
-
-  /**
-   * Indicates extension info with type of window
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  WINDOW = 10,
-
-  /**
-   * Indicates extension info with type of enterprise admin
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  ENTERPRISE_ADMIN = 11,
-
-  /**
-   * Indicates extension info with type of thumbnail
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  THUMBNAIL = 13,
-
-  /**
-   * Indicates extension info with type of preview
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PREVIEW = 14,
-
-  /**
-   * Indicates extension info with type of unspecified
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  UNSPECIFIED = 255,
 }
