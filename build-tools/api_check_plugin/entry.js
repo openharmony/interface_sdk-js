@@ -46,7 +46,7 @@ function checkEntry(url) {
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = `CATCHERROR : ${error}, mdFilePath = ${url}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
+    result += `CATCHERROR : ${error}, mdFilePath = ${url}, __dirname = ${__dirname}, sourceDirname = ${sourceDirname}`;
   }
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
