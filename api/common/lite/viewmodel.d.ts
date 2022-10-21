@@ -109,10 +109,30 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   onDestroy?(): void;
 }
 
+/**
+ * Used for ide.
+ * @systemapi
+ * @hide
+ * @since 4
+ */
 type DefaultData<T> = object;
+
+/**
+ * Used for ide.
+ * @systemapi
+ * @hide
+ * @since 4
+ */
 type CombinedOptions<T extends ViewModel, Data> = object &
   Options<T, Data> &
   ThisType<T & ViewModel & Data>;
+
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @systemapi
+ * @hide
+ * @since 4
+ */
 export declare function extendViewModel<T extends ViewModel, Data>(
   options: CombinedOptions<T, Data>
 ): ViewModel & Data;
