@@ -14,7 +14,8 @@
  */
 
 import { ApplicationInfo } from './applicationInfo';
-import { Metadata } from './metadata'
+import { Metadata } from './metadata';
+import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about an ability
@@ -113,28 +114,28 @@ export interface AbilityInfo {
 
   /**
    * Enumerates types of templates that can be used by an ability
-   * @type {AbilityType}
+   * @type {bundleManager.AbilityType}
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @FAModelOnly
    * @since 9
    */
-  readonly type: AbilityType;
+  readonly type: bundleManager.AbilityType;
 
   /**
    * Enumerates ability display orientations
-   * @type {DisplayOrientation}
+   * @type {bundleManager.DisplayOrientation}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly orientation: DisplayOrientation;
+  readonly orientation: bundleManager.DisplayOrientation;
 
   /**
    * Enumerates ability launch type
-   * @type {LaunchType}
+   * @type {bundleManager.LaunchType}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly launchType: LaunchType;
+  readonly launchType: bundleManager.LaunchType;
 
   /**
    * The permissions that others need to launch this ability
@@ -205,11 +206,11 @@ export interface AbilityInfo {
 
   /**
    * Indicates which window mode is supported
-   * @type {Array<SupportWindowMode>}
+   * @type {Array<bundleManager.SupportWindowMode>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly supportWindowModes: Array<SupportWindowMode>;
+  readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
   /**
    * Indicates window size
@@ -274,196 +275,4 @@ export interface WindowSize {
    * @since 9
    */
   readonly minWindowHeight: number;
-}
-
-/**
- * Support window mode
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-export enum SupportWindowMode {
-  /**
-   * Indicates supported window mode of full screen mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  FULL_SCREEN = 0,
-  /**
-   * Indicates supported window mode of split mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  SPLIT = 1,
-  /**
-   * Indicates supported window mode of floating mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  FLOATING = 2,
-}
-
-/**
- * Launch type
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-export enum LaunchType {
-  /**
-   * Indicates that the ability has only one instance
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  SINGLETON = 0,
-
-  /**
-   * Indicates that the ability can have multiple instances
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  STANDARD = 1,
-
-  /**
-   * Indicates that the ability can have specified instances
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  SPECIFIED = 2,
-}
-
-/**
- * Indicates ability type
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-export enum AbilityType {
-  /**
-   * Indicates an unknown ability type
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  UNKNOWN,
-
-  /**
-   * Indicates that the ability has a UI
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PAGE,
-
-  /**
-   * Indicates that the ability does not have a UI
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  SERVICE,
-
-  /**
-   * Indicates that the ability is used to provide data access services
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  DATA,
-}
-
-
-/**
- * Display orientation
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-export enum DisplayOrientation {
-  /**
-   * Indicates that the system automatically determines the display orientation
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  UNSPECIFIED,
-
-  /**
-   * Indicates the landscape orientation
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  LANDSCAPE,
-
-  /**
-   * Indicates the portrait orientation
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PORTRAIT,
-
-  /**
-   * Indicates the page ability orientation is the same as that of the nearest ability in the stack
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  FOLLOW_RECENT,
-
-  /**
-   * Indicates the inverted landscape orientation
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  LANDSCAPE_INVERTED,
-
-  /**
-   * Indicates the inverted portrait orientation
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PORTRAIT_INVERTED,
-
-  /**
-   * Indicates the orientation can be auto-rotated
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION,
-
-  /**
-   * Indicates the landscape orientation rotated with sensor
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION_LANDSCAPE,
-
-  /**
-   * Indicates the portrait orientation rotated with sensor
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION_PORTRAIT,
-
-  /**
-   * Indicates the sensor restricted mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION_RESTRICTED,
-
-  /**
-   * Indicates the sensor landscape restricted mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION_LANDSCAPE_RESTRICTED,
-
-  /**
-   * Indicates the sensor portrait restricted mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  AUTO_ROTATION_PORTRAIT_RESTRICTED,
-
-  /**
-   * Indicates the locked orientation mode
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  LOCKED,
 }
