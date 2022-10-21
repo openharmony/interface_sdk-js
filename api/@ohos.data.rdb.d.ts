@@ -332,7 +332,7 @@ declare namespace rdb {
         beginTransaction():void;
 
         /**
-         * commit the the sql you have excuted.
+         * commit the the sql you have executed.
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -340,7 +340,7 @@ declare namespace rdb {
         commit():void;
 
         /**
-         * roll back the sql you have already excuted
+         * roll back the sql you have already executed
          *
          * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -710,7 +710,7 @@ declare namespace rdb {
         executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
         /**
-         * beginTransaction before excute your sql.
+         * BeginTransaction before excute your sql.
          *
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -719,7 +719,7 @@ declare namespace rdb {
         beginTransaction():void;
 
         /**
-         * commit the the sql you have excuted.
+         * Commit the the sql you have executed.
          *
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -728,7 +728,7 @@ declare namespace rdb {
         commit():void;
 
         /**
-         * roll back the sql you have already excuted.
+         * Roll back the sql you have already executed.
          *
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
