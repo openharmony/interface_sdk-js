@@ -507,6 +507,7 @@ declare enum Edge {
   /**
    * Center horizontal and vertical.
    * @since 7
+   * @deprecated since 9
    */
   Center,
 
@@ -519,6 +520,7 @@ declare enum Edge {
   /**
    * Cross axis direction text baseline alignment.
    * @since 7
+   * @deprecated since 9
    */
   Baseline,
 
@@ -531,6 +533,7 @@ declare enum Edge {
   /**
    * Middle
    * @since 7
+   * @deprecated since 9
    */
   Middle,
 
