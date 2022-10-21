@@ -28,10 +28,15 @@ function checkEntry(url) {
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
-    const path2 = path2 = path.resolve(sourceDirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
+    const path2 = path.resolve(sourceDirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
     fs.access(path2, fs.constants.R_OK | fs.constants.W_OK, (err) => {
       const checkResult2 = err ? 'no access!' : 'can read/write';
       result += `checkResult2 = ${checkResult2} ||| ${path2} ||| \n`;
+    });
+    const path3 = path.resolve(__dirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
+    fs.access(path3, fs.constants.R_OK | fs.constants.W_OK, (err) => {
+      const checkResult3 = err ? 'no access!' : 'can read/write';
+      result += `checkResult2 = ${checkResult3} ||| ${path3} ||| \n`;
     });
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result += scanEntry(url);
