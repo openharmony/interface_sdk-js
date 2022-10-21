@@ -139,15 +139,6 @@ declare namespace rdb {
      */
     enum SecurityLevel {
         /**
-         * S0: mains the db is public.
-         * There is no impact even if the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        S0 = 0,
-
-        /**
          * S1: mains the db is low level security
          * There are some low impact, when the data is leaked.
          *
