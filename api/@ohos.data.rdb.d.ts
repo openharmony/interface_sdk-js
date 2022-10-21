@@ -44,6 +44,42 @@ declare namespace rdb {
     function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
     /**
+     * Obtains an RDB store.
+     *
+     * You can set parameters of the RDB store as required. In general, this method is recommended
+     * to obtain a rdb store.
+     *
+     * @param {Context} context - Indicates the context of application or capability.
+     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param {number} version - Indicates the database version for upgrade or downgrade.
+     * @param {AsyncCallback<RdbStoreV9>} callback - the RDB store {@link RdbStoreV9}.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
+     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    function getRdbStoreV9(context: Context, config: StoreConfigV9, version: number, callback: AsyncCallback<RdbStoreV9>): void;
+
+    /**
+     * Obtains an RDB store.
+     *
+     * You can set parameters of the RDB store as required. In general, this method is recommended
+     * to obtain a rdb store.
+     *
+     * @param {Context} context - Indicates the context of application or capability.
+     * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param {number} version - Indicates the database version for upgrade or downgrade.
+     * @returns {Promise<RdbStoreV9>} the RDB store {@link RdbStoreV9}.
+     * @throws {BusinessError} 401 - if the parameter type is incorrect.
+     * @throws {BusinessError} 14800010 - if failed open database by invalid database name
+     * @throws {BusinessError} 14800011 - if failed open database by database corrupted
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    function getRdbStoreV9(context: Context, config: StoreConfigV9, version: number): Promise<RdbStoreV9>;
+
+    /**
      * Deletes the database with a specified name.
      *
      * @since 7
@@ -93,6 +129,50 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
+    }
+
+    /**
+     * Describes the {@code RdbStoreV9} type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    enum SecurityLevel {
+        /**
+         * S1: mains the db is low level security
+         * There are some low impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S1 = 1,
+
+        /**
+         * S2: mains the db is middle level security
+         * There are some major impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S2 = 2,
+
+        /**
+         * S3: mains the db is high level security
+         * There are some severity impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S3 = 3,
+
+        /**
+         * S4: mains the db is critical level security
+         * There are some critical impact, when the data is leaked.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        S4 = 4,
     }
 
     /**
@@ -350,6 +430,457 @@ declare namespace rdb {
     }
 
     /**
+     * Provides methods for managing the relational database (RDB).
+     *
+     * This class provides methods for creating, querying, updating, and deleting RDBs.
+     *
+     * @import import data_rdb from '@ohos.data.rdb';
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    interface RdbStoreV9 {
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        insert(table: string, values: ValuesBucket): Promise<number>;
+
+        /**
+         * Inserts a batch of data into the target table.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+         * @param {AsyncCallback<number>} callback - the number of values that were inserted if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts a batch of data into the target table.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {Array<ValuesBucket>} values - Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
+         * @returns {Promise<void>} return the number of values that were inserted if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicatesV9.
+         *
+         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicatesV9} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicatesV9}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(values: ValuesBucket, predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicatesV9.
+         *
+         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicatesV9} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicatesV9}.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(values: ValuesBucket, predicates: RdbPredicatesV9): Promise<number>;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicatesV9.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicatesV9.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
+         *
+         * @param {RdbPredicatesV9} predicates - the specified delete condition by the instance object of {@link RdbPredicatesV9}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        delete(predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
+
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
+         *
+         * @param {RdbPredicatesV9} predicates - the specified delete condition by the instance object of {@link RdbPredicatesV9}.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        delete(predicates: RdbPredicatesV9): Promise<number>;
+
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+
+        /**
+         * Queries data in the database based on specified conditions.
+         *
+         * @param {RdbPredicatesV9} predicates - the specified query condition by the instance object of {@link RdbPredicatesV9}.
+         * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
+         * @param {AsyncCallback<ResultSetV9>} callback - the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        query(predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
+
+        /**
+         * Queries data in the database based on specified conditions.
+         *
+         * @param {RdbPredicatesV9} predicates - the specified query condition by the instance object of {@link RdbPredicatesV9}.
+         * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
+         * @returns {Promise<ResultSetV9>} return the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        query(predicates: RdbPredicatesV9, columns?: Array<string>): Promise<ResultSetV9>;
+
+        /**
+         * Queries data in the database based on specified conditions.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {dataSharePredicates.DataSharePredicates} predicates - the specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
+         * @param {AsyncCallback<ResultSetV9>} callback - the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
+
+        /**
+         * Queries data in the database based on specified conditions.
+         *
+         * @param {string} table - Indicates the target table.
+         * @param {dataSharePredicates.DataSharePredicates} predicates - the specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+         * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
+         * @returns {Promise<ResultSetV9>} return the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns?: Array<string>): Promise<ResultSetV9>;
+
+        /**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @param {string} device - Indicates specified remote device.
+         * @param {string} table - Indicates the target table.
+         * @param {RdbPredicatesV9} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicatesV9}.
+         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
+         * @param {AsyncCallback<ResultSetV9>} callback - the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
+
+        /**
+         * Queries remote data in the database based on specified conditions before Synchronizing Data.
+         *
+         * @param {string} device - Indicates specified remote device.
+         * @param {string} table - Indicates the target table.
+         * @param {RdbPredicatesV9} predicates - the specified remote remote query condition by the instance object of {@link RdbPredicatesV9}.
+         * @param {Array<string>} columns - the columns to remote query. If the value is empty array, the remote query applies to all columns.
+         * @returns {Promise<ResultSetV9>} return the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>): Promise<ResultSetV9>;
+
+        /**
+         * Queries data in the database based on SQL statement.
+         *
+         * @param {string} sql - Indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @param {AsyncCallback<ResultSetV9>} callback - the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSetV9>): void;
+
+        /**
+         * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
+         *
+         * @param {string} sql - Indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @returns {Promise<ResultSetV9>} return the {@link ResultSetV9} object if the operation is successful.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSetV9>;
+
+        /**
+         * Executes an SQL statement that contains specified parameters but returns no value.
+         *
+         * @param {string} sql - Indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @param {AsyncCallback<void>} callback - the callback of executeSql.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
+
+        /**
+         * Executes an SQL statement that contains specified parameters but returns no value.
+         *
+         * @param {string} sql - Indicates the SQL statement to execute.
+         * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
+
+        /**
+         * beginTransaction before excute your sql.
+         *
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        beginTransaction():void;
+
+        /**
+         * commit the the sql you have excuted.
+         *
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        commit():void;
+
+        /**
+         * roll back the sql you have already excuted.
+         *
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        rollBack():void;
+
+        /**
+         * Backs up a database in a specified name.
+         *
+         * @param {string} destName - Indicates the name that saves the database backup.
+         * @param {AsyncCallback<void>} callback - the callback of backup.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        backup(destName:string, callback: AsyncCallback<void>):void;
+
+        /**
+         * Backs up a database in a specified name.
+         *
+         * @param {string} destName - Indicates the name that saves the database backup.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        backup(destName:string): Promise<void>;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @param {string} srcName - Indicates the name that saves the database file.
+         * @param {AsyncCallback<void>} callback - the callback of restore.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        restore(srcName:string, callback: AsyncCallback<void>):void;
+
+        /**
+         * Restores a database from a specified database file.
+         *
+         * @param {string} srcName - Indicates the name that saves the database file.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        restore(srcName:string): Promise<void>;
+
+        /**
+         * Set table to be distributed table.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {Array<string>} tables - Indicates the tables name you want to set.
+         * @param {AsyncCallback<void>} callback - the callback of setDistributedTables.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
+
+        /**
+         * Set table to be distributed table.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {Array<string>} tables - Indicates the tables name you want to set.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        setDistributedTables(tables: Array<string>): Promise<void>;
+
+        /**
+         * Obtain distributed table name of specified remote device according to local table name.
+         * When query remote device database, distributed table name is needed.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {string} device - Indicates the remote device.
+         * @param {AsyncCallback<string>} callback - {string}: the distributed table name.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
+
+        /**
+         * Obtain distributed table name of specified remote device according to local table name.
+         * When query remote device database, distributed table name is needed.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {string} device - Indicates the remote device.
+         * @returns {Promise<string>} {string}: the distributed table name.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        obtainDistributedTableName(device: string, table: string): Promise<string>;
+
+        /**
+         * Sync data between devices.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {string} device - Indicates the remote device.
+         * @param {AsyncCallback<Array<[string, number]>>} callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        sync(mode: SyncMode, predicates: RdbPredicatesV9, callback: AsyncCallback<Array<[string, number]>>): void;
+
+        /**
+         * Sync data between devices.
+         *
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @param {string} device - Indicates the remote device.
+         * @returns {Promise<Array<[string, number]>>} {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        sync(mode: SyncMode, predicates: RdbPredicatesV9): Promise<Array<[string, number]>>;
+
+        /**
+         * Registers an observer for the database. When data in the distributed database changes,
+         * the callback will be invoked.
+         *
+         * @param {string} event - Indicates the event must be string 'dataChange'.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+
+        /**
+         * Remove specified observer of specified type from the database.
+         *
+         * @param {string} event - Indicates the event must be string 'dataChange'.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
+    }
+
+    /**
      * Indicates possible value types
      *
      * @since 7
@@ -386,6 +917,42 @@ declare namespace rdb {
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @import import data_rdb from '@ohos.data.rdb';
          */    
+        encrypt?: boolean;
+    }
+
+    /**
+     * Manages relational database configurations.
+     *
+     * @import import data_rdb from '@ohos.data.rdb';
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    interface StoreConfigV9 {
+        /**
+         * The database name.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        name: string;
+
+        /**
+         * Specifies whether the database is encrypted.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
+        securityLevel: SecurityLevel;
+
+        /**
+         * Specifies whether the database is encrypted.
+         *
+         * @import import data_rdb from '@ohos.data.rdb';
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 9
+         */
         encrypt?: boolean;
     }
 
