@@ -23,9 +23,9 @@ import { AsyncCallback, Callback } from './basic';
  * Common products should not use these APIs.</p>
  *
  * @since 9
- * @import import wifimanagerext from '@ohos.wifimanagerext';
+ * @import import wifiManagerExt from '@ohos.wifiManagerExt';
  */
-declare namespace wifimanagerext {
+declare namespace wifiManagerExt {
     /**
      * Enables a Wi-Fi hotspot.
      *
@@ -110,4 +110,4 @@ declare namespace wifimanagerext {
     }
 }
 
-export default wifimanagerext;
+export default wifiManagerExt;

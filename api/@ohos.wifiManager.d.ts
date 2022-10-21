@@ -19,16 +19,15 @@ import { AsyncCallback, Callback } from './basic';
  * Provides methods to operate or manage Wi-Fi.
  *
  * @since 9
- * @import import wifimanager from '@ohos.wifimanager';
+ * @import import wifiManager from '@ohos.wifiManager';
  */
-declare namespace wifimanager {
+declare namespace wifiManager {
     /**
      * Enables Wi-Fi.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2500001 - Unspecified error.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -43,9 +42,8 @@ declare namespace wifimanager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - Unspecified error.
+     * @throws {BusinessError} 2500001 - System exception.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -1955,4 +1953,4 @@ declare namespace wifimanager {
     }
 }
 
-export default wifimanager;
+export default wifiManager;
