@@ -299,7 +299,7 @@ declare namespace wifiManager {
      * @band Indicates the Wi-Fi frequency band.
      * @return Returns Wi-Fi signal level ranging from 0 to 4.
      *
-     * @since 6
+     * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
@@ -394,7 +394,7 @@ declare namespace wifiManager {
      * <p>The IP information includes the host IP address, gateway address, and DNS information.
      *
      * @return Returns the IP information of the Wi-Fi connection.
-     * @since 7
+     * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2500001 - System exception.
@@ -751,7 +751,7 @@ declare namespace wifiManager {
     function p2pConnect(config: WifiP2PConfig): void;
 
     /**
-     * Canceling a P2P connection.
+     * Disconnects a P2P connection.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -761,7 +761,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function p2pCancelConnect(): void;
+    function p2pDisconnect(): void;
 
     /**
      * Discovers Wi-Fi P2P devices.

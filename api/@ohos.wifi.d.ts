@@ -88,18 +88,6 @@ declare namespace wifi {
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
     /**
-     * Obtains the scanned results.
-     *
-     * @return Returns information about scanned Wi-Fi hotspots if any.
-     *
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-     * @deprecated since 9
-     */
-    function getScanInfosSync(): Array<WifiScanInfo>;
-
-    /**
      * Adds Wi-Fi connection configuration to the device.
      *
      * <p>The configuration will be updated when the configuration is added.</p>
@@ -144,68 +132,6 @@ declare namespace wifi {
       */
      function removeUntrustedConfig(config: WifiDeviceConfig): Promise<boolean>;
      function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<boolean>): void;
-
-     /**
-     * Adds a specified candidate hotspot configuration and returns the networkId.
-     *
-     * <p>This method adds one configuration at a time. After this configuration is added,
-     *     your device will determine whether to connect to the hotspot.
-     *
-     * @param config - candidate config.
-     * @return Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
-     *
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated since 9
-     */
-     function addCandidateConfig(config: WifiDeviceConfig): Promise<number>;
-     function addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
-
-     /**
-      * Removes a specified candidate hotspot configuration, only the configration which is added by ourself is allowed
-      * to be removed.
-      *
-      * @param networkId - Network ID which will be removed.
-      * @throws {ErrorCode} when failed to remove the hotspot configuration.
-      * @return {@code true} if the candidate hotspot configuration is removed, returns {@code false} otherwise.
-      *
-      * @since 9
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @permission ohos.permission.SET_WIFI_INFO
-      * @deprecated since 9
-      */
-     function removeCandidateConfig(networkId: number): Promise<void>;
-     function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Obtains the list of all existing candidate Wi-Fi configurations which added by ourself.
-     *
-     * <p>You can obtain only the Wi-Fi configurations you created on your own application.
-     *
-     * @return Returns the list of all existing Wi-Fi configurations you created on your application.
-     *
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @deprecated since 9
-     */
-    function getCandidateConfigs(): Array<WifiDeviceConfig>;
-
-    /**
-     * Connect to a specified candidate hotspot configuration, only the configration which is added by ourself
-     * is allowed to be connected.
-     *
-     * <p>This method connect to a configuration at a time.
-     *
-     * @param networkId - Network ID which will be connected.
-     * @throws {ErrCode} if operation is failed.
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated since 9
-     */
-     function connectToCandidateConfig(networkId: number): void;
 
     /**
      * Connects to Wi-Fi network.
@@ -581,21 +507,6 @@ declare namespace wifi {
     function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
     /**
-     * Obtains the information about own device info. 
-     *
-     * <p> deviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-	 * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
-     *
-     * @return Returns the information about own device info.
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-     * @deprecated since 9
-     */
-    function getP2pLocalDevice(): Promise<WifiP2pDevice>;
-    function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
-
-    /**
      * Creates a P2P group.
      *
      * @param config Indicates the configuration for creating a group.
@@ -675,19 +586,6 @@ declare namespace wifi {
      * @deprecated since 9
      */
     function deletePersistentGroup(netId: number): boolean;
-
-    /**
-     * Obtains information about the groups.
-     *
-     * @return Returns the groups information.
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     */
-    function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
-    function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
      * Sets the name of the Wi-Fi P2P device.
@@ -818,30 +716,6 @@ declare namespace wifi {
       * @deprecated since 9
       */
      function off(type: "streamChange", callback?: Callback<number>): void;
-
-    /**
-     * Subscribe Wi-Fi device config change events.
-     *
-     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     */
-     function on(type: "deviceConfigChange", callback: Callback<number>): void;
-
-    /**
-     * Subscribe Wi-Fi device config change events.
-     *
-     * @return Returns 0: config is added, 1: config is changed, 2: config is removed.
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @systemapi Hide this for inner system use.
-     * @deprecated since 9
-     */
-     function off(type: "deviceConfigChange", callback?: Callback<number>): void;
 
     /**
      * Subscribe Wi-Fi hotspot state change events.
@@ -1043,94 +917,6 @@ declare namespace wifi {
     function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
     /**
-     * Wi-Fi EAP method.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     */
-     enum EapMethod {
-        EAP_NONE,
-        EAP_PEAP,
-        EAP_TLS,
-        EAP_TTLS,
-        EAP_PWD,
-        EAP_SIM,
-        EAP_AKA,
-        EAP_AKA_PRIME,
-        EAP_UNAUTH_TLS,
-    }
-
-    /**
-     * Wi-Fi phase 2 method.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     */
-     enum Phase2Method {
-        PHASE2_NONE,
-        PHASE2_PAP,
-        PHASE2_MSCHAP,
-        PHASE2_MSCHAPV2,
-        PHASE2_GTC,
-        PHASE2_SIM,
-        PHASE2_AKA,
-        PHASE2_AKA_PRIME,
-    }
-
-    /**
-     * Wi-Fi EAP config.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     */
-    interface WifiEapConfig {
-        /** EAP authentication method */
-        eapMethod: EapMethod;
-
-        /** Phase 2 authentication method */
-        phase2Method: Phase2Method;
-
-        /** The identity */
-        identity: string;
-
-        /** Anonymous identity */
-        anonymousIdentity: string;
-
-        /** Password */
-        password: string;
-
-        /** CA certificate alias */
-        caCertAliases: string;
-
-        /** CA certificate path */
-        caPath: string;
-
-        /** Client certificate alias */
-        clientCertAliases: string;
-
-        /** Alternate subject match */
-        altSubjectMatch: string;
-
-        /** Domain suffix match */
-        domainSuffixMatch: string;
-
-        /** Realm for Passpoint credential */
-        realm: string;
-
-        /** Public Land Mobile Network of the provider of Passpoint credential */
-        plmn: string;
-
-        /** Sub ID of the SIM card */
-        eapSubId: number;
-    }
-
-    /**
      * Wi-Fi device configuration information.
      *
      * @since 6
@@ -1180,15 +966,6 @@ declare namespace wifi {
         /** IP config of static */
         /* @systemapi */
         staticIp: IpConfig;
-
-        /**
-         * EAP config info.
-         *
-         * @since 9
-         * @systemapi
-         * @syscap SystemCapability.Communication.WiFi.STA
-         */
-        eapConfig: WifiEapConfig;
     }
 
     /**
@@ -1204,37 +981,6 @@ declare namespace wifi {
         gateway: number;
         dnsServers: number[];
         domains: Array<string>;
-    }
-
-    /**
-     * Wi-Fi information elements.
-     *
-     * @since 9
-     * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     */
-    interface WifiInfoElem {
-        /** Element id */
-        eid: number;
-        /** Element content */
-        content: Uint8Array;
-    }
-
-    /**
-     * Describes the wifi channel width.
-     *
-     * @since 9
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     */
-    enum WifiChannelWidth {
-        WIDTH_20MHZ = 0,
-        WIDTH_40MHZ = 1,
-        WIDTH_80MHZ = 2,
-        WIDTH_160MHZ = 3,
-        WIDTH_80MHZ_PLUS = 4,
-        WIDTH_INVALID
     }
 
     /**
@@ -1269,30 +1015,6 @@ declare namespace wifi {
         /** Channel width */
         channelWidth: number;
 
-        /**
-         * Center frequency 0.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.STA
-         */
-        centerFrequency0: number;
-
-        /**
-         * Center frequency 1.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.STA
-         */
-        centerFrequency1: number;
-
-        /**
-         * Information elements.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.STA
-         */
-        infoElems: Array<WifiInfoElem>;
-
         /** Time stamp */
         timestamp: number;
     }
@@ -1319,46 +1041,6 @@ declare namespace wifi {
 
         /** Simultaneous Authentication of Equals (SAE) */
         WIFI_SEC_TYPE_SAE = 4,
-
-        /**
-         * EAP authentication.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.Core
-         */
-        WIFI_SEC_TYPE_EAP = 5,
-
-        /**
-         * SUITE_B_192 192 bit level.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.Core
-         */
-        WIFI_SEC_TYPE_EAP_SUITE_B = 6,
-
-        /**
-         * Opportunististic Wireless Encryption.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.Core
-         */
-        WIFI_SEC_TYPE_OWE = 7,
-
-        /**
-         * WAPI certificate to be specified.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.Core
-         */
-        WIFI_SEC_TYPE_WAPI_CERT = 8,
-
-        /**
-         * WAPI pre-shared key to be specified.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.Core
-         */
-        WIFI_SEC_TYPE_WAPI_PSK = 9,
     }
 
     /**
@@ -1404,14 +1086,6 @@ declare namespace wifi {
         /** The signal-to-noise ratio (SNR) of this Wi-Fi connection. */
         /* @systemapi */
         snr: number;
-
-        /**
-         * Type of macAddress: 0 - real mac, 1 - random mac.
-         *
-         * @since 9
-         * @syscap SystemCapability.Communication.WiFi.STA
-         */
-        macType: number;
 
         /** The Wi-Fi MAC address of a device. */
         macAddress: string;
