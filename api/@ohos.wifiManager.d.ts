@@ -133,43 +133,6 @@ declare namespace wifiManager {
     function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
     function addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback<number>): void;
 
-    /**
-     * Adds a specified untrusted hotspot configuration.
-     *
-     * <p>This method adds one configuration at a time. After this configuration is added,
-     *     your device will determine whether to connect to the hotspot.
-     * @param config - device config which to be added.
-     * 
-     * @since 7
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO
-     * @deprecated since 9
-     */
-     function addUntrustedConfig(config: WifiDeviceConfig): Promise<void>;
-     function addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<void>): void;
- 
-     /**
-      * Removes a specified untrusted hotspot configuration.
-      *
-      * <p>This method removes one configuration at a time.
-      * @param config - device config which to be removed.
-      *
-      * @since 7
-      * @throws {BusinessError} 201 - Permission denied.
-      * @throws {BusinessError} 401 - Invalid parameters.
-      * @throws {BusinessError} 801 - Capability not supported.
-      * @throws {BusinessError} 2500001 - System exception.
-      * @syscap SystemCapability.Communication.WiFi.STA
-      * @permission ohos.permission.SET_WIFI_INFO
-      * @deprecated since 9
-      */
-     function removeUntrustedConfig(config: WifiDeviceConfig): Promise<void>;
-     function removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback<void>): void;
-
      /**
      * Adds a specified candidate hotspot configuration and returns the networkId.
      *
