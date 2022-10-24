@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from './hapModuleInfo';
 import { Metadata } from './metadata';
 import { Resource } from '../global/resource';
 
@@ -97,28 +96,12 @@ export interface ApplicationInfo {
   readonly process: string;
 
   /**
-   * Indicates the path storing the module resources of the application
-   * @type {Array<string>}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly moduleSourceDirs: Array<string>;
-
-  /**
    * Indicates the permissions required for accessing the application.
    * @type {Array<string>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
   readonly permissions: Array<string>;
-
-  /**
-   * Indicates modules information about an application
-   * @type {Array<HapModuleInfo>}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly modulesInfo: Array<HapModuleInfo>;
 
   /**
    * Indicates the path where the {@code Entry.hap} file of the application is saved
