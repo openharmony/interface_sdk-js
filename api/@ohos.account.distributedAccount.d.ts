@@ -82,6 +82,7 @@ declare namespace distributedAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid accountInfo.
+         * @throws {BusinessError} 12300003 - the account indicated by accountInfo dose not exist.
          * @since 9
          */
         setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
