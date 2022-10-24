@@ -81,4 +81,13 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
 }
 
 declare const Rect: RectInterface;
+
+/**
+ * @deprecated since 9
+ */
 declare const RectInStance: RectAttribute;
+
+/**
+ * @since 9
+ */
+declare const RectInstance: RectAttribute;
