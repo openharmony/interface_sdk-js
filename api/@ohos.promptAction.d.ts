@@ -214,4 +214,4 @@ declare namespace promptAction {
   function showActionMenu(options: ActionMenuOptions): Promise<ActionMenuSuccessResponse>;
 }
 
-export default prompt;
+export default promptAction;
