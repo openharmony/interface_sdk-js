@@ -1486,7 +1486,7 @@ declare namespace rpc {
          * Writes an anonymous shared memory object to this {@link MessageSequence} object.
          * @param ashmem Anonymous shared memory object to wrote.
          * @throws { BusinessError } 401 - check param failed
-         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @throws { BusinessError } 1900003 - write to ashmem failed
          * @since 9
          */
         writeAshmem(ashmem: Ashmem): void;
@@ -1495,7 +1495,7 @@ declare namespace rpc {
          * Reads the anonymous shared memory object from this {@link MessageSequence} object.
          * @return Anonymous share object obtained.
          * @throws { BusinessError } 401 - check param failed
-         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @throws { BusinessError } 1900004 - read from ashmem failed
          * @since 9
          */
         readAshmem(): Ashmem;
@@ -1849,7 +1849,7 @@ declare namespace rpc {
          * @return Returns the interface descriptor.
          * @since 7
          * @deprecated since 9
-         * @useinstead ohos.rpc.IRemoteObject#getInterfaceDescriptor
+         * @useinstead ohos.rpc.IRemoteObject#getDescriptor
          */
         getInterfaceDescriptor(): string;
 
@@ -1862,7 +1862,7 @@ declare namespace rpc {
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @since 9
          */
-        getInterfaceDescriptor(): string;
+        getDescriptor(): string;
 
         /**
          * Checks whether an object is dead.
@@ -2751,6 +2751,7 @@ declare namespace rpc {
          * Creates the shared file mapping on the virtual address space of this process.
          * The size of the mapping region is specified by this Ashmem object.
          * @param mapType Protection level of the memory region to which the shared file is mapped.
+         * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900001 - call mmap function failed
          * @since 9
          */
@@ -2801,6 +2802,7 @@ declare namespace rpc {
         /**
          * Sets the protection level of the memory region to which the shared file is mapped.
          * @param protectionType Protection type to set.
+         * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900002 - os ioctl function failed
          * @since 9
          */
@@ -2824,7 +2826,7 @@ declare namespace rpc {
          * @param size Size of the data to write
          * @param offset Start position of the data to write in the memory region associated with this Ashmem object.
          * @throws { BusinessError } 401 - check param failed
-         * @throws { BusinessError } 1900009 - write to ashmem failed
+         * @throws { BusinessError } 1900003 - write to ashmem failed
          * @since 9
          */
         writeAshmem(buf: number[], size: number, offset: number): void;
@@ -2846,7 +2848,7 @@ declare namespace rpc {
          * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
          * @return Data read.
          * @throws { BusinessError } 401 - check param failed
-         * @throws { BusinessError } 1900010 - read from ashmem failed
+         * @throws { BusinessError } 1900004 - read from ashmem failed
          * @since 9
          */
         readAshmem(size: number, offset: number): number[];
