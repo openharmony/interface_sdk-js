@@ -17,6 +17,7 @@
  * Defines the size type.
  * @since 7
  * @deprecated since 9
+ * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
  */
 declare enum SizeType {
   /**
@@ -54,6 +55,7 @@ declare enum SizeType {
  * Defines the options of GridContainer.
  * @since 7
  * @deprecated since 9
+ * @useinstead grid_col/[GridColOptions] and grid_row/[GridRowOptions]
  */
 declare interface GridContainerOptions {
   /**
@@ -89,6 +91,7 @@ declare interface GridContainerOptions {
  * Defines the GridContainer component.
  * @since 7
  * @deprecated since 9
+ * @useinstead grid_col/[GridColInterface] and grid_row/[GridRowInterface]
  */
 interface GridContainerInterface {
   /**
@@ -103,6 +106,7 @@ interface GridContainerInterface {
  * Defines the grid container attribute from inheritance Column
  * @since 7
  * @deprecated since 9
+ * @useinstead grid_col/[GridColAttribute] and grid_row/[GridRowAttribute]
  */
 declare class GridContainerAttribute extends ColumnAttribute {}
 
