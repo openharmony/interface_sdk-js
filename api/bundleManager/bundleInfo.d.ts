@@ -15,6 +15,7 @@
 
 import { ApplicationInfo } from './applicationInfo';
 import { HapModuleInfo } from './hapModuleInfo';
+import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
  * Obtains configuration information about a bundle
@@ -97,11 +98,11 @@ export interface BundleInfo {
 
   /**
    * Indicates the grant state of required permissions
-   * @type {Array<PermissionGrantState>}
+   * @type {Array<bundleManager.PermissionGrantState>}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
    */
-  readonly permissionGrantStates: Array<PermissionGrantState>;
+  readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
   /**
    * Indicates the SignatureInfo of the bundle
@@ -190,28 +191,6 @@ export interface UsedScene {
    * @since 9
    */
   when: string;
-}
-
-/**
- * PermissionGrantState
- * @enum {number}
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
- export enum PermissionGrantState {
-  /**
-   * PERMISSION_DENIED
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PERMISSION_DENIED = -1,
-
-  /**
-   * PERMISSION_GRANTED
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  PERMISSION_GRANTED = 0,
 }
 
 /**
