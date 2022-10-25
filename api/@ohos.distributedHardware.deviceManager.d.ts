@@ -356,7 +356,6 @@ declare namespace deviceManager {
     /**
      * Obtains a list of trusted devices.
      *
-     * @throws {BusinessError} 401 - Input parameter error.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
@@ -378,7 +377,6 @@ declare namespace deviceManager {
      * Obtains a list of trusted devices.
      *
      * @since 8
-     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
@@ -388,7 +386,6 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {BusinessError} 401 - Input parameter error.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
@@ -410,7 +407,6 @@ declare namespace deviceManager {
      * Obtains local device info
      *
      * @since 8
-     * @throws {BusinessError} 401 - Input parameter error.
      * @return Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
