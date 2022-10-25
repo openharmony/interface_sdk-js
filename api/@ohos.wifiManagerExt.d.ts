@@ -51,9 +51,9 @@ declare namespace wifiManagerExt {
      function disableHotspot(): void;
 
     /**
-     * Obtains the supported power model.
+     * Obtains the supported power Mode.
      *
-     * @return Returns the array of supported power model.
+     * @return Returns the array of supported power Mode.
      *
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
@@ -62,8 +62,8 @@ declare namespace wifiManagerExt {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-     function getSupportedPowerModel(): Promise<Array<PowerModel>>;
-     function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
+     function getSupportedPowerMode(): Promise<Array<PowerMode>>;
+     function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
     /**
      * Obtains the current Wi-Fi power mode.
@@ -77,8 +77,8 @@ declare namespace wifiManagerExt {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-    function getPowerModel (): Promise<PowerModel>;
-    function getPowerModel (callback: AsyncCallback<PowerModel>): void;
+    function getPowerMode (): Promise<PowerMode>;
+    function getPowerMode (callback: AsyncCallback<PowerMode>): void;
 
     /**
      * Set the current Wi-Fi power mode.
@@ -90,22 +90,22 @@ declare namespace wifiManagerExt {
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-    function setPowerModel(model: PowerModel) : void
+    function setPowerMode(mode: PowerMode) : void
 
     /**
-     * The power model enumeration.
+     * The power Mode enumeration.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
-     export enum PowerModel {
-        /** Sleeping model. */
+     export enum PowerMode {
+        /** Sleeping Mode. */
         SLEEPING = 0,
 
-        /** General model. */
+        /** General Mode. */
         GENERAL = 1,
 
-        /** Through wall model. */
+        /** Through wall Mode. */
         THROUGH_WALL = 2,
     }
 }
