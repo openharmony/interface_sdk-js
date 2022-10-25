@@ -34,6 +34,7 @@ declare namespace wifiext {
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @deprecated since 9
+	 * @useinstead ohos.wifiManagerExt.wifiManagerExt.enableHotspot
      */
      function enableHotspot(): boolean;
 
@@ -44,7 +45,8 @@ declare namespace wifiext {
       * @since 8
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
       * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
+      * @deprecated since 9
+	  * @useinstead ohos.wifiManagerExt.wifiManagerExt.disableHotspot
       */
      function disableHotspot(): boolean;
 
@@ -57,6 +59,7 @@ declare namespace wifiext {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @deprecated since 9
+	 * @useinstead ohos.wifiManagerExt.wifiManagerExt.getSupportedPowerMode
      */
      function getSupportedPowerModel(): Promise<Array<PowerModel>>;
      function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
@@ -70,6 +73,7 @@ declare namespace wifiext {
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @deprecated since 9
+	 * @useinstead ohos.wifiManagerExt.wifiManagerExt.getPowerMode
      */
     function getPowerModel (): Promise<PowerModel>;
     function getPowerModel (callback: AsyncCallback<PowerModel>): void;
@@ -83,6 +87,7 @@ declare namespace wifiext {
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @deprecated since 9
+	 * @useinstead ohos.wifiManagerExt.wifiManagerExt.setPowerMode
      */
     function setPowerModel(model: PowerModel) : boolean
 
@@ -92,6 +97,7 @@ declare namespace wifiext {
      * @since 8
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @deprecated since 9
+	 * @useinstead ohos.wifiManagerExt.wifiManagerExt.PowerMode
      */
      export enum PowerModel {
         /** Sleeping model. */
