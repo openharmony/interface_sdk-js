@@ -32,7 +32,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 401 - parameter error.
      * @StageModelOnly
      */
     destroy(callback: AsyncCallback<void>): void;
@@ -43,7 +42,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 401 - parameter error.
      * @StageModelOnly
      */
     destroy(): Promise<void>;

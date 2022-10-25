@@ -133,8 +133,6 @@ declare namespace inputMethod {
      * Input method setting
      * @since 9
      * @return :-
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800007 - settings extension error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
@@ -145,8 +143,6 @@ declare namespace inputMethod {
      * Input method controller
      * @since 9
      * @return :-
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
@@ -161,8 +157,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 12800007 - settings extension error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -176,8 +172,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 12800007 - settings extension error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -187,9 +183,6 @@ declare namespace inputMethod {
      * Get current input method
      * @since 9
      * @return The InputMethodProperty object of the current input method
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 12800007 - settings extension error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -204,7 +197,7 @@ declare namespace inputMethod {
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
-     * @throws {BusinessError} 12800007 - settings extension error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -219,7 +212,7 @@ declare namespace inputMethod {
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
-     * @throws {BusinessError} 12800007 - settings extension error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -229,9 +222,6 @@ declare namespace inputMethod {
      * Get the current input method subtype
      * @since 9
      * @return The InputMethodSubtype object of the current input method
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 12800007 - settings extension error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -247,7 +237,7 @@ declare namespace inputMethod {
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
-     * @throws {BusinessError} 12800007 - settings extension error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -263,7 +253,7 @@ declare namespace inputMethod {
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
-     * @throws {BusinessError} 12800007 - settings extension error.
+     * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @StageModelOnly
      */
@@ -296,7 +286,6 @@ declare namespace inputMethod {
          * @since 9
          * @param inputMethodProperty Indicates the specified input method
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -310,7 +299,6 @@ declare namespace inputMethod {
          * @since 9
          * @param inputMethodProperty Indicates the specified input method
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -323,7 +311,6 @@ declare namespace inputMethod {
          * List subtype of current input method
          * @since 9
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -336,8 +323,6 @@ declare namespace inputMethod {
          * List subtype of current input method
          * @since 9
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -352,7 +337,6 @@ declare namespace inputMethod {
          *     If true, collect enabled input methods.
          *     If false, collect disabled input methods.
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -368,7 +352,6 @@ declare namespace inputMethod {
          *     If true, collect enabled input methods.
          *     If false, collect disabled input methods.
          * @return :-
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -397,9 +380,6 @@ declare namespace inputMethod {
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800001 - package manager error.
-         * @throws {BusinessError} 12800007 - settings extension error.
-         * @throws {BusinessError} 12800005 - configuration persisting error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
@@ -412,10 +392,6 @@ declare namespace inputMethod {
          * @return -
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800001 - package manager error.
-         * @throws {BusinessError} 12800005 - configuration persisting error.
-         * @throws {BusinessError} 12800007 - settings extension error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @StageModelOnly
@@ -447,7 +423,6 @@ declare namespace inputMethod {
          * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -458,8 +433,6 @@ declare namespace inputMethod {
          * @since 9
          * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -492,7 +465,7 @@ declare namespace inputMethod {
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
         */
@@ -504,8 +477,7 @@ declare namespace inputMethod {
          * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -518,7 +490,7 @@ declare namespace inputMethod {
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -530,8 +502,7 @@ declare namespace inputMethod {
          * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
