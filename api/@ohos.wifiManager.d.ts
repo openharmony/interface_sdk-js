@@ -1391,7 +1391,7 @@ declare namespace wifiManager {
     interface IpConfig {
         ipAddress: number;
         gateway: number;
-        netmask: number;
+        prefixLength: number;
         dnsServers: number[];
         domains: Array<string>;
     }
