@@ -256,7 +256,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
     /**
      * Indicates extension info with type of service
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
      * @since 9
     */
     SERVICE = 3,
@@ -271,7 +270,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
     /**
      * Indicates extension info with type of dataShare
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
      * @since 9
      */
     DATA_SHARE = 5,
@@ -892,7 +890,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setApplicationEnabled(bundleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified application.
@@ -907,7 +905,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
+  function setApplicationEnabled(bundleName: string, isEnabled: boolean): Promise<void>;
 
   /**
    * Sets whether to enable a specified ability.
@@ -923,7 +921,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
+  function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable a specified ability.
@@ -939,7 +937,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @systemapi
    * @since 9
    */
-  function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
+  function setAbilityEnabled(info: AbilityInfo, isEnabled: boolean): Promise<void>;
 
   /**
    * Checks whether a specified application is enabled.
@@ -1005,6 +1003,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 17700004 - The specified userId is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId: number, callback: AsyncCallback<Want>): void;
@@ -1022,6 +1021,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 17700004 - The specified userId is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
@@ -1039,6 +1039,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified userId is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
    * @since 9
    */
   function getLaunchWantForBundle(bundleName: string, userId?: number): Promise<Want>;
