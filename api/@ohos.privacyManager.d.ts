@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from './basic'
+import { Permissions } from './permissions'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -37,8 +38,8 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi
      * @since 9
      */
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<void>;
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number): Promise<void>;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
 
     /**
      * Queries the access records of sensitive permission.
@@ -75,8 +76,8 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi
      * @since 9
      */
-    function startUsingPermission(tokenID: number, permissionName: string): Promise<void>;
-    function startUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<void>): void;
+    function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+    function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
     /**
      * Stop using sensitive permission.
@@ -95,8 +96,8 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi
      * @since 9
      */
-    function stopUsingPermission(tokenID: number, permissionName: string): Promise<void>;
-    function stopUsingPermission(tokenID: number, permissionName: string, callback: AsyncCallback<void>): void;
+    function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+    function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes to the change of active state of the specified permission.
@@ -112,7 +113,7 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi
      * @since 9
      */
-    function on(type: 'activeStateChange', permissionNameList: Array<string>, callback: Callback<ActiveChangeResponse>): void;
+    function on(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
 
     /**
      * Unsubscribes to the change of active state of the specified permission.
@@ -127,7 +128,7 @@ import {AsyncCallback, Callback} from './basic'
      * @systemapi
      * @since 9
      */
-    function off(type: 'activeStateChange', permissionNameList: Array<string>, callback?: Callback<ActiveChangeResponse>): void;
+    function off(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
 
     /**
      * Enum for permission for status.
@@ -165,7 +166,7 @@ import {AsyncCallback, Callback} from './basic'
         /**
         * The permission name
         */
-        permissionName: string;
+        permissionName: Permissions;
     
         /**
         * The device id
@@ -222,7 +223,7 @@ import {AsyncCallback, Callback} from './basic'
         /**
          * The list of permision name
          */ 
-        permissionNames: Array<string>;
+        permissionNames: Array<Permissions>;
 
         /**
          * The begin time, in milliseconds
@@ -303,7 +304,7 @@ import {AsyncCallback, Callback} from './basic'
         /**
         * The permission name 
         */
-        permissionName: string;
+        permissionName: Permissions;
 
         /**
          * The access counts

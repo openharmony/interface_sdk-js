@@ -21,6 +21,8 @@ import Want from './@ohos.application.Want';
  * @name formInfo
  * @since 8
  * @syscap SystemCapability.Ability.Form
+ * @deprecated since 9
+ * @useinstead ohos.app.form.formInfo
  */
 declare namespace formInfo {
     /**
@@ -190,7 +192,15 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        JS = 1
+        JS = 1,
+
+        /**
+         * eTS form.
+         *
+         * @since 9
+         * @syscap SystemCapability.Ability.Form
+         */
+        eTS = 2
     }
 
     /**
@@ -501,21 +511,21 @@ declare namespace formInfo {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      */
-    interface VisibilityType {
+    enum VisibilityType {
         /**
          * Indicates the type of the form is visible.
-         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
          * changing to visible.
          * @since 9
          */
-        FORM_VISIBLE: number,
+        FORM_VISIBLE = 1,
         /**
          * Indicates the type of the form is invisible.
-         * Often used as a condition variable in function OnVisibilityChanged() to specify actions only on forms that are
+         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
          * changing to invisible.
          * @since 9
          */
-        FORM_INVISIBLE: number
+        FORM_INVISIBLE,
     }
 }
 export default formInfo;

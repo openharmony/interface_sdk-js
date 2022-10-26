@@ -27,6 +27,8 @@ import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import wantAgent from '@ohos.wantAgent';
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.wantAgent
  */
 declare namespace wantAgent {
   /**

@@ -23,6 +23,7 @@
  *
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
  */
 export interface BundleStatusCallback {
   /**

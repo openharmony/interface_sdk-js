@@ -2082,10 +2082,9 @@ declare namespace rpc {
          * @return
          * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
          * Returns a promise object with a boolean when the function call is asynchronous.
-         * @throws RemoteException Throws this exception if a remote service error occurs.
          * @since 9
          */
-        onRemoteRequestEx(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean | Promise<boolean>;
+        onRemoteMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): boolean | Promise<boolean>;
 
         /**
          * Sets an entry for receiving requests.

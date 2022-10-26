@@ -18,7 +18,8 @@
   * @since 9
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
-  *
+  * @deprecated since 9
+  * @useinstead ohos.bundle.bundleManager.Metadata
   */
   export interface Metadata {
     /**

@@ -22,6 +22,8 @@ import ConfigurationConstant from "./@ohos.application.ConfigurationConstant";
  * @since 8
  * @syscap SystemCapability.Ability.AbilityBase
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.Configuration
  */
 export interface Configuration {
     /**

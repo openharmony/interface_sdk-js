@@ -15,8 +15,8 @@
 
 import { AsyncCallback } from "./basic";
 import { Callback } from "./basic";
-import Want from './@ohos.application.Want';
-import formInfo from './@ohos.application.formInfo'
+import Want from './@ohos.app.ability.Want';
+import formInfo from './@ohos.app.form.formInfo';
 
 /**
  * Interface of formHost.
@@ -137,13 +137,13 @@ declare namespace formHost {
      * Converts a specified temporary form that has been obtained by the application into a normal form.
      * @permission ohos.permission.REQUIRE_FORM
      * @param { string } formId - Indicates the ID of the temporary form to convert.
-     * @param { AsyncCallback<void> } callback - The callback of castTempForm.
+     * @param { AsyncCallback<void> } callback - The callback of castToNormalForm.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
      */
-    function castTempForm(formId: string, callback: AsyncCallback<void>): void;
+    function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Converts a specified temporary form that has been obtained by the application into a normal form.
@@ -155,7 +155,7 @@ declare namespace formHost {
      * @systemapi
      * @since 9
      */
-    function castTempForm(formId: string): Promise<void>;
+    function castToNormalForm(formId: string): Promise<void>;
 
     /**
      * Sends a notification to the form framework to make the specified forms visible.
@@ -490,13 +490,50 @@ declare namespace formHost {
      * @param { string } formId - Indicates the form ID.
      * @param { string } deviceId - Indicates the remote device ID.
      * @param { AsyncCallback<void> } callback - The callback of shareForm.
-     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @since 9
      */
     function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Share form by formId and deviceId.
+     * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } formId - Indicates the form ID.
+     * @param { string } deviceId - Indicates the remote device ID.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
     function shareForm(formId: string, deviceId: string): Promise<void>;
+
+    /**
+     * Notify form that privacy whether to be protected.
+     * @permission ohos.permission.REQUIRE_FORM.
+     * @param { Array<string> } formIds - Indicates the specified form id.
+     * @param { boolean } isProtected - Indicates whether to be protected.
+     * @param { AsyncCallback<void> } callback - The callback of notifyFormsPrivacyProtected.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notify form that privacy whether to be protected.
+     * @permission ohos.permission.REQUIRE_FORM.
+     * @param { Array<string> } formIds - Indicates the specified form id.
+     * @param { boolean } isProtected - Indicates whether to be protected.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 9
+     */
+    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 }
 export default formHost;

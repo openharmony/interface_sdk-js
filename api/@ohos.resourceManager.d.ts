@@ -15,7 +15,7 @@
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
-import { AsyncCallback } from './basic';
+import { AsyncCallback as _AsyncCallback } from './basic';
 
 /**
  * Provides resource related APIs.
@@ -186,6 +186,15 @@ export class DeviceCapability {
 }
 
 /**
+ * The ResourceManager callback.
+ * @since 6
+ * @deprecated since 9
+ */
+ export interface AsyncCallback<T> {
+    (err: Error, data: T): void;
+}
+
+/**
  * Obtains the ResourceManager object of the current application.
  *
  * @param callback Indicates the callback containing the ResourceManager object.
@@ -262,7 +271,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringValue(resource: Resource, callback: AsyncCallback<string>): void;
+    getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource object in Promise mode.
@@ -310,7 +319,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArrayValue(resource: Resource, callback: AsyncCallback<Array<string>>): void;
+    getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource object in Promise mode.
@@ -357,7 +366,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMediaContent(resource: Resource, callback: AsyncCallback<Uint8Array>): void;
+    getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource object in Promise mode.
@@ -405,7 +414,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMediaContentBase64(resource: Resource, callback: AsyncCallback<string>): void;
+    getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource object in Promise mode.
@@ -425,7 +434,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained device capability.
      * @since 6
      */
-    getDeviceCapability(callback: AsyncCallback<DeviceCapability>): void;
+    getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
 
     /**
      * Obtains the device capability in Promise mode.
@@ -442,7 +451,7 @@ export interface ResourceManager {
      *                 configuration.
      * @since 6
      */
-    getConfiguration(callback: AsyncCallback<Configuration>): void;
+    getConfiguration(callback: _AsyncCallback<Configuration>): void;
 
     /**
      * Obtains the device configuration in Promise mode.
@@ -494,7 +503,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralStringValue(resource: Resource, num: number, callback: AsyncCallback<string>): void;
+    getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to
@@ -589,7 +598,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringByName(resName: string, callback: AsyncCallback<string>): void;
+    getStringByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource name in Promise mode.
@@ -615,7 +624,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArrayByName(resName: string, callback: AsyncCallback<Array<string>>): void;
+    getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in Promise mode.
@@ -640,7 +649,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
-    getMediaByName(resName: string, callback: AsyncCallback<Uint8Array>): void;
+    getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource name in Promise mode.
@@ -665,7 +674,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
-    getMediaBase64ByName(resName: string, callback: AsyncCallback<string>): void;
+    getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in Promise mode.
@@ -693,7 +702,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralStringByName(resName: string, num: number, callback: AsyncCallback<string>): void;
+    getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to
@@ -846,7 +855,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringValue(resId: number, callback: AsyncCallback<string>): void;
+    getStringValue(resId: number, callback: _AsyncCallback<string>): void;
 
      /**
      * Obtains string resources associated with a specified resource ID in Promise mode.
@@ -872,7 +881,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArrayValue(resId: number, callback: AsyncCallback<Array<string>>): void;
+    getStringArrayValue(resId: number, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
@@ -901,7 +910,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralStringValue(resId: number, num: number, callback: AsyncCallback<string>): void;
+    getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
 
     /**
       * Obtains the singular-plural character string represented by the ID string corresponding to
@@ -929,7 +938,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @since 9
      */
-    getMediaContent(resId: number, callback: AsyncCallback<Uint8Array>): void;
+    getMediaContent(resId: number, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
@@ -954,7 +963,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @since 9
      */
-    getMediaContentBase64(resId: number, callback: AsyncCallback<string>): void;
+    getMediaContentBase64(resId: number, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
@@ -977,7 +986,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @since 9
      */
-    getRawFileContent(path: string, callback: AsyncCallback<Uint8Array>): void;
+    getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
@@ -999,7 +1008,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @since 9
      */
-    getRawFd(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
+    getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
 
     /**
      * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
@@ -1021,7 +1030,7 @@ export interface ResourceManager {
      * @throws { BusinessError } 9001005 - If the resource not found by path.
      * @since 9
      */
-    closeRawFd(path: string, callback: AsyncCallback<void>): void;
+    closeRawFd(path: string, callback: _AsyncCallback<void>): void;
 
     /**
      * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.

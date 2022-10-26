@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -21,10 +21,18 @@
  * @permission N/A
  */
 declare namespace uri {
+
+    /**
+     * URI Represents a Uniform Resource Identifier (URI) reference.
+     * @name URI
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
     class URI {
         /**
          * URI constructor, which is used to instantiate a URI object.
          * uri: Constructs a URI by parsing a given string.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         constructor(uri: string);
 
@@ -34,16 +42,28 @@ declare namespace uri {
          * @syscap SystemCapability.Utils.Lang
          * @return Returns the serialized URI as a string.
          */
-        toString(): string
+        toString(): string;
 
         /**
-         * Tests whether this URI is equivalent to other URI objects.
+         * Check whether this URI is equivalent to other URI objects.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.uri.URI.equalsTo
          * @syscap SystemCapability.Utils.Lang
          * @param other URI object to be compared
          * @return boolean Tests whether this URI is equivalent to other URI objects.
          */
         equals(other: URI): boolean;
+
+        /**
+         * Check whether this URI is equivalent to other URI objects.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param other URI object to be compared
+         * @return boolean Tests whether this URI is equivalent to other URI objects.
+         * @throws {BusinessError} 10200002 - The type of other must be URI.
+         */
+        equalsTo(other: URI): boolean;
 
         /**
          * Indicates whether this URI is an absolute URI.

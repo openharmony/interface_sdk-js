@@ -615,7 +615,7 @@ declare namespace window {
     /**
      * Indicates Parent window id
      */
-    parentId?: string
+    parentId?: number
   }
 
   /**
@@ -627,7 +627,7 @@ declare namespace window {
    * @throws {BusinessError} 1300001 - If window has created
    * @throws {BusinessError} 1300006 - If window context is abnormally
    */
-  function createWindow({ name, windowType, ctx, displayId, parentId = "" }: Configuration, callback: AsyncCallback<Window>): void;
+  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -638,7 +638,7 @@ declare namespace window {
    * @throws {BusinessError} 1300001 - If window has created
    * @throws {BusinessError} 1300006 - If window context is abnormally
    */
-  function createWindow({ name, windowType, ctx, displayId, parentId = "" }: Configuration): Promise<Window>;
+  function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -1920,7 +1920,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -1932,7 +1932,7 @@ declare namespace window {
      * @throws {BusinessError} 201 - If there is no permission
      * @throws {BusinessError} 401 - If param is invalid
      * @throws {BusinessError} 1300002 - If window state is abnormally
-     * @permission ohos.permission.PRIVACE_WINDOW
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */

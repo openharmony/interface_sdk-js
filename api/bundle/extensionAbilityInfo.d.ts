@@ -22,7 +22,8 @@ import bundle from './../@ohos.bundle';
  * @since 9
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.ExtensionAbilityInfo
  */
 export interface ExtensionAbilityInfo {
   /**

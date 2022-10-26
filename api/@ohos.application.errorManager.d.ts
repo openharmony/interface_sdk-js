@@ -23,6 +23,8 @@ import * as _ErrorObserver from './application/ErrorObserver';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import errorManager from '@ohos.application.errorManager'
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.errorManager
  */
 declare namespace errorManager {
     /**

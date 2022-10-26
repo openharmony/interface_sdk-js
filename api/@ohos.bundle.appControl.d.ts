@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Used for application interception control
@@ -32,7 +32,7 @@ declare namespace appControl {
    * @param { AsyncCallback } callback - The callback of setting the disposed status result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -48,7 +48,7 @@ declare namespace appControl {
    * @returns { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -63,7 +63,7 @@ declare namespace appControl {
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -78,7 +78,7 @@ declare namespace appControl {
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -93,7 +93,7 @@ declare namespace appControl {
    * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -108,7 +108,7 @@ declare namespace appControl {
    * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capicity not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi

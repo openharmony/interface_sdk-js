@@ -31,7 +31,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @return Returns the wants.
      */
     function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
@@ -43,7 +43,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
      * @return Returns the fileAccessHelper.
      */
@@ -55,7 +55,7 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
      * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.

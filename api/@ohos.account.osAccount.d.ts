@@ -52,8 +52,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300003 - the account indicated by localId has been activated.
-         * @throws {BusinessError} 12300010 - account service is busy.
+         * @throws {BusinessError} 12300008 - the localId indicates restricted account.
+         * @throws {BusinessError} 12300009 - the account indicated by localId has been activated.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -94,7 +94,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether an OS account is activated based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
          * @param localId Indicates the local ID of the OS account.
          * @returns void
          * @throws {BusinessError} 201 - permission denied.
@@ -151,7 +151,6 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or constraint.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
          * @since 9
          */
         checkConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
@@ -219,7 +218,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
+         * @throws {BusinessError} 12300008 - the localId indicates restricted account.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -247,7 +246,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or constraints.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
+         * @throws {BusinessError} 12300008 - the localId indicates restricted account.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -266,7 +265,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or localName.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
+         * @throws {BusinessError} 12300008 - the localId indicates restricted account.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -399,7 +398,6 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
-         * @throws {BusinessError} 12300004 - the localId indicates restricted account.
          * @since 9
          */
         getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
@@ -449,7 +447,9 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localName.
-         * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * @throws {BusinessError} 12300005 - multi-user not supported.
+         * @throws {BusinessError} 12300006 - unsupported account type.
+         * @throws {BusinessError} 12300007 - the number of account reaches the upper limit.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -467,6 +467,9 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid type or domainInfo.
+         * @throws {BusinessError} 12300005 - multi-user not supported.
+         * @throws {BusinessError} 12300006 - unsupported account type.
+         * @throws {BusinessError} 12300007 - the number of account reaches the upper limit.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -543,7 +546,7 @@ declare namespace osAccount {
          * The same application running on different devices obtains the same DVID, whereas different applications
          * obtain different DVIDs.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          * @returns Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
          * @since 7
          * @deprecated since 9
@@ -560,7 +563,7 @@ declare namespace osAccount {
          * The same application running on different devices obtains the same DVID, whereas different applications
          * obtain different DVIDs.
          * <p>
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS.
          * @returns Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -598,6 +601,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid localId or photo.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
+         * @throws {BusinessError} 12300008 - the localId indicates restricted account.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -621,6 +625,8 @@ declare namespace osAccount {
          * @returns localId.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
+         * @throws {BusinessError} 12300002 - invalid serialNumber.
+         * @throws {BusinessError} 12300003 - the account indicated by serialNumber dose not exist.
          * @since 9
          */
         queryOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
@@ -662,7 +668,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300005 - the listener has been registered.
+         * @throws {BusinessError} 12300002 - invalid type or name.
+         * @throws {BusinessError} 12300011 - the callback has been registered.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -677,7 +684,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300006 - the listener has not been registered.
+         * @throws {BusinessError} 12300002 - invalid type or name.
+         * @throws {BusinessError} 12300012 - the callback has not been registered.
          * @systemapi Hide this for inner system use.
          * @since 7
          */
@@ -882,8 +890,6 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid authType or authTrustLevel.
-         * @throws {BusinessError} 12300014 - the authTrustLevel is not supported on current device
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -931,12 +937,12 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300014 - the authTrustLevel is not supported on current device
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300016 - authentication timeout.
-         * @throws {BusinessError} 12300017 - authentication service is busy.
-         * @throws {BusinessError} 12300018 - authentication service is locked.
-         * @throws {BusinessError} 12300019 - the credential does not exist.
+         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
+         * @throws {BusinessError} 12300106 - unsupported authType.
+         * @throws {BusinessError} 12300110 - authentication is locked.
+         * @throws {BusinessError} 12300111 - authentication timeout.
+         * @throws {BusinessError} 12300112 - authentication service is busy.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -955,13 +961,12 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid userId, challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300003 - the account indicated by userId dose not exist.
-         * @throws {BusinessError} 12300014 - the authTrustLevel is not supported on current device
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300016 - authentication timeout.
-         * @throws {BusinessError} 12300017 - authentication service is busy.
-         * @throws {BusinessError} 12300018 - authentication service is locked.
-         * @throws {BusinessError} 12300019 - the credential does not exist.
+         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
+         * @throws {BusinessError} 12300106 - unsupported authType.
+         * @throws {BusinessError} 12300110 - authentication is locked.
+         * @throws {BusinessError} 12300111 - authentication timeout.
+         * @throws {BusinessError} 12300112 - authentication service is busy.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1003,7 +1008,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300007 - PIN inputer has been registered.
+         * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1062,6 +1067,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid credentialInfo.
+         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300106 - unsupported authType.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1076,6 +1083,8 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid credentialInfo.
+         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300106 - unsupported authType.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1112,7 +1121,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid token.
+         * @throws {BusinessError} 12300101 - token is invalid.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1127,7 +1136,9 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid credentialId or token.
+         * @throws {BusinessError} 12300002 - invalid credentialId.
+         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300102 - credential not found.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1143,11 +1154,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid authType.
-         * @throws {BusinessError} 12300015 - the authType is not supported on current device.
-         * @throws {BusinessError} 12300016 - authentication timeout.
-         * @throws {BusinessError} 12300017 - authentication service is busy.
-         * @throws {BusinessError} 12300018 - authentication service is locked.
-         * @throws {BusinessError} 12300019 - the credential does not exist.
+         * @throws {BusinessError} 12300102 - credential not found.
          * @systemapi Hide this for inner system use.
          * @since 8
          */

@@ -25,6 +25,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.AbilityStage
  */
 export default class AbilityStage {
     /**

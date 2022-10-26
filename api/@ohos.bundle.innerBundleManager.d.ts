@@ -38,6 +38,8 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -52,6 +54,8 @@ declare namespace innerBundleManager {
    * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#on
    */
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
@@ -65,6 +69,8 @@ declare namespace innerBundleManager {
    * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#off
    */
   function off(type:"BundleStatusChange", callback: AsyncCallback<string>) : void;
   function off(type:"BundleStatusChange"): Promise<string>;
@@ -78,6 +84,8 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
   function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -91,6 +99,8 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherShortcutInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
