@@ -19,105 +19,105 @@ import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
 
 /**
- * Defines the Web's request/response header.
- * @since 9
- */
- declare interface HeaderV9 {
-    /**
-     * Gets the key of the request/response header.
-     * @since 9
-     */
-    headerKey: string;
-
-    /**
-     * Gets the value of the request/response header.
-     * @since 9
-     */
-    headerValue: string;
-  }
-
-/**
- * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
- * @since 9
- */
- declare enum HitTestTypeV9 {
-    /**
-     * The edit text.
-     * @since 9
-     */
-    EditText,
-
-    /**
-     * The email address.
-     * @since 9
-     */
-    Email,
-
-    /**
-     * The HTML::a tag with src=http.
-     * @since 9
-     */
-    HttpAnchor,
-
-    /**
-     * The HTML::a tag with src=http + HTML::img.
-     * @since 9
-     */
-    HttpAnchorImg,
-
-    /**
-     * The HTML::img tag.
-     * @since 9
-     */
-    Img,
-
-    /**
-     * The map address.
-     * @since 9
-     */
-    Map,
-
-    /**
-     * The phone number.
-     * @since 9
-     */
-    Phone,
-
-    /**
-     * Other unknown HitTest.
-     * @since 9
-     */
-    Unknown,
-  }
-
-/**
- * Defines the hit test value, related to {@link getHitTestValue} method.
- * @since 9
- */
-declare interface HitTestValue {
-
-    /**
-     * Get the hit test type.
-     *
-     * @since 9
-     */
-    type: HitTestTypeV9;
-
-    /**
-     * Get the hit test extra data.
-     *
-     * @since 9
-     */
-    extra: string;
-}
-
-/**
  * This module provides the capability to manage web modules.
  *
  * @since 9
  * @syscap SystemCapability.Web.Webview.Core
  */
 declare namespace webview {
+    /**
+     * Defines the Web's request/response header.
+     * @since 9
+     */
+    interface HeaderV9 {
+        /**
+         * Gets the key of the request/response header.
+         * @since 9
+         */
+        headerKey: string;
+
+        /**
+         * Gets the value of the request/response header.
+         * @since 9
+         */
+        headerValue: string;
+    }
+
+    /**
+     * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+     * @since 9
+     */
+    enum HitTestTypeV9 {
+        /**
+         * The edit text.
+         * @since 9
+         */
+        EditText,
+
+        /**
+         * The email address.
+         * @since 9
+         */
+        Email,
+
+        /**
+         * The HTML::a tag with src=http.
+         * @since 9
+         */
+        HttpAnchor,
+
+        /**
+         * The HTML::a tag with src=http + HTML::img.
+         * @since 9
+         */
+        HttpAnchorImg,
+
+        /**
+         * The HTML::img tag.
+         * @since 9
+         */
+        Img,
+
+        /**
+         * The map address.
+         * @since 9
+         */
+        Map,
+
+        /**
+         * The phone number.
+         * @since 9
+         */
+        Phone,
+
+        /**
+         * Other unknown HitTest.
+         * @since 9
+         */
+        Unknown,
+    }
+
+    /**
+     * Defines the hit test value, related to {@link getHitTestValue} method.
+     * @since 9
+     */
+    interface HitTestValue {
+
+        /**
+         * Get the hit test type.
+         *
+         * @since 9
+         */
+        type: HitTestTypeV9;
+
+        /**
+         * Get the hit test extra data.
+         *
+         * @since 9
+         */
+        extra: string;
+    }
+
     /**
      * Provides basic information of web storage.
      * @name WebStorageOrigin
