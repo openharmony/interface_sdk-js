@@ -1796,8 +1796,8 @@ declare namespace wifiManager {
         /** Device status */
         deviceStatus: P2pDeviceStatus;
 
-        /** Device group capability */
-        groupCapability: number;
+        /** Device group capabilities */
+        groupCapabilities: number;
     }
 
     /**
