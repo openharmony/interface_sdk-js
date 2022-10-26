@@ -135,7 +135,6 @@ declare namespace inputMethod {
      * @return :-
      * @throws {BusinessError} 12800007 - settings extension error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
      function getSetting(): InputMethodSetting;
 
@@ -145,7 +144,6 @@ declare namespace inputMethod {
      * @return :-
      * @throws {BusinessError} 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function getController(): InputMethodController;
 
@@ -160,7 +158,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
@@ -175,7 +172,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
@@ -184,7 +180,6 @@ declare namespace inputMethod {
      * @since 9
      * @return The InputMethodProperty object of the current input method
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function getCurrentInputMethod(): InputMethodProperty;
 
@@ -199,7 +194,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
@@ -214,7 +208,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
@@ -223,7 +216,6 @@ declare namespace inputMethod {
      * @since 9
      * @return The InputMethodSubtype object of the current input method
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function getCurrentInputMethodSubtype(): InputMethodSubtype;
 
@@ -239,7 +231,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchCurrentInputMethodAndSubtype(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
@@ -255,7 +246,6 @@ declare namespace inputMethod {
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     function switchCurrentInputMethodAndSubtype(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype): Promise<boolean>;
 
@@ -290,7 +280,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         listInputMethodSubtype(inputMethodProperty: InputMethodProperty, callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
@@ -303,7 +292,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array<InputMethodSubtype>>;
 
@@ -311,11 +299,9 @@ declare namespace inputMethod {
          * List subtype of current input method
          * @since 9
          * @return :-
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         listCurrentInputMethodSubtype(callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
@@ -326,7 +312,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         listCurrentInputMethodSubtype(): Promise<Array<InputMethodSubtype>>;
 
@@ -341,7 +326,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         getInputMethods(enable: boolean, callback: AsyncCallback<Array<InputMethodProperty>>): void;
 
@@ -356,7 +340,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         getInputMethods(enable: boolean): Promise<Array<InputMethodProperty>>;
 
@@ -379,10 +362,8 @@ declare namespace inputMethod {
          * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         showOptionalInputMethods(callback: AsyncCallback<boolean>): void;
 
@@ -394,7 +375,6 @@ declare namespace inputMethod {
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @StageModelOnly
          */
         showOptionalInputMethods(): Promise<boolean>;
 
@@ -422,7 +402,6 @@ declare namespace inputMethod {
          * @since 9
          * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -464,7 +443,6 @@ declare namespace inputMethod {
          * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -489,7 +467,6 @@ declare namespace inputMethod {
          * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework

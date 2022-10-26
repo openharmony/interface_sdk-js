@@ -23,7 +23,6 @@ import ExtensionContext from './application/ExtensionContext';
  *
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
     /**
@@ -32,7 +31,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @StageModelOnly
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -42,7 +40,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @StageModelOnly
      */
     destroy(): Promise<void>;
 }

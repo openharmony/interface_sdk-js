@@ -22,14 +22,12 @@ import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
  *
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  */
 export default class InputMethodExtensionAbility {
     /**
      * Indicates input method extension ability context.
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     context: InputMethodExtensionContext;
 
@@ -41,7 +39,6 @@ export default class InputMethodExtensionAbility {
      * @param want Indicates the want of created service extension.
      * @return -
      * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
      */
     onCreate(want: Want): void;
 
@@ -52,7 +49,6 @@ export default class InputMethodExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
      * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
      */
     onDestroy(): void;
 }
