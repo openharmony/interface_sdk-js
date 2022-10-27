@@ -29,7 +29,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501003 - Failed for wifi is closing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -43,7 +44,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501004 - Failed for wifi is opening.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -59,7 +61,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -75,7 +77,8 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -90,7 +93,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      */
@@ -106,7 +109,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      */
@@ -125,7 +128,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
@@ -146,7 +149,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
@@ -165,7 +168,7 @@ declare namespace wifiManager {
       * @throws {BusinessError} 201 - Permission denied.
       * @throws {BusinessError} 401 - Invalid parameters.
       * @throws {BusinessError} 801 - Capability not supported.
-      * @throws {BusinessError} 2500001 - System exception.
+      * @throws {BusinessError} 2501000 - Operation failed.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.SET_WIFI_INFO
       */
@@ -183,7 +186,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -200,7 +203,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO
      */
@@ -216,7 +220,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -233,7 +238,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
      * ohos.permission.MANAGE_WIFI_CONNECTION
@@ -248,7 +254,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -267,7 +273,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -281,7 +288,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -296,7 +304,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -312,7 +320,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2400001 - System exception.
+     * @throws {BusinessError} 2401000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -328,7 +336,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2400001 - System exception.
+     * @throws {BusinessError} 2401000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -344,7 +352,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -360,7 +368,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -373,7 +381,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2400001 - System exception.
+     * @throws {BusinessError} 2401000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -386,7 +394,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -400,7 +409,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501001 - Wifi is closed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -418,7 +428,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
@@ -437,7 +447,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
@@ -454,7 +464,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -468,7 +478,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -489,7 +499,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -505,7 +515,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -522,7 +532,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -537,7 +547,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -552,7 +562,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -573,7 +583,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
@@ -588,7 +598,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
@@ -605,7 +615,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -619,7 +629,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -633,7 +643,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -648,7 +658,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -665,7 +675,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
      */
@@ -680,7 +690,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -693,7 +703,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -707,7 +717,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -720,7 +730,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -733,7 +743,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -745,7 +755,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -760,7 +770,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -775,7 +785,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @systemapi Hide this for inner system use.
@@ -792,7 +802,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -807,7 +817,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -822,7 +832,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -836,7 +846,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -851,7 +861,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -865,7 +875,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -880,7 +890,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -894,7 +904,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -909,7 +919,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -924,7 +934,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -941,7 +951,7 @@ declare namespace wifiManager {
       * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
       * @throws {BusinessError} 401 - Invalid parameters.
       * @throws {BusinessError} 801 - Capability not supported.
-      * @throws {BusinessError} 2500001 - System exception.
+      * @throws {BusinessError} 2501000 - Operation failed.
       * @syscap SystemCapability.Communication.WiFi.STA
       * @permission ohos.permission.MANAGE_WIFI_CONNECTION
       * @systemapi Hide this for inner system use.
@@ -957,7 +967,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -973,7 +983,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2500001 - System exception.
+     * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
      * @systemapi Hide this for inner system use.
@@ -989,7 +999,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1005,7 +1015,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1020,7 +1030,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -1037,7 +1047,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -1053,7 +1063,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -1069,7 +1079,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2600001 - System exception.
+     * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
@@ -1084,7 +1094,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1097,7 +1107,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1111,7 +1121,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1124,7 +1134,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1138,7 +1148,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -1152,7 +1162,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
      */
@@ -1166,7 +1176,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      */
@@ -1179,7 +1189,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.LOCATION
      */
@@ -1193,7 +1203,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1206,7 +1216,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1220,7 +1230,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
@@ -1233,7 +1243,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2800001 - System exception.
+     * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */

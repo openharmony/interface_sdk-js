@@ -32,7 +32,7 @@ declare namespace wifiManagerExt {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2700001 - System exception.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
@@ -44,7 +44,7 @@ declare namespace wifiManagerExt {
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
       * @throws {BusinessError} 801 - Capability not supported.
-      * @throws {BusinessError} 2700001 - System exception.
+      * @throws {BusinessError} 2701000 - Operation failed.
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
       * @syscap SystemCapability.Communication.WiFi.AP.Extension
       */
@@ -58,7 +58,7 @@ declare namespace wifiManagerExt {
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
       * @throws {BusinessError} 801 - Capability not supported.
-      * @throws {BusinessError} 2700001 - System exception.
+      * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
@@ -73,7 +73,7 @@ declare namespace wifiManagerExt {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2700001 - System exception.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
@@ -86,7 +86,7 @@ declare namespace wifiManagerExt {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2700001 - System exception.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
      */
