@@ -466,6 +466,7 @@ declare namespace distributedKVStore {
          * A constructor used to create a FieldNode instance with the specified field.
          * name Indicates the field node name.
          *
+         * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
@@ -477,6 +478,7 @@ declare namespace distributedKVStore {
          *
          * @param {FieldNode} child - The field node to append.
          * @returns Returns true if the child node is successfully added to this {@code FieldNode} and false otherwise.
+         * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
