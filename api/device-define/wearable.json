@@ -113,6 +113,7 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.UserFileService",
+    "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Startup.SystemInfo",
