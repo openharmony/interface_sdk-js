@@ -146,7 +146,17 @@ declare function getContext(component?: Object): Context;
  * @since 9
  */
 declare type Context = import('../api/application/Context').default;
- 
+
+/**
+ * Post Card Action.
+ * @param { Object } component - indicate the card entry component.
+ * @param { Object } action - indicate the router or message event.
+ * @StageModelOnly
+ * @systemapi
+ * @since 9
+ */
+ declare function postCardAction(component: Object, action: Object): void;
+
 /**
  * Defines the data type of the interface restriction.
  * @since 7
