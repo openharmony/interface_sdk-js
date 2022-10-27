@@ -41,6 +41,7 @@ declare namespace rdb
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.getRdbStoreV9
      */
     function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
 
@@ -57,6 +58,7 @@ declare namespace rdb
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.getRdbStoreV9
      */
     function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
@@ -105,6 +107,7 @@ declare namespace rdb
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.deleteRdbStoreV9
      */
     function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
     /**
@@ -116,6 +119,7 @@ declare namespace rdb
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.deleteRdbStoreV9
      */
     function deleteRdbStore(context: Context, name: string): Promise<void>;
 
@@ -247,6 +251,7 @@ declare namespace rdb
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbStoreV9
      */
     interface RdbStore {
         /**
@@ -258,6 +263,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.insert
          */
         insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -270,6 +276,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.insert
          */
         insert(table: string, values: ValuesBucket): Promise<number>;
 
@@ -282,6 +289,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.batchInsert
          */
         batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -294,6 +302,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.batchInsert
          */
         batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -306,6 +315,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.update
          */
         update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -318,6 +328,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.update
          */
         update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
@@ -329,6 +340,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.delete
          */
         delete (predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -340,6 +352,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.delete
          */
         delete (predicates: RdbPredicates): Promise<number>;
 
@@ -352,6 +365,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.query
          */
         query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -364,6 +378,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.query
          */
         query(predicates: RdbPredicates, columns ?: Array<string>): Promise<ResultSet>;
 
@@ -376,6 +391,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.querySql
          */
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -388,6 +404,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.querySql
          */
         querySql(sql: string, bindArgs ?: Array<ValueType>): Promise<ResultSet>;
 
@@ -400,6 +417,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.executeSql
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -412,6 +430,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.executeSql
          */
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
@@ -421,6 +440,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.beginTransaction
          */
         beginTransaction(): void;
 
@@ -430,6 +450,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.commit
          */
         commit(): void;
 
@@ -439,6 +460,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.rollBack
          */
         rollBack(): void;
 
@@ -451,6 +473,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.setDistributedTables
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -463,6 +486,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.setDistributedTables
          */
         setDistributedTables(tables: Array<string>): Promise<void>;
 
@@ -476,6 +500,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.obtainDistributedTableName
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
@@ -489,6 +514,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.obtainDistributedTableName
          */
         obtainDistributedTableName(device: string, table: string): Promise<string>;
 
@@ -501,6 +527,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.sync
          */
         sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[ string, number ]>>): void;
 
@@ -513,6 +540,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.sync
          */
         sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[ string, number ]>>;
 
@@ -526,6 +554,7 @@ declare namespace rdb
         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
         * @since 8
         * @deprecated since 9
+        * @useinstead ohos.data.rdb.RdbStoreV9.on
         */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -538,6 +567,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
          * @deprecated since 9
+         * @useinstead ohos.data.rdb.RdbStoreV9.off
          */
         off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
@@ -1019,6 +1049,7 @@ declare namespace rdb
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
+ * @useinstead ohos.data.rdb.StoreConfigV9
  */
 interface StoreConfig {
     name: string;
@@ -1067,6 +1098,7 @@ interface StoreConfigV9 {
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
+ * @useinstead ohos.data.rdb.RdbPredicatesV9
  */
 class RdbPredicates {
     /**
@@ -1076,6 +1108,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.constructor
      */
     constructor(name: string)
 
@@ -1088,8 +1121,9 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.inDevices
      */
-        inDevices(devices: Array<string>): RdbPredicates;
+    inDevices(devices: Array<string>): RdbPredicates;
 
     /**
      * Specify all remote devices which connect to local device when syncing distributed database.
@@ -1099,6 +1133,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.inAllDevices
      */
     inAllDevices(): RdbPredicates;
 
@@ -1113,6 +1148,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.equalTo
      */
     equalTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1127,6 +1163,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.notEqualTo
      */
     notEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1138,6 +1175,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.beginWrap
      */
     beginWrap(): RdbPredicates;
 
@@ -1150,6 +1188,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.endWrap
      */
     endWrap(): RdbPredicates;
 
@@ -1161,6 +1200,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.or
      */
     or (): RdbPredicates;
 
@@ -1172,6 +1212,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.and
      */
     and(): RdbPredicates;
 
@@ -1186,6 +1227,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.contains
      */
     contains(field: string, value: string): RdbPredicates;
 
@@ -1200,6 +1242,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.beginsWith
      */
     beginsWith(field: string, value: string): RdbPredicates;
 
@@ -1214,6 +1257,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.endsWith
      */
     endsWith(field: string, value: string): RdbPredicates;
 
@@ -1226,6 +1270,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.isNull
      */
     isNull(field: string): RdbPredicates;
 
@@ -1239,6 +1284,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.isNotNull
      */
     isNotNull(field: string): RdbPredicates;
 
@@ -1253,6 +1299,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.like
      */
     like(field: string, value: string): RdbPredicates;
 
@@ -1267,6 +1314,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.glob
      */
     glob(field: string, value: string): RdbPredicates;
 
@@ -1281,6 +1329,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.between
      */
     between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -1295,6 +1344,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.notBetween
      */
     notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -1307,6 +1357,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.greaterThan
      */
     greaterThan(field: string, value: ValueType): RdbPredicates;
 
@@ -1319,6 +1370,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.lessThan
      */
     lessThan(field: string, value: ValueType): RdbPredicates;
 
@@ -1331,6 +1383,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.greaterThanOrEqualTo
      */
     greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1343,6 +1396,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.lessThanOrEqualTo
      */
     lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -1355,6 +1409,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.orderByAsc
      */
     orderByAsc(field: string): RdbPredicates;
 
@@ -1367,6 +1422,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.orderByDesc
      */
     orderByDesc(field: string): RdbPredicates;
 
@@ -1377,6 +1433,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.distinct
      */
     distinct(): RdbPredicates;
 
@@ -1388,6 +1445,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.limitAs
      */
     limitAs(value: number): RdbPredicates;
 
@@ -1400,6 +1458,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.offsetAs
      */
     offsetAs(rowOffset: number): RdbPredicates;
 
@@ -1411,6 +1470,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.groupBy
      */
     groupBy(fields: Array<string>): RdbPredicates;
 
@@ -1423,6 +1483,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.indexedBy
      */
     indexedBy(field: string): RdbPredicates;
 
@@ -1436,6 +1497,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.in
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -1449,6 +1511,7 @@ class RdbPredicates {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.data.rdb.RdbPredicatesV9.notIn
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
 }
