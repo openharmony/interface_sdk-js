@@ -59,7 +59,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -91,7 +90,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -107,7 +105,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -184,7 +181,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -286,7 +282,6 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @throws {BusinessError} 2501001 - Wifi is closed.
@@ -426,7 +421,6 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -463,6 +457,7 @@ declare namespace wifiManager {
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
+     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -656,7 +651,6 @@ declare namespace wifiManager {
      * @return Returns the found devices list.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -701,7 +695,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -728,7 +721,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -741,7 +733,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
