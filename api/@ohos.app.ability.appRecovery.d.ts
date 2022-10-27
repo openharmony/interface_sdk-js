@@ -15,17 +15,16 @@
 
 /**
  * This module provides the capability to app receovery.
- *
- * @since 9
+ * @import appReceovery from '@ohos.app.ability.appRecovery'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import appReceovery from '@ohos.application.appRecovery'
+ * @since 9
  */
 declare namespace appReceovery {
     /**
      * The type of no restart mode.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     enum RestartFlag {
         /**
@@ -56,9 +55,9 @@ declare namespace appReceovery {
 
     /**
      * The type of when to save.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     enum SaveOccasionFlag {
         /**
@@ -74,9 +73,9 @@ declare namespace appReceovery {
 
     /**
      * The type of where to save.
-     *
-     * @since 9
+     * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 9
      */
     enum SaveModeFlag {
         /**
@@ -92,31 +91,29 @@ declare namespace appReceovery {
 
     /**
      * Enable appRecovery and app supports save and restore
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param restart no restart mode
      * @param saveOccasion The type of When to save
      * @param saveMode The type of where to save
-     * @StageModelOnly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
      */
     function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
 
     /**
      * Restart App when called
-     *
-     * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
      */
     function restartApp(): void;
 
     /**
      * Save App state data when called
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @return true if save data successfully, otherwise false
-     * @StageModelOnly
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 9
      */
     function saveAppState(): boolean;
 }
