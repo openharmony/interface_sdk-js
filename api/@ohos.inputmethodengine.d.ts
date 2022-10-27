@@ -217,10 +217,6 @@ declare namespace inputMethodEngine {
     /**
      * @since 9
      * @return InputMethodAbility object of the current input method
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 801 - call unsupported api.
-     * @throws {BusinessError} 12800002 - input method engine error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getInputMethodAbility(): InputMethodAbility;
@@ -235,9 +231,6 @@ declare namespace inputMethodEngine {
     /**
      * @since 9
      * @return KeyboardDelegate object of the current input method
-     * @throws {BusinessError} 201 - permissions check fails.
-     * @throws {BusinessError} 401 - parameter error.
-     * @throws {BusinessError} 12800002 - input method engine error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getKeyboardDelegate(): KeyboardDelegate;
@@ -255,20 +248,14 @@ declare namespace inputMethodEngine {
     interface KeyboardController {
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
-         * @throws {BusinessError} 12800008 - input method manager service error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hide(callback: AsyncCallback<void>): void;
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - input method engine error.
-         * @throws {BusinessError} 12800008 - input method manager service error.
+         * @throws @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hide(): Promise<void>;
@@ -531,7 +518,6 @@ declare namespace inputMethodEngine {
      interface InputClient {
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -540,7 +526,6 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -549,8 +534,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -558,8 +543,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -567,8 +552,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -576,8 +561,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -585,8 +570,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -594,8 +579,8 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -603,44 +588,42 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
+         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         getForward(length: number, callback: AsyncCallback<string>): void;
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
+         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         getForward(length: number): Promise<string>;
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
+         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         getBackward(length: number, callback: AsyncCallback<string>): void;
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
+         * @throws {BusinessError} 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         getBackward(length: number): Promise<string>;
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -648,8 +631,6 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws {BusinessError} 201 - permissions check fails.
-         * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -662,10 +643,8 @@ declare namespace inputMethodEngine {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param direction Indicates the distance of cursor to be moved.
          * @return -
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
-         * @StageModelOnly
          */
         moveCursor(direction: number, callback: AsyncCallback<void>): void;
 
@@ -676,10 +655,8 @@ declare namespace inputMethodEngine {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param direction Indicates the distance of cursor to be moved.
          * @return -
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
-         * @StageModelOnly
          */
         moveCursor(direction: number): Promise<void>;
     }
