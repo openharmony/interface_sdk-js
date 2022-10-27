@@ -115,7 +115,7 @@ export interface AbilityInfo {
   /**
    * Enumerates types of templates that can be used by an ability
    * @type {bundleManager.AbilityType}
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9
    */
@@ -148,7 +148,7 @@ export interface AbilityInfo {
   /**
    * Indicates the permission required for reading ability data
    * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9
    */
@@ -157,7 +157,7 @@ export interface AbilityInfo {
   /**
    * Indicates the permission required for writing data to the ability
    * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9
    */
@@ -166,7 +166,7 @@ export interface AbilityInfo {
   /**
    * Uri of ability
    * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9
    */

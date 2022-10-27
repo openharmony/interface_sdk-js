@@ -112,7 +112,7 @@ declare namespace launcherBundleManager {
    * @returns { Promise<Array<ShortcutInfo>> } the LauncherShortcutInfo object.
    * @throws {BusinessError} 201 - Verify permission denied.
    * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support. 
+   * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
@@ -127,6 +127,21 @@ declare namespace launcherBundleManager {
    * @since 9
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
+
+  /**
+   * Provides information about a shortcut, including the shortcut ID and label.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 9
+   */
+  export type ShortcutInfo = _ShortcutInfo;
+  /**
+   * Obtains information about the ability that a shortcut will start.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 9
+   */
+  export type ShortcutWant = _ShortcutWant;
 }
 
 export default launcherBundleManager;
