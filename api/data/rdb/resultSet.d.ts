@@ -22,6 +22,7 @@ import { AsyncCallback } from '../../basic'
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
+ * @useinstead ohos.data.rdb.ResultSetV9
  */
  interface ResultSet {
 
@@ -32,6 +33,8 @@ import { AsyncCallback } from '../../basic'
      * as the columns in the result set.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.columnNames
      */
     columnNames: Array<string>;
 
@@ -42,6 +45,8 @@ import { AsyncCallback } from '../../basic'
      * columnCount method.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.columnCount
      */
     columnCount: number;
 
@@ -51,6 +56,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core 
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.rowCount
      */
     rowCount: number;
 
@@ -60,6 +67,8 @@ import { AsyncCallback } from '../../basic'
      * @note The result set index starts from 0.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.rowIndex
      */
     rowIndex: number;
 
@@ -69,6 +78,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isAtFirstRow
      */
     isAtFirstRow: boolean;
 
@@ -78,6 +89,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isAtLastRow
      */
     isAtLastRow: boolean;
 
@@ -87,6 +100,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isEnded
      */
     isEnded: boolean;
 
@@ -97,6 +112,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isStarted
      */
     isStarted: boolean;
 
@@ -108,6 +125,8 @@ import { AsyncCallback } from '../../basic'
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isClosed
      */
     isClosed: boolean;
 
@@ -119,6 +138,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {number} return the index of the specified column.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getColumnIndex
      */
     getColumnIndex(columnName: string): number;
 
@@ -130,6 +151,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {string} returns the name of the specified column.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getColumnName
      */
     getColumnName(columnIndex: number): string;
 
@@ -143,6 +166,8 @@ import { AsyncCallback } from '../../basic'
      *                   returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goTo
      */
     goTo(offset: number): boolean;
 
@@ -154,6 +179,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {boolean}  returns true if the result set is moved successfully; returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goToRow
      */
     goToRow(position: number): boolean;
 
@@ -165,6 +192,8 @@ import { AsyncCallback } from '../../basic'
      *                    returns false otherwise, for example, if the result set is empty.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goToFirstRow
      */
     goToFirstRow(): boolean;
 
@@ -176,6 +205,8 @@ import { AsyncCallback } from '../../basic'
      *                    returns false otherwise, for example, if the result set is empty.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goToLastRow
      */
     goToLastRow(): boolean;
 
@@ -187,6 +218,8 @@ import { AsyncCallback } from '../../basic'
      *                    returns false otherwise, for example, if the result set is already in the last row.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goToNextRow
      */
     goToNextRow(): boolean;
 
@@ -198,6 +231,8 @@ import { AsyncCallback } from '../../basic'
      *                    returns false otherwise, for example, if the result set is already in the first row.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.goToPreviousRow
      */
     goToPreviousRow(): boolean;
 
@@ -210,6 +245,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {Uint8Array} returns the value of the specified column as a byte array.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getBlob
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -222,6 +259,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {string} returns the value of the specified column as a string.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getString
      */
     getString(columnIndex: number): string;
 
@@ -234,6 +273,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {number} returns the value of the specified column as a long.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getLong
      */
     getLong(columnIndex: number): number;
 
@@ -246,6 +287,8 @@ import { AsyncCallback } from '../../basic'
      * @returns {number} returns the value of the specified column as a double.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.getDouble
      */
     getDouble(columnIndex: number): number;
 
@@ -258,6 +301,8 @@ import { AsyncCallback } from '../../basic'
      *                    returns false otherwise.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.isColumnNull
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -267,6 +312,8 @@ import { AsyncCallback } from '../../basic'
      * @note Calling this method on the result set will release all of its resources and makes it ineffective.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.rdb.ResultSetV9.close
      */
     close(): void;
 }
