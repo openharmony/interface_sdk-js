@@ -15,7 +15,6 @@
 
 import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
-import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
@@ -65,13 +64,6 @@ export interface ReqPermissionDetail {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   reason: string;
-
-  /**
-    * @default Indicates the reason id of this required permissions
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  reasonId: number;
 
   /**
     * @default Indicates the used scene of this required permissions
@@ -253,11 +245,4 @@ export interface BundleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissionStates: Array<number>;
-
-  /**
-    * @default Obtains configuration information about an ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }
