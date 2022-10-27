@@ -63,6 +63,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @param callback Callback used to return AudioPlayer instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @systemapi
    */
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
@@ -72,6 +73,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @import import media from '@ohos.multimedia.media'
    * @return A Promise instance used to return VideoRecorder instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @systemapi
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
@@ -683,6 +685,10 @@ declare namespace media {
      * @param config Recording parameters.
      * @param callback A callback instance used to return when prepare completed.
      * @permission ohos.permission.MICROPHONE
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
@@ -693,6 +699,10 @@ declare namespace media {
      * @param config Recording parameters.
      * @return A Promise instance used to return when prepare completed.
      * @permission ohos.permission.MICROPHONE
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     prepare(config: VideoRecorderConfig): Promise<void>;
@@ -701,6 +711,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback Callback used to return the input surface id in string.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     getInputSurface(callback: AsyncCallback<string>): void;
@@ -709,6 +722,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return the input surface id in string.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     getInputSurface(): Promise<string>;
@@ -717,6 +733,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when start completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     start(callback: AsyncCallback<void>): void;
@@ -725,6 +744,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when start completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     start(): Promise<void>;
@@ -733,6 +755,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when pause completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     pause(callback: AsyncCallback<void>): void;
@@ -741,6 +766,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when pause completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     pause(): Promise<void>;
@@ -749,6 +777,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when resume completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     resume(callback: AsyncCallback<void>): void;
@@ -757,6 +788,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when resume completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     resume(): Promise<void>;
@@ -765,6 +799,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when stop completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     stop(callback: AsyncCallback<void>): void;
@@ -773,6 +810,9 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @return A Promise instance used to return when stop completed.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @systemapi
      */
     stop(): Promise<void>;
@@ -781,6 +821,7 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when release completed.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     release(callback: AsyncCallback<void>): void;
@@ -789,6 +830,7 @@ declare namespace media {
       * @since 9
       * @syscap SystemCapability.Multimedia.Media.VideoRecorder
       * @return A Promise instance used to return when release completed.
+      * @throws { BusinessError } 5400105 - Service died. Return by callback.
       * @systemapi
       */
     release(): Promise<void>;
@@ -799,6 +841,8 @@ declare namespace media {
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param callback A callback instance used to return when reset completed.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     reset(callback: AsyncCallback<void>): void;
@@ -809,6 +853,8 @@ declare namespace media {
       * @since 9
       * @syscap SystemCapability.Multimedia.Media.VideoRecorder
       * @return A Promise instance used to return when reset completed.
+      * @throws { BusinessError } 5400103 - IO error. Return by promise.
+      * @throws { BusinessError } 5400105 - Service died. Return by promise.
       * @systemapi
       */
     reset(): Promise<void>;
@@ -818,6 +864,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @param type Type of the video recording error event to listen for.
      * @param callback Callback used to listen for the video recording error event.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @systemapi
      */
     on(type: 'error', callback: ErrorCallback): void;
