@@ -422,36 +422,30 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * Indicates ability type
    * @enum {number}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @FAModelOnly
    * @since 9
    */
   export enum AbilityType {
-    /**
-     * Indicates an unknown ability type
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    UNKNOWN,
-
     /**
      * Indicates that the ability has a UI
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    PAGE,
+    PAGE = 1,
 
     /**
      * Indicates that the ability does not have a UI
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    SERVICE,
+    SERVICE = 2,
 
     /**
      * Indicates that the ability is used to provide data access services
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    DATA,
+    DATA = 3,
   }
 
   /**
