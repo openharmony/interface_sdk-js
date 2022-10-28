@@ -171,7 +171,7 @@ declare namespace userAuth {
          * @param challenge pass in challenge value.
          * @param authType type of authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @param callback Return result and acquireinfo through callback.
+         * @param callback Return result and acquireInfo through callback.
          * @return Returns ContextId for cancel.
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthInstance.start
@@ -179,7 +179,7 @@ declare namespace userAuth {
         auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
 
         /**
-         * Cancels authentication with ContextID.
+         * Cancel authentication with ContextID.
          * @since 8
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @permission ohos.permission.ACCESS_BIOMETRIC
@@ -198,9 +198,9 @@ declare namespace userAuth {
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @param result authentication result code.
          * @param extraInfo pass the specific information for different situation.
-         * If the authentication is passed, the authentication token is returned in extrainfo,
-         * If the authentication fails, the remaining authentication times are returned in extrainfo,
-         * If the authentication executor is locked, the freezing time is returned in extrainfo.
+         * If the authentication is passed, the authentication token is returned in extraInfo,
+         * If the authentication fails, the remaining authentication times are returned in extraInfo,
+         * If the authentication executor is locked, the freezing time is returned in extraInfo.
          * @deprecated since 9
          * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
@@ -225,7 +225,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @param token pass the authentication result if the authentication is passed.
      * @param remainTimes return the remaining authentication times if the authentication fails.
-     * @param freezingTime return the freezing time if the authectication executor is locked.
+     * @param freezingTime return the freezing time if the authentication executor is locked.
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthResultInfo
      */
@@ -540,7 +540,7 @@ declare namespace userAuth {
      * @param result Authentication result.
      * @param token Pass the authentication token if the authentication is passed.
      * @param remainAttempts Return the remaining authentication attempts if the authentication fails.
-     * @param lockoutDuration Return the lockout duration if the authectication executor is locked.
+     * @param lockoutDuration Return the lockout duration if the authentication executor is locked.
      */
     interface AuthResultInfo {
         result : number;
@@ -573,8 +573,8 @@ declare namespace userAuth {
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @param name Event name.
          * @param callback Event information return.
+         * @throws { BusinessError } 401 - Incorrect parameters.
          * @throws { BusinessError } 12500002 - General operation error.
-         * @throws { BusinessError } 12500008 - Incorrect parameters.
          */
         on: (name: AuthEventKey, callback: AuthEvent) => void;
 
@@ -583,8 +583,8 @@ declare namespace userAuth {
          * @since since 9
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @param name Event name.
+         * @throws { BusinessError } 401 - Incorrect parameters.
          * @throws { BusinessError } 12500002 - General operation error.
-         * @throws { BusinessError } 12500008 - Incorrect parameters.
          */
         off: (name: AuthEventKey) => void;
 
@@ -593,9 +593,12 @@ declare namespace userAuth {
          * @since since 9
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @permission ohos.permission.ACCESS_BIOMETRIC
-         * @throws { BusinessError } 12500001 - Execution failed.
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 401 - Incorrect parameters.
          * @throws { BusinessError } 12500002 - General operation error.
-         * @throws { BusinessError } 12500008 - Incorrect parameters.
+         * @throws { BusinessError } 12500005 - The authentication type is not supported.
+         * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+         * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
          */
         start: () => void;
 
@@ -604,7 +607,8 @@ declare namespace userAuth {
          * @since since 9
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @permission ohos.permission.ACCESS_BIOMETRIC
-         * @throws { BusinessError } 12500001 - Execution failed.
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 401 - Incorrect parameters.
          * @throws { BusinessError } 12500002 - General operation error.
          */
         cancel: () => void;
@@ -616,6 +620,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @return Returns version information.
+     * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      */
     function getVersion(): number;
@@ -627,11 +632,12 @@ declare namespace userAuth {
      * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param authType Credential type for authentication.
      * @param authTrustLevel Trust level of authentication result.
-     * @throws { BusinessError } 12500001 - Execution failed.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500008 - Incorrect parameters.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
      */
     function getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void;
 
@@ -640,10 +646,10 @@ declare namespace userAuth {
      * @since 9
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @return Returns an authentication instance.
+     * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500008 - Incorrect parameters.
      */
     function getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance;
 
@@ -708,13 +714,6 @@ declare namespace userAuth {
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          */
         BUSY = 12500007,
-
-        /**
-         * Indicates incorrect parameters.
-         * @since 9
-         * @syscap SystemCapability.UserIAM.UserAuth.Core
-         */
-        INVALID_PARAMETERS = 12500008,
 
         /**
          * Indicates that the authenticator is locked.
