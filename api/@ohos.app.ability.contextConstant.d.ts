@@ -31,10 +31,13 @@
      */
     export enum AreaMode {
         /**
+         * system level device encryption area
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          */
         EL1 = 0,
+
         /**
+         * user credential encryption area
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          */
         EL2 = 1
