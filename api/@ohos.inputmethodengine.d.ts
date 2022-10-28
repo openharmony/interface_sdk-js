@@ -255,7 +255,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
-         * @throws @throws {BusinessError} 12800003 - input method client error.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hide(): Promise<void>;
