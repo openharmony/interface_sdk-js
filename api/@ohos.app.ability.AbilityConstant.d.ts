@@ -144,4 +144,4 @@ declare namespace AbilityConstant {
     }
 }
 
-export default AbilityConstant
+export default AbilityConstant;

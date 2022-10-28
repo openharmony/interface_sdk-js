@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
-import { Caller } from '../@ohos.app.ability.Ability';
+import { Caller } from '../@ohos.app.ability.UIAbility';
 import ExtensionContext from "./ExtensionContext";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import * as _AbilityContext from './application/AbilityContext';
+import * as _UIAbilityContext from './application/UIAbilityContext';
 import * as _AbilityStageContext from './application/AbilityStageContext';
 import * as _ApplicationContext from './application/ApplicationContext';
 import * as _BaseContext from './application/BaseContext';
@@ -40,7 +40,7 @@ declare namespace common {
      * @stagemodelonly
      * @since 9
      */
-    export type AbilityContext = _AbilityContext.default
+    export type UIAbilityContext = _UIAbilityContext.default
 
     /**
      * The context of an abilityStage. It allows access to abilityStage-specific resources.

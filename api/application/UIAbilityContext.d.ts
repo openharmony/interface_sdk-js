@@ -15,11 +15,11 @@
 
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
-import { AbilityInfo } from "../bundleManager/abilityInfo";
+import { AbilityInfo } from "../bundle/abilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
-import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
+import { HapModuleInfo } from "../bundle/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
@@ -34,10 +34,8 @@ import image from '../@ohos.multimedia.image';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 9
- * @deprecated since 9
- * @useinstead UIAbilityContext
  */
-export default class AbilityContext extends Context {
+export default class UIAbilityContext extends Context {
     /**
      * Indicates configuration information about an ability.
      * @type { AbilityInfo }
