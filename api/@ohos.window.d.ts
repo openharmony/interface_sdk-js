@@ -14,7 +14,7 @@
 */
 
 import { AsyncCallback, Callback } from './basic' ;
-import Context from  './app/context';
+import { Context } from  './app/context';
 /**
  * Window manager.
  * @syscap SystemCapability.WindowManager.WindowManager.Core
