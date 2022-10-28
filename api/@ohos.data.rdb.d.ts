@@ -1144,7 +1144,7 @@ class RdbPredicates {
     equalTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is unequal to
+     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
      *
      * @note This method is similar to != of the SQL statement.
@@ -1562,7 +1562,7 @@ class RdbPredicatesV9 {
     equalTo(field: string, value: ValueType): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is unequal to
+     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
      *
      * @note This method is similar to != of the SQL statement.
