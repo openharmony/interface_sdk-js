@@ -307,6 +307,13 @@ declare namespace radio {
    * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
    * @param callback including an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -322,6 +329,13 @@ declare namespace radio {
    * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
    * @param callback including an instance of the {@link ImsRegInfo} class.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -330,6 +344,13 @@ declare namespace radio {
 
   /**
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -837,7 +858,7 @@ declare namespace radio {
     IMS_UNREGISTERED,
     IMS_REGISTERED,
   }
-  
+
   /**
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -848,7 +869,7 @@ declare namespace radio {
     REGISTRATION_TECH_IWLAN,
     REGISTRATION_TECH_NR,
   }
-  
+
   /**
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -857,7 +878,7 @@ declare namespace radio {
     imsRegState: ImsRegState;
     imsRegTech: ImsRegTech;
   }
-  
+
   /**
    * @systemapi Hide this for inner system use.
    * @since 9
