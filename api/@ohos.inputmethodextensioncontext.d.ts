@@ -23,45 +23,14 @@ import ExtensionContext from './application/ExtensionContext';
  *
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  */
 export default class InputMethodExtensionContext extends ExtensionContext {
-    /**
-     * Input method extension uses this method to start a specific ability.
-     *
-     * @since 9
-     * @deprecated since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @param want Indicates the ability to start.
-     * @param options Indicates the start options.
-     * @return -
-     * @StageModelOnly
-     */
-     startAbility(want: Want, callback: AsyncCallback<void>): void;
-     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
-     startAbility(want: Want, options?: StartOptions): Promise<void>;
-    
-     /**
-      * Destroy the input method extension.
-      *
-      * @since 9
-      * @deprecated since 9
-      * @useinstead ohos.inputmethodextensioncontext.InputMethodExtensionContext.destroy
-      * @syscap SystemCapability.MiscServices.InputMethodFramework
-      * @return -
-      * @StageModelOnly
-      */
-     terminateSelf(callback: AsyncCallback<void>): void;
-     terminateSelf(): Promise<void>;
-
     /**
      * Destroy the input method extension.
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -71,8 +40,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @throws {BusinessError} 401 - parameter error.
-     * @StageModelOnly
      */
     destroy(): Promise<void>;
 }
