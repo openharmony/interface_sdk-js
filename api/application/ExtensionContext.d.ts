@@ -14,7 +14,7 @@
  */
 
 import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
-import { Configuration } from '../@ohos.application.Configuration';
+import { Configuration } from '../@ohos.app.ability.Configuration';
 import Context from "./Context";
 import { ExtensionAbilityInfo } from "../bundleManager/extensionAbilityInfo";
 
