@@ -393,8 +393,7 @@ import { AsyncCallback } from '../../basic'
     isEnded: boolean;
 
     /**
-     * returns whether the cursor is pointing to the position before the first
-     * row.
+     * Returns whether the cursor is pointing to the position before the first row.
      *
      * @note N/A
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
