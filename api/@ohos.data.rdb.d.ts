@@ -197,49 +197,40 @@ declare namespace rdb
      */
     enum SecurityLevel {
         /**
-         * S0: mains the db is public.
-         * There is no impact even if the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        S0 = 1,
-
-        /**
          * S1: mains the db is low level security
          * There are some low impact, when the data is leaked.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        S1 = 2,
+         S1 = 1,
 
-        /**
-         * S2: mains the db is middle level security
-         * There are some major impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        S2 = 3,
-
-        /**
-         * S3: mains the db is high level security
-         * There are some severity impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        S3 = 5,
-
-        /**
-         * S4: mains the db is critical level security
-         * There are some critical impact, when the data is leaked.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        S4 = 6,
+         /**
+          * S2: mains the db is middle level security
+          * There are some major impact, when the data is leaked.
+          *
+          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+          * @since 9
+          */
+         S2 = 2,
+ 
+         /**
+          * S3: mains the db is high level security
+          * There are some severity impact, when the data is leaked.
+          *
+          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+          * @since 9
+          */
+         S3 = 3,
+ 
+         /**
+          * S4: mains the db is critical level security
+          * There are some critical impact, when the data is leaked.
+          *
+          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+          * @since 9
+          */
+         S4 = 4,
     }
 
     /**
@@ -342,7 +333,7 @@ declare namespace rdb
          * @deprecated since 9
          * @useinstead ohos.data.rdb.RdbStoreV9.delete
          */
-        delete (predicates: RdbPredicates, callback: AsyncCallback<number>): void;
+        delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
         /**
          * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -354,7 +345,7 @@ declare namespace rdb
          * @deprecated since 9
          * @useinstead ohos.data.rdb.RdbStoreV9.delete
          */
-        delete (predicates: RdbPredicates): Promise<number>;
+        delete(predicates: RdbPredicates): Promise<number>;
 
         /**
          * Queries data in the database based on specified conditions.
@@ -435,7 +426,7 @@ declare namespace rdb
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
         /**
-         * beginTransaction before excute your sql.
+         * Begin Transaction before excute your sql.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -445,7 +436,7 @@ declare namespace rdb
         beginTransaction(): void;
 
         /**
-         * commit the the sql you have excuted.
+         * Commit the the sql you have excuted.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -455,7 +446,7 @@ declare namespace rdb
         commit(): void;
 
         /**
-         * roll back the sql you have already excuted.
+         * Roll back the sql you have already excuted.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -689,7 +680,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        delete (predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
+        delete(predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
 
         /**
          * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
@@ -700,7 +691,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        delete (predicates: RdbPredicatesV9): Promise<number>;
+        delete(predicates: RdbPredicatesV9): Promise<number>;
 
         /**
          * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
@@ -712,7 +703,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        delete (table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
         /**
          * Deletes data from the database based on a specified instance object of RdbPredicatesV9.
@@ -724,7 +715,7 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
-        delete (table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+        delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
         /**
          * Queries data in the database based on specified conditions.
@@ -1202,7 +1193,7 @@ class RdbPredicates {
      * @deprecated since 9
      * @useinstead ohos.data.rdb.RdbPredicatesV9.or
      */
-    or (): RdbPredicates;
+    or(): RdbPredicates;
 
     /**
      * Adds an and condition to the RdbPredicates.
@@ -1613,7 +1604,7 @@ class RdbPredicatesV9 {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    or (): RdbPredicatesV9;
+    or(): RdbPredicatesV9;
 
     /**
      * Adds an and condition to the RdbPredicatesV9.
