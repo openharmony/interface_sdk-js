@@ -130,6 +130,9 @@ function formatImportDeclaration(url) {
               const clauseNode = statement.importClause;
               if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
                 clauseSet.add(clauseNode.name.escapedText.toString());
+              } else if (clauseNode.namedBindings && clauseNode.namedBindings.name &&
+                ts.isIdentifier(clauseNode.namedBindings.name)) {
+                clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
               } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
                 clauseNode.namedBindings.elements.forEach(ele => {
                   if (ele.name && ts.isIdentifier(ele.name)) {
