@@ -434,6 +434,14 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @return Returns the opkey; returns an empty string if no SIM card is inserted or
    * no opkey matched.
    * @since 9
@@ -441,17 +449,25 @@ declare namespace sim {
   function getOpKey(slotId: number, callback: AsyncCallback<string>): void;
   function getOpKey(slotId: number): Promise<string>;
 
-   /**
-    * Obtains the opname of the SIM card in a specified slot.
-    *
-    * @param slotId Indicates the card slot index number,
-    * ranging from 0 to the maximum card slot index number supported by the device.
-    * @return Returns the opname; returns an empty string if no SIM card is inserted or
-    * no opname matched.
-    * @since 9
-    */
-   function getOpName(slotId: number, callback: AsyncCallback<string>): void;
-   function getOpName(slotId: number): Promise<string>;
+  /**
+   * Obtains the opname of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @return Returns the opname; returns an empty string if no SIM card is inserted or
+   * no opname matched.
+   * @since 9
+   */
+  function getOpName(slotId: number, callback: AsyncCallback<string>): void;
+  function getOpName(slotId: number): Promise<string>;
 
   /**
    * @systemapi Hide this for inner system use.
