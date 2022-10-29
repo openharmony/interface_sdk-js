@@ -30,7 +30,7 @@ import rpc from './@ohos.rpc';
  * @return -
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Ability
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface OnReleaseCallBack {
     (msg: string): void;
@@ -46,7 +46,7 @@ export interface OnReleaseCallBack {
  * @return rpc.Sequenceable
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Ability
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface CalleeCallBack {
     (indata: rpc.MessageParcel): rpc.Sequenceable;
@@ -60,7 +60,7 @@ export interface CalleeCallBack {
  * @permission N/A
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Ability
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface Caller {
      /**
@@ -117,7 +117,7 @@ export interface Caller {
  * @permission N/A
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Ability
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface Callee {
 
@@ -153,7 +153,7 @@ export interface Callee {
  * @permission N/A
  * @StageModelOnly
  * @deprecated since 9
- * @useinstead ohos.app.ability.Ability
+ * @useinstead ohos.app.ability.UIAbility
  */
 export default class Ability {
     /**
