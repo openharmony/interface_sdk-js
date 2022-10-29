@@ -383,52 +383,6 @@ export default class UIAbilityContext extends Context {
 
     /**
      * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want The element name of the service ability
-     * @param options The remote object instance
-     * @systemapi Hide this for inner system use.
-     * @return Returns the number code of the ability connected
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead connectServiceExtensionAbility
-     */
-    connectAbility(want: Want, options: ConnectOptions): number;
-
-    /**
-     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template with account.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want The element name of the service ability
-     * @param accountId The account to connect
-     * @param options The remote object instance
-     * @systemapi hide for inner use.
-     * @return Returns the number code of the ability connected
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead connectServiceExtensionAbilityWithAccount
-     */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
-
-    /**
-     * The callback interface was connect successfully.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param connection The number code of the ability connected
-     * @systemapi Hide this for inner system use.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead disconnectServiceExtensionAbility
-     */
-    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-    disconnectAbility(connection: number): Promise<void>;
-
-    /**
-     * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
      * @param { Want } want - The element name of the service ability
      * @param { ConnectOptions } options - The remote object instance
      * @returns { number } Returns the number code of the ability connected
@@ -455,7 +409,7 @@ export default class UIAbilityContext extends Context {
     connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
     /**
-     * The callback interface was connect successfully.
+     * The callback interface is connected successfully.
      * @param { number } connection - The number code of the ability connected
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -466,7 +420,7 @@ export default class UIAbilityContext extends Context {
     disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
     /**
-     * The callback interface was connect successfully.
+     * The callback interface is connected successfully.
      * @param { number } connection - The number code of the ability connected
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -561,7 +515,7 @@ export default class UIAbilityContext extends Context {
     restoreWindowStage(localStorage: LocalStorage): void;
 
     /**
-     * check to see ability is in terminating state.
+     * Check to see ability is in terminating state.
      * @returns { boolean } Returns true when ability is in terminating state, else returns false.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
