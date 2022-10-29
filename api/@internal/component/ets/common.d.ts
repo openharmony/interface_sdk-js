@@ -2030,18 +2030,9 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @since 9
  */
 declare interface LayoutBorderInfo {
-  borderWidth: number,
+  borderWidth: EdgeWidths,
   margin: Margin,
   padding: Padding,
-}
-
-/**
- * Sub component position info.
- * @since 9
- */
-declare interface LayoutPosition {
-  x: number,
-  y: number,
 }
 
 /**
@@ -2049,7 +2040,7 @@ declare interface LayoutPosition {
  * @since 9
  */
 declare interface LayoutInfo {
-  position: LayoutPosition,
+  position: Position,
   constraint: ConstraintSizeOptions,
 }
 
@@ -2086,7 +2077,7 @@ declare interface LayoutChild {
    * Sub component position.
    * @since 9
    */
-  position: LayoutPosition,
+  position: Position,
 
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
