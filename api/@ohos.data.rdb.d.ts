@@ -14,7 +14,7 @@
  */
 import {AsyncCallback, Callback} from './basic';
 import { ResultSet as _ResultSet } from './data/rdb/resultSet';
-import Context from "./application/Context";
+import Context from "./application/BaseContext";
 
 /**
  * Provides methods for rdbStore create and delete.
