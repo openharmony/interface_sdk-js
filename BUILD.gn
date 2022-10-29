@@ -68,6 +68,7 @@ template("ohos_declaration_template") {
   action_with_pydeps(target_name) {
     script = "//interface/sdk-js/remove_internal.py"
     input_api_dir = "//interface/sdk-js/api"
+    inputs = [ "//interface/sdk-js/api" ]
     outputs = [ root_out_dir + "/ohos_declaration/$target_name" ]
     if (sdk_build_public) {
       script = "//out/sdk-public/public_interface/sdk-js/remove_internal.py"
