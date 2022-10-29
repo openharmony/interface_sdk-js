@@ -34,8 +34,6 @@ import image from '../@ohos.multimedia.image';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 9
- * @deprecated since 9
- * @useinstead UIAbilityContext
  */
 export default class AbilityContext extends Context {
     /**
