@@ -283,28 +283,6 @@ export interface AbilityDelegator {
      * Prints log information to the unit testing console.
      * The total length of the log information to be printed cannot exceed 1000 characters.
      * @param { string } msg - Log information.
-     * @param { AsyncCallback<void> } callback - The callback of printMsg.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    printMsg(msg: string, callback: AsyncCallback<void>): void;
-
-    /**
-     * Prints log information to the unit testing console.
-     * The total length of the log information to be printed cannot exceed 1000 characters.
-     * @param { string } msg - Log information.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    printMsg(msg: string): Promise<void>;
-
-    /**
-     * Prints log information to the unit testing console.
-     * The total length of the log information to be printed cannot exceed 1000 characters.
-     * @param { string } msg - Log information.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
@@ -323,38 +301,6 @@ export interface AbilityDelegator {
     executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
-
-    /**
-     * Execute the given command in the aa tools side.
-     * @param { string } cmd - The shell command.
-     * @param { AsyncCallback<ShellCmdResult> } callback - The callback is used to return the ShellCmdResult object.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    executeShellCmd(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
-
-    /**
-     * Execute the given command in the aa tools side.
-     * @param { string } cmd - Shell command.
-     * @param { number } timeoutSecs - Timeout, in seconds.
-     * @param { AsyncCallback<ShellCmdResult> } callback - The callback is used to return the ShellCmdResult object.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    executeShellCmd(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
-
-    /**
-     * Execute the given command in the aa tools side.
-     * @param { string } cmd - Shell command.
-     * @param { number } timeoutSecs - Timeout, in seconds.
-     * @returns { Promise<ShellCmdResult> } Returns the ShellCmdResult object.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    executeShellCmd(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>;
 
     /**
      * Finish the test and print log information to the unit testing console.
