@@ -25,6 +25,8 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead ohos.bundle.launcherBundleManager
  */
 
 declare namespace innerBundleManager {
