@@ -105,17 +105,6 @@ declare namespace huks {
 
     /**
      * Update Operation.
-     * @since 8
-     * @syscap SystemCapability.Security.Huks
-     * @param handle Indicates the handle of the init operation.
-     * @param token Indicates the value of token.
-     * @param options Indicates the properties of the update operation.
-     */
-    function update(handle: number, token?: Uint8Array, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
-    function update(handle: number, token?: Uint8Array, options: HuksOptions) : Promise<HuksResult>;
-
-    /**
-     * Update Operation.
      * @since 9
      * @syscap SystemCapability.Security.Huks
      * @param handle Indicates the handle of the init operation.
