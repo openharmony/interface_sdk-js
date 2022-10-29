@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Ability from "./@ohos.app.ability.Ability";
+import UIAbility from "./@ohos.app.ability.UIAbility";
 import dataAbility from "./@ohos.data.dataAbility";
 import window from './@ohos.window';
 
@@ -31,7 +31,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onAbilityCreate(ability: Ability): void;
+    onAbilityCreate(ability: UIAbility): void;
 
     /**
      * Called back when a window stage is created.
@@ -41,7 +41,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onWindowStageCreate(ability: Ability, windowStage: window.WindowStage): void;
+    onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
      * Called back when a window stage is actived.
@@ -51,7 +51,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onWindowStageActive(ability: Ability, windowStage: window.WindowStage): void;
+    onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
      * Called back when a window stage is inactived.
@@ -61,7 +61,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onWindowStageInactive(ability: Ability, windowStage: window.WindowStage): void;
+    onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
      * Called back when a window stage is destroyed.
@@ -71,7 +71,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onWindowStageDestroy(ability: Ability, windowStage: window.WindowStage): void;
+    onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
      * Called back when an ability is destroyed.
@@ -80,7 +80,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onAbilityDestroy(ability: Ability): void;
+    onAbilityDestroy(ability: UIAbility): void;
 
     /**
      * Called back when the state of an ability changes to foreground.
@@ -89,7 +89,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onAbilityForeground(ability: Ability): void;
+    onAbilityForeground(ability: UIAbility): void;
 
     /**
      * Called back when the state of an ability changes to background.
@@ -98,7 +98,7 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onAbilityBackground(ability: Ability): void;
+    onAbilityBackground(ability: UIAbility): void;
 
     /**
      * Called back when an ability prepares to continue.
@@ -107,5 +107,5 @@ export default class AbilityLifecycleCallback {
      * @stagemodelonly
      * @since 9
      */
-    onAbilityContinue(ability: Ability): void;
+    onAbilityContinue(ability: UIAbility): void;
 }

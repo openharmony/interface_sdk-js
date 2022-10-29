@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
-import { Configuration } from './@ohos.app.ability.Configuration';
+import Ability from "./@ohos.app.ability.Ability";
 
 /**
  * class of extension.
@@ -22,23 +21,5 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @stagemodelonly
  * @since 9
  */
-export default class ExtensionAbility {
-    /**
-     * Called when the system configuration is updated.
-     * @param { Configuration } newConfig - Indicates the updated configuration.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    onConfigurationUpdate(newConfig: Configuration): void;
-
-    /**
-     * Called when the system has determined to trim the memory, for example, when the ability is running in the
-     * background and there is no enough memory for running as many background processes as possible.
-     * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since 9
-     */
-    onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+export default class ExtensionAbility extends Ability {
 }
