@@ -1032,6 +1032,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
