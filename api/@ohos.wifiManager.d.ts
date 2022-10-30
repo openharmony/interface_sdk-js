@@ -81,7 +81,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
      */
-    function scan(): boolean;
+    function scan(): void;
 
     /**
      * Obtains the hotspot information that scanned.
@@ -1402,7 +1402,6 @@ declare namespace wifiManager {
      *
      * @since 9
      * @systemapi Hide this for inner system use.
-     * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiInfoElem {
         /** Element id */
