@@ -1341,6 +1341,7 @@ declare namespace notificationManager {
   /**
    * Describes a NotificationFlags instance.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 9
    */
   export type NotificationFlags = _NotificationFlags
