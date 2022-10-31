@@ -109,13 +109,13 @@ export interface Event {
  * @since 7
  * @syscap SystemCapability.Utils.Lang
  */
- export interface MessageEvent extends Event {
+ export interface MessageEvent<T> extends Event {
   /**
    * Data transferred when an exception occurs.
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  readonly data;
+  readonly data: T;
 }
 
 /**
@@ -241,7 +241,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -251,7 +251,7 @@ declare interface WorkerGlobalScope extends EventTarget {
    * @since 7
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
+  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -324,7 +324,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent) => void;
+    onmessage?: (event: MessageEvent<T>) => void;
 
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -333,7 +333,7 @@ declare namespace worker {
      * @since 7
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent) => void;
+    onmessageerror?: (event: MessageEvent<T>) => void;
 
     /**
      * Sends a message to the worker thread.
