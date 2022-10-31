@@ -1126,7 +1126,6 @@ declare namespace wifi {
      * Wi-Fi information elements.
      *
      * @since 9
-     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiInfoElem {
