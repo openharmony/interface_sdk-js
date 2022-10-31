@@ -629,7 +629,7 @@ declare namespace focusControl {
    * Request focus to the specific component by param: 'id/key'.
    * @since 9
    */
-  declare function requestFocus(value: string): boolean;
+  function requestFocus(value: string): boolean;
 }
 
 /**
