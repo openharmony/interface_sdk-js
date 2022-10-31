@@ -960,7 +960,7 @@ declare namespace notification {
    * Describes a NotificationFlags instance.
    *
    * @since 9
-   * @permission N/A
+   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.Notification
    */
   export type NotificationFlags =  _NotificationFlags
