@@ -63,9 +63,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
      * @throws { BusinessError } 17700010 - To parse file of config.json or module.json failed.
      * @throws { BusinessError } 17700011 - To verify signature failed.
-     * @throws { BusinessError } 17700012 - Invalid hapFilePaths since being lack of file or path.
-     * @throws { BusinessError } 17700013 - Too large size of hap file which exceeds the size limitation.
-     * @throws { BusinessError } 17700014 - The suffix of the hap name is not .hap.
+     * @throws { BusinessError } 17700012 - Invalid hap file path or too large file size.
      * @throws { BusinessError } 17700015 - Multiple haps have inconsistent configured information.
      * @throws { BusinessError } 17700016 - No disk space left for installation.
      * @throws { BusinessError } 17700017 - Downgrade installation is prohibited.
