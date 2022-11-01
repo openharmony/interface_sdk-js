@@ -525,7 +525,6 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
          *
          * @since 9
          */
@@ -536,7 +535,6 @@ declare namespace webview {
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
          *
          * @since 9
          */
@@ -656,7 +654,6 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -668,7 +665,6 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -680,7 +676,6 @@ declare namespace webview {
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -748,7 +743,6 @@ declare namespace webview {
          * @throws { BusinessError } 401 - Invaild input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
          *
          * @since 9
          */
