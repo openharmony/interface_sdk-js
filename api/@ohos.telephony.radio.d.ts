@@ -67,6 +67,7 @@ declare namespace radio {
   /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -78,6 +79,7 @@ declare namespace radio {
   /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
