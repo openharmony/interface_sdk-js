@@ -56,6 +56,7 @@ declare namespace connection {
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
+   * @throws {BusinessError} 201 - Permission denied.
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -87,6 +88,18 @@ declare namespace connection {
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
+
+  /**
+   * Checks whether data traffic usage on the current network is metered.
+   *
+   * @param callback Returns {@code true} if data traffic usage on the current network is metered;
+   *      returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @since 9
+   * @throws {BusinessError} 201 - Permission denied.
+   */
+  function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
+  function isDefaultNetMetered(): Promise<boolean>;
 
   /**
    * Checks whether the default data network is activated.
