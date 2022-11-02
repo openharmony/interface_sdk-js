@@ -19,28 +19,16 @@ const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "";
-  result += 'line:22,first:::::::::'
-  fs.access(url, fs.constants.R_OK | fs.constants.W_OK, (err) => {
-    const checkResult1 = err ? 'no access!' : 'can read/write';
-    result += `checkResult1 = ${checkResult1} ||| ${url} ||| \n`;
-  });
+  result += `line:22,first:::::::::`
   const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
     const path2 = path.resolve(sourceDirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
-    result += 'line:33,second:::::::::'
-    fs.access(path2, fs.constants.R_OK | fs.constants.W_OK, (err) => {
-      const checkResult2 = err ? 'no access!' : 'can read/write';
-      result += `checkResult2 = ${checkResult2} ||| ${path2} ||| \n`;
-    });
+    result += `line:33,second:::::::::path2::${path2} is ${fs.existsSync(path2)}`;
     const path3 = path.resolve(__dirname, '../../../../', "ci_tool/ci_build/readme_file.txt");
-    result += 'line:40,third::::::::::'
-    fs.access(path3, fs.constants.R_OK | fs.constants.W_OK, (err) => {
-      const checkResult3 = err ? 'no access!' : 'can read/write';
-      result += `checkResult3 = ${checkResult3} ||| ${path3} ||| \n`;
-    });
+    result += `line:40,third::::::::::path3::${path3} is ${fs.existsSync(path3)}`;
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
     result += scanEntry(url);
     const content = fs.readFileSync(url, "utf-8");
