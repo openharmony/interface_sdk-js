@@ -15,11 +15,11 @@
 
 /// <reference path="../../component/common_ts_ets_api.d.ts"/>
 
-import { AbilityInfo } from "../bundle/abilityInfo";
+import { AbilityInfo } from "../bundleManager/abilityInfo";
 import { AbilityResult } from "../ability/abilityResult";
 import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
-import { HapModuleInfo } from "../bundle/hapModuleInfo";
+import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.application.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
