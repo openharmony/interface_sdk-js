@@ -172,7 +172,7 @@ export interface IsoDepTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   isExtendedApduSupported(): Promise<boolean>;
@@ -187,60 +187,6 @@ export interface NdefMessage {
   * @since 9
   */
   getNdefRecords(): tag.NdefRecord[];
-
- /**
-  * Creates an NDEF record with uri data.
-  *
-  * @param { string } uri - Uri data for new NDEF record.
-  * @return { tag.NdefRecord } The instance of NdefRecord.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  makeUriRecord(uri: string): tag.NdefRecord;
-
- /**
-  * Creates an NDEF record with text data.
-  *
-  * @param { string } text - Text data for new an NDEF record.
-  * @param { string } locale - Language code for the NDEF record. if locale is null, use default locale.
-  * @return { tag.NdefRecord } The instance of NdefRecord.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  makeTextRecord(text: string, locale: string): tag.NdefRecord;
-
- /**
-  * Creates an NDEF record with mime data.
-  *
-  * @param { string } mimeType type of mime data for new an NDEF record.
-  * @param { string } mimeData mime data for new an NDEF record.
-  * @return { tag.NdefRecord } The instance of NdefRecord.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  makeMimeRecord(mimeType: string, mimeData: number[]): tag.NdefRecord;
-
- /**
-  * Creates an NDEF record with external data.
-  *
-  * @param { string } domainName - Domain name of issuing organization for the external data.
-  * @param { string } serviceName - Domain specific type of data for the external data.
-  * @param { number[] } externalData - Data payload of an NDEF record.
-  * @return { tag.NdefRecord } The instance of NdefRecord.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  makeExternalRecord(domainName: string, serviceName: string, externalData: number[]): tag.NdefRecord;
-
- /**
-  * Parses an NDEF message into raw bytes.
-  *
-  * @param { NdefMessage } ndefMessage - An NDEF message to parse.
-  * @return { number[] } Returns the raw bytes of an NDEF message.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  messageToBytes(ndefMessage: NdefMessage): number[];
 }
 
 /**
@@ -250,26 +196,6 @@ export interface NdefMessage {
  * @syscap SystemCapability.Communication.NFC.Core
  */
 export interface NdefTag extends TagSession {
- /**
-  * Creates an NDEF message with raw bytes.
-  *
-  * @param { number[] } data - The raw bytes to parse NDEF message.
-  * @return { NdefMessage } The instance of NdefMessage.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  createNdefMessage(data: number[]): NdefMessage;
-
- /**
-  * Creates an NDEF message with record list.
-  *
-  * @param { tag.NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
-  * @return { NdefMessage } The instance of NdefMessage.
-  * @throws { BusinessError } 401 - The parameter check failed.
-  * @since 9
-  */
-  createNdefMessage(ndefRecords: tag.NdefRecord[]): NdefMessage;
-
  /**
   * Gets the type of NDEF tag.
   *
@@ -301,7 +227,7 @@ export interface NdefTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   readNdef(): Promise<NdefMessage>;
@@ -314,7 +240,7 @@ export interface NdefTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   writeNdef(msg: NdefMessage): Promise<void>;
@@ -326,7 +252,7 @@ export interface NdefTag extends TagSession {
   * @return { boolean } Returns true if the tag can be set readonly, otherwise returns false.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   canSetReadOnly(): boolean;
@@ -337,7 +263,7 @@ export interface NdefTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   setReadOnly(): Promise<void>;
@@ -370,7 +296,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<void>;
@@ -384,7 +310,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   readSingleBlock(blockIndex: number): Promise<number[]>;
@@ -398,7 +324,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   writeSingleBlock(blockIndex: number, data: number[]): Promise<void>;
@@ -412,7 +338,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   incrementBlock(blockIndex: number, value: number): Promise<void>;
@@ -426,7 +352,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   decrementBlock(blockIndex: number, value: number): Promise<void>;
@@ -439,7 +365,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   transferToBlock(blockIndex: number): Promise<void>;
@@ -452,7 +378,7 @@ export interface MifareClassicTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   restoreFromBlock(blockIndex: number): Promise<void>;
@@ -536,7 +462,7 @@ export interface MifareUltralightTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   readMultiplePages(pageIndex: number): Promise<number[]>;
@@ -550,7 +476,7 @@ export interface MifareUltralightTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   writeSinglePage(pageIndex: number, data: number[]): Promise<void>;
@@ -579,7 +505,7 @@ export interface NdefFormatableTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   format(message: NdefMessage): Promise<void>;
@@ -592,7 +518,7 @@ export interface NdefFormatableTag extends TagSession {
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
-  * @throws { BusinessError } 3100201 - Tag running state of service is abnormal.
+  * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
   * @since 9
   */
   formatReadOnly(message: NdefMessage): Promise<void>;
