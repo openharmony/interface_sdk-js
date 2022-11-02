@@ -154,6 +154,7 @@ declare namespace call {
    * Hangups the foreground call.
    *
    * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -173,6 +174,7 @@ declare namespace call {
    *
    * @param callId Indicates the identifier of the call to reject.
    * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -184,6 +186,7 @@ declare namespace call {
    * Rejects the incoming call without callId.
    *
    * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -191,6 +194,7 @@ declare namespace call {
   function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -198,6 +202,7 @@ declare namespace call {
   function holdCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -205,6 +210,7 @@ declare namespace call {
   function unHoldCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -240,6 +246,7 @@ declare namespace call {
   function getCallIdListForConference(callId: number): Promise<Array<string>>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -247,6 +254,7 @@ declare namespace call {
   function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -276,36 +284,42 @@ declare namespace call {
   function isInEmergencyCall(): Promise<boolean>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -362,6 +376,7 @@ declare namespace call {
   function separateConference(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -369,6 +384,7 @@ declare namespace call {
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -376,6 +392,7 @@ declare namespace call {
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -383,6 +400,7 @@ declare namespace call {
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -448,6 +466,7 @@ declare namespace call {
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -455,6 +474,7 @@ declare namespace call {
   function enableImsSwitch(slotId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
