@@ -132,7 +132,6 @@ export interface HapModuleInfo {
     * Indicates the hash value of the hap module
     * @type {string}
     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-    * @systemapi
     * @since 9
     */
   readonly hashValue: string;

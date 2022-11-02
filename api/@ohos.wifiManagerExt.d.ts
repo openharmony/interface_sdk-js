@@ -22,93 +22,92 @@ import { AsyncCallback, Callback } from './basic';
  * These extended APIs are only used by some product types, such as routers. 
  * Common products should not use these APIs.</p>
  *
- * @since 8
- * @import import wifiext from '@ohos.wifiext';
+ * @since 9
+ * @import import wifiManagerExt from '@ohos.wifiManagerExt';
  */
-declare namespace wifiext {
+declare namespace wifiManagerExt {
     /**
      * Enables a Wi-Fi hotspot.
      *
-     * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
-     * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
      */
-     function enableHotspot(): boolean;
+     function enableHotspot(): void;
 
      /**
       * Disables a Wi-Fi hotspot.
       *
-      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
-      * @since 8
+      * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2701000 - Operation failed.
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
       * @syscap SystemCapability.Communication.WiFi.AP.Extension
-      * @deprecated since 9
-      * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
       */
-     function disableHotspot(): boolean;
+     function disableHotspot(): void;
 
     /**
-     * Obtains the supported power model.
+     * Obtains the supported power Mode.
      *
-     * @return Returns the array of supported power model.
+     * @return Returns the array of supported power Mode.
      *
-     * @since 8
+      * @since 9
+      * @throws {BusinessError} 201 - Permission denied.
+      * @throws {BusinessError} 801 - Capability not supported.
+      * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
-     * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
      */
-     function getSupportedPowerModel(): Promise<Array<PowerModel>>;
-     function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
+     function getSupportedPowerMode(): Promise<Array<PowerMode>>;
+     function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
     /**
      * Obtains the current Wi-Fi power mode.
      *
      * @return Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
      *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.GET_WIFI_INFO
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
-     * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
      */
-    function getPowerModel (): Promise<PowerModel>;
-    function getPowerModel (callback: AsyncCallback<PowerModel>): void;
+    function getPowerMode (): Promise<PowerMode>;
+    function getPowerMode (callback: AsyncCallback<PowerMode>): void;
 
     /**
      * Set the current Wi-Fi power mode.
      *
-     * @return Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
-     *
-     * @since 8
+     * @since 9
+     * @throws {BusinessError} 201 - Permission denied.
+     * @throws {BusinessError} 801 - Capability not supported.
+     * @throws {BusinessError} 2701000 - Operation failed.
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
-     * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
      */
-    function setPowerModel(model: PowerModel) : boolean
+    function setPowerMode(mode: PowerMode) : void
 
     /**
-     * The power model enumeration.
+     * The power Mode enumeration.
      *
-     * @since 8
+     * @since 9
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
-     * @deprecated since 9
-     * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
      */
-     export enum PowerModel {
-        /** Sleeping model. */
+     export enum PowerMode {
+        /** Sleeping Mode. */
         SLEEPING = 0,
 
-        /** General model. */
+        /** General Mode. */
         GENERAL = 1,
 
-        /** Through wall model. */
+        /** Through wall Mode. */
         THROUGH_WALL = 2,
     }
 }
 
-export default wifiext;
+export default wifiManagerExt;

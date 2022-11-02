@@ -40,7 +40,7 @@ declare interface NavDestinationCustomTitle {
    * Sets the custom title builder.
    * @since 9
    */
-  builder: string;
+  builder: CustomBuilder;
 
   /**
    * Sets the custom title height.
@@ -55,7 +55,7 @@ declare interface NavDestinationCustomTitle {
  */
 declare interface NavDestinationInterface {
   /**
-   * constructor.
+   * Constructor.
    * @since 9
    */
   (): NavDestinationAttribute;

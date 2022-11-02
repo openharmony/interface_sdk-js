@@ -19,7 +19,7 @@
  */
 declare interface NavRouterInterface {
   /**
-   * constructor.
+   * Constructor.
    * @since 9
    */
   (): NavRouterAttribute;

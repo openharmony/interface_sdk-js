@@ -26,7 +26,7 @@ export interface DeviceSettingsManager {
   /**
    * Sets the system time.
    * This function can be called by a super administrator.
-   * @permission ohos.permission.EDM_MANAGE_DATETIME
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } time - time indicates rhe target time stamp (ms).
    * @returns { Promise<void> } the promise returned by the setDateTime.

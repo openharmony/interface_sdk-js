@@ -100,24 +100,6 @@ declare namespace context {
     export type FormExtensionContext = _FormExtensionContext.default
 
     /**
-     * File area mode
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     */
-    export enum AreaMode {
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL1 = 0,
-        /**
-         * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         */
-        EL2 = 1
-    }
-
-    /**
      * The event center of a context, support the subscription and publication of events.
      *
      * @since 9
