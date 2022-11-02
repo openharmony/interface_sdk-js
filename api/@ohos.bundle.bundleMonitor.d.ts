@@ -62,7 +62,6 @@ declare namespace bundleMonitor {
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
    * @throws {BusinessError} 201 - Verify permission denied.
    * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -76,7 +75,6 @@ declare namespace bundleMonitor {
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
    * @throws {BusinessError} 201 - Verify permission denied.
    * @throws {BusinessError} 401 - The parameter check failed.
-   * @throws {BusinessError} 801 - Capability not support.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
