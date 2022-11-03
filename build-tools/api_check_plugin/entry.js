@@ -21,7 +21,7 @@ function checkEntry(url) {
   let result = "";
   const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
-  const mdFilesPath = path.resolve(sourceDirname, '../../../../', "readme_file.txt");
+  const mdFilesPath = path.resolve(sourceDirname, '../../../../', "all_files.txt");
   const content = fs.readFileSync(mdFilesPath, "utf-8");
   try {
     const execSync = require("child_process").execSync;
