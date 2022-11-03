@@ -34,7 +34,7 @@ function checkAPICodeStyle(url) {
 
 function getMdFiles(url) {
   const content = fs.readFileSync(url, "utf-8");
-  const mdFiles = content.split("\r\n");
+  const mdFiles = content.split(/[(\r\n)\r\n]+/);
   return mdFiles;
 }
 
