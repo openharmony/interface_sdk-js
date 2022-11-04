@@ -208,11 +208,11 @@ declare namespace wantConstant {
     PARAMS_STREAM = "ability.params.stream",
 
     /**
-     * Indicates the action of providing auth service.
+     * Indicates the action of providing the application account auth service.
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    ACTION_APP_ACCOUNT_AUTH = "account.appAccount.action.auth",
+    ACTION_APP_ACCOUNT_AUTH = "ohos.appAccount.action.auth",
 
     /**
      * Indicates the action of an application downloaded from the application market.
