@@ -484,7 +484,6 @@ export default class UIAbilityContext extends Context {
      *                                                                     request result.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
@@ -497,7 +496,6 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<PermissionRequestResult> } Returns the permission request result.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
@@ -508,7 +506,6 @@ export default class UIAbilityContext extends Context {
      * @param { LocalStorage } localStorage - the storage data used to restore window stage
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
@@ -518,7 +515,6 @@ export default class UIAbilityContext extends Context {
      * Check to see ability is in terminating state.
      * @returns { boolean } Returns true when ability is in terminating state, else returns false.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @stagemodelonly
      * @since 9
      */
