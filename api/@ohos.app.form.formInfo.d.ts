@@ -269,18 +269,6 @@ declare namespace formInfo {
          * Indicates the key specifying the ID of the form to be obtained, which is represented as
          * want: {
          *   "parameters": {
-         *       IDENTITY_KEY: 1L
-         *    }
-         * }.
-         *
-         * @syscap SystemCapability.Ability.Form
-         * @systemapi
-         * @since 9
-         */
-        /**
-         * Indicates the key specifying the ID of the form to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
          *       IDENTITY_KEY: "119476135"
          *    }
          * }.
