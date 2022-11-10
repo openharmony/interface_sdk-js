@@ -73,7 +73,7 @@
       */
     readonly icon: string;
      /**
-      * @default Indicate s the icon id of the shortcut
+      * @default Indicates the icon id of the shortcut
       * @since 8
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
