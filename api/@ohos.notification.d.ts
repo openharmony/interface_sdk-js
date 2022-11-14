@@ -1135,7 +1135,7 @@ declare namespace notification {
    * Describes a NotificationFlags instance.
    *
    * @since 9
-   * @permission N/A
+   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Notification.Notification
    * @deprecated since 9
    * @useinstead ohos.notificationManager.NotificationFlags
