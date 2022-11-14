@@ -37,14 +37,14 @@ declare namespace bundleMonitor {
      * @systemapi
      * @since 9
      */
-    bundleName: string;
+     readonly bundleName: string;
     /**
      * The user id
      * @type {number}
      * @systemapi
      * @since 9
      */
-    userId: number;
+     readonly userId: number;
   }
 
   /**
