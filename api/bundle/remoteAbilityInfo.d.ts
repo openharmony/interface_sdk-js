@@ -22,6 +22,8 @@ import { ElementName }  from './elementName';
  * @systemapi
  *
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.bundle.distributedBundle.RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
     /**

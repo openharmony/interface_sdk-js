@@ -21,6 +21,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.EnvironmentCallback
  */
 export default class EnvironmentCallback {
     /**

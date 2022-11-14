@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import workScheduler from "./@ohos.workScheduler";
+import workScheduler from "./@ohos.resourceschedule.workScheduler";
 
 /**
  * Class of the work scheduler extension ability.

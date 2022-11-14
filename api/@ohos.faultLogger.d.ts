@@ -15,125 +15,159 @@
 
 import { AsyncCallback } from "./basic";
 
-
 /**
  * This module provides the capability to query faultlog data.
- *
- * @since 8
+ * @namespace FaultLogger
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
- * @import import sensor from '@ohos.faultlogger'
+ * @since 8
  */
-
 declare namespace FaultLogger {
   /**
    * The type of fault type.
-   * @since 8
+   * @enum { number }
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @since 8
    */
   enum FaultType {
     /**
      * NO_SPECIFIC log type not distinguished.
-     * @since 8
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     NO_SPECIFIC = 0,
     /**
-     * CPP_CRASH CPP crash log type
-     * @since 8
+     * CPP_CRASH CPP crash log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     CPP_CRASH = 2,
     /**
-     * JS_CRASH JS crash log type
-     * @since 8
+     * JS_CRASH JS crash log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     JS_CRASH = 3,
     /**
-     * APP_FREEZE app feeeze log type
-     * @since 8
+     * APP_FREEZE app feeeze log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     APP_FREEZE = 4,
   }
 
   /**
-   * Query the result of the current application FaultLog in callback Mode
-   * @since 8
+   * Query the result of the current application FaultLog in callback Mode.
+   * @param faultType Fault type to query
+   * @param callback Faultlog information data callback function
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
-   * @param faultType fault type to query
-   * @param callback faultlog information data callback function
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.faultlogger/FaultLogger#query
    */
   function querySelfFaultLog(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>) : void;
 
   /**
    * Query the result of the current application FaultLog in return promise mode.
-   * @since 8
+   * @param faultType Fault type to query
+   * @returns return faultlog information data by promise
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
-   * @param faultType fault type to query
-   * @return return faultlog information data by promise
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.faultlogger/FaultLogger#query
    */
   function querySelfFaultLog(faultType: FaultType) : Promise<Array<FaultLogInfo>>;
 
   /**
-   * FaultLog information data structure
-   * @since 8
+   * Query the result of the current application FaultLog in callback Mode.
+   * @param faultType Fault type to query
+   * @param callback Faultlog information data callback function
+   * @throws { BusinessError } 401 - the parameter check failed
+   * @throws { BusinessError } 801 - the specified SystemCapability name was not found
+   * @throws { BusinessError } 10600001 - the service is not running or broken
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @since 9
+   */
+  function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>) : void;
+
+  /**
+   * Query the result of the current application FaultLog in return promise mode.
+   * @param faultType Fault type to query
+   * @returns return faultlog information data by promise
+   * @throws { BusinessError } 401 - the parameter check failed
+   * @throws { BusinessError } 801 - the specified SystemCapability name was not found
+   * @throws { BusinessError } 10600001 - the service is not running or broken
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @since 9
+   */
+  function query(faultType: FaultType) : Promise<Array<FaultLogInfo>>;
+
+  /**
+   * FaultLog information data structure.
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @since 8
    */
   interface FaultLogInfo {
     /**
-     * pid Process id
-     * @since 8
+     * Process id.
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     pid: number;
 
     /**
-     * uid user id
-     * @since 8
+     * User id.
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     uid: number;
 
     /**
-     * type fault type
-     * @since 8
+     * Fault type.
+     * @type { FaultType }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     type: FaultType;
 
     /**
-     * second level timestamp
-     * @since 8
+     * Second level timestamp.
+     * @type { number }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     timestamp: number;
 
     /**
-     * reason fault reason
-     * @since 8
+     * Fault reason.
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     reason: string;
 
     /**
-     * module fault module
-     * @since 8
+     * Fault module.
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     module: string;
 
     /**
-     * summary fault summary
-     * @since 8
+     * Fault summary.
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     summary: string;
 
     /**
-     * fullLog fault log
-     * @since 8
+     * Fault log.
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+     * @since 8
      */
     fullLog: string;
   }

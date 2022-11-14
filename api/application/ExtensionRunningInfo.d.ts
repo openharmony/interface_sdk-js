@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ElementName } from '../bundle/elementName';
-import bundle from '../@ohos.bundle';
+import { ElementName } from '../bundleManager/elementName';
+import bundle from '../@ohos.bundle.bundleManager';
 
 /**
  * The class of an extension running information.
@@ -74,7 +74,7 @@ export interface ExtensionRunningInfo {
     clientPackage: Array<String>;
 
     /**
-    * @default Enumerates types of the entension info
+    * @default Enumerates types of the extension info
     * @since 9
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @systemapi hide this for inner system use

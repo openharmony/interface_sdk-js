@@ -17,6 +17,8 @@
 /**
  * Declare item ceiling attribute.
  * @since 7
+ * @deprecated since 9
+ * @useinstead list/StickyStyle
  */
 declare enum Sticky {
   /**
@@ -128,6 +130,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when setting whether item is ceiling effect.
    * @since 7
+   * @deprecated since 9
+   * @useinstead list/List#sticky
    */
   sticky(value: Sticky): ListItemAttribute;
 

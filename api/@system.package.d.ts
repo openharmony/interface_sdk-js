@@ -16,6 +16,7 @@
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
+ * @deprecated since 9
  */
 export interface CheckPackageHasInstalledResponse {
     /**
@@ -29,6 +30,7 @@ export interface CheckPackageHasInstalledResponse {
 /**
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
+ * @deprecated since 9
  */
 export interface CheckPackageHasInstalledOptions {
     /**
@@ -64,12 +66,14 @@ export interface CheckPackageHasInstalledOptions {
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3
  * @import package from '@system.package';
+ * @deprecated since 9
  */
 export default class Package {
     /**
      * Checks whethers an application exists, or whether a native application has been installed.
      * @param options Options
      * @syscap SystemCapability.BundleManager.BundleFramework
+     * @deprecated since 9
      */
     static hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }

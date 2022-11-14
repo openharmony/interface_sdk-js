@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 declare class Queue<T> {
   /**
    * A constructor used to create a Queue object.
+   * @throws { BusinessError } 10200012 - The Queue's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -30,6 +32,7 @@ declare class Queue<T> {
    * so immediately without violating capacity restrictions.
    * @param element to be appended to this queue
    * @return the boolean type
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -37,7 +40,7 @@ declare class Queue<T> {
   /**
    * Obtains the header element of a queue.
    * @return the T type
-   * @throws an exception if the queue is empty
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -45,7 +48,7 @@ declare class Queue<T> {
   /**
    * Retrieves and removes the head of this queue
    * @return the T type
-   * @throws an exception if the queue is empty
+   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -59,6 +62,8 @@ declare class Queue<T> {
    * @param Queue (Optional) The queue object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -66,6 +71,7 @@ declare class Queue<T> {
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

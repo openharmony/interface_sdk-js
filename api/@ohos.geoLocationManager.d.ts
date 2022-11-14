@@ -15,10 +15,11 @@
 import { AsyncCallback, Callback } from './basic';
 import { WantAgent } from './@ohos.wantAgent';
 
+顺序：namespace，syscap，systemapi，since，deprecated，useinstead，example
 /**
  * Provides interfaces for acquiring location information, managing location switches, 
  * geocoding, reverse geocoding, country code, geofencing and other functions.
- *
+ *@namespace geoLocationManager
  * @since 9
  * @import import geoLocationManager from '@ohos.geoLocationManager'
  */
@@ -28,7 +29,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param request indicates the location request parameters.
      * @param callback indicates the callback for reporting the location result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -45,7 +46,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the location result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -66,7 +67,7 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
-    function on(type: 'locationServiceStatusChange', callback: Callback<boolean>): void;
+    function on(type: 'locationEnabledChange', callback: Callback<boolean>): void;
 
     /**
      * Unsubscribe location switch changed
@@ -78,14 +79,14 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
-    function off(type: 'locationServiceStatusChange', callback?: Callback<boolean>): void;
+    function off(type: 'locationEnabledChange', callback?: Callback<boolean>): void;
 
     /**
      * Subscribe to cache GNSS locations update messages
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param request indicates the cached GNSS locations request parameters.
      * @param callback indicates the callback for reporting the cached GNSS locations.
      * @throws { BusinessError } 201 - Permission denied.
@@ -102,7 +103,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the cached gnss locations.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -118,7 +119,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the satellite status.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -133,7 +134,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the satellite status.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -148,7 +149,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the nmea message.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -163,7 +164,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the nmea message.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -178,7 +179,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Geofence
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param request indicates the Geo-fence configuration parameters.
      * @param want indicates which ability to start when the geofence event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -188,14 +189,14 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 3301100 - The location switch is off.
      * @throws { BusinessError } 3301600 - Failed to operate the geofence.
      */
-    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+    function on(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * Remove a geofence and unsubscribe geo fence status changed
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Geofence
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param request indicates the Geo-fence configuration parameters.
      * @param want indicates which ability to start when the geofence event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
@@ -205,7 +206,7 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 3301100 - The location switch is off.
      * @throws { BusinessError } 3301600 - Failed to operate the geofence.
      */
-    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
+    function off(type: 'gnssFenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * Registering the callback function for listening to country code changes.
@@ -240,7 +241,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param request indicates the location request parameters.
      * @param callback indicates the callback for reporting the location result.
      * @throws { BusinessError } 201 - Permission denied.
@@ -259,10 +260,9 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
-     * @return Return the last known {@link Location} information.
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @returns Return the last known {@link Location} information.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      * @throws { BusinessError } 3301100 - The location switch is off.
@@ -275,8 +275,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @return Returns {@code true} if the location switch on, returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @returns Returns {@code true} if the location switch on, returns {@code false} otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
@@ -287,8 +286,10 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
-     * @param callback indicates the callback for reporting the error message. 
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
+     * @param { AsyncCallback<boolean> } callback - callback indicates the callback for reporting the error message. //以这个为模板
+	      * @param { AsyncCallback<boolean> } [callback] - callback indicates the callback for reporting the error message. //以这个为模板，如果是可选参数，需要加[]
+
      * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback, 
      * If the function executes successfully, returns {@code true} if user agrees to open the location switch, returns {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
@@ -298,7 +299,8 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 3301700 - No response to the request.
      */
     function requestEnableLocation(callback: AsyncCallback<boolean>): void;
-    function requestEnableLocation(): Promise<boolean>;
+	* @returns { Promise<void> } the promise returned by the function *//promise方式需要增加returns标志。
+    function requestEnableLocation(): Promise<boolean>;//callback和promise需要两段描述
 
     /**
      * Enable location switch
@@ -307,14 +309,15 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @return void.
+     * @param callback Indicates the callback for reporting the error message.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
-    function enableLocation(): void;
+    function enableLocation(callback: AsyncCallback<void>): void;
+    function enableLocation(): Promise<void>;
 
     /**
      * Disable location switch
@@ -323,10 +326,9 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
@@ -363,23 +365,22 @@ declare namespace geoLocationManager {
     function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
-     * Obtain geocode service status
+     * Obtain geocoding service status
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Geocoder
-     * @return Returns {@code true} if geocode service is available, returns {@code false} otherwise.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @returns Returns {@code true} if geocoding service is available, returns {@code false} otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
-    function isGeocodeServiceAvailable(): boolean;
+    function isGeocoderAvailable(): boolean;
 
     /**
      * Obtain the number of cached GNSS locations reported at a time
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the cached GNSS locations size.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
@@ -396,7 +397,7 @@ declare namespace geoLocationManager {
      *
      * @since 9
      * @syscap SystemCapability.Location.Location.Gnss
-     * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION or ohos.permission.APPROXIMATELY_LOCATION
+     * @permission ohos.permission.APPROXIMATELY_LOCATION
      * @param callback indicates the callback for reporting the error message.
      * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback, 
      * If the function executes successfully, execute the callback function only, no data will be returned.
@@ -446,9 +447,8 @@ declare namespace geoLocationManager {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      * @throws { BusinessError } 3301100 - The location switch is off.
@@ -461,9 +461,8 @@ declare namespace geoLocationManager {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      * @throws { BusinessError } 3301100 - The location switch is off.
@@ -478,7 +477,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @param config indicates the configuration parameters for location simulation.
      * Contains the array of locations and reporting intervals that need to be simulated.
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
@@ -492,9 +491,8 @@ declare namespace geoLocationManager {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
@@ -506,9 +504,8 @@ declare namespace geoLocationManager {
      * @since 9
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
-     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
      */
@@ -521,7 +518,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @systemapi
      * @param mockInfos indicates the set of locations and place names to be simulated.
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -536,7 +533,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @syscap SystemCapability.Location.Location.Core
      * @param type indicates location privacy protocol type.
-     * @return Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false} otherwise.
+     * @returns Returns {@code true} if the location privacy protocol has been confirmed, returns {@code false} otherwise.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -553,7 +550,7 @@ declare namespace geoLocationManager {
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param type indicates location privacy protocol type.
      * @param isConfirmed indicates whether the location privacy protocol has been confirmed.
-     * @return void.
+     * @returns void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - System API is not allowed called by third HAP.
      * @throws { BusinessError } 401 - Parameter error.
@@ -665,18 +662,29 @@ declare namespace geoLocationManager {
         maxLatitude?: number;
         maxLongitude?: number;
     }
+替换接口：
+@useinstead ohos.一级模块[.二级]/命名空间[.类名][.interface名称]#接口名
+替换模快：
+@useinstead ohos.一级模块[.二级]/命名空间[.类名][.interface名称]
+替换事件：
+@useinstead ohos.一级模块[.二级]/命名空间[.类名][.interface名称]#event:事件名
 
+	自定义类型的顺序：description，typedef，syscap，systemapi，since，deprecated，useinstead，example。
+	类型中的每个字段都需要增加描述。
     /**
      * Data struct describes geographic locations.
      *
-     * @since 9
+	 @typedef GeoAddress//按照这个模板修改
+
      * @syscap SystemCapability.Location.Location.Geocoder
+	      * @since 9
      */
     export interface GeoAddress {
         /**
          * Indicates latitude information.
          * A positive value indicates north latitude,
          * and a negative value indicates south latitude.
+		 * @type { number }//属性需要加type，并且属性是否需要定义成class，而不是interface。如果是可选的改为@type { ?number }
          * @since 9
          */
         latitude?: number;
@@ -970,7 +978,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      */
     export enum CountryCodeType {
-        COUNTRY_CODE_FROM_LOCALE = 1,
+        COUNTRY_CODE_FROM_LOCALE = 1,//每一项都需要有注释
         COUNTRY_CODE_FROM_SIM,
         COUNTRY_CODE_FROM_LOCATION,
         COUNTRY_CODE_FROM_NETWORK,

@@ -20,7 +20,7 @@ import {AsyncCallback, Callback} from './basic';
  * Provides a set of encryption and decryption algorithm library framework, shields the underlying differences,
  * encapsulates the relevant algorithm library, and provides a unified functional interface upward.
  *
- * @sysCap SystemCapability.Security.CryptoFramework.
+ * @syscap SystemCapability.Security.CryptoFramework
  * @import import cryptoFramework from '@ohos.security.cryptoFramework'
  * @since 9
  */
@@ -45,10 +45,10 @@ declare namespace cryptoFramework {
          */
         ERR_OUT_OF_MEMORY = 17620001,
 
-        /** Indicates that internal error.
+        /** Indicates that runtime error.
          * @since 9
          */
-        ERR_INTERNAL_ERROR = 17620002,
+        ERR_RUNTIME_ERROR = 17620002,
 
         /** Indicates that crypto operation has something wrong.
          * @since 9
@@ -127,7 +127,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         algoName : string;
@@ -137,7 +137,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm parameters such as iv.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         iv : DataBlob;
@@ -147,7 +147,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the GCM algorithm parameters such as iv.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         iv : DataBlob;
@@ -155,7 +155,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the GCM additional message for integrity check.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         aad : DataBlob;
@@ -163,7 +163,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the GCM Authenticated Data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         authTag : DataBlob;
@@ -173,7 +173,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the GCM algorithm parameters such as iv.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         iv : DataBlob;
@@ -181,7 +181,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the CCM additional message for integrity check.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         aad : DataBlob;
@@ -189,7 +189,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the CCM Authenticated Data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         authTag : DataBlob;
@@ -216,7 +216,7 @@ declare namespace cryptoFramework {
     /**
      * The common parents class of key.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -224,7 +224,7 @@ declare namespace cryptoFramework {
         /**
          * Encode key Object to bin.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -233,7 +233,7 @@ declare namespace cryptoFramework {
         /**
          * Key format.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -242,7 +242,7 @@ declare namespace cryptoFramework {
         /**
          * Key algorithm name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -256,7 +256,7 @@ declare namespace cryptoFramework {
     /**
      * The private key class of asy-key.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -265,7 +265,7 @@ declare namespace cryptoFramework {
         /**
          * The function used to clear private key mem.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -275,7 +275,7 @@ declare namespace cryptoFramework {
     /**
      * The public key class of asy-key.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -284,7 +284,7 @@ declare namespace cryptoFramework {
     /**
      * The keyPair class of asy-key. Include privateKey and publickey.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -293,7 +293,7 @@ declare namespace cryptoFramework {
         /**
          * Public key.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -302,7 +302,7 @@ declare namespace cryptoFramework {
         /**
          * Private key.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -314,7 +314,7 @@ declare namespace cryptoFramework {
         /**
          * Generate radom DataBlob by given length
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param len Indicates the length of random DataBlob
          */
@@ -324,7 +324,7 @@ declare namespace cryptoFramework {
         /**
          * set seed by given DataBlob
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param seed Indicates the seed DataBlob
          */
@@ -335,7 +335,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the rand create func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @return Returns the rand create instance.
@@ -345,7 +345,7 @@ declare namespace cryptoFramework {
     /**
      * The generator used to generate asy_key.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -354,7 +354,7 @@ declare namespace cryptoFramework {
         /**
          * Generate keyPair by init params.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return The generated keyPair.
@@ -365,7 +365,7 @@ declare namespace cryptoFramework {
         /**
          * Convert keyPair object from privateKey and publicKey binary data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param pubKey The binary data of public key.
@@ -378,7 +378,7 @@ declare namespace cryptoFramework {
         /**
          * The algorothm name of generator.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          */
@@ -396,7 +396,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the asy key generator instance func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName This algName contains params of generateKeyPair, like bits, primes or ECC_curve;
@@ -407,7 +407,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the sym key generator instance func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName Indicates the algorithm name.
@@ -419,7 +419,7 @@ declare namespace cryptoFramework {
          /**
          * Init hmac with given SymKey
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param key Indicates the SymKey
          */
@@ -429,7 +429,7 @@ declare namespace cryptoFramework {
         /**
          * Update hmac with DataBlob
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param input Indicates the DataBlob
          */
@@ -439,7 +439,7 @@ declare namespace cryptoFramework {
         /**
          * Output the result of hmac calculation
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         doFinal(callback : AsyncCallback<DataBlob>) : void;
@@ -448,7 +448,7 @@ declare namespace cryptoFramework {
         /**
          * Output the length of hmac result
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         getMacLength() : number;
@@ -456,7 +456,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm name
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         readonly algName : string;
@@ -465,7 +465,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the mac create func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName Indicates the mac algorithm name.
@@ -477,7 +477,7 @@ declare namespace cryptoFramework {
         /**
          * Update md with DataBlob
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param input Indicates the DataBlob
          */
@@ -487,7 +487,7 @@ declare namespace cryptoFramework {
         /**
          * Output the result of md calculation
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         digest(callback : AsyncCallback<DataBlob>) : void;
@@ -496,7 +496,7 @@ declare namespace cryptoFramework {
         /**
          * Output the length of md result
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         getMdLength() : number;
@@ -504,7 +504,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm name
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         readonly algName : string;
@@ -513,7 +513,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the md create func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algorithm Indicates the md algorithm.
@@ -525,7 +525,7 @@ declare namespace cryptoFramework {
         /**
          * Init cipher with given cipher mode, key and params.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param opMode Indicates the cipher mode.
          * @param key Indicates the SymKey or AsyKey.
@@ -537,7 +537,7 @@ declare namespace cryptoFramework {
         /**
          * Update cipher with DataBlob.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          * @param input Indicates the DataBlob
          */
@@ -547,7 +547,7 @@ declare namespace cryptoFramework {
         /**
          * Output the result of cipher calculation.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         doFinal(data : DataBlob, callback : AsyncCallback<DataBlob>) : void;
@@ -556,7 +556,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         readonly algName : string;
@@ -565,7 +565,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the cipher create func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param transformation Indicates the transform type, and contains init params of cipher.
@@ -576,7 +576,7 @@ declare namespace cryptoFramework {
     /**
      * The sign class
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -584,7 +584,7 @@ declare namespace cryptoFramework {
         /**
          * This init function used to Initialize environment, must be invoked before update and sign.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param priKey The prikey object.
@@ -595,7 +595,7 @@ declare namespace cryptoFramework {
         /**
          * This function used to update data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param data The data need to update.
@@ -606,7 +606,7 @@ declare namespace cryptoFramework {
         /**
          * This function used to sign all data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param data The data need to update.
@@ -620,7 +620,7 @@ declare namespace cryptoFramework {
     /**
      * The verify class
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      */
@@ -628,7 +628,7 @@ declare namespace cryptoFramework {
         /**
          * This init function used to Initialize environment, must be invoked before update and verify.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param priKey The prikey object.
@@ -639,7 +639,7 @@ declare namespace cryptoFramework {
         /**
          * This function used to update data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param data The data need to update.
@@ -650,7 +650,7 @@ declare namespace cryptoFramework {
         /**
          * This function used to sign all data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param data The data need to update.
@@ -665,7 +665,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the sign func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName Indicates the sign algorithm name, include init detail params.
@@ -675,7 +675,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the verify func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName Indicates the verify algorithm name, include init detail params.
@@ -686,7 +686,7 @@ declare namespace cryptoFramework {
         /**
          * Generate secret by init params.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return The generated secret.
@@ -697,7 +697,7 @@ declare namespace cryptoFramework {
         /**
          * Indicates the algorithm name
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
         readonly algName : string;
@@ -706,7 +706,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the key agree func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algName Indicates the key agreement algorithm name.
@@ -717,7 +717,7 @@ declare namespace cryptoFramework {
         /**
          * Verify the X509 cert.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param key Indicates the cert chain validator data.
@@ -728,7 +728,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert encoded data.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert encoded data.
@@ -739,7 +739,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert public key.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert pubKey.
@@ -750,7 +750,7 @@ declare namespace cryptoFramework {
         /**
          * Check the X509 cert validity with date.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param date Indicates the cert date.
@@ -761,7 +761,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert version.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert version.
@@ -771,7 +771,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert serial number.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert serial number.
@@ -781,7 +781,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert issuer name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert issuer name.
@@ -791,7 +791,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert subject name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert subject name.
@@ -801,7 +801,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert not before time.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert not before time.
@@ -811,7 +811,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert not after time.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert not after time.
@@ -821,7 +821,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert signature.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert signature.
@@ -831,7 +831,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert signature's algorithm name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert signature's algorithm name.
@@ -841,7 +841,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert signature's algorithm oid.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert signature's algorithm oid.
@@ -851,7 +851,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert signature's algorithm name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert signature's algorithm name.
@@ -861,7 +861,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert key usage.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert key usage.
@@ -871,7 +871,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert extended key usage.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert extended key usage.
@@ -881,7 +881,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert basic constraints path len.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert basic constraints path len.
@@ -891,7 +891,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert subject alternative name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert subject alternative name.
@@ -901,7 +901,7 @@ declare namespace cryptoFramework {
         /**
          * Get X509 cert issuer alternative name.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns X509 cert issuer alternative name.
@@ -912,7 +912,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the x509 cert func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param inStream Indicates the input cert data.
@@ -930,7 +930,7 @@ declare namespace cryptoFramework {
         /**
          * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns EncodingBlob of crl entry.
@@ -941,7 +941,7 @@ declare namespace cryptoFramework {
         /**
          * Get the serial number from this x509crl entry.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns serial number of crl entry.
@@ -951,7 +951,7 @@ declare namespace cryptoFramework {
         /**
          * Get the issuer of the x509 certificate described by this entry.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns DataBlob of issuer.
@@ -962,7 +962,7 @@ declare namespace cryptoFramework {
         /**
          * Get the revocation date from x509crl entry.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns string of revocation date.
@@ -980,7 +980,7 @@ declare namespace cryptoFramework {
         /**
          * Check if the given certificate is on this CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param X509Cert Input cert data.
@@ -992,7 +992,7 @@ declare namespace cryptoFramework {
         /**
          * Returns the type of this CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns string of crl type.
@@ -1002,7 +1002,7 @@ declare namespace cryptoFramework {
         /**
          * Get the der coding format.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns EncodingBlob of crl.
@@ -1013,7 +1013,7 @@ declare namespace cryptoFramework {
         /**
          * Use the public key to verify the signature of CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param PubKey Input public Key.
@@ -1025,7 +1025,7 @@ declare namespace cryptoFramework {
         /**
          * Get version number from CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns version of crl.
@@ -1035,7 +1035,7 @@ declare namespace cryptoFramework {
         /**
          * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns issuer name of crl.
@@ -1045,7 +1045,7 @@ declare namespace cryptoFramework {
         /**
          * Get lastUpdate value from CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns last update of crl.
@@ -1055,7 +1055,7 @@ declare namespace cryptoFramework {
         /**
          * Get nextUpdate value from CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns next update of crl.
@@ -1065,7 +1065,7 @@ declare namespace cryptoFramework {
         /**
          * This method can be used to find CRL entries in indirect CRLs.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param serialNumber serial number of crl.
@@ -1077,7 +1077,7 @@ declare namespace cryptoFramework {
         /**
          * This method can be used to find CRL entries in indirect cert.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param X509Cert Cert of x509.
@@ -1089,7 +1089,7 @@ declare namespace cryptoFramework {
         /**
          * Get all entries in this CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns Array of X509CrlEntry instance.
@@ -1100,7 +1100,7 @@ declare namespace cryptoFramework {
         /**
          * Get the CRL information encoded by Der from this CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns DataBlob of tbs info.
@@ -1111,7 +1111,7 @@ declare namespace cryptoFramework {
         /**
          * Get signature value from CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns DataBlob of signature.
@@ -1121,7 +1121,7 @@ declare namespace cryptoFramework {
         /**
          * Get the signature algorithm name of the CRL signature algorithm.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns string of signature algorithm name.
@@ -1131,7 +1131,7 @@ declare namespace cryptoFramework {
         /**
          * Get the signature algorithm oid string from CRL.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns string of signature algorithm oid.
@@ -1141,7 +1141,7 @@ declare namespace cryptoFramework {
         /**
          * Get the der encoded signature algorithm parameters from the CRL signature algorithm.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @return Returns DataBlob of signature algorithm params.
@@ -1152,7 +1152,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the x509 CRL func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param inStream Indicates the input CRL data.
@@ -1170,7 +1170,7 @@ declare namespace cryptoFramework {
         /**
          * Validate the cert chain.
          *
-         * @sysCap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @import import cryptoFramework from '@ohos.security.cryptoFramework'
          * @since 9
          * @param certChain Indicates the cert chain validator data.
@@ -1183,7 +1183,7 @@ declare namespace cryptoFramework {
     /**
      * Provides the cert chain validator func.
      *
-     * @sysCap SystemCapability.Security.CryptoFramework.
+     * @syscap SystemCapability.Security.CryptoFramework
      * @import import cryptoFramework from '@ohos.security.cryptoFramework'
      * @since 9
      * @param algorithm Indicates the cert chain validator type.

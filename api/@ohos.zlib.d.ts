@@ -22,6 +22,7 @@ declare namespace zlib {
  * @syscap SystemCapability.BundleManager.Zlib
  * @import NA
  * @permission NA
+ * @deprecated since 9
  */
   export enum ErrorCode {
     ERROR_CODE_OK = 0,
@@ -91,6 +92,8 @@ declare namespace zlib {
    * @param inFile Indicates the path of the file to be compressed.
    * @param outFile Indicates the path of the output compressed file.
    * @return Returns error code.
+   * @deprecated since 9
+   * @useinstead ohos.zlib#compressFile
    */
   function zipFile(inFile:string, outFile:string, options: Options): Promise<void>;
 
@@ -102,7 +105,66 @@ declare namespace zlib {
    * @param inFile Indicates the path of the file to be decompressed.
    * @param outFile Indicates the path of the decompressed file.
    * @return Returns error code.
+   * @deprecated since 9
+   * @useinstead ohos.zlib#decompressFile
    */
   function unzipFile(inFile:string, outFile:string, options: Options): Promise<void>;
+
+  /**
+   * Compress the specified file.
+   * @param {string} inFile Indicates the path of the file to be compressed.
+   * @param {string} outFile Indicates the path of the output compressed file.
+   * @param {Options} options Indicates the options of compressing file.
+   * @param {AsyncCallback<void>} callback - The callback of compressing file result.
+   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws {BusinessError} 900001 - The input source file is invalid.
+   * @throws {BusinessError} 900002 - The input destination file is invalid.
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @since 9
+   */
+   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
+
+    /**
+   * Compress the specified file.
+   * @param {string} inFile Indicates the path of the file to be compressed.
+   * @param {string} outFile Indicates the path of the output compressed file.
+   * @param {Options} options Indicates the options of compressing file.
+   * @returns {Promise<void>} Returns the result of compressFile file.
+   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws {BusinessError} 900001 - The input source file is invalid.
+   * @throws {BusinessError} 900002 - The input destination file is invalid.
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @since 9
+   */
+  function compressFile(inFile:string, outFile:string, options: Options): Promise<void>;
+
+  /**
+   * Decompress the specified file.
+   * @param {string} inFile Indicates the path of the file to be decompressed.
+   * @param {string} outFile Indicates the path of the output decompressed file.
+   * @param {Options} options Indicates the options of decompressing file.
+   * @param {AsyncCallback<void>} callback - The callback of decompressing file result.
+   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws {BusinessError} 900001 - The input source file is invalid.
+   * @throws {BusinessError} 900002 - The input destination file is invalid.
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @since 9
+   */
+   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
+
+  /**
+   * Decompress the specified file.
+   * @param {string} inFile Indicates the path of the file to be decompressed.
+   * @param {string} outFile Indicates the path of the output decompressing file.
+   * @param {Options} options Indicates the options of decompressing file.
+   * @returns {Promise<void>} Returns the result of decompressing file.
+   * @throws {BusinessError} 401 - The parameter check failed.
+   * @throws {BusinessError} 900001 - The input source file is invalid.
+   * @throws {BusinessError} 900002 - The input destination file is invalid.
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @since 9
+   */
+  function decompressFile(inFile: string, outFile: string, options: Options): Promise<void>;
+
 }
 export default zlib;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 declare class Deque<T> {
   /**
    * A constructor used to create a Deque object.
+   * @throws { BusinessError } 10200012 - The Deque's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -28,6 +30,7 @@ declare class Deque<T> {
   /**
    * Inserts an element into the deque header.
    * @param element to be appended to this deque
+   * @throws { BusinessError } 10200011 - The insertFront method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -35,6 +38,7 @@ declare class Deque<T> {
   /**
    * Inserting an element at the end of a deque
    * @param element to be appended to this deque
+   * @throws { BusinessError } 10200011 - The insertEnd method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -43,6 +47,7 @@ declare class Deque<T> {
    * Check if deque contains the specified element
    * @param element element to be contained
    * @return the boolean type,if deque contains the specified element,return true,else return false
+   * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -50,6 +55,7 @@ declare class Deque<T> {
   /**
    * Obtains the header element of a deque.
    * @return the T type
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -57,7 +63,7 @@ declare class Deque<T> {
   /**
    * Obtains the end element of a deque.
    * @return the T type
-   * @throws an exception if the queue is empty
+   * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -65,7 +71,7 @@ declare class Deque<T> {
   /**
    * Obtains the header element of a deque and delete the element.
    * @return the T type
-   * @throws an exception if the deque is empty
+   * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,7 +79,7 @@ declare class Deque<T> {
   /**
    * Obtains the end element of a deque and delete the element.
    * @return the T type
-   * @throws an exception if the deque is empty
+   * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -86,6 +92,8 @@ declare class Deque<T> {
    * @param deque (Optional) The deque object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -93,6 +101,7 @@ declare class Deque<T> {
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

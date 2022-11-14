@@ -20,6 +20,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.AbilityConstant
  */
 declare namespace AbilityConstant {
     /**
@@ -61,6 +63,7 @@ declare namespace AbilityConstant {
         START_ABILITY = 1,
         CALL = 2,
         CONTINUATION = 3,
+        APP_RECOVERY = 4,
     }
 
     /**
@@ -115,6 +118,34 @@ declare namespace AbilityConstant {
         WINDOW_MODE_SPLIT_PRIMARY = 100,
         WINDOW_MODE_SPLIT_SECONDARY = 101,
         WINDOW_MODE_FLOATING = 102,
+    }
+
+    /**
+     * Type of onSave result.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export enum OnSaveResult {
+        ALL_AGREE = 0,
+        CONTINUATION_REJECT = 1,
+        CONTINUATION_MISMATCH = 2,
+        RECOVERY_AGREE = 3,
+        RECOVERY_REJECT = 4,
+        ALL_REJECT,
+    }
+
+    /**
+     * Type of save state.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     */
+    export enum StateType {
+        CONTINUATION = 0,
+        APP_RECOVERY = 1,
     }
 }
 

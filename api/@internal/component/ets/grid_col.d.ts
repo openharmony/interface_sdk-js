@@ -89,7 +89,7 @@ interface GridColInterface {
      * Defines the constructor of GridContainer.
      * @since 9
      */
-    (optiion?: GridColOptions): GridColAttribute;
+    (option?: GridColOptions): GridColAttribute;
 }
 
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {

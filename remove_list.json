@@ -8,7 +8,6 @@
     "ets_component": {
         "global_remove": [
             "inspector.d.ts",
-            "matrix2d.d.ts",
             "middle_class.d.ts"
         ],
         "sdk_build_public_remove": [

@@ -55,6 +55,8 @@ declare namespace hichecker {
     * add one or more rule.
     * @param rule 
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.hichecker/hichecker#addCheckRule
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function addRule(rule: bigint) : void;
@@ -63,6 +65,8 @@ declare namespace hichecker {
     * remove one or more rule.
     * @param rule 
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.hichecker/hichecker#removeCheckRule
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function removeRule(rule: bigint) : void;
@@ -80,8 +84,38 @@ declare namespace hichecker {
     * @param rule
     * @return the result of whether the query rule is added.
     * @since 8
+    * @deprecated since 9
+    * @useinstead ohos.hichecker/hichecker#containsCheckRule
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
     function contains(rule: bigint) : boolean;
+
+    /**
+    * Add one or more rule.
+    * @param rule 
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws { BusinessError } 401 - the parameter check failed
+    */
+    function addCheckRule(rule: bigint) : void;
+
+    /**
+    * Remove one or more rule.
+    * @param rule 
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws { BusinessError } 401 - the parameter check failed
+    */
+    function removeCheckRule(rule: bigint) : void;
+
+    /**
+    * Whether the query rule is added
+    * @param rule
+    * @return the result of whether the query rule is added.
+    * @since 9
+    * @syscap SystemCapability.HiviewDFX.HiChecker
+    * @throws { BusinessError } 401 - the parameter check failed
+    */
+     function containsCheckRule(rule: bigint) : boolean;
 }
 export default hichecker;

@@ -23,40 +23,69 @@ import { Callback } from './basic';
 declare namespace screenLock {
 
   /**
-   * Checks whether the screen is currently locked.
-   *
-   * @return Returns {@code true} if the screen is currently locked; returns {@code false}
+   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isLocked
    */
   function isScreenLocked(callback: AsyncCallback<boolean>): void;
   function isScreenLocked(): Promise<boolean>;
 
   /**
-   * Checks whether the screen lock of the current device is secure.
-   *
-   * @return Returns {@code true} if the screen lock of the current device is secure; returns {@code false}
+   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
+   * @returns { boolean } the boolean returned by the function.
+   * @since 9
+   */
+  function isLocked(): boolean;
+
+  /**
+   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.isSecure
    */
   function isSecureMode(callback: AsyncCallback<boolean>): void;
   function isSecureMode(): Promise<boolean>;
+  
+  /**
+   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
+   * @returns { boolean } the boolean returned by the function.
+   * @since 9
+   */
+  function isSecure(): boolean;
 
   /**
    * Unlocks the screen.
    * return -
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.screenLock.unlock
    */
   function unlockScreen(callback: AsyncCallback<void>): void;
   function unlockScreen():Promise<void>;
+  
+  /**
+   * Unlocks the screen. Returns true if the screen unlocked successfully. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * @throws {BusinessError} 401 - parameter error.
+   * @since 9
+   */
+  function unlock(callback: AsyncCallback<boolean>): void;
+  function unlock():Promise<boolean>;
 
   /**
-   * Lock the screen.
+   * Lock the screen. Returns true if the screen locked successfully. returns false otherwise.
+   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * @throws {BusinessError} 401 - parameter error.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function lockScreen(callback: AsyncCallback<boolean>): void;
-  function lockScreen():Promise<boolean>;
+  function lock(callback: AsyncCallback<boolean>): void;
+  function lock():Promise<boolean>;
 
   type EventType = 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
 
@@ -64,26 +93,26 @@ declare namespace screenLock {
     eventType: EventType,
     params: string
   }
-  
+
   /**
-   * Register system event related to syscreen lock 
+   * Register system event related to syscreen lock. Returns true if register system event is success. returns false otherwise.
    * @params callback The callback function for indcating the system event related screen lock
-   * @return Returns {@code true} if register system event is success; returns {@code false} otherwise.
-   * @throws {BusinessError} Parameter error
+   * @returns { boolean } the boolean returned by the function.
+   * @throws {BusinessError} 401 - parameter error.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
   /**
-   * screenlockAPP send event to screenlockSA
-   *
+   * screenlockAPP send event to screenlockSA.
+   * @params parameter The params of the event.
+   * @throws {BusinessError} 401 - parameter error.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
   function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
-
 }
 
 export default screenLock;
