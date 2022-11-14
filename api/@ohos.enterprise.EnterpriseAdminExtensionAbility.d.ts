@@ -18,6 +18,7 @@
  *
  * @since 9
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi
  * @StageModelOnly
  */
 export default class EnterpriseAdminExtensionAbility {
@@ -26,15 +27,17 @@ export default class EnterpriseAdminExtensionAbility {
      *
      * @since 9
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @StageModelOnly
      */
     onAdminEnabled(): void;
-	
+
     /**
      * Called back when an application is disabled.
      *
      * @since 9
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @StageModelOnly
      */
     onAdminDisabled(): void;
