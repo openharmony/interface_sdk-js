@@ -14,27 +14,31 @@
  */
 
 import { AsyncCallback } from './basic';
+import { ContinueCallback } from './application/ContinueCallback';
+import { ContinueDeviceInfo } from './application/ContinueDeviceInfo';
 import { MissionCallback } from './application/MissionCallbacks';
 import { MissionDeviceInfo } from './application/MissionDeviceInfo';
 import { MissionParameter } from './application/MissionParameter';
 
 /**
- * This module provides the capability to manage abilities and obtaining system task information for distributed
+ * This module provides the capability to manage abilities and obtain system task information for distributed
  * scenario.
- * @name distributedMissionManager
- * @since 9
+ * @namespace distributedMissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi Hide this for inner system use.
+ * @since 9
  */
 declare namespace distributedMissionManager {
   /**
    * Start sync missions from remote device.
    *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @permission ohos.permission.MANAGE_MISSIONS
    * @param parameter Parameters corresponding to mission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function startSyncRemoteMissions(parameter: MissionParameter, callback: AsyncCallback<void>): void;
   function startSyncRemoteMissions(parameter: MissionParameter): Promise<void>;
@@ -42,10 +46,13 @@ declare namespace distributedMissionManager {
   /**
    * Stop sync missions from remote device.
    *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @permission ohos.permission.MANAGE_MISSIONS
    * @param parameter Parameters corresponding to mission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function stopSyncRemoteMissions(parameter: MissionDeviceInfo, callback: AsyncCallback<void>): void;
   function stopSyncRemoteMissions(parameter: MissionDeviceInfo): Promise<void>;
@@ -53,24 +60,54 @@ declare namespace distributedMissionManager {
   /**
    * Register the missionListener to ams.
    *
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @permission ohos.permission.MANAGE_MISSIONS
    * @param parameter Parameters corresponding to mission.
    * @param options The callbacks for regist mission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
+   * @since 9
    */
   function registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback, callback: AsyncCallback<void>): void;
   function registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback): Promise<void>;
 
   /**
-  * Unrgister the missionListener to ams.
-  *
-  * @since 9
-  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-  * @param parameter Parameters corresponding to mission.
-  * @systemapi Hide this for inner system use.
-  */
-  function unRegisterMissionListener(parameter: MissionDeviceInfo, callback:AsyncCallback<void>): void;
+   * Unregister the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param parameter Parameters corresponding to mission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function unRegisterMissionListener(parameter: MissionDeviceInfo, callback: AsyncCallback<void>): void;
   function unRegisterMissionListener(parameter: MissionDeviceInfo): Promise<void>;
+
+  /**
+   * Continue mission
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param parameter Parameters corresponding to continue mission.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16300501 - The system ability work abnormally.
+   * @throws { BusinessError } 16300502 - Failed to get the missionInfo of the specified missionId.
+   * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
+   * not supported.
+   * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
+   * supported, try again with freeInstall flag
+   * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued
+   * is located or the target device to be continued.
+   * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>): void;
+  function continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback): Promise<void>;
 }
 export default distributedMissionManager;

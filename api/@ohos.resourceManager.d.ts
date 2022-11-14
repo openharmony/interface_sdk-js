@@ -15,6 +15,7 @@
 
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
+import { AsyncCallback as _AsyncCallback } from './basic';
 
 /**
  * Provides resource related APIs.
@@ -187,8 +188,9 @@ export class DeviceCapability {
 /**
  * The ResourceManager callback.
  * @since 6
+ * @deprecated since 9
  */
-export interface AsyncCallback<T> {
+ export interface AsyncCallback<T> {
     (err: Error, data: T): void;
 }
 
@@ -242,6 +244,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getStringValue
      */
     getString(resId: number, callback: AsyncCallback<string>): void;
 
@@ -251,6 +255,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @return Returns the character string corresponding to the resource ID.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getStringValue
      */
     getString(resId: number): Promise<string>;
 
@@ -259,18 +265,26 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getString(resource: Resource, callback: AsyncCallback<string>): void;
+    getStringValue(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource object in Promise mode.
      *
      * @param resource Indicates the resource object.
      * @return Returns the character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getString(resource: Resource): Promise<string>;
+    getStringValue(resource: Resource): Promise<string>;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
@@ -278,6 +292,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getStringArrayValue
      */
     getStringArray(resId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -287,6 +303,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @return Returns the array of character strings corresponding to the specified resource ID.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getStringArrayValue
      */
     getStringArray(resId: number): Promise<Array<string>>;
 
@@ -295,18 +313,26 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArray(resource: Resource, callback: AsyncCallback<Array<string>>): void;
+    getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource object in Promise mode.
      *
      * @param resource Indicates the resource object.
      * @return Returns the array of character strings corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArray(resource: Resource): Promise<Array<string>>;
+    getStringArrayValue(resource: Resource): Promise<Array<string>>;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
@@ -314,6 +340,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @param callback Indicates the asynchronous callback used to return the obtained media file content.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMedia(resId: number, callback: AsyncCallback<Uint8Array>): void;
 
@@ -323,6 +351,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @return Returns the content of the media file corresponding to the specified resource ID.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getMediaContent
      */
     getMedia(resId: number): Promise<Uint8Array>;
 
@@ -331,18 +361,24 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMedia(resource: Resource, callback: AsyncCallback<Uint8Array>): void;
+    getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource object in Promise mode.
      *
      * @param resource Indicates the resource object.
      * @return Returns the content of the media file corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMedia(resource: Resource): Promise<Uint8Array>;
+    getMediaContent(resource: Resource): Promise<Uint8Array>;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
@@ -351,6 +387,8 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaBase64(resId: number, callback: AsyncCallback<string>): void;
 
@@ -360,6 +398,8 @@ export interface ResourceManager {
      * @param resId Indicates the resource ID.
      * @return Returns the Base64 code of the image resource corresponding to the specified resource ID.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getMediaContentBase64
      */
     getMediaBase64(resId: number): Promise<string>;
 
@@ -369,18 +409,24 @@ export interface ResourceManager {
      * @param resource Indicates the resource object.
      * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMediaBase64(resource: Resource, callback: AsyncCallback<string>): void;
+    getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource object in Promise mode.
      *
      * @param resource Indicates the resource object.
      * @return Returns the Base64 code of the image resource corresponding to the specified resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @since 9
      */
-    getMediaBase64(resource: Resource): Promise<string>;
+    getMediaContentBase64(resource: Resource): Promise<string>;
 
     /**
      * Obtains the device capability in callback mode.
@@ -388,7 +434,7 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the obtained device capability.
      * @since 6
      */
-    getDeviceCapability(callback: AsyncCallback<DeviceCapability>): void;
+    getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
 
     /**
      * Obtains the device capability in Promise mode.
@@ -405,7 +451,7 @@ export interface ResourceManager {
      *                 configuration.
      * @since 6
      */
-    getConfiguration(callback: AsyncCallback<Configuration>): void;
+    getConfiguration(callback: _AsyncCallback<Configuration>): void;
 
     /**
      * Obtains the device configuration in Promise mode.
@@ -424,6 +470,8 @@ export interface ResourceManager {
      * @param callback Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getPluralStringValue
      */
     getPluralString(resId: number, num: number, callback: AsyncCallback<string>): void;
 
@@ -436,6 +484,8 @@ export interface ResourceManager {
      * @return Returns the singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getPluralStringValue
      */
     getPluralString(resId: number, num: number): Promise<string>;
 
@@ -447,9 +497,13 @@ export interface ResourceManager {
      * @param num Indicates the number.
      * @param callback Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the resource object string corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralString(resource: Resource, num: number, callback: AsyncCallback<string>): void;
+    getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the singular-plural character string represented by the resource object string corresponding to
@@ -459,9 +513,13 @@ export interface ResourceManager {
      * @param num Indicates the number.
      * @return Returns the singular-plural character string represented by the resource object string
      *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralString(resource: Resource, num: number): Promise<string>;
+    getPluralStringValue(resource: Resource, num: number): Promise<string>;
 
     /**
      * Obtains the raw file resource corresponding to the specified resource path in callback mode.
@@ -469,6 +527,8 @@ export interface ResourceManager {
      * @param path Indicates the resource relative path.
      * @param callback Indicates the asynchronous callback used to return the raw file resource.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getRawFileContent
      */
     getRawFile(path: string, callback: AsyncCallback<Uint8Array>): void;
 
@@ -478,6 +538,8 @@ export interface ResourceManager {
      * @param path Indicates the resource relative path.
      * @return Returns the raw file resource corresponding to the specified resource path.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getRawFileContent
      */
     getRawFile(path: string): Promise<Uint8Array>;
 
@@ -487,6 +549,8 @@ export interface ResourceManager {
      * @param path Indicates the resource relative path.
      * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.getRawFd
      */
     getRawFileDescriptor(path: string, callback: AsyncCallback<RawFileDescriptor>): void;
 
@@ -496,6 +560,8 @@ export interface ResourceManager {
       * @param path Indicates the resource relative path.
       * @return Returns the raw file resource descriptor corresponding to the specified resource path.
       * @since 8
+      * @deprecated since 9
+      * @useinstead ohos.resourceManager.getRawFd
       */
     getRawFileDescriptor(path: string): Promise<RawFileDescriptor>;
 
@@ -505,6 +571,8 @@ export interface ResourceManager {
      * @param path Indicates the resource relative path.
      * @param callback Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.closeRawFd
      */
     closeRawFileDescriptor(path: string, callback: AsyncCallback<void>): void;
 
@@ -514,6 +582,8 @@ export interface ResourceManager {
      * @param path Indicates the resource relative path.
      * @return Returns result close raw file resource descriptor corresponding to the specified resource path.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.resourceManager.closeRawFd
      */
     closeRawFileDescriptor(path: string): Promise<void>;
 
@@ -522,15 +592,23 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringByName(resName: string, callback: AsyncCallback<string>): void;
+    getStringByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains string resources associated with a specified resource name in Promise mode.
      *
      * @param resName Indicates the resource name.
      * @return Returns the character string corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
      getStringByName(resName: string): Promise<string>;
@@ -540,15 +618,23 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getStringArrayByName(resName: string, callback: AsyncCallback<Array<string>>): void;
+    getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
 
     /**
      * Obtains the array of character strings corresponding to a specified resource name in Promise mode.
      *
      * @param resName Indicates the resource name.
      * @return Returns the array of character strings corresponding to the specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getStringArrayByName(resName: string): Promise<Array<string>>;
@@ -558,15 +644,21 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
-    getMediaByName(resName: string, callback: AsyncCallback<Uint8Array>): void;
+    getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
 
     /**
      * Obtains the content of the media file corresponding to a specified resource name in Promise mode.
      *
      * @param resName Indicates the resource name.
      * @return Returns the content of the media file corresponding to the specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
     getMediaByName(resName: string): Promise<Uint8Array>;
@@ -577,15 +669,21 @@ export interface ResourceManager {
      * @param resName Indicates the resource name.
      * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
-    getMediaBase64ByName(resName: string, callback: AsyncCallback<string>): void;
+    getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the Base64 code of the image resource corresponding to the specified resource name in Promise mode.
      *
      * @param resName Indicates the resource name.
      * @return Returns the Base64 code of the image resource corresponding to the specified resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
      * @since 9
      */
     getMediaBase64ByName(resName: string): Promise<string>;
@@ -598,9 +696,13 @@ export interface ResourceManager {
      * @param num Indicates the number.
      * @param callback Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the name string corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
-    getPluralStringByName(resName: string, num: number, callback: AsyncCallback<string>): void;
+    getPluralStringByName(resName: string, num: number, callback: _AsyncCallback<string>): void;
 
     /**
      * Obtains the singular-plural character string represented by the name string corresponding to
@@ -610,6 +712,10 @@ export interface ResourceManager {
      * @param num Indicates the number.
      * @return Returns the singular-plural character string represented by the name string
      *         corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getPluralStringByName(resName: string, num: number): Promise<string>;
@@ -619,6 +725,10 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @return Returns the character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getStringSync(resId: number): string;
@@ -628,6 +738,10 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @return Returns the character string corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getStringSync(resource: Resource): string;
@@ -637,6 +751,10 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @return Returns the character string corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getStringByNameSync(resName: string): string;
@@ -646,6 +764,10 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @return Returns the boolean resource corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getBoolean(resId: number): boolean;
@@ -655,6 +777,10 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @return Returns the boolean resource corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getBoolean(resource: Resource): boolean;
@@ -664,6 +790,10 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @return Returns the boolean resource corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getBooleanByName(resName: string): boolean;
@@ -673,6 +803,10 @@ export interface ResourceManager {
      *
      * @param resId Indicates the resource ID.
      * @return Returns the number resource corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getNumber(resId: number): number;
@@ -682,6 +816,10 @@ export interface ResourceManager {
      *
      * @param resource Indicates the resource object.
      * @return Returns the number resource corresponding to the resource object.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the module resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by module resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getNumber(resource: Resource): number;
@@ -691,6 +829,10 @@ export interface ResourceManager {
      *
      * @param resName Indicates the resource name.
      * @return Returns the number resource corresponding to the resource name.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @since 9
      */
     getNumberByName(resName: string): number;
@@ -701,6 +843,204 @@ export interface ResourceManager {
      * @since 7
      */
     release();
+
+    /**
+     * Obtains the character string corresponding to a specified resource ID in callback mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @param callback Indicates the asynchronous callback used to return the obtained character string.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @since 9
+     */
+    getStringValue(resId: number, callback: _AsyncCallback<string>): void;
+
+     /**
+     * Obtains string resources associated with a specified resource ID in Promise mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @return Returns the character string corresponding to the resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @since 9
+     */
+    getStringValue(resId: number): Promise<string>;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource ID in callback mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @param callback Indicates the asynchronous callback used to return the obtained array of character strings.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @since 9
+     */
+    getStringArrayValue(resId: number, callback: _AsyncCallback<Array<string>>): void;
+
+    /**
+     * Obtains the array of character strings corresponding to a specified resource ID in Promise mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @return Returns the array of character strings corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @since 9
+     */
+    getStringArrayValue(resId: number): Promise<Array<string>>;
+
+    /**
+     * Obtains the singular-plural character string represented by the ID string corresponding to the
+     * specified number in callback mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @param num Indicates the number.
+     * @param callback Indicates the asynchronous callback used to return the singular-plural character
+     *                 string represented by the ID string corresponding to the specified number.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+     * @since 9
+     */
+    getPluralStringValue(resId: number, num: number, callback: _AsyncCallback<string>): void;
+
+    /**
+      * Obtains the singular-plural character string represented by the ID string corresponding to
+      * the specified number in Promise mode.
+      *
+      * @param resId Indicates the resource ID.
+      * @param num Indicates the number.
+      * @return Returns the singular-plural character string represented by the ID string
+      *         corresponding to the specified number.
+      * @throws { BusinessError } 401 - If the input parameter invalid.
+      * @throws { BusinessError } 9001001 - If the resId invalid.
+      * @throws { BusinessError } 9001002 - If the resource not found by resId.
+      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
+      * @since 9
+      */
+    getPluralStringValue(resId: number, num: number): Promise<string>;
+
+    /**
+     * Obtains the content of the media file corresponding to a specified resource ID in callback mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @param callback Indicates the asynchronous callback used to return the obtained media file content.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 9
+     */
+    getMediaContent(resId: number, callback: _AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Obtains the content of the media file corresponding to a specified resource ID in Promise mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @return Returns the content of the media file corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 9
+     */
+    getMediaContent(resId: number): Promise<Uint8Array>;
+
+    /**
+     * Obtains the Base64 code of the image resource corresponding to the specified resource ID in callback mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @param callback Indicates the asynchronous callback used to return the obtained Base64 code of the image
+     *                 resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 9
+     */
+    getMediaContentBase64(resId: number, callback: _AsyncCallback<string>): void;
+
+    /**
+     * Obtains the Base64 code of the image resource corresponding to the specified resource ID in Promise mode.
+     *
+     * @param resId Indicates the resource ID.
+     * @return Returns the Base64 code of the image resource corresponding to the specified resource ID.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @since 9
+     */
+    getMediaContentBase64(resId: number): Promise<string>;
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return the raw file resource.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Obtains the raw file resource corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @return Returns the raw file resource corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    getRawFileContent(path: string): Promise<Uint8Array>;
+
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return the raw file resource descriptor.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
+
+    /**
+     * Obtains the raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @return Returns the raw file resource descriptor corresponding to the specified resource path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    getRawFd(path: string): Promise<RawFileDescriptor>;
+
+    /**
+     * Obtains close raw file resource descriptor corresponding to the specified resource path in callback mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @param callback Indicates the asynchronous callback used to return result close raw file resource descriptor.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    closeRawFd(path: string, callback: _AsyncCallback<void>): void;
+
+    /**
+     * Obtains close raw file resource descriptor corresponding to the specified resource path in Promise mode.
+     *
+     * @param path Indicates the resource relative path.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @since 9
+     */
+    closeRawFd(path: string): Promise<void>;
 }
 
     /**

@@ -20,6 +20,8 @@
   * @syscap SystemCapability.BundleManager.BundleFramework
   * @permission NA
   * @systemapi Hide this for inner system use
+  * @deprecated since 9
+  * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
   */
   export interface ShortcutWant{
     /**
@@ -28,12 +30,6 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly targetBundle: string;
-    /**
-      * @default Indicates the target module of the shortcut want
-      * @since 9
-      * @syscap SystemCapability.BundleManager.BundleFramework
-      */
-    readonly targetModule: string;
     /**
       * @default Indicates the target class of the shortcut want
       * @since 7
@@ -47,13 +43,15 @@
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @permission NA
-    *
+    * @deprecated since 9
+    * @useinstead ohos.bundle.launcherBundleManager.ShortcutInfo
     */
   export interface ShortcutInfo {
     /**
       * @default Indicates the ID of the application to which this shortcut belongs
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
+      * 
       */
     readonly id: string;
     /**
@@ -75,7 +73,7 @@
       */
     readonly icon: string;
      /**
-      * @default Indicate s the icon id of the shortcut
+      * @default Indicates the icon id of the shortcut
       * @since 8
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
@@ -122,11 +120,4 @@
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly isEnabled?: boolean;
-
-    /**
-     * @default Indicates the moduleName of the shortcut
-     * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     */
-    readonly moduleName?: string;
   }

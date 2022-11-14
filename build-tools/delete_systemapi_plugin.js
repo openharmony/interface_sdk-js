@@ -129,6 +129,9 @@ function formatImportDeclaration(url) {
               const clauseNode = statement.importClause;
               if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
                 clauseSet.add(clauseNode.name.escapedText.toString());
+              } else if (clauseNode.namedBindings && clauseNode.namedBindings.name &&
+                ts.isIdentifier(clauseNode.namedBindings.name)) {
+                clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
               } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
                 clauseNode.namedBindings.elements.forEach(ele => {
                   if (ele.name && ts.isIdentifier(ele.name)) {
@@ -277,7 +280,9 @@ function deleteSystemApi(url) {
 exports.deleteSystemApi = deleteSystemApi;
 
 function isSystemapi(node) {
-  const notesStr = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesContent = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesArr = notesContent.split(/\/\*\*/);
+  const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
     if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) {
       lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : "";

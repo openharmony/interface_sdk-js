@@ -26,6 +26,8 @@ import { ElementName }  from './bundle/elementName';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi Hide this for inner system use
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.abilityManager
  */
 declare namespace abilityManager {
     /**

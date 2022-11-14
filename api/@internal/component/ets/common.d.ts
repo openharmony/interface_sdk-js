@@ -146,7 +146,17 @@ declare function getContext(component?: Object): Context;
  * @since 9
  */
 declare type Context = import('../api/application/Context').default;
- 
+
+/**
+ * Post Card Action.
+ * @param { Object } component - indicate the card entry component.
+ * @param { Object } action - indicate the router or message event.
+ * @StageModelOnly
+ * @systemapi
+ * @since 9
+ */
+ declare function postCardAction(component: Object, action: Object): void;
+
 /**
  * Defines the data type of the interface restriction.
  * @since 7
@@ -629,7 +639,7 @@ declare namespace focusControl {
    * Request focus to the specific component by param: 'id/key'.
    * @since 9
    */
-  declare function requestFocus(value: string): boolean;
+  function requestFocus(value: string): boolean;
 }
 
 /**
@@ -669,6 +679,28 @@ declare enum SourceType {
 }
 
 /**
+ * Defines the event tool type.
+ * @since 9
+ */
+declare enum SourceTool {
+  /**
+   * Unknown type.
+   * @since 9
+   */
+  Unknown,
+
+  /**
+   * The finger type.
+   */
+  FINGER,
+
+  /**
+   * The pen type.
+   */
+  PEN,
+}
+
+/**
  * Defines the Border Image Repeat Mode.
  * @since 9
  */
@@ -700,23 +732,27 @@ declare enum RepeatMode {
 /**
  * enum Blur style
  * @since 9
+ * @systemapi
  */
  declare enum BlurStyle {
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Thin,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Regular,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
+   * @systemapi
    */
   Thick,
 }
@@ -743,6 +779,29 @@ declare interface BaseEvent {
    * @since 8
    */
   source: SourceType;
+
+  /**
+   * Touch pressure.
+   * @since 9
+   */
+  pressure: number;
+
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @since 9
+   */
+  tiltX: number;
+
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @since 9
+   */
+  tiltY: number;
+
+  /**
+   * The event tool type info.
+   */
+  sourceTool: SourceTool;
 }
 
 /**
@@ -1130,6 +1189,12 @@ declare interface PopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
@@ -1184,6 +1249,12 @@ declare interface CustomPopupOptions {
    * @since 9
    */
    arrowOffset?: Length;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 9
+   */
+   showInSubWindow?: boolean;
 }
 
 /**
@@ -1292,6 +1363,7 @@ declare class CommonMethod<T> {
    * Background blur style.
    * blurStyle:Blur style type.
    * @since 9
+   * @systemapi
    */
    backgroundBlurStyle(value: BlurStyle): T;
   
@@ -1696,6 +1768,8 @@ declare class CommonMethod<T> {
   /**
    * Sets the number of occupied columns and offset columns for a specific device width type.
    * @since 7
+   * @deprecated since 9
+   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
    */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
@@ -1999,6 +2073,73 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 }
 
 /**
+ * Sub component border info.
+ * @since 9
+ */
+declare interface LayoutBorderInfo {
+  borderWidth: EdgeWidths,
+  margin: Margin,
+  padding: Padding,
+}
+
+/**
+ * Sub component layout info.
+ * @since 9
+ */
+declare interface LayoutInfo {
+  position: Position,
+  constraint: ConstraintSizeOptions,
+}
+
+/**
+ * Sub component info passed from framework when layout and measure happens.
+ * @since 9
+ */
+declare interface LayoutChild {
+  /**
+   * Sub component name.
+   * @since 9
+   */
+  name: string,
+
+  /**
+   * Sub component id.
+   * @since 9
+   */
+  id: string,
+
+  /**
+   * Sub component constraint.
+   * @since 9
+   */
+  constraint: ConstraintSizeOptions,
+
+  /**
+   * Sub component border info.
+   * @since 9
+   */
+  borderInfo: LayoutBorderInfo,
+
+  /**
+   * Sub component position.
+   * @since 9
+   */
+  position: Position,
+
+  /**
+   * Call this measure method in onMeasure callback to supply sub component size.
+   * @since 9
+   */
+  measure(childConstraint: ConstraintSizeOptions),
+
+  /**
+   * Call this layout method in onLayout callback to assign layout info to sub component.
+   * @since 9
+   */
+  layout(childLayoutInfo: LayoutInfo)
+}
+
+/**
  * Custom Component
  * @since 7
  */
@@ -2027,6 +2168,18 @@ declare class CustomComponent extends CommonAttribute {
   aboutToDisappear?(): void;
 
   /**
+   * Custom component override this method to layout each of its sub components.
+   * @since 9
+   */
+  onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
+   * Custom component override this method to measure each of its sub components.
+   * @since 9
+   */
+  onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
    * onPageShow Method
    * @since 7
    */
@@ -2043,6 +2196,13 @@ declare class CustomComponent extends CommonAttribute {
    * @since 7
    */
   onBackPress?(): void;
+
+  /**
+   * PageTransition Method.
+   * Implement Animation when enter this page or move to other pages.
+   * @since 9
+   */
+  pageTransition?(): void;
 }
 
 /**

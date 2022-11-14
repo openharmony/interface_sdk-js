@@ -36,7 +36,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>) : void;
+    function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
     /**
      * unsubscribe location changed
@@ -47,7 +47,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function off(type: 'locationChange', callback?: Callback<Location>) : void;
+    function off(type: 'locationChange', callback?: Callback<Location>): void;
 
     /**
      * subscribe location switch changed
@@ -58,7 +58,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function on(type: 'locationServiceState', callback: Callback<boolean>) : void;
+    function on(type: 'locationServiceState', callback: Callback<boolean>): void;
 
     /**
      * unsubscribe location switch changed
@@ -69,7 +69,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function off(type: 'locationServiceState', callback?: Callback<boolean>) : void;
+    function off(type: 'locationServiceState', callback?: Callback<boolean>): void;
 
     /**
      * subscribe to cache GNSS locations update messages
@@ -81,7 +81,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the cached GNSS locations.
      * @deprecated since 9
      */
-    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>) : void;
+    function on(type: 'cachedGnssLocationsReporting', request: CachedGnssLocationsRequest, callback: Callback<Array<Location>>): void;
 
     /**
      * unsubscribe to cache GNSS locations update messages
@@ -92,7 +92,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the cached gnss locations.
      * @deprecated since 9
      */
-    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>) : void;
+    function off(type: 'cachedGnssLocationsReporting', callback?: Callback<Array<Location>>): void;
 
     /**
      * subscribe gnss status changed
@@ -103,7 +103,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the gnss status change.
      * @deprecated since 9
      */
-    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>) : void;
+    function on(type: 'gnssStatusChange', callback: Callback<SatelliteStatusInfo>): void;
 
     /**
      * unsubscribe gnss status changed
@@ -114,7 +114,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the gnss status change.
      * @deprecated since 9
      */
-    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>) : void;
+    function off(type: 'gnssStatusChange', callback?: Callback<SatelliteStatusInfo>): void;
 
     /**
      * subscribe nmea message changed
@@ -125,7 +125,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the nmea message.
      * @deprecated since 9
      */
-    function on(type: 'nmeaMessageChange', callback: Callback<string>) : void;
+    function on(type: 'nmeaMessageChange', callback: Callback<string>): void;
 
     /**
      * unsubscribe nmea message changed
@@ -136,7 +136,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the nmea message.
      * @deprecated since 9
      */
-    function off(type: 'nmeaMessageChange', callback?: Callback<string>) : void;
+    function off(type: 'nmeaMessageChange', callback?: Callback<string>): void;
 
     /**
      * add a geofence and subscribe geo fence status changed
@@ -148,7 +148,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the fence status.
      * @deprecated since 9
      */
-    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
+    function on(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * remove a geofence and unsubscribe geo fence status changed
@@ -160,7 +160,7 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the remove fence result.
      * @deprecated since 9
      */
-    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent) : void;
+    function off(type: 'fenceStatusChange', request: GeofenceRequest, want: WantAgent): void;
 
     /**
      * obtain current location
@@ -171,9 +171,9 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(callback: AsyncCallback<Location>) : void;
-    function getCurrentLocation(request?: CurrentLocationRequest) : Promise<Location>;
+    function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(callback: AsyncCallback<Location>): void;
+    function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
     /**
      * obtain last known location
@@ -184,8 +184,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location result.
      * @deprecated since 9
      */
-    function getLastLocation(callback: AsyncCallback<Location>) : void;
-    function getLastLocation() : Promise<Location>;
+    function getLastLocation(callback: AsyncCallback<Location>): void;
+    function getLastLocation(): Promise<Location>;
 
     /**
      * obtain current location switch status
@@ -196,8 +196,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location switch result.
      * @deprecated since 9
      */
-    function isLocationEnabled(callback: AsyncCallback<boolean>) : void;
-    function isLocationEnabled() : Promise<boolean>;
+    function isLocationEnabled(callback: AsyncCallback<boolean>): void;
+    function isLocationEnabled(): Promise<boolean>;
 
     /**
      * request enable location
@@ -208,8 +208,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the location switch status.
      * @deprecated since 9
      */
-    function requestEnableLocation(callback: AsyncCallback<boolean>) : void;
-    function requestEnableLocation() : Promise<boolean>;
+    function requestEnableLocation(callback: AsyncCallback<boolean>): void;
+    function requestEnableLocation(): Promise<boolean>;
 
     /**
      * obtain address info from location
@@ -220,8 +220,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the address info.
      * @deprecated since 9
      */
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocation(request: ReverseGeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocation(request: ReverseGeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain latitude and longitude info from location address
@@ -232,8 +232,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the latitude and longitude result.
      * @deprecated since 9
      */
-    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>) : void;
-    function getAddressesFromLocationName(request: GeoCodeRequest) : Promise<Array<GeoAddress>>;
+    function getAddressesFromLocationName(request: GeoCodeRequest, callback: AsyncCallback<Array<GeoAddress>>): void;
+    function getAddressesFromLocationName(request: GeoCodeRequest): Promise<Array<GeoAddress>>;
 
     /**
      * obtain geocode service status
@@ -244,8 +244,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the geocode service status.
      * @deprecated since 9
      */
-    function isGeoServiceAvailable(callback: AsyncCallback<boolean>) : void;
-    function isGeoServiceAvailable() : Promise<boolean>;
+    function isGeoServiceAvailable(callback: AsyncCallback<boolean>): void;
+    function isGeoServiceAvailable(): Promise<boolean>;
 
     /**
      * obtain the number of cached GNSS locations reported at a time
@@ -256,8 +256,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the cached GNSS locations size.
      * @deprecated since 9
      */
-    function getCachedGnssLocationsSize(callback: AsyncCallback<number>) : void;
-    function getCachedGnssLocationsSize() : Promise<number>;
+    function getCachedGnssLocationsSize(callback: AsyncCallback<number>): void;
+    function getCachedGnssLocationsSize(): Promise<number>;
 
     /**
      * all prepared GNSS locations are returned to the application through the callback function,
@@ -269,8 +269,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the result.
      * @deprecated since 9
      */
-    function flushCachedGnssLocations(callback: AsyncCallback<boolean>) : void;
-    function flushCachedGnssLocations() : Promise<boolean>;
+    function flushCachedGnssLocations(callback: AsyncCallback<boolean>): void;
+    function flushCachedGnssLocations(): Promise<boolean>;
 
     /**
      * send extended commands to location subsystem.
@@ -282,8 +282,8 @@ declare namespace geolocation {
      * @param callback Indicates the callback for reporting the send command result.
      * @deprecated since 9
      */
-    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>) : void;
-    function sendCommand(command: LocationCommand) : Promise<boolean>;
+    function sendCommand(command: LocationCommand, callback: AsyncCallback<boolean>): void;
+    function sendCommand(command: LocationCommand): Promise<boolean>;
 
     /**
      * satellite status information

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,6 +17,55 @@ import { AsyncCallback } from './basic'
 
 declare namespace rpc {
     /**
+     * The error code of rpc.
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 9
+     */
+    enum ErrorCode {
+        /* Check param failed */
+        CHECK_PARAM_ERROR = 401,
+
+        /* Os mmap function failed */
+        OS_MMAP_ERROR = 1900001,
+
+        /* Os ioctl function failed */
+        OS_IOCTL_ERROR = 1900002,
+
+        /* Write to ashmem failed */
+        WRITE_TO_ASHMEM_ERROR = 1900003,
+
+        /* Read from ashmem failed */
+        READ_FROM_ASHMEM_ERROR = 1900004,
+
+        /* Only proxy object permitted */
+        ONLY_PROXY_OBJECT_PERMITTED_ERROR = 1900005,
+
+        /* Only remote object permitted */
+        ONLY_REMOTE_OBJECT_PERMITTED_ERROR = 1900006,
+
+        /* Communication failed */
+        COMMUNICATION_ERROR = 1900007,
+
+        /* Proxy or remote object is invalid */
+        PROXY_OR_REMOTE_OBJECT_INVALID_ERROR = 1900008,
+
+        /* Write data to message sequence failed */
+        WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR = 1900009,
+
+        /* Read data from message sequence failed */
+        READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR = 1900010,
+
+        /* Parcel memory alloc failed */
+        PARCEL_MEMORY_ALLOC_ERROR = 1900011,
+
+        /* Call js method failed */
+        CALL_JS_METHOD_ERROR = 1900012,
+
+        /* Os dup function failed */
+        OS_DUP_ERROR = 1900013
+    }
+
+    /**
      * A data object used for reomote procedure call (RPC).
      * <p>
      * During RPC, the sender can use the write methods provided by {@link MessageParcel} to
@@ -33,6 +82,8 @@ declare namespace rpc {
      * {@link Sequenceable}, and SequenceableArray.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.rpc.MessageSequence
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      */
@@ -739,11 +790,750 @@ declare namespace rpc {
         readRawData(size: number): number[];
     }
 
+    /**
+     * A data object used for reomote procedure call (RPC).
+     * <p>
+     * During RPC, the sender can use the write methods provided by {@link MessageSequence} to
+     * write the to-be-sent data into a {@link MessageSequence} object in a specific format, and the receiver can use the
+     * read methods provided by {@link MessageSequence} to read data of the specific format from the {@link MessageSequence} object.
+     * <p>
+     * <p>
+     * The default capacity of a {@link MessageSequence} instance is 200KB. If you want more or less, use {@link #setCapacity(int)}
+     * to change it.
+     * </p>
+     * <b>Note</b>: Only data of the following data types can be written into or read from a {@link MessageSequence}: byte,
+     * byteArray, short, shortArray, int, intArray, long, longArray, float, floatArray, double, doubleArray, boolean,
+     * booleanArray, char, charArray, String, StringArray, {@link IRemoteObject}, IRemoteObjectArray,
+     * {@link Parcelable}, and ParcelableArray.
+     *
+     * @since 9
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     */
+    class MessageSequence {
+        /**
+         * Creates an empty {@link MessageSequence} object.
+         * @return Returns the object created.
+         * @since 9
+         */
+        static create(): MessageSequence;
 
-    /** 
+        /**
+         * Reclaims the {@link MessageSequence} object.
+         * @since 9
+         */
+        reclaim(): void;
+
+        /**
+         * Serializes a remote object and writes it to the {@link MessageSequence} object.
+         * @param object Remote object to serialize.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeRemoteObject(object: IRemoteObject): void;
+
+        /**
+         * Reads a remote object from {@link MessageSequence} object.
+         * @return Returns the remote object.
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readRemoteObject(): IRemoteObject;
+
+        /**
+         * Writes an interface token into the {@link MessageSequence} object.
+         * @param token Interface descriptor to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeInterfaceToken(token: string): void;
+
+        /**
+         * Reads an interface token from the {@link MessageSequence} object.
+         * @return Returns a string value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readInterfaceToken(): string;
+
+        /**
+         * Obtains the size of data (in bytes) contained in the {@link MessageSequence} object.
+         * @return Returns the size of data contained in the {@link MessageSequence} object.
+         * @since 9
+         */
+        getSize(): number;
+
+        /**
+         * Obtains the storage capacity (in bytes) of the {@link MessageSequence} object.
+         * @return Returns the storage capacity of the {@link MessageSequence} object.
+         * @since 9
+         */
+        getCapacity(): number;
+
+        /**
+         * Sets the size of data (in bytes) contained in the {@link MessageSequence} object.
+         * <p>{@code false} is returned if the data size set in this method is greater
+         * than the storage capacity of the {@link MessageSequence}.
+         *
+         * @param size Indicates the data size of the {@link MessageSequence} object.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        setSize(size: number): void;
+
+        /**
+         * Sets the storage capacity (in bytes) of the {@link MessageSequence} object.
+         * <p>{@code false} is returned if the capacity set in this method is less than
+         * the size of data contained in the {@link MessageSequence}.
+         *
+         * @param size Indicates the storage capacity of the {@link MessageSequence} object.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900011 - parcel memory alloc failed
+         * @since 9
+         */
+        setCapacity(size: number): void;
+
+        /**
+         * Obtains the writable data space (in bytes) in the {@link MessageSequence} object.
+         * <p>Writable data space = Storage capacity of the {@link MessageSequence} – Size of data contained in the {@link MessageSequence}.
+         *
+         * @return Returns the writable data space of the {@link MessageSequence} object.
+         * @since 9
+         */
+        getWritableBytes(): number;
+
+        /**
+         * Obtains the readable data space (in bytes) in the {@link MessageSequence} object.
+         * <p>Readable data space = Size of data contained in the {@link MessageSequence} – Size of data that has been read.
+         *
+         * @return Returns the readable data space of the {@link MessageSequence} object.
+         * @since 9
+         */
+        getReadableBytes(): number;
+
+        /**
+         * Obtains the current read position in the {@link MessageSequence} object.
+         * @return Returns the current read position in the {@link MessageSequence} object.
+         * @since 9
+         */
+        getReadPosition(): number;
+
+        /**
+         * Obtains the current write position in the {@link MessageSequence} object.
+         * @return Returns the current write position in the {@link MessageSequence} object.
+         * @since 9
+         */
+        getWritePosition(): number;
+
+        /**
+         * Changes the current read position in the {@link MessageSequence} object.
+         * <p>Generally, you are advised not to change the current read position. If you must
+         * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
+         *
+         * @param pos Indicates the target position to start data reading.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        rewindRead(pos: number): void;
+
+        /**
+         * Changes the current write position in the {@link MessageSequence} object.
+         * <p>Generally, you are advised not to change the current write position. If you must
+         * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
+         *
+         * @param pos Indicates the target position to start data writing.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        rewindWrite(pos: number): void;
+
+        /**
+         * Writes information to this MessageSequence object indicating that no exception occurred.
+         * <p>After handling requests, you should call this method before writing any data to reply {@link MessageSequence}.
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeNoException(): void;
+
+        /**
+         * Reads the exception information from this MessageSequence object.
+         * <p>If exception was thrown in server side, it will be thrown here.
+         * This method should be called before reading any data from reply {@link MessageSequence}
+         * if {@link writeNoException} was invoked in server side.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readException(): void;
+
+        /**
+         * Writes a byte value into the {@link MessageSequence} object.
+         * @param val Indicates the byte value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeByte(val: number): void;
+
+        /**
+         * Writes a short integer value into the {@link MessageSequence} object.
+         * @param val Indicates the short integer value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeShort(val: number): void;
+
+        /**
+         * Writes an integer value into the {@link MessageSequence} object.
+         * @param val Indicates the integer value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeInt(val: number): void;
+
+        /**
+         * Writes a long integer value into the {@link MessageSequence} object.
+         * @param val Indicates the long integer value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeLong(val: number): void;
+
+        /**
+         * Writes a floating point value into the {@link MessageSequence} object.
+         * @param val Indicates the floating point value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeFloat(val: number): void;
+
+        /**
+         * Writes a double-precision floating point value into the {@link MessageSequence} object.
+         * @param val Indicates the double-precision floating point value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeDouble(val: number): void;
+
+        /**
+         * Writes a boolean value into the {@link MessageSequence} object.
+         * @param val Indicates the boolean value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeBoolean(val: boolean): void;
+
+        /**
+         * Writes a single character value into the {@link MessageSequence} object.
+         * @param val Indicates the single character value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeChar(val: number): void;
+
+        /**
+         * Writes a string value into the {@link MessageSequence} object.
+         * @param val Indicates the string value to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeString(val: string): void;
+
+        /**
+         * Writes a {@link Parcelable} object into the {@link MessageSequence} object.
+         * @param val Indicates the {@link Parcelable} object to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeParcelable(val: Parcelable): void;
+
+        /**
+         * Writes a byte array into the {@link MessageSequence} object.
+         * @param byteArray Indicates the byte array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeByteArray(byteArray: number[]): void;
+
+        /**
+         * Writes a short integer array into the {@link MessageSequence} object.
+         * @param shortArray Indicates the short integer array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeShortArray(shortArray: number[]): void;
+
+        /**
+         * Writes an integer array into the {@link MessageSequence} object.
+         * @param intArray Indicates the integer array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeIntArray(intArray: number[]): void;
+
+        /**
+         * Writes a long integer array into the {@link MessageSequence} object.
+         * @param longArray Indicates the long integer array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeLongArray(longArray: number[]): void;
+
+        /**
+         * Writes a floating point array into the {@link MessageSequence} object.
+         * @param floatArray Indicates the floating point array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeFloatArray(floatArray: number[]): void;
+
+        /**
+         * Writes a double-precision floating point array into the {@link MessageSequence} object.
+         * @param doubleArray Indicates the double-precision floating point array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeDoubleArray(doubleArray: number[]): void;
+
+        /**
+         * Writes a boolean array into the {@link MessageSequence} object.
+         * @param booleanArray Indicates the boolean array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeBooleanArray(booleanArray: boolean[]): void;
+
+        /**
+         * Writes a single character array into the {@link MessageSequence} object.
+         * @param charArray Indicates the single character array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeCharArray(charArray: number[]): void;
+
+        /**
+         * Writes a string array into the {@link MessageSequence} object.
+         * @param stringArray Indicates the string array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @Note   Ensure that the data type and size comply with the interface definition.
+         *         Otherwise,data may be truncated.
+         * @since 9
+         */
+        writeStringArray(stringArray: string[]): void;
+
+        /**
+         * Writes a {@link Parcelable} object array into the {@link MessageSequence} object.
+         * @param parcelableArray Indicates the {@link Parcelable} object array to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeParcelableArray(parcelableArray: Parcelable[]): void;
+
+        /**
+         * Writes an array of {@link IRemoteObject} objects to this {@link MessageSequence} object.
+         * @param objectArray Array of {@link IRemoteObject} objects to write.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
+
+        /**
+         * Reads a byte value from the {@link MessageParcel} object.
+         * @return Returns a byte value.
+         * @throws { BusinessError } 1900010 read data from message sequence failed
+         * @since 9
+         */
+        readByte(): number;
+
+        /**
+         * Reads a short integer value from the {@link MessageSequence} object.
+         * @return Returns a short integer value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readShort(): number;
+
+        /**
+         * Reads an integer value from the {@link MessageSequence} object.
+         * @return Returns an integer value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readInt(): number;
+
+        /**
+         * Reads a long integer value from the {@link MessageSequence} object.
+         * @return Returns a long integer value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readLong(): number;
+
+        /**
+         * Reads a floating point value from the {@link MessageSequence} object.
+         * @return Returns a floating point value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readFloat(): number;
+
+        /**
+         * Reads a double-precision floating point value from the {@link MessageSequence} object.
+         * @return Returns a double-precision floating point value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readDouble(): number;
+
+        /**
+         * Reads a boolean value from the {@link MessageSequence} object.
+         * @return Returns a boolean value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readBoolean(): boolean;
+
+        /**
+         * Reads a single character value from the {@link MessageSequence} object.
+         * @return Returns a single character value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readChar(): number;
+
+        /**
+         * Reads a string value from the {@link MessageSequence} object.
+         * @return Returns a string value.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readString(): string;
+
+        /**
+         * Reads a {@link Parcelable} object from the {@link MessageSequence} instance.
+         * @param dataIn Indicates the {@link Parcelable} object that needs to perform the {@code unmarshalling} operation
+         *        using the {@link MessageSequence}.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @throws { BusinessError } 1900012 - call js callback function failed
+         * @since 9
+         */
+        readParcelable(dataIn: Parcelable) : void;
+
+        /**
+         * Writes a byte array into the {@link MessageSequence} object.
+         * @param dataIn Indicates the byte array read from MessageSequence.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readByteArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a byte array from the {@link MessageSequence} object.
+         * @return Returns a byte array.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readByteArray(): number[];
+
+        /**
+         * Reads a short integer array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the short integer array read from MessageSequence.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readShortArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a short integer array from the {@link MessageSequence} object.
+         * @return Returns a short integer array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readShortArray(): number[];
+
+        /**
+         * Reads an integer array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the integer array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readIntArray(dataIn: number[]) : void;
+
+        /**
+         * Reads an integer array from the {@link MessageSequence} object.
+         * @return Returns an integer array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readIntArray(): number[];
+
+        /**
+         * Reads a long integer array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the long integer array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readLongArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a long integer array from the {@link MessageSequence} object.
+         * @return Returns a long integer array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readLongArray(): number[];
+
+        /**
+         * Reads a floating point array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the floating point array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readFloatArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a floating point array from the {@link MessageSequence} object.
+         * @return Returns a floating point array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readFloatArray(): number[];
+
+        /**
+         * Reads a double-precision floating point array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the double-precision floating point array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readDoubleArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a double-precision floating point array from the {@link MessageSequence} object.
+         * @return Returns a double-precision floating point array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readDoubleArray(): number[];
+
+        /**
+         * Reads a boolean array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the boolean array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readBooleanArray(dataIn: boolean[]) : void;
+
+        /**
+         * Reads a boolean array from the {@link MessageSequence} object.
+         * @return Returns a boolean array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readBooleanArray(): boolean[];
+
+        /**
+         * Reads a single character array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the single character array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readCharArray(dataIn: number[]) : void;
+
+        /**
+         * Reads a single character array from the {@link MessageSequence} object.
+         * @return Returns a single character array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readCharArray(): number[];
+
+        /**
+         * Reads a string array from the {@link MessageSequence} object.
+         * @param dataIn Indicates the string array to read.
+         * @throws ParcelException Throws this exception if reading the string array fails.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readStringArray(dataIn: string[]) : void;
+
+        /**
+         * Reads a string array from the {@link MessageSequence} object.
+         * @return Returns a string array.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readStringArray(): string[];
+
+        /**
+         * Reads the specified {@link Parcelable} array from this {@link MessageSequence} object.
+         * @param parcelableArray Parcelable array to read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @throws { BusinessError } 1900012 - call js callback function failed
+         * @since 9
+         */
+        readParcelableArray(parcelableArray: Parcelable[]): void;
+
+        /**
+         * Reads the specified {@link IRemoteObject} array from this {@link MessageSequence} object.
+         * @param objects Reads data from this {@link MessageSequence} object to the specified {@link IRemoteObject} array.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readRemoteObjectArray(objects: IRemoteObject[]): void;
+
+        /**
+         * Reads {@link IRemoteObject} objects from this {@link MessageSequence} object.
+         * @return An array of {@link IRemoteObject} objects obtained.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readRemoteObjectArray(): IRemoteObject[];
+
+        /**
+         * Closes the specified file descriptor.
+         * @param fd File descriptor to be closed.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        static closeFileDescriptor(fd: number): void;
+
+        /**
+         * Duplicates the specified file descriptor.
+         * @param fd File descriptor to be duplicated.
+         * @return A duplicated file descriptor.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900013 call os dup function failed
+         * @since 9
+         */
+        static dupFileDescriptor(fd: number) :number;
+
+        /**
+         * Checks whether this {@link MessageSequence} object contains a file descriptor.
+         * @return Returns true if the {@link MessageSequence} object contains a file descriptor;
+         * returns false otherwise.
+         * @since 9
+         */
+        containFileDescriptors(): boolean;
+
+        /**
+         * Writes a file descriptor to this {@link MessageSequence} object.
+         * @param fd File descriptor to wrote.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeFileDescriptor(fd: number): void;
+
+        /**
+         * Reads a file descriptor from this {@link MessageSequence} object.
+         * @return File descriptor obtained.
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readFileDescriptor(): number;
+
+        /**
+         * Writes an anonymous shared memory object to this {@link MessageSequence} object.
+         * @param ashmem Anonymous shared memory object to wrote.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900003 - write to ashmem failed
+         * @since 9
+         */
+        writeAshmem(ashmem: Ashmem): void;
+
+        /**
+         * Reads the anonymous shared memory object from this {@link MessageSequence} object.
+         * @return Anonymous share object obtained.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900004 - read from ashmem failed
+         * @since 9
+         */
+        readAshmem(): Ashmem;
+
+        /**
+         * Obtains the maximum amount of raw data that can be sent in a time.
+         * @return 128 MB.
+         * @since 9
+         */
+        getRawDataCapacity(): number;
+
+        /**
+         * Writes raw data to this {@link MessageSequence} object.
+         * @param rawData Raw data to wrote.
+         * @param size Size of the raw data, in bytes.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900009 - write data to message sequence failed
+         * @since 9
+         */
+        writeRawData(rawData: number[], size: number): void;
+
+        /**
+         * Reads raw data from this {@link MessageSequence} object.
+         * @param size Size of the raw data to read.
+         * @return Raw data obtained, in bytes.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900010 - read data from message sequence failed
+         * @since 9
+         */
+        readRawData(size: number): number[];
+    }
+
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.rpc.Parcelable
      */
     interface Sequenceable {
         /**
@@ -770,6 +1560,35 @@ declare namespace rpc {
     }
 
     /**
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @import import rpc from '@ohos.rpc'
+     * @since 9
+     */
+    interface Parcelable {
+        /**
+         * Marshals this {@code Parcelable} object into a {@link MessageSequence}.
+         *
+         * @param dataOut Indicates the {@link MessageSequence} object to which the {@code Parcelable}
+         *        object will be marshaled..
+         * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
+         * @throws ParcelException Throws this exception if the operation fails.
+         * @since 9
+         */
+        marshalling(dataOut: MessageSequence): boolean;
+
+        /**
+         * Unmarshals this {@code Parcelable} object from a {@link MessageSequence}.
+         *
+         * @param dataIn Indicates the {@link MessageSequence} object into which the {@code Parcelable}
+         *        object has been marshaled.
+         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
+         * @throws ParcelException Throws this exception if the operation fails.
+         * @since 9
+         */
+        unmarshalling(dataIn: MessageSequence) : boolean;
+    }
+
+    /**
      * Defines the response to the request.
      * <p> SendRequestResult object contains four members,
      * namely error code of this operation, request code, data parcel
@@ -777,6 +1596,8 @@ declare namespace rpc {
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.rpc.RequestResult
      */
     interface SendRequestResult {
         /**
@@ -806,7 +1627,44 @@ declare namespace rpc {
         reply: MessageParcel;
     }
 
-    /** 
+    /**
+    * Defines the response to the request.
+    * <p> SendRequestResult object contains four members,
+    * namely error code of this operation, request code, data parcel
+    * and reply parcel.
+    * @syscap SystemCapability.Communication.IPC.Core
+    * @import import rpc from '@ohos.rpc'
+    * @since 9
+    */
+    interface RequestResult {
+        /**
+         * Error code. 0 indicates successful, otherwise it is failed.
+         * @since 9
+         */
+        errCode: number;
+
+        /**
+         * Message code. It is same as the code in {@link SendRequest} method.
+         * @since 9
+         */
+        code: number;
+
+        /**
+         * MessageSequence object sent to the peer process.
+         * It is the same object in {@link SendRequest} method.
+         * @since 9
+         */
+        data: MessageSequence;
+
+        /**
+         * MessageSequence object returned by the peer process.
+         * It is the same object in {@link SendRequest} method.
+         * @since 9
+         */
+        reply: MessageSequence;
+    }
+
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -822,8 +1680,24 @@ declare namespace rpc {
          * @param descriptor Indicates the interface descriptor.
          * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#getLocalInterface
          */
         queryLocalInterface(descriptor: string): IRemoteBroker;
+
+        /**
+         * Queries the description of an interface.
+         *
+         * <p>A valid {@link IRemoteBroker} object is returned for an interface used by the service provider;
+         * {@code null} is returned for an interface used by the service user,
+         * indicating that the interface is not a local one.
+         *
+         * @param descriptor Indicates the interface descriptor.
+         * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        getLocalInterface(descriptor: string): IRemoteBroker;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
@@ -840,8 +1714,8 @@ declare namespace rpc {
          * @param options Indicates the synchronous or asynchronous mode to send messages.
          * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if the method fails to be called.
-         * @deprecated since 8
          * @since 7
+         * @deprecated since 9
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -859,28 +1733,29 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * @returns Promise used to return the {@link SendRequestResult} instance.
          * @throws Throws an exception if the method fails to be called.
-         * @deprecated since 9
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
 
         /**
-         * Sends a {@link MessageParcel} message to the peer process asynchronously.
+         * Sends a {@link MessageSequence} message to the peer process asynchronously.
          *
          * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
          * and the reply message does not contain any content. If options indicates the synchronous mode,
-         * a promise will be fulfilled when the response to sendRequest is returned,
+         * a promise will be fulfilled when the response to sendMessageRequest is returned,
          * and the reply message contains the returned information.
          * param code Message code called by the request, which is determined by the client and server.
          * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-         * param data {@link MessageParcel} object holding the data to send.
-         * param reply {@link MessageParcel} object that receives the response.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
          * param operations Indicates the synchronous or asynchronous mode to send messages.
-         * @returns Promise used to return the {@link SendRequestResult} instance.
-         * @throws Throws an exception if the method fails to be called.
+         * @returns Promise used to return the {@link RequestResult} instance.
+         * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
-        sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise<RequestResult>;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
@@ -896,8 +1771,29 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * param callback Callback for receiving the sending result.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#sendMessageRequest
+         *
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
+
+        /**
+         * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendMessageRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback<RequestResult>): void;
 
         /**
          * Registers a callback used to receive notifications of the death of a remote object.
@@ -906,8 +1802,21 @@ declare namespace rpc {
          * @param flags Indicates the flag of the death notification.
          * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#registerDeathRecipient
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
+
+        /**
+         * Registers a callback used to receive notifications of the death of a remote object.
+         *
+         * @param recipient Indicates the callback to be registered.
+         * @param flags Indicates the flag of the death notification.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
          * Deregisters a callback used to receive notifications of the death of a remote object.
@@ -916,8 +1825,21 @@ declare namespace rpc {
          * @param flags Indicates the flag of the death notification.
          * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#unregisterDeathRecipient
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
+
+        /**
+         * Deregisters a callback used to receive notifications of the death of a remote object.
+         *
+         * @param recipient Indicates the callback to be deregistered.
+         * @param flags Indicates the flag of the death notification.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
          * Obtains the interface descriptor of an object.
@@ -926,8 +1848,21 @@ declare namespace rpc {
          *
          * @return Returns the interface descriptor.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#getDescriptor
          */
         getInterfaceDescriptor(): string;
+
+        /**
+         * Obtains the interface descriptor of an object.
+         *
+         * <p>The interface descriptor is a character string.
+         *
+         * @return Returns the interface descriptor.
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        getDescriptor(): string;
 
         /**
          * Checks whether an object is dead.
@@ -938,7 +1873,7 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -954,7 +1889,7 @@ declare namespace rpc {
         asObject(): IRemoteObject;
     }
 
-    /** 
+    /**
      * @since 7
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
@@ -968,7 +1903,7 @@ declare namespace rpc {
         onRemoteDied(): void;
     }
 
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1020,6 +1955,15 @@ declare namespace rpc {
         constructor(syncFlags?: number, waitTime?: number);
 
         /**
+         * A constructor used to create a MessageOption instance.
+         *
+         * @param async Specifies whether the SendRequest is called synchronously (default) or asynchronously.
+         * @param waitTime Maximum wait time for a RPC call.
+         * @since 9
+         */
+        constructor(async?: boolean);
+
+        /**
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
          * @return Returns whether the SendRequest is called synchronously or asynchronously.
@@ -1034,6 +1978,22 @@ declare namespace rpc {
          * @since 7
          */
         setFlags(flags: number): void;
+
+        /**
+         * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
+         *
+         * @return Returns whether the SendRequest is called synchronously or asynchronously.
+         * @since 9
+         */
+        isAsync(): boolean;
+
+        /**
+         * Sets the SendRequest call flag, which can be synchronous or asynchronous.
+         *
+         * @param flags Indicates the call flag, which can be synchronous or asynchronous.
+         * @since 9
+         */
+        setAsync(async: boolean): void;
 
         /**
          * Obtains the maximum wait time for this RPC call.
@@ -1052,7 +2012,7 @@ declare namespace rpc {
         setWaitTime(waitTime: number): void;
     }
 
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1073,16 +2033,40 @@ declare namespace rpc {
          * @return Returns the remote object matching the interface descriptor; returns null
          * if no such remote object is found.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#getLocalInterface
          */
         queryLocalInterface(descriptor: string): IRemoteBroker;
+
+        /**
+         * Queries a remote object using an interface descriptor.
+         *
+         * @param descriptor Indicates the interface descriptor used to query the remote object.
+         * @return Returns the remote object matching the interface descriptor; returns null
+         * if no such remote object is found.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        getLocalInterface(descriptor: string): IRemoteBroker;
 
         /**
          * Queries an interface descriptor.
          *
          * @return Returns the interface descriptor.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#getDescriptor
          */
         getInterfaceDescriptor(): string;
+
+        /**
+         * Queries an interface descriptor.
+         *
+         * @return Returns the interface descriptor.
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        getDescriptor(): string;
 
         /**
          * Sets an entry for receiving requests.
@@ -1097,11 +2081,10 @@ declare namespace rpc {
          * @param options Indicates whether the operation is synchronous or asynchronous.
          * @return
          * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
-         * Returns a promise object with a boolean when the function call is asynchronous. 
-         * @throws RemoteException Throws this exception if a remote service error occurs.
+         * Returns a promise object with a boolean when the function call is asynchronous.
          * @since 9
          */
-        onRemoteRequestEx(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean | Promise<boolean>;
+        onRemoteMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): boolean | Promise<boolean>;
 
         /**
          * Sets an entry for receiving requests.
@@ -1116,8 +2099,8 @@ declare namespace rpc {
          * @param options Indicates whether the operation is synchronous or asynchronous.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote service error occurs.
-         * @deprecated since 9
          * @since 7
+         * @deprecated since 9
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -1151,28 +2134,29 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * @returns Promise used to return the {@link SendRequestResult} instance.
          * @throws Throws an exception if the method fails to be called.
-         * @deprecated since 9
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
 
         /**
-         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
          *
          * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
          * and the reply message does not contain any content. If options indicates the synchronous mode,
-         * a promise will be fulfilled when the response to sendRequest is returned,
+         * a promise will be fulfilled when the response to sendMessageRequest is returned,
          * and the reply message contains the returned information.
          * param code Message code called by the request, which is determined by the client and server.
          * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-         * param data {@link MessageParcel} object holding the data to send.
-         * param reply {@link MessageParcel} object that receives the response.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
          * param operations Indicates the synchronous or asynchronous mode to send messages.
-         * @returns Promise used to return the {@link SendRequestResult} instance.
-         * @throws Throws an exception if the method fails to be called.
+         * @returns Promise used to return the {@link RequestResult} instance.
+         * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
-        sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise<RequestResult>;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
@@ -1188,8 +2172,28 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * param callback Callback for receiving the sending result.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
+
+        /**
+         * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendMessageRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback<RequestResult>): void;
 
         /**
          * Obtains the PID of the {@link RemoteProxy} object.
@@ -1215,11 +2219,25 @@ declare namespace rpc {
          * @param localInterface Indicates the {@code RemoteObject} whose descriptor is to be changed.
          * @param descriptor Indicates the new descriptor of the {@code RemoteObject}.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#modifyLocalInterface
          */
         attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
+
+        /**
+         * Modifies the description of the current {@code RemoteObject}.
+         *
+         * <p>This method is used to change the default descriptor specified during the creation of {@code RemoteObject}.
+         *
+         * @param localInterface Indicates the {@code RemoteObject} whose descriptor is to be changed.
+         * @param descriptor Indicates the new descriptor of the {@code RemoteObject}.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        modifyLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
     }
 
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1258,7 +2276,7 @@ declare namespace rpc {
          * <p>This constant is used to check the validity of an operation.
          *
          * @constant
-         * @default 0x1 
+         * @default 0x1
          * @since 7
          */
         MIN_TRANSACTION_ID: number;
@@ -1280,8 +2298,21 @@ declare namespace rpc {
          * @param descriptor Indicates the descriptor of the interface to query.
          * @return Returns null by default, indicating a proxy interface.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#getLocalInterface
          */
         queryLocalInterface(interface: string): IRemoteBroker;
+
+        /**
+         * Queries a local interface with a specified descriptor.
+         *
+         * @param descriptor Indicates the descriptor of the interface to query.
+         * @return Returns null by default, indicating a proxy interface.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900006 - only remote object permitted
+         * @since 9
+         */
+        getLocalInterface(interface: string): IRemoteBroker;
 
         /**
          * Registers a callback used to receive death notifications of a remote object.
@@ -1290,8 +2321,21 @@ declare namespace rpc {
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#registerDeathRecipient
          */
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
+
+        /**
+         * Registers a callback used to receive death notifications of a remote object.
+         *
+         * @param recipient Indicates the callback to be registered.
+         * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
          * Deregisters a callback used to receive death notifications of a remote object.
@@ -1300,16 +2344,41 @@ declare namespace rpc {
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#unregisterDeathRecipient
          */
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
+
+        /**
+         * Deregisters a callback used to receive death notifications of a remote object.
+         *
+         * @param recipient Indicates the callback to be deregistered.
+         * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        unregisterDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
          * Queries the interface descriptor of remote object.
          *
          * @return Returns the interface descriptor.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#getDescriptor
          */
         getInterfaceDescriptor(): string;
+
+        /**
+         * Queries the interface descriptor of remote object.
+         *
+         * @return Returns the interface descriptor.
+         * @throws { BusinessError } 1900007 - communication failed
+         * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+         * @since 9
+         */
+        getDescriptor(): string;
 
         /**
          * Sends a request to the peer object.
@@ -1342,28 +2411,29 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * @returns Promise used to return the {@link sendRequestResult} instance.
          * @throws Throws an exception if the method fails to be called.
-         * @deprecated since 9
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
 
         /**
-         * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
+         * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
          *
          * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
          * and the reply message does not contain any content. If options indicates the synchronous mode,
-         * a promise will be fulfilled when the response to sendRequest is returned,
+         * a promise will be fulfilled when the response to sendMessageRequest is returned,
          * and the reply message contains the returned information.
          * param code Message code called by the request, which is determined by the client and server.
          * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
-         * param data {@link MessageParcel} object holding the data to send.
-         * param reply {@link MessageParcel} object that receives the response.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
          * param operations Indicates the synchronous or asynchronous mode to send messages.
-         * @returns Promise used to return the {@link SendRequestResult} instance.
-         * @throws Throws an exception if the method fails to be called.
+         * @returns Promise used to return the {@link RequestResult} instance.
+         * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
-        sendRequestAsync(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise<SendRequestResult>;
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise<RequestResult>;
 
         /**
          * Sends a {@link MessageParcel} message to the peer process in synchronous or asynchronous mode.
@@ -1379,8 +2449,28 @@ declare namespace rpc {
          * param operations Indicates the synchronous or asynchronous mode to send messages.
          * param callback Callback for receiving the sending result.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteProxy#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback<SendRequestResult>): void;
+
+        /**
+         * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+         *
+         * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+         * and the reply message does not contain any content. If options indicates the synchronous mode,
+         * a callback will be invoked when the response to sendRequest is returned,
+         * and the reply message contains the returned information.
+         * param code Message code called by the request, which is determined by the client and server.
+         * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+         * param data {@link MessageSequence} object holding the data to send.
+         * param reply {@link MessageSequence} object that receives the response.
+         * param operations Indicates the synchronous or asynchronous mode to send messages.
+         * param callback Callback for receiving the sending result.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback<RequestResult>): void;
 
         /**
          * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
@@ -1391,7 +2481,7 @@ declare namespace rpc {
         isObjectDead(): boolean;
     }
 
-    /** 
+    /**
      * @syscap SystemCapability.Communication.IPC.Core
      * @import import rpc from '@ohos.rpc'
      * @since 7
@@ -1443,7 +2533,7 @@ declare namespace rpc {
          * @return Returns the TOKENID.
          * @since 8
          */
-         static getCallingTokenId(): number;
+        static getCallingTokenId(): number;
 
         /**
          * Obtains the ID of the device where the peer process resides.
@@ -1484,8 +2574,21 @@ declare namespace rpc {
          * @return Returns {@code 0} if the operation succeeds; returns an error code if the input object is empty
          * or {@link RemoteObject}, or the operation fails.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IPCSkeleton#flushCmdBuffer
          */
         static flushCommands(object: IRemoteObject): number;
+
+        /**
+         * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         *
+         * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
+         *
+         * @param object Indicates the specified {@link RemoteProxy}.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        static flushCmdBuffer(object: IRemoteObject): void;
 
         /**
          * Replaces the UID and PID of the remote user with those of the local user.
@@ -1507,8 +2610,23 @@ declare namespace rpc {
          * which is returned by {@code resetCallingIdentity}.
          * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.rpc.IPCSkeleton#restoreCallingIdentity
          */
         static setCallingIdentity(identity: string): boolean;
+
+        /**
+         * Restores the UID and PID to those of the remote user.
+         *
+         * <p>This method is static. It is usually called after {@code resetCallingIdentity} is used
+         * and requires the UID and PID of the remote user returned by {@code resetCallingIdentity}.
+         *
+         * @param identity Indicates the string containing the UID and PID of the remote user,
+         * which is returned by {@code resetCallingIdentity}.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        static restoreCallingIdentity(identity: string): void;
     }
 
     /**
@@ -1563,8 +2681,20 @@ declare namespace rpc {
          * @param size Size (in bytes) of the Ashmem object to create.
          * @return Returns the Ashmem object if it is created successfully; returns null otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#create
          */
         static createAshmem(name: string, size: number): Ashmem;
+
+        /**
+         * Creates an Ashmem object with the specified name and size.
+         * @param name Name of the Ashmem object to create.
+         * @param size Size (in bytes) of the Ashmem object to create.
+         * @return Returns the Ashmem object if it is created successfully; returns null otherwise.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        static create(name: string, size: number): Ashmem;
 
         /**
          * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
@@ -1572,8 +2702,20 @@ declare namespace rpc {
          * @param ashmem Existing Ashmem object.
          * @return Ashmem object created.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#create
          */
         static createAshmemFromExisting(ashmem: Ashmem): Ashmem;
+
+        /**
+         * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
+         * The two Ashmem objects point to the same shared memory region.
+         * @param ashmem Existing Ashmem object.
+         * @return Ashmem object created.
+         * @throws { BusinessError } 401 - check param failed
+         * @since 9
+         */
+        static create(ashmem: Ashmem): Ashmem;
 
         /**
          * Closes this Ashmem object.
@@ -1600,30 +2742,71 @@ declare namespace rpc {
          * @param mapType Protection level of the memory region to which the shared file is mapped.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#mapTypedAshmem
          */
         mapAshmem(mapType: number): boolean;
+
+        /**
+         * Creates the shared file mapping on the virtual address space of this process.
+         * The size of the mapping region is specified by this Ashmem object.
+         * @param mapType Protection level of the memory region to which the shared file is mapped.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900001 - call mmap function failed
+         * @since 9
+         */
+        mapTypedAshmem(mapType: number): void;
 
         /**
          * Maps the shared file to the readable and writable virtual address space of the process.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#mapReadWriteAshmem
          */
         mapReadAndWriteAshmem(): boolean;
+
+        /**
+         * Maps the shared file to the readable and writable virtual address space of the process.
+         * @throws { BusinessError } 1900001 - call mmap function failed
+         * @since 9
+         */
+        mapReadWriteAshmem(): void;
 
         /**
          * Maps the shared file to the read-only virtual address space of the process.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#mapReadonlyAshmem
          */
         mapReadOnlyAshmem(): boolean;
+
+        /**
+         * Maps the shared file to the read-only virtual address space of the process.
+         * @throws { BusinessError } 1900001 - call mmap function failed
+         * @since 9
+         */
+        mapReadonlyAshmem(): void;
 
         /**
          * Sets the protection level of the memory region to which the shared file is mapped.
          * @param protectionType Protection type to set.
          * @return Returns true if the operation is successful; returns false otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#setProtectionType
          */
         setProtection(protectionType: number): boolean;
+
+        /**
+         * Sets the protection level of the memory region to which the shared file is mapped.
+         * @param protectionType Protection type to set.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900002 - os ioctl function failed
+         * @since 9
+         */
+        setProtectionType(protectionType: number): void;
 
         /**
          * Writes data to the shared file associated with this Ashmem object.
@@ -1632,8 +2815,21 @@ declare namespace rpc {
          * @param offset Start position of the data to write in the memory region associated with this Ashmem object.
          * @return Returns true is the data is written successfully; returns false otherwise.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#writeAshmem
          */
         writeToAshmem(buf: number[], size: number, offset: number): boolean;
+
+        /**
+         * Writes data to the shared file associated with this Ashmem object.
+         * @param buf Data to write
+         * @param size Size of the data to write
+         * @param offset Start position of the data to write in the memory region associated with this Ashmem object.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900003 - write to ashmem failed
+         * @since 9
+         */
+        writeAshmem(buf: number[], size: number, offset: number): void;
 
         /**
          * Reads data from the shared file associated with this Ashmem object.
@@ -1641,8 +2837,21 @@ declare namespace rpc {
          * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
          * @return Data read.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.rpc.Ashmem#readAshmem
          */
         readFromAshmem(size: number, offset: number): number[];
+
+        /**
+         * Reads data from the shared file associated with this Ashmem object.
+         * @param size Size of the data to read.
+         * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
+         * @return Data read.
+         * @throws { BusinessError } 401 - check param failed
+         * @throws { BusinessError } 1900004 - read from ashmem failed
+         * @since 9
+         */
+        readAshmem(size: number, offset: number): number[];
     }
 }
 

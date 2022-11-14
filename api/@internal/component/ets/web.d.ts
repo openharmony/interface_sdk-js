@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
+
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  * @since 8
@@ -155,6 +157,24 @@ declare enum CacheMode {
    * @since 8
    */
   Only,
+}
+
+/**
+ * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ * @since 9
+ */
+declare class FullScreenExitHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Exit the full screen mode.
+   * @since 9
+   */
+  exitFullScreen(): void;
 }
 
 /**
@@ -571,6 +591,24 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onWindowNew callback, related to {@link onWindowNew} method.
+ * @since 9
+ */
+declare class ControllerHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+   constructor();
+
+  /**
+   * Set WebController object.
+   * @since 9
+   */
+  setWebController(controller: WebController): void;
+}
+
+/**
 * Defines the context menu param, related to {@link WebContextMenuParam} method.
 * @since 9
 */
@@ -671,8 +709,16 @@ declare class ConsoleMessage {
    * @param messageLevel The console log level.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.ConsoleMessage#constructor
    */
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
+
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
 
   /**
    * Gets the message of a console message.
@@ -1003,6 +1049,7 @@ declare class WebCookie {
    * Sets the cookie.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#setCookie
    */
   setCookie();
 
@@ -1016,6 +1063,7 @@ declare class WebCookie {
    * Saves the cookies.
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebCookieManager#saveCookieAsync
    */
   saveCookie();
 
@@ -1068,23 +1116,30 @@ declare class WebCookie {
 /**
  * Defines the Web controller.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.web.webview.webview.WebviewController
  */
  declare class WebController {
   /**
    * Constructor.
    * @since 8
+   * @deprecated since 9
    */
   constructor();
 
   /**
    * Let the Web inactive.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onInactive
    */
   onInactive(): void;
 
   /**
    * Let the Web active.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#onActive
    */
   onActive(): void;
 
@@ -1093,6 +1148,8 @@ declare class WebCookie {
    * @param factor The zoom factor.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#zoom
    */
   zoom(factor: number): void;
 
@@ -1111,6 +1168,8 @@ declare class WebCookie {
   /**
    * Clears the history in the Web.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#clearHistory
    */
   clearHistory(): void;
 
@@ -1119,6 +1178,8 @@ declare class WebCookie {
    * @param options The options with a piece of code and a callback.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#runJavaScript
    */
   runJavaScript(options: { script: string, callback?: (result: string) => void });
 
@@ -1142,6 +1203,8 @@ declare class WebCookie {
    * @param options The options with the data or URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadData
    */
   loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string });
 
@@ -1150,18 +1213,24 @@ declare class WebCookie {
    * @param options The options with the URL and other information.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#loadUrl
    */
   loadUrl(options: { url: string | Resource, headers?: Array<Header> });
 
   /**
    * refreshes the current URL.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#refresh
    */
   refresh();
 
   /**
    * Stops the current load.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#stop
    */
   stop();
 
@@ -1170,6 +1239,8 @@ declare class WebCookie {
    * @param options The option with the JavaScript object and method list.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#registerJavaScriptProxy
    */
   registerJavaScriptProxy(options: { object: object, name: string, methodList: Array<string> });
 
@@ -1178,12 +1249,16 @@ declare class WebCookie {
    * @param name The name of a registered JavaScript object to be deleted.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#deleteJavaScriptRegister
    */
   deleteJavaScriptRegister(name: string);
 
   /**
    * Gets the type of HitTest.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#getHitTest
    */
   getHitTest(): HitTestType;
 
@@ -1220,18 +1295,24 @@ declare class WebCookie {
   /**
    * Gets the request focus.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#requestFocus
    */
   requestFocus();
 
   /**
    * Checks whether the web page can go back.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessBackward
    */
   accessBackward(): boolean;
 
   /**
    * Checks whether the web page can go forward.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessForward
    */
   accessForward(): boolean;
 
@@ -1240,18 +1321,24 @@ declare class WebCookie {
    * @param step The number of steps.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#accessStep
    */
   accessStep(step: number): boolean;
 
   /**
    * Goes back in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#backward
    */
   backward();
 
   /**
    * Goes forward in the history of the web page.
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.web.webview.webview.WebviewController#forward
    */
   forward();
 
@@ -1299,6 +1386,13 @@ declare class WebCookie {
    * @since 9
    */
   clearClientAuthenticationCache(): void;
+
+  /**
+   * Gets the url of current Web page.
+   * @return the url of current Web page.
+   * @since 9
+   */
+  getUrl(): string;
 }
 
 /**
@@ -1313,9 +1407,15 @@ declare interface WebOptions {
   src: string | Resource;
   /**
    * Sets the controller of the Web.
+   * @type { (WebController) }
    * @since 8
    */
-  controller: WebController;
+    /**
+   * Sets the controller of the Web.
+   * @type { (WebController | WebviewController) }
+   * @since 9
+    */
+  controller: WebController | WebviewController;
 }
 
 /**
@@ -1350,15 +1450,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   fileAccess(fileAccess: boolean): WebAttribute;
-
-  /**
-   * Sets whether javaScript running in the context of a file URL can access content from other file URLs.
-   * @param fileFromUrlAccess {@code true} means enable a file URL can access other file URLs;
-   * {@code false} otherwise.
-   *
-   * @since 9
-   */
-  fileFromUrlAccess(fileFromUrlAccess: boolean): WebAttribute;
 
   /**
    * Sets whether to allow image resources to be loaded from the network.
@@ -1413,10 +1504,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Injects the JavaScript object into window and invoke the function in window.
    * @param javaScriptProxy The JavaScript object to be injected.
    *
+   * @type {controller : WebController}
    * @since 8
    */
+    /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   * @param javaScriptProxy The JavaScript object to be injected.
+   *
+   * @type {controller : WebController | WebviewController}
+   * @since 9
+   */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
-    controller: WebController }): WebAttribute;
+    controller: WebController | WebviewController }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
@@ -1698,6 +1797,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onResourceLoad(callback: (event: {url: string}) => void): WebAttribute;
 
   /**
+   * Triggered when the web component exit the full screen mode.
+   * @param callback The triggered function when the web component exit the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenExit(callback: () => void): WebAttribute;
+
+  /**
+   * Triggered when the web component enter the full screen mode.
+   * @param callback The triggered function when the web component enter the full screen mode.
+   *
+   * @since 9
+   */
+  onFullScreenEnter(callback: (event: { handler: FullScreenExitHandler}) => void): WebAttribute;
+
+  /**
    * Triggered when the scale of WebView changed.
    * @param callback The triggered when the scale of WebView changed.
    *
@@ -1781,6 +1896,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   onClientAuthenticationRequest(callback: (event: {handler : ClientAuthenticationHandler, host : string, port : number,
       keyTypes : Array<string>, issuers : Array<string>}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to create a window.
+   * @param callback The triggered callback when web page requires the user to create a window.
+   *
+   * @since 9
+   */
+  onWindowNew(callback: (event: {isAlert: boolean, isUserTrigger: boolean, targetUrl: string,
+      handler: ControllerHandler}) => void): WebAttribute;
+
+  /**
+   * Triggered when web page requires the user to close a window.
+   * @param callback The triggered callback when web page requires the user to close a window.
+   *
+   * @since 9
+   */
+  onWindowExit(callback: () => void): WebAttribute;
+
+  /**
+   * Set whether multiple windows are supported.
+   * @param multiWindow True if it needs to be triggered manually by the user else false.
+   *
+   * @since 9
+   */
+  multiWindowAccess(multiWindow: boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;

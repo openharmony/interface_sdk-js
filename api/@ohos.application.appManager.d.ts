@@ -27,6 +27,8 @@ import { ProcessRunningInformation as _ProcessRunningInformation } from './appli
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @import import appManager from '@ohos.application.appManager'
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.appManager
  */
 declare namespace appManager {
     /**

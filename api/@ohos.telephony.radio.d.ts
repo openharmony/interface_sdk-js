@@ -67,6 +67,7 @@ declare namespace radio {
   /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -78,6 +79,7 @@ declare namespace radio {
   /**
    * Proactively requests to update location information.
    *
+   * @permission ohos.permission.LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
@@ -296,6 +298,63 @@ declare namespace radio {
    */
   function getPreferredNetwork(slotId: number, callback: AsyncCallback<PreferredNetworkMode>): void;
   function getPreferredNetwork(slotId: number): Promise<PreferredNetworkMode>;
+
+  /**
+   * Get the IMS registration state info of specificed IMS service type.
+   *
+   * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
+   * @param callback including an instance of the {@link ImsRegInfo} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+   function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+   function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+
+  /**
+   * Called when the IMS registration state of specificed IMS service type corresponding
+   *   to a monitored {@code slotId} updates.
+   *
+   * @param slotId Indicates the card slot index number,
+   *   ranging from 0 to the maximum card slot index number supported by the device.
+   * @param imsType Indicates the ims service type of the {@link ImsServiceType}.
+   * @param callback including an instance of the {@link ImsRegInfo} class.
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function on(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback: Callback<ImsRegInfo>): void;
+
+
+  /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function off(type: 'imsRegStateChange', slotId: number, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -789,6 +848,46 @@ declare namespace radio {
 
     /** Manual network selection modes. */
     NETWORK_SELECTION_MANUAL
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum ImsRegState {
+    IMS_UNREGISTERED,
+    IMS_REGISTERED,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum ImsRegTech {
+    REGISTRATION_TECH_NONE,
+    REGISTRATION_TECH_LTE,
+    REGISTRATION_TECH_IWLAN,
+    REGISTRATION_TECH_NR,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface ImsRegInfo {
+    imsRegState: ImsRegState;
+    imsRegTech: ImsRegTech;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum ImsServiceType {
+    TYPE_VOICE,
+    TYPE_VIDEO,
+    TYPE_UT,
+    TYPE_SMS,
   }
 }
 

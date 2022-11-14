@@ -439,7 +439,8 @@
         "File.Environment",
         "File.DistributedFile",
         "AppFileService",
-        "UserFileService"
+        "UserFileService",
+        "UserFileManager"
       ],
       "USB":[
         "USBManager"

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -84,7 +84,6 @@ declare namespace fileIO {
     export { writeSync };
     export { Dir };
     export { Dirent };
-
     export { ReadOut };
     export { Stat };
     export { Stream };
@@ -281,7 +280,8 @@ declare function chmodSync(path: string, mode: number): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncate
  * @function ftruncate
  * @param {number} fd - fd.
  * @param {number} [len = 0] - len.
@@ -298,7 +298,8 @@ declare function ftruncate(fd: number, len: number, callback: AsyncCallback<void
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncateSync
  * @function ftruncateSync
  * @param {number} fd - fd.
  * @param {number} [len = 0] - len.
@@ -340,7 +341,8 @@ declare function fsyncSync(fd: number): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.stat
  * @function fstat
  * @param {number} fd - fd.
  * @returns {Stat}
@@ -354,7 +356,8 @@ declare function fstat(fd: number, callback: AsyncCallback<Stat>): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.statSync
  * @function fstatSync
  * @param {number} fd - fd.
  * @returns {Stat}
@@ -620,7 +623,8 @@ declare function mkdtempSync(prefix: string): string;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.open
  * @function open
  * @param {string} path - path.
  * @param {number} [flags = 0] - flags.
@@ -639,7 +643,8 @@ declare function open(path: string, flags: number, mode: number, callback: Async
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.openSync
  * @function openSync
  * @param {string} path - path.
  * @param {number} [flags = 0] - flags.
@@ -727,7 +732,8 @@ declare function readTextSync(filePath: string, options?: {
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.read
  * @function read
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer} buffer - file descriptor.
@@ -756,7 +762,8 @@ declare function read(fd: number, buffer: ArrayBuffer, options: {
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readSync
  * @function readSync
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer} buffer - file descriptor.
@@ -836,7 +843,8 @@ declare function rmdirSync(path: string): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.stat
  * @param {string} path - path.
  * @param {AsyncCallback<number>} [callback] - callback.
  * @returns {void | Promise<Stat>} no callback return Promise otherwise return void
@@ -850,7 +858,8 @@ declare function stat(path: string, callback: AsyncCallback<Stat>): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.statSync
  * @param {string} path - path.
  * @returns {Stat} stat success
  * @throws {TypedError | Error} stat fail
@@ -892,7 +901,8 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncate
  * @function truncate
  * @param {string} path - path.
  * @param {number} [len = 0] - len.
@@ -909,7 +919,8 @@ declare function truncate(path: string, len: number, callback: AsyncCallback<voi
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.truncateSync
  * @function truncateSync
  * @param {string} path - path.
  * @param {number} [len = 0] - len.
@@ -951,7 +962,8 @@ declare function unlinkSync(path: string): void;
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.write
  * @function write
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer | string} buffer - file descriptor.
@@ -983,7 +995,8 @@ declare function write(fd: number, buffer: ArrayBuffer | string, options: {
  * @note N/A
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.writeSync
  * @function writeSync
  * @param {number} fd - file descriptor.
  * @param {ArrayBuffer | string} buffer - file descriptor.
@@ -1172,7 +1185,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    displayName: Array<string>;
+    displayName?: Array<string>;
     /**
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1180,7 +1193,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    mimeType: Array<string>;
+    mimeType?: Array<string>;
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1188,7 +1201,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    fileSizeOver: number;
+    fileSizeOver?: number;
     /**
      * @type {number}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1196,7 +1209,7 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    lastModifiedAfter: number;
+    lastModifiedAfter?: number;
     /**
      * @type {boolean}
      * @syscap SystemCapability.FileManagement.File.FileIO
@@ -1204,14 +1217,15 @@ export type Filter = {
      * @since 9
      * @readonly
      */
-    excludeMedia: boolean;
+    excludeMedia?: boolean;
 }
 
 /**
  * Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
- * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.Stat
  */
 declare interface Stat {
     /**
@@ -1545,6 +1559,7 @@ declare interface Stream {
  * ReadOut
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
  * @permission N/A
  */
 declare interface ReadOut {
