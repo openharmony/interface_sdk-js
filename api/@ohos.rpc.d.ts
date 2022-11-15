@@ -1709,6 +1709,7 @@ declare namespace rpc {
          * @throws RemoteException Throws this exception if the method fails to be called.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.rpc.IRemoteObject#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2090,6 +2091,7 @@ declare namespace rpc {
          * @throws RemoteException Throws this exception if a remote service error occurs.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#onRemoteMessageRequest
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2104,8 +2106,9 @@ declare namespace rpc {
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
          * @returns Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @deprecated since 8
          * @since 7
+         * @deprecated since 8
+         * @useinstead ohos.rpc.RemoteObject#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2380,8 +2383,9 @@ declare namespace rpc {
          * @param options Indicates a synchronous (default) or asynchronous request.
          * @returns Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote object exception occurs.
-         * @deprecated since 8
          * @since 7
+         * @deprecated since 8
+         * @useinstead ohos.rpc.RemoteProxy#sendMessageRequest
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
