@@ -359,104 +359,104 @@ declare namespace rpc {
 
         /**
          * Writes a short integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param shortArray Indicates the short integer array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeShortArray(shortArray: number[]): boolean;
 
         /**
          * Writes an integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param intArray Indicates the integer array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeIntArray(intArray: number[]): boolean;
 
         /**
          * Writes a long integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param longArray Indicates the long integer array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeLongArray(longArray: number[]): boolean;
 
         /**
          * Writes a floating point array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param floatArray Indicates the floating point array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeFloatArray(floatArray: number[]): boolean;
 
         /**
          * Writes a double-precision floating point array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param doubleArray Indicates the double-precision floating point array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeDoubleArray(doubleArray: number[]): boolean;
 
         /**
          * Writes a boolean array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param booleanArray Indicates the boolean array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeBooleanArray(booleanArray: boolean[]): boolean;
 
         /**
          * Writes a single character array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param charArray Indicates the single character array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeCharArray(charArray: number[]): boolean;
 
         /**
          * Writes a string array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param stringArray Indicates the string array to write.
          * @returns Returns {@code true} if the array has been written into the {@link MessageParcel};
          *         returns {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeStringArray(stringArray: string[]): boolean;
@@ -1068,88 +1068,88 @@ declare namespace rpc {
 
         /**
          * Writes a short integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param shortArray Indicates the short integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeShortArray(shortArray: number[]): void;
 
         /**
          * Writes an integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param intArray Indicates the integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeIntArray(intArray: number[]): void;
 
         /**
          * Writes a long integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param longArray Indicates the long integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeLongArray(longArray: number[]): void;
 
         /**
          * Writes a floating point array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param floatArray Indicates the floating point array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeFloatArray(floatArray: number[]): void;
 
         /**
          * Writes a double-precision floating point array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param doubleArray Indicates the double-precision floating point array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeDoubleArray(doubleArray: number[]): void;
 
         /**
          * Writes a boolean array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param booleanArray Indicates the boolean array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeBooleanArray(booleanArray: boolean[]): void;
 
         /**
          * Writes a single character array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param charArray Indicates the single character array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeCharArray(charArray: number[]): void;
 
         /**
          * Writes a string array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param stringArray Indicates the string array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeStringArray(stringArray: string[]): void;
