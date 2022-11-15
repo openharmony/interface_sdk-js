@@ -88,7 +88,7 @@ declare namespace freeInstall {
   }
 
   /**
-   * Sets wether to upgrade the module.
+   * Sets whether to upgrade the module.
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
@@ -106,7 +106,7 @@ declare namespace freeInstall {
   function setHapModuleUpgradeFlag(bundleName: string, moduleName: string, upgradeFlag: UpgradeFlag, callback: AsyncCallback<void>) : void;
 
   /**
-   * Sets wether to upgrade the module.
+   * Sets whether to upgrade the module.
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
@@ -158,7 +158,7 @@ declare namespace freeInstall {
   function isHapModuleRemovable(bundleName: string, moduleName: string): Promise<boolean>;
 
   /**
-   * Obtains bundlePackInfo based on bundleName and bundleFlags.
+   * Obtains bundlePackInfo based on bundleName and bundlePackFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.
@@ -174,7 +174,7 @@ declare namespace freeInstall {
   function getBundlePackInfo(bundleName: string, bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>): void;
 
   /**
-   * Obtains bundlePackInfo based on bundleName and bundleFlags.
+   * Obtains bundlePackInfo based on bundleName and bundlePackFlags.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the application bundle name to be queried.
    * @param { BundlePackFlag } bundlePackFlag - Indicates the application bundle pack flag to be queried.

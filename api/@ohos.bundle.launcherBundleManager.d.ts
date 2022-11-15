@@ -36,7 +36,7 @@ declare namespace launcherBundleManager {
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -53,7 +53,7 @@ declare namespace launcherBundleManager {
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
    * @throws {BusinessError} 17700001 - The specified bundle name is not found.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -68,7 +68,7 @@ declare namespace launcherBundleManager {
    * @throws {BusinessError} 201 - Verify permission denied.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
@@ -83,7 +83,7 @@ declare namespace launcherBundleManager {
    * @throws {BusinessError} 201 - Verify permission denied.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @throws {BusinessError} 801 - Capability not support.
-   * @throws {BusinessError} 17700004 - The specified user id is not found.
+   * @throws {BusinessError} 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 9
