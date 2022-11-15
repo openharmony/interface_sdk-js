@@ -1812,7 +1812,7 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * . a callback used to receive notifications of the death of a remote object.
+         * Deregister a callback used to receive notifications of the death of a remote object.
          *
          * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification.
