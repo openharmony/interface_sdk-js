@@ -66,7 +66,7 @@ declare namespace rpc {
     }
 
     /**
-     * A data object used for reomote procedure call (RPC).
+     * A data object used for remote procedure call (RPC).
      * <p>
      * During RPC, the sender can use the write methods provided by {@link MessageParcel} to
      * write the to-be-sent data into a {@link MessageParcel} object in a specific format, and the receiver can use the
@@ -95,13 +95,13 @@ declare namespace rpc {
         static create(): MessageParcel;
 
         /**
-         * Reclaims the {@link MessageParcel} object.
+         * Reclaim the {@link MessageParcel} object.
          * @since 7
          */
         reclaim(): void;
 
         /**
-         * Serializes a remote object and writes it to the {@link MessageParcel} object.
+         * Serialize a remote object and writes it to the {@link MessageParcel} object.
          * @param object Remote object to serialize.
          * @returns Returns true if it is successful; returns false otherwise.
          * @since 7
@@ -476,7 +476,7 @@ declare namespace rpc {
          * Writes an array of {@link IRemoteObject} objects to this {@link MessageParcel} object.
          * @param objectArray Array of {@link IRemoteObject} objects to write.
          * @returns Returns {@code true} if the {@link IRemoteObject} array is successfully written to the {@link MessageParcel};
-         *         returns false if the {@link IRemoteObject} array is null or fails to be written to the {@lini MessageParcel}.
+         *         returns false if the {@link IRemoteObject} array is null or fails to be written to the {@link MessageParcel}.
          * @since 8
          */
         writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
@@ -790,7 +790,7 @@ declare namespace rpc {
     }
 
     /**
-     * A data object used for reomote procedure call (RPC).
+     * A data object used for remote procedure call (RPC).
      * <p>
      * During RPC, the sender can use the write methods provided by {@link MessageSequence} to
      * write the to-be-sent data into a {@link MessageSequence} object in a specific format, and the receiver can use the
@@ -817,13 +817,13 @@ declare namespace rpc {
         static create(): MessageSequence;
 
         /**
-         * Reclaims the {@link MessageSequence} object.
+         * Reclaim the {@link MessageSequence} object.
          * @since 9
          */
         reclaim(): void;
 
         /**
-         * Serializes a remote object and writes it to the {@link MessageSequence} object.
+         * Serialize a remote object and writes it to the {@link MessageSequence} object.
          * @param object Remote object to serialize.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -1534,10 +1534,10 @@ declare namespace rpc {
      */
     interface Sequenceable {
         /**
-         * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
+         * Marshal this {@code Sequenceable} object into a {@link MessageParcel}.
          *
          * @param dataOut Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
-         *        object will be marshaled..
+         *        object will be marshalled..
          * @returns Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 7
@@ -1545,10 +1545,10 @@ declare namespace rpc {
         marshalling(dataOut: MessageParcel): boolean;
 
         /**
-         * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
+         * Unmarshal this {@code Sequenceable} object from a {@link MessageParcel}.
          *
          * @param dataIn Indicates the {@link MessageParcel} object into which the {@code Sequenceable}
-         *        object has been marshaled.
+         *        object has been marshalled.
          * @returns Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 7
@@ -1562,10 +1562,10 @@ declare namespace rpc {
      */
     interface Parcelable {
         /**
-         * Marshals this {@code Parcelable} object into a {@link MessageSequence}.
+         * Marshal this {@code Parcelable} object into a {@link MessageSequence}.
          *
          * @param dataOut Indicates the {@link MessageSequence} object to which the {@code Parcelable}
-         *        object will be marshaled..
+         *        object will be marshalled..
          * @returns Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 9
@@ -1573,10 +1573,10 @@ declare namespace rpc {
         marshalling(dataOut: MessageSequence): boolean;
 
         /**
-         * Unmarshals this {@code Parcelable} object from a {@link MessageSequence}.
+         * Unmarshal this {@code Parcelable} object from a {@link MessageSequence}.
          *
          * @param dataIn Indicates the {@link MessageSequence} object into which the {@code Parcelable}
-         *        object has been marshaled.
+         *        object has been marshalled.
          * @returns Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 9
@@ -1789,7 +1789,7 @@ declare namespace rpc {
         sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback<RequestResult>): void;
 
         /**
-         * Registers a callback used to receive notifications of the death of a remote object.
+         * Register a callback used to receive notifications of the death of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
@@ -1801,7 +1801,7 @@ declare namespace rpc {
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Registers a callback used to receive notifications of the death of a remote object.
+         * Register a callback used to receive notifications of the death of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
@@ -1812,11 +1812,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregisters a callback used to receive notifications of the death of a remote object.
+         * . a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification.
-         * @returns Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
+         * @returns Returns {@code true} if the callback is deregister successfully; returns {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#unregisterDeathRecipient
@@ -1824,9 +1824,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregisters a callback used to receive notifications of the death of a remote object.
+         * Deregister a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -2303,7 +2303,7 @@ declare namespace rpc {
         getLocalInterface(interface: string): IRemoteBroker;
 
         /**
-         * Registers a callback used to receive death notifications of a remote object.
+         * Register a callback used to receive death notifications of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
@@ -2315,7 +2315,7 @@ declare namespace rpc {
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Registers a callback used to receive death notifications of a remote object.
+         * Register a callback used to receive death notifications of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
@@ -2326,11 +2326,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregisters a callback used to receive death notifications of a remote object.
+         * Deregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
-         * @returns Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
+         * @returns Returns {@code true} if the callback is deregister successfully; returns {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#unregisterDeathRecipient
@@ -2338,9 +2338,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregisters a callback used to receive death notifications of a remote object.
+         * Deregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -2553,7 +2553,7 @@ declare namespace rpc {
         static isLocalCalling(): boolean;
 
         /**
-         * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
@@ -2567,7 +2567,7 @@ declare namespace rpc {
         static flushCommands(object: IRemoteObject): number;
 
         /**
-         * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
@@ -2588,7 +2588,7 @@ declare namespace rpc {
         static resetCallingIdentity(): string;
 
         /**
-         * Restores the UID and PID to those of the remote user.
+         * Restore the UID and PID to those of the remote user.
          *
          * <p>This method is static. It is usually called after {@code resetCallingIdentity} is used
          * and requires the UID and PID of the remote user returned by {@code resetCallingIdentity}.
@@ -2603,7 +2603,7 @@ declare namespace rpc {
         static setCallingIdentity(identity: string): boolean;
 
         /**
-         * Restores the UID and PID to those of the remote user.
+         * Restore the UID and PID to those of the remote user.
          *
          * <p>This method is static. It is usually called after {@code resetCallingIdentity} is used
          * and requires the UID and PID of the remote user returned by {@code resetCallingIdentity}.
