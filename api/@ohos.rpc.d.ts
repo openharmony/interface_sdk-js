@@ -85,7 +85,6 @@ declare namespace rpc {
      * @deprecated since 9
      * @useinstead ohos.rpc.MessageSequence
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     class MessageParcel {
         /**
@@ -808,7 +807,6 @@ declare namespace rpc {
      *
      * @since 9
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     class MessageSequence {
         /**
@@ -1530,7 +1528,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.rpc.Parcelable
@@ -1561,7 +1558,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 9
      */
     interface Parcelable {
@@ -1594,7 +1590,6 @@ declare namespace rpc {
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.rpc.RequestResult
@@ -1633,7 +1628,6 @@ declare namespace rpc {
     * namely error code of this operation, request code, data parcel
     * and reply parcel.
     * @syscap SystemCapability.Communication.IPC.Core
-    * @import import rpc from '@ohos.rpc'
     * @since 9
     */
     interface RequestResult {
@@ -1666,7 +1660,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     abstract class IRemoteObject {
@@ -1875,7 +1868,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     interface IRemoteBroker {
@@ -1892,7 +1884,6 @@ declare namespace rpc {
     /**
      * @since 7
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     interface DeathRecipient {
         /**
@@ -1905,7 +1896,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class MessageOption {
@@ -2014,7 +2004,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class RemoteObject extends IRemoteObject {
@@ -2239,7 +2228,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class RemoteProxy implements IRemoteObject {
@@ -2483,7 +2471,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class IPCSkeleton {
@@ -2635,7 +2622,6 @@ declare namespace rpc {
      * reading data from and writing data to an Ashmem object,
      * obtaining the Ashmem size, and setting Ashmem protection.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 8
      */
     class Ashmem {
