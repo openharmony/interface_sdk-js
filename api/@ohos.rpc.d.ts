@@ -2554,7 +2554,7 @@ declare namespace rpc {
         static isLocalCalling(): boolean;
 
         /**
-         * flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * Flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
@@ -2568,7 +2568,7 @@ declare namespace rpc {
         static flushCommands(object: IRemoteObject): number;
 
         /**
-         * flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * Flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
