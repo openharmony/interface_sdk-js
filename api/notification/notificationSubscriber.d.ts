@@ -43,7 +43,7 @@ export interface NotificationSubscriber {
   onDoNotDisturbDateChange?:(mode: notification.DoNotDisturbDate) => void;
 
   /**
-   * Callback when the notificaition permission is changed.
+   * Callback when the notification permission is changed.
    * @syscap SystemCapability.Notification.Notification
    * @since 8
    */
