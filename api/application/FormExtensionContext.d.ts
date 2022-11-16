@@ -22,7 +22,7 @@ import Want from '../@ohos.application.Want';
  * The context of form extension. It allows access to
  * formExtension-specific resources.
  * @syscap SystemCapability.Ability.Form
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class FormExtensionContext extends ExtensionContext {
@@ -33,7 +33,7 @@ export default class FormExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;

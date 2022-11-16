@@ -95,7 +95,7 @@ declare namespace appReceovery {
      * @param saveOccasion The type of When to save
      * @param saveMode The type of where to save
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
@@ -103,7 +103,7 @@ declare namespace appReceovery {
     /**
      * Restart App when called
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     function restartApp(): void;
@@ -112,7 +112,7 @@ declare namespace appReceovery {
      * Save App state data when called
      * @return true if save data successfully, otherwise false
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     function saveAppState(): boolean;

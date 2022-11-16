@@ -18,7 +18,7 @@ import Ability from "./@ohos.app.ability.Ability";
 /**
  * class of extension.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class ExtensionAbility extends Ability {
