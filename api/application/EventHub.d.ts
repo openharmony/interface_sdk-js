@@ -18,7 +18,7 @@ import { BusinessError } from '../basic';
 /**
  * The event center of a context, support the subscription and publication of events.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class EventHub {
@@ -28,7 +28,7 @@ export default class EventHub {
     * @param { Function } callback - Indicates the callback.
     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    on(event: string, callback: Function): void
@@ -39,7 +39,7 @@ export default class EventHub {
     * @param { Function } callback - Indicates the callback.
     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    off(event: string, callback?: Function): void
@@ -50,7 +50,7 @@ export default class EventHub {
     * @param { Object[] } args - Indicates the callback arguments.
     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    emit(event: string, ...args: Object[]): void
