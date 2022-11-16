@@ -47,7 +47,6 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * @name notification
  * @since 7
  * @syscap SystemCapability.Notification.Notification
- * @import import notification from '@ohos.notification';
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.notificationManager and ohos.notificationSubscribe
