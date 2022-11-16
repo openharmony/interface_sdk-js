@@ -512,7 +512,7 @@ declare namespace formHost {
 
     /**
      * Notify form that privacy whether to be protected.
-     * @permission ohos.permission.REQUIRE_FORM.
+     * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isProtected - Indicates whether to be protected.
      * @param { AsyncCallback<void> } callback - The callback of notifyFormsPrivacyProtected.
@@ -525,7 +525,7 @@ declare namespace formHost {
 
     /**
      * Notify form that privacy whether to be protected.
-     * @permission ohos.permission.REQUIRE_FORM.
+     * @permission ohos.permission.REQUIRE_FORM
      * @param { Array<string> } formIds - Indicates the specified form id.
      * @param { boolean } isProtected - Indicates whether to be protected.
      * @returns { Promise<void> } The promise returned by the function.

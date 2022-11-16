@@ -44,7 +44,7 @@ export default class AbilityLifecycleCallback {
     onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
-     * Called back when a window stage is actived.
+     * Called back when a window stage is active.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to active
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -54,7 +54,7 @@ export default class AbilityLifecycleCallback {
     onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
-     * Called back when a window stage is inactived.
+     * Called back when a window stage is inactive.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to inactive
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
