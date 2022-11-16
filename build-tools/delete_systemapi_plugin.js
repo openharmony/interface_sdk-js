@@ -280,7 +280,9 @@ function deleteSystemApi(url) {
 exports.deleteSystemApi = deleteSystemApi;
 
 function isSystemapi(node) {
-  const notesStr = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesContent = node.getFullText().replace(node.getText(), "").replace(/[\s]/g, "");
+  const notesArr = notesContent.split(/\/\*\*/);
+  const notesStr = notesArr[notesArr.length - 1];
   if (notesStr.length !== 0) {
     if (ts.isFunctionDeclaration(node) || ts.isMethodSignature(node) || ts.isMethodDeclaration(node)) {
       lastNodeName = node.name && node.name.escapedText ? node.name.escapedText.toString() : "";
