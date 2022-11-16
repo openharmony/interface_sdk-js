@@ -920,7 +920,12 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      */
     export enum HuksTag {
-        /* Invalid TAG */
+        /**
+         * Invalid TAG.
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
 
         /* Base algrithom TAG: 1 - 200 */
@@ -938,13 +943,36 @@ declare namespace huks {
         /* Key derivation TAG */
         HUKS_TAG_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 11,
         HUKS_TAG_SALT = HuksTagType.HUKS_TAG_TYPE_BYTES | 12,
-        HUKS_TAG_PWD = HuksTagType.HUKS_TAG_TYPE_BYTES | 13,
-        HUKS_TAG_ITERATION = HuksTagType.HUKS_TAG_TYPE_UINT | 14,
 
-        HUKS_TAG_KEY_GENERATE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 15, /* choose from enum HuksKeyGenerateType */
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_PWD = HuksTagType.HUKS_TAG_TYPE_BYTES | 13,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_DERIVE_MAIN_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 16,
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_DERIVE_FACTOR = HuksTagType.HUKS_TAG_TYPE_BYTES | 17,
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_DERIVE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 18,
+
+        HUKS_TAG_ITERATION = HuksTagType.HUKS_TAG_TYPE_UINT | 14,
+        HUKS_TAG_KEY_GENERATE_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 15, /* choose from enum HuksKeyGenerateType */
+
         HUKS_TAG_AGREE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 19,
         HUKS_TAG_AGREE_PUBLIC_KEY_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 20,
         HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 21,
@@ -971,18 +999,40 @@ declare namespace huks {
          *
          * Start of validity
          */
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ACTIVE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 201,
 
-        /* Date when new "messages" should not be created. */
+        /**
+         * Date when new "messages" should not be created.
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ORIGINATION_EXPIRE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 202,
 
-        /* Date when existing "messages" should not be used. */
+        /**
+         * Date when existing "messages" should not be used.
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_USAGE_EXPIRE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 203,
 
-        /* Key creation time */
+        /**
+         * Key creation time.
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_CREATION_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 204,
 
         /* Other authentication related TAG: 301 - 500 */
+
         HUKS_TAG_ALL_USERS = HuksTagType.HUKS_TAG_TYPE_BOOL | 301,
         HUKS_TAG_USER_ID = HuksTagType.HUKS_TAG_TYPE_UINT | 302,
         HUKS_TAG_NO_AUTH_REQUIRED = HuksTagType.HUKS_TAG_TYPE_BOOL | 303,
@@ -1023,17 +1073,78 @@ declare namespace huks {
         /* Attestation related TAG: 501 - 600 */
         HUKS_TAG_ATTESTATION_CHALLENGE = HuksTagType.HUKS_TAG_TYPE_BYTES | 501,
         HUKS_TAG_ATTESTATION_APPLICATION_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 502,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_BRAND = HuksTagType.HUKS_TAG_TYPE_BYTES | 503,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_DEVICE = HuksTagType.HUKS_TAG_TYPE_BYTES | 504,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_PRODUCT = HuksTagType.HUKS_TAG_TYPE_BYTES | 505,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_SERIAL = HuksTagType.HUKS_TAG_TYPE_BYTES | 506,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_IMEI = HuksTagType.HUKS_TAG_TYPE_BYTES | 507,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_MEID = HuksTagType.HUKS_TAG_TYPE_BYTES | 508,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_MANUFACTURER = HuksTagType.HUKS_TAG_TYPE_BYTES | 509,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_MODEL = HuksTagType.HUKS_TAG_TYPE_BYTES | 510,
-        HUKS_TAG_ATTESTATION_ID_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 511,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_SOCID = HuksTagType.HUKS_TAG_TYPE_BYTES | 512,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ATTESTATION_ID_UDID = HuksTagType.HUKS_TAG_TYPE_BYTES | 513,
+
+        HUKS_TAG_ATTESTATION_ID_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 511,
         HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 514,
         HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
 
@@ -1046,28 +1157,102 @@ declare namespace huks {
         HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002, /* choose from enum HuksKeyStorageType */
         HUKS_TAG_IS_ALLOWED_WRAP = HuksTagType.HUKS_TAG_TYPE_BOOL | 1003,
         HUKS_TAG_KEY_WRAP_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 1004,
+        HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007, /* choose from enum HuksKeyFlag */
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_SECURE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1009,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
+        HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
+
         HUKS_TAG_KEY_AUTH_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1005,
         HUKS_TAG_KEY_ROLE = HuksTagType.HUKS_TAG_TYPE_UINT | 1006,
-        HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007, /* choose from enum HuksKeyFlag */
         HUKS_TAG_IS_ASYNCHRONIZED = HuksTagType.HUKS_TAG_TYPE_UINT | 1008,
-        HUKS_TAG_SECURE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1009,
-        HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
         HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
         /* Inner-use TAG: 10001 - 10999 */
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_PROCESS_NAME = HuksTagType.HUKS_TAG_TYPE_BYTES | 10001,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_PACKAGE_NAME = HuksTagType.HUKS_TAG_TYPE_BYTES | 10002,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_ACCESS_TIME = HuksTagType.HUKS_TAG_TYPE_UINT | 10003,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_USES_TIME = HuksTagType.HUKS_TAG_TYPE_UINT | 10004,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_CRYPTO_CTX = HuksTagType.HUKS_TAG_TYPE_ULONG | 10005,
-        HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_KEY_VERSION = HuksTagType.HUKS_TAG_TYPE_UINT | 10007,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_PAYLOAD_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 10008,
-        HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_IS_KEY_HANDLE = HuksTagType.HUKS_TAG_TYPE_ULONG | 10010,
 
+        HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
+        HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
+
         /* Os version related TAG */
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_OS_VERSION = HuksTagType.HUKS_TAG_TYPE_UINT | 10101,
+
+        /**
+         * @deprecated since 9
+         * @since 8
+         * @syscap SystemCapability.Security.Huks
+         */
         HUKS_TAG_OS_PATCHLEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 10102,
 
         /*
