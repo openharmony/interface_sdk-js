@@ -19,7 +19,6 @@
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
  * @permission N/A
  */
 export interface AbilityDelegatorArgs {

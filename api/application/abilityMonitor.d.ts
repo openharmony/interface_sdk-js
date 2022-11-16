@@ -21,7 +21,6 @@ import UIAbility from '../@ohos.app.ability.UIAbility';
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityMonitor from 'application/abilityMonitor.d'
  * @permission N/A
  */
 export interface AbilityMonitor {
