@@ -21,16 +21,14 @@ import image from './@ohos.multimedia.image';
  * @name mediaLibrary
  * @since 6
  * @syscap SystemCapability.Multimedia.MediaLibrary.Core
- * @import import media from '@ohos.multimedia.mediaLibrary'
  */
 declare namespace mediaLibrary {
   /**
    * Obtains a MediaLibrary instance.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @FAModelOnly
-   * @return Returns a MediaLibrary instance if the operation is successful; returns null otherwise.
+   * @returns Returns a MediaLibrary instance if the operation is successful; returns null otherwise.
    */
   function getMediaLibrary(): MediaLibrary;
   /**
@@ -39,7 +37,7 @@ declare namespace mediaLibrary {
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @StageModelOnly
    * @param context hap context information
-   * @return Instance of MediaLibrary
+   * @returns Instance of MediaLibrary
    */
   function getMediaLibrary(context: Context): MediaLibrary;
 
@@ -79,7 +77,6 @@ declare namespace mediaLibrary {
    * Describes media resource options.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @deprecated since 9
    */
   interface MediaAssetOption {
@@ -110,7 +107,6 @@ declare namespace mediaLibrary {
    * Describes media selection options.
    * @since 6
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    * @deprecated since 9
    */
   interface MediaSelectOption {
@@ -134,7 +130,6 @@ declare namespace mediaLibrary {
    * Provides methods to encapsulate file attributes.
    * @since 7
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    */
   interface FileAsset {
     /**
@@ -270,7 +265,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
-     * @param callback Callback return the result of isDerectory.
+     * @param callback Callback return the result of isDirectory.
      */
     isDirectory(callback: AsyncCallback<boolean>): void;
     /**
@@ -359,7 +354,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isFavorite ture is favorite file, false is not favorite file
+     * @param isFavorite true is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
@@ -368,7 +363,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
-     * @param isFavorite ture is favorite file, false is not favorite file
+     * @param isFavorite true is favorite file, false is not favorite file
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -561,7 +556,7 @@ declare namespace mediaLibrary {
      */
     selectionArgs: Array<string>;
     /**
-     * Sorting criterion of the retrieval results, for example, order: "datetaken DESC,display_name DESC, file_id DESC".
+     * Sorting criterion of the retrieval results, for example, order: "dateTaken DESC,display_name DESC, file_id DESC".
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
@@ -590,23 +585,22 @@ declare namespace mediaLibrary {
    * Implements file retrieval.
    * @since 7
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-   * @import import mediaLibrary from '@ohos.multimedia.mediaLibrary'
    */
   interface FetchFileResult {
     /**
      * Obtains the total number of files in the file retrieval result.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return Total number of files.
+     * @returns Total number of files.
      */
     getCount(): number;
     /**
      * Checks whether the result set points to the last row.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return Whether the file is the last one.
+     * @returns Whether the file is the last one.
      * You need to check whether the file is the last one before calling getNextObject,
-     * which returns the next file only when True is returned for this method.
+     * which returns the next file only when False is returned for this method.
      */
     isAfterLast(): boolean;
     /**
@@ -626,14 +620,14 @@ declare namespace mediaLibrary {
      * Obtains the first FileAsset in the file retrieval result. This method uses a promise to return the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
      */
     getFirstObject(): Promise<FileAsset>;
     /**
      * Obtains the next FileAsset in the file retrieval result.
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
@@ -643,10 +637,10 @@ declare namespace mediaLibrary {
      * Obtains the next FileAsset in the file retrieval result.
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
      */
     getNextObject(): Promise<FileAsset>;
     /**
@@ -660,7 +654,7 @@ declare namespace mediaLibrary {
      * Obtains the last FileAsset in the file retrieval result. This method uses a promise to return the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
      */
     getLastObject(): Promise<FileAsset>;
     /**
@@ -678,7 +672,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
-     * @return A Promise instance used to return the file in the format of a FileAsset instance.
+     * @returns A Promise instance used to return the file in the format of a FileAsset instance.
      */
     getPositionObject(index: number): Promise<FileAsset>;
      /**
@@ -698,7 +692,7 @@ declare namespace mediaLibrary {
      * In this case, other methods cannot be called.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-     * @return A Promise instance used to return a FileAsset array.
+     * @returns A Promise instance used to return a FileAsset array.
      */
     getAllObject(): Promise<Array<FileAsset>>;
   }
@@ -791,7 +785,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
-     * @return A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @returns A Promise instance used to return the files in the format of a FetchFileResult instance.
      */
     getFileAssets(options?: MediaFetchOptions): Promise<FetchFileResult>;
   }
@@ -860,7 +854,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type public directory predefined in DirectoryType.
-     * @return A promise instance used to return the public directory in the format of string
+     * @returns A promise instance used to return the public directory in the format of string
      */
     getPublicDirectory(type: DirectoryType): Promise<string>;
     /**
@@ -880,11 +874,11 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param options Media retrieval options.
-     * @return A promise instance used to return the files in the format of a FetchFileResult instance
+     * @returns A promise instance used to return the files in the format of a FetchFileResult instance
      */
     getFileAssets(options: MediaFetchOptions): Promise<FetchFileResult>;
     /**
-     * Turn on mornitor the data changes by media type
+     * Turn on monitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
@@ -892,7 +886,7 @@ declare namespace mediaLibrary {
      */
     on(type: 'deviceChange'|'albumChange'|'imageChange'|'audioChange'|'videoChange'|'fileChange'|'remoteFileChange', callback: Callback<void>): void;
     /**
-     * Turn off mornitor the data changes by media type
+     * Turn off monitor the data changes by media type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
@@ -918,7 +912,7 @@ declare namespace mediaLibrary {
      * @param mediaType mediaType for example:IMAGE, VIDEO, AUDIO, FILE
      * @param displayName file name
      * @param relativePath relative path
-     * @return A Promise instance used to return the FileAsset
+     * @returns A Promise instance used to return the FileAsset
      */
     createAsset(mediaType: MediaType, displayName: string, relativePath: string): Promise<FileAsset>;
     /**
@@ -937,7 +931,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
-     * @return A Promise instance, no value returned
+     * @returns A Promise instance, no value returned
      * @systemapi
      */
     deleteAsset(uri: string): Promise<void>;
@@ -956,7 +950,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
-     * @return A Promise instance used to return an album array.
+     * @returns A Promise instance used to return an album array.
      */
     getAlbums(options: MediaFetchOptions): Promise<Array<Album>>;
     /**
@@ -974,7 +968,7 @@ declare namespace mediaLibrary {
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
-     * @return Promise used to return the URI that stores the media resources.
+     * @returns Promise used to return the URI that stores the media resources.
      * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption): Promise<string>;
@@ -1005,7 +999,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
-     * @return Promise used to return whether the operation is successful.
+     * @returns Promise used to return whether the operation is successful.
      * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index?: number): Promise<void>;
@@ -1025,7 +1019,7 @@ declare namespace mediaLibrary {
      * @since 6
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
-     * @return Promise used to return the list of URIs that store the selected media resources.
+     * @returns Promise used to return the list of URIs that store the selected media resources.
      * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption): Promise<Array<string>>;
@@ -1044,7 +1038,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
-     * @return Promise used to return the list of the active peer devices' information
+     * @returns Promise used to return the list of the active peer devices' information
      */
     getActivePeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1062,7 +1056,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
-     * @return Promise used to return the list of the all the peer devices' information
+     * @returns Promise used to return the list of the all the peer devices' information
      */
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1081,7 +1075,7 @@ declare namespace mediaLibrary {
   }
 
   /**
-   * thumbnail's size which have width and heigh
+   * thumbnail's size which have width and height
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @since 8
    */
@@ -1145,7 +1139,7 @@ declare namespace mediaLibrary {
    */
   enum DeviceType {
     /**
-     * Unknow device type
+     * Unknown device type
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore
      * @systemapi
