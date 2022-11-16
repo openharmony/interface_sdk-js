@@ -246,7 +246,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param want Indicates the service extension to connect.
      * @param options Indicates the callback of connection.
      * @systemapi hide for inner use.
-     * @return connection id, int value.
+     * @returns connection id, int value.
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead connectServiceExtensionAbility
@@ -266,7 +266,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param accountId Indicates the account to connect.
      * @param options Indicates the callback of connection.
      * @systemapi hide for inner use.
-     * @return connection id, int value.
+     * @returns connection id, int value.
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead connectServiceExtensionAbilityWithAccount
@@ -281,7 +281,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param connection the connection id returned from connectAbility api.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead disconnectServiceExtensionAbility

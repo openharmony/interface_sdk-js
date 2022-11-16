@@ -21,7 +21,6 @@ import * as _ErrorObserver from './application/ErrorObserver';
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import errorManager from '@ohos.application.errorManager'
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.app.ability.errorManager
@@ -34,7 +33,7 @@ declare namespace errorManager {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param observer The error observer.
-     * @return Returns the number code of the observer.
+     * @returns Returns the number code of the observer.
      */
     function registerErrorObserver(observer: ErrorObserver): number;
 
@@ -44,7 +43,7 @@ declare namespace errorManager {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param observerId Indicates the number code of the observer.
-     * @return -
+     * @returns -
      */
     function unregisterErrorObserver(observerId: number,  callback: AsyncCallback<void>): void;
     function unregisterErrorObserver(observerId: number): Promise<void>;

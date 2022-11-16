@@ -32,7 +32,7 @@ export default class ApplicationContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param callback The ability lifecycle callback.
-     * @return Returns the number code of the callback.
+     * @returns Returns the number code of the callback.
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead on
@@ -45,7 +45,7 @@ export default class ApplicationContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param callbackId Indicates the number code of the callback.
-     * @return -
+     * @returns -
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead off
@@ -59,7 +59,7 @@ export default class ApplicationContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param callback The environment callback.
-     * @return Returns the number code of the callback.
+     * @returns Returns the number code of the callback.
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead on
@@ -72,7 +72,7 @@ export default class ApplicationContext extends Context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param callbackId Indicates the number code of the callback.
-     * @return -
+     * @returns -
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead off
