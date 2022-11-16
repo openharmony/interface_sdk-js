@@ -46,7 +46,7 @@ import image from "../@ohos.multimedia.image";
     onMissionDestroyed(mission: number): void;
 
     /**
-     * Called by system when mission shapshot changed.
+     * Called by system when mission snapshot changed.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -56,7 +56,7 @@ import image from "../@ohos.multimedia.image";
     onMissionSnapshotChanged(mission: number): void;
 
     /**
-     * Called by system when mission moved to fornt.
+     * Called by system when mission moved to front.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission

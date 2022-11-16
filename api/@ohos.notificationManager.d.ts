@@ -31,7 +31,7 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
 
 /**
  * Manages notifications.
- * <p>Generally, only system applications have permissions on notification subscription and unsubscription.
+ * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
  * You can specify the content of a notification to be published and the content is carried by
  * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
  * when using {@link NotificationRequest} to carry the notification content. If a notification
@@ -122,7 +122,7 @@ declare namespace notificationManager {
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
   /**
-   * Cancels a notification with the specified ID.
+   * Cancel a notification with the specified ID.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -132,7 +132,7 @@ declare namespace notificationManager {
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified label and ID.
+   * Cancel a notification with the specified label and ID.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string }label - Label of the notification to cancel.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
@@ -143,7 +143,7 @@ declare namespace notificationManager {
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified label and ID.
+   * Cancel a notification with the specified label and ID.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string }label - Label of the notification to cancel.
    * @returns { Promise<void> } The promise returned by the function.
@@ -154,7 +154,7 @@ declare namespace notificationManager {
   function cancel(id: number, label?: string): Promise<void>;
 
   /**
-   * Cancels a representative notification.
+   * Cancel a representative notification.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
@@ -168,7 +168,7 @@ declare namespace notificationManager {
   function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a representative notification.
+   * Cancel a representative notification.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
@@ -182,7 +182,7 @@ declare namespace notificationManager {
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
 
   /**
-   * Cancels all notifications of the current application.
+   * Cancel all notifications of the current application.
    * @param { AsyncCallback<void> } callback - The callback of cancelAll.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
@@ -191,7 +191,7 @@ declare namespace notificationManager {
   function cancelAll(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all notifications of the current application.
+   * Cancel all notifications of the current application.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.Notification
@@ -1225,7 +1225,7 @@ declare namespace notificationManager {
   }
 
   /**
-   * The remind type of the nofication.
+   * The remind type of the notification.
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
