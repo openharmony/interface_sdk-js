@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
-import { ValuesBucket } from './@ohos.data.ValuesBucket';
+import {AsyncCallback, Callback} from './basic';
+import {ValuesBucket} from './@ohos.data.ValuesBucket';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import Context from './application/Context';
 
@@ -106,43 +106,43 @@ declare namespace distributedKVStore {
      * @since 9
      */
     enum ValueType {
-        /** 
-         * Indicates that the value type is string. 
+        /**
+         * Indicates that the value type is string.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         STRING,
 
         /**
-         * Indicates that the value type is int. 
+         * Indicates that the value type is int.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         INTEGER,
 
-        /** 
-         * Indicates that the value type is float. 
+        /**
+         * Indicates that the value type is float.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         FLOAT,
 
-        /** 
-         * Indicates that the value type is byte array. 
+        /**
+         * Indicates that the value type is byte array.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          * */
         BYTE_ARRAY,
 
-        /** 
-         * Indicates that the value type is boolean. 
+        /**
+         * Indicates that the value type is boolean.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          * */
         BOOLEAN,
 
-        /** 
-         * Indicates that the value type is double. 
+        /**
+         * Indicates that the value type is double.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -267,14 +267,14 @@ declare namespace distributedKVStore {
          * Subscription to local data changes
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
-        */
+         */
         SUBSCRIBE_TYPE_LOCAL,
 
         /**
          * Subscription to remote data changes
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
-        */
+         */
         SUBSCRIBE_TYPE_REMOTE,
 
         /**
@@ -419,13 +419,14 @@ declare namespace distributedKVStore {
          * @since 9
          */
         constructor()
+
         /**
          * Indicates the root json object.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
-		root: FieldNode;
+        root: FieldNode;
         /**
          * Indicates the string array of json.
          *
@@ -471,6 +472,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         constructor(name: string)
+
         /**
          * Adds a child node to this {@code FieldNode}.
          *
@@ -483,27 +485,28 @@ declare namespace distributedKVStore {
          * @since 9
          */
         appendChild(child: FieldNode): boolean;
+
         /**
          * Indicates the default value of field node.
          *
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
-         default: string;
-         /**
-          * Indicates the nullable of database field.
-          *
-          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-          * @since 9
-          */
-         nullable: boolean;
-         /**
-          * Indicates the type of value.
-          *
-          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
-          * @since 9
-          */
-         type: number;
+        default: string;
+        /**
+         * Indicates the nullable of database field.
+         *
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
+        nullable: boolean;
+        /**
+         * Indicates the type of value.
+         *
+         * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+         * @since 9
+         */
+        type: number;
     }
 
     /**
@@ -525,6 +528,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getCount(): number;
+
         /**
          * Obtains the current read position in a result set.
          *
@@ -533,6 +537,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         getPosition(): number;
+
         /**
          * Moves the read position to the first line.
          *
@@ -543,6 +548,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         moveToFirst(): boolean;
+
         /**
          * Moves the read position to the last line.
          *
@@ -553,6 +559,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         moveToLast(): boolean;
+
         /**
          * Moves the read position to the next line.
          *
@@ -563,6 +570,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         moveToNext(): boolean;
+
         /**
          * Moves the read position to the previous line.
          *
@@ -573,6 +581,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         moveToPrevious(): boolean;
+
         /**
          * Moves the read position by a relative offset to the current position.
          *
@@ -587,6 +596,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         move(offset: number): boolean;
+
         /**
          * Moves the read position from 0 to an absolute position.
          *
@@ -597,6 +607,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         moveToPosition(position: number): boolean;
+
         /**
          * Checks whether the read position is the first line.
          *
@@ -605,6 +616,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isFirst(): boolean;
+
         /**
          * Checks whether the read position is the last line.
          *
@@ -613,6 +625,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isLast(): boolean;
+
         /**
          * Checks whether the read position is before the last line.
          *
@@ -621,6 +634,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isBeforeFirst(): boolean;
+
         /**
          * Checks whether the read position is after the last line.
          *
@@ -629,6 +643,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isAfterLast(): boolean;
+
         /**
          * Obtains a key-value pair.
          *
@@ -658,6 +673,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         constructor()
+
         /**
          * Resets this {@code Query} object.
          *
@@ -666,6 +682,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         reset(): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is equal to the specified long value.
          *
@@ -677,6 +694,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         equalTo(field: string, value: number | string | boolean): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not equal to the specified int value.
          *
@@ -688,6 +706,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         notEqualTo(field: string, value: number | string | boolean): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or equal to the
          * specified int value.
@@ -700,6 +719,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         greaterThan(field: string, value: number | string | boolean): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is less than the specified int value.
          *
@@ -711,6 +731,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         lessThan(field: string, value: number | string): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is greater than or
          * equal to the specified int value.
@@ -723,6 +744,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         greaterThanOrEqualTo(field: string, value: number | string): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is less than or equal to the
          * specified int value.
@@ -735,6 +757,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         lessThanOrEqualTo(field: string, value: number | string): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is null.
          *
@@ -745,6 +768,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isNull(field: string): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified int value list.
          *
@@ -756,6 +780,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         inNumber(field: string, valueList: number[]): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is within the specified string value list.
          *
@@ -767,6 +792,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         inString(field: string, valueList: string[]): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified int value list.
          *
@@ -778,6 +804,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         notInNumber(field: string, valueList: number[]): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not within the specified string value list.
          *
@@ -789,6 +816,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         notInString(field: string, valueList: string[]): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is similar to the specified string value.
          *
@@ -800,6 +828,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         like(field: string, value: string): Query;
+
         /**
          * Constructs a {@code Query} object to query entries with the specified field whose value is not similar to the specified string value.
          *
@@ -811,6 +840,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         unlike(field: string, value: string): Query;
+
         /**
          * Constructs a {@code Query} object with the and condition.
          *
@@ -821,6 +851,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         and(): Query;
+
         /**
          * Constructs a {@code Query} object with the or condition.
          *
@@ -831,6 +862,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         or(): Query;
+
         /**
          * Constructs a {@code Query} object to sort the query results in ascending order.
          *
@@ -841,6 +873,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         orderByAsc(field: string): Query;
+
         /**
          * Constructs a {@code Query} object to sort the query results in descending order.
          *
@@ -851,6 +884,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         orderByDesc(field: string): Query;
+
         /**
          * Constructs a {@code Query} object to specify the number of results and the start position.
          *
@@ -862,6 +896,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         limit(total: number, offset: number): Query;
+
         /**
          * Creates a {@code Query} condition with a specified field that is not null.
          *
@@ -872,6 +907,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         isNotNull(field: string): Query;
+
         /**
          * Creates a query condition group with a left bracket.
          *
@@ -883,6 +919,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         beginGroup(): Query;
+
         /**
          * Creates a query condition group with a right bracket.
          *
@@ -894,6 +931,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         endGroup(): Query;
+
         /**
          * Creates a query condition with a specified key prefix.
          *
@@ -904,6 +942,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         prefixKey(prefix: string): Query;
+
         /**
          * Sets a specified index that will be preferentially used for query.
          *
@@ -914,6 +953,7 @@ declare namespace distributedKVStore {
          * @since 9
          */
         setSuggestIndex(index: string): Query;
+
         /**
          * Add device ID key prefix.Used by {@code DeviceKVStore}.
          *
@@ -923,7 +963,8 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        deviceId(deviceId:string):Query;
+        deviceId(deviceId: string): Query;
+
         /**
          * Get a String that represents this {@code Query}.
          *
@@ -934,7 +975,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        getSqlLike():string;
+        getSqlLike(): string;
     }
 
     /**
@@ -1398,7 +1439,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        backup(file:string, callback: AsyncCallback<void>):void;
+        backup(file: string, callback: AsyncCallback<void>): void;
 
         /**
          * Backs up a database in the specified filename.
@@ -1411,7 +1452,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        backup(file:string): Promise<void>;
+        backup(file: string): Promise<void>;
 
         /**
          * Restores a database from a specified database file.
@@ -1424,7 +1465,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        restore(file:string, callback: AsyncCallback<void>):void;
+        restore(file: string, callback: AsyncCallback<void>): void;
 
         /**
          * Restores a database from a specified database file.
@@ -1437,7 +1478,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        restore(file:string): Promise<void>;
+        restore(file: string): Promise<void>;
 
         /**
          * Delete database backup files based on the specified filenames.
@@ -1450,7 +1491,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        deleteBackup(files:Array<string>, callback: AsyncCallback<Array<[string, number]>>):void;
+        deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, number]>>): void;
 
         /**
          * Delete database backup files based on the specified filenames.
@@ -1462,7 +1503,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        deleteBackup(files:Array<string>): Promise<Array<[string, number]>>;
+        deleteBackup(files: Array<string>): Promise<Array<[string, number]>>;
 
         /**
          * Starts a transaction operation in the {@code SingleKVStore} database.
@@ -1677,7 +1718,7 @@ declare namespace distributedKVStore {
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        off(event:'dataChange', listener?: Callback<ChangeNotification>): void;
+        off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
          * Unregister the database synchronization callback.
