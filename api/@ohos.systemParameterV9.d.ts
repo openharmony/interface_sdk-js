@@ -127,4 +127,4 @@ declare namespace systemParameterV9 {
     function set(key: string, value: string): Promise<void>;
 }
 
-export default systemParameter;
+export default systemParameterV9;
