@@ -134,7 +134,7 @@ declare namespace avSession {
    * @param type Registration Type
    * @param callback Used to handle the session service death event.
    * @throws {BusinessError} 201 - permission denied
-   * @throws {BusinessError} 401 - packagearameter check failed
+   * @throws {BusinessError} 401 - parameter check failed
    * @throws {BusinessError} {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 9
