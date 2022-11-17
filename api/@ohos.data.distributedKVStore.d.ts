@@ -19,7 +19,7 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import Context from './application/Context';
 
 /**
- * Provider interfaces to create a {@link KVManager} istances.
+ * Provider interfaces to create a {@link KVManager} instance.
  * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
  * @since 9
  */
@@ -41,7 +41,7 @@ declare namespace distributedKVStore {
         /**
          * Indicates the ability or hap context
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @Note: if swap the area, you should close all the KV store and use the new Context to create the KVManager
+         * if swap the area, you should close all the KV store and use the new Context to create the KVManager
          * @since 9
          */
         context: Context;
@@ -293,7 +293,7 @@ declare namespace distributedKVStore {
      */
     enum KVStoreType {
         /**
-         * Device-collaborated database, as specified by {@code DeviceKVStore}
+         * Device-collaboration database, as specified by {@code DeviceKVStore}
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
          */
@@ -576,9 +576,9 @@ declare namespace distributedKVStore {
         /**
          * Moves the read position by a relative offset to the current position.
          *
-         * @param {number} offset - Indicates the relative offset to the current position. Anegative offset indicates moving
-         * backwards, and a positive offset indicates moving forewards. Forexample, if the current position is entry 1 and
-         * thisoffset is 2, the destination position will be entry 3; ifthe current position is entry 3 and this offset is -2,
+         * @param {number} offset - Indicates the relative offset to the current position. A negative offset indicates moving
+         * backwards, and a positive offset indicates moving forwards. For example, if the current position is entry 1 and
+         * this offset is 2, the destination position will be entry 3; if the current position is entry 3 and this offset is -2,
          * the destination position will be entry 1. The valid final position after moving forwards starts with 0. If the
          * final position is invalid, false will be returned.
          * @returns Returns true if the operation succeeds; return false otherwise.
@@ -918,19 +918,19 @@ declare namespace distributedKVStore {
          * Add device ID key prefix.Used by {@code DeviceKVStore}.
          *
          * @param {string} deviceId - Specify device id to query from.
-         * @return Returns the {@code Query} object with device ID prefix added.
+         * @returns Returns the {@code Query} object with device ID prefix added.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
         deviceId(deviceId:string):Query;
         /**
-         * Get a String that repreaents this {@code Query}.
+         * Get a String that represents this {@code Query}.
          *
          * <p>The String would be parsed to DB query format.
          * The String length should be no longer than 500kb.
          *
-         * @return String representing this {@code Query}.
+         * @returns String representing this {@code Query}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
@@ -1607,7 +1607,7 @@ declare namespace distributedKVStore {
         setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
 
         /**
-         * Synchronizes the database to the specified devices with the specified delay allowed.
+         * Synchronize the database to the specified devices with the specified delay allowed.
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param {string[]} deviceIds - Indicates the list of devices to which to synchronize the database.
@@ -1623,7 +1623,7 @@ declare namespace distributedKVStore {
         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void
 
         /**
-         * Synchronizes the database to the specified devices with the specified delay allowed.
+         * Synchronize the database to the specified devices with the specified delay allowed.
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param {string[]} deviceIds - Indicates the list of devices to which to synchronize the database.
@@ -1733,7 +1733,7 @@ declare namespace distributedKVStore {
          * @param {string} key - Indicates the key of the value to be queried.
          * @param {AsyncCallback<boolean|string|number|Uint8Array>} callback -
          * {boolean|string|number|Uint8Array}: the returned value specified by the deviceId and key.
-         * @return Returns the value matching the given criteria.
+         * @returns Returns the value matching the given criteria.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when query data.
@@ -1750,7 +1750,7 @@ declare namespace distributedKVStore {
          * @param {string} key - Indicates the key of the value to be queried.
          * @returns {Promise<boolean|string|number|Uint8Array>}
          * {Uint8Array|string|boolean|number}: the returned value specified by the deviceId and key.
-         * @return Returns the value matching the given criteria.
+         * @returns Returns the value matching the given criteria.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100004 - if the data not exist when query data.
