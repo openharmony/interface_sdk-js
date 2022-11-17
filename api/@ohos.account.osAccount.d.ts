@@ -44,7 +44,7 @@ declare namespace osAccount {
          * to run in the foreground. Then, the OS account originally running in the foreground will be
          * switched to the background.
          * </p>
-         * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
+         * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
          * @param localId Indicates the local ID of the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
@@ -94,7 +94,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether an OS account is activated based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns void
          * @throws {BusinessError} 201 - permission denied.
@@ -109,7 +109,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether a constraint has been enabled for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @param constraint Indicates the constraint to check. The value can be:
          *        <ul>
@@ -132,7 +132,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether a constraint has been enabled for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @param constraint Indicates the constraint to check. The value can be:
          *        <ul>
@@ -178,7 +178,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether an OS account has been verified based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns {@code true} if the OS account has been verified successfully;
          *          returns {@code false} otherwise.
@@ -193,7 +193,7 @@ declare namespace osAccount {
 
         /**
          * Checks whether an OS account has been verified based on its ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns {@code true} if the OS account has been verified successfully;
          *          returns {@code false} otherwise.
@@ -210,7 +210,7 @@ declare namespace osAccount {
 
         /**
          * Removes an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns void.
          * @throws {BusinessError} 201 - permission denied.
@@ -227,7 +227,7 @@ declare namespace osAccount {
 
         /**
          * Sets constraints for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @param constraints Indicates the constraints to set for the OS account. The value can be:
          *        <ul>
@@ -256,7 +256,7 @@ declare namespace osAccount {
 
         /**
          * Sets the local name for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @param localName Indicates the local name to set for the OS account.
          * @returns void.
@@ -274,7 +274,7 @@ declare namespace osAccount {
 
         /**
          * Obtains the number of all OS accounts created on a device.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the number of created OS accounts.
          * @since 7
          * @deprecated since 9
@@ -285,7 +285,7 @@ declare namespace osAccount {
 
         /**
          * Obtains the number of all OS accounts created on a device.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the number of created OS accounts.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -340,7 +340,7 @@ declare namespace osAccount {
 
         /**
          * Queries the local ID of an OS account which is bound to the specified domain account
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param domainInfo Indicates the domain account info.
          * @returns Returns the local ID of the OS account.
          * @since 8
@@ -353,7 +353,7 @@ declare namespace osAccount {
         /**
          * Queries the ID of an account which is bound to the specified domain account
          *
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param domainInfo Indicates the domain account info.
          * @returns Returns the local ID of the OS account.
          * @throws {BusinessError} 201 - permission denied.
@@ -378,7 +378,7 @@ declare namespace osAccount {
 
         /**
          * Obtains all constraints of an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns a list of constraints.
          * @since 7
@@ -390,7 +390,7 @@ declare namespace osAccount {
 
         /**
          * Obtains all constraints of an account based on its ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns a list of constraints.
          * @throws {BusinessError} 201 - permission denied.
@@ -405,7 +405,7 @@ declare namespace osAccount {
 
         /**
          * Queries the list of all the OS accounts that have been created in the system.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns a list of OS accounts.         
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -438,7 +438,7 @@ declare namespace osAccount {
 
         /**
          * Creates an OS account using the local name and account type.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localName Indicates the local name of the OS account to create.
          * @param type Indicates the type of the OS account to create.
          *        {@link OsAccountType} specifies the account types available in the system.
@@ -458,7 +458,7 @@ declare namespace osAccount {
 
         /**
          * Creates an OS account using the account type and domain account info.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param type Indicates the type of the OS account to create.
          *        {@link OsAccountType} specifies the account types available in the system.
          * @param domainInfo Indicates the domain account info.
@@ -478,7 +478,7 @@ declare namespace osAccount {
 
         /**
          * Queries information about the current OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns information about the current OS account; returns {@code null} if the query fails.
          * @since 7
          * @deprecated since 9
@@ -489,7 +489,7 @@ declare namespace osAccount {
 
         /**
          * Gets information about the current OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns information about the current OS account; returns {@code null} if the query fails.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -502,7 +502,7 @@ declare namespace osAccount {
         /**
          * Queries OS account information based on the local ID.
          *
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns the OS account information; returns {@code null} if the query fails.
          * @throws {BusinessError} 201 - permission denied.
@@ -542,11 +542,11 @@ declare namespace osAccount {
          * Obtains the distributed virtual device ID (DVID).
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the networked devices, you can call this method to obtain the DVIDs.
+         * through the distributed networking. On the connected devices, you can call this method to obtain the DVIDs.
          * The same application running on different devices obtains the same DVID, whereas different applications
          * obtain different DVIDs.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
          * @since 7
          * @deprecated since 9
@@ -559,11 +559,11 @@ declare namespace osAccount {
          * Queries the distributed virtual device ID (DVID).
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the networked devices, you can call this method to obtain the DVIDs.
+         * through the distributed networking. On the connected devices, you can call this method to obtain the DVIDs.
          * The same application running on different devices obtains the same DVID, whereas different applications
          * obtain different DVIDs.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the DVID if obtained; returns an empty string if no OHOS account has logged in.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -575,7 +575,7 @@ declare namespace osAccount {
 
         /**
          * Obtains the profile photo of an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns the profile photo if obtained;
          *         returns {@code null} if the profile photo fails to be obtained.
@@ -592,7 +592,7 @@ declare namespace osAccount {
 
         /**
          * Sets the profile photo for an OS account based on its local ID.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param localId Indicates the local ID of the OS account.
          * @param photo Indicates the profile photo to set for the OS account.
          * @returns void.         
@@ -706,7 +706,7 @@ declare namespace osAccount {
 
         /**
          * Check whether current process belongs to the main account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns {@code true} if current process belongs to the main os account;
          *         returns {@code false} otherwise.
          * @throws {BusinessError} 201 - permission denied.
@@ -720,7 +720,7 @@ declare namespace osAccount {
 
         /**
          * Query the constraint source type list of the OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns the constraint source type infos of the os account;
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -979,7 +979,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid contexId.
+         * @throws {BusinessError} 12300002 - invalid contextId.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
@@ -1059,7 +1059,7 @@ declare namespace osAccount {
          * <p>
          * Add user credential information, pass in credential addition method and credential information
          * (credential type, subclass, if adding user's non password credentials, pass in password authentication token),
-         * and get the result / acquireinfo callback.
+         * and get the result / acquireInfo callback.
          * @permission ohos.permission.MANAGE_USER_IDM
          * @param credentialInfo Indicates the credential information.
          * @param callback Indicates the callback to get results and acquireInfo.
@@ -1214,9 +1214,9 @@ declare namespace osAccount {
          * The authentication result code is returned through the callback.
          * @param result Indicates the authentication result code.
          * @param extraInfo Indicates the specific information for different situation.
-         * If the authentication is passed, the authentication token is returned in extrainfo,
-         * If the authentication fails, the remaining authentication times are returned in extrainfo,
-         * If the authentication executor is locked, the freezing time is returned in extrainfo.
+         * If the authentication is passed, the authentication token is returned in extraInfo,
+         * If the authentication fails, the remaining authentication times are returned in extraInfo,
+         * If the authentication executor is locked, the freezing time is returned in extraInfo.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
