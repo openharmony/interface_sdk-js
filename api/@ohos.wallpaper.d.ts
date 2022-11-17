@@ -76,7 +76,7 @@ declare namespace wallpaper {
     /**
      * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
-     * @permission ohos.permission.GET_WALLPAPER.
+     * @permission ohos.permission.GET_WALLPAPER
      * ohos.permission.READ_USER_STORAGE.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @since 8
@@ -89,7 +89,7 @@ declare namespace wallpaper {
     /**
      * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
-     * @permission ohos.permission.GET_WALLPAPER.
+     * @permission ohos.permission.GET_WALLPAPER
      * @returns { number } the number returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 201 - permission denied.
