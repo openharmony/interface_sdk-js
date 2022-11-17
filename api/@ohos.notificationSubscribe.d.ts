@@ -28,6 +28,47 @@ import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } f
  */
 declare namespace notificationSubscribe {
   /**
+   * Describes a BundleOption.
+   * @typedef BundleOption
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  export interface BundleOption {
+    bundle: string;
+    uid?: number;
+  }
+
+  /**
+   * Describes a NotificationKey, which can be used to identify a notification.
+   * @typedef NotificationKey
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  export interface NotificationKey {
+    id: number;
+    label?: string;
+  }
+
+  /**
+   * Reason for remove a notification
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  export enum RemoveReason {
+    /**
+     * Notification clicked notification on the status bar
+     */
+    CLICK_REASON_REMOVE = 1,
+
+    /**
+     * User dismissal notification  on the status bar
+     */
+    CANCEL_REASON_REMOVE = 2,
+  }
+
+  /**
    * Subscribe to notifications.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
