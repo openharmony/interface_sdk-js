@@ -14,7 +14,6 @@
  */
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -65,7 +64,6 @@ export interface GetStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -115,7 +113,6 @@ export interface SetStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -148,7 +145,6 @@ export interface ClearStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @deprecated since 6
  * @FAModelOnly
@@ -190,7 +186,6 @@ export interface DeleteStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6

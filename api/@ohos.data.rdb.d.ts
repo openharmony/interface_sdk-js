@@ -22,7 +22,6 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
 /**
  * Provides methods for rdbStore create and delete.
  *
- * @import import data_rdb from '@ohos.data.rdb';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  */
@@ -238,7 +237,6 @@ declare namespace rdb
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -568,7 +566,6 @@ declare namespace rdb
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1017,7 +1014,6 @@ declare namespace rdb
     /**
      * Indicates possible value types
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      */
@@ -1026,7 +1022,6 @@ declare namespace rdb
     /**
      * Values in buckets are stored in key-value pairs
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      */
@@ -1036,7 +1031,6 @@ declare namespace rdb
 /**
  * Manages relational database configurations.
  *
- * @import import data_rdb from '@ohos.data.rdb';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
@@ -1049,7 +1043,6 @@ interface StoreConfig {
 /**
  * Manages relational database configurations.
  *
- * @import import data_rdb from '@ohos.data.rdb';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
  */
@@ -1057,7 +1050,6 @@ interface StoreConfigV9 {
     /**
      * The database name.
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1066,7 +1058,6 @@ interface StoreConfigV9 {
     /**
      * Specifies whether the database is encrypted.
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1075,7 +1066,6 @@ interface StoreConfigV9 {
     /**
      * Specifies whether the database is encrypted.
      *
-     * @import import data_rdb from '@ohos.data.rdb';
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1085,7 +1075,6 @@ interface StoreConfigV9 {
 /**
  * Manages relational database configurations.
  *
- * @import import data_rdb from '@ohos.data.rdb';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
@@ -1105,8 +1094,8 @@ class RdbPredicates {
 
     /**
      * Sync data between devices.
+     * When query database, this function should not be called.
      *
-     * @note When query database, this function should not be called.
      * @param {Array<string>} devices - Indicates specified remote devices.
      * @returns {RdbPredicatesV9} -  the {@link RdbPredicatesV9} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1118,8 +1107,8 @@ class RdbPredicates {
 
     /**
      * Specify all remote devices which connect to local device when syncing distributed database.
+     * When query database, this function should not be called.
      *
-     * @note When query database, this function should not be called.
      * @returns {RdbPredicates} -  the {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8
@@ -1131,8 +1120,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
      * to a specified value.
+     * This method is similar to = of the SQL statement.
      *
-     * @note This method is similar to = of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -1146,8 +1135,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
+     * This method is similar to != of the SQL statement.
      *
-     * @note This method is similar to != of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -1160,8 +1149,8 @@ class RdbPredicates {
 
     /**
      * Adds a left parenthesis to the RdbPredicates.
+     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
      *
-     * @note This method is similar to ( of the SQL statement and needs to be used together with endWrap().
      * @returns {RdbPredicates} - the {@link RdbPredicates} with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
@@ -1172,8 +1161,8 @@ class RdbPredicates {
 
     /**
      * Adds a right parenthesis to the RdbPredicates.
+     * This method is similar to ) of the SQL statement and needs to be used together
      *
-     * @note This method is similar to ) of the SQL statement and needs to be used together
      * with beginWrap().
      * @returns {RdbPredicates} - the {@link RdbPredicates} with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1185,9 +1174,9 @@ class RdbPredicates {
 
     /**
      * Adds an or condition to the RdbPredicates.
+     * This method is similar to or of the SQL statement.
      *
-     * @note This method is similar to or of the SQL statement.
-     * @return Returns the {@link RdbPredicates} with the or condition.
+     * @returns Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -1197,9 +1186,9 @@ class RdbPredicates {
 
     /**
      * Adds an and condition to the RdbPredicates.
+     * This method is similar to or of the SQL statement.
      *
-     * @note This method is similar to or of the SQL statement.
-     * @return Returns the {@link RdbPredicates} with the or condition.
+     * @returns Returns the {@link RdbPredicates} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
@@ -1210,8 +1199,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicates to match the field whose data type is string and value
      * contains a specified value.
+     * This method is similar to contains of the SQL statement.
      *
-     * @note This method is similar to contains of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -1225,8 +1214,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicates to match the field whose data type is string and value starts
      * with a specified string.
+     * This method is similar to value% of the SQL statement.
      *
-     * @note This method is similar to value% of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -1240,8 +1229,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicates to match the field whose data type is string and value
      * ends with a specified string.
+     * This method is similar to %value of the SQL statement.
      *
-     * @note This method is similar to %value of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
@@ -1254,8 +1243,8 @@ class RdbPredicates {
 
     /**
      * Configures the RdbPredicates to match the fields whose value is null.
+     * This method is similar to is null of the SQL statement.
      *
-     * @note This method is similar to is null of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1267,8 +1256,8 @@ class RdbPredicates {
 
     /**
      * Configures the RdbPredicates to match the specified fields whose value is not null.
+     * This method is similar to is not null of the SQL statement.
      *
-     * @note This method is similar to is not null of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @returns {RdbPredicates} - the {@link RdbPredicates} self.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -1282,8 +1271,8 @@ class RdbPredicates {
     /**
      * Configures the RdbPredicates to match the fields whose data type is string and value is
      * similar to a specified string.
+     * This method is similar to like of the SQL statement.
      *
-     * @note This method is similar to like of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the {@link RdbPredicates} that match the specified field.
@@ -1297,8 +1286,8 @@ class RdbPredicates {
     /**
      * Configures RdbPredicates to match the specified field whose data type is string and the value contains
      * a wildcard.
+     * Different from like, the input parameters of this method are case-sensitive.
      *
-     * @note Different from like, the input parameters of this method are case-sensitive.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns {RdbPredicates} - the SQL statement with the specified {@link RdbPredicates}.
@@ -1442,8 +1431,8 @@ class RdbPredicates {
 
     /**
      * Configures RdbPredicatesV9 to specify the start position of the returned result.
+     * Use this method together with limit(int).
      *
-     * @note Use this method together with limit(int).
      * @param {number} rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns {RdbPredicatesV9} - the SQL query statement with the specified {@link RdbPredicatesV9}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1467,8 +1456,8 @@ class RdbPredicates {
 
     /**
      * Configures RdbPredicatesV9 to specify the index column.
+     * Before using this method, you need to create an index column.
      *
-     * @note Before using this method, you need to create an index column.
      * @param {string} field - Indicates the name of the index column.
      * @returns {RdbPredicatesV9} - the SQL statement with the specified {@link RdbPredicatesV9}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1510,7 +1499,6 @@ class RdbPredicates {
 /**
  * Manages relational database configurations.
  *
- * @import import data_rdb from '@ohos.data.rdb';
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
  */
@@ -1527,8 +1515,8 @@ class RdbPredicatesV9 {
 
     /**
      * Sync data between devices.
+     * When query database, this function should not be called.
      *
-     * @note When query database, this function should not be called.
      * @param {Array<string>} devices - Indicates specified remote devices.
      * @returns {RdbPredicatesV9} -  the {@link RdbPredicatesV9} self.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -1539,8 +1527,8 @@ class RdbPredicatesV9 {
 
     /**
      * Specify all remote devices which connect to local device when syncing distributed database.
+     * When query database, this function should not be called.
      *
-     * @note When query database, this function should not be called.
      * @returns {RdbPredicatesV9} -  the {@link RdbPredicatesV9} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -1550,8 +1538,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
      * to a specified value.
+     * This method is similar to = of the SQL statement.
      *
-     * @note This method is similar to = of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
@@ -1564,8 +1552,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
+     * This method is similar to != of the SQL statement.
      *
-     * @note This method is similar to != of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
@@ -1577,8 +1565,8 @@ class RdbPredicatesV9 {
 
     /**
      * Adds a left parenthesis to the RdbPredicatesV9.
+     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
      *
-     * @note This method is similar to ( of the SQL statement and needs to be used together with endWrap().
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -1587,8 +1575,8 @@ class RdbPredicatesV9 {
 
     /**
      * Adds a right parenthesis to the RdbPredicatesV9.
+     * This method is similar to ) of the SQL statement and needs to be used together
      *
-     * @note This method is similar to ) of the SQL statement and needs to be used together
      * with beginWrap().
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1598,9 +1586,9 @@ class RdbPredicatesV9 {
 
     /**
      * Adds an or condition to the RdbPredicatesV9.
+     * This method is similar to or of the SQL statement.
      *
-     * @note This method is similar to or of the SQL statement.
-     * @return Returns the {@link RdbPredicatesV9} with the or condition.
+     * @returns Returns the {@link RdbPredicatesV9} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1608,9 +1596,9 @@ class RdbPredicatesV9 {
 
     /**
      * Adds an and condition to the RdbPredicatesV9.
+     * This method is similar to or of the SQL statement.
      *
-     * @note This method is similar to or of the SQL statement.
-     * @return Returns the {@link RdbPredicatesV9} with the or condition.
+     * @returns Returns the {@link RdbPredicatesV9} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -1619,8 +1607,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is string and value
      * contains a specified value.
+     * This method is similar to contains of the SQL statement.
      *
-     * @note This method is similar to contains of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
@@ -1633,8 +1621,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is string and value starts
      * with a specified string.
+     * This method is similar to value% of the SQL statement.
      *
-     * @note This method is similar to value% of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
@@ -1647,8 +1635,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the field whose data type is string and value
      * ends with a specified string.
+     * This method is similar to %value of the SQL statement.
      *
-     * @note This method is similar to %value of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
@@ -1660,8 +1648,8 @@ class RdbPredicatesV9 {
 
     /**
      * Configures the RdbPredicatesV9 to match the fields whose value is null.
+     * This method is similar to is null of the SQL statement.
      *
-     * @note This method is similar to is null of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -1672,8 +1660,8 @@ class RdbPredicatesV9 {
 
     /**
      * Configures the RdbPredicatesV9 to match the specified fields whose value is not null.
+     * This method is similar to is not null of the SQL statement.
      *
-     * @note This method is similar to is not null of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} self.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -1685,8 +1673,8 @@ class RdbPredicatesV9 {
     /**
      * Configures the RdbPredicatesV9 to match the fields whose data type is string and value is
      * similar to a specified string.
+     * This method is similar to like of the SQL statement.
      *
-     * @note This method is similar to like of the SQL statement.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} that match the specified field.
@@ -1699,8 +1687,8 @@ class RdbPredicatesV9 {
     /**
      * Configures RdbPredicatesV9 to match the specified field whose data type is string and the value contains
      * a wildcard.
+     * Different from like, the input parameters of this method are case-sensitive.
      *
-     * @note Different from like, the input parameters of this method are case-sensitive.
      * @param {string} field - Indicates the column name in the database table.
      * @param {ValueType} value - Indicates the value to match with the {@link RdbPredicatesV9}.
      * @returns {RdbPredicatesV9} - the SQL statement with the specified {@link RdbPredicatesV9}.
@@ -1832,8 +1820,8 @@ class RdbPredicatesV9 {
 
     /**
      * Configures RdbPredicatesV9 to specify the start position of the returned result.
+     * Use this method together with limit(int).
      *
-     * @note Use this method together with limit(int).
      * @param {number} rowOffset - Indicates the start position of the returned result. The value is a positive integer.
      * @returns {RdbPredicatesV9} - the SQL query statement with the specified {@link RdbPredicatesV9}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -1855,8 +1843,8 @@ class RdbPredicatesV9 {
 
     /**
      * Configures RdbPredicatesV9 to specify the index column.
+     * Before using this method, you need to create an index column.
      *
-     * @note Before using this method, you need to create an index column.
      * @param {string} field - Indicates the name of the index column.
      * @returns {RdbPredicatesV9} - the SQL statement with the specified {@link RdbPredicatesV9}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
