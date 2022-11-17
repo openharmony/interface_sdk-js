@@ -20,7 +20,6 @@ import { AsyncCallback } from "./basic";
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
- * @import import pointer from '@ohos.multimodalInput.pointer';
  */
 declare namespace pointer {
   /**
