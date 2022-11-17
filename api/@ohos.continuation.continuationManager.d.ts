@@ -19,7 +19,7 @@ import { ContinuationExtraParams } from './continuation/continuationExtraParams'
 
 /**
  * Provides methods for interacting with the continuation manager service, including methods for registering and
- * unregistering the ability to hop, updating the device connection state, and showing the list of devices
+ * Unregister the ability to hop, updating the device connection state, and showing the list of devices
  * that can be selected for hopping.
  * @namespace continuationManager
  * @syscap SystemCapability.Ability.DistributedAbilityManager

@@ -15,11 +15,11 @@
 
 /**
  * This module provides the capability to app receovery.
- * @import appReceovery from '@ohos.app.ability.appRecovery'
+ * @import appRecovery from '@ohos.app.ability.appRecovery'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
-declare namespace appReceovery {
+declare namespace appRecovery {
     /**
      * The type of no restart mode.
      * @enum { number }
@@ -118,4 +118,4 @@ declare namespace appReceovery {
     function saveAppState(): boolean;
 }
 
-export default appReceovery;
+export default appRecovery;

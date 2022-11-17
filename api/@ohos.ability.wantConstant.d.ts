@@ -395,7 +395,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
-     * Install the specifiedi ability with background mode if it's not installed.
+     * Install the specified ability with background mode if it's not installed.
      */
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 

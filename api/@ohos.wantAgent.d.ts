@@ -67,7 +67,7 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
    * @param WantAgent to cancel.
    */

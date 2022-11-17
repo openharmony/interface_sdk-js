@@ -260,7 +260,7 @@ export interface Context extends BaseContext {
     isUpdatingConfigurations(): Promise<boolean>;
 
     /**
-    * Informs the system of the time required for drawing this Page ability.
+    * Inform the system of the time required for drawing this Page ability.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
     * @FAModelOnly
