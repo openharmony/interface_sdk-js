@@ -1289,7 +1289,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#put
          */
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
-
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
         /**
@@ -1306,7 +1305,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#delete
          */
         delete(key: string, callback: AsyncCallback<void>): void;
-
         delete(key: string): Promise<void>;
 
         /**
@@ -1353,6 +1351,20 @@ declare namespace distributedData {
         off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
+         * UnRegister the {@code KvStore} database synchronization callback.
+         *
+         * @param syncCallback Indicates the callback used to send the synchronization result to caller.
+         * @throws Throws this exception if any of the following errors
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SingleKVStore#off
+         */
+        off(event: 'syncComplete', syncCallback?: Callback<Array<[string, number]>>): void;
+
+        /**
          * Inserts key-value pairs into the {@code KvStore} database in batches.
          *
          * @param entries Indicates the key-value pairs to be inserted in batches.
@@ -1363,7 +1375,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#putBatch
          */
         putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
-
         putBatch(entries: Entry[]): Promise<void>;
 
         /**
@@ -1377,7 +1388,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#deleteBatch
          */
         deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
-
         deleteBatch(keys: string[]): Promise<void>;
 
         /**
@@ -1392,7 +1402,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#startTransaction
          */
         startTransaction(callback: AsyncCallback<void>): void;
-
         startTransaction(): Promise<void>;
 
         /**
@@ -1406,7 +1415,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#commit
          */
         commit(callback: AsyncCallback<void>): void;
-
         commit(): Promise<void>;
 
         /**
@@ -1419,7 +1427,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#rollback
          */
         rollback(callback: AsyncCallback<void>): void;
-
         rollback(): Promise<void>;
 
         /**
@@ -1434,7 +1441,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#enableSync
          */
         enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
-
         enableSync(enabled: boolean): Promise<void>;
 
         /**
@@ -1451,7 +1457,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncRange
          */
         setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
-
         setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
     }
 
@@ -1484,7 +1489,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#get
          */
         get(key: string, callback: AsyncCallback<Uint8Array | string | boolean | number>): void;
-
         get(key: string): Promise<Uint8Array | string | boolean | number>;
 
         /**
@@ -1500,7 +1504,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
          */
         getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(keyPrefix: string): Promise<Entry[]>;
 
         /**
@@ -1516,7 +1519,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
          */
         getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(query: Query): Promise<Entry[]>;
 
         /**
@@ -1535,7 +1537,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(keyPrefix: string): Promise<KvStoreResultSet>;
 
         /**
@@ -1550,7 +1551,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
          */
         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
         /**
@@ -1565,7 +1565,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#closeResultSet
          */
         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
-
         closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
         /**
@@ -1581,7 +1580,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSize
          */
         getResultSize(query: Query, callback: AsyncCallback<number>): void;
-
         getResultSize(query: Query): Promise<number>;
 
         /**
@@ -1593,7 +1591,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#removeDeviceData
          */
         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
-
         removeDeviceData(deviceId: string): Promise<void>;
 
         /**
@@ -1614,6 +1611,21 @@ declare namespace distributedData {
         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
 
         /**
+         * Register a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback
+         * in the {@code KvStoreObserver} will be invoked.
+         *
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param listener Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if no {@code SingleKvStore} database is available.
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SingleKVStore#on
+         */
+        on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+        /**
          * Register a SingleKvStore database synchronization callback.
          * <p> Sync result is returned through asynchronous callback.
          *
@@ -1625,6 +1637,20 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#on
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+        /**
+         * Unsubscribe the SingleKvStore database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.SingleKVStore#off
+         */
+        off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister the SingleKvStore database synchronization callback.
@@ -1649,7 +1675,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncParam
          */
         setSyncParam(defaultAllowedDelayMs: number, callback: AsyncCallback<void>): void;
-
         setSyncParam(defaultAllowedDelayMs: number): Promise<void>;
 
         /**
@@ -1664,7 +1689,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getSecurityLevel
          */
         getSecurityLevel(callback: AsyncCallback<SecurityLevel>): void;
-
         getSecurityLevel(): Promise<SecurityLevel>;
     }
 
@@ -1696,7 +1720,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#get
          */
         get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>): void;
-
         get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Array>;
 
         /**
@@ -1713,7 +1736,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
          */
         getEntries(deviceId: string, keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(deviceId: string, keyPrefix: string): Promise<Entry[]>;
 
         /**
@@ -1729,7 +1751,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
          */
         getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(query: Query): Promise<Entry[]>;
 
         /**
@@ -1744,7 +1765,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getEntries
          */
         getEntries(deviceId: string, query: Query, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
         /**
@@ -1766,7 +1786,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
          */
         getResultSet(deviceId: string, keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(deviceId: string, keyPrefix: string): Promise<KvStoreResultSet>;
 
         /**
@@ -1782,7 +1801,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
          */
         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
         /**
@@ -1797,7 +1815,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSet
          */
         getResultSet(deviceId: string, query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(deviceId: string, query: Query): Promise<KvStoreResultSet>;
 
         /**
@@ -1812,7 +1829,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#closeResultSet
          */
         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
-
         closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
         /**
@@ -1828,7 +1844,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
          */
         getResultSize(query: Query, callback: AsyncCallback<number>): void;
-
         getResultSize(query: Query): Promise<number>;
 
         /**
@@ -1843,7 +1858,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#getResultSize
          */
         getResultSize(deviceId: string, query: Query, callback: AsyncCallback<number>): void;
-
         getResultSize(deviceId: string, query: Query): Promise<number>;
 
         /**
@@ -1860,7 +1874,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#removeDeviceData
          */
         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
-
         removeDeviceData(deviceId: string): Promise<void>;
 
         /**
@@ -1883,6 +1896,23 @@ declare namespace distributedData {
         sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void;
 
         /**
+         * Register a {@code KvStoreObserver} for the database. When data in the distributed database changes, the
+         * callback in the {@code KvStoreObserver} will be invoked.
+         *
+         * @param type Indicates the subscription type, which is defined in {@code SubscribeType}.
+         * @param listener Indicates the observer of data change events in the distributed database.
+         * @throws Throws this exception if any of the following errors
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.DeviceKVStore#on
+         */
+        on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
+
+
+        /**
          * Register a DeviceKVStore database synchronization callback.
          *
          * <p>Sync result is returned through asynchronous callback.
@@ -1895,6 +1925,20 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#on
          */
         on(event: 'syncComplete', syncCallback: Callback<Array<[string, number]>>): void;
+
+        /**
+         * Unsubscribe the DeviceKVStore database based on the specified subscribeType and {@code KvStoreObserver}.
+         *
+         * @param listener Indicates the data change observer registered by {#subscribe(SubscribeType, KvStoreObserver)}.
+         * @throws Throws this exception if any of the following errors
+         * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
+         * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
+         * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+         * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.distributedKVStore.DeviceKVStore#off
+         */
+        off(event: 'dataChange', listener?: Callback<ChangeNotification>): void;
 
         /**
          * UnRegister the DeviceKVStore database synchronization callback.
@@ -1951,7 +1995,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#getKVStore
          */
         getKVStore<T extends KVStore>(storeId: string, options: Options): Promise<T>;
-
         getKVStore<T extends KVStore>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
         /**
@@ -1976,7 +2019,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#closeKVStore
          */
         closeKVStore(appId: string, storeId: string, kvStore: KVStore, callback: AsyncCallback<void>): void;
-
         closeKVStore(appId: string, storeId: string, kvStore: KVStore): Promise<void>;
 
         /**
@@ -1998,7 +2040,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#deleteKVStore
          */
         deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
-
         deleteKVStore(appId: string, storeId: string): Promise<void>;
 
         /**
@@ -2015,7 +2056,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#getAllKVStoreId
          */
         getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
-
         getAllKVStoreId(appId: string): Promise<string[]>;
 
         /**
