@@ -66,7 +66,7 @@ declare namespace rpc {
     }
 
     /**
-     * A data object used for reomote procedure call (RPC).
+     * A data object used for remote procedure call (RPC).
      * <p>
      * During RPC, the sender can use the write methods provided by {@link MessageParcel} to
      * write the to-be-sent data into a {@link MessageParcel} object in a specific format, and the receiver can use the
@@ -85,33 +85,32 @@ declare namespace rpc {
      * @deprecated since 9
      * @useinstead ohos.rpc.MessageSequence
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     class MessageParcel {
         /**
          * Creates an empty {@link MessageParcel} object.
-         * @return Returns the object created.
+         * @returns Return the object created.
          * @since 7
          */
         static create(): MessageParcel;
 
         /**
-         * Reclaims the {@link MessageParcel} object.
+         * Reclaim the {@link MessageParcel} object.
          * @since 7
          */
         reclaim(): void;
 
         /**
-         * Serializes a remote object and writes it to the {@link MessageParcel} object.
+         * Serialize a remote object and writes it to the {@link MessageParcel} object.
          * @param object Remote object to serialize.
-         * @return Returns true if it is successful; returns false otherwise.
+         * @returns Return true if it is successful; return false otherwise.
          * @since 7
          */
         writeRemoteObject(object: IRemoteObject): boolean;
 
         /**
          * Reads a remote object from {@link MessageParcel} object.
-         * @return Returns the remote object.
+         * @returns Return the remote object.
          * @since 7
          */
         readRemoteObject(): IRemoteObject;
@@ -119,29 +118,29 @@ declare namespace rpc {
         /**
          * Writes an interface token into the {@link MessageParcel} object.
          * @param token Interface descriptor to write.
-         * @return Returns {@code true} if the interface token has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the interface token has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @since 7
          */
         writeInterfaceToken(token: string): boolean;
 
         /**
          * Reads an interface token from the {@link MessageParcel} object.
-         * @return Returns a string value.
+         * @returns Return a string value.
          * @since 7
          */
         readInterfaceToken(): string;
 
         /**
          * Obtains the size of data (in bytes) contained in the {@link MessageParcel} object.
-         * @return Returns the size of data contained in the {@link MessageParcel} object.
+         * @returns Return the size of data contained in the {@link MessageParcel} object.
          * @since 7
          */
         getSize(): number;
 
         /**
          * Obtains the storage capacity (in bytes) of the {@link MessageParcel} object.
-         * @return Returns the storage capacity of the {@link MessageParcel} object.
+         * @returns Return the storage capacity of the {@link MessageParcel} object.
          * @since 7
          */
         getCapacity(): number;
@@ -152,7 +151,7 @@ declare namespace rpc {
          * than the storage capacity of the {@link MessageParcel}.
          *
          * @param size Indicates the data size of the {@link MessageParcel} object.
-         * @return Returns {@code true} if the setting is successful; returns {@code false} otherwise.
+         * @returns Return {@code true} if the setting is successful; return {@code false} otherwise.
          * @since 7
          */
         setSize(size: number): boolean;
@@ -163,7 +162,7 @@ declare namespace rpc {
          * the size of data contained in the {@link MessageParcel}.
          *
          * @param size Indicates the storage capacity of the {@link MessageParcel} object.
-         * @return Returns {@code true} if the setting is successful; returns {@code false} otherwise.
+         * @returns Return {@code true} if the setting is successful; return {@code false} otherwise.
          * @since 7
          */
         setCapacity(size: number): boolean;
@@ -172,7 +171,7 @@ declare namespace rpc {
          * Obtains the writable data space (in bytes) in the {@link MessageParcel} object.
          * <p>Writable data space = Storage capacity of the {@link MessageParcel} – Size of data contained in the {@link MessageParcel}.
          *
-         * @return Returns the writable data space of the {@link MessageParcel} object.
+         * @returns Return the writable data space of the {@link MessageParcel} object.
          * @since 7
          */
         getWritableBytes(): number;
@@ -181,21 +180,21 @@ declare namespace rpc {
          * Obtains the readable data space (in bytes) in the {@link MessageParcel} object.
          * <p>Readable data space = Size of data contained in the {@link MessageParcel} – Size of data that has been read.
          *
-         * @return Returns the readable data space of the {@link MessageParcel} object.
+         * @returns Return the readable data space of the {@link MessageParcel} object.
          * @since 7
          */
         getReadableBytes(): number;
 
         /**
          * Obtains the current read position in the {@link MessageParcel} object.
-         * @return Returns the current read position in the {@link MessageParcel} object.
+         * @returns Return the current read position in the {@link MessageParcel} object.
          * @since 7
          */
         getReadPosition(): number;
 
         /**
          * Obtains the current write position in the {@link MessageParcel} object.
-         * @return Returns the current write position in the {@link MessageParcel} object.
+         * @returns Return the current write position in the {@link MessageParcel} object.
          * @since 7
          */
         getWritePosition(): number;
@@ -206,7 +205,7 @@ declare namespace rpc {
          * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
          *
          * @param pos Indicates the target position to start data reading.
-         * @return Returns {@code true} if the read position is changed; returns {@code false} otherwise.
+         * @returns Return {@code true} if the read position is changed; return {@code false} otherwise.
          * @since 7
          */
         rewindRead(pos: number): boolean;
@@ -217,7 +216,7 @@ declare namespace rpc {
          * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
          *
          * @param pos Indicates the target position to start data writing.
-         * @return Returns {@code true} if the write position is changed; returns {@code false} otherwise.
+         * @returns Return {@code true} if the write position is changed; return {@code false} otherwise.
          * @since 7
          */
         rewindWrite(pos: number): boolean;
@@ -242,8 +241,8 @@ declare namespace rpc {
         /**
          * Writes a byte value into the {@link MessageParcel} object.
          * @param val Indicates the byte value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -253,8 +252,8 @@ declare namespace rpc {
         /**
          * Writes a short integer value into the {@link MessageParcel} object.
          * @param val Indicates the short integer value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -264,8 +263,8 @@ declare namespace rpc {
         /**
          * Writes an integer value into the {@link MessageParcel} object.
          * @param val Indicates the integer value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -275,8 +274,8 @@ declare namespace rpc {
         /**
          * Writes a long integer value into the {@link MessageParcel} object.
          * @param val Indicates the long integer value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -286,8 +285,8 @@ declare namespace rpc {
         /**
          * Writes a floating point value into the {@link MessageParcel} object.
          * @param val Indicates the floating point value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -297,8 +296,8 @@ declare namespace rpc {
         /**
          * Writes a double-precision floating point value into the {@link MessageParcel} object.
          * @param val Indicates the double-precision floating point value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -308,8 +307,8 @@ declare namespace rpc {
         /**
          * Writes a boolean value into the {@link MessageParcel} object.
          * @param val Indicates the boolean value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -319,8 +318,8 @@ declare namespace rpc {
         /**
          * Writes a single character value into the {@link MessageParcel} object.
          * @param val Indicates the single character value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -330,8 +329,8 @@ declare namespace rpc {
         /**
          * Writes a string value into the {@link MessageParcel} object.
          * @param val Indicates the string value to write.
-         * @return Returns {@code true} if the value has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the value has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -350,8 +349,8 @@ declare namespace rpc {
         /**
          * Writes a byte array into the {@link MessageParcel} object.
          * @param byteArray Indicates the byte array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -360,104 +359,104 @@ declare namespace rpc {
 
         /**
          * Writes a short integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param shortArray Indicates the short integer array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeShortArray(shortArray: number[]): boolean;
 
         /**
          * Writes an integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param intArray Indicates the integer array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeIntArray(intArray: number[]): boolean;
 
         /**
          * Writes a long integer array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param longArray Indicates the long integer array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeLongArray(longArray: number[]): boolean;
 
         /**
          * Writes a floating point array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param floatArray Indicates the floating point array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeFloatArray(floatArray: number[]): boolean;
 
         /**
          * Writes a double-precision floating point array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param doubleArray Indicates the double-precision floating point array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeDoubleArray(doubleArray: number[]): boolean;
 
         /**
          * Writes a boolean array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param booleanArray Indicates the boolean array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeBooleanArray(booleanArray: boolean[]): boolean;
 
         /**
          * Writes a single character array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param charArray Indicates the single character array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeCharArray(charArray: number[]): boolean;
 
         /**
          * Writes a string array into the {@link MessageParcel} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param stringArray Indicates the string array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 7
          */
         writeStringArray(stringArray: string[]): boolean;
@@ -465,8 +464,8 @@ declare namespace rpc {
         /**
          * Writes a {@link Sequenceable} object array into the {@link MessageParcel} object.
          * @param sequenceableArray Indicates the {@link Sequenceable} object array to write.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this parcel is insufficient,
          *         exception message: {@link ParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -476,71 +475,71 @@ declare namespace rpc {
         /**
          * Writes an array of {@link IRemoteObject} objects to this {@link MessageParcel} object.
          * @param objectArray Array of {@link IRemoteObject} objects to write.
-         * @return Returns {@code true} if the {@link IRemoteObject} array is successfully written to the {@link MessageParcel};
-         *         returns false if the {@link IRemoteObject} array is null or fails to be written to the {@lini MessageParcel}.
+         * @returns Return {@code true} if the {@link IRemoteObject} array is successfully written to the {@link MessageParcel};
+         *          return false if the {@link IRemoteObject} array is null or fails to be written to the {@link MessageParcel}.
          * @since 8
          */
         writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean;
 
         /**
          * Reads a byte value from the {@link MessageParcel} object.
-         * @return Returns a byte value.
+         * @returns Return a byte value.
          * @since 7
          */
         readByte(): number;
 
         /**
          * Reads a short integer value from the {@link MessageParcel} object.
-         * @return Returns a short integer value.
+         * @returns Return a short integer value.
          * @since 7
          */
         readShort(): number;
 
         /**
          * Reads an integer value from the {@link MessageParcel} object.
-         * @return Returns an integer value.
+         * @returns Return an integer value.
          * @since 7
          */
         readInt(): number;
 
         /**
          * Reads a long integer value from the {@link MessageParcel} object.
-         * @return Returns a long integer value.
+         * @returns Return a long integer value.
          * @since 7
          */
         readLong(): number;
 
         /**
          * Reads a floating point value from the {@link MessageParcel} object.
-         * @return Returns a floating point value.
+         * @returns Return a floating point value.
          * @since 7
          */
         readFloat(): number;
 
         /**
          * Reads a double-precision floating point value from the {@link MessageParcel} object.
-         * @return Returns a double-precision floating point value.
+         * @returns Return a double-precision floating point value.
          * @since 7
          */
         readDouble(): number;
 
         /**
          * Reads a boolean value from the {@link MessageParcel} object.
-         * @return Returns a boolean value.
+         * @returns Return a boolean value.
          * @since 7
          */
         readBoolean(): boolean;
 
         /**
          * Reads a single character value from the {@link MessageParcel} object.
-         * @return Returns a single character value.
+         * @returns Return a single character value.
          * @since 7
          */
         readChar(): number;
 
         /**
          * Reads a string value from the {@link MessageParcel} object.
-         * @return Returns a string value.
+         * @returns Return a string value.
          * @since 7
          */
         readString(): string;
@@ -549,7 +548,7 @@ declare namespace rpc {
          * Reads a {@link Sequenceable} object from the {@link MessageParcel} instance.
          * @param dataIn Indicates the {@link Sequenceable} object that needs to perform the {@code unmarshalling} operation
          *        using the {@link MessageParcel}.
-         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
+         * @returns Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
          * @since 7
          */
         readSequenceable(dataIn: Sequenceable) : boolean;
@@ -557,8 +556,8 @@ declare namespace rpc {
         /**
          * Writes a byte array into the {@link MessageParcel} object.
          * @param dataIn Indicates the byte array read from MessageParcel.
-         * @return Returns {@code true} if the array has been written into the {@link MessageParcel};
-         *         returns {@code false} otherwise.
+         * @returns Return {@code true} if the array has been written into the {@link MessageParcel};
+         *          return {@code false} otherwise.
          * @throws ParcelException When capacity in this MessageParcel is insufficient,
          *         exception message: {@link *MessageParcelException#NO_CAPACITY_ERROR}.
          * @since 7
@@ -567,7 +566,7 @@ declare namespace rpc {
 
         /**
          * Reads a byte array from the {@link MessageParcel} object.
-         * @return Returns a byte array.
+         * @returns Return a byte array.
          * @since 7
          */
         readByteArray(): number[];
@@ -581,7 +580,7 @@ declare namespace rpc {
 
         /**
          * Reads a short integer array from the {@link MessageParcel} object.
-         * @return Returns a short integer array.
+         * @returns Return a short integer array.
          * @since 7
          */
         readShortArray(): number[];
@@ -596,7 +595,7 @@ declare namespace rpc {
 
         /**
          * Reads an integer array from the {@link MessageParcel} object.
-         * @return Returns an integer array.
+         * @returns Return an integer array.
          * @since 7
          */
         readIntArray(): number[];
@@ -611,7 +610,7 @@ declare namespace rpc {
 
         /**
          * Reads a long integer array from the {@link MessageParcel} object.
-         * @return Returns a long integer array.
+         * @returns Return a long integer array.
          * @since 7
          */
         readLongArray(): number[];
@@ -626,7 +625,7 @@ declare namespace rpc {
 
         /**
          * Reads a floating point array from the {@link MessageParcel} object.
-         * @return Returns a floating point array.
+         * @returns Return a floating point array.
          * @since 7
          */
         readFloatArray(): number[];
@@ -641,7 +640,7 @@ declare namespace rpc {
 
         /**
          * Reads a double-precision floating point array from the {@link MessageParcel} object.
-         * @return Returns a double-precision floating point array.
+         * @returns Return a double-precision floating point array.
          * @since 7
          */
         readDoubleArray(): number[];
@@ -656,7 +655,7 @@ declare namespace rpc {
 
         /**
          * Reads a boolean array from the {@link MessageParcel} object.
-         * @return Returns a boolean array.
+         * @returns Return a boolean array.
          * @since 7
          */
         readBooleanArray(): boolean[];
@@ -671,7 +670,7 @@ declare namespace rpc {
 
         /**
          * Reads a single character array from the {@link MessageParcel} object.
-         * @return Returns a single character array.
+         * @returns Return a single character array.
          * @since 7
          */
         readCharArray(): number[];
@@ -686,7 +685,7 @@ declare namespace rpc {
 
         /**
          * Reads a string array from the {@link MessageParcel} object.
-         * @return Returns a string array.
+         * @returns Return a string array.
          * @since 7
          */
         readStringArray(): string[];
@@ -707,7 +706,7 @@ declare namespace rpc {
 
         /**
          * Reads {@link IRemoteObject} objects from this {@link MessageParcel} object.
-         * @return An array of {@link IRemoteObject} objects obtained.
+         * @returns An array of {@link IRemoteObject} objects obtained.
          * @since 8
          */
         readRemoteObjectArray(): IRemoteObject[];
@@ -722,15 +721,15 @@ declare namespace rpc {
         /**
          * Duplicates the specified file descriptor.
          * @param fd File descriptor to be duplicated.
-         * @return A duplicated file descriptor.
+         * @returns A duplicated file descriptor.
          * @since 8
          */
         static dupFileDescriptor(fd: number) :number;
 
         /**
          * Checks whether this {@link MessageParcel} object contains a file descriptor.
-         * @return Returns true if the {@link MessageParcel} object contains a file descriptor;
-         * returns false otherwise.
+         * @returns Return true if the {@link MessageParcel} object contains a file descriptor;
+         * return false otherwise.
          * @since 8
          */
         containFileDescriptors(): boolean;
@@ -738,14 +737,14 @@ declare namespace rpc {
         /**
          * Writes a file descriptor to this {@link MessageParcel} object.
          * @param fd File descriptor to wrote.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          */
         writeFileDescriptor(fd: number): boolean;
 
         /**
          * Reads a file descriptor from this {@link MessageParcel} object.
-         * @return File descriptor obtained.
+         * @returns File descriptor obtained.
          * @since 8
          */
         readFileDescriptor(): number;
@@ -753,21 +752,21 @@ declare namespace rpc {
         /**
          * Writes an anonymous shared memory object to this {@link MessageParcel} object.
          * @param ashmem Anonymous shared memory object to wrote.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          */
         writeAshmem(ashmem: Ashmem): boolean;
 
         /**
          * Reads the anonymous shared memory object from this {@link MessageParcel} object.
-         * @return Anonymous share object obtained.
+         * @returns Anonymous share object obtained.
          * @since 8
          */
         readAshmem(): Ashmem;
 
         /**
          * Obtains the maximum amount of raw data that can be sent in a time.
-         * @return 128 MB.
+         * @returns 128 MB.
          * @since 8
          */
         getRawDataCapacity(): number;
@@ -776,7 +775,7 @@ declare namespace rpc {
          * Writes raw data to this {@link MessageParcel} object.
          * @param rawData Raw data to wrote.
          * @param size Size of the raw data, in bytes.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          */
         writeRawData(rawData: number[], size: number): boolean;
@@ -784,14 +783,14 @@ declare namespace rpc {
         /**
          * Reads raw data from this {@link MessageParcel} object.
          * @param size Size of the raw data to read.
-         * @return Raw data obtained, in bytes.
+         * @returns Raw data obtained, in bytes.
          * @since 8
          */
         readRawData(size: number): number[];
     }
 
     /**
-     * A data object used for reomote procedure call (RPC).
+     * A data object used for remote procedure call (RPC).
      * <p>
      * During RPC, the sender can use the write methods provided by {@link MessageSequence} to
      * write the to-be-sent data into a {@link MessageSequence} object in a specific format, and the receiver can use the
@@ -808,24 +807,23 @@ declare namespace rpc {
      *
      * @since 9
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     class MessageSequence {
         /**
          * Creates an empty {@link MessageSequence} object.
-         * @return Returns the object created.
+         * @returns Return the object created.
          * @since 9
          */
         static create(): MessageSequence;
 
         /**
-         * Reclaims the {@link MessageSequence} object.
+         * Reclaim the {@link MessageSequence} object.
          * @since 9
          */
         reclaim(): void;
 
         /**
-         * Serializes a remote object and writes it to the {@link MessageSequence} object.
+         * Serialize a remote object and writes it to the {@link MessageSequence} object.
          * @param object Remote object to serialize.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -836,7 +834,7 @@ declare namespace rpc {
 
         /**
          * Reads a remote object from {@link MessageSequence} object.
-         * @return Returns the remote object.
+         * @returns Return the remote object.
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
@@ -854,7 +852,7 @@ declare namespace rpc {
 
         /**
          * Reads an interface token from the {@link MessageSequence} object.
-         * @return Returns a string value.
+         * @returns Return a string value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -862,14 +860,14 @@ declare namespace rpc {
 
         /**
          * Obtains the size of data (in bytes) contained in the {@link MessageSequence} object.
-         * @return Returns the size of data contained in the {@link MessageSequence} object.
+         * @returns Return the size of data contained in the {@link MessageSequence} object.
          * @since 9
          */
         getSize(): number;
 
         /**
          * Obtains the storage capacity (in bytes) of the {@link MessageSequence} object.
-         * @return Returns the storage capacity of the {@link MessageSequence} object.
+         * @returns Return the storage capacity of the {@link MessageSequence} object.
          * @since 9
          */
         getCapacity(): number;
@@ -901,7 +899,7 @@ declare namespace rpc {
          * Obtains the writable data space (in bytes) in the {@link MessageSequence} object.
          * <p>Writable data space = Storage capacity of the {@link MessageSequence} – Size of data contained in the {@link MessageSequence}.
          *
-         * @return Returns the writable data space of the {@link MessageSequence} object.
+         * @returns Return the writable data space of the {@link MessageSequence} object.
          * @since 9
          */
         getWritableBytes(): number;
@@ -910,21 +908,21 @@ declare namespace rpc {
          * Obtains the readable data space (in bytes) in the {@link MessageSequence} object.
          * <p>Readable data space = Size of data contained in the {@link MessageSequence} – Size of data that has been read.
          *
-         * @return Returns the readable data space of the {@link MessageSequence} object.
+         * @returns Return the readable data space of the {@link MessageSequence} object.
          * @since 9
          */
         getReadableBytes(): number;
 
         /**
          * Obtains the current read position in the {@link MessageSequence} object.
-         * @return Returns the current read position in the {@link MessageSequence} object.
+         * @returns Return the current read position in the {@link MessageSequence} object.
          * @since 9
          */
         getReadPosition(): number;
 
         /**
          * Obtains the current write position in the {@link MessageSequence} object.
-         * @return Returns the current write position in the {@link MessageSequence} object.
+         * @returns Return the current write position in the {@link MessageSequence} object.
          * @since 9
          */
         getWritePosition(): number;
@@ -1070,88 +1068,88 @@ declare namespace rpc {
 
         /**
          * Writes a short integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param shortArray Indicates the short integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeShortArray(shortArray: number[]): void;
 
         /**
          * Writes an integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param intArray Indicates the integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeIntArray(intArray: number[]): void;
 
         /**
          * Writes a long integer array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param longArray Indicates the long integer array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeLongArray(longArray: number[]): void;
 
         /**
          * Writes a floating point array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param floatArray Indicates the floating point array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeFloatArray(floatArray: number[]): void;
 
         /**
          * Writes a double-precision floating point array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param doubleArray Indicates the double-precision floating point array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeDoubleArray(doubleArray: number[]): void;
 
         /**
          * Writes a boolean array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param booleanArray Indicates the boolean array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeBooleanArray(booleanArray: boolean[]): void;
 
         /**
          * Writes a single character array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param charArray Indicates the single character array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeCharArray(charArray: number[]): void;
 
         /**
          * Writes a string array into the {@link MessageSequence} object.
+         * Ensure that the data type and size comply with the interface definition.
+         * Otherwise,data may be truncated.
          * @param stringArray Indicates the string array to write.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900009 - write data to message sequence failed
-         * @Note   Ensure that the data type and size comply with the interface definition.
-         *         Otherwise,data may be truncated.
          * @since 9
          */
         writeStringArray(stringArray: string[]): void;
@@ -1176,7 +1174,7 @@ declare namespace rpc {
 
         /**
          * Reads a byte value from the {@link MessageParcel} object.
-         * @return Returns a byte value.
+         * @returns Return a byte value.
          * @throws { BusinessError } 1900010 read data from message sequence failed
          * @since 9
          */
@@ -1184,7 +1182,7 @@ declare namespace rpc {
 
         /**
          * Reads a short integer value from the {@link MessageSequence} object.
-         * @return Returns a short integer value.
+         * @returns Return a short integer value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1192,7 +1190,7 @@ declare namespace rpc {
 
         /**
          * Reads an integer value from the {@link MessageSequence} object.
-         * @return Returns an integer value.
+         * @returns Return an integer value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1200,7 +1198,7 @@ declare namespace rpc {
 
         /**
          * Reads a long integer value from the {@link MessageSequence} object.
-         * @return Returns a long integer value.
+         * @returns Return a long integer value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1208,7 +1206,7 @@ declare namespace rpc {
 
         /**
          * Reads a floating point value from the {@link MessageSequence} object.
-         * @return Returns a floating point value.
+         * @returns Return a floating point value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1216,7 +1214,7 @@ declare namespace rpc {
 
         /**
          * Reads a double-precision floating point value from the {@link MessageSequence} object.
-         * @return Returns a double-precision floating point value.
+         * @returns Return a double-precision floating point value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1224,7 +1222,7 @@ declare namespace rpc {
 
         /**
          * Reads a boolean value from the {@link MessageSequence} object.
-         * @return Returns a boolean value.
+         * @returns Return a boolean value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1232,7 +1230,7 @@ declare namespace rpc {
 
         /**
          * Reads a single character value from the {@link MessageSequence} object.
-         * @return Returns a single character value.
+         * @returns Return a single character value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1240,7 +1238,7 @@ declare namespace rpc {
 
         /**
          * Reads a string value from the {@link MessageSequence} object.
-         * @return Returns a string value.
+         * @returns Return a string value.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1268,7 +1266,7 @@ declare namespace rpc {
 
         /**
          * Reads a byte array from the {@link MessageSequence} object.
-         * @return Returns a byte array.
+         * @returns Return a byte array.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
@@ -1286,7 +1284,7 @@ declare namespace rpc {
 
         /**
          * Reads a short integer array from the {@link MessageSequence} object.
-         * @return Returns a short integer array.
+         * @returns Return a short integer array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1303,7 +1301,7 @@ declare namespace rpc {
 
         /**
          * Reads an integer array from the {@link MessageSequence} object.
-         * @return Returns an integer array.
+         * @returns Return an integer array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1320,7 +1318,7 @@ declare namespace rpc {
 
         /**
          * Reads a long integer array from the {@link MessageSequence} object.
-         * @return Returns a long integer array.
+         * @returns Return a long integer array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1337,7 +1335,7 @@ declare namespace rpc {
 
         /**
          * Reads a floating point array from the {@link MessageSequence} object.
-         * @return Returns a floating point array.
+         * @returns Return a floating point array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1354,7 +1352,7 @@ declare namespace rpc {
 
         /**
          * Reads a double-precision floating point array from the {@link MessageSequence} object.
-         * @return Returns a double-precision floating point array.
+         * @returns Return a double-precision floating point array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1371,7 +1369,7 @@ declare namespace rpc {
 
         /**
          * Reads a boolean array from the {@link MessageSequence} object.
-         * @return Returns a boolean array.
+         * @returns Return a boolean array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1388,7 +1386,7 @@ declare namespace rpc {
 
         /**
          * Reads a single character array from the {@link MessageSequence} object.
-         * @return Returns a single character array.
+         * @returns Return a single character array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1406,7 +1404,7 @@ declare namespace rpc {
 
         /**
          * Reads a string array from the {@link MessageSequence} object.
-         * @return Returns a string array.
+         * @returns Return a string array.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1433,7 +1431,7 @@ declare namespace rpc {
 
         /**
          * Reads {@link IRemoteObject} objects from this {@link MessageSequence} object.
-         * @return An array of {@link IRemoteObject} objects obtained.
+         * @returns An array of {@link IRemoteObject} objects obtained.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1450,7 +1448,7 @@ declare namespace rpc {
         /**
          * Duplicates the specified file descriptor.
          * @param fd File descriptor to be duplicated.
-         * @return A duplicated file descriptor.
+         * @returns A duplicated file descriptor.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900013 call os dup function failed
          * @since 9
@@ -1459,8 +1457,8 @@ declare namespace rpc {
 
         /**
          * Checks whether this {@link MessageSequence} object contains a file descriptor.
-         * @return Returns true if the {@link MessageSequence} object contains a file descriptor;
-         * returns false otherwise.
+         * @returns Return true if the {@link MessageSequence} object contains a file descriptor;
+         * return false otherwise.
          * @since 9
          */
         containFileDescriptors(): boolean;
@@ -1476,7 +1474,7 @@ declare namespace rpc {
 
         /**
          * Reads a file descriptor from this {@link MessageSequence} object.
-         * @return File descriptor obtained.
+         * @returns File descriptor obtained.
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
          */
@@ -1493,7 +1491,7 @@ declare namespace rpc {
 
         /**
          * Reads the anonymous shared memory object from this {@link MessageSequence} object.
-         * @return Anonymous share object obtained.
+         * @returns Anonymous share object obtained.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900004 - read from ashmem failed
          * @since 9
@@ -1502,7 +1500,7 @@ declare namespace rpc {
 
         /**
          * Obtains the maximum amount of raw data that can be sent in a time.
-         * @return 128 MB.
+         * @returns 128 MB.
          * @since 9
          */
         getRawDataCapacity(): number;
@@ -1520,7 +1518,7 @@ declare namespace rpc {
         /**
          * Reads raw data from this {@link MessageSequence} object.
          * @param size Size of the raw data to read.
-         * @return Raw data obtained, in bytes.
+         * @returns Raw data obtained, in bytes.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900010 - read data from message sequence failed
          * @since 9
@@ -1530,29 +1528,28 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.rpc.Parcelable
      */
     interface Sequenceable {
         /**
-         * Marshals this {@code Sequenceable} object into a {@link MessageParcel}.
+         * Marshal this {@code Sequenceable} object into a {@link MessageParcel}.
          *
          * @param dataOut Indicates the {@link MessageParcel} object to which the {@code Sequenceable}
-         *        object will be marshaled..
-         * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
+         *        object will be marshalled..
+         * @returns Return {@code true} if the marshalling is successful; return {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 7
          */
         marshalling(dataOut: MessageParcel): boolean;
 
         /**
-         * Unmarshals this {@code Sequenceable} object from a {@link MessageParcel}.
+         * Unmarshal this {@code Sequenceable} object from a {@link MessageParcel}.
          *
          * @param dataIn Indicates the {@link MessageParcel} object into which the {@code Sequenceable}
-         *        object has been marshaled.
-         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
+         *        object has been marshalled.
+         * @returns Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 7
          */
@@ -1561,27 +1558,26 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 9
      */
     interface Parcelable {
         /**
-         * Marshals this {@code Parcelable} object into a {@link MessageSequence}.
+         * Marshal this {@code Parcelable} object into a {@link MessageSequence}.
          *
          * @param dataOut Indicates the {@link MessageSequence} object to which the {@code Parcelable}
-         *        object will be marshaled..
-         * @return Returns {@code true} if the marshalling is successful; returns {@code false} otherwise.
+         *        object will be marshalled..
+         * @returns Return {@code true} if the marshalling is successful; return {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 9
          */
         marshalling(dataOut: MessageSequence): boolean;
 
         /**
-         * Unmarshals this {@code Parcelable} object from a {@link MessageSequence}.
+         * Unmarshal this {@code Parcelable} object from a {@link MessageSequence}.
          *
          * @param dataIn Indicates the {@link MessageSequence} object into which the {@code Parcelable}
-         *        object has been marshaled.
-         * @return Returns {@code true} if the unmarshalling is successful; returns {@code false} otherwise.
+         *        object has been marshalled.
+         * @returns Return {@code true} if the unmarshalling is successful; return {@code false} otherwise.
          * @throws ParcelException Throws this exception if the operation fails.
          * @since 9
          */
@@ -1594,7 +1590,6 @@ declare namespace rpc {
      * namely error code of this operation, request code, data parcel
      * and reply parcel.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.rpc.RequestResult
@@ -1633,7 +1628,6 @@ declare namespace rpc {
     * namely error code of this operation, request code, data parcel
     * and reply parcel.
     * @syscap SystemCapability.Communication.IPC.Core
-    * @import import rpc from '@ohos.rpc'
     * @since 9
     */
     interface RequestResult {
@@ -1666,7 +1660,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     abstract class IRemoteObject {
@@ -1678,7 +1671,7 @@ declare namespace rpc {
          * indicating that the interface is not a local one.
          *
          * @param descriptor Indicates the interface descriptor.
-         * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
+         * @returns Return the {@link IRemoteBroker} object bound to the specified interface descriptor.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#getLocalInterface
@@ -1693,7 +1686,7 @@ declare namespace rpc {
          * indicating that the interface is not a local one.
          *
          * @param descriptor Indicates the interface descriptor.
-         * @return Returns the {@link IRemoteBroker} object bound to the specified interface descriptor.
+         * @returns Return the {@link IRemoteBroker} object bound to the specified interface descriptor.
          * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
@@ -1712,7 +1705,7 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object sent to the peer process.
          * @param reply Indicates the {@link MessageParcel} object returned by the peer process.
          * @param options Indicates the synchronous or asynchronous mode to send messages.
-         * @return Returns {@code true} if the method is called successfully; returns {@code false} otherwise.
+         * @returns Return {@code true} if the method is called successfully; return {@code false} otherwise.
          * @throws RemoteException Throws this exception if the method fails to be called.
          * @since 7
          * @deprecated since 9
@@ -1796,11 +1789,11 @@ declare namespace rpc {
         sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback<RequestResult>): void;
 
         /**
-         * Registers a callback used to receive notifications of the death of a remote object.
+         * Register a callback used to receive notifications of the death of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
-         * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
+         * @returns Return {@code true} if the callback is registered successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#registerDeathRecipient
@@ -1808,7 +1801,7 @@ declare namespace rpc {
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Registers a callback used to receive notifications of the death of a remote object.
+         * Register a callback used to receive notifications of the death of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification.
@@ -1819,11 +1812,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregisters a callback used to receive notifications of the death of a remote object.
+         * Deregister a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification.
-         * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
+         * @returns Return {@code true} if the callback is deregister successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#unregisterDeathRecipient
@@ -1831,9 +1824,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregisters a callback used to receive notifications of the death of a remote object.
+         * Deregister a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -1846,7 +1839,7 @@ declare namespace rpc {
          *
          * <p>The interface descriptor is a character string.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#getDescriptor
@@ -1858,7 +1851,7 @@ declare namespace rpc {
          *
          * <p>The interface descriptor is a character string.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @since 9
          */
@@ -1867,7 +1860,7 @@ declare namespace rpc {
         /**
          * Checks whether an object is dead.
          *
-         * @return Returns {@code true} if the object is dead; returns {@code false} otherwise.
+         * @returns Return {@code true} if the object is dead; return {@code false} otherwise.
          * @since 7
          */
         isObjectDead(): boolean;
@@ -1875,14 +1868,13 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     interface IRemoteBroker {
         /**
          * Obtains a proxy or remote object. This method must be implemented by its derived classes.
          *
-         * @return Returns the RemoteObject if the caller is a RemoteObject; returns the IRemoteObject,
+         * @returns Return the RemoteObject if the caller is a RemoteObject; return the IRemoteObject,
          * that is, the holder of this RemoteProxy object, if the caller is a RemoteProxy object.
          * @since 7
          */
@@ -1892,7 +1884,6 @@ declare namespace rpc {
     /**
      * @since 7
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      */
     interface DeathRecipient {
         /**
@@ -1905,7 +1896,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class MessageOption {
@@ -1966,7 +1956,7 @@ declare namespace rpc {
         /**
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
-         * @return Returns whether the SendRequest is called synchronously or asynchronously.
+         * @returns Return whether the SendRequest is called synchronously or asynchronously.
          * @since 7
          */
         getFlags(): number;
@@ -1982,7 +1972,7 @@ declare namespace rpc {
         /**
          * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
          *
-         * @return Returns whether the SendRequest is called synchronously or asynchronously.
+         * @returns Return whether the SendRequest is called synchronously or asynchronously.
          * @since 9
          */
         isAsync(): boolean;
@@ -1998,7 +1988,7 @@ declare namespace rpc {
         /**
          * Obtains the maximum wait time for this RPC call.
          *
-         * @return Returns maximum wait time obtained.
+         * @returns Return maximum wait time obtained.
          * @since 7
          */
         getWaitTime(): number;
@@ -2014,7 +2004,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class RemoteObject extends IRemoteObject {
@@ -2030,7 +2019,7 @@ declare namespace rpc {
          * Queries a remote object using an interface descriptor.
          *
          * @param descriptor Indicates the interface descriptor used to query the remote object.
-         * @return Returns the remote object matching the interface descriptor; returns null
+         * @returns Return the remote object matching the interface descriptor; return null
          * if no such remote object is found.
          * @since 7
          * @deprecated since 9
@@ -2042,7 +2031,7 @@ declare namespace rpc {
          * Queries a remote object using an interface descriptor.
          *
          * @param descriptor Indicates the interface descriptor used to query the remote object.
-         * @return Returns the remote object matching the interface descriptor; returns null
+         * @returns Return the remote object matching the interface descriptor; return null
          * if no such remote object is found.
          * @throws { BusinessError } 401 - check param failed
          * @since 9
@@ -2052,7 +2041,7 @@ declare namespace rpc {
         /**
          * Queries an interface descriptor.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteObject#getDescriptor
@@ -2062,7 +2051,7 @@ declare namespace rpc {
         /**
          * Queries an interface descriptor.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @since 9
          */
@@ -2079,9 +2068,9 @@ declare namespace rpc {
          * @param reply Indicates the response message object sent from the remote service.
          * The local service writes the response data to the {@link MessageParcel} object.
          * @param options Indicates whether the operation is synchronous or asynchronous.
-         * @return
-         * Returns a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
-         * Returns a promise object with a boolean when the function call is asynchronous.
+         * @returns
+         * Return a simple boolean which is {@code true} if the operation succeeds; {{@code false} otherwise} when the function call is synchronous.
+         * Return a promise object with a boolean when the function call is asynchronous.
          * @since 9
          */
         onRemoteMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): boolean | Promise<boolean>;
@@ -2097,10 +2086,11 @@ declare namespace rpc {
          * @param reply Indicates the response message object sent from the remote service.
          * The local service writes the response data to the {@link MessageParcel} object.
          * @param options Indicates whether the operation is synchronous or asynchronous.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @returns Return {@code true} if the operation succeeds; return {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote service error occurs.
          * @since 7
          * @deprecated since 9
+         * @useinstead ohos.rpc.RemoteObject#onRemoteMessageRequest
          */
         onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2114,9 +2104,9 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
-         * @deprecated since 8
+         * @returns Return {@code true} if the operation succeeds; return {@code false} otherwise.
          * @since 7
+         * @deprecated since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2198,7 +2188,7 @@ declare namespace rpc {
         /**
          * Obtains the PID of the {@link RemoteProxy} object.
          *
-         * @return Returns the PID of the {@link RemoteProxy} object.
+         * @returns Return the PID of the {@link RemoteProxy} object.
          * @since 7
          */
         getCallingPid(): number;
@@ -2206,7 +2196,7 @@ declare namespace rpc {
         /**
          * Obtains the UID of the {@link RemoteProxy} object.
          *
-         * @return Returns the UID of the {@link RemoteProxy} object.
+         * @returns Return the UID of the {@link RemoteProxy} object.
          * @since 7
          */
         getCallingUid(): number;
@@ -2239,7 +2229,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class RemoteProxy implements IRemoteObject {
@@ -2296,7 +2285,7 @@ declare namespace rpc {
          * Queries a local interface with a specified descriptor.
          *
          * @param descriptor Indicates the descriptor of the interface to query.
-         * @return Returns null by default, indicating a proxy interface.
+         * @returns Return null by default, indicating a proxy interface.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#getLocalInterface
@@ -2307,7 +2296,7 @@ declare namespace rpc {
          * Queries a local interface with a specified descriptor.
          *
          * @param descriptor Indicates the descriptor of the interface to query.
-         * @return Returns null by default, indicating a proxy interface.
+         * @returns Return null by default, indicating a proxy interface.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900006 - only remote object permitted
          * @since 9
@@ -2315,11 +2304,11 @@ declare namespace rpc {
         getLocalInterface(interface: string): IRemoteBroker;
 
         /**
-         * Registers a callback used to receive death notifications of a remote object.
+         * Register a callback used to receive death notifications of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
-         * @return Returns {@code true} if the callback is registered successfully; returns {@code false} otherwise.
+         * @returns Return {@code true} if the callback is registered successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#registerDeathRecipient
@@ -2327,7 +2316,7 @@ declare namespace rpc {
         addDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Registers a callback used to receive death notifications of a remote object.
+         * Register a callback used to receive death notifications of a remote object.
          *
          * @param recipient Indicates the callback to be registered.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
@@ -2338,11 +2327,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregisters a callback used to receive death notifications of a remote object.
+         * Deregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
-         * @return Returns {@code true} if the callback is deregistered successfully; returns {@code false} otherwise.
+         * @returns Return {@code true} if the callback is deregister successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#unregisterDeathRecipient
@@ -2350,9 +2339,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregisters a callback used to receive death notifications of a remote object.
+         * Deregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregistered.
+         * @param recipient Indicates the callback to be deregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -2363,7 +2352,7 @@ declare namespace rpc {
         /**
          * Queries the interface descriptor of remote object.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#getDescriptor
@@ -2373,7 +2362,7 @@ declare namespace rpc {
         /**
          * Queries the interface descriptor of remote object.
          *
-         * @return Returns the interface descriptor.
+         * @returns Return the interface descriptor.
          * @throws { BusinessError } 1900007 - communication failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @since 9
@@ -2390,10 +2379,10 @@ declare namespace rpc {
          * @param data Indicates the {@link MessageParcel} object storing the data to be sent.
          * @param reply Indicates the {@link MessageParcel} object receiving the response data.
          * @param options Indicates a synchronous (default) or asynchronous request.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @returns Return {@code true} if the operation succeeds; return {@code false} otherwise.
          * @throws RemoteException Throws this exception if a remote object exception occurs.
-         * @deprecated since 8
          * @since 7
+         * @deprecated since 8
          */
         sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
@@ -2475,7 +2464,7 @@ declare namespace rpc {
         /**
          * Checks whether the {@code RemoteObject} corresponding to a {@code RemoteProxy} is dead.
          *
-         * @return Returns {@code true} if the {@code RemoteObject} is dead; returns {@code false} otherwise.
+         * @returns Return {@code true} if the {@code RemoteObject} is dead; return {@code false} otherwise.
          * @since 7
          */
         isObjectDead(): boolean;
@@ -2483,7 +2472,6 @@ declare namespace rpc {
 
     /**
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 7
      */
     class IPCSkeleton {
@@ -2492,7 +2480,7 @@ declare namespace rpc {
          *
          * <p>This method is static.
          *
-         * @return Returns an {@link IRemoteObject} reference of the registered service.
+         * @returns Return an {@link IRemoteObject} reference of the registered service.
          * @since 7
          */
         static getContextObject(): IRemoteObject;
@@ -2506,7 +2494,7 @@ declare namespace rpc {
          * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
          * the PID of the corresponding {@link RemoteProxy} object is returned.
          *
-         * @return Returns the PID of the proxy.
+         * @returns Return the PID of the proxy.
          * @since 7
          */
         static getCallingPid(): number;
@@ -2520,7 +2508,7 @@ declare namespace rpc {
          * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
          * the UID of the corresponding {@link RemoteProxy} object is returned.
          *
-         * @return Returns the UID of the proxy.
+         * @returns Return the UID of the proxy.
          * @since 7
          */
         static getCallingUid(): number;
@@ -2530,7 +2518,7 @@ declare namespace rpc {
          *
          * <p>This method is static.
          *
-         * @return Returns the TOKENID.
+         * @returns Return the TOKENID.
          * @since 8
          */
         static getCallingTokenId(): number;
@@ -2540,7 +2528,7 @@ declare namespace rpc {
          *
          * <p>This method is static.
          *
-         * @return Returns the ID of the device where the peer process resides.
+         * @returns Return the ID of the device where the peer process resides.
          * @since 7
          */
         static getCallingDeviceID(): string;
@@ -2550,7 +2538,7 @@ declare namespace rpc {
          *
          * <p>This method is static.
          *
-         * @return Returns the ID of the local device.
+         * @returns Return the ID of the local device.
          * @since 7
          */
         static getLocalDeviceID(): string;
@@ -2560,18 +2548,18 @@ declare namespace rpc {
          *
          * <p>This method is static.
          *
-         * @return Returns {@code true} if the call is made on the same device; returns {@code false} otherwise.
+         * @returns Return {@code true} if the call is made on the same device; return {@code false} otherwise.
          * @since 7
          */
         static isLocalCalling(): boolean;
 
         /**
-         * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * Flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
          * @param object Indicates the specified {@link RemoteProxy}.
-         * @return Returns {@code 0} if the operation succeeds; returns an error code if the input object is empty
+         * @returns Return {@code 0} if the operation succeeds; return an error code if the input object is empty
          * or {@link RemoteObject}, or the operation fails.
          * @since 7
          * @deprecated since 9
@@ -2580,7 +2568,7 @@ declare namespace rpc {
         static flushCommands(object: IRemoteObject): number;
 
         /**
-         * Flushes all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
+         * Flush all pending commands from a specified {@link RemoteProxy} to the corresponding {@link RemoteObject}.
          *
          * <p>This method is static. You are advised to call this method before performing any time-sensitive operations.
          *
@@ -2595,20 +2583,20 @@ declare namespace rpc {
          *
          * <p>This method is static. It can be used in scenarios like authentication.
          *
-         * @return Returns a string containing the UID and PID of the remote user.
+         * @returns Return a string containing the UID and PID of the remote user.
          * @since 7
          */
         static resetCallingIdentity(): string;
 
         /**
-         * Restores the UID and PID to those of the remote user.
+         * Restore the UID and PID to those of the remote user.
          *
          * <p>This method is static. It is usually called after {@code resetCallingIdentity} is used
          * and requires the UID and PID of the remote user returned by {@code resetCallingIdentity}.
          *
          * @param identity Indicates the string containing the UID and PID of the remote user,
          * which is returned by {@code resetCallingIdentity}.
-         * @return Returns {@code true} if the operation succeeds; returns {@code false} otherwise.
+         * @returns Return {@code true} if the operation succeeds; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IPCSkeleton#restoreCallingIdentity
@@ -2616,7 +2604,7 @@ declare namespace rpc {
         static setCallingIdentity(identity: string): boolean;
 
         /**
-         * Restores the UID and PID to those of the remote user.
+         * Restore the UID and PID to those of the remote user.
          *
          * <p>This method is static. It is usually called after {@code resetCallingIdentity} is used
          * and requires the UID and PID of the remote user returned by {@code resetCallingIdentity}.
@@ -2635,7 +2623,6 @@ declare namespace rpc {
      * reading data from and writing data to an Ashmem object,
      * obtaining the Ashmem size, and setting Ashmem protection.
      * @syscap SystemCapability.Communication.IPC.Core
-     * @import import rpc from '@ohos.rpc'
      * @since 8
      */
     class Ashmem {
@@ -2679,7 +2666,7 @@ declare namespace rpc {
          * Creates an Ashmem object with the specified name and size.
          * @param name Name of the Ashmem object to create.
          * @param size Size (in bytes) of the Ashmem object to create.
-         * @return Returns the Ashmem object if it is created successfully; returns null otherwise.
+         * @returns Return the Ashmem object if it is created successfully; return null otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#create
@@ -2690,7 +2677,7 @@ declare namespace rpc {
          * Creates an Ashmem object with the specified name and size.
          * @param name Name of the Ashmem object to create.
          * @param size Size (in bytes) of the Ashmem object to create.
-         * @return Returns the Ashmem object if it is created successfully; returns null otherwise.
+         * @returns Return the Ashmem object if it is created successfully; return null otherwise.
          * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
@@ -2700,7 +2687,7 @@ declare namespace rpc {
          * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
          * The two Ashmem objects point to the same shared memory region.
          * @param ashmem Existing Ashmem object.
-         * @return Ashmem object created.
+         * @returns Ashmem object created.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#create
@@ -2711,7 +2698,7 @@ declare namespace rpc {
          * Creates an Ashmem object by copying the file descriptor (FD) of an existing Ashmem object.
          * The two Ashmem objects point to the same shared memory region.
          * @param ashmem Existing Ashmem object.
-         * @return Ashmem object created.
+         * @returns Ashmem object created.
          * @throws { BusinessError } 401 - check param failed
          * @since 9
          */
@@ -2731,7 +2718,7 @@ declare namespace rpc {
 
         /**
          * Obtains the mapped memory size of this Ashmem object.
-         * @return Memory size mapped.
+         * @returns Memory size mapped.
          * @since 8
          */
         getAshmemSize(): number;
@@ -2740,7 +2727,7 @@ declare namespace rpc {
          * Creates the shared file mapping on the virtual address space of this process.
          * The size of the mapping region is specified by this Ashmem object.
          * @param mapType Protection level of the memory region to which the shared file is mapped.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#mapTypedAshmem
@@ -2759,7 +2746,7 @@ declare namespace rpc {
 
         /**
          * Maps the shared file to the readable and writable virtual address space of the process.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#mapReadWriteAshmem
@@ -2775,7 +2762,7 @@ declare namespace rpc {
 
         /**
          * Maps the shared file to the read-only virtual address space of the process.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#mapReadonlyAshmem
@@ -2792,7 +2779,7 @@ declare namespace rpc {
         /**
          * Sets the protection level of the memory region to which the shared file is mapped.
          * @param protectionType Protection type to set.
-         * @return Returns true if the operation is successful; returns false otherwise.
+         * @returns Return true if the operation is successful; return false otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#setProtectionType
@@ -2813,7 +2800,7 @@ declare namespace rpc {
          * @param buf Data to write
          * @param size Size of the data to write
          * @param offset Start position of the data to write in the memory region associated with this Ashmem object.
-         * @return Returns true is the data is written successfully; returns false otherwise.
+         * @returns Return true is the data is written successfully; return false otherwise.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#writeAshmem
@@ -2835,7 +2822,7 @@ declare namespace rpc {
          * Reads data from the shared file associated with this Ashmem object.
          * @param size Size of the data to read.
          * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
-         * @return Data read.
+         * @returns Data read.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.rpc.Ashmem#readAshmem
@@ -2846,7 +2833,7 @@ declare namespace rpc {
          * Reads data from the shared file associated with this Ashmem object.
          * @param size Size of the data to read.
          * @param offset Start position of the data to read in the memory region associated with this Ashmem object.
-         * @return Data read.
+         * @returns Data read.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900004 - read from ashmem failed
          * @since 9
