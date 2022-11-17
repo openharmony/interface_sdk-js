@@ -24,90 +24,6 @@ import InputMethodSubtype from './@ohos.inputMethodSubtype';
  */
 declare namespace inputMethod {
     /**
-     * Errorcode 201. The permissions check fails.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PERMISSION: number;
-
-    /**
-     * Errorcode 401. The parameters check fails.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PARAMCHECK: number;
-
-    /**
-     * Errorcode 801. Call unsupported api.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_UNSUPPORTED: number;
-
-    /**
-     * Errorcode 12800001. Package manager error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PACKAGEMANAGER: number;
-
-    /**
-     * Errorcode 12800002. Input method engine error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMENGINE: number;
-
-    /**
-     * Errorcode 12800003. Input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMCLIENT: number;
-
-    /**
-     * Errorcode 12800004. Key event processing error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_KEYEVENT: number;
-
-    /**
-     * Errorcode 12800005. Configuration persisting error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_CONFPERSIST: number;
-
-    /**
-     * Errorcode 12800006. Input method controller error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_CONTROLLER: number;
-
-    /**
-     * Errorcode 12800007. Input method settings extension error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_SETTINGS: number;
-
-    /**
-     * Errorcode 12800008. Input method manager service error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMMS: number;
-
-    /**
-     * Errorcode 12899999. Others error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_OTHERS: number;
-
-    /**
      * Keyboard max number
      * @since 8
      */
@@ -402,6 +318,7 @@ declare namespace inputMethod {
          * @since 9
          * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -412,6 +329,7 @@ declare namespace inputMethod {
          * @since 9
          * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */

@@ -403,7 +403,7 @@ declare namespace inputMethodEngine {
          * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
-        off(ype: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
+        off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
     }
 
     /**
@@ -649,7 +649,7 @@ declare namespace inputMethodEngine {
         moveCursor(direction: number, callback: AsyncCallback<void>): void;
 
         /**
-         * Move curosr from input method.
+         * Move cursor from input method.
          *
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
