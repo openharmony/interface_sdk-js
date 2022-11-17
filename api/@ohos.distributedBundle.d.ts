@@ -22,7 +22,6 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  * @name distributedBundle
  * @since 8
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.distributeBundle
