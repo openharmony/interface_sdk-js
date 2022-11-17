@@ -18,7 +18,6 @@ import {ErrorCallback, AsyncCallback, Callback} from './basic';
 /**
  * @name audio
  * @since 7
- * @import import audio from '@ohos.multimedia.audio'
  */
 declare namespace audio {
   /**
@@ -401,6 +400,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.CommunicationDeviceType.SPEAKER
      */
     SPEAKER = 2,
     /**
@@ -661,7 +661,7 @@ declare namespace audio {
    */
   enum StreamUsage {
     /**
-     * Unkown usage.
+     * Unknown usage.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -2082,14 +2082,14 @@ declare namespace audio {
    */
   enum ConnectType {
     /**
-     * Descript connect type for local device.
+     * Connect type for local device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     CONNECT_TYPE_LOCAL = 1,
 
     /**
-     * Descript virtual type for local device.
+     * Connect type for distributed device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -2273,42 +2273,42 @@ declare namespace audio {
     /**
      * Audio device id.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly id: number;
 
     /**
      * Audio device name.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly name: string;
 
     /**
      * Audio device address.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly address: string;
 
     /**
      * Supported sampling rates.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly sampleRates: Array<number>;
 
     /**
      * Supported channel counts.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly channelCounts: Array<number>;
 
     /**
      * Supported channel masks.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly channelMasks: Array<number>;
     /**
@@ -3189,7 +3189,7 @@ declare namespace audio {
      */
     TONE_TYPE_COMMON_SUPERVISORY_CONGESTION = 102,
     /**
-     * Supervisory tone for radio path acknowlegment.
+     * Supervisory tone for radio path acknowledgment.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3219,7 +3219,7 @@ declare namespace audio {
      */
     TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
     /**
-     * Proprietary tone for positive acknowlegment.
+     * Proprietary tone for positive acknowledgment.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3246,7 +3246,7 @@ declare namespace audio {
    */
   interface TonePlayer {
     /**
-     * Starts player. This method uses an asynchronous callback to return the result.
+     * Loads tone. This method uses an asynchronous callback to return the result.
      * @param type Tone type to play.
      * @param callback Callback used to return the result.
      * @since 9
@@ -3254,7 +3254,7 @@ declare namespace audio {
      */
     load(type: ToneType, callback: AsyncCallback<void>): void;
     /**
-     * Starts tplayerone. This method uses a promise to return the result.
+     * Loads tone. This method uses a promise to return the result.
      * @param type Tone type to play.
      * @return Promise used to return the result.
      * @since 9
