@@ -424,7 +424,7 @@ declare namespace rdb
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
         /**
-         * Begin Transaction before excute your sql.
+         * Begin Transaction before execute your sql.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -434,7 +434,7 @@ declare namespace rdb
         beginTransaction(): void;
 
         /**
-         * Commit the the sql you have excuted.
+         * Commit the the sql you have executed.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -444,7 +444,7 @@ declare namespace rdb
         commit(): void;
 
         /**
-         * Roll back the sql you have already excuted.
+         * Roll back the sql you have already executed.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 8
@@ -841,7 +841,7 @@ declare namespace rdb
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
         /**
-         * BeginTransaction before excute your sql.
+         * BeginTransaction before execute your sql.
          *
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1118,7 +1118,7 @@ class RdbPredicates {
     inAllDevices(): RdbPredicates;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
+     * Configure the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
      * to a specified value.
      * This method is similar to = of the SQL statement.
      *
@@ -1133,7 +1133,7 @@ class RdbPredicates {
     equalTo(field: string, value: ValueType): RdbPredicates;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
+     * Configure the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
      * This method is similar to != of the SQL statement.
      *
@@ -1197,7 +1197,7 @@ class RdbPredicates {
     and(): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the field whose data type is string and value
+     * Configure the RdbPredicates to match the field whose data type is string and value
      * contains a specified value.
      * This method is similar to contains of the SQL statement.
      *
@@ -1212,7 +1212,7 @@ class RdbPredicates {
     contains(field: string, value: string): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the field whose data type is string and value starts
+     * Configure the RdbPredicates to match the field whose data type is string and value starts
      * with a specified string.
      * This method is similar to value% of the SQL statement.
      *
@@ -1227,7 +1227,7 @@ class RdbPredicates {
     beginsWith(field: string, value: string): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the field whose data type is string and value
+     * Configure the RdbPredicates to match the field whose data type is string and value
      * ends with a specified string.
      * This method is similar to %value of the SQL statement.
      *
@@ -1242,7 +1242,7 @@ class RdbPredicates {
     endsWith(field: string, value: string): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the fields whose value is null.
+     * Configure the RdbPredicates to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1255,7 +1255,7 @@ class RdbPredicates {
     isNull(field: string): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the specified fields whose value is not null.
+     * Configure the RdbPredicates to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1269,7 +1269,7 @@ class RdbPredicates {
     isNotNull(field: string): RdbPredicates;
 
     /**
-     * Configures the RdbPredicates to match the fields whose data type is string and value is
+     * Configure the RdbPredicates to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to like of the SQL statement.
      *
@@ -1284,7 +1284,7 @@ class RdbPredicates {
     like(field: string, value: string): RdbPredicates;
 
     /**
-     * Configures RdbPredicates to match the specified field whose data type is string and the value contains
+     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
      * a wildcard.
      * Different from like, the input parameters of this method are case-sensitive.
      *
@@ -1299,7 +1299,7 @@ class RdbPredicates {
     glob(field: string, value: string): RdbPredicates;
 
     /**
-     * Configures RdbPredicates to match the specified field whose data type is string and the value contains
+     * Configure RdbPredicates to match the specified field whose data type is string and the value contains
      * a wildcard.
      *
      * @param {string} field - Indicates the column name.
@@ -1314,7 +1314,7 @@ class RdbPredicates {
     between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
     /**
-     * Configures RdbPredicates to match the specified field whose data type is int and value is
+     * Configure RdbPredicates to match the specified field whose data type is int and value is
      * out of a given range.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1430,7 +1430,7 @@ class RdbPredicates {
     limitAs(value: number): RdbPredicates;
 
     /**
-     * Configures RdbPredicatesV9 to specify the start position of the returned result.
+     * Configure RdbPredicatesV9 to specify the start position of the returned result.
      * Use this method together with limit(int).
      *
      * @param {number} rowOffset - Indicates the start position of the returned result. The value is a positive integer.
@@ -1443,7 +1443,7 @@ class RdbPredicates {
     offsetAs(rowOffset: number): RdbPredicates;
 
     /**
-     * Configures RdbPredicatesV9 to group query results by specified columns.
+     * Configure RdbPredicatesV9 to group query results by specified columns.
      *
      * @param {Array<string>} fields - Indicates the specified columns by which query results are grouped.
      * @returns {RdbPredicatesV9} - the SQL query statement with the specified {@link RdbPredicatesV9}.
@@ -1455,7 +1455,7 @@ class RdbPredicates {
     groupBy(fields: Array<string>): RdbPredicates;
 
     /**
-     * Configures RdbPredicatesV9 to specify the index column.
+     * Configure RdbPredicatesV9 to specify the index column.
      * Before using this method, you need to create an index column.
      *
      * @param {string} field - Indicates the name of the index column.
@@ -1468,7 +1468,7 @@ class RdbPredicates {
     indexedBy(field: string): RdbPredicates;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
+     * Configure RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
      * are within a given range.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1482,7 +1482,7 @@ class RdbPredicates {
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
+     * Configure RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
      * are out of a given range.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1536,7 +1536,7 @@ class RdbPredicatesV9 {
     inAllDevices(): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
+     * Configure the RdbPredicatesV9 to match the field whose data type is ValueType and value is equal
      * to a specified value.
      * This method is similar to = of the SQL statement.
      *
@@ -1550,7 +1550,7 @@ class RdbPredicatesV9 {
     equalTo(field: string, value: ValueType): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
+     * Configure the RdbPredicatesV9 to match the field whose data type is ValueType and value is not equal to
      * a specified value.
      * This method is similar to != of the SQL statement.
      *
@@ -1605,7 +1605,7 @@ class RdbPredicatesV9 {
     and(): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is string and value
+     * Configure the RdbPredicatesV9 to match the field whose data type is string and value
      * contains a specified value.
      * This method is similar to contains of the SQL statement.
      *
@@ -1619,7 +1619,7 @@ class RdbPredicatesV9 {
     contains(field: string, value: string): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is string and value starts
+     * Configure the RdbPredicatesV9 to match the field whose data type is string and value starts
      * with a specified string.
      * This method is similar to value% of the SQL statement.
      *
@@ -1633,7 +1633,7 @@ class RdbPredicatesV9 {
     beginsWith(field: string, value: string): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the field whose data type is string and value
+     * Configure the RdbPredicatesV9 to match the field whose data type is string and value
      * ends with a specified string.
      * This method is similar to %value of the SQL statement.
      *
@@ -1647,7 +1647,7 @@ class RdbPredicatesV9 {
     endsWith(field: string, value: string): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the fields whose value is null.
+     * Configure the RdbPredicatesV9 to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1659,7 +1659,7 @@ class RdbPredicatesV9 {
     isNull(field: string): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the specified fields whose value is not null.
+     * Configure the RdbPredicatesV9 to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1671,7 +1671,7 @@ class RdbPredicatesV9 {
     isNotNull(field: string): RdbPredicatesV9;
 
     /**
-     * Configures the RdbPredicatesV9 to match the fields whose data type is string and value is
+     * Configure the RdbPredicatesV9 to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to like of the SQL statement.
      *
@@ -1685,7 +1685,7 @@ class RdbPredicatesV9 {
     like(field: string, value: string): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is string and the value contains
+     * Configure RdbPredicatesV9 to match the specified field whose data type is string and the value contains
      * a wildcard.
      * Different from like, the input parameters of this method are case-sensitive.
      *
@@ -1699,7 +1699,7 @@ class RdbPredicatesV9 {
     glob(field: string, value: string): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is string and the value contains
+     * Configure RdbPredicatesV9 to match the specified field whose data type is string and the value contains
      * a wildcard.
      *
      * @param {string} field - Indicates the column name.
@@ -1713,7 +1713,7 @@ class RdbPredicatesV9 {
     between(field: string, low: ValueType, high: ValueType): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is int and value is
+     * Configure RdbPredicatesV9 to match the specified field whose data type is int and value is
      * out of a given range.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1819,7 +1819,7 @@ class RdbPredicatesV9 {
     limitAs(value: number): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to specify the start position of the returned result.
+     * Configure RdbPredicatesV9 to specify the start position of the returned result.
      * Use this method together with limit(int).
      *
      * @param {number} rowOffset - Indicates the start position of the returned result. The value is a positive integer.
@@ -1831,7 +1831,7 @@ class RdbPredicatesV9 {
     offsetAs(rowOffset: number): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to group query results by specified columns.
+     * Configure RdbPredicatesV9 to group query results by specified columns.
      *
      * @param {Array<string>} fields - Indicates the specified columns by which query results are grouped.
      * @returns {RdbPredicatesV9} - the SQL query statement with the specified {@link RdbPredicatesV9}.
@@ -1842,7 +1842,7 @@ class RdbPredicatesV9 {
     groupBy(fields: Array<string>): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to specify the index column.
+     * Configure RdbPredicatesV9 to specify the index column.
      * Before using this method, you need to create an index column.
      *
      * @param {string} field - Indicates the name of the index column.
@@ -1854,7 +1854,7 @@ class RdbPredicatesV9 {
     indexedBy(field: string): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
+     * Configure RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
      * are within a given range.
      *
      * @param {string} field - Indicates the column name in the database table.
@@ -1867,7 +1867,7 @@ class RdbPredicatesV9 {
     in(field: string, value: Array<ValueType>): RdbPredicatesV9;
 
     /**
-     * Configures RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
+     * Configure RdbPredicatesV9 to match the specified field whose data type is ValueType array and values
      * are out of a given range.
      *
      * @param {string} field - Indicates the column name in the database table.

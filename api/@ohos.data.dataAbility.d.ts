@@ -43,7 +43,7 @@ declare namespace dataAbility {
      */
     class DataAbilityPredicates {
         /**
-         * Configures the DataAbilityPredicates to match the field whose data type is ValueType and value is equal
+         * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is equal
          * to a specified value.
          * This method is similar to = of the SQL statement.
          *
@@ -56,8 +56,9 @@ declare namespace dataAbility {
         equalTo(field: string, value: ValueType): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the field whose data type is ValueType and value is unequal to
+         * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is unequal to
          * a specified value.
+         * Configure the data capability predicate to match a field where the data type is a value type and the value is not equal to the specified value.
          * This method is similar to != of the SQL statement.
          *
          * @since 7
@@ -110,7 +111,7 @@ declare namespace dataAbility {
         and(): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the field whose data type is string and value
+         * Configure the DataAbilityPredicates to match the field whose data type is string and value
          * contains a specified value.
          * This method is similar to contains of the SQL statement.
          *
@@ -123,7 +124,7 @@ declare namespace dataAbility {
         contains(field: string, value: string): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the field whose data type is string and value starts
+         * Configure the DataAbilityPredicates to match the field whose data type is string and value starts
          * with a specified string.
          * This method is similar to value% of the SQL statement.
          *
@@ -136,7 +137,7 @@ declare namespace dataAbility {
         beginsWith(field: string, value: string): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the field whose data type is string and value
+         * Configure the DataAbilityPredicates to match the field whose data type is string and value
          * ends with a specified string.
          * This method is similar to %value of the SQL statement.
          *
@@ -149,7 +150,7 @@ declare namespace dataAbility {
         endsWith(field: string, value: string): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the fields whose value is null.
+         * Configure the DataAbilityPredicates to match the fields whose value is null.
          * This method is similar to is null of the SQL statement.
          *
          * @since 7
@@ -160,7 +161,7 @@ declare namespace dataAbility {
         isNull(field: string): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the specified fields whose value is not null.
+         * Configure the DataAbilityPredicates to match the specified fields whose value is not null.
          * This method is similar to is not null of the SQL statement.
          *
          * @since 7
@@ -171,7 +172,7 @@ declare namespace dataAbility {
         isNotNull(field: string): DataAbilityPredicates;
 
         /**
-         * Configures the DataAbilityPredicates to match the fields whose data type is string and value is
+         * Configure the DataAbilityPredicates to match the fields whose data type is string and value is
          * similar to a specified string.
          * This method is similar to like of the SQL statement.
          *
@@ -185,7 +186,7 @@ declare namespace dataAbility {
         like(field: string, value: string): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to match the specified field whose data type is string and the value contains
+         * Configure DataAbilityPredicates to match the specified field whose data type is string and the value contains
          * a wildcard.
          * Different from like, the input parameters of this method are case-sensitive.
          *
@@ -210,7 +211,7 @@ declare namespace dataAbility {
         between(field: string, low: ValueType, high: ValueType): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to match the specified field whose data type is int and value is
+         * Configure DataAbilityPredicates to match the specified field whose data type is int and value is
          * out of a given range.
          *
          * @since 7
@@ -309,7 +310,7 @@ declare namespace dataAbility {
         limitAs(value: number): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to specify the start position of the returned result.
+         * Configure DataAbilityPredicates to specify the start position of the returned result.
          * Use this method together with limit(int).
          *
          * @since 7
@@ -320,7 +321,7 @@ declare namespace dataAbility {
         offsetAs(rowOffset: number): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to group query results by specified columns.
+         * Configure DataAbilityPredicates to group query results by specified columns.
          *
          * @since 7
          * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -330,7 +331,7 @@ declare namespace dataAbility {
         groupBy(fields: Array<string>): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to specify the index column.
+         * Configure DataAbilityPredicates to specify the index column.
          * Before using this method, you need to create an index column.
          *
          * @since 7
@@ -341,7 +342,7 @@ declare namespace dataAbility {
         indexedBy(field: string): DataAbilityPredicates;
 
         /**
-         * Configures DataAbilityPredicates to match the specified field whose data type is ValueType array and values
+         * Configure DataAbilityPredicates to match the specified field whose data type is ValueType array and values
          * are within a given range.
          *
          * @since 7
@@ -353,7 +354,7 @@ declare namespace dataAbility {
         in(field: string, value: Array<ValueType>): DataAbilityPredicates;
 
         /**
-         * Configures {@code DataAbilityPredicates} to match the specified field whose data type is String array and values
+         * Configure {@code DataAbilityPredicates} to match the specified field whose data type is String array and values
          * are out of a given range.
          *
          * @since 7

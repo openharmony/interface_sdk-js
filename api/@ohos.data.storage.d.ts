@@ -48,7 +48,7 @@ declare namespace storage {
      * storage file.
      *
      * <p>When deleting the {@link Storage} instance, you must release all references
-     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
      * will occur.
      *
      * @param path Indicates the path of storage file
@@ -65,7 +65,7 @@ declare namespace storage {
      * from the cache.
      *
      * <p>When deleting the {@link Storage} instance, you must release all references
-     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
      * will occur.
      *
      * @param path Indicates the path of storage file.
@@ -82,7 +82,7 @@ declare namespace storage {
      *
      * <p>The storage data is stored in a file, which matches only one {@link Storage} instance in the memory.
      * You can use getStorage to obtain the {@link Storage} instance matching
-     * the file that stores storage data, and use emoveStorageFromCache
+     * the file that stores storage data, and use removeStorageFromCache
      * to remove the {@link Storage} instance from the memory.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
@@ -190,7 +190,7 @@ declare namespace storage {
         on(type: 'change', callback: Callback<StorageObserver>): void;
 
         /**
-         * Unregisters an existing observer.
+         * Unregister an existing observer.
          *
          * @param callback Indicates the registered callback.
          * @throws BusinessError if invoked failed
