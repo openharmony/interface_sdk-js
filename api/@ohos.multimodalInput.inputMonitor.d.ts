@@ -21,7 +21,6 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
  * System API, available only to system processes
  * @since 7
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
- * @import import inputMonitor from '@ohos.multimodalInput.inputMonitor';
  * @permission ohos.permission.INPUT_MONITORING
  * @systemapi hide for inner use
  */

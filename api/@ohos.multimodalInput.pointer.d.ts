@@ -242,7 +242,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @param speed Pointer moving speed.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerSpeed(speed: number): Promise<void>;
@@ -262,7 +262,7 @@ declare namespace pointer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    */
   function getPointerSpeed(): Promise<number>;
 
@@ -283,7 +283,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
@@ -303,7 +303,7 @@ declare namespace pointer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
@@ -335,7 +335,7 @@ declare namespace pointer {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
@@ -345,7 +345,7 @@ declare namespace pointer {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
    */
   function isPointerVisible(): Promise<boolean>;
 }
