@@ -205,7 +205,6 @@ export default class Storage {
    * Modifies the stored content.
    * @param options Options.
    * @deprecated since 6
-   * @useinstead ohos.preferences.preferences.set
    * @FAModelOnly
    */
   static set(options: SetStorageOptions): void;
