@@ -148,8 +148,8 @@ declare namespace webview {
          * Delete the storage data with the origin.
          *
          * @param { string } origin - The origin which to be deleted.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          * @since 9
          */
         static deleteOrigin(origin : string): void;
@@ -157,8 +157,8 @@ declare namespace webview {
         /**
          * Get current all the web storage origins.
          *
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100012 - Invaild web storage origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @since 9
          */
         static getOrigins() : Promise<Array<WebStorageOrigin>>;
@@ -167,8 +167,8 @@ declare namespace webview {
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          * @since 9
          */
         static getOriginQuota(origin : string) : Promise<number>;
@@ -177,8 +177,8 @@ declare namespace webview {
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          * @since 9
          */
         static getOriginUsage(origin : string) : Promise<number> ;
@@ -211,7 +211,7 @@ declare namespace webview {
          * Get http authentication credentials.
          * @param { string } host - The host to which the credentials apply.
          * @param { string } realm - The realm to which the credentials apply.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @return { Array<string> } Return an array containing username and password.
          * @since 9
          */
@@ -223,7 +223,7 @@ declare namespace webview {
          * @param { string } realm - The realm to which the credentials apply.
          * @param { string } username - The username.
          * @param { string } password - The password.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 9
          */
@@ -289,8 +289,8 @@ declare namespace webview {
         /**
          * Allow geolocation permissions for specifies source.
          * @param { string } origin - Url source.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          *
          * @since 9
          */
@@ -299,8 +299,8 @@ declare namespace webview {
         /**
          * Delete geolocation permissions for specifies source.
          * @param { string } origin - Url source.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          *
          * @since 9
          */
@@ -318,8 +318,8 @@ declare namespace webview {
          * @param { string } origin - Url source.
          * @param { AsyncCallback<boolean> } callback - Return to the specified source
          *                                              geographic location permission status.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100011 - Invaild permission origin.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100011 - Invalid permission origin.
          * @return { Promise<boolean> } Return whether there is a saved result.
          *
          * @since 9
@@ -331,7 +331,7 @@ declare namespace webview {
          * Get all stored geolocation permission url source.
          * @param { AsyncCallback<boolean> } callback - Return all source information of
          *                                              stored geographic location permission status.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @return { Promise<Array<string>> } Return whether there is a saved result.
          *
          * @since 9
@@ -350,8 +350,8 @@ declare namespace webview {
          * Gets all cookies for the given URL.
          *
          * @param { string } url - The URL for which the cookies are requested.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100002 - Invaild url.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100002 - Invalid url.
          * @returns The cookie value for the given URL.
          *
          * @since 9
@@ -363,36 +363,25 @@ declare namespace webview {
          *
          * @param { string } url - The URL for which the cookie is to be set.
          * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @throws { BusinessError } 17100002 - Invaild url.
-         * @throws { BusinessError } 17100005 - Invaild cookie value.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100002 - Invalid url.
+         * @throws { BusinessError } 17100005 - Invalid cookie value.
          *
          * @since 9
          */
         static setCookie(url: string, value: string): void;
 
         /**
-         * Save the cookies Synchronously.
-         *
-         * @since 9
-         */
-        static saveCookieSync(): void;
-
-        /**
          * Save the cookies Asynchronously.
          *
-         * @param { AsyncCallback<boolean> } callback - Called after the cookies have been saved.
-         *                                              The parameter will either be true if the cookies
-         *                                              have been successfully saved, or false if failed.
-         * @throws { BusinessError } 401 - Invaild input parameter.
-         * @return { Promise<boolean> } A promise resolved after the cookies have been saved.
-         *                              The parameter will either be true if the cookies have
-         *                              been successfully saved, or false if failed.
+         * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @return { Promise<void> } A promise resolved after the cookies have been saved.
          *
          * @since 9
          */
-        static saveCookieAsync(): Promise<boolean>;
-        static saveCookieAsync(callback: AsyncCallback<boolean>): void;
+        static saveCookieAsync(): Promise<void>;
+        static saveCookieAsync(callback: AsyncCallback<void>): void;
 
         /**
          * Get whether the instance can send and accept cookies.
@@ -408,7 +397,7 @@ declare namespace webview {
          * By default this is set to be true.
          * 
          * @param { boolean } accept - Whether the instance should send and accept cookies.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 9
          */
@@ -425,10 +414,10 @@ declare namespace webview {
 
         /**
          * Set whether the instance should send and accept thirdparty cookies.
-         * By default this is set to be true.
+         * By default this is set to be false.
          * 
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          *
          * @since 9
          */
@@ -472,7 +461,7 @@ declare namespace webview {
         /**
          * Post a message to other port.
          * @param { string } message - Message to send.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
@@ -482,7 +471,7 @@ declare namespace webview {
         /**
          * Receive message from other port.
          * @param { (result: string) => void } callback - Callback function for receiving messages.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
@@ -500,7 +489,7 @@ declare namespace webview {
          * Checks whether the web page can go forward.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { boolean } True if the web page can go forward else false.
          *
          * @since 9
@@ -511,7 +500,7 @@ declare namespace webview {
          * Checks whether the web page can go back.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { boolean } True if the web page can go back else false.
          *
          * @since 9
@@ -522,9 +511,9 @@ declare namespace webview {
          * Checks whether the web page can go back or forward the given number of steps.
          *
          * @param { number } step - The number of steps.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { boolean } True if the web page can go back else false.
          *
          * @since 9
@@ -535,8 +524,7 @@ declare namespace webview {
          * Goes forward in the history of the web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -546,8 +534,7 @@ declare namespace webview {
          * Goes back in the history of the web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -557,7 +544,7 @@ declare namespace webview {
          * Clears the history in the Web.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
         clearHistory(): void;
@@ -566,7 +553,7 @@ declare namespace webview {
          * Let the Web active.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
         onActive(): void;
@@ -575,7 +562,7 @@ declare namespace webview {
          * Let the Web inactive.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
         onInactive(): void;
@@ -584,7 +571,7 @@ declare namespace webview {
          * Refreshes the current URL.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
         refresh(): void;
@@ -600,10 +587,10 @@ declare namespace webview {
          * @param { string } [historyUrl] - History URL. When it is not empty, it can be managed by
          *                                history records to realize the back and forth function.
          *                                This property is invalid when baseUrl is empty.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100002 - Invaild url.
+         *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100002 - Invalid url.
          *
          * @since 9
          */
@@ -614,10 +601,10 @@ declare namespace webview {
          *
          * @param { string | Resource } url - The URL to load.
          * @param { Array<HeaderV9> } [headers] - Additional HTTP request header for URL.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100002 - Invaild url.
+         *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100002 - Invalid url.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          *
          * @since 9
@@ -628,7 +615,7 @@ declare namespace webview {
          * Gets the type of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { HitTestTypeV9 } The type of HitTest.
          *
          * @since 9
@@ -646,9 +633,9 @@ declare namespace webview {
          * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
          *                                             will either be the filename under which the file was stored,
          *                                             or empty if storing the file failed.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100003 - Invalid resource path or file type.
          * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
          *                              will either be the filename under which the file was stored, or empty
@@ -663,11 +650,10 @@ declare namespace webview {
          * Let the Web zoom by.
          *
          * @param { number } factor - The zoom factor.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -677,9 +663,8 @@ declare namespace webview {
          * Let the Web zoom in.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -689,9 +674,8 @@ declare namespace webview {
          * Let the Web zoom out.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100004 - Function not enable.
-         * @throws { BusinessError } 17100009 - Cannot zoom in or zoom out.
          *
          * @since 9
          */
@@ -701,7 +685,7 @@ declare namespace webview {
          * Gets the hit test value of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { HitTestValue } Return the element information of the clicked area.
          *
          * @since 9
@@ -712,7 +696,7 @@ declare namespace webview {
          * Gets the id for the current Web.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { number } Returns the index value of the current Web component.
          *
          * @since 9
@@ -723,7 +707,7 @@ declare namespace webview {
          * Gets the default user agent.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { string } Return user agent information.
          *
          * @since 9
@@ -734,7 +718,7 @@ declare namespace webview {
          * Gets the title of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { string } Return to File Selector Title.
          *
          * @since 9
@@ -745,7 +729,7 @@ declare namespace webview {
          * Gets the content height of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { number } Returns the page height of the current page.
          *
          * @since 9
@@ -756,10 +740,9 @@ declare namespace webview {
          * Goes forward or back backOrForward in the history of the web page.
          *
          * @param { number } step - Steps to go forward or backward.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
-         * @throws { BusinessError } 17100007 - Invalid back or forward operation.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -769,7 +752,7 @@ declare namespace webview {
          * Gets the request focus.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -779,7 +762,7 @@ declare namespace webview {
          * Create web message ports
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { Array<WebMessagePort> } An array represent 2 WebMessagePort, then can use
          *                                    those ports to communication with html pages.
          *
@@ -793,9 +776,9 @@ declare namespace webview {
          * @param { string } name - Data name information to send.
          * @param { Array<WebMessagePort> } ports - Port number array information to send.
          * @param { string } uri - URI to receive this information.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -805,11 +788,11 @@ declare namespace webview {
          * Stops the current load.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
-        stop();
+        stop(): void;
 
         /**
          * Registers the JavaScript object and method list.
@@ -819,9 +802,9 @@ declare namespace webview {
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -831,9 +814,9 @@ declare namespace webview {
          * Deletes a registered JavaScript object with given name.
          *
          * @param { string } name - The name of a registered JavaScript object to be deleted.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @throws { BusinessError } 17100008 - Cannot delete JavaScriptProxy.
          *
          * @since 9
@@ -845,9 +828,9 @@ declare namespace webview {
          * result will be notify through callback onSearchResultReceive.
          *
          * @param { string } searchString - String to be search.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                         The WebviewController must be associted with a Web component.
+         *                         The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -857,7 +840,7 @@ declare namespace webview {
          * Clears the highlighting surrounding text matches created by searchAllAsync.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -867,9 +850,9 @@ declare namespace webview {
          * Highlights and scrolls to the next match search.
          *
          * @param { boolean } forward - Step of search is back or forward.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -879,7 +862,7 @@ declare namespace webview {
          * Clears the ssl cache in the Web.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -889,7 +872,7 @@ declare namespace webview {
          * Clears the client authentication certificate cache in the Web.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          *
          * @since 9
          */
@@ -900,9 +883,9 @@ declare namespace webview {
          *
          * @param { string } script - JavaScript Script.
          * @param { AsyncCallback<string> } callback - Callbacks execute JavaScript script results.
-         * @throws { BusinessError } 401 - Invaild input parameter.
+         * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { Promise<string> } A promise is solved after the JavaScript script is executed.
          *                              This parameter will be the result of JavaScript script execution.
          *                              If the JavaScript script fails to execute or has no return value,
@@ -917,7 +900,7 @@ declare namespace webview {
          * Gets the url of current Web page.
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associted with a Web component.
+         *                           The WebviewController must be associated with a Web component.
          * @returns { string } Return the url of the current page.
          *
          * @since 9

@@ -645,7 +645,7 @@ declare class WebContextMenuParam {
 
   /**
    * If the long-press location is the link returns the link's original URL.
-   * @return If relate to a link return unfilterend link url, else return null.
+   * @return If relate to a link return unfiltered link url, else return null.
    *
    * @since 9
    */
@@ -688,7 +688,7 @@ declare class WebContextMenuResult {
   closeContextMenu(): void;
 
   /**
-   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
+   * If WebContextMenuParam has image content, this function will copy image related to this context menu.
    * If WebContextMenuParam has no image content, this function will do nothing.
    *
    * @since 9
@@ -1829,10 +1829,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the resouces loading is intercepted.
-   * @param callback The triggered callback when the resouces loading is intercepted.
+   * Triggered when the resources loading is intercepted.
+   * @param callback The triggered callback when the resources loading is intercepted.
    *
-   * @return If the response value is null, the Web will continue to load the resouces. Otherwise, the response value will be used
+   * @return If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
