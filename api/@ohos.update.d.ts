@@ -28,6 +28,8 @@ declare namespace update {
      *
      * @param upgradeInfo indicates client app and business type
      * @return online update handler to perform online update
+     * @throws { BusinessError } 11500100 - Execute fail.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getOnlineUpdater(upgradeInfo: UpgradeInfo): Updater;
@@ -36,6 +38,8 @@ declare namespace update {
      * Get restore handler.
      *
      * @return restore handler to perform factory reset
+     * @throws { BusinessError } 11500100 - Execute fail.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getRestorer(): Restorer;
@@ -44,6 +48,8 @@ declare namespace update {
      * Get local update handler.
      *
      * @return local update handler to perform local update
+     * @throws { BusinessError } 11500100 - Execute fail.
+     * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
      */
     function getLocalUpdater(): LocalUpdater;
@@ -60,6 +66,8 @@ declare namespace update {
          * Check new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         checkNewVersion(callback: AsyncCallback<CheckResult>): void;
@@ -69,6 +77,8 @@ declare namespace update {
          * Get new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
@@ -78,6 +88,8 @@ declare namespace update {
          * Get new version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
@@ -87,6 +99,8 @@ declare namespace update {
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
@@ -96,6 +110,8 @@ declare namespace update {
          * Get current version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getCurrentVersionDescription(descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
@@ -105,6 +121,8 @@ declare namespace update {
          * Get task info.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
@@ -115,6 +133,8 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions, callback: AsyncCallback<void>): void;
@@ -125,6 +145,8 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions, callback: AsyncCallback<void>): void;
@@ -135,6 +157,8 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions, callback: AsyncCallback<void>): void;
@@ -145,6 +169,8 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
@@ -154,6 +180,8 @@ declare namespace update {
          * clear error during upgrade.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
@@ -163,6 +191,8 @@ declare namespace update {
          * Get current upgrade policy.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
@@ -172,6 +202,8 @@ declare namespace update {
          * Set upgrade policy.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
@@ -181,6 +213,8 @@ declare namespace update {
          * terminate upgrade task.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         terminateUpgrade(callback: AsyncCallback<void>): void;
@@ -189,6 +223,8 @@ declare namespace update {
         /**
          * Subscribe task update events
          *
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
@@ -196,6 +232,8 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
@@ -213,6 +251,8 @@ declare namespace update {
          * Reboot and clean user data.
          *
          * @permission ohos.permission.FACTORY_RESET
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         factoryReset(callback: AsyncCallback<void>): void;
@@ -231,6 +271,8 @@ declare namespace update {
          * Verify local update package.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
@@ -241,6 +283,8 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
@@ -249,6 +293,8 @@ declare namespace update {
         /**
          * Subscribe task update events
          *
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         on(eventClassifyInfo: EventClassifyInfo, taskCallback: UpgradeTaskCallback): void;
@@ -256,6 +302,8 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
+         * @throws { BusinessError } 11500100 - Execute fail.
+         * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         off(eventClassifyInfo: EventClassifyInfo, taskCallback?: UpgradeTaskCallback): void;
