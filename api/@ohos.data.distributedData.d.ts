@@ -1358,7 +1358,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#off
          */
@@ -1619,7 +1619,7 @@ declare namespace distributedData {
          * @throws Throws this exception if no {@code SingleKvStore} database is available.
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#on
          */
@@ -1646,7 +1646,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#off
          */
@@ -1905,7 +1905,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#on
          */
@@ -1934,7 +1934,7 @@ declare namespace distributedData {
          * occurs: {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR},
          * {@code DB_ERROR}, and {@code STORE_ALREADY_SUBSCRIBE}.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-         * @since 9
+         * @since 8
          * @deprecated since 9
          * @useinstead ohos.data.distributedKVStore.DeviceKVStore#off
          */
