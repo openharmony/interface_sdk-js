@@ -44,7 +44,7 @@ export interface AccelerometerResponse {
  * @permission ohos.permission.ACCELEROMETER
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.LINEAR_ACCELEROMETER
+ * @useinstead ohos.sensor/sensor#event:SensorId.ACCELEROMETER
  */
 export interface subscribeAccelerometerOptions {
   /**
@@ -88,7 +88,7 @@ export interface CompassResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.getGeomagneticInfo
+ * @useinstead ohos.sensor/sensor#eventSensorId.getGeomagneticInfo
  */
 export interface SubscribeCompassOptions {
   /**
@@ -121,7 +121,7 @@ export interface ProximityResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.PROXIMITY
+ * @useinstead ohos.sensor/sensor#eventSensorId.PROXIMITY
  */
 export interface SubscribeProximityOptions {
   /**
@@ -154,7 +154,7 @@ export interface LightResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.AMBIENT_LIGHT
+ * @useinstead ohos.sensor/sensor#eventSensorId.AMBIENT_LIGHT
  */
 export interface SubscribeLightOptions {
   /**
@@ -190,7 +190,7 @@ export interface StepCounterResponse {
  * @permission ohos.permission.ACTIVITY_MOTION
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.PEDOMETER
+ * @useinstead ohos.sensor/sensor#eventSensorId.PEDOMETER
  */
 export interface SubscribeStepCounterOptions {
   /**
@@ -223,7 +223,7 @@ export interface BarometerResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.BAROMETER
+ * @useinstead ohos.sensor/sensor#eventSensorId.BAROMETER
  */
 export interface SubscribeBarometerOptions {
   /**
@@ -259,7 +259,7 @@ export interface HeartRateResponse {
  * @permission ohos.permission.READ_HEALTH_DATA
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.HEART_RATE
+ * @useinstead ohos.sensor/sensor#eventSensorId.HEART_RATE
  */
 export interface SubscribeHeartRateOptions {
   /**
@@ -292,7 +292,7 @@ export interface OnBodyStateResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.WEAR_DETECTION
+ * @useinstead ohos.sensor/sensor#event:SensorId.WEAR_DETECTION
  */
 export interface SubscribeOnBodyStateOptions {
   /**
@@ -312,7 +312,7 @@ export interface SubscribeOnBodyStateOptions {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.WEAR_DETECTION
+ * @useinstead ohos.sensor/sensor#eventSensorId.WEAR_DETECTION
  */
 export interface GetOnBodyStateOptions {
   /**
@@ -362,7 +362,7 @@ export interface DeviceOrientationResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 6
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.ROTATION_VECTOR
+ * @useinstead ohos.sensor/sensor#eventSensorId.ROTATION_VECTOR
  */
 export interface SubscribeDeviceOrientationOptions {
   /**
@@ -420,7 +420,7 @@ export interface GyroscopeResponse {
  * @permission ohos.permission.GYROSCOPE
  * @since 6
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#SensorId.GYROSCOPE
+ * @useinstead ohos.sensor/sensor#eventSensorId.GYROSCOPE
  */
 export interface SubscribeGyroscopeOptions {
   /**

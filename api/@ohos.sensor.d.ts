@@ -824,7 +824,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead sensor#eventSensorId.ACCELEROMETER
+     * @useinstead sensor#event:SensorId.ACCELEROMETER
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
         options?: Options): void;
