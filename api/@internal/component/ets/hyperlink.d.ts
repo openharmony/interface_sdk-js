@@ -28,7 +28,7 @@ interface HyperlinkInterface {
 }
 
 /**
- * Defines the hyperlink attibute functions
+ * Defines the hyperlink attribute functions
  * @since 7
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {

@@ -692,12 +692,12 @@ declare enum SourceTool {
   /**
    * The finger type.
    */
-  FINGER,
+  Finger,
 
   /**
    * The pen type.
    */
-  PEN,
+  Pen,
 }
 
 /**
@@ -1090,7 +1090,7 @@ declare interface KeyEvent {
 }
 
 /**
- * Component State Styels.
+ * Component State Styles.
  * @since 8
  */
 declare interface StateStyles {
@@ -1304,7 +1304,8 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
-   * @deprecated since 9, instead of hitTestBehavior.
+   * @deprecated since 9
+   * @useinstead hitTestBehavior
    */
   touchable(value: boolean): T;
 
@@ -1599,7 +1600,7 @@ declare class CommonMethod<T> {
   sepia(value: number): T;
 
   /**
-   * Inverts the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
+   * Invert the input image. Value defines the scale of the conversion. 100% of the value is a complete reversal.
    * A value of 0% does not change the image. (Percentage)
    * @since 7
    */
@@ -1875,7 +1876,7 @@ declare class CommonMethod<T> {
    * path:Motion path for displacement animation, using the svg path string.
    * from:Start point of the motion path. The default value is 0.0.
    * to:End point of the motion path. The default value is 1.0.
-   * rotatble:Whether to follow the path for rotation.
+   * rotatable:Whether to follow the path for rotation.
    * @since 7
    */
   motionPath(value: MotionPathOptions): T;
@@ -1949,7 +1950,7 @@ declare class CommonMethod<T> {
   stateStyles(value: StateStyles): T;
 
   /**
-   * id for distrubte identification.
+   * id for distribute identification.
    * @since 8
    */
   restoreId(value: number): T;
@@ -2001,7 +2002,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    * @since 7
-   * @syetemapi
+   * @systemapi
    */
   constructor();
 
@@ -2214,7 +2215,7 @@ declare class CustomComponent extends CommonAttribute {
 declare class View {
   /**
    * Just use for generate tsbundle
-   * @ignore ide should ignore this arrtibute
+   * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
    */

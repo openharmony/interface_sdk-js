@@ -19,7 +19,7 @@
  */
 declare enum SelectStatus {
   /**
-   * All checkboxs is selected.
+   * All checkboxes are selected.
    * @since 8
    */
   All,
