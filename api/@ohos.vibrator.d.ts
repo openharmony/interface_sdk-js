@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback } from './basic';
 
 /**
@@ -19,7 +20,6 @@ import { AsyncCallback } from './basic';
  *
  * @since 8
  * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@ohos.vibrator'
  */
 declare namespace vibrator {
     /**

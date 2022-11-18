@@ -15,7 +15,6 @@
 
 /**
  * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@system.vibrator';
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8
@@ -49,7 +48,6 @@ export interface VibrateOptions {
 
 /**
  * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@system.vibrator';
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8

@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import { AsyncCallback, Callback } from "./basic";
 
 /**
@@ -19,7 +20,6 @@ import { AsyncCallback, Callback } from "./basic";
  *
  * @since 8
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@ohos.sensor'
  */
 declare namespace sensor {
     /**

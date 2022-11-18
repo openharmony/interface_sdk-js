@@ -15,7 +15,6 @@
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.ACCELEROMETER
  * @since 3
  * @deprecated since 8
@@ -42,10 +41,10 @@ export interface AccelerometerResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.ACCELEROMETER
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.LINEAR_ACCELEROMETER
  */
 export interface subscribeAccelerometerOptions {
   /**
@@ -74,7 +73,6 @@ export interface subscribeAccelerometerOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -88,9 +86,9 @@ export interface CompassResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.getGeomagneticInfo
  */
 export interface SubscribeCompassOptions {
   /**
@@ -108,7 +106,6 @@ export interface SubscribeCompassOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -122,9 +119,9 @@ export interface ProximityResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.PROXIMITY
  */
 export interface SubscribeProximityOptions {
   /**
@@ -142,7 +139,6 @@ export interface SubscribeProximityOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -156,9 +152,9 @@ export interface LightResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.AMBIENT_LIGHT
  */
 export interface SubscribeLightOptions {
   /**
@@ -176,7 +172,6 @@ export interface SubscribeLightOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.ACTIVITY_MOTION
  * @since 3
  * @deprecated since 8
@@ -192,10 +187,10 @@ export interface StepCounterResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.ACTIVITY_MOTION
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.PEDOMETER
  */
 export interface SubscribeStepCounterOptions {
   /**
@@ -213,7 +208,6 @@ export interface SubscribeStepCounterOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -227,9 +221,9 @@ export interface BarometerResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.BAROMETER
  */
 export interface SubscribeBarometerOptions {
   /**
@@ -247,7 +241,6 @@ export interface SubscribeBarometerOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.READ_HEALTH_DATA
  * @since 3
  * @deprecated since 8
@@ -263,10 +256,10 @@ export interface HeartRateResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.READ_HEALTH_DATA
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.HEART_RATE
  */
 export interface SubscribeHeartRateOptions {
   /**
@@ -284,7 +277,6 @@ export interface SubscribeHeartRateOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -298,9 +290,9 @@ export interface OnBodyStateResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.WEAR_DETECTION
  */
 export interface SubscribeOnBodyStateOptions {
   /**
@@ -318,7 +310,6 @@ export interface SubscribeOnBodyStateOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 3
  * @deprecated since 8
  */
@@ -328,7 +319,6 @@ export interface GetOnBodyStateOptions {
    * @since 3
    */
   success: (data: OnBodyStateResponse) => void;
-
   /**
    * Called when the sensor wearing state fails to be obtained
    * @since 3
@@ -344,7 +334,6 @@ export interface GetOnBodyStateOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 6
  * @deprecated since 8
  */
@@ -370,9 +359,9 @@ export interface DeviceOrientationResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 6
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.ROTATION_VECTOR
  */
 export interface SubscribeDeviceOrientationOptions {
   /**
@@ -401,7 +390,6 @@ export interface SubscribeDeviceOrientationOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.GYROSCOPE
  * @since 6
  * @deprecated since 8
@@ -428,10 +416,10 @@ export interface GyroscopeResponse {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @permission ohos.permission.GYROSCOPE
  * @since 6
  * @deprecated since 8
+ * @useinstead ohos.sensor#SensorId.GYROSCOPE
  */
 export interface SubscribeGyroscopeOptions {
   /**
@@ -460,7 +448,6 @@ export interface SubscribeGyroscopeOptions {
 
 /**
  * @syscap SystemCapability.Sensors.Sensor
- * @import import sensor from '@system.sensor';
  * @since 6
  * @deprecated since 8
  */
@@ -529,6 +516,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 3
    * @deprecated since 8
+   * @useinstead ohos.sensor#SensorId.AMBIENT_LIGHT
    */
   static subscribeLight(options: SubscribeLightOptions): void;
 
