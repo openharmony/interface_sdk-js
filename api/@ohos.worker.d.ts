@@ -119,6 +119,20 @@ export interface MessageEvent<T> extends Event {
 }
 
 /**
+ * Saves the data transferred between worker thread and host thread.
+ * @since 9
+ * @syscap SystemCapability.Utils.Lang
+ */
+ export interface MessageEvents extends Event {
+  /**
+   * Data transferred when an exception occurs.
+   * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
+  readonly data;
+}
+
+/**
  * Specifies the object whose ownership need to be transferred during data transfer.
  * The object must be ArrayBuffer.
  * @since 7
@@ -422,7 +436,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
    /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -435,7 +449,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessageerror?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -527,7 +541,7 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent<T>) => void;
+    onmessage?: (event: MessageEvents) => void;
     /**
      * The onmessage attribute of the worker specifies the event handler
      * when the worker receives a message that cannot be serialized.
@@ -538,7 +552,7 @@ declare namespace worker {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent<T>) => void;
+    onmessageerror?: (event: MessageEvents) => void;
     /**
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
@@ -643,6 +657,13 @@ declare namespace worker {
     removeAllListener(): void;
   }
 
+  /**
+   * The Worker class contains all Worker functions.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.ThreadWorker
+   * @syscap SystemCapability.Utils.Lang
+   */
   class Worker implements EventTarget {
     /**
      * Creates a worker instance
