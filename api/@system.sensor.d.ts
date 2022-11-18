@@ -362,7 +362,7 @@ export interface DeviceOrientationResponse {
  * @syscap SystemCapability.Sensors.Sensor
  * @since 6
  * @deprecated since 8
- * @useinstead ohos.sensor/sensor#event:SensorId.ROTATION_VECTOR
+ * @useinstead ohos.sensor/sensor#event:SensorId.ORIENTATION
  */
 export interface SubscribeDeviceOrientationOptions {
   /**
@@ -636,7 +636,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 6
    * @deprecated since 8
-   * @useinstead ohos.sensor/sensor#event:SensorId.ROTATION_VECTOR
+   * @useinstead ohos.sensor/sensor#event:SensorId.ORIENTATION
    */
   static subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void;
 
@@ -645,7 +645,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 6
    * @deprecated since 8
-   * @useinstead ohos.sensor/sensor#event:SensorId.ROTATION_VECTOR
+   * @useinstead ohos.sensor/sensor#event:SensorId.ORIENTATION
    */
   static unsubscribeDeviceOrientation(): void;
 
