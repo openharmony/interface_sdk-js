@@ -1289,7 +1289,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#put
          */
         put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
-
         put(key: string, value: Uint8Array | string | number | boolean): Promise<void>;
 
         /**
@@ -1306,7 +1305,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#delete
          */
         delete(key: string, callback: AsyncCallback<void>): void;
-
         delete(key: string): Promise<void>;
 
         /**
@@ -1377,7 +1375,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#putBatch
          */
         putBatch(entries: Entry[], callback: AsyncCallback<void>): void;
-
         putBatch(entries: Entry[]): Promise<void>;
 
         /**
@@ -1391,7 +1388,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#deleteBatch
          */
         deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
-
         deleteBatch(keys: string[]): Promise<void>;
 
         /**
@@ -1406,7 +1402,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#startTransaction
          */
         startTransaction(callback: AsyncCallback<void>): void;
-
         startTransaction(): Promise<void>;
 
         /**
@@ -1420,7 +1415,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#commit
          */
         commit(callback: AsyncCallback<void>): void;
-
         commit(): Promise<void>;
 
         /**
@@ -1433,7 +1427,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#rollback
          */
         rollback(callback: AsyncCallback<void>): void;
-
         rollback(): Promise<void>;
 
         /**
@@ -1448,7 +1441,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#enableSync
          */
         enableSync(enabled: boolean, callback: AsyncCallback<void>): void;
-
         enableSync(enabled: boolean): Promise<void>;
 
         /**
@@ -1465,7 +1457,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#setSyncRange
          */
         setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback<void>): void;
-
         setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise<void>;
     }
 
@@ -1498,7 +1489,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#get
          */
         get(key: string, callback: AsyncCallback<Uint8Array | string | boolean | number>): void;
-
         get(key: string): Promise<Uint8Array | string | boolean | number>;
 
         /**
@@ -1514,7 +1504,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
          */
         getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(keyPrefix: string): Promise<Entry[]>;
 
         /**
@@ -1530,7 +1519,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getEntries
          */
         getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
-
         getEntries(query: Query): Promise<Entry[]>;
 
         /**
@@ -1549,7 +1537,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
          */
         getResultSet(keyPrefix: string, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(keyPrefix: string): Promise<KvStoreResultSet>;
 
         /**
@@ -1564,7 +1551,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSet
          */
         getResultSet(query: Query, callback: AsyncCallback<KvStoreResultSet>): void;
-
         getResultSet(query: Query): Promise<KvStoreResultSet>;
 
         /**
@@ -1579,7 +1565,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#closeResultSet
          */
         closeResultSet(resultSet: KvStoreResultSet, callback: AsyncCallback<void>): void;
-
         closeResultSet(resultSet: KvStoreResultSet): Promise<void>;
 
         /**
@@ -1595,7 +1580,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#getResultSize
          */
         getResultSize(query: Query, callback: AsyncCallback<number>): void;
-
         getResultSize(query: Query): Promise<number>;
 
         /**
@@ -1607,7 +1591,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.SingleKVStore#removeDeviceData
          */
         removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
-
         removeDeviceData(deviceId: string): Promise<void>;
 
         /**
@@ -2012,7 +1995,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#getKVStore
          */
         getKVStore<T extends KVStore>(storeId: string, options: Options): Promise<T>;
-
         getKVStore<T extends KVStore>(storeId: string, options: Options, callback: AsyncCallback<T>): void;
 
         /**
@@ -2037,7 +2019,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#closeKVStore
          */
         closeKVStore(appId: string, storeId: string, kvStore: KVStore, callback: AsyncCallback<void>): void;
-
         closeKVStore(appId: string, storeId: string, kvStore: KVStore): Promise<void>;
 
         /**
@@ -2059,7 +2040,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#deleteKVStore
          */
         deleteKVStore(appId: string, storeId: string, callback: AsyncCallback<void>): void;
-
         deleteKVStore(appId: string, storeId: string): Promise<void>;
 
         /**
@@ -2076,7 +2056,6 @@ declare namespace distributedData {
          * @useinstead ohos.data.distributedKVStore.KVManager#getAllKVStoreId
          */
         getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void;
-
         getAllKVStoreId(appId: string): Promise<string[]>;
 
         /**
