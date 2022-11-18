@@ -37,7 +37,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
@@ -54,7 +54,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function getDeviceSerial(admin: Want): Promise<string>;

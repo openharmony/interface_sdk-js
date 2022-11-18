@@ -30,7 +30,7 @@ declare namespace dateTimeManager {
    * This function can be called by a super administrator.
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } time - time indicates rhe target time stamp (ms).
+   * @param { number } time - time indicates the target time stamp (ms).
    * @param { AsyncCallback<void> } callback - the callback of setDateTime.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
@@ -38,7 +38,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
@@ -48,7 +48,7 @@ declare namespace dateTimeManager {
    * This function can be called by a super administrator.
    * @permission ohos.permission.ENTERPRISE_SET_DATETIME
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } time - time indicates rhe target time stamp (ms).
+   * @param { number } time - time indicates the target time stamp (ms).
    * @returns { Promise<void> } the promise returned by the setDateTime.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
@@ -56,7 +56,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function setDateTime(admin: Want, time: number): Promise<void>;
