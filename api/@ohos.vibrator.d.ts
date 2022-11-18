@@ -29,7 +29,7 @@ declare namespace vibrator {
      * @permission ohos.permission.VIBRATE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.vibrator.startVibration
+     * @useinstead vibrator#startVibration
      */
     function vibrate(duration: number, callback?: AsyncCallback<void>): void;
     function vibrate(duration: number): Promise<void>;
@@ -41,7 +41,7 @@ declare namespace vibrator {
      * @permission ohos.permission.VIBRATE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.vibrator.startVibration
+     * @useinstead vibrator#startVibration
      */
     function vibrate(effectId: EffectId): Promise<void>;
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
@@ -83,7 +83,7 @@ declare namespace vibrator {
      * @permission ohos.permission.VIBRATE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.vibrator.stopVibration
+     * @useinstead vibrator#stopVibration
      */
     function stop(stopMode: VibratorStopMode): Promise<void>;
     function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;

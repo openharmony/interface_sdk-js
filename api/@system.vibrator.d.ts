@@ -51,6 +51,7 @@ export interface VibrateOptions {
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.vibrate/vibrate#event:startVibration
  */
 export default class Vibrator {
   /**
