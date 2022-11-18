@@ -824,7 +824,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER
+     * @useinstead sensor#eventSensorId.ACCELEROMETER
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
         options?: Options): void;
@@ -837,7 +837,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.ACCELEROMETER_UNCALIBRATED
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>,
         options?: Options): void;
@@ -849,7 +849,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_LIGHT
+     * @useinstead sensor#event:SensorId.AMBIENT_LIGHT
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>,
         options?: Options): void;
@@ -861,7 +861,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_TEMPERATURE
+     * @useinstead sensor#event:SensorId.AMBIENT_TEMPERATURE
      */
     function on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>,
         options?: Options): void;
@@ -873,7 +873,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.BAROMETER
+     * @useinstead sensor#event:SensorId.BAROMETER
      */
     function on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>,
         options?: Options): void;
@@ -885,7 +885,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GRAVITY
+     * @useinstead sensor#event:SensorId.GRAVITY
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>,
         options?: Options): void;
@@ -898,7 +898,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE
+     * @useinstead sensor#event:SensorId.GYROSCOPE
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>,
         options?: Options): void;
@@ -911,7 +911,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.GYROSCOPE_UNCALIBRATED
      */
     function on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
         options?: Options): void;
@@ -923,7 +923,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HALL
+     * @useinstead sensor#event:SensorId.HALL
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>,
         options?: Options): void;
@@ -936,7 +936,7 @@ declare namespace sensor {
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HEART_RATE
+     * @useinstead sensor#event:SensorId.HEART_RATE
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>,
         options?: Options): void;
@@ -948,7 +948,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HUMIDITY
+     * @useinstead sensor#event:SensorId.HUMIDITY
      */
     function on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>,
         options?: Options): void;
@@ -961,7 +961,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.LINEAR_ACCELEROMETER
+     * @useinstead sensor#event:SensorId.LINEAR_ACCELEROMETER
      */
     function on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>,
         options?: Options): void;
@@ -973,7 +973,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>,
         options?: Options): void;
@@ -985,7 +985,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD_UNCALIBRATED
      */
     function on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>,
         options?: Options): void;
@@ -997,7 +997,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ORIENTATION
+     * @useinstead sensor#event:SensorId.ORIENTATION
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>,
         options?: Options): void;
@@ -1010,7 +1010,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER
+     * @useinstead sensor#event:SensorId.PEDOMETER
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>,
         options?: Options): void;
@@ -1023,7 +1023,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER_DETECTION
+     * @useinstead sensor#event:SensorId.PEDOMETER_DETECTION
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>,
         options?: Options): void;
@@ -1035,7 +1035,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PROXIMITY
+     * @useinstead sensor#event:SensorId.PROXIMITY
      */
     function on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>,
         options?: Options): void;
@@ -1047,7 +1047,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ROTATION_VECTOR
+     * @useinstead sensor#event:SensorId.ROTATION_VECTOR
      */
     function on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>,
         options?: Options): void;
@@ -1059,7 +1059,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.SIGNIFICANT_MOTION
+     * @useinstead sensor#event:SensorId.SIGNIFICANT_MOTION
      */
     function on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>,
         options?: Options): void;
@@ -1071,7 +1071,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.WEAR_DETECTION
+     * @useinstead sensor#event:SensorId.WEAR_DETECTION
      */
     function on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
         options?: Options): void;
@@ -1083,7 +1083,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER
+     * @useinstead sensor#event:SensorId.ACCELEROMETER
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>): void;
 
@@ -1094,7 +1094,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.ACCELEROMETER_UNCALIBRATED
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>): void;
 
@@ -1104,7 +1104,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_LIGHT
+     * @useinstead sensor#event:SensorId.AMBIENT_LIGHT
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>): void;
 
@@ -1114,7 +1114,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_TEMPERATURE
+     * @useinstead sensor#event:SensorId.AMBIENT_TEMPERATURE
      */
     function once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback<AmbientTemperatureResponse>): void;
 
@@ -1124,7 +1124,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.BAROMETER
+     * @useinstead sensor#event:SensorId.BAROMETER
      */
     function once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback<BarometerResponse>): void;
 
@@ -1134,7 +1134,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GRAVITY
+     * @useinstead sensor#event:SensorId.GRAVITY
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback<GravityResponse>): void;
 
@@ -1145,7 +1145,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE
+     * @useinstead sensor#event:SensorId.GYROSCOPE
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback<GyroscopeResponse>): void;
 
@@ -1156,7 +1156,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.GYROSCOPE_UNCALIBRATED
      */
     function once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>): void;
 
@@ -1166,7 +1166,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HALL
+     * @useinstead sensor#event:SensorId.HALL
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback<HallResponse>): void;
 
@@ -1177,7 +1177,7 @@ declare namespace sensor {
      * @permission ohos.permission.HEART_RATE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HEART_RATE
+     * @useinstead sensor#event:SensorId.HEART_RATE
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback<HeartRateResponse>): void;
 
@@ -1187,7 +1187,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HUMIDITY
+     * @useinstead sensor#event:SensorId.HUMIDITY
      */
     function once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback<HumidityResponse>): void;
 
@@ -1198,7 +1198,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELERATION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.LINEAR_ACCELEROMETER
+     * @useinstead sensor#event:SensorId.LINEAR_ACCELEROMETER
      */
     function once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback: Callback<LinearAccelerometerResponse>): void;
 
@@ -1208,7 +1208,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback<MagneticFieldResponse>): void;
 
@@ -1218,7 +1218,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD_UNCALIBRATED
      */
     function once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>): void;
 
@@ -1228,7 +1228,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ORIENTATION
+     * @useinstead sensor#event:SensorId.ORIENTATION
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>): void;
 
@@ -1239,7 +1239,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER
+     * @useinstead sensor#event:SensorId.PEDOMETER
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback<PedometerResponse>): void;
 
@@ -1250,7 +1250,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER_DETECTION
+     * @useinstead sensor#event:SensorId.PEDOMETER_DETECTION
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback<PedometerDetectionResponse>): void;
 
@@ -1260,7 +1260,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PROXIMITY
+     * @useinstead sensor#event:SensorId.PROXIMITY
      */
     function once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>): void;
 
@@ -1270,7 +1270,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ROTATION_VECTOR
+     * @useinstead sensor#event:SensorId.ROTATION_VECTOR
      */
     function once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback<RotationVectorResponse>): void;
 
@@ -1280,7 +1280,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.SIGNIFICANT_MOTION
+     * @useinstead sensor#event:SensorId.SIGNIFICANT_MOTION
      */
     function once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback<SignificantMotionResponse>): void;
 
@@ -1290,7 +1290,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.WEAR_DETECTION
+     * @useinstead sensor#event:SensorId.WEAR_DETECTION
      */
     function once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>): void;
 
@@ -1301,7 +1301,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER
+     * @useinstead sensor#event:SensorId.ACCELEROMETER
      */
      function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback<AccelerometerResponse>): void;
 
@@ -1312,7 +1312,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ACCELEROMETER_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.ACCELEROMETER_UNCALIBRATED
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,
         callback?: Callback<AccelerometerUncalibratedResponse>): void;
@@ -1323,7 +1323,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_LIGHT
+     * @useinstead sensor#event:SensorId.AMBIENT_LIGHT
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>): void;
 
@@ -1333,7 +1333,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.AMBIENT_TEMPERATURE
+     * @useinstead sensor#event:SensorId.AMBIENT_TEMPERATURE
      */
     function off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback<AmbientTemperatureResponse>): void;
 
@@ -1343,7 +1343,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.BAROMETER
+     * @useinstead sensor#event:SensorId.BAROMETER
      */
     function off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback<BarometerResponse>): void;
 
@@ -1353,7 +1353,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GRAVITY
+     * @useinstead sensor#event:SensorId.GRAVITY
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback<GravityResponse>): void;
 
@@ -1364,7 +1364,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE
+     * @useinstead sensor#event:SensorId.GYROSCOPE
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback<GyroscopeResponse>): void;
 
@@ -1375,7 +1375,7 @@ declare namespace sensor {
      * @permission ohos.permission.GYROSCOPE
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.GYROSCOPE_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.GYROSCOPE_UNCALIBRATED
      */
     function off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback<GyroscopeUncalibratedResponse>): void;
 
@@ -1385,7 +1385,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HALL
+     * @useinstead sensor#event:SensorId.HALL
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback<HallResponse>): void;
 
@@ -1396,7 +1396,7 @@ declare namespace sensor {
      * @permission ohos.permission.HEALTH_DATA
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HEART_RATE
+     * @useinstead sensor#event:SensorId.HEART_RATE
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback<HeartRateResponse>): void;
 
@@ -1406,7 +1406,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.HUMIDITY
+     * @useinstead sensor#event:SensorId.HUMIDITY
      */
     function off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback<HumidityResponse>): void;
 
@@ -1417,7 +1417,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACCELEROMETER
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.LINEAR_ACCELEROMETER
+     * @useinstead sensor#event:SensorId.LINEAR_ACCELEROMETER
      */
     function off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback<LinearAccelerometerResponse>): void;
 
@@ -1427,7 +1427,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback<MagneticFieldResponse>): void;
 
@@ -1437,7 +1437,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.MAGNETIC_FIELD_UNCALIBRATED
+     * @useinstead sensor#event:SensorId.MAGNETIC_FIELD_UNCALIBRATED
      */
     function off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>): void;
 
@@ -1447,7 +1447,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ORIENTATION
+     * @useinstead sensor#event:SensorId.ORIENTATION
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>): void;
 
@@ -1458,7 +1458,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER
+     * @useinstead sensor#event:SensorId.PEDOMETER
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback<PedometerResponse>): void;
 
@@ -1469,7 +1469,7 @@ declare namespace sensor {
      * @permission ohos.permission.ACTIVITY_MOTION
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PEDOMETER_DETECTION
+     * @useinstead sensor#event:SensorId.PEDOMETER_DETECTION
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback<PedometerDetectionResponse>): void;
 
@@ -1479,7 +1479,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.PROXIMITY
+     * @useinstead sensor#event:SensorId.PROXIMITY
      */
     function off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>): void;
 
@@ -1489,7 +1489,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.ROTATION_VECTOR
+     * @useinstead sensor#event:SensorId.ROTATION_VECTOR
      */
     function off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback<RotationVectorResponse>): void;
 
@@ -1499,7 +1499,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.SIGNIFICANT_MOTION
+     * @useinstead sensor#event:SensorId.SIGNIFICANT_MOTION
      */
     function off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback<SignificantMotionResponse>): void;
 
@@ -1509,7 +1509,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId.WEAR_DETECTION
+     * @useinstead sensor#event:SensorId.WEAR_DETECTION
      */
     function off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback<WearDetectionResponse>): void;
 
@@ -1593,7 +1593,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getGeomagneticInfo
+     * @useinstead sensor#getGeomagneticInfo
      */
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
     function getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
@@ -1622,7 +1622,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getDeviceAltitude
+     * @useinstead sensor#getDeviceAltitude
      */
     function getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
     function getAltitude(seaPressure: number, currentPressure: number): Promise<number>;
@@ -1649,7 +1649,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getInclination
+     * @useinstead sensor#getInclination
      */
     function getGeomagneticDip(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
     function getGeomagneticDip(inclinationMatrix: Array<number>): Promise<number>;
@@ -1676,7 +1676,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getAngleVariation
+     * @useinstead sensor#getAngleVariation
      */
     function getAngleModify(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
         callback: AsyncCallback<Array<number>>): void;
@@ -1705,7 +1705,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getRotationMatrix
+     * @useinstead sensor#getRotationMatrix
      */
     function createRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function createRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
@@ -1749,7 +1749,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.transformRotationMatrix
+     * @useinstead sensor#transformRotationMatrix
      */
     function transformCoordinateSystem(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
         callback: AsyncCallback<Array<number>>): void;
@@ -1778,7 +1778,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getQuaternion
+     * @useinstead sensor#getQuaternion
      */
     function createQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function createQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
@@ -1804,7 +1804,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getOrientation
+     * @useinstead sensor#getOrientation
      */
     function getDirection(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
     function getDirection(rotationMatrix: Array<number>): Promise<Array<number>>;
@@ -1841,7 +1841,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.getRotationMatrix
+     * @useinstead sensor#getRotationMatrix
      */
     function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
     function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
@@ -1874,7 +1874,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.sensor.SensorId
+     * @useinstead sensor#event:SensorId
      */
     enum SensorType {
         SENSOR_TYPE_ID_ACCELEROMETER = 1,          /**< Acceleration sensor */
