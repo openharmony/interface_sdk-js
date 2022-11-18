@@ -20,6 +20,8 @@ import { ElementName }  from './elementName';
  * @since 8
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
+ *
+ * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.bundle.distributedBundle.RemoteAbilityInfo
  */
@@ -30,14 +32,14 @@ export interface RemoteAbilityInfo {
      * @syscap SystemCapability.BundleManager.DistributedBundleFramework
      */
     readonly elementName: ElementName;
-
+  
     /**
     * @default Indicates the label of the ability
     * @since 8
     * @syscap SystemCapability.BundleManager.DistributedBundleFramework
     */
     readonly label: string;
-
+  
     /**
     * @default Indicates the icon of the ability
     * @since 8

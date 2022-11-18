@@ -18,91 +18,104 @@
   *        bundle name, target module name and ability class name.
   * @since 7
   * @syscap SystemCapability.BundleManager.BundleFramework
+  * @permission NA
   * @systemapi Hide this for inner system use
   * @deprecated since 9
   * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
   */
   export interface ShortcutWant{
     /**
+      * @default Indicates the target bundle of the shortcut want
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly targetBundle: string;
     /**
+      * @default Indicates the target class of the shortcut want
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly targetClass: string;
   }
-
+  
    /**
     * @name  Provides information about a shortcut, including the shortcut ID and label.
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
+    * @permission NA
     * @deprecated since 9
     * @useinstead ohos.bundle.launcherBundleManager.ShortcutInfo
     */
   export interface ShortcutInfo {
     /**
+      * @default Indicates the ID of the application to which this shortcut belongs
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
-      *
+      * 
       */
     readonly id: string;
     /**
+      * @default Indicates the name of the bundle containing the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly bundleName: string;
     /**
+      * @default Indicates the host ability of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly hostAbility: string;
     /**
+      * @default Indicates the icon of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly icon: string;
      /**
+      * @default Indicates the icon id of the shortcut
       * @since 8
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
      readonly iconId: number;
     /**
+      * @default Indicates the label of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly label: string;
      /**
+      * @default Indicates the label id of the shortcut
       * @since 8
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
      readonly labelId: number;
     /**
+      * @default Indicates the disableMessage of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly disableMessage: string;
     /**
+      * @default Indicates the wants of the shortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly wants: Array<ShortcutWant>;
     /**
-      * @default false
+      * @default Indicates whether the shortcut is static
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly isStatic?: boolean
     /**
-      * @default false
+      * @default Indicates whether the shortcut is homeshortcut
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */
     readonly isHomeShortcut?: boolean;
     /**
-      * @default false
+      * @default Indicates whether the shortcut is enabled
       * @since 7
       * @syscap SystemCapability.BundleManager.BundleFramework
       */

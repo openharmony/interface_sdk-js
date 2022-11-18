@@ -35,7 +35,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -53,7 +53,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -71,7 +71,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -89,7 +89,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -108,7 +108,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -127,7 +127,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -146,7 +146,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
@@ -165,7 +165,7 @@ declare namespace distributedBundle {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700003 - The specified ability name is not found.
-   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700007 - The specified device id is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi

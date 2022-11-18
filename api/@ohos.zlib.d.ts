@@ -20,6 +20,8 @@ declare namespace zlib {
  * @name ErrorCode
  * @since 7
  * @syscap SystemCapability.BundleManager.Zlib
+ * @import NA
+ * @permission NA
  * @deprecated since 9
  */
   export enum ErrorCode {
@@ -31,6 +33,8 @@ declare namespace zlib {
  * @name CompressLevel
  * @since 7
  * @syscap SystemCapability.BundleManager.Zlib
+ * @import NA
+ * @permission NA
  */
   export enum CompressLevel {
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
@@ -43,6 +47,8 @@ declare namespace zlib {
  * @name CompressStrategy
  * @since 7
  * @syscap SystemCapability.BundleManager.Zlib
+ * @import NA
+ * @permission NA
  */
   export enum CompressStrategy {
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
@@ -56,6 +62,8 @@ declare namespace zlib {
  * @name MemLevel
  * @since 7
  * @syscap SystemCapability.BundleManager.Zlib
+ * @import NA
+ * @permission NA
  */
   export enum MemLevel {
     MEM_LEVEL_MIN = 1,
@@ -67,6 +75,8 @@ declare namespace zlib {
  * @name Options
  * @since 7
  * @syscap SystemCapability.BundleManager.Zlib
+ * @import NA
+ * @permission NA
  */
   interface Options {
     level?: CompressLevel;

@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 import {AsyncCallback, Callback} from './basic';
-import Context from "./application/BaseContext";
+import Context from "./application/Context";
 
 /**
  * Provides interfaces to obtain and modify preferences data.

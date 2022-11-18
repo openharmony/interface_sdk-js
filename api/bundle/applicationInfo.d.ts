@@ -20,6 +20,7 @@ import { CustomizeData } from './customizeData';
  * @name Obtains configuration information about an application
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ApplicationInfo
  */
@@ -70,8 +71,7 @@ export interface ApplicationInfo {
     * @default Indicates the label id of the application
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    * @useinstead ohos.bundle.bundleManager.ApplicationInfo.labelIndex
+    * @deprecated since 9, use labelIndex
     */
   readonly labelId: string;
 
@@ -86,8 +86,7 @@ export interface ApplicationInfo {
     * @default Indicates the icon id of the application
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
-    * @deprecated since 9
-    * @useinstead ohos.bundle.bundleManager.ApplicationInfo.iconIndex
+    * @deprecated since 9, use iconIndex
     */
   readonly iconId: string;
 
