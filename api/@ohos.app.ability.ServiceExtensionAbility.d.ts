@@ -22,7 +22,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * class of service extension ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class ServiceExtensionAbility {
@@ -30,7 +30,7 @@ export default class ServiceExtensionAbility {
      * Indicates service extension ability context.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     context: ServiceExtensionContext;
@@ -40,7 +40,7 @@ export default class ServiceExtensionAbility {
      * @param { Want } want - Indicates the want of created service extension.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onCreate(want: Want): void;
@@ -49,7 +49,7 @@ export default class ServiceExtensionAbility {
      * Called back before a service extension is destroyed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onDestroy(): void;
@@ -62,7 +62,7 @@ export default class ServiceExtensionAbility {
      *                             For example, if the service extension has been started for six times.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onRequest(want: Want, startId: number): void;
@@ -72,7 +72,7 @@ export default class ServiceExtensionAbility {
      * @param { Want } want - Indicates connection information about the Service ability.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onConnect(want: Want): rpc.RemoteObject;
@@ -82,7 +82,7 @@ export default class ServiceExtensionAbility {
      * @param { Want } want - Indicates disconnection information about the service extension.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onDisconnect(want: Want): void;
@@ -93,7 +93,7 @@ export default class ServiceExtensionAbility {
      * @param { Want } want - Indicates the want of the service extension being connected.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onReconnect(want: Want): void;
@@ -103,7 +103,7 @@ export default class ServiceExtensionAbility {
      * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onConfigurationUpdate(newConfig: Configuration): void;
@@ -115,7 +115,7 @@ export default class ServiceExtensionAbility {
      * @return { Array<string> } The dump info array.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onDump(params: Array<string>): Array<string>;

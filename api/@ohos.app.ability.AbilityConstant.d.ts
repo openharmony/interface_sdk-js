@@ -17,7 +17,7 @@
  * The definition of AbilityConstant.
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 declare namespace AbilityConstant {
@@ -25,14 +25,14 @@ declare namespace AbilityConstant {
      * Interface of launch param.
      * @typedef LaunchParam
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export interface LaunchParam {
         /**
          * Indicates launch reason.
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @stagemodelonly
+         * @StageModelOnly
          * @since 9
          */
         launchReason: LaunchReason;
@@ -40,7 +40,7 @@ declare namespace AbilityConstant {
         /**
          * Indicates last exit reason.
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
-         * @stagemodelonly
+         * @StageModelOnly
          * @since 9
          */
         lastExitReason: LastExitReason;
@@ -50,7 +50,7 @@ declare namespace AbilityConstant {
      * Type of launch reason.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum LaunchReason {
@@ -65,7 +65,7 @@ declare namespace AbilityConstant {
      * Type of last exit reason.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum LastExitReason {
@@ -78,7 +78,7 @@ declare namespace AbilityConstant {
      * Type of onContinue result.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum OnContinueResult {
@@ -91,7 +91,7 @@ declare namespace AbilityConstant {
      * Type of memory level.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum MemoryLevel {
@@ -104,7 +104,7 @@ declare namespace AbilityConstant {
      * Type of window mode.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum WindowMode {
@@ -119,7 +119,7 @@ declare namespace AbilityConstant {
      * Type of onSave result.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum OnSaveResult {
@@ -135,7 +135,7 @@ declare namespace AbilityConstant {
      * Type of save state.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum StateType {

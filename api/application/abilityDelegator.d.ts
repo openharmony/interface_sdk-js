@@ -296,7 +296,7 @@ export interface AbilityDelegator {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param cmd Shell command
      * @param timeoutSecs Timeout, in seconds
-     * @return ShellCmdResult object
+     * @returns ShellCmdResult object
      */
     executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void;
     executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void;
