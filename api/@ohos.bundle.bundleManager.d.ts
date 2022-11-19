@@ -159,7 +159,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
-     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     * Used to obtain the abilityInfo containing permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
