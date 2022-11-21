@@ -18,7 +18,7 @@
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8
- * @useinstead ohos.vibrator/vibrator#EffectId
+ * @useinstead ohos.vibrator/vibrator.EffectId
  */
  export interface VibrateOptions {
   /**
