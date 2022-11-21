@@ -295,6 +295,7 @@ export interface FinishWithResultParams {
 /**
  * @since 5
  * @deprecated since 8
+ * @useinstead ohos.ability.featureAbility.FeatureAbility
  */
 export declare class FeatureAbility {
   /**
@@ -303,6 +304,7 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result of whether to call Ability's interface successfully.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#startAbility
    */
   static startAbility(request: RequestParams): Promise<Result>;
 
@@ -312,6 +314,7 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result of the data FA returned.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#startAbilityForResult
    */
   static startAbilityForResult(request: RequestParams): Promise<Result>;
 
@@ -321,11 +324,11 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSlefWithResult
    */
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 
   /**
-
    * Get device information list.
    * @param flag Default 0, get the information list of all devices in the network.
    * @returns A Promise object is returned, which contains the result whether the device information list is obtained successfully.

@@ -21,7 +21,6 @@ import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
  * System API, available only to system processes
  * @since 7
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
- * @import import inputMonitor from '@ohos.multimodalInput.inputMonitor';
  * @permission ohos.permission.INPUT_MONITORING
  * @systemapi hide for inner use
  */
@@ -63,7 +62,7 @@ declare namespace inputMonitor {
     function on(type:"mouse", receiver:Callback<MouseEvent>):void;
 
     /**
-     * Cancels listening for touch input events.
+     * Cancel listening for touch input events.
      * @since 7
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
@@ -76,7 +75,7 @@ declare namespace inputMonitor {
     function off(type:"touch", receiver?:TouchEventReceiver):void;
 
     /**
-     * Cancels listening for mouse input events.
+     * Cancel listening for mouse input events.
      * @since 9
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use

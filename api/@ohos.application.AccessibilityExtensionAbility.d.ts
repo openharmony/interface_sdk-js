@@ -67,7 +67,7 @@ declare interface AccessibilityEvent {
 }
 
 /**
- * Indicates the gusture type.
+ * Indicates the gesture type.
  * @since 9
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  */
