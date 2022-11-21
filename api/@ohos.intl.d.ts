@@ -211,7 +211,7 @@ export class Locale {
      * Convert the locale information to string.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns locale information in string form.
+     * @returns Returns locale information in string form.
      * @since 6
      */
     toString(): string;
@@ -220,7 +220,7 @@ export class Locale {
      * Maximize the locale's base information.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns maximized locale.
+     * @returns Returns maximized locale.
      * @since 6
      */
     maximize(): Locale;
@@ -229,7 +229,7 @@ export class Locale {
      * Minimize the locale's base information.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns minimized locale.
+     * @returns Returns minimized locale.
      * @since 6
      */
     minimize(): Locale;
@@ -540,7 +540,7 @@ export class DateTimeFormat {
      *
      * @syscap SystemCapability.Global.I18n
      * @param date Indicates the Date object to be formatted.
-     * @return Returns a date string formatted based on the specified locale.
+     * @returns Returns a date string formatted based on the specified locale.
      * @since 6
      */
     format(date: Date): string;
@@ -551,7 +551,7 @@ export class DateTimeFormat {
      * @syscap SystemCapability.Global.I18n
      * @param startDate Indicates the start date of the date range.
      * @param endDate Indicates the end date of the date range.
-     * @return Returns a date string formatted based on the specified locale.
+     * @returns Returns a date string formatted based on the specified locale.
      * @since 6
      */
     formatRange(startDate: Date, endDate: Date): string;
@@ -560,7 +560,7 @@ export class DateTimeFormat {
      * Obtains the options of the DateTimeFormat object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the options of the DateTimeFormat object.
+     * @returns Returns the options of the DateTimeFormat object.
      * @since 6
      */
     resolvedOptions(): DateTimeOptions;
@@ -871,7 +871,7 @@ export class NumberFormat {
      *
      * @syscap SystemCapability.Global.I18n
      * @param number Indicates the number to be formatted.
-     * @return Returns a number string formatted based on the specified locale.
+     * @returns Returns a number string formatted based on the specified locale.
      * @since 6
      */
     format(number: number): string;
@@ -880,7 +880,7 @@ export class NumberFormat {
      * Obtains the options of the NumberFormat object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the options of the NumberFormat object.
+     * @returns Returns the options of the NumberFormat object.
      * @since 6
      */
     resolvedOptions(): NumberOptions;
@@ -1056,7 +1056,7 @@ export class Collator {
      * @syscap SystemCapability.Global.I18n
      * @param first The first string to compare.
      * @param second The second string to compare.
-     * @return Returns a number indicating how first compare to second:
+     * @returns Returns a number indicating how first compare to second:
      *         a negative value if string1 comes before string2;
      *         a positive value if string1 comes after string2;
      *         0 if they are considered equal.
@@ -1065,11 +1065,11 @@ export class Collator {
     compare(first: string, second: string): number;
 
     /**
-     * Returns a new object with properties reflecting the locale and collation options computed
+     * Returns a new object with properties that reflect the locale and collation options computed
      * during initialization of the object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a CollatorOptions object reflecting the properties of this object.
+     * @returns Returns a CollatorOptions object with properties that reflect the properties of this object.
      * @since 8
      */
     resolvedOptions(): CollatorOptions;
@@ -1240,7 +1240,7 @@ export class PluralRules {
      *
      * @syscap SystemCapability.Global.I18n
      * @param n The number to get a plural rule for.
-     * @return A string representing the pluralization category of the number,
+     * @returns A string representing the pluralization category of the number,
      *         can be one of zero, one, two, few, many or other.
      * @since 8
      */
@@ -1404,11 +1404,11 @@ export class RelativeTimeFormat {
     formatToParts(value: number, unit: string): Array<object>;
 
     /**
-     * Returns a new object with properties reflecting the locale and formatting options computed during
+     * Returns a new object with properties that reflect the locale and formatting options computed during
      * initialization of the object.
      *
      * @syscap SystemCapability.Global.I18n
-     * @returns RelativeTimeFormatOptions which reflecting the locale and formatting options of the object.
+     * @returns RelativeTimeFormatOptions which reflect the locale and formatting options of the object.
      * @since 8
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
