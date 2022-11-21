@@ -64,4 +64,3 @@
      */
     static vibrate(options?: VibrateOptions): void;
   }
-  
