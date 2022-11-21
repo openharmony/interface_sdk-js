@@ -1158,17 +1158,6 @@ declare namespace notificationManager {
   }
 
   /**
-   * Describes a NotificationKey, which can be used to identify a notification.
-   * @typedef NotificationKey
-   * @syscap SystemCapability.Notification.Notification
-   * @since 9
-   */
-  export interface NotificationKey {
-    id: number;
-    label?: string;
-  }
-
-  /**
    * The type of the Do Not Disturb.
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
@@ -1275,25 +1264,6 @@ declare namespace notificationManager {
      * Scheduled notification
      */
     TYPE_TIMER = 2,
-  }
-
-  /**
-   * Reason for remove a notification
-   * @enum { number }
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  export enum RemoveReason {
-    /**
-     * Notification clicked notification on the status bar
-     */
-    CLICK_REASON_REMOVE = 1,
-
-    /**
-     * User dismissal notification  on the status bar
-     */
-    CANCEL_REASON_REMOVE = 2,
   }
 
   /**
