@@ -14,44 +14,70 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import { DeviceSettingsManager as _DeviceSettingsManager } from "./enterpriseDeviceManager/DeviceSettingsManager";
-import Want from "./@ohos.application.Want";
+import Want from "./@ohos.app.ability.Want";
 
 /**
- * enterprise device manager.
- * @name enterpriseDeviceManager
- * @since 9
+ * This module provides the capability to manage the administrator of the enterprise devices.
+ * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi
+ * @since 9
  */
-declare namespace enterpriseDeviceManager {
+declare namespace adminManager {
 
   /**
-   * @name EnterpriseInfo
-   * @since 9
+   * Provides the enterprise information.
+   * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @since 9
    */
   export interface EnterpriseInfo {
+   /**
+    * The name of enterprise.
+    * @type {string}
+    * @since 9
+    */
     name: string;
+
+    /**
+     * The description of enterprise.
+     * @type {string}
+     * @since 9
+     */
     description: string;
   }
 
   /**
-   * @name DeviceSettingsManager
-   * @since 9
+   * Enum for type of administrator.
+   * @enum {number}
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   */
-  export type DeviceSettingsManager = _DeviceSettingsManager
-
-  /**
-   * @name AdminType
+   * @systemapi
    * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    */
   export enum AdminType {
+    /**
+     * The value of normal administrator.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
     ADMIN_TYPE_NORMAL = 0x00,
+
+    /**
+     * The value of super administrator.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @since 9
+     */
     ADMIN_TYPE_SUPER = 0x01
   }
 
+  /**
+   * Enum for managed event
+   * @enum {number}
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @since 9
+   */
   export enum ManagedEvent {
     
     /**
@@ -78,7 +104,7 @@ declare namespace enterpriseDeviceManager {
    * @param { AdminType } type - type indicates the type of administrator to set.
    * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the adminstrator application of the device.
+   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -99,7 +125,7 @@ declare namespace enterpriseDeviceManager {
    * @param { number } userId - userId indicates the user ID.
    * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the adminstrator application of the device.
+   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -120,7 +146,7 @@ declare namespace enterpriseDeviceManager {
    * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
    * @returns { Promise<void> } the promise returned by the enableAdmin.
    * @throws { BusinessError } 9200003 - the administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - failed to enable the adminstrator application of the device.
+   * @throws { BusinessError } 9200004 - failed to enable the administrator application of the device.
    * @throws { BusinessError } 9200007 - the system ability work abnormally.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
@@ -233,7 +259,7 @@ declare namespace enterpriseDeviceManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
@@ -246,7 +272,7 @@ declare namespace enterpriseDeviceManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
@@ -255,11 +281,11 @@ declare namespace enterpriseDeviceManager {
    * Get information of the administrator's enterprise.
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { AsyncCallback<EnterpriseInfo> } callback - callback contained the enterprise info of administrator.
-   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
@@ -268,11 +294,11 @@ declare namespace enterpriseDeviceManager {
    * Get information of the administrator's enterprise.
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<EnterpriseInfo> } promise contained the enterprise info of administrator.
-   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
@@ -284,12 +310,12 @@ declare namespace enterpriseDeviceManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @param { AsyncCallback<void> } callback - the callback of setEnterpriseInfo.
-   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<void>): void;
@@ -301,12 +327,12 @@ declare namespace enterpriseDeviceManager {
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
    * @returns { Promise<void> } the promise returned by the setEnterpriseInfo.
-   * @throws { BusinessError } 9200001 - the applicayion is not an administrator of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
@@ -318,7 +344,7 @@ declare namespace enterpriseDeviceManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function isSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
@@ -330,20 +356,10 @@ declare namespace enterpriseDeviceManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
   function isSuperAdmin(bundleName: String): Promise<boolean>;
-
-  /**
-   * Obtains the interface used to set device settings policy.
-   *
-   * @since 9
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @return Returns the DeviceSettingsManager interface.
-   */
-  function getDeviceSettingsManager(callback: AsyncCallback<DeviceSettingsManager>): void;
-  function getDeviceSettingsManager(): Promise<DeviceSettingsManager>;
 
   /**
    * Subscribes the managed event of admin.
@@ -357,7 +373,7 @@ declare namespace enterpriseDeviceManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 9
    */
    function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -374,7 +390,7 @@ declare namespace enterpriseDeviceManager {
     * @throws { BusinessError } 401 - invalid input parameter.
     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
     * @systemapi
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
@@ -391,7 +407,7 @@ declare namespace enterpriseDeviceManager {
     * @throws { BusinessError } 401 - invalid input parameter.
     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
     * @systemapi
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -408,10 +424,10 @@ declare namespace enterpriseDeviceManager {
     * @throws { BusinessError } 401 - invalid input parameter.
     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
     * @systemapi
-    * @stagemodelonly
+    * @StageModelOnly
     * @since 9
     */
    function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 }
 
-export default enterpriseDeviceManager;
+export default adminManager;
