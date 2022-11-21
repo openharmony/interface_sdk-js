@@ -20,62 +20,62 @@ import { ElementName } from './bundleManager/elementName';
 /**
  * Default application manager.
  * @namespace defaultAppManager
- * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+ * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
  * @since 9
  */
 declare namespace defaultAppManager {
   /**
    * The constant for application type.
    * @enum {number}
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
    */
   export enum ApplicationType {
     /**
      * Default browser identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     BROWSER = "Web Browser",
     /**
      * Default image identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     IMAGE = "Image Gallery",
     /**
      * Default audio identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     AUDIO = "Audio Player",
     /**
      * Default video identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     VIDEO = "Video Player",
     /**
      * Default PDF identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     PDF = "PDF Viewer",
     /**
      * Default word identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     WORD = "Word Viewer",
     /**
      * Default excel identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     EXCEL = "Excel Viewer",
     /**
      * Default PPT identifier.
-     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+     * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
      * @since 9
      */
     PPT = "PPT Viewer",
@@ -87,7 +87,7 @@ declare namespace defaultAppManager {
    * @param { AsyncCallback<boolean> } callback - The callback of querying default application result.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
    */
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
@@ -98,7 +98,7 @@ declare namespace defaultAppManager {
    * @returns { Promise<boolean> } Return true if caller is default application; return false otherwise.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @since 9
    */
   function isDefaultApplication(type: string) : Promise<boolean>;
@@ -112,10 +112,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -131,10 +131,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -150,10 +150,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @throws { BusinessError } 17700028 - The ability does not match the type.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @throws { BusinessError } 17700028 - The specified ability and type does not match.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -170,10 +170,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @throws { BusinessError } 17700028 - The ability does not match the type.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @throws { BusinessError } 17700028 - The specified ability and type does not match.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -188,9 +188,9 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */
@@ -206,9 +206,9 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
-   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultAppManager
    * @systemapi
    * @since 9
    */

@@ -23,6 +23,7 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
  * @name innerBundleManager
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager
@@ -52,7 +53,7 @@ declare namespace innerBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
-   * @return { string | Promise<string> } Returns the result of register.
+   * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -67,7 +68,7 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
-   * @return { string | Promise<string> } Returns the result of unregister.
+   * @return Returns the result or error maeeage.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9

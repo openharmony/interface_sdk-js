@@ -21,6 +21,7 @@ import bundle from './../@ohos.bundle';
  * @name Obtains configuration information about an ability
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.AbilityInfo
  */

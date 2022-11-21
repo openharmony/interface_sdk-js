@@ -21,6 +21,7 @@ import { HapModuleInfo } from './hapModuleInfo';
  * @name The scene which is used
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.UsedScene
  *
@@ -45,6 +46,7 @@ export interface UsedScene {
  * @name Indicates the required permissions details defined in file config.json
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ReqPermissionDetail
  */
@@ -75,6 +77,7 @@ export interface ReqPermissionDetail {
  * @name Obtains configuration information about a bundle
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.BundleInfo
  */

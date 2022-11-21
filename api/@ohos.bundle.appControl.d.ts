@@ -33,7 +33,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -49,7 +49,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -64,7 +64,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -79,7 +79,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -94,7 +94,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9
@@ -109,7 +109,7 @@ declare namespace appControl {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is not found.
+   * @throws { BusinessError } 17700005 - The specified appId was not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 9

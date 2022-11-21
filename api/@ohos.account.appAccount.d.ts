@@ -168,7 +168,7 @@ declare namespace appAccount {
          * @returns void.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or bundle name.
+         * @throws {BusinessError} 12300002 - invalid name or bundlename.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
          * @throws {BusinessError} 12400001 - the application indicated by bundlename does not exist.
          * @since 9
@@ -184,7 +184,7 @@ declare namespace appAccount {
          * @returns void.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
-         * @throws {BusinessError} 12300002 - invalid name or bundle name.
+         * @throws {BusinessError} 12300002 - invalid name or bundlename.
          * @throws {BusinessError} 12300003 - the account indicated by localId dose not exist.
          * @since 9
          */
@@ -198,7 +198,7 @@ declare namespace appAccount {
          * through the distributed networking. On the connected devices, you can call this method to check
          * whether application data can be synchronized.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
          * @param name Indicates the name of the application account.
          * @returns Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
          * @since 7
@@ -215,7 +215,7 @@ declare namespace appAccount {
          * through the distributed networking. On the connected devices, you can call this method to check
          * whether application data can be synchronized.
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
          * @param name Indicates the name of the application account.
          * @returns Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
          * @throws {BusinessError} 201 - permission denied.
@@ -268,7 +268,6 @@ declare namespace appAccount {
          * @returns void.
          * @since 7
          * @deprecated since 9
-         * @useinstead appAccount.AppAccountManager#setCustomData
          */
         setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
         setAccountExtraInfo(name: string, extraInfo: string): Promise<void>;
@@ -277,7 +276,7 @@ declare namespace appAccount {
          * Sets whether a specified application account allows application data synchronization.
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the connected devices, you can call this method to set whether to
+         * through the distributed networking. On the networked devices, you can call this method to set whether to
          * allow cross-device data synchronization. If synchronization is allowed, application data can be synchronized
          * among these devices in the event of any changes related to the application account.
          * If synchronization is not allowed, the application data is stored only on the local device.
@@ -288,7 +287,7 @@ declare namespace appAccount {
          * <b>Application data that can be synchronized</b>: application account name, token,
          * and data associated with this application account
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
          * @param name Indicates the name of the application account.
          * @param isEnable Specifies whether to allow application data synchronization.
          * @returns void.
@@ -303,7 +302,7 @@ declare namespace appAccount {
          * Sets whether a specified application account enables application data synchronization.
          * <p>
          * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-         * through the distributed networking. On the connected devices, you can call this method to set whether to
+         * through the distributed networking. On the networked devices, you can call this method to set whether to
          * enable cross-device data synchronization. If synchronization is enabled, application data can be synchronized
          * among these devices in the event of any changes related to the application account.
          * If synchronization is not enabled, the application data is stored only on the local device.
@@ -314,7 +313,7 @@ declare namespace appAccount {
          * <b>Application data that can be synchronized</b>: application account name, token,
          * and data associated with this application account
          * <p>
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
          * @param name Indicates the name of the application account.
          * @param isEnabled Specifies whether to enable application data synchronization.
          * @returns void.
@@ -366,7 +365,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          * @returns Returns a list of application accounts.
          * @since 7
          * @deprecated since 9
@@ -384,7 +383,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          * @returns Returns a list of application accounts.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -403,7 +402,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
          * @since 7
@@ -422,14 +421,14 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
+         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS.
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
          * @throws {BusinessError} 201 - permission denied.	
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner.
-         * @throws {BusinessError} 12400001 - the application indicated by bundle name does not exist.
+         * @throws {BusinessError} 12400001 - the application indicated by bundlename does not exist.
          * @since 9
          */
         getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
@@ -469,7 +468,6 @@ declare namespace appAccount {
          *         for example, if the account does not exist.
          * @since 7
          * @deprecated since 9
-         * @useinstead appAccount.AppAccountManager#getCustomData
          */
         getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void;
         getAccountExtraInfo(name: string): Promise<string>;
@@ -794,7 +792,7 @@ declare namespace appAccount {
         getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>;
 
         /**
-         * Gets the open authorization list with a specified authentication type for a particular application account.
+         * Gets the open authorization list with a specified authentication type for a paticular application account.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          * @param name Indicates the account name of your application.
@@ -808,7 +806,7 @@ declare namespace appAccount {
         getOAuthList(name: string, authType: string): Promise<Array<string>>;
 
         /**
-         * Gets the open authorization list with a specified authentication type for a particular application account.
+         * Gets the open authorization list with a specified authentication type for a paticular application account.
          * <p>
          * Only the owner of the application account has the permission to call this method.
          * @param name Indicates the account name of your application.
@@ -877,7 +875,7 @@ declare namespace appAccount {
         queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
         /**
-         * Checks whether a particular account has all specified labels.
+         * Checks whether a paticular account has all specified labels.
          * @param name Indicates the account name.
          * @param owner Indicates the account owner.
          * @param labels Indicates an array of labels to check.
@@ -1068,7 +1066,7 @@ declare namespace appAccount {
      */
      interface AuthResult {
         /**
-         * The account information.
+         * The account infomation.
          * @since 9
          */
         account?: AppAccountInfo;
@@ -1159,7 +1157,7 @@ declare namespace appAccount {
      */
     interface VerifyCredentialOptions {
         /**
-         * The credential type to be verified.
+         * The credentail type to be verified.
          * @since 9
          */
         credentialType?: string;
@@ -1286,7 +1284,7 @@ declare namespace appAccount {
         KEY_ACTION = "action",
 
         /**
-         * Indicates the key of authentication type.
+         * Indicates the key of authentiaction type.
          *
          * @since 8
          */
