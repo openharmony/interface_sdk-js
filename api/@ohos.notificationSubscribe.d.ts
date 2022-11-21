@@ -22,6 +22,7 @@ import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } f
 /**
  * @name notificationSubscribe
  * @since 9
+ * @systemapi
  * @syscap SystemCapability.Notification.Notification
  * @import import notificationSubscribe from '@ohos.notification.subscribe';
  * @permission N/A
@@ -31,6 +32,7 @@ declare namespace notificationSubscribe {
    * Describes a BundleOption.
    * @typedef BundleOption
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 9
    */
   export interface BundleOption {
@@ -42,6 +44,7 @@ declare namespace notificationSubscribe {
    * Describes a NotificationKey, which can be used to identify a notification.
    * @typedef NotificationKey
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 9
    */
   export interface NotificationKey {
