@@ -18,33 +18,34 @@
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.vibrator/vibrator#EffectId
  */
  export interface VibrateOptions {
-    /**
-     * Vibration mode. The value long indicates long vibration, and short indicates short vibration.
-     * The default value is long.
-     * @since 3
-     */
-    mode?: "long" | "short";
+  /**
+   * Vibration mode. The value long  indicates long vibration, and short indicates short vibration.
+   * The default value is long.
+   * @since 3
+   */
+  mode?: "long" | "short";
 
-    /**
-     * Called when success to trigger vibration.
-     * @since 3
-     */
-    success: () => void;
+  /**
+   * Called when success to trigger vibration.
+   * @since 3
+   */
+  success: () => void;
 
-    /**
-     * Called when fail to trigger vibration.
-     * @since 3
-     */
-    fail?: (data: string, code: number) => void;
+  /**
+   * Called when fail to trigger vibration.
+   * @since 3
+   */
+  fail?: (data: string, code: number) => void;
 
-    /**
-     * Called when the execution is completed.
-     * @since 3
-     */
-    complete?: () => void;
-  }
+  /**
+   * Called when the execution is completed.
+   * @since 3
+   */
+  complete?: () => void;
+}
 
   /**
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -54,13 +55,13 @@
    * @useinstead ohos.vibrator/vibrator
    */
   export default class Vibrator {
-    /**
-     * Triggers vibration.
-     * @param options Options.
-     * @permission ohos.permission.VIBRATE
-     * @since 3
-     * @deprecated since 8
-     * @useinstead ohos.vibrator/vibrator#startVibration
-     */
-    static vibrate(options?: VibrateOptions): void;
-  }
+  /**
+   * Triggers vibration.
+   * @param options Options.
+   * @permission ohos.permission.VIBRATE
+   * @since 3
+   * @deprecated since 8
+   * @useinstead ohos.vibrator/vibrator#startVibration
+   */
+  static vibrate(options?: VibrateOptions): void;
+}
