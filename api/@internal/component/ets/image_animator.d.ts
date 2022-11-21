@@ -111,6 +111,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   /**
    * Indicates whether to enable pre-decoding.
    * @since 7
+   * @deprecated since 9
    */
   preDecode(value: number): ImageAnimatorAttribute;
 
