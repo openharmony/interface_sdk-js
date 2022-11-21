@@ -79,6 +79,7 @@ declare namespace update {
          * @permission ohos.permission.UPDATE_SYSTEM
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
          */
         getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
         getNewVersionInfo(): Promise<NewVersionInfo>;
