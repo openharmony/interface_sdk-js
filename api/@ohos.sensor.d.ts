@@ -1525,8 +1525,8 @@ declare namespace sensor {
         hardwareVersion:string; /**< Sensor hardware version */
         sensorId:number; /**< Sensor type ID, {@code SensorType} */
         maxRange:number; /**< Maximum measurement range of the sensor */
-        minSamplePeriod; /**< Minimum sample period allowed, in ns */
-        maxSamplePeriod;  /**< maximum sample period allowed, in ns */
+        minSamplePeriod:number; /**< Minimum sample period allowed, in ns */
+        maxSamplePeriod:number; /**< maximum sample period allowed, in ns */
         precision:number; /**< Sensor accuracy */
         power:number; /**< Sensor power */
     }
@@ -1874,7 +1874,7 @@ declare namespace sensor {
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
-     * @useinstead sensor#event:SensorId
+     * @useinstead sensor.SensorId
      */
     enum SensorType {
         SENSOR_TYPE_ID_ACCELEROMETER = 1,          /**< Acceleration sensor */
