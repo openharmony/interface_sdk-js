@@ -627,6 +627,7 @@ export default class Sensor {
    * @syscap SystemCapability.Sensors.Sensor
    * @since 3
    * @deprecated since 8
+   * @useinstead ohos.sensor/sensor#event:SensorId.WEAR_DETECTION
    */
   static unsubscribeOnBodyState(): void;
 
