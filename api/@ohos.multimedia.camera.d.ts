@@ -19,7 +19,6 @@ import { Context } from './app/context';
 /**
  * @name camera
  * @syscap SystemCapability.Multimedia.Camera.Core
- * @import import camera from '@ohos.multimedia.camera';
  * @since 9
  */
 declare namespace camera {
@@ -1174,7 +1173,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @param callback Callback used to return the array of compenstation range.
+     * @param callback Callback used to return the array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1182,7 +1181,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @return Promise used to return the array of compenstation range.
+     * @return Promise used to return the array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
