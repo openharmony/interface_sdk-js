@@ -17,16 +17,20 @@ import { Callback, AsyncCallback } from "./basic";
 import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 
 /**
-* The input device management module is configured to obtain an ID and device information of an input device.
-*
-* @since 8
-* @syscap SystemCapability.MultimodalInput.Input.InputDevice
-* @import import inputDevice from '@ohos.multimodalInput.inputDevice';
-*/
-
+ * The input device management module is configured to obtain an ID and device information of an input device.
+ *
+ * @since 8
+ * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+ */
 declare namespace inputDevice {
+  /**
+   * @since 9
+   */
   type ChangedType = 'add' | 'remove';
 
+  /**
+   * @since 9
+   */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
@@ -88,7 +92,8 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: "change", listener: Callback<DeviceListener>): void;
 
@@ -98,7 +103,8 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: "change", listener?: Callback<DeviceListener>): void;
 
@@ -107,6 +113,7 @@ declare namespace inputDevice {
    * For example, a touchscreen may report information such as x, y, and pressure,
    * which indicate the x-axis coordinate, y-axis coordinate, and pressure, respectively.
    *
+   * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param source Input source type of the axis. For example, if a mouse reports an x-axis event, the source of the x-axis is the mouse.
    * @param axis Type of the axis. for example, the x-axis, y-axis, and pressure axis.
@@ -156,6 +163,7 @@ declare namespace inputDevice {
   /**
    * Defines the information about an input device.
    *
+   * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param name Name of the input device.
    * @param sources Source type supported by the input device. For example, if a keyboard is attached with a touchpad, the device has two input sources: keyboard and touchpad.
@@ -224,9 +232,20 @@ declare namespace inputDevice {
    *
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @param callback callback function, receive reported data
+   * @param callback Callback function, receive reported data
+   * @deprecated since 9
+   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
    */
   function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the IDs of all input devices.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @deprecated since 9
+   * @useinstead ohos.multimodalInput.inputDevice#getDeviceList
+   */
   function getDeviceIds(): Promise<Array<number>>;
 
   /**
@@ -235,10 +254,61 @@ declare namespace inputDevice {
    * @since 8
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device whose information is to be obtained.
-   * @param callback callback function, receive reported data
+   * @param callback Callback function, receive reported data
+   * @deprecated since 9
+   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
    */
   function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+
+  /**
+   * Obtain the information about an input device.
+   *
+   * @since 8
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId ID of the input device whose information is to be obtained.
+   * @deprecated since 9
+   * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
+   */
   function getDevice(deviceId: number): Promise<InputDeviceData>;
+
+  /**
+   * Obtains the IDs of all input devices.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param callback Callback function, receive reported data
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getDeviceList(callback: AsyncCallback<Array<number>>): void;
+
+  /**
+   * Obtains the IDs of all input devices.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   */
+  function getDeviceList(): Promise<Array<number>>;
+
+  /**
+  * Obtain the information about an input device.
+  *
+  * @since 9
+  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+  * @param deviceId ID of the input device whose information is to be obtained.
+  * @param callback Callback function, receive reported data
+  * @throws {BusinessError} 401 - Parameter error.
+  */
+  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+
+  /**
+  * Obtain the information about an input device.
+  *
+  * @since 9
+  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+  * @param deviceId ID of the input device whose information is to be obtained.
+  * @throws {BusinessError} 401 - Parameter error.
+  */
+  function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
@@ -247,9 +317,21 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
-   * @return Returns a result indicating whether the specified key codes are supported.
+   * @returns Returns a result indicating whether the specified key codes are supported.
+   * @throws {BusinessError} 401 - Parameter error.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
+
+  /**
+   * Checks whether the specified key codes of an input device are supported.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId ID of the input device.
+   * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
+   * @returns Returns a result indicating whether the specified key codes are supported.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
@@ -258,9 +340,20 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the specified input device.
-   * @return Returns the keyboard type.
+   * @returns Returns the keyboard type.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
+
+  /**
+   * Query the keyboard type of the input device.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @param deviceId ID of the specified input device.
+   * @returns Returns the keyboard type.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;
 }
 

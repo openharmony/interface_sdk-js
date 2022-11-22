@@ -23,8 +23,9 @@
  *
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
  */
-declare interface BundleStatusCallback {
+export interface BundleStatusCallback {
   /**
    * @name Obtains add callback about an launcherStatusCallback.
    * @since 8

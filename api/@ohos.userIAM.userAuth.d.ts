@@ -134,6 +134,8 @@ declare namespace userAuth {
          * @since 8
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @return Returns the UserAuth class instance.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.getAuthInstance
          */
         constructor();
 
@@ -143,6 +145,8 @@ declare namespace userAuth {
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @return Returns version information.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.getVersion
          */
         getVersion() : number;
 
@@ -154,6 +158,8 @@ declare namespace userAuth {
          * @param authType Credential type for authentication.
          * @param authTrustLevel Trust level of authentication result.
          * @return Returns a check result, which is specified by getAvailableStatus.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.getAvailableStatus
          */
         getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number;
 
@@ -165,18 +171,22 @@ declare namespace userAuth {
          * @param challenge pass in challenge value.
          * @param authType type of authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @param callback Return result and acquireinfo through callback.
+         * @param callback Return result and acquireInfo through callback.
          * @return Returns ContextId for cancel.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.AuthInstance.start
          */
         auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array;
 
         /**
-         * Cancels authentication with ContextID.
+         * Cancel authentication with ContextID.
          * @since 8
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param contextID Cancel authentication and pass in ContextID.
          * @return Returns a number value indicating whether Cancel authentication was successful.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.AuthInstance.cancel
          */
         cancelAuth(contextID : Uint8Array) : number;
     }
@@ -188,9 +198,11 @@ declare namespace userAuth {
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @param result authentication result code.
          * @param extraInfo pass the specific information for different situation.
-         * If the authentication is passed, the authentication token is returned in extrainfo,
-         * If the authentication fails, the remaining authentication times are returned in extrainfo,
-         * If the authentication executor is locked, the freezing time is returned in extrainfo.
+         * If the authentication is passed, the authentication token is returned in extraInfo,
+         * If the authentication fails, the remaining authentication times are returned in extraInfo,
+         * If the authentication executor is locked, the freezing time is returned in extraInfo.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
         onResult: (result : number, extraInfo : AuthResult) => void;
 
@@ -201,6 +213,8 @@ declare namespace userAuth {
          * @param module the executor type for authentication.
          * @param acquire the tip code for different authentication executor.
          * @param extraInfo reserved parameter.
+         * @deprecated since 9
+         * @useinstead ohos.userIAM.userAuth.AuthEvent.callback
          */
         onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void;
     }
@@ -211,7 +225,9 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @param token pass the authentication result if the authentication is passed.
      * @param remainTimes return the remaining authentication times if the authentication fails.
-     * @param freezingTime return the freezing time if the authectication executor is locked.
+     * @param freezingTime return the freezing time if the authentication executor is locked.
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthResultInfo
      */
     interface AuthResult {
         token ?: Uint8Array;
@@ -223,6 +239,8 @@ declare namespace userAuth {
      * Result code.
      * @since 8
      * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.ResultCodeV9
      */
     enum ResultCode {
         /**
@@ -491,6 +509,227 @@ declare namespace userAuth {
          */
         ATL4 = 40000
     }
+
+    /**
+     * Authentication events.
+     * @since 9
+     */
+    type AuthEventKey = "result" | "tip";
+
+    /**
+     * Return information of Authentication events.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    type EventInfo = AuthResultInfo | TipInfo;
+
+    interface AuthEvent {
+        /**
+         * The authentication event callback.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param result Event info.
+         */
+        callback(result: EventInfo): void;
+    }
+
+    /**
+     * Authentication result: authentication token, remaining authentication attempts, lockout duration.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param result Authentication result.
+     * @param token Pass the authentication token if the authentication is passed.
+     * @param remainAttempts Return the remaining authentication attempts if the authentication fails.
+     * @param lockoutDuration Return the lockout duration if the authentication executor is locked.
+     */
+    interface AuthResultInfo {
+        result : number;
+        token ?: Uint8Array;
+        remainAttempts ?: number;
+        lockoutDuration ?: number;
+    }
+
+    /**
+     * Authentication tip info.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @param module Authentication module.
+     * @param tip Tip information, used to prompt the business to perform some operations.
+     */
+    interface TipInfo {
+        module : number;
+        tip : number;
+    }
+
+    /**
+     * Authentication instance, used to initiate a complete authentication
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    interface AuthInstance {
+        /**
+         * Turn on authentication event listening.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param name Event name.
+         * @param callback Event information return.
+         * @throws { BusinessError } 401 - Incorrect parameters.
+         * @throws { BusinessError } 12500002 - General operation error.
+         */
+        on: (name: AuthEventKey, callback: AuthEvent) => void;
+
+        /**
+         * Turn off authentication event listening.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @param name Event name.
+         * @throws { BusinessError } 401 - Incorrect parameters.
+         * @throws { BusinessError } 12500002 - General operation error.
+         */
+        off: (name: AuthEventKey) => void;
+
+        /**
+         * Start this authentication, an instance can only perform authentication once.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @permission ohos.permission.ACCESS_BIOMETRIC
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 401 - Incorrect parameters.
+         * @throws { BusinessError } 12500002 - General operation error.
+         * @throws { BusinessError } 12500005 - The authentication type is not supported.
+         * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+         * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+         */
+        start: () => void;
+
+        /**
+         * Cancel this authentication.
+         * @since since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @permission ohos.permission.ACCESS_BIOMETRIC
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 401 - Incorrect parameters.
+         * @throws { BusinessError } 12500002 - General operation error.
+         */
+        cancel: () => void;
+    }
+
+    /**
+     * Get version information.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @return Returns version information.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     */
+    function getVersion(): number;
+
+    /**
+     * Check whether the authentication capability is available.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param authType Credential type for authentication.
+     * @param authTrustLevel Trust level of authentication result.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+     */
+    function getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void;
+
+    /**
+     * Get Authentication instance.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @return Returns an authentication instance.
+     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @throws { BusinessError } 12500005 - The authentication type is not supported.
+     * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+     */
+    function getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance;
+
+    /**
+     * Result code.
+     * @since 9
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     */
+    enum ResultCodeV9 {
+        /**
+         * Indicates that the result is success or ability is supported.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        SUCCESS = 12500000,
+
+        /**
+         * Indicates the result is failure or ability is not supported.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        FAIL = 12500001,
+
+        /**
+         * Indicates other errors.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        GENERAL_ERROR = 12500002,
+
+        /**
+         * Indicates that this operation is canceled.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        CANCELED = 12500003,
+
+        /**
+         * Indicates that this operation is time-out.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        TIMEOUT = 12500004,
+
+        /**
+         * Indicates that this authentication type is not supported.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        TYPE_NOT_SUPPORT = 12500005,
+
+        /**
+         * Indicates that the authentication trust level is not supported.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        TRUST_LEVEL_NOT_SUPPORT = 12500006,
+
+        /**
+         * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        BUSY = 12500007,
+
+        /**
+         * Indicates that the authenticator is locked.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        LOCKED = 12500009,
+
+        /**
+         * Indicates that the user has not enrolled the authenticator.
+         * @since 9
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         */
+        NOT_ENROLLED = 12500010
+    }
+
 }
 
 export default userAuth;

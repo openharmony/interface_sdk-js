@@ -16,14 +16,17 @@
 import { AsyncCallback } from "./basic";
 
 /**
-* Declares interfaces related to mouse pointer attributes.
-*
-* @since 9
-* @syscap SystemCapability.MultimodalInput.Input.Pointer
-* @import import pointer from '@ohos.multimodalInput.pointer';
-*/
-
+ * Declares interfaces related to mouse pointer attributes.
+ *
+ * @since 9
+ * @syscap SystemCapability.MultimodalInput.Input.Pointer
+ */
 declare namespace pointer {
+  /**
+   * Pointer style.
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   */
   enum PointerStyle {
     /**
      * Default
@@ -81,27 +84,27 @@ declare namespace pointer {
     SOUTH_WEST,
 
     /**
-     * North-east and south-west arrow
+     * Northeast and southwest adjustment
      */
     NORTH_EAST_SOUTH_WEST,
 
     /**
-     * North-west and south-east arrow
+     * Northwest and southeast adjustment
      */
     NORTH_WEST_SOUTH_EAST,
 
     /**
-     * Cross
+     * Cross (accurate selection)
      */
     CROSS,
 
     /**
-     * Copy cursor
+     * Copy
      */
     CURSOR_COPY,
 
     /**
-     * Forbid cursor
+     * Forbid
      */
     CURSOR_FORBID,
 
@@ -111,17 +114,17 @@ declare namespace pointer {
     COLOR_SUCKER,
 
     /**
-     * Hand grabbing
+     * Grabbing hand
      */
     HAND_GRABBING,
 
     /**
-     * Hand open
+     * Opening hand
      */
     HAND_OPEN,
 
     /**
-     * Hand pointing
+     * Hand-shaped pointer
      */
     HAND_POINTING,
 
@@ -136,27 +139,27 @@ declare namespace pointer {
     MOVE,
 
     /**
-     * Resize left and right
+     * Left and right resizing
      */
     RESIZE_LEFT_RIGHT,
 
     /**
-     * Resize up and down
+     * Up and down resizing
      */
     RESIZE_UP_DOWN,
 
     /**
-     * Screenshot selection
+     * Screenshot crosshair
      */
     SCREENSHOT_CHOOSE,
 
     /**
-     * Screenshot cursor
+     * Screenshot
      */
     SCREENSHOT_CURSOR,
 
     /**
-     * Text cursor
+     * Text selection
      */
     TEXT_CURSOR,
 
@@ -171,52 +174,52 @@ declare namespace pointer {
     ZOOM_OUT,
 
     /**
-     * East arrow of the middle mouse button
+     * Scrolling east
      */
     MIDDLE_BTN_EAST,
 
     /**
-     * West arrow of the middle mouse button
+     * Scrolling west
      */
     MIDDLE_BTN_WEST,
 
     /**
-     * South arrow of the middle mouse button
+     * Scrolling south
      */
     MIDDLE_BTN_SOUTH,
 
     /**
-     * North arrow of the middle mouse button
+     * Scrolling north
      */
     MIDDLE_BTN_NORTH,
 
     /**
-     * North-south arrow of the middle mouse button
+     * Scrolling north and south
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
     /**
-     * North-east arrow of the middle mouse button
+     * Scrolling northeast
      */
     MIDDLE_BTN_NORTH_EAST,
 
     /**
-     * North-west arrow of the middle mouse button
+     * Scrolling northwest
      */
     MIDDLE_BTN_NORTH_WEST,
 
     /**
-     * South-east arrow of the middle mouse button
+     * Scrolling southeast
      */
     MIDDLE_BTN_SOUTH_EAST,
 
     /**
-     * South-west arrow of the middle mouse button
+     * Scrolling southwest
      */
     MIDDLE_BTN_SOUTH_WEST,
 
     /**
-     * North-west and south-east arrow of the middle mouse button
+     * Moving as a cone in four directions
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
   }
@@ -228,6 +231,7 @@ declare namespace pointer {
    * @systemapi hide for inner use
    * @param speed Pointer moving speed.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
@@ -237,7 +241,8 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @param speed Pointer moving speed.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerSpeed(speed: number): Promise<void>;
 
@@ -247,6 +252,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
@@ -255,7 +261,7 @@ declare namespace pointer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
    */
   function getPointerSpeed(): Promise<number>;
 
@@ -266,6 +272,7 @@ declare namespace pointer {
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
@@ -275,7 +282,8 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param pointerStyle Pointer style.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
@@ -285,6 +293,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
    * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
 
@@ -293,7 +302,8 @@ declare namespace pointer {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
-   * @return Returns the result through a promise.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
@@ -304,8 +314,19 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
    * and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets whether the pointer icon is visible.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
+   * and the value false indicates the opposite.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
@@ -313,9 +334,18 @@ declare namespace pointer {
    *
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @return Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether the pointer icon is visible.
+   *
+   * @since 9
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @returns Returns <b>true</b> if the pointer icon is visible; returns <b>false</b> otherwise.
+   */
   function isPointerVisible(): Promise<boolean>;
 }
 

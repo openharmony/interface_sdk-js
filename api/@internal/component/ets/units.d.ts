@@ -431,3 +431,10 @@ declare class ColorFilter {
    */
   constructor(value: number[]);
 }
+
+declare module "GlobalResource" {
+  module "GlobalResource" {
+    // @ts-ignore
+    export { Resource };
+  }
+}

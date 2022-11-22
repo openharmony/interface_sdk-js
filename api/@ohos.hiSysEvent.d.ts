@@ -110,6 +110,15 @@ declare namespace hiSysEvent {
    * @static
    * @param {SysEventInfo} info system event information to be written.
    * @param {AsyncCallback} [callback] callback function.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200001 - Invalid event domain.
+   * @throws {BusinessError} 11200002 - Invalid event name.
+   * @throws {BusinessError} 11200003 - Abnormal environment.
+   * @throws {BusinessError} 11200004 - Length of the event is over limit.
+   * @throws {BusinessError} 11200051 - Invalid event parameter.
+   * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
+   * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
+   * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
    * @return {void | Promise<void>} no callback return Promise otherwise return void.
    * @since 9
    */
@@ -184,13 +193,13 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * Definition wathcer for system event information.
+   * Definition watcher for system event information.
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since 9
    */
-  interface Watcher{
+  interface Watcher {
     /**
      * rule of filter system event
      */
@@ -272,16 +281,15 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * handle query result, the query result will be send in serval times.
+     * handle query result, the query result will be send in severval times.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
-     * @param {number[]} seqs sequeue of infos.
      * @return {void} return void.
      * @since 9
      */
-    onQuery: (infos: SysEventInfo[], seqs: number[]) => void;
+    onQuery: (infos: SysEventInfo[]) => void;
 
     /**
      * notify Querier execute query has finished.
@@ -303,10 +311,14 @@ declare namespace hiSysEvent {
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {Watcher} watcher watch system event
-   * @return {number} 0 success, 1 fail
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200101 - Count of watchers is over limit.
+   * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
+   * @return {void} return void.
    * @since 9
    */
-  function addWatcher(watcher: Watcher): number;
+  function addWatcher(watcher: Watcher): void;
 
   /**
    * remove watcher
@@ -314,11 +326,14 @@ declare namespace hiSysEvent {
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @permission ohos.permission.READ_DFX_SYSEVENT
-   * @param {Watcher} wathcer watch system event
-   * @return {number} 0 success, 1 fail
+   * @param {Watcher} watcher watch system event
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200201 - The watcher does not exist.
+   * @return {void} return void.
    * @since 9
    */
-  function removeWatcher(wathcer: Watcher): number;
+  function removeWatcher(watcher: Watcher): void;
 
   /**
    * query system event
@@ -329,10 +344,16 @@ declare namespace hiSysEvent {
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
    * @param {Querier} querier receive query result
-   * @return {number} 0 success, 1 fail
+   * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
+   * @throws {BusinessError} 401 - Invalid argument.
+   * @throws {BusinessError} 11200301 - Count of query rules is over limit.
+   * @throws {BusinessError} 11200302 - Invalid query rule.
+   * @throws {BusinessError} 11200303 - Count of concurrent queriers is over limit.
+   * @throws {BusinessError} 11200304 - Query frequency is over limit.
+   * @return {void} return void.
    * @since 9
    */
-  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): number;
+  function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;
 }
 
 export default hiSysEvent;

@@ -27,6 +27,8 @@ import StartOptions from "./@ohos.application.StartOptions";
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @permission ohos.permission.MANAGE_MISSIONS
  * @systemapi hide for inner use.
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.missionManager
  */
 declare namespace missionManager {
     /**
@@ -40,7 +42,7 @@ declare namespace missionManager {
     function registerMissionListener(listener: MissionListener): number;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission

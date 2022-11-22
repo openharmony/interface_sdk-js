@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -138,16 +138,36 @@ declare namespace xml {
         elementsKey: string;
     }
 
+    /**
+     * ConvertXML representation refers to extensible markup language.
+     * @name ConvertXML
+     * @since 8
+     * @syscap SystemCapability.Utils.Lang
+     */
     class ConvertXML {
         /**
          * To convert XML text to JavaScript object.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.convertxml.ConvertXML.convertToJSObject
          * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
          * @param option Option Inputted by user to set.
-         * @return Returns a JavaScript object converting from XML text.
+         * @returns Returns a JavaScript object converting from XML text.
          */
         convert(xml: string, options?: ConvertOptions) : Object;
+
+        /**
+         * To convert XML text to JavaScript object.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param xml The xml text to be converted.
+         * @param option Option Inputted by user to set.
+         * @returns Returns a JavaScript object converting from XML text.
+         * @throws {BusinessError} 401 - if the input parameters are invalid.
+         * @throws {BusinessError} 10200002 - Invalid xml string.
+         */
+        convertToJSObject(xml: string, options?: ConvertOptions) : Object;
     }
 }
 export default xml;

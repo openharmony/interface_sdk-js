@@ -44,7 +44,7 @@ export interface SubscribeMessageResponse {
   deviceId: string;
 
   /**
-   * Name of the bundle where the peer ability locates. The name is case sensitive.
+   * Name of the bundle where the peer ability has been located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -68,7 +68,7 @@ export interface SubscribeMessageResponse {
  */
 export interface CallAbilityParam {
   /**
-   * Name of the bundle where the ability locates. The name is case sensitive and must be the same as that on the AA side.
+   * Name of the bundle where the ability has been located. The name is case sensitive and must be the same as that on the AA side.
    * @since 5
    */
   bundleName: string;
@@ -114,7 +114,7 @@ export interface CallAbilityParam {
  */
 export interface SubscribeAbilityEventParam {
   /**
-   * Name of the bundle where the ability locates. The name is case sensitive and must be the same as that on the AA side.
+   * Name of the bundle where the ability has been located. The name is case sensitive and must be the same as that on the AA side.
    * @since 5
    */
   bundleName: string;
@@ -161,7 +161,7 @@ export interface SendMessageOptions {
   deviceId: string;
 
   /**
-   * Name of the destination bundle where the ability locates. The name is case sensitive.
+   * Name of the destination bundle where the ability has been located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -295,6 +295,7 @@ export interface FinishWithResultParams {
 /**
  * @since 5
  * @deprecated since 8
+ * @useinstead ohos.ability.featureAbility.FeatureAbility
  */
 export declare class FeatureAbility {
   /**
@@ -303,6 +304,7 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result of whether to call Ability's interface successfully.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#startAbility
    */
   static startAbility(request: RequestParams): Promise<Result>;
 
@@ -312,20 +314,21 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result of the data FA returned.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#startAbilityForResult
    */
   static startAbilityForResult(request: RequestParams): Promise<Result>;
 
   /**
-   * FA call the interface to destory itself and set the result as parameters.
+   * FA call the interface to destroy itself and set the result as parameters.
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
    * @deprecated since 8
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSlefWithResult
    */
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 
   /**
-
    * Get device information list.
    * @param flag Default 0, get the information list of all devices in the network.
    * @returns A Promise object is returned, which contains the result whether the device information list is obtained successfully.
@@ -353,7 +356,7 @@ export declare class FeatureAbility {
   static continueAbility(): Promise<Result>;
 
   /**
-   * Subscribes to events of an AA.
+   * Subscribe to events of an AA.
    * @param param Indicates the request param.
    * @param func Indicates the event reporting callback.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
@@ -363,7 +366,7 @@ export declare class FeatureAbility {
   static subscribeAbilityEvent(param: SubscribeAbilityEventParam, func: Function): Promise<string>;
 
   /**
-   * Unsubscribes from events of an AA.
+   * Unsubscribe from events of an AA.
    * @param param Indicates the request param.
    * @returns A Promise object is returned, which contains the result data returned by the AA. The result is a JSON string.
    * @since 5
@@ -390,7 +393,7 @@ export declare class FeatureAbility {
   static subscribeMsg(options: SubscribeMessageOptions): void;
 
   /**
-   * Cancels the listening for messages sent from other devices.
+   * Cancel the listening for messages sent from other devices.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
    * @deprecated since 8

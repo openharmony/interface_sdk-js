@@ -26,7 +26,7 @@ export interface SubscribeMessageResponse {
   deviceId: string;
 
   /**
-   * Name of the bundle where the peer ability locates. The name is case sensitive.
+   * Name of the bundle where the peer ability has been located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -57,7 +57,7 @@ export interface SendMessageOptions {
   deviceId: string;
 
   /**
-   * Name of the destination bundle where the ability locates. The name is case sensitive.
+   * Name of the destination bundle where the ability has been located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -118,6 +118,7 @@ export interface SubscribeMessageOptions {
  * @since 5
  * @systemapi
  * @deprecated since 8
+ * @useinstead ohos.ability.featureAbility.FeatureAbility
  */
 export declare class FeatureAbility {
   /**
@@ -139,7 +140,7 @@ export declare class FeatureAbility {
   static subscribeMsg(options: SubscribeMessageOptions): void;
 
   /**
-   * Cancels the listening for messages sent from other devices.
+   * Cancel the listening for messages sent from other devices.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 5
    * @deprecated since 8

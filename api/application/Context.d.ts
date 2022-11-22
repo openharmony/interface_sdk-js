@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from "../bundle/applicationInfo";
+import { ApplicationInfo } from "../bundleManager/applicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
@@ -22,166 +22,163 @@ import ApplicationContext from "./ApplicationContext";
 /**
  * The base context of an ability or an application. It allows access to
  * application-specific resources.
- *
- * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission N/A
  * @StageModelOnly
+ * @since 9
  */
 export default class Context extends BaseContext {
     /**
      * Indicates the capability of accessing application resources.
-     *
-     * @since 9
+     * @type { resmgr.ResourceManager }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     resourceManager: resmgr.ResourceManager;
 
     /**
      * Indicates configuration information about an application.
-     *
-     * @since 9
+     * @type { ApplicationInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     applicationInfo: ApplicationInfo;
 
     /**
      * Indicates app cache dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     cacheDir: string;
 
     /**
      * Indicates app temp dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     tempDir: string;
 
     /**
      * Indicates app files dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
-    filesDir : string;
+    filesDir: string;
 
     /**
      * Indicates app database dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
-    databaseDir : string;
+    databaseDir: string;
 
     /**
      * Indicates app preferences dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
-    preferencesDir : string;
+    preferencesDir: string;
 
     /**
      * Indicates app bundle code dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
-    bundleCodeDir : string;
+    bundleCodeDir: string;
 
     /**
      * Indicates app distributed files dir.
-     *
-     * @since 9
+     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     distributedFilesDir: string;
 
     /**
      * Indicates event hub.
-     *
-     * @since 9
+     * @type { EventHub }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     eventHub: EventHub;
 
     /**
      * Indicates file area.
-     *
-     * @since 9
+     * @type { AreaMode }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @since 9
      */
     area: AreaMode;
 
     /**
      * Create a bundle context
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @param bundleName Indicates the bundle name.
-     * @return application context
      * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+     * @param { string } bundleName - Indicates the bundle name.
+     * @returns { Context } Returns the application context.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
      * @StageModelOnly
+     * @since 9
      */
     createBundleContext(bundleName: string): Context;
 
     /**
      * Create a module context
-     *
-     * @since 9
+     * @param { string } moduleName - Indicates the module name.
+     * @returns { Context } Returns the application context.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param moduleName Indicates the module name.
-     * @return application context
      * @StageModelOnly
+     * @since 9
      */
     createModuleContext(moduleName: string): Context;
 
     /**
      * Create a module context
-     *
-     * @since 9
+     * @param { string } bundleName - Indicates the bundle name.
+     * @param { string } moduleName - Indicates the module name.
+     * @returns { Context } Returns the application context.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide for inner use.
-     * @param bundleName Indicates the bundle name.
-     * @param moduleName Indicates the module name.
-     * @return application context
+     * @systemapi
      * @StageModelOnly
+     * @since 9
      */
     createModuleContext(bundleName: string, moduleName: string): Context;
 
     /**
      * Get application context
-     *
-     * @since 9
+     * @returns { ApplicationContext } Returns the application context.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return application context
      * @StageModelOnly
+     * @since 9
      */
     getApplicationContext(): ApplicationContext;
 }
 
 /**
- * File area mode
- *
- * @since 9
+ * Enum for the file area mode
+ * @enum { number }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @since 9
  */
 export enum AreaMode {
     /**

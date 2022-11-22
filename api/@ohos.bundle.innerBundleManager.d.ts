@@ -13,18 +13,19 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback } from './basic';
 import { BundleStatusCallback } from './bundle/bundleStatusCallback';
-import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
-import * as _ShortCutInfo from './bundle/shortcutInfo';
+import { LauncherAbilityInfo } from './bundle/launcherAbilityInfo';
+import { ShortcutInfo } from './bundle/shortcutInfo';
 
 /**
  * inner bundle manager.
  * @name innerBundleManager
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead ohos.bundle.launcherBundleManager
  */
 
 declare namespace innerBundleManager {
@@ -38,6 +39,8 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getLauncherAbilityInfo
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getLauncherAbilityInfos(bundleName: string, userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -49,9 +52,11 @@ declare namespace innerBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
-   * @return Returns the result or error maeeage.
+   * @return { string | Promise<string> } Returns the result of register.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#on
    */
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback, callback: AsyncCallback<string>) : void;
   function on(type:"BundleStatusChange", bundleStatusCallback : BundleStatusCallback): Promise<string>;
@@ -62,9 +67,11 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
-   * @return Returns the result or error maeeage.
+   * @return { string | Promise<string> } Returns the result of unregister.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.bundleMonitor#off
    */
   function off(type:"BundleStatusChange", callback: AsyncCallback<string>) : void;
   function off(type:"BundleStatusChange"): Promise<string>;
@@ -78,6 +85,8 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
   function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
   function getAllLauncherAbilityInfos(userId: number) : Promise<Array<LauncherAbilityInfo>>;
@@ -91,36 +100,11 @@ declare namespace innerBundleManager {
    * @return Returns the LauncherShortcutInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
+   * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager#getShortcutInfo
    */
   function getShortcutInfos(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>) : void;
   function getShortcutInfos(bundleName : string) : Promise<Array<ShortcutInfo>>;
-
-  /**
-   * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.
-   * 
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type LauncherAbilityInfo = _LauncherAbilityInfo;
-
-  /**
-   * Provides information about a shortcut, including the shortcut ID and label.
-   * 
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   */
-  export type ShortcutInfo = _ShortCutInfo.ShortcutInfo;
-
-  /**
-   * Provides methods for obtaining information about the ability that a shortcut will start, including the target
-   * bundle name, target module name and ability class name.
-   * 
-   * @since 9
-   * @syscap SystemCapability.BundleManager.BundleFramework
-   * @systemapi hide this for inner system use
-   */
-  export type ShortcutWant = _ShortCutInfo.ShortcutWant;
 }
 
 export default innerBundleManager;

@@ -15,14 +15,14 @@
 
 import { AbilityInfo } from './abilityInfo';
 import { ApplicationInfo } from './applicationInfo';
-import { ExtensionAbilityInfo } from './extensionAbilityInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
  * @name The scene which is used
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.UsedScene
  *
  */
 export interface UsedScene {
@@ -45,8 +45,8 @@ export interface UsedScene {
  * @name Indicates the required permissions details defined in file config.json
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.ReqPermissionDetail
  */
 export interface ReqPermissionDetail {
   /**
@@ -64,13 +64,6 @@ export interface ReqPermissionDetail {
   reason: string;
 
   /**
-    * @default Indicates the reason id of this required permissions
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  reasonId: number;
-
-  /**
     * @default Indicates the used scene of this required permissions
     * @since 7
     * @syscap SystemCapability.BundleManager.BundleFramework
@@ -82,8 +75,8 @@ export interface ReqPermissionDetail {
  * @name Obtains configuration information about a bundle
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
- *
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.BundleInfo
  */
 export interface BundleInfo {
   /**
@@ -249,11 +242,4 @@ export interface BundleInfo {
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly reqPermissionStates: Array<number>;
-
-  /**
-    * @default Obtains configuration information about an ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly extensionAbilityInfo: Array<ExtensionAbilityInfo>;
 }

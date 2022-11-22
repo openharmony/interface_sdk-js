@@ -131,29 +131,70 @@ declare namespace call {
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
   /**
-   * @systemapi Hide this for inner system use.
+   * Answers the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to answer.
    * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
    * @since 7
    */
   function answer(callId: number, callback: AsyncCallback<void>): void;
-  function answer(callId: number): Promise<void>;
+  function answer(callId?: number): Promise<void>;
 
   /**
+   * Answers the incoming call without callId.
+   *
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function answer(callback: AsyncCallback<void>): void;
+
+  /**
+   * Hangups the foreground call.
+   *
+   * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function hangup(callId: number, callback: AsyncCallback<void>): void;
-  function hangup(callId: number): Promise<void>;
+  function hangup(callId?: number): Promise<void>;
 
   /**
+   * Hangups the foreground call without callId.
+   *
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function hangup(callback: AsyncCallback<void>): void;
+
+  /**
+   * Rejects the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function reject(callId: number, callback: AsyncCallback<void>): void;
   function reject(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
-  function reject(callId: number, options?: RejectMessageOptions): Promise<void>;
+  function reject(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
+   * Rejects the incoming call without callId.
+   *
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function reject(callback: AsyncCallback<void>): void;
+  function reject(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -161,6 +202,7 @@ declare namespace call {
   function holdCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -168,6 +210,7 @@ declare namespace call {
   function unHoldCall(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -203,6 +246,7 @@ declare namespace call {
   function getCallIdListForConference(callId: number): Promise<Array<string>>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -210,6 +254,7 @@ declare namespace call {
   function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -239,40 +284,82 @@ declare namespace call {
   function isInEmergencyCall(): Promise<boolean>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 7
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
+
+  /**
+   * Observe the result of MMI code
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of MMI code.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
+
+  /**
+   * Unobserve the result of MMI code
+   *
+   * @param type Indicates the observer type.
+   * @param callback Return the result of MMI code.
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -289,6 +376,7 @@ declare namespace call {
   function separateConference(callId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -296,6 +384,7 @@ declare namespace call {
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -303,6 +392,7 @@ declare namespace call {
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
   /**
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -310,6 +400,7 @@ declare namespace call {
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -339,11 +430,26 @@ declare namespace call {
   function cancelMuted(): Promise<void>;
 
   /**
+   * Set the audio device
+   *
+   * @param device Indicates the device of audio.
+   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
-  function setAudioDevice(device: AudioDevice): Promise<void>;
+
+  /**
+   * Set the audio device with options.
+   *
+   * @param device Indicates the device of audio.
+   * @param options Indicates additional information, such as address of bluetooth.
+   * @param callback Returns {@code true} if the request is successful; returns {@code false} otherwise.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  function setAudioDevice(device: AudioDevice, options: AudioDeviceOptions, callback: AsyncCallback<void>): void;
+  function setAudioDevice(device: AudioDevice, options?: AudioDeviceOptions): Promise<void>;
 
   /**
    * @systemapi Hide this for inner system use.
@@ -360,6 +466,7 @@ declare namespace call {
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -367,6 +474,7 @@ declare namespace call {
   function enableImsSwitch(slotId: number): Promise<void>;
 
   /**
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -397,10 +505,11 @@ declare namespace call {
    * @since 8
    */
   export enum AudioDevice {
-    DEVICE_MIC,
+    DEVICE_EARPIECE,
     DEVICE_SPEAKER,
     DEVICE_WIRED_HEADSET,
-    DEVICE_BLUETOOTH_SCO
+    DEVICE_BLUETOOTH_SCO,
+    DEVICE_MIC,
   }
 
   /**
@@ -676,6 +785,36 @@ declare namespace call {
    */
   export interface NumberFormatOptions {
     countryCode?: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface AudioDeviceOptions {
+    bluetoothAddress?: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export interface MmiCodeResults {
+    /** Indicates the result of MMI code. */
+    result: MmiCodeResult;
+    /** Indicates the message of MMI code. */
+    message: string;
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum MmiCodeResult {
+    /** Indicates the result of MMI code with successfully. */
+    MMI_CODE_SUCCESS = 0,
+    /** Indicates the result of MMI code with failed. */
+    MMI_CODE_FAILED = 1
   }
 
   /**

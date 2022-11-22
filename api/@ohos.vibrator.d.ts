@@ -20,14 +20,6 @@ import { AsyncCallback } from './basic';
  * @since 8
  * @syscap SystemCapability.Sensors.MiscDevice
  * @import import vibrator from '@ohos.vibrator'
- * @permission ohos.permission.VIBRATE
- */
-/**
- * This module provides the capability to control motor vibration.
- *
- * @since 9
- * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@ohos.vibrator'
  */
 declare namespace vibrator {
     /**
@@ -36,6 +28,8 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.vibrator.startVibration
      */
     function vibrate(duration: number, callback?: AsyncCallback<void>): void;
     function vibrate(duration: number): Promise<void>;
@@ -46,9 +40,41 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.vibrator.startVibration
      */
     function vibrate(effectId: EffectId): Promise<void>;
     function vibrate(effectId: EffectId, callback?: AsyncCallback<void>): void;
+
+    /**
+     * Trigger vibrator vibration.
+     * @param { VibrateEffect } effect - Indicate vibrate effect, {@code VibrateEffect}.
+     * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
+     * @param { AsyncCallback<void> } callback - The callback of startVibration.
+     * @returns {void | Promise<void>} no callback return Promise otherwise return void.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14600101 - Device operation failed.
+     * @permission ohos.permission.VIBRATE
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
+    function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
+
+    /**
+     * Stop the vibrator from vibrating.
+     * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+     * @param { AsyncCallback<void> } callback - The callback of stopVibration.
+     * @returns { void | Promise<void> } no callback return Promise otherwise return void.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
+    function stopVibration(stopMode: VibratorStopMode): Promise<void>;
+    function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
     /**
      * Stop the motor from vibrating.
@@ -56,6 +82,8 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @permission ohos.permission.VIBRATE
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.vibrator.stopVibration
      */
     function stop(stopMode: VibratorStopMode): Promise<void>;
     function stop(stopMode: VibratorStopMode, callback?: AsyncCallback<void>): void;
@@ -80,6 +108,52 @@ declare namespace vibrator {
         VIBRATOR_STOP_MODE_TIME = "time",
         /* Indicates the mode of stopping a preset vibration effect.*/
         VIBRATOR_STOP_MODE_PRESET = "preset",
+    }
+
+    /**
+     * The use of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    type Usage = "unknown" | "alarm" | "ring" | "notification" | "communication" |
+        "touch" | "media" | "physicalFeedback" | "simulateReality";
+
+    /**
+     * The attribute of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateAttribute {
+        id?: number, /** Vibrator id, default is 0. */
+        usage: Usage, /** The use of vibration. */
+    }
+
+    /**
+     * Describes the effect of vibration.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+     type VibrateEffect = VibrateTime | VibratePreset;
+
+    /**
+     * Specifies the duration of the vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibrateTime {
+        type: "time";
+        duration: number; /** The duration of the vibration, in ms */
+    }
+
+    /**
+     * Preset vibration type vibration effect.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
+    interface VibratePreset {
+        type: "preset";
+        effectId: string; /** Preset type vibration */
+        count: number; /** The number of vibration repetitions */
     }
 }
 

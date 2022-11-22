@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Want from '../@ohos.application.want';
+import Want from '../@ohos.application.Want';
 
 /**
  * Provides the information required for triggering a WantAgent.

@@ -15,6 +15,7 @@
 
 /**
  * Defines the animator options.
+ * @interface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
@@ -22,6 +23,7 @@ export interface AnimatorOptions {
   /**
    * Duration of the animation, in milliseconds.
    * The default value is 0.
+   * @type {number}
    * @since 6
    */
   duration: number;
@@ -44,6 +46,7 @@ export interface AnimatorOptions {
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
    * The default value is ease.
+   * @type {string}
    * @since 6
    */
   easing: string;
@@ -51,6 +54,7 @@ export interface AnimatorOptions {
   /**
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
+   * @type {number}
    * @since 6
    */
   delay: number;
@@ -59,6 +63,7 @@ export interface AnimatorOptions {
    * Whether to resume to the initial state after the animation is executed.
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
+   * @type {string}
    * @since 6
    */
   fill: "none" | "forwards" | "backwards" | "both";
@@ -66,6 +71,7 @@ export interface AnimatorOptions {
   /**
    * The animation playback mode.
    * The default value is "normal".
+   * @type {string}
    * @since 6
    */
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
@@ -73,6 +79,7 @@ export interface AnimatorOptions {
   /**
    * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
    * The default value is 1.
+   * @type {number}
    * @since 6
    */
   iterations: number;
@@ -80,6 +87,7 @@ export interface AnimatorOptions {
   /**
    * Starting point of animator interpolation.
    * The default value is 0.
+   * @type {number}
    * @since 6
    */
   begin: number;
@@ -87,6 +95,7 @@ export interface AnimatorOptions {
   /**
    * Ending point of Dynamic Interpolation
    * The default value is 1.
+   * @type {number}
    * @since 6
    */
   end: number;
@@ -94,59 +103,81 @@ export interface AnimatorOptions {
 
 /**
  * Defines the Animator result interface.
+ * @interface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
 export interface AnimatorResult {
   /**
    * Update the options for current animator.
-   * @param options Options.
+   * @param { AnimatorOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.animator.reset
    */
   update(options: AnimatorOptions): void;
   /**
+   * Reset the options for current animator.
+   * @param { AnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - if the type of the parameter 1 is not object.
+   * @throws { BusinessError } 100001 - if no page is found for pageId or fail to get object property list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  reset(options: AnimatorOptions): void;
+  /**
    * Starts the animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   play(): void;
   /**
    * Ends the animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   finish(): void;
   /**
    * Pauses the animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   pause(): void;
   /**
    * Cancels the animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   cancel(): void;
   /**
    * Plays the animation in reverse direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   reverse(): void;
   /**
    * Trigger when vsync callback.
-   * @param progress The current progress of animtion
+   * @param { number } progress - The current progress of animtion
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   onframe: (progress: number) => void;
   /**
    * The animation is finished.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   onfinish: () => void;
   /**
    * The animation is canceled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   oncancel: () => void;
   /**
    * The animation is repeated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   onrepeat: () => void;
@@ -160,9 +191,20 @@ export interface AnimatorResult {
  */
 export default class Animator {
   /**
-   * Create an animator object for custum animation.
-   * @param options Options.
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
+   * @deprecated since 9
+   * @useinstead ohos.animator.create
    */
   static createAnimator(options: AnimatorOptions): AnimatorResult;
+  /**
+   * Create an animator object for custom animation.
+   * @param { AnimatorOptions } options - Options.
+   * @throws { BusinessError } 401 - if parameter error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+   static create(options: AnimatorOptions): AnimatorResult;
 }

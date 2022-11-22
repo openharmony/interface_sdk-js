@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { Context } from './application/Context';
+import Context from './application/Context';
 import image from './@ohos.multimedia.image';
 
 /**
@@ -156,7 +156,7 @@ declare namespace mediaLibrary {
      */
     readonly mimeType: string;
     /**
-     * Media type, for example, IMAGE, VIDEO, FILE, AUDIO 
+     * Media type, for example, IMAGE, VIDEO, FILE, AUDIO
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      */
@@ -683,7 +683,7 @@ declare namespace mediaLibrary {
     getPositionObject(index: number): Promise<FileAsset>;
      /**
      * Obtains all FileAssets in the file retrieval result.
-     * This method uses a callback to return the result. After this method is called, 
+     * This method uses a callback to return the result. After this method is called,
      * close() is automatically called to release the FetchFileResult instance and invalidate it.
      * In this case, other methods cannot be called.
      * @since 7
@@ -1099,7 +1099,7 @@ declare namespace mediaLibrary {
      */
     height: number;
   }
-  
+
   /**
    * peer devices' information
    * @syscap SystemCapability.Multimedia.MediaLibrary.DistributedCore

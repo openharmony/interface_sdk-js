@@ -17,6 +17,11 @@ const path = require("path");
 const fs = require("fs");
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const { checkAPIDecorators } = require("./check_decorator");
+const { checkSpelling } = require("./check_spelling");
+const { checkAPINameOfHump } = require("./check_hump");
+const { checkPermission } = require("./check_permission");
+const { checkSyscap } = require('./check_syscap');
+const { checkDeprecated } = require('./check_deprecated');
 const { hasAPINote } = require("./utils");
 let result = require("../check_result.json");
 
@@ -29,7 +34,7 @@ function checkAPICodeStyle(url) {
 
 function getMdFiles(url) {
   const content = fs.readFileSync(url, "utf-8");
-  const mdFiles = content.split("\r\n");
+  const mdFiles = content.split(/[(\r\n)\r\n]+/);
   return mdFiles;
 }
 
@@ -59,16 +64,33 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  // 校验装饰器
+  if (!ts.isImportDeclaration) {
+
+  }
   if (hasAPINote(node)) {
+    // check decorator
     checkAPIDecorators(node, sourcefile, fileName);
+    // check apiNote spelling
+    checkSpelling(node, sourcefile, fileName);
+    // check syscap
+    // checkSyscap(node, sourcefile, fileName);
+    // check deprecated
+    checkDeprecated(node, sourcefile, fileName);
+    // check permission
+    checkPermission(node, sourcefile, fileName);
+  }
+  if (ts.isIdentifier(node)) {
+    // check variable spelling
+    checkSpelling(node, sourcefile, fileName);
+    // check hump naming
+    checkAPINameOfHump(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
 function scanEntry(url) {
-  // 入口
+  // scan entry
   checkAPICodeStyle(url);
-  return JSON.stringify(result.scanResult);
+  return result.scanResult;
 }
 exports.scanEntry = scanEntry;

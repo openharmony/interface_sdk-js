@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import formBindingData from './@ohos.application.formBindingData';
+import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from "./@ohos.application.formInfo";
 import FormExtensionContext from "./application/FormExtensionContext";
 import Want from './@ohos.application.Want';
@@ -25,6 +25,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @since 9
  * @syscap SystemCapability.Ability.Form
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.form.FormExtensionAbility
  */
 export default class FormExtension {
     /**
@@ -78,9 +80,9 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param newStatus Indicates the form events occurred. The key in the {@code Map} object indicates the form ID,
-     *    and the value indicates the event type, which can be either {@link formManager#VisibilityType#FORM_VISIBLE}
-     *    or {@link formManager#VisibilityType#FORM_INVISIBLE}. {@link formManager#VisibilityType#FORM_VISIBLE}
-     *    means that the form becomes visible, and {@link formManager#VisibilityType#FORM_INVISIBLE}
+     *    and the value indicates the event type, which can be either {@link formInfo#VisibilityType#FORM_VISIBLE}
+     *    or {@link formInfo#VisibilityType#FORM_INVISIBLE}. {@link formInfo#VisibilityType#FORM_VISIBLE}
+     *    means that the form becomes visible, and {@link formInfo#VisibilityType#FORM_INVISIBLE}
      *    means that the form becomes invisible.
      * @return -
      * @StageModelOnly

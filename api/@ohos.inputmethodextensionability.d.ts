@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
+import rpc from "./@ohos.rpc";
 import Want from './@ohos.application.Want';
-
 import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
 
 /**
@@ -22,15 +22,12 @@ import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
  *
  * @since 9
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @StageModelOnly
  */
 export default class InputMethodExtensionAbility {
     /**
      * Indicates input method extension ability context.
-     *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @StageModelOnly
      */
     context: InputMethodExtensionContext;
 
@@ -41,7 +38,7 @@ export default class InputMethodExtensionAbility {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @param want Indicates the want of created service extension.
      * @return -
-     * @StageModelOnly
+     * @throws {BusinessError} 401 - parameter error.
      */
     onCreate(want: Want): void;
 
@@ -51,8 +48,7 @@ export default class InputMethodExtensionAbility {
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @return -
-     * @StageModelOnly
+     * @throws {BusinessError} 401 - parameter error.
      */
     onDestroy(): void;
-
 }

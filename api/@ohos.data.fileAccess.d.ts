@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback, Callback } from "./basic";
-import { Want } from './ability/want';
+import Want  from './@ohos.application.Want';
 import Context from './application/Context';
-import Fliter from '@ohos.fileio'
+import { Filter } from './@ohos.fileio';
 
 /**
  * This module provides the capability to access user public files.
@@ -31,24 +31,23 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @return Returns the wants.
      */
     function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
     function getFileAccessAbilityInfo(): Promise<Array<Want>>;
-	
+
     /**
      * Obtains the fileAccessHelper that connects all fileaccess servers in the system.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
      * @return Returns the fileAccessHelper.
      */
-    function createFileAccessHelper(context: Context, callback: AsyncCallback<FileAccessHelper>): void;
-    function createFileAccessHelper(context: Context): Promise<FileAccessHelper>;
+    function createFileAccessHelper(context: Context): FileAccessHelper;
 
     /**
      * Obtains the fileAccessHelper that connects some specified fileaccess servers in the system.
@@ -56,14 +55,13 @@ declare namespace fileAccess {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
      * @systemapi
-     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
      * @param want Represents the connected data provider.
      * @return Returns the fileAccessHelper.
      */
-    function createFileAccessHelper(context: Context, Array<Want>, callback: AsyncCallback<FileAccessHelper>): void;
-    function createFileAccessHelper(context: Context, Array<Want>): Promise<FileAccessHelper>;
-	
+    function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
+
     /**
      * File Object
      * @since 9
@@ -71,17 +69,70 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @systemapi
      * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param uri Indicates the path of the file.
+     * @param fileName Indicates the name of the file.
+     * @param mode Indicates the mode of the file.
+     * @param size Indicates the size of the file.
+     * @param mtime Indicates the mtime of the file.
+     * @param mimeType Indicates the mimeType of the file.
      */
     interface FileInfo {
+        /**
+         * @type {string}
+         * @readonly
+         */
         uri: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
         fileName: string;
+        /**
+         * @type {number}
+         * @readonly
+         */
         mode: number;
+        /**
+         * @type {number}
+         * @readonly
+         */
         size: number;
+        /**
+         * @type {number}
+         * @readonly
+         */
         mtime: number;
-        mimetype: string;
-        listFile(fliter?: Fliter): FileIterator;
+        /**
+         * @type {string}
+         * @readonly
+         */
+        mimeType: string;
+
+        /**
+         * List files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the FileIterator Object.
+         */
+        listFile(filter?: Filter): FileIterator;
+
+        /**
+         * Recursively list all files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the FileIterator Object.
+         */
+        scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * FileIterator Object
      * @since 9
@@ -103,13 +154,52 @@ declare namespace fileAccess {
      * @permission ohos.permission.FILE_ACCESS_MANAGER
      */
     interface RootInfo {
+        /**
+         * @type {number}
+         * @readonly
+         */
         deviceType: number;
+        /**
+         * @type {string}
+         * @readonly
+         */
         uri: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
         displayName: string;
+        /**
+         * @type {number}
+         * @readonly
+         */
         deviceFlags: number;
-        listFile(fliter?: Fliter): FileIterator;
+
+        /**
+         * List files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the RootIterator Object.
+         */
+        listFile(filter?: Filter): FileIterator;
+
+        /**
+         * Recursively list all files in the current directory.
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param filter Indicates the filter of file.
+         * @return Returns the RootIterator Object.
+         */
+        scanFile(filter?: Filter): FileIterator;
     }
-	
+
     /**
      * RootIterator Object
      * @since 9
@@ -127,6 +217,7 @@ declare namespace fileAccess {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      * @StageModelOnly
+     * @systemapi
      */
     enum OPENFLAGS {
         /** file is openFile only_read */
@@ -154,7 +245,7 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the path of the file to open. 
+         * @param uri Indicates the path of the file to open.
          * @param flags Indicate options of opening a file. The default value is read-only.
          * @return Returns the file descriptor.
          */
@@ -216,8 +307,8 @@ declare namespace fileAccess {
          * @param destFile Represents the destonation folder.
          * @return Returns the generated new file or directory.
          */
-        move(sourceFile: FileInfo, destFile: FileInfo) : Promise<FileInfo>;
-        move(sourceFile: FileInfo, destFile: FileInfo, callback: AsyncCallback<FileInfo>) : void;
+        move(sourceFile: string, destFile: string) : Promise<string>;
+        move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
 
         /**
          * Rename the selected file or directory.

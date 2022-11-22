@@ -507,6 +507,7 @@ declare enum Edge {
   /**
    * Center horizontal and vertical.
    * @since 7
+   * @deprecated since 9
    */
   Center,
 
@@ -519,6 +520,7 @@ declare enum Edge {
   /**
    * Cross axis direction text baseline alignment.
    * @since 7
+   * @deprecated since 9
    */
   Baseline,
 
@@ -531,6 +533,7 @@ declare enum Edge {
   /**
    * Middle
    * @since 7
+   * @deprecated since 9
    */
   Middle,
 
@@ -1475,7 +1478,7 @@ declare enum CopyOptions {
  * Defines the hit test mode.
  * @since 9
  */
- declare enum HitTestMode {
+declare enum HitTestMode {
   /**
    * Both self and children nodes respond to the hit test for touch events,
    * but block hit test of the other nodes which is masked by this node.
@@ -1503,4 +1506,22 @@ declare enum CopyOptions {
    * @since 9
    */
   None,
+}
+
+/**
+ * Title height.
+ * @since 9
+ */
+declare enum TitleHeight {
+  /**
+   * Title height when only main title is avaliable.
+   * @since 9
+   */
+  MainOnly,
+
+  /**
+   * Title height when main title and subtitle are both avaliable.
+   * @since 9
+   */
+  MainWithSub,
 }

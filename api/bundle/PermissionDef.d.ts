@@ -17,8 +17,9 @@
  * @name Indicates the defined permission details in file config.json
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.PermissionDef
  */
  export interface PermissionDef {
   /**

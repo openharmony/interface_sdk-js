@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/**
+ * @deprecated since 9
+ * @useinstead ohos.usbV9
+ */
 declare namespace usb {
     /**
      * Obtains the USB device list.

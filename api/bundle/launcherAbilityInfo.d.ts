@@ -23,17 +23,15 @@ import { ElementName } from './elementName'
  * @name Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
- *
- * @permission N/A
  * @systemapi Hide this for inner system use
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**
    * @name Obtains application info information about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -41,8 +39,6 @@ export interface LauncherAbilityInfo {
    * @name Obtains element name about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly elementName : ElementName;
 
@@ -50,8 +46,6 @@ export interface LauncherAbilityInfo {
    * @name Obtains labelId about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly labelId: number;
 
@@ -59,8 +53,6 @@ export interface LauncherAbilityInfo {
    * @name Obtains iconId about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly iconId: number;
 
@@ -68,8 +60,6 @@ export interface LauncherAbilityInfo {
    * @name Obtains userId about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly userId: number;
 
@@ -77,8 +67,6 @@ export interface LauncherAbilityInfo {
    * @name Obtains installTime about an launcher ability.
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @permission NA
-   *
    */
   readonly installTime : number;
 }

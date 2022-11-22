@@ -29,6 +29,9 @@ import sim from "./@ohos.telephony.sim";
 declare namespace observer {
   type NetworkState = radio.NetworkState;
   type SignalInformation = radio.SignalInformation;
+  /**
+   * @systemapi Hide this for inner system use.
+   */
   type CellInformation = radio.CellInformation;
   type DataConnectState = data.DataConnectState;
   type RatType = radio.RadioTechnology;

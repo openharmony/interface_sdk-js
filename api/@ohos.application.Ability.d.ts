@@ -29,6 +29,8 @@ import rpc from './@ohos.rpc';
  * @param msg Monitor status notification information.
  * @return -
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface OnReleaseCallBack {
     (msg: string): void;
@@ -43,6 +45,8 @@ export interface OnReleaseCallBack {
  * @param indata Notification data notified from the caller.
  * @return rpc.Sequenceable
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface CalleeCallBack {
     (indata: rpc.MessageParcel): rpc.Sequenceable;
@@ -55,6 +59,8 @@ export interface CalleeCallBack {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface Caller {
      /**
@@ -110,6 +116,8 @@ export interface Caller {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.UIAbility
  */
 export interface Callee {
 
@@ -144,6 +152,8 @@ export interface Callee {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.UIAbility
  */
 export default class Ability {
     /**
@@ -314,4 +324,16 @@ export default class Ability {
      * @StageModelOnly
      */
      onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
+
+    /**
+     * Called back when an ability prepares to save.
+     *
+     * @since 9
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @param reason state type when save.
+     * @param wantParam Indicates the want parameter.
+     * @return 0 if ability agrees to save data successfully, otherwise errcode.
+     * @StageModelOnly
+    */
+    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;
 }

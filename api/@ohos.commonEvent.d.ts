@@ -20,11 +20,13 @@ import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo
 import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * Common event defination
+ * Common event definition
  * @name commonEvent
  * @since 7
  * @syscap SystemCapability.Notification.CommonEvent
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead ohos.commonEventManager
  */
 declare namespace commonEvent {
   /**
@@ -34,6 +36,8 @@ declare namespace commonEvent {
    * @param event name of the common event.
    * @param callback Specified callback method.
    * @return -
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.publish
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -45,6 +49,8 @@ declare namespace commonEvent {
    * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
    * @return -
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.publish
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -58,6 +64,8 @@ declare namespace commonEvent {
    * @return -
    *
    * @systemapi Hide this for inner system use.
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.publishAsUser
    */
    function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -72,6 +80,8 @@ declare namespace commonEvent {
    * @return -
    *
    * @systemapi Hide this for inner system use.
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.publishAsUser
    */
   function publishAsUser(event: string, userId: number, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -82,6 +92,8 @@ declare namespace commonEvent {
    * @param subscribeInfo Indicates the information of the subscriber.
    * @param callback Specified callback method.
    * @return -
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void;
 
@@ -91,6 +103,8 @@ declare namespace commonEvent {
    * @since 7
    * @param subscribeInfo Indicates the information of the subscriber.
    * @return Returns common event subscriber object
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.createSubscriber
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
@@ -101,6 +115,8 @@ declare namespace commonEvent {
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
    * @return -
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.subscribe
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
@@ -111,6 +127,8 @@ declare namespace commonEvent {
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
    * @return -
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.unsubscribe
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -119,159 +137,161 @@ declare namespace commonEvent {
    * @name Support
    * @since 7
    * @permission N/A
+   * @deprecated since 9
+   * @useinstead ohos.commonEventManager.Support
    */
   export enum Support {
     /**
-     * this commonEvent means when the device is booted or system upgrade completed, and only be sent by system.
+     * This commonEvent means when the device is booted or system upgrade completed, and only be sent by system.
      */
     COMMON_EVENT_BOOT_COMPLETED = "usual.event.BOOT_COMPLETED",
 
     /**
-     * this commonEvent means when the device finnish booting, but still in the locked state.
+     * This commonEvent means when the device finnish booting, but still in the locked state.
      */
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = "usual.event.LOCKED_BOOT_COMPLETED",
 
     /**
-     * this commonEvent means when the device is shutting down, note: turn off, not sleeping.
+     * This commonEvent means when the device is shutting down, note: turn off, not sleeping.
      */
     COMMON_EVENT_SHUTDOWN = "usual.event.SHUTDOWN",
 
     /**
-     * this commonEvent means when the charging state, level and so on about the battery.
+     * This commonEvent means when the charging state, level and so on about the battery.
      */
     COMMON_EVENT_BATTERY_CHANGED = "usual.event.BATTERY_CHANGED",
 
     /**
-     * this commonEvent means when the device in low battery state..
+     * This commonEvent means when the device in low battery state..
      */
     COMMON_EVENT_BATTERY_LOW = "usual.event.BATTERY_LOW",
 
     /**
-     * this commonEvent means when the battery level is an ok state.
+     * This commonEvent means when the battery level is an ok state.
      */
     COMMON_EVENT_BATTERY_OKAY = "usual.event.BATTERY_OKAY",
 
     /**
-     * this commonEvent means when the other power is connected to the device.
+     * This commonEvent means when the other power is connected to the device.
      */
     COMMON_EVENT_POWER_CONNECTED = "usual.event.POWER_CONNECTED",
 
     /**
-     * this commonEvent means when the other power is removed from the device.
+     * This commonEvent means when the other power is removed from the device.
      */
     COMMON_EVENT_POWER_DISCONNECTED = "usual.event.POWER_DISCONNECTED",
 
     /**
-     * this commonEvent means when the screen is turned off.
+     * This commonEvent means when the screen is turned off.
      */
     COMMON_EVENT_SCREEN_OFF = "usual.event.SCREEN_OFF",
 
     /**
-     * this commonEvent means when the device is waked up and interactive.
+     * This commonEvent means when the device is woken up and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
     /**
-     * this commonEvent means when the thermal state level change
+     * This commonEvent means when the thermal state level change
      * @since 8
      */
      COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
-     * this commonEvent means when the user is present after the device waked up.
+     * This commonEvent means when the user is present after the device woken up.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
     /**
-     * this commonEvent means when the current time is changed.
+     * This commonEvent means when the current time is changed.
      */
     COMMON_EVENT_TIME_TICK = "usual.event.TIME_TICK",
 
     /**
-     * this commonEvent means when the time is set.
+     * This commonEvent means when the time is set.
      */
     COMMON_EVENT_TIME_CHANGED = "usual.event.TIME_CHANGED",
 
     /**
-     * this commonEvent means when the current date is changed.
+     * This commonEvent means when the current date is changed.
      */
     COMMON_EVENT_DATE_CHANGED = "usual.event.DATE_CHANGED",
 
     /**
-     * this commonEvent means when the time zone is changed.
+     * This commonEvent means when the time zone is changed.
      */
     COMMON_EVENT_TIMEZONE_CHANGED = "usual.event.TIMEZONE_CHANGED",
 
     /**
-     * this commonEvent means when the dialog to dismiss.
+     * This commonEvent means when the dialog to dismiss.
      */
     COMMON_EVENT_CLOSE_SYSTEM_DIALOGS = "usual.event.CLOSE_SYSTEM_DIALOGS",
 
     /**
-     * this commonEvent means when a new application package is installed on the device.
+     * This commonEvent means when a new application package is installed on the device.
      */
     COMMON_EVENT_PACKAGE_ADDED = "usual.event.PACKAGE_ADDED",
 
     /**
-     * this commonEvent means when a new version application package is installed on the device and
+     * This commonEvent means when a new version application package is installed on the device and
      * replace the old version.the data contains the name of the package.
      */
     COMMON_EVENT_PACKAGE_REPLACED = "usual.event.PACKAGE_REPLACED",
 
     /**
-     * this commonEvent means when a new version application package is installed on the device and
+     * This commonEvent means when a new version application package is installed on the device and
      * replace the old version, it does not contain additional data and only be sent to the replaced application.
      */
     COMMON_EVENT_MY_PACKAGE_REPLACED = "usual.event.MY_PACKAGE_REPLACED",
 
     /**
-     * this commonEvent means when an existing application package is removed from the device.
+     * This commonEvent means when an existing application package is removed from the device.
      */
     COMMON_EVENT_PACKAGE_REMOVED = "usual.event.PACKAGE_REMOVED",
 
     /**
-     * this commonEvent means when an existing application package is removed from the device.
+     * This commonEvent means when an existing application package is removed from the device.
      */
     COMMON_EVENT_BUNDLE_REMOVED = "usual.event.BUNDLE_REMOVED",
 
     /**
-     * this commonEvent means when an existing application package is completely removed from the device.
+     * This commonEvent means when an existing application package is completely removed from the device.
      */
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = "usual.event.PACKAGE_FULLY_REMOVED",
 
     /**
-     * this commonEvent means when an existing application package has been changed.
+     * This commonEvent means when an existing application package has been changed.
      */
     COMMON_EVENT_PACKAGE_CHANGED = "usual.event.PACKAGE_CHANGED",
 
     /**
-     * this commonEvent means the user has restarted a package, and all of its processes have been killed.
+     * This commonEvent means the user has restarted a package, and all of its processes have been killed.
      */
     COMMON_EVENT_PACKAGE_RESTARTED = "usual.event.PACKAGE_RESTARTED",
 
     /**
-     * this commonEvent means the user has cleared the package data.
+     * This commonEvent means the user has cleared the package data.
      */
     COMMON_EVENT_PACKAGE_DATA_CLEARED = "usual.event.PACKAGE_DATA_CLEARED",
 
     /**
-     * this commonEvent means the user has cleared the package cache.
+     * This commonEvent means the user has cleared the package cache.
      * @since 9
      */
      COMMON_EVENT_PACKAGE_CACHE_CLEARED = "usual.event.PACKAGE_CACHE_CLEARED",
 
     /**
-     * this commonEvent means the packages have been suspended.
+     * This commonEvent means the packages have been suspended.
      */
     COMMON_EVENT_PACKAGES_SUSPENDED = "usual.event.PACKAGES_SUSPENDED",
 
     /**
-     * this commonEvent means the packages have been un-suspended.
+     * This commonEvent means the packages have been un-suspended.
      */
     COMMON_EVENT_PACKAGES_UNSUSPENDED = "usual.event.PACKAGES_UNSUSPENDED",
 
     /**
-     * this commonEvent Sent to a package that has been suspended by the system.
+     * This commonEvent Sent to a package that has been suspended by the system.
      */
     COMMON_EVENT_MY_PACKAGE_SUSPENDED = "usual.event.MY_PACKAGE_SUSPENDED",
 
@@ -281,23 +301,23 @@ declare namespace commonEvent {
     COMMON_EVENT_MY_PACKAGE_UNSUSPENDED = "usual.event.MY_PACKAGE_UNSUSPENDED",
 
     /**
-     * a user id has been removed from the system.
+     * A user id has been removed from the system.
      */
     COMMON_EVENT_UID_REMOVED = "usual.event.UID_REMOVED",
 
     /**
-     * the application is first launched after installed.
+     * The application is first launched after installed.
      */
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = "usual.event.PACKAGE_FIRST_LAUNCH",
 
     /**
-     * sent by system package verifier when a package need to be verified.
+     * Sent by system package verifier when a package need to be verified.
      */
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION =
         "usual.event.PACKAGE_NEEDS_VERIFICATION",
 
     /**
-     * sent by system package verifier when a package is verified.
+     * Sent by system package verifier when a package is verified.
      */
     COMMON_EVENT_PACKAGE_VERIFIED = "usual.event.PACKAGE_VERIFIED",
 
@@ -315,7 +335,7 @@ declare namespace commonEvent {
         "usual.event.EXTERNAL_APPLICATIONS_UNAVAILABLE",
 
     /**
-     * the device configuration such as orientation,locale have been changed.
+     * The device configuration such as orientation,locale have been changed.
      */
     COMMON_EVENT_CONFIGURATION_CHANGED = "usual.event.CONFIGURATION_CHANGED",
 
@@ -330,57 +350,57 @@ declare namespace commonEvent {
     COMMON_EVENT_MANAGE_PACKAGE_STORAGE = "usual.event.MANAGE_PACKAGE_STORAGE",
 
     /**
-     * sent by the smart function when the system in drive mode.
+     * Sent by the smart function when the system in drive mode.
      */
     COMMON_EVENT_DRIVE_MODE = "common.event.DRIVE_MODE",
 
     /**
-     * sent by the smart function when the system in home mode.
+     * Sent by the smart function when the system in home mode.
      */
     COMMON_EVENT_HOME_MODE = "common.event.HOME_MODE",
 
     /**
-     * sent by the smart function when the system in office mode.
+     * Sent by the smart function when the system in office mode.
      */
     COMMON_EVENT_OFFICE_MODE = "common.event.OFFICE_MODE",
 
     /**
-     * remind new user of preparing to start.
+     * Remind new user of preparing to start.
      */
     COMMON_EVENT_USER_STARTED = "usual.event.USER_STARTED",
 
     /**
-     * remind previous user of that the service has been the background.
+     * Remind previous user of that the service has been the background.
      */
     COMMON_EVENT_USER_BACKGROUND = "usual.event.USER_BACKGROUND",
 
     /**
-     * remind new user of that the service has been the foreground.
+     * Remind new user of that the service has been the foreground.
      */
     COMMON_EVENT_USER_FOREGROUND = "usual.event.USER_FOREGROUND",
 
     /**
-     * remind new user of that the service has been switched to new user.
+     * Remind new user of that the service has been switched to new user.
      */
     COMMON_EVENT_USER_SWITCHED = "usual.event.USER_SWITCHED",
 
     /**
-     * remind new user of that the service has been starting.
+     * Remind new user of that the service has been starting.
      */
     COMMON_EVENT_USER_STARTING = "usual.event.USER_STARTING",
 
     /**
-     * remind new user of that the service has been unlocked.
+     * Remind new user of that the service has been unlocked.
      */
     COMMON_EVENT_USER_UNLOCKED = "usual.event.USER_UNLOCKED",
 
     /**
-     * remind new user of that the service has been stopping.
+     * Remind new user of that the service has been stopping.
      */
     COMMON_EVENT_USER_STOPPING = "usual.event.USER_STOPPING",
 
     /**
-     * remind new user of that the service has stopped.
+     * Remind new user of that the service has stopped.
      */
     COMMON_EVENT_USER_STOPPED = "usual.event.USER_STOPPED",
 
@@ -445,7 +465,7 @@ declare namespace commonEvent {
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = "usual.event.wifi.mplink.STATE_CHANGE",
 
     /**
-     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnecting P2P.
+     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = "usual.event.wifi.p2p.CONN_STATE_CHANGE",
 
@@ -700,19 +720,19 @@ declare namespace commonEvent {
         "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
 
     /**
-     * nfc state change.
+     * Nfc state change.
      */
     COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED =
         "usual.event.nfc.action.ADAPTER_STATE_CHANGED",
 
     /**
-     * nfc field on detected.
+     * Nfc field on detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED =
         "usual.event.nfc.action.RF_FIELD_ON_DETECTED",
 
     /**
-     * nfc field off detected.
+     * Nfc field off detected.
      */
     COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED =
         "usual.event.nfc.action.RF_FIELD_OFF_DETECTED",
@@ -738,12 +758,12 @@ declare namespace commonEvent {
     COMMON_EVENT_POWER_SAVE_MODE_CHANGED = "usual.event.POWER_SAVE_MODE_CHANGED",
 
     /**
-     * user added.
+     * User added.
      */
     COMMON_EVENT_USER_ADDED = "usual.event.USER_ADDED",
 
     /**
-     * user removed.
+     * User removed.
      */
     COMMON_EVENT_USER_REMOVED = "usual.event.USER_REMOVED",
 
@@ -763,7 +783,7 @@ declare namespace commonEvent {
     COMMON_EVENT_ABILITY_UPDATED = "common.event.ABILITY_UPDATED",
 
     /**
-     * gps mode state changed.
+     * Gps mode state changed.
      */
     COMMON_EVENT_LOCATION_MODE_STATE_CHANGED =
         "usual.event.location.MODE_STATE_CHANGED",
@@ -992,7 +1012,14 @@ declare namespace commonEvent {
      * This common event can be triggered only by system.
      * @since 9
      */
-    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED"
+    COMMON_EVENT_SPN_INFO_CHANGED = "usual.event.SPN_INFO_CHANGED",
+
+    /**
+     * Indicate the result of quick fix apply.
+     * This common event can be triggered only by system.
+     * @since 9
+     */
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
   }
 }
 

@@ -25,6 +25,8 @@ import { Configuration } from './@ohos.application.Configuration';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead ohos.app.ability.AbilityStage
  */
 export default class AbilityStage {
     /**
@@ -51,7 +53,7 @@ export default class AbilityStage {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info of startd ability.
+     * @param want Indicates the want info of started ability.
      * @return The user returns an ability string ID. If the ability of this ID has been started before,
      *         do not create a new instance and pull it back to the top of the stack.
      *         Otherwise, create a new instance and start it.

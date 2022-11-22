@@ -14,6 +14,82 @@
  */
 
 /**
+ * Defines the navigation common title.
+ * @since 9
+ */
+declare interface NavigationCommonTitle {
+  /**
+   * Sets the main title.
+   * @since 9
+   */
+  main: string;
+
+  /**
+   * Sets the sub title.
+   * @since 9
+   */
+  sub: string;
+}
+
+/**
+ * Defines the navigation custom title.
+ * @since 9
+ */
+declare interface NavigationCustomTitle {
+  /**
+   * Sets the custom title builder.
+   * @since 9
+   */
+  builder: CustomBuilder;
+
+  /**
+   * Sets the custom title height.
+   * @since 9
+   */
+  height: TitleHeight | Length;
+}
+
+/**
+ * Nativation mode
+ * @since 9
+ */
+declare enum NavigationMode {
+  /**
+   * The navigation bar and the content area are displayed in stack.
+   * @since 9
+   */
+  Stack,
+  /**
+   * The navigation bar and the content area are displayed side by side.
+   * @since 9
+   */
+  Split,
+   /**
+   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * Otherwise it's displayed in stack mode.
+   * @since 9
+   */
+  Auto,
+}
+
+/**
+ * Navigation bar position
+ * @since 9
+ */
+declare enum NavBarPosition {
+  /**
+   * The navigation bar is on the Start of the container
+   * @since 9
+   */
+  Start,
+  /**
+   * The navigation bar is on the End of the container
+   * @since 9
+   */
+  End,
+}
+
+/**
  * Naivagtion title mode.
  * @since 8
  */
@@ -73,19 +149,51 @@ interface NavigationInterface {
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
+   * Sets the width of navigation bar.
+   * @since 9
+   */
+  navBarWidth(value: Length): NavigationAttribute;
+
+  /**
+   * Sets the position of navigation bar.
+   * @since 9
+   */
+  navBarPosition(value: NavBarPosition): NavigationAttribute;
+   
+  /**
+   * Sets the mode of navigation.
+   * @since 9
+   */
+  mode(value: NavigationMode): NavigationAttribute;
+   
+  /**
+   * Sets the back button icon.
+   * @since 9
+   */
+  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+   
+  /**
+   * Hide the navigation bar.
+   * @since 9
+   */
+  hideNavBar(value: boolean): NavigationAttribute;
+
+  /**
    * Navigation title
    * @since 8
    */
-  title(value: string | CustomBuilder): NavigationAttribute;
+  title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 
   /**
    * Navigation subtitle
    * @since 8
+   * @deprecated since 9
+   * @useinstead title
    */
   subTitle(value: string): NavigationAttribute;
 
   /**
-   * Hide navigation bar
+   * Hide navigation title bar
    * @since 8
    */
   hideTitleBar(value: boolean): NavigationAttribute;
@@ -125,6 +233,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 8
    */
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
+
+  /**
+   * Trigger callback when the visibility of navigation bar change.
+   * @since 9
+   */
+  onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 }
 
 declare const Navigation: NavigationInterface;

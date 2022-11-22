@@ -41,30 +41,13 @@ declare namespace faceAuth {
          *
          * @since 9
          * @param surfaceId Indicates surface id for face enroll preview.
-         * @return Operation result.
+         * @permission ohos.permission.MANAGE_USER_IDM
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 202 - The caller is not a system application.
+         * @throws { BusinessError } 12700001 - The operation is failed.
          */
-        setSurfaceId(surfaceId: string): ResultCode;
-    }
-
-    /**
-     * Indicates the enumeration of operation result code.
-     *
-     * @name ResultCode
-     * @since 9
-     * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
-     * @systemapi Hide this for inner system use.
-     */
-    enum ResultCode {
-        /**
-         * Indicates that operation is success.
-         */
-        SUCCESS = 0,
-
-        /**
-         * Indicates that operation is fail.
-         */
-        FAIL = 1,
+        setSurfaceId(surfaceId: string): void;
     }
 }
 

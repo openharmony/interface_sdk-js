@@ -17,6 +17,8 @@
  * Defines the options of ShowToast.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
+ * @deprecated since 8
+ * @useinstead ohos.prompt
  */
 export interface ShowToastOptions {
   /**

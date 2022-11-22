@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {BusinessError} from "./basic";
 
 /**
  * Provides international settings related APIs.
@@ -27,8 +28,10 @@ declare namespace i18n {
  * @param country The locale whose country or region name will be displayed.
  * @param locale The locale used to display the country or region.
  * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
- * @return Returns the country or region name localized for display on a given locale.
+ * @returns Returns the country or region name localized for display on a given locale.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getDisplayCountry
  */
 export function getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -39,113 +42,297 @@ export function getDisplayCountry(country: string, locale: string, sentenceCase?
  * @param language The locale whose language name will be displayed.
  * @param locale The locale used to display the language.
  * @param sentenceCase Specifies whether the language name is displayed in sentence case.
- * @return Returns the language name localized for display on a given locale.
+ * @returns Returns the language name localized for display on a given locale.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getDisplayLanguage
  */
 export function getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
 /**
- * Obtain all languages supported by the system.
+ * Obtains the language currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns all languages supported by the system.
+ * @returns Returns the language currently used by the system.
  * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function getSystemLanguages(): Array<string>;
-
-/**
- * Obtain all regions supported by the system in the language.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language used to get the list of regions.
- * @return Returns all regions supported by the system in the language.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function getSystemCountries(language: string): Array<string>;
-
-/**
- * Determine whether the current language or region is recommended.
- *
- * @syscap SystemCapability.Global.I18n
- * @param language The language code.
- * @param region The region code.
- * @return Returns whether the current language or region is recommended.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function isSuggested(language: string, region?: string): boolean;
-
-/**
- * Obtain the language currently used by the system.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns the language currently used by the system.
- * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemLanguage
  */
 export function getSystemLanguage(): string;
 
 /**
- * Set the language currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param language The language to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemLanguage(language: string): boolean;
-
-/**
- * Obtain the region currently used by the system.
+ * Obtains the region currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns the region currently used by the system.
+ * @returns Returns the region currently used by the system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemRegion
  */
 export function getSystemRegion(): string;
 
 /**
- * Set the region currently used by the system.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param region The region to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
- */
-export function setSystemRegion(region: string): boolean;
-
-/**
- * Obtain the locale currently used by the system.
+ * Obtains the locale currently used by the system.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns the locale currently used by the system.
+ * @returns Returns the locale currently used by the system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.getSystemLocale
  */
 export function getSystemLocale(): string;
 
 /**
- * Set the locale currently used by the system.
+ * Provides system functions.
  *
- * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
- * @param locale The locale to be used.
- * @since 7
- * @systemapi Hide this for inner system use.
+ * @since 9
  */
-export function setSystemLocale(locale: string): boolean;
+export class System {
+    /**
+     * Obtains the country or region name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param country The locale whose country or region name will be displayed.
+     * @param locale The locale used to display the country or region.
+     * @param sentenceCase Specifies whether the country or region name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns the country or region name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
+
+    /**
+     * Obtains the language name localized for display on a given locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The locale whose language name will be displayed.
+     * @param locale The locale used to display the language.
+     * @param sentenceCase Specifies whether the language name is displayed in sentence case.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns the language name localized for display on a given locale.
+     * @since 9
+     */
+    static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
+
+    /**
+     * Obtains all languages supported by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns all languages supported by the system.
+     * @since 9
+     */
+    static getSystemLanguages(): Array<string>;
+
+    /**
+     * Obtains all regions supported by the system in the language.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language used to get the list of regions.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns all countries or regions supported by the system in the language.
+     * @since 9
+     */
+    static getSystemCountries(language: string): Array<string>;
+
+    /**
+     * Determine whether the current language or region is recommended.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language code.
+     * @param region The region code.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns whether the current language or region is recommended.
+     * @since 9
+     */
+    static isSuggested(language: string, region?: string): boolean;
+
+    /**
+     * Obtains the language currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the language currently used by the system.
+     * @since 9
+     */
+    static getSystemLanguage(): string;
+
+    /**
+     * Set the language currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language The language to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemLanguage(language: string): void;
+
+    /**
+     * Obtains the region currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the region currently used by the system.
+     * @since 9
+     */
+    static getSystemRegion(): string;
+
+    /**
+     * Set the region currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param region The region to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemRegion(region: string): void;
+
+    /**
+     * Obtains the locale currently used by the system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns the locale currently used by the system.
+     * @since 9
+     */
+    static getSystemLocale(): string;
+
+    /**
+     * Set the locale currently used by the system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param locale The locale to be used.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setSystemLocale(locale: string): void;
+
+    /**
+     * Check out whether system is 24-hour system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a boolean represent whether system is 24-hour system.
+     * @since 9
+     */
+    static is24HourClock(): boolean;
+
+    /**
+     * Set 24-hour system.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param option represent the boolean to be set.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static set24HourClock(option: boolean): void;
+
+    /**
+     * Add one language to preferred language List.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param language the language to be added.
+     * @param index the position of preferred language list to be inserted. 
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static addPreferredLanguage(language: string, index?: number): void;
+
+    /**
+     * Remove one language from preferred language list.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param index the position of removed language in preferred language list.
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static removePreferredLanguage(index: number): void;
+
+    /**
+     * Access the system preferred language list.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string Array represent the preferred language list.
+     * @since 9
+     */
+    static getPreferredLanguageList(): Array<string>;
+
+    /**
+     * Get the first preferred language of system.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string represent the first preferred language of system.
+     * @since 9
+     */
+    static getFirstPreferredLanguage(): string;
+
+    /**
+     * Get the preferred language of App.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a string represent the preferred language of App.
+     * @since 9
+     */
+    static getAppPreferredLanguage(): string;
+
+    /**
+     * Set whether to use local digit.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @syscap SystemCapability.Global.I18n
+     * @param flag a boolean variable represents whether to use local digit
+     * @throws {BusinessError} 201 - the application does not have permission to call this function
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @since 9
+     * @systemapi Hide this for inner system use.
+     */
+    static setUsingLocalDigit(flag: boolean): void;
+
+     /**
+      * Get whether to use local digit.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @returns Returns a boolean represents whether to use local digit.
+      * @since 9
+      */
+    static getUsingLocalDigit(): boolean;
+}
 
 /**
  * Provides util functions.
  *
  * @syscap SystemCapability.Global.I18n
  * @since 8
+ * @deprecated since 9
+ * @useinstead I18NUitl
  */
 export interface Util {
     /**
-     * Convert from unit to to unit and format according to the locale.
+     * Convert from unit to unit and format according to the locale.
      *
      * @syscap SystemCapability.Global.I18n
      * @param fromUnit Information of the unit to be converted.
@@ -154,19 +341,42 @@ export interface Util {
      * @param locale The locale to be used.
      * @param style The style of format.
      * @since 8
+     * @deprecated since 9
+     * @useinstead I18NUtil.unitConvert
      */
     unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
+}
+
+/**
+ * Provides util functions.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+ export class I18NUtil {
+    /**
+     * Convert from unit to unit and format according to the locale.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { UnitInfo } fromUnit - Information of the unit to be converted.
+     * @param { UnitInfo } toUnit - Information about the unit to be converted to.
+     * @param { number } value - Indicates the number to be formatted.
+     * @param { string } locale - The locale to be used.
+     * @param { string } [ style ] - The style of format.
+     * @since 9
+     */
+    static unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
 
     /**
      * Get the order of year, month, day in the specified locale. Year, month, day are separated by '-'.
      * 'y' stands for year, 'L' stands for month, d stands for day.
      *
      * @syscap SystemCapability.Global.I18n
-     * @param locale Information of the locale
-     * @return Returns the string of 'y', 'L', 'd' joined by '-'.
+     * @param { string } locale - Information of the locale
+     * @returns Returns the string of 'y', 'L', 'd' joined by '-'.
      * @since 9
      */
-    getDateOrder(locale: string): string;
+    static getDateOrder(locale: string): string;
 }
 
 /**
@@ -196,8 +406,17 @@ export interface UnitInfo {
 export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
+     *
+     * @type { string } type
+     * @since 8
      */
-    type: string;
+    /**
+     * Indicates the type to format phone number.
+     *
+     * @type { string } [ type ]
+     * @since 9
+     */
+    type?: string;
 }
 
 /**
@@ -218,11 +437,11 @@ export class PhoneNumberFormat {
     constructor(country: string, options?: PhoneNumberFormatOptions);
 
     /**
-     * Judges whether phone number is valid.
+     * Judge whether phone number is valid.
      *
      * @syscap SystemCapability.Global.I18n
-     * @param number Indicates the input phone number to be judged.
-     * @return Returns a boolean indicates whether the input phone number is valid.
+     * @param number Indicates the input phone number.
+     * @returns Returns a boolean indicates whether the input phone number is valid.
      * @since 8
      */
     isValidNumber(number: string): boolean;
@@ -232,7 +451,7 @@ export class PhoneNumberFormat {
      *
      * @syscap SystemCapability.Global.I18n
      * @param number Indicates the input phone number to be formatted.
-     * @return Returns the formatted phone number.
+     * @returns Returns the formatted phone number.
      * @since 8
      */
     format(number: string): string;
@@ -243,7 +462,7 @@ export class PhoneNumberFormat {
      * @syscap SystemCapability.Global.I18n
      * @param number input phone number.
      * @param locale locale ID.
-     * @return Returns a string represents phone number's location.
+     * @returns Returns a string represents phone number's location.
      * @since 9
      */
     getLocationName(number: string, locale: string): string;
@@ -256,7 +475,7 @@ export class PhoneNumberFormat {
  * @param locale The locale used to get calendar.
  * @param type If type is not specified, get locale's default Calendar, else get the specified type of Calendar.
  *  such as buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura,
- *  japanese, persion.
+ *  japanese, persian.
  * @since 8
  */
  export function getCalendar(locale: string, type?: string): Calendar;
@@ -307,7 +526,7 @@ export class Calendar {
      * Get the timezone id of this calendar instance.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the timezone id of this calendar.
+     * @returns Returns the timezone id of this calendar.
      * @since 8
      */
     getTimeZone(): string;
@@ -316,7 +535,7 @@ export class Calendar {
      * Get the start day of a week. 1 indicates Sunday, 7 indicates Saturday.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns start day of a week.
+     * @returns Returns start day of a week.
      * @since 8
      */
     getFirstDayOfWeek(): number;
@@ -334,7 +553,7 @@ export class Calendar {
      * Get the minimal days of a week, which is needed for the first day of a year.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the minimal days of a week.
+     * @returns Returns the minimal days of a week.
      * @since 8
      */
     getMinimalDaysInFirstWeek(): number;
@@ -355,7 +574,7 @@ export class Calendar {
      * @param field Field values such as era, year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond, zone_offset, dst_offset, year_woy,
      *  dow_local, extended_year, julian_day, milliseconds_in_day, is_leap_month.
-     * @return Return the associated value.
+     * @returns Return the associated value.
      * @since 8
      */
     get(field: string): number;
@@ -365,7 +584,7 @@ export class Calendar {
      *
      * @syscap SystemCapability.Global.I18n
      * @param locale Locale used to get the localized name for this calendar.
-     * @return Returns the localized name of this calendar.
+     * @returns Returns the localized name of this calendar.
      * @since 8
      */
     getDisplayName(locale: string): string;
@@ -376,7 +595,7 @@ export class Calendar {
      *
      * @syscap SystemCapability.Global.I18n
      * @param date Date object whose attribute is desired.
-     * @return Returns whether the date is a weekend day.
+     * @returns Returns whether the date is a weekend day.
      * @since 8
      */
     isWeekend(date?: Date): boolean;
@@ -387,7 +606,7 @@ export class Calendar {
  *
  * @syscap SystemCapability.Global.I18n
  * @param locale The locale to be used.
- * @return Returns true representing the locale is an RTL locale
+ * @returns Returns true representing the locale is an RTL locale
  *
  * @since 7
  */
@@ -398,7 +617,7 @@ export function isRTL(locale: string): boolean;
  *
  * @syscap SystemCapability.Global.I18n
  * @param locale the returned BreakIterator will adapt the rule, specified by the locale, to break text.
- * @return Returns a newly constructed BreakIterator object.
+ * @returns Returns a newly constructed BreakIterator object.
  * @since 8
  */
  export function getLineInstance(locale: string): BreakIterator;
@@ -414,7 +633,7 @@ export class BreakIterator {
      * Obtains the current position of the BreakIterator instance.
      * 
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the current position of the BreakIterator instance.
+     * @returns Returns the current position of the BreakIterator instance.
      * @since 8
      */
     current(): number;
@@ -424,7 +643,7 @@ export class BreakIterator {
      * processed text.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the index of the first break point.
+     * @returns Returns the index of the first break point.
      * @since 8
      */
     first(): number;
@@ -434,26 +653,26 @@ export class BreakIterator {
      * last character of the processed text.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the index of the last break point.
+     * @returns Returns the index of the last break point.
      * @since 8
      */
     last(): number;
 
     /**
-     * Set the BreakItertor's position to the nth break point from the current break point.
+     * Set the BreakIterator's position to the nth break point from the current break point.
      *
      * @syscap SystemCapability.Global.I18n
      * @param index indicates the number of break points to advance. If index is not given, n is treated as 1.
-     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @returns Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
      * @since 8
      */
     next(index?: number): number;
 
     /**
-     * Set the BreakItertor's position to the break point preceding the current break point.
+     * Set the BreakIterator's position to the break point preceding the current break point.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @returns Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
      * @since 8
      */
     previous(): number;
@@ -471,7 +690,7 @@ export class BreakIterator {
      * Set the BreakIterator's position to the first break point following the specified offset.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
+     * @returns Returns the index of the BreakIterator after moving. If there is not enough break points, returns -1.
      * @since 8
      */
     following(offset: number): number;
@@ -480,7 +699,7 @@ export class BreakIterator {
      * Obtains the text being processed.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns the text that is processed by the BreakIterator.
+     * @returns Returns the text that is processed by the BreakIterator.
      * @since 8
      */
     getLineBreakText(): string;
@@ -492,7 +711,7 @@ export class BreakIterator {
      *
      * @syscap SystemCapability.Global.I18n
      * @param offset The offset to be checked.
-     * @return Returns true if the offset is a break point.
+     * @returns Returns true if the offset is a break point.
      * @since 8
      */
     isBoundary(offset: number): boolean;
@@ -504,7 +723,7 @@ export class BreakIterator {
  * @syscap SystemCapability.Global.I18n
  * @param locale Indicates a character string containing the locale information, including
  *               the language and optionally the script and region, for the NumberFormat object.
- * @return Returns IndexUtil object.
+ * @returns Returns IndexUtil object.
  * @since 8
  */
 export function getInstance(locale?:string): IndexUtil;
@@ -521,7 +740,7 @@ export class IndexUtil {
      * Get a list of labels for use as a UI index
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a list of labels
+     * @returns Returns a list of labels
      * @since 8
      */
     getIndexList(): Array<string>;
@@ -546,10 +765,12 @@ export class IndexUtil {
 }
 
 /**
- * Provides the API for accessing unicode character properties, sunch as whether a character is a digit.
+ * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
  *
  * @syscap SystemCapability.Global.I18n
  * @since 8
+ * @deprecated since 9
+ * @useinstead Unicode
  */
 export class Character {
     /**
@@ -557,7 +778,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a digit character
+     * @returns Returns true if the character is a digit character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isDigit
      */
     isDigit(char: string): boolean;
 
@@ -566,7 +790,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a space character
+     * @returns Returns true if the character is a space character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isSpaceChar
      */
     isSpaceChar(char: string): boolean;
 
@@ -575,7 +802,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a whitespace character
+     * @returns Returns true if the character is a whitespace character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isWhitespace
      */
     isWhitespace(char: string): boolean;
 
@@ -584,7 +814,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a RTL character
+     * @returns Returns true if the character is a RTL character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isRTL
      */
     isRTL(char: string): boolean;
 
@@ -593,7 +826,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a Ideographic character
+     * @returns Returns true if the character is a Ideographic character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isIdeograph
      */
     isIdeograph(char: string): boolean;
 
@@ -602,7 +838,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a Letter
+     * @returns Returns true if the character is a Letter
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isLetter
      */
     isLetter(char: string): boolean;
 
@@ -611,7 +850,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a LowerCase character
+     * @returns Returns true if the character is a LowerCase character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isLowerCase
      */
     isLowerCase(char: string): boolean;
 
@@ -620,7 +862,10 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns true if the character is a UpperCase character
+     * @returns Returns true if the character is a UpperCase character
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.isUpperCase
      */
     isUpperCase(char: string): boolean;
 
@@ -629,17 +874,120 @@ export class Character {
      *
      * @syscap SystemCapability.Global.I18n
      * @param char the character to be tested
-     * @return Returns the general category of the specified character.
+     * @returns Returns the general category of the specified character.
+     * @since 8
+     * @deprecated since 9
+     * @useinstead Unicode.getType
      */
     getType(char: string): string;
+}
+
+/**
+ * Provides the API for accessing unicode character properties. For example, determine whether a character is a number.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 9
+ */
+ export class Unicode {
+    /**
+     * Determines whether the specified code point is a digit character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a digit character
+     * @since 9
+     */
+    static isDigit(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a space character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a space character
+     * @since 9
+     */
+    static isSpaceChar(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a whitespace character
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a whitespace character
+     * @since 9
+     */
+    static isWhitespace(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a RTL character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a RTL character
+     * @since 9
+     */
+    static isRTL(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Ideographic character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a Ideographic character
+     * @since 9
+     */
+    static isIdeograph(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a Letter or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a Letter
+     * @since 9
+     */
+    static isLetter(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a LowerCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a LowerCase character
+     * @since 9
+     */
+    static isLowerCase(char: string): boolean;
+
+    /**
+     * Determines if the specified character is a UpperCase character or not.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns true if the character is a UpperCase character
+     * @since 9
+     */
+    static isUpperCase(char: string): boolean;
+
+    /**
+     * Get the general category value of the specified character.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param { string } char - the character to be tested
+     * @returns Returns the general category of the specified character.
+     * @since 9
+     */
+    static getType(char: string): string;
 }
 
 /**
  * check out whether system is 24-hour system.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns a boolean represent whether system is 24-hour system.
+ * @returns Returns a boolean represent whether system is 24-hour system.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.is24HourClock
  */
  export function is24HourClock(): boolean;
 
@@ -649,8 +997,10 @@ export class Character {
  * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param option represent the boolean to be set.
- * @return Returns a boolean represent whether setting 24-hour system success.
+ * @returns Returns a boolean represent whether setting 24-hour system success.
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.System.set24HourClock
  */
   export function set24HourClock(option: boolean): boolean;
 
@@ -661,8 +1011,10 @@ export class Character {
  * @syscap SystemCapability.Global.I18n
  * @param language the language to be added.
  * @param index the position of preferred language list to be inserted. 
- * @return Returns a boolean represent whether language added success.
+ * @returns Returns a boolean represent whether language added success.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.addPreferredLanguage
  */
 export function addPreferredLanguage(language: string, index?: number): boolean;
 
@@ -672,8 +1024,10 @@ export function addPreferredLanguage(language: string, index?: number): boolean;
  * @permission ohos.permission.UPDATE_CONFIGURATION
  * @syscap SystemCapability.Global.I18n
  * @param index the position of removed language in preferred language list.
- * @return Returns a boolean represent whether removed success.
+ * @returns Returns a boolean represent whether removed success.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.removePreferredLanguage
  */
 export function removePreferredLanguage(index: number): boolean;
 
@@ -681,8 +1035,10 @@ export function removePreferredLanguage(index: number): boolean;
  * Access the system preferred language list.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns a string Array represent the preferred language list.
+ * @returns Returns a string Array represent the preferred language list.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.getPreferredLanguageList
  */
 export function getPreferredLanguageList(): Array<string>;
 
@@ -690,26 +1046,19 @@ export function getPreferredLanguageList(): Array<string>;
  * Get the first preferred language of system.
  *
  * @syscap SystemCapability.Global.I18n
- * @return Returns a string represent the first preferred language of system.
+ * @returns Returns a string represent the first preferred language of system.
  * @since 8
+ * @deprecated since 9
+ * @useinstead ohos.System.getFirstPreferredLanguage
  */
 export function getFirstPreferredLanguage(): string;
-
-/**
- * Get the preferred language of App.
- *
- * @syscap SystemCapability.Global.I18n
- * @return Returns a string represent the preferred language of App.
- * @since 9
- */
- export function getAppPreferredLanguage(): string;
 
 /**
  * Get the default TimeZone object or the TimeZone object corresponds to zoneID.
  * 
  * @syscap SystemCapability.Global.I18n
  * @param zoneID TimeZone ID used to create TimeZone Object.
- * @return Returns a TimeZone object corresponds to zoneID.
+ * @returns Returns a TimeZone object corresponds to zoneID.
  * @since 7
  */
 export function getTimeZone(zoneID?: string): TimeZone;
@@ -725,7 +1074,7 @@ export class TimeZone {
      * Get the id of the TimeZone object.
      * 
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a string represents the timezone id.
+     * @returns Returns a string represents the timezone id.
      * @since 7
      */
     getID(): string;
@@ -735,8 +1084,8 @@ export class TimeZone {
      * 
      * @syscap SystemCapability.Global.I18n
      * @param locale the locale tag use to display timezone object's name.
-     * @param isDST wether conside daylight saving time when display timezone object's name.
-     * @return Returns a string represents the display name.
+     * @param isDST wether consider daylight saving time when display timezone object's name.
+     * @returns Returns a string represents the display name.
      * @since 7
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
@@ -745,7 +1094,7 @@ export class TimeZone {
      * Get the raw offset of the TimeZone object.
      * 
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a number represents the raw offset.
+     * @returns Returns a number represents the raw offset.
      * @since 7
      */
     getRawOffset(): number;
@@ -755,7 +1104,7 @@ export class TimeZone {
      * 
      * @syscap SystemCapability.Global.I18n
      * @date Indicates a date use to compute offset.
-     * @return Returns a number represents the offset with date.
+     * @returns Returns a number represents the offset with date.
      * @since 7
      */
     getOffset(date?: number): number;
@@ -764,7 +1113,7 @@ export class TimeZone {
      * Get available TimeZone ID list.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a string array represents the available TimeZone ID list.
+     * @returns Returns a string array represents the available TimeZone ID list.
      * @since 9
      */
     static getAvailableIDs(): Array<string>;
@@ -773,7 +1122,7 @@ export class TimeZone {
       * Get available Zone City ID list.
       *
       * @syscap SystemCapability.Global.I18n
-      * @return Returns a string array represents the available Zone City ID list.
+      * @returns Returns a string array represents the available Zone City ID list.
       * @since 9
       */
     static getAvailableZoneCityIDs(): Array<string>;
@@ -784,7 +1133,7 @@ export class TimeZone {
       * @syscap SystemCapability.Global.I18n
       * @param cityID Zone City ID.
       * @param locale locale used to display city name.
-      * @return Returns a string represents the display name of City in locale.
+      * @returns Returns a string represents the display name of City in locale.
       * @since 9
       */
     static getCityDisplayName(cityID: string, locale: string): string;
@@ -794,7 +1143,7 @@ export class TimeZone {
       *
       * @syscap SystemCapability.Global.I18n
       * @param cityID Zone City ID.
-      * @return Returns a TimeZone Object from city ID.
+      * @returns Returns a TimeZone Object from city ID.
       * @since 9
       */
     static getTimezoneFromCity(cityID: string): TimeZone;
@@ -811,7 +1160,7 @@ export class Transliterator {
      * Get a string array of all available transliterator ids.
      *
      * @syscap SystemCapability.Global.I18n
-     * @return Returns a string array of all available transliterator ids.
+     * @returns Returns a string array of all available transliterator ids.
      * @since 9
      */
     static getAvailableIDs(): string[];
@@ -820,10 +1169,10 @@ export class Transliterator {
      * Get a Transliterator that is specified by id name.
      *
      * @syscap SystemCapability.Global.I18n
-     * @param id specified the type of Transliterator. id is formed by source and dest. Transliterator will tranliste
+     * @param id specified the type of Transliterator. id is formed by source and dest. Transliterator will transliterate
      *           the input string from source format to the dest format. For example, a Simplified Chinese to Latn
      *           Transliterator will transform the text written in Chinese to Latn characters.
-     * @return Returns Transliterator that is specified by id name.
+     * @returns Returns Transliterator that is specified by id name.
      * @since 9
      */
     static getInstance(id: string): Transliterator;
@@ -833,31 +1182,10 @@ export class Transliterator {
      *
      * @syscap SystemCapability.Global.I18n
      * @param id text to be transliterated.
-     * @return Returns the output text that is tranlisterated from source format to the dest format.
+     * @returns Returns the output text that is transliterated from source format to the dest format.
      * @since 9
      */
     transform(text: string): string;
 }
-
-/**
- * Set whether to use local digit.
- *
- * @permission ohos.permission.UPDATE_CONFIGURATION
- * @syscap SystemCapability.Global.I18n
- * @param flag a boolean variable represents whether to use local digit.
- * @return Returns a boolean represents whether set successful.
- * @since 9
- * @systemapi Hide this for inner system use.
- */
-export function setUsingLocalDigit(flag: boolean): boolean;
-
- /**
-  * Get whether to use local digit.
-  *
-  * @syscap SystemCapability.Global.I18n
-  * @return Returns a boolean represents whether to use local digit.
-  * @since 9
-  */
-export function getUsingLocalDigit(): boolean;
 }
 export default i18n;

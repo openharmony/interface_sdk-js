@@ -20,7 +20,6 @@ import Want from "../@ohos.application.Want";
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
- * @permission N/A
  * @systemapi hide for inner use.
  */
 export interface MissionInfo {
@@ -49,7 +48,7 @@ export interface MissionInfo {
     lockedState: boolean;
 
     /**
-     * Indicates the recent create or update time of the mission.
+     * Indicates the recent created or updated time of the mission.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -81,7 +80,7 @@ export interface MissionInfo {
     iconPath: string;
 
     /**
-     * Indicates whether the mision is continuable.
+     * Indicates whether the mission is continuable.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission

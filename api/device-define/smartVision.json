@@ -13,6 +13,9 @@
     "SystemCapability.Security.Cipher",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
-    "SystemCapability.Startup.SystemInfo"
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Cloud.AAID",
+    "SystemCapability.Cloud.OAID",
+    "SystemCapability.Cloud.VAID"
   ]
 }

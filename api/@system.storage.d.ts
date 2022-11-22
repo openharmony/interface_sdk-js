@@ -14,7 +14,6 @@
  */
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -65,7 +64,6 @@ export interface GetStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -115,7 +113,6 @@ export interface SetStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -148,7 +145,6 @@ export interface ClearStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @deprecated since 6
  * @FAModelOnly
@@ -190,7 +186,6 @@ export interface DeleteStorageOptions {
 }
 
 /**
- * @import import storage from '@system.storage';
  * @since 3
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @deprecated since 6
@@ -201,6 +196,7 @@ export default class Storage {
    * Reads the stored content.
    * @param options Options.
    * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.get
    * @FAModelOnly
    */
   static get(options: GetStorageOptions): void;
@@ -217,6 +213,7 @@ export default class Storage {
    * Clears the stored content.
    * @param options Options.
    * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.clear
    * @FAModelOnly
    */
   static clear(options?: ClearStorageOptions): void;
@@ -225,6 +222,7 @@ export default class Storage {
    * Deletes the stored content.
    * @param options Options.
    * @deprecated since 6
+   * @useinstead ohos.preferences.preferences.delete
    * @FAModelOnly
    */
   static delete(options: DeleteStorageOptions): void;

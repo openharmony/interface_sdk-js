@@ -81,8 +81,16 @@ declare class AppStorage {
   /**
    * Called when a cleanup occurs.
    * @since 7
+   * @deprecated since 9
+   * @useinstead AppStorage.Clear
    */
   static staticClear(): boolean;
+
+  /**
+   * Called when a cleanup occurs.
+   * @since 9
+   */
+  static Clear(): boolean;
 
   /**
    * Called when the data can be changed.
@@ -499,3 +507,102 @@ declare class PersistentStorage {
  * @hide
  */
 declare const appStorage: AppStorage;
+
+/**
+ * Define LocalStorage.
+ * @since 9
+ */
+ declare class LocalStorage {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor(initializingProperties?: Object);
+
+  /**
+   * Get current LocalStorage shared from stage.
+   * @StageModelOnly
+   * @since 9
+   */
+  static GetShared(): LocalStorage;
+
+  /**
+   * Return true if prooperty with given name exists
+   * @since 9
+   */
+  has(propName: string): boolean;
+
+  /**
+   * Return a Map Iterator
+   * @since 9
+   */
+  keys(): IterableIterator<string>;
+
+  /**
+   * Return number of properties
+   * @since 9
+   */
+  size(): number;
+
+  /**
+   * Return value of given property
+   * @since 9
+   */
+  get<T>(propName: string): T;
+
+  /**
+   * Set value of given property
+   * @since 9
+   */
+  set<T>(propName: string, newValue: T): boolean;
+
+  /**
+   * Add property if not property with given name
+   * @since 9
+   */
+  setOrCreate<T>(propName: string, newValue?: T): boolean;
+
+  /**
+   * Create and return a 'link' (two-way sync) to named property
+   * @since 9
+   */
+  link<T>(propName: string, linkUser?: T, subscribersName?: string): T;
+
+  /**
+   * Like link(), will create and initialize a new source property in LocalStorge if missing
+   * @since 9
+   */
+  setAndLink<T>(propName: string, defaultValue: T, linkUser?: T, subscribersName?: string): T;
+
+  /**
+   * Create and return a 'prop' (one-way sync) to named property
+   * @since 9
+   */
+  prop<T>(propName: string, propUser?: T, subscribersName?: string): T;
+
+  /**
+   * Like prop(), will create and initialize a new source property in LocalStorage if missing
+   * @since 9
+   */
+  setAndProp<T>(propName: string, defaultValue: T, propUser?: T, subscribersName?: string): T;
+  
+  /**
+   * Delete property from StorageBase
+   * @since 9
+   * @returns false if method failed
+   */
+  delete(propName: string): boolean;
+
+  /**
+   * Delete all properties from the StorageBase
+   * @since 9
+   */
+  clear(): boolean;
+}
+
+declare module "StateManagement" {
+  module "StateManagement" {
+    // @ts-ignore
+    export { LocalStorage };
+  }
+}

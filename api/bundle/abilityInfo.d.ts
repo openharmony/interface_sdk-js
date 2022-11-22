@@ -15,14 +15,14 @@
 
 import { ApplicationInfo } from './applicationInfo';
 import { CustomizeData } from './customizeData'
-import { Metadata } from './metadata'
 import bundle from './../@ohos.bundle';
 
 /**
  * @name Obtains configuration information about an ability
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
+ * @deprecated since 9
+ * @useinstead ohos.bundle.bundleManager.AbilityInfo
  */
 export interface AbilityInfo {
   /**
@@ -216,66 +216,9 @@ export interface AbilityInfo {
   readonly metaData: Array<CustomizeData>;
 
   /**
-    * @default Indicates the metadata of ability
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    * 
-    */
-  readonly metadata: Array<Metadata>;
-
-  /**
     * @default Indicates whether the ability is enabled
     * @since 8
     * @syscap SystemCapability.BundleManager.BundleFramework
     */
   readonly enabled: boolean;
-
-  /**
-    * @default Indicates which window mode is supported
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly supportWindowMode: Array<bundle.SupportWindowMode>;
-
-  /**
-    * @default Indicates maximum ratio of width over height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly maxWindowRatio: number;
-
-  /**
-    * @default Indicates minimum ratio of width over height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly minWindowRatio: number;
-
-  /**
-    * @default Indicates maximum width of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly maxWindowWidth: number;
-
-  /**
-    * @default Indicates minimum width of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly minWindowWidth: number;
-
-  /**
-    * @default Indicates maximum height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly maxWindowHeight: number;
-
-  /**
-    * @default Indicates minimum height of window under free window status.
-    * @since 9
-    * @syscap SystemCapability.BundleManager.BundleFramework
-    */
-  readonly minWindowHeight: number;
 }

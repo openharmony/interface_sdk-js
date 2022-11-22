@@ -13,12 +13,17 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic';
+/// <reference path="../component/units.d.ts" />
+
+import { AsyncCallback } from './basic';
+import { Resource } from 'GlobalResource';
 
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  * @import prompt from '@ohos.prompt';
+ * @deprecated since 9
+ * @useinstead ohos.promptAction
  */
 declare namespace prompt {
 

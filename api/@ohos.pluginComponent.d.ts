@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
-import Want from './@ohos.application.want';
+import Want from './@ohos.application.Want';
 
 /**
  * Plugin component template property.

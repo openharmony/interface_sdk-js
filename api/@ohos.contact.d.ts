@@ -39,7 +39,7 @@ declare namespace contact {
    *
    * @return Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @syscap SystemCapability.Applications.ContactsData, SystemCapability.Applications.Contacts
+   * @syscap SystemCapability.Applications.Contacts
    * @permission ohos.permission.READ_CONTACTS
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;

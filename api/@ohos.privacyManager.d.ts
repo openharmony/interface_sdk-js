@@ -13,40 +13,174 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './basic'
+import {AsyncCallback, Callback} from './basic'
+import { Permissions } from './permissions'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
  */
  declare namespace privacyManager {
     /**
-     * Add access record of sensitive permission.
+     * Adds access record of sensitive permission.
      * @param tokenID The tokenId of specified application.
      * @param permissionName The permission name to be added.
      * @param successCount Access count.
-     * @param failCount Reject account.
-     * @return Returns 0 if the method is called successfully, returns -1 otherwise.
+     * @param failCount Reject count.
+     * @returns { void | Promise<void> } No callback return Promise otherwise return void.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the count value is invalid.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number): Promise<number>;
-    function addPermissionUsedRecord(tokenID: number, permissionName: string, successCount: number, failCount: number, callback: AsyncCallback<number>): void;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number): Promise<void>;
+    function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
 
     /**
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
-     * @return Return the reponse of permission used records.
+     * @return Return the response of permission used records.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. the value of flag in request is invalid.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     function getPermissionUsedRecords(request: PermissionUsedRequest): Promise<PermissionUsedResponse>;
     function getPermissionUsedRecords(request: PermissionUsedRequest, callback: AsyncCallback<PermissionUsedResponse>): void;
 
     /**
+     * Start using sensitive permission.
+     * @param tokenID The tokenId of specified application.
+     * @param permissionName The permission name to be started.
+     * @returns { void | Promise<void> } No callback return Promise otherwise return void.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
+     * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input. It means the application specified by the tokenID has been using the specified permission.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi
+     * @since 9
+     */
+    function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+    function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop using sensitive permission.
+     * @param tokenID The tokenId of specified application.
+     * @param permissionName The permission name to be stopped.
+     * @returns { void | Promise<void> } No callback return Promise otherwise return void.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist or it does not refer to an application process.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
+     * @throws { BusinessError } 12100004 - The interface is not used with "startUsingPermission".
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi
+     * @since 9
+     */
+    function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
+    function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes to the change of active state of the specified permission.
+     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
+     * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi
+     * @since 9
+     */
+    function on(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
+
+    /**
+     * Unsubscribes to the change of active state of the specified permission.
+     * @param permissionNameLists Indicates the permission lists, which are specified.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The permissionName in list is all invalid or the list size is larger than 1024.
+     * @throws { BusinessError } 12100004 - The interface is not used with "on".
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @throws { BusinessError } 12100008 - Out of memory.
+     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @systemapi
+     * @since 9
+     */
+    function off(type: 'activeStateChange', permissionNameList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
+
+    /**
+     * Enum for permission for status.
+     * @systemapi
+     * @since 9
+     */
+     enum PermissionActiveStatus {
+        /**
+         * permission is not used yet.
+         */
+        PERM_INACTIVE = 0,
+
+        /**
+         * permission is used in front_end.
+         */
+        PERM_ACTIVE_IN_FOREGROUND = 1,
+
+        /**
+         * permission is used in back_end.
+         */
+        PERM_ACTIVE_IN_BACKGROUND = 2,
+    }
+
+    /**
+     * Indicates the response of permission active status.
+     * @systemapi
+     * @since 9
+     */
+    interface ActiveChangeResponse {
+        /**
+         * AccessTokenID
+         */
+        tokenId: number;
+
+        /**
+        * The permission name
+        */
+        permissionName: Permissions;
+    
+        /**
+        * The device id
+        */
+        deviceId: string;
+        /**
+        * The active status name
+        */
+        activeStatus: PermissionActiveStatus;
+    }
+
+    /**
      * PermissionUsageFlag.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     enum PermissionUsageFlag {
@@ -62,7 +196,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * Provides request of querying permission used records.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     interface PermissionUsedRequest {
@@ -89,7 +223,7 @@ import {AsyncCallback} from './basic'
         /**
          * The list of permision name
          */ 
-        permissionNames: Array<string>;
+        permissionNames: Array<Permissions>;
 
         /**
          * The begin time, in milliseconds
@@ -109,7 +243,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * Provides response of querying permission used records.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     interface PermissionUsedResponse {
@@ -131,7 +265,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * BundleUsedRecord.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
      interface BundleUsedRecord {
@@ -163,14 +297,14 @@ import {AsyncCallback} from './basic'
 
     /**
      * PermissionUsedRecord.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     interface PermissionUsedRecord {
         /**
         * The permission name 
         */
-        permissionName: string;
+        permissionName: Permissions;
 
         /**
          * The access counts
@@ -210,7 +344,7 @@ import {AsyncCallback} from './basic'
 
     /**
      * UsedRecordDetail.
-     * @systemapi hide this for inner system use
+     * @systemapi
      * @since 9
      */
     interface UsedRecordDetail {

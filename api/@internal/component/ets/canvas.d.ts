@@ -252,14 +252,7 @@ declare class Path2D extends CanvasPath {
  * Describes an opaque object of a template, which is created using the createPattern() method.
  * @since 8
  */
-declare interface CanvasPattern {
-  /**
-   * Adds the matrix transformation effect to the current template.
-   * @param transform transformation matrix
-   * @since 8
-   */
-  setTransform(transform?: Matrix2D): void;
-}
+declare type CanvasPattern = import('../api/@internal/full/canvaspattern').CanvasPattern;
 
 /**
  * Size information of the text
