@@ -74,6 +74,7 @@ declare namespace installer {
      * @since 9
      */
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>) : void;
+    install(hapFilePaths: Array<string>, callback: AsyncCallback<void>) : void;
 
     /**
      * Uninstall an application.
@@ -91,6 +92,7 @@ declare namespace installer {
      * @since 9
      */
     uninstall(bundleName: string, installParam: InstallParam, callback : AsyncCallback<void>) : void;
+    uninstall(bundleName: string, callback : AsyncCallback<void>) : void;
 
     /**
      * recover an application.
@@ -106,6 +108,7 @@ declare namespace installer {
      * @since 9
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
+    recover(bundleName: string, callback: AsyncCallback<void>): void;
   }
 
   /**
@@ -144,21 +147,14 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    userId: number;
-
-    /**
-     * Indicates the install flag
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 9
-     */
-    installFlag: number;
+    userId?: number;
 
     /**
      * Indicates whether the param has data
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    isKeepData: boolean;
+    isKeepData?: boolean;
 
     /**
      * Indicates the hash params
