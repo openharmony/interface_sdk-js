@@ -328,6 +328,7 @@ export interface GetOnBodyStateOptions {
    * @since 3
    */
   success: (data: OnBodyStateResponse) => void;
+
   /**
    * Called when the sensor wearing state fails to be obtained
    * @since 3
