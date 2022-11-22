@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -178,7 +178,7 @@ declare namespace bluetooth {
      *
      * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
      */
     function startBluetoothDiscovery(): boolean;
 
@@ -398,7 +398,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to connect.
          * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
 
@@ -408,7 +408,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to disconnect.
          * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
 
@@ -450,7 +450,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to connect.
          * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
 
@@ -460,7 +460,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to disconnect.
          * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
 
@@ -493,7 +493,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to connect.
          * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         connect(device: string): boolean;
@@ -504,7 +504,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to disconnect.
          * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         disconnect(device: string): boolean;
@@ -538,7 +538,7 @@ declare namespace bluetooth {
          * @param device The address of the remote device to disconnect.
          * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.USE_BLUETOOTH
+         * @permission ohos.permission.USE_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         disconnect(device: string): boolean;
@@ -567,7 +567,7 @@ declare namespace bluetooth {
          * @param enable Specifies whether to enable tethering. The value {@code true} indicates
          * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         setTethering(enable: boolean): void;
@@ -1280,13 +1280,13 @@ declare namespace bluetooth {
          * @since 7
          */
         serviceUuid?: string;
-        
+
         /**
          * Service UUID mask.
          * @since 9
          */
         serviceUuidMask?: string;
-        
+
         /**
          * Service solicitation UUID mask.
          * @since 9
@@ -1649,7 +1649,7 @@ declare namespace bluetooth {
          * @since 9
          */
         PROFILE_HID_HOST = 6,
-        
+
         /**
          * @since 9
          */
