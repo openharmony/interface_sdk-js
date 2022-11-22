@@ -231,6 +231,7 @@ declare namespace update {
          * Subscribe task update events
          *
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
@@ -240,6 +241,7 @@ declare namespace update {
          * Unsubscribe task update events
          *
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
@@ -279,6 +281,7 @@ declare namespace update {
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
@@ -291,6 +294,7 @@ declare namespace update {
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
@@ -310,6 +314,7 @@ declare namespace update {
          * Unsubscribe task update events
          *
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
