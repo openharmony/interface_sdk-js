@@ -18,7 +18,6 @@ import image from './@ohos.multimedia.image';
 /**
  * System wallpaper
  * @syscap SystemCapability.MiscServices.Wallpaper
- * @import import wallpaper from '@ohos.wallpaper';
  * @since 7
  */
 declare namespace wallpaper {
