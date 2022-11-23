@@ -53,7 +53,7 @@ declare namespace deviceManager {
 
     /**
      * @since 9
-     * The distance of dicovered device, in centimeters(cm).
+     * The distance of discovered device, in centimeter(cm).
      */
     range: number;
   }
@@ -192,7 +192,7 @@ declare namespace deviceManager {
     freq: ExchangeFreq;
 
     /**
-     *  Whether the device should be ranged  by discoverers.
+     *  Whether the device should be ranged  by discoverer.
      */
     ranging : boolean;
   }
