@@ -187,7 +187,7 @@ declare namespace commonEvent {
     COMMON_EVENT_SCREEN_OFF = "usual.event.SCREEN_OFF",
 
     /**
-     * This commonEvent means when the device is woken up and interactive.
+     * This commonEvent means when the device is awakened and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
@@ -198,7 +198,7 @@ declare namespace commonEvent {
      COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
-     * This commonEvent means when the user is present after the device woken up.
+     * This commonEvent means when the user is present after the device is awakened.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
