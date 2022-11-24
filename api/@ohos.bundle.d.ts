@@ -275,7 +275,7 @@ declare namespace bundle {
    * @param bundleName Indicates the application bundle name to be queried.
    * @param bundleFlags Indicates the application bundle flags to be queried.
    * @param options Indicates the bundle options object.
-   * @return Returns the BundleInfo object.
+   * @returns Returns the BundleInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleInfo
@@ -289,7 +289,7 @@ declare namespace bundle {
    *
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @return Returns the IBundleInstaller interface.
+   * @returns Returns the IBundleInstaller interface.
    * @permission ohos.permission.INSTALL_BUNDLE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -305,7 +305,7 @@ declare namespace bundle {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param abilityName Indicates the ability name.
-   * @return Returns the AbilityInfo object for the current ability.
+   * @returns Returns the AbilityInfo object for the current ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
@@ -322,7 +322,7 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo object
    *              that will be returned.
    * @param userId Indicates the user ID or do not pass user ID.
-   * @return Returns the ApplicationInfo object.
+   * @returns Returns the ApplicationInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getApplicationInfo
@@ -341,7 +341,7 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the AbilityInfo objects that
    *              will be returned.
    * @param userId Indicates the user ID.
-   * @return Returns a list of AbilityInfo objects.
+   * @returns Returns a list of AbilityInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#queryAbilityInfo
@@ -358,7 +358,7 @@ declare namespace bundle {
    * @param bundleFlag Indicates the flag used to specify information contained in the BundleInfo that will be
    *              returned.
    * @param userId Indicates the user id.
-   * @return Returns a list of BundleInfo objects.
+   * @returns Returns a list of BundleInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
@@ -375,7 +375,7 @@ declare namespace bundle {
    * @param bundleFlags Indicates the flag used to specify information contained in the ApplicationInfo objects
    *              that will be returned.
    * @param userId Indicates the user ID or do not pass user ID.
-   * @return Returns a list of ApplicationInfo objects.
+   * @returns Returns a list of ApplicationInfo objects.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
@@ -390,7 +390,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param uid Indicates the UID of an application.
-   * @return Returns the bundle name.
+   * @returns Returns the bundle name.
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getNameForUid
    */
@@ -406,7 +406,7 @@ declare namespace bundle {
    *                    directory of the current application.
    * @param bundleFlags Indicates the flag used to specify information contained in the BundleInfo object to be
    *              returned.
-   * @return Returns the BundleInfo object.
+   * @returns Returns the BundleInfo object.
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getBundleArchiveInfo
    */
@@ -422,7 +422,7 @@ declare namespace bundle {
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the bundle name of the application.
-   * @return Returns the Want for starting the application's main ability if any; returns null if
+   * @returns Returns the Want for starting the application's main ability if any; returns null if
    *         the given bundle does not exist or does not contain any main ability.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @deprecated since 9
@@ -484,7 +484,7 @@ declare namespace bundle {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param permissionName Indicates permission name.
-   * @return Returns permissionDef object.
+   * @returns Returns permissionDef object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
    * @deprecated since 9
@@ -501,7 +501,7 @@ declare namespace bundle {
    * @param bundleName Indicates the bundle name of the application to which the ability belongs.
    * @param abilityName Indicates the ability name.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @return Returns the label representing the label of the specified ability.
+   * @returns Returns the label representing the label of the specified ability.
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager#getAbilityLabel
    */
@@ -515,7 +515,7 @@ declare namespace bundle {
     * @syscap SystemCapability.BundleManager.BundleFramework
     * @param bundleName Indicates the bundle name of the application to which the ability belongs.
     * @param abilityName Indicates the ability name.
-    * @return Returns the PixelMap object representing the icon of the specified ability.
+    * @returns Returns the PixelMap object representing the icon of the specified ability.
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
     * @deprecated since 9
     * @useinstead ohos.bundle.bundleManager#getAbilityIcon

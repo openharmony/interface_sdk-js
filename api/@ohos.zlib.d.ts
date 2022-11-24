@@ -81,7 +81,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @param inFile Indicates the path of the file to be compressed.
    * @param outFile Indicates the path of the output compressed file.
-   * @return Returns error code.
+   * @returns Returns error code.
    * @deprecated since 9
    * @useinstead ohos.zlib#compressFile
    */
@@ -94,7 +94,7 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @param inFile Indicates the path of the file to be decompressed.
    * @param outFile Indicates the path of the decompressed file.
-   * @return Returns error code.
+   * @returns Returns error code.
    * @deprecated since 9
    * @useinstead ohos.zlib#decompressFile
    */
