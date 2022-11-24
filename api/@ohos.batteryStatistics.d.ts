@@ -138,7 +138,7 @@ declare namespace batteryStats {
         /** The type related with the power consumption info. */
         type: ConsumptionType;
 
-        /** The power consumption value(mah). */
+        /** The power consumption value(Mah). */
         power: number;
     }
 }
