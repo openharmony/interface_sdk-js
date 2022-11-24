@@ -27,7 +27,6 @@ import { BundleInstaller } from './bundle/bundleInstaller';
  * @name bundle
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager
  */
@@ -37,8 +36,6 @@ declare namespace bundle {
  * @name BundleFlag
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @import NA
- * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.BundleFlag, ohos.bundle.bundleManager.ApplicationFlag or
  *          ohos.bundle.bundleManager.AbilityFlag
@@ -77,8 +74,6 @@ declare namespace bundle {
  * @name ColorMode
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @import NA
- * @permission NA
  * @deprecated since 9
  */
   export enum ColorMode {
@@ -91,8 +86,6 @@ declare namespace bundle {
  * @name GrantStatus
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @import NA
- * @permission NA
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.PermissionGrantState
  */
@@ -105,8 +98,6 @@ declare namespace bundle {
    * @name AbilityType
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.AbilityType
    */
@@ -144,8 +135,6 @@ declare namespace bundle {
    * @name AbilitySubType
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    */
   export enum AbilitySubType {
@@ -157,8 +146,6 @@ declare namespace bundle {
    * @name DisplayOrientation
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.DisplayOrientation
    */
@@ -196,8 +183,6 @@ declare namespace bundle {
    * @name LaunchMode
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.LaunchType
    */
@@ -221,8 +206,6 @@ declare namespace bundle {
    * @name BundleOptions
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    */
   export interface BundleOptions {
@@ -238,8 +221,6 @@ declare namespace bundle {
    * @name InstallErrorCode
    * @since 7
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @import NA
-   * @permission NA
    * @deprecated since 9
    */
   export enum InstallErrorCode{

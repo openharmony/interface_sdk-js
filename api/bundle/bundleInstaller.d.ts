@@ -20,7 +20,6 @@ import bundle from './../@ohos.bundle';
  * @name Provides parameters required for installing or uninstalling an application.
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#InstallParam
@@ -58,7 +57,6 @@ export interface InstallParam {
  * @name Indicates the install or uninstall status
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  */
@@ -85,7 +83,6 @@ export interface InstallStatus {
  * @name Offers install, upgrade, and remove bundles on the devices.
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.installer#BundleInstaller

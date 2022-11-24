@@ -20,8 +20,6 @@
  * @name Contains basic Ability information, which uniquely identifies an ability
  * @since 7
  * @syscap SystemCapability.BundleManager.BundleFramework
- *
- * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ElementName
  */
