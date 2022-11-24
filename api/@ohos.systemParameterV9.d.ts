@@ -28,7 +28,7 @@ declare namespace systemParameterV9 {
      *
      * @param key Key of the system attribute.
      * @param def Default value.
-     * @return the value of the parameter.
+     * @returns the value of the parameter.
      * @throws {BusinessError} 401 - if type of key is not string or key is not specified.
      * @throws {BusinessError} 14700101 - if key is not found
      * @throws {BusinessError} 14700103 - if permission denied
@@ -76,7 +76,7 @@ declare namespace systemParameterV9 {
      * @throws {BusinessError} 14700101 - if key is not found
      * @throws {BusinessError} 14700103 - if permission denied
      * @throws {BusinessError} 14700104 - if system internal error
-     * @return Promise, which is used to obtain the result asynchronously.
+     * @returns Promise, which is used to obtain the result asynchronously.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 9
      */
@@ -116,7 +116,7 @@ declare namespace systemParameterV9 {
      *
      * @param key Key of the system attribute.
      * @param value Default value.
-     * @return Promise, which is used to obtain the result asynchronously.
+     * @returns Promise, which is used to obtain the result asynchronously.
      * @throws {BusinessError} 401 - if type of key is not string or key is not specified.
      * @throws {BusinessError} 14700102 - if value is invalid
      * @throws {BusinessError} 14700103 - if permission denied
