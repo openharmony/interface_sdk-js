@@ -22,69 +22,99 @@ import { AsyncCallback } from './basic';
  * @since 6
  */
 declare namespace userAuth {
+    /**
+     * Enum for authentication result.
+     * @enum {number}
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     * @useinstead ohos.userIAM.userAuth.ResultCode
+     */
     export enum AuthenticationResult {
         /**
          * Indicates that the device does not support authentication.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         NO_SUPPORT = -1,
 
         /**
          * Indicates that authentication is success.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         SUCCESS = 0,
 
         /**
          * Indicates the authenticator fails to identify user.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         COMPARE_FAILURE = 1,
 
         /**
          * Indicates that authentication has been canceled.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         CANCELED = 2,
 
         /**
          * Indicates that authentication has timed out.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         TIMEOUT = 3,
 
         /**
          * Indicates a failure to open the camera.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         CAMERA_FAIL = 4,
 
         /**
          * Indicates that the authentication task is busy. Wait for a few seconds and try again.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         BUSY = 5,
 
         /**
          * Indicates incorrect parameters.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         INVALID_PARAMETERS = 6,
 
         /**
          * Indicates that the authenticator is locked.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         LOCKED = 7,
 
         /**
          * Indicates that the user has not enrolled the authenticator.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         NOT_ENROLLED = 8,
 
         /**
          * Indicates other errors.
+         * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         GENERAL_ERROR = 100,
@@ -92,16 +122,25 @@ declare namespace userAuth {
 
     /**
      * Auth types
+     * @since 6
      * @deprecated since 8
      */
     type AuthType = "ALL" | "FACE_ONLY";
 
     /**
      * Secure levels
+     * @since 6
      * @deprecated since 8
      */
     type SecureLevel = "S1" | "S2" | "S3" | "S4";
 
+    /**
+     * Used to initiate authentication.
+     * @interface Authenticator
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 6
+     * @deprecated since 8
+     */
     interface Authenticator {
         /**
          * Execute authentication.
@@ -110,6 +149,7 @@ declare namespace userAuth {
          * @param level Indicates the security level.
          * @returns Returns authentication result, which is specified by AuthenticationResult.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
+         * @since 6
          * @deprecated since 8
          */
         execute(type: AuthType, level: SecureLevel, callback: AsyncCallback<number>): void;
@@ -128,6 +168,8 @@ declare namespace userAuth {
      * User authentication.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthInstance
      */
     class UserAuth {
         /**
@@ -192,6 +234,14 @@ declare namespace userAuth {
         cancelAuth(contextID : Uint8Array) : number;
     }
 
+    /**
+     * Asynchronous callback of authentication operation.
+     * @interface IUserAuthCallback
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthEvent
+     */
     interface IUserAuthCallback {
         /**
          * The authentication result code is returned through the callback.
@@ -222,22 +272,38 @@ declare namespace userAuth {
 
     /**
      * Authentication result: authentication token, remaining authentication times, freezing time.
-     * @param token Pass the authentication result if the authentication is passed.
-     * @param remainTimes Return the remaining authentication times if the authentication fails.
-     * @param freezingTime Return the freezing time if the authentication executor is locked.
+     * @typedef AuthResult
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.userIAM.userAuth.AuthResultInfo
      */
     interface AuthResult {
+        /**
+         * The authentication result if the authentication is passed.
+         * @type {Uint8Array}
+         * @since 8
+         */
         token ?: Uint8Array;
+
+        /**
+         * The remaining authentication times if the authentication fails.
+         * @type {number}
+         * @since 8
+         */
         remainTimes ?: number;
+
+        /**
+         * The freezing time if the authentication executor is locked.
+         * @type {number}
+         * @since 8
+         */
         freezingTime ?: number;
     }
 
     /**
-     * Result code.
+     * Enum for operation result.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
@@ -248,6 +314,7 @@ declare namespace userAuth {
          * Indicates that the result is success or ability is supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         SUCCESS = 0,
 
@@ -255,6 +322,7 @@ declare namespace userAuth {
          * Indicates the the result is failure or ability is not supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         FAIL = 1,
 
@@ -262,6 +330,7 @@ declare namespace userAuth {
          * Indicates other errors.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         GENERAL_ERROR = 2,
 
@@ -269,6 +338,7 @@ declare namespace userAuth {
          * Indicates that this operation has been canceled.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         CANCELED = 3,
 
@@ -276,6 +346,7 @@ declare namespace userAuth {
          * Indicates that this operation has timed out.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         TIMEOUT = 4,
 
@@ -283,6 +354,7 @@ declare namespace userAuth {
          * Indicates that this authentication type is not supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         TYPE_NOT_SUPPORT = 5,
 
@@ -290,6 +362,7 @@ declare namespace userAuth {
          * Indicates that the authentication trust level is not supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         TRUST_LEVEL_NOT_SUPPORT = 6,
 
@@ -297,6 +370,7 @@ declare namespace userAuth {
          * Indicates that the authentication task is busy. Wait for a few seconds and try again.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         BUSY = 7,
 
@@ -304,6 +378,7 @@ declare namespace userAuth {
          * Indicates incorrect parameters.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         INVALID_PARAMETERS = 8,
 
@@ -311,6 +386,7 @@ declare namespace userAuth {
          * Indicates that the authenticator is locked.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         LOCKED = 9,
 
@@ -318,12 +394,14 @@ declare namespace userAuth {
          * Indicates that the user has not enrolled the authenticator.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
+         * @deprecated since 9
          */
         NOT_ENROLLED = 10
     }
 
     /**
-     * Indicates the enumeration of prompt codes in the process of face authentication.
+     * The enumeration of prompt codes in the process of face authentication.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
@@ -407,7 +485,8 @@ declare namespace userAuth {
     }
 
     /**
-     * Indicates the enumeration of prompt codes in the process of fingerprint authentication.
+     * The enumeration of prompt codes in the process of fingerprint authentication.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
@@ -457,6 +536,7 @@ declare namespace userAuth {
 
     /**
      * Credential type for authentication.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
@@ -478,6 +558,7 @@ declare namespace userAuth {
 
     /**
      * Trust level of authentication results.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      */
@@ -524,6 +605,12 @@ declare namespace userAuth {
      */
     type EventInfo = AuthResultInfo | TipInfo;
 
+    /**
+     * Asynchronous callback of authentication event.
+     * @interface AuthEvent
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 9
+     */
     interface AuthEvent {
         /**
          * The authentication event callback.
@@ -535,35 +622,66 @@ declare namespace userAuth {
     }
 
     /**
-     * Authentication result: authentication token, remaining authentication attempts, lockout duration.
-     * @param result Authentication result.
-     * @param token Pass the authentication token if the authentication is passed.
-     * @param remainAttempts Return the remaining authentication attempts if the authentication fails.
-     * @param lockoutDuration Return the lockout duration if the authentication executor is locked.
+     * Authentication result information.
+     * @typedef AuthResultInfo
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
     interface AuthResultInfo {
+        /**
+         * The authentication result.
+         * @type {number}
+         * @since 9
+         */
         result : number;
+
+        /**
+         * The authentication token if the authentication is passed.
+         * @type {Uint8Array}
+         * @since 9
+         */
         token ?: Uint8Array;
+
+        /**
+         * The remaining authentication attempts if the authentication fails.
+         * @type {number}
+         * @since 9
+         */
         remainAttempts ?: number;
+
+        /**
+         * The lockout duration if the authentication executor is locked.
+         * @type {number}
+         * @since 9
+         */
         lockoutDuration ?: number;
     }
 
     /**
      * Authentication tip info.
-     * @param module Authentication module.
-     * @param tip Tip information, used to prompt the business to perform some operations.
+     * @typedef TipInfo
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
     interface TipInfo {
+        /**
+         * The authentication module of sending tip information.
+         * @type {number}
+         * @since 9
+         */
         module : number;
+
+        /**
+         * Tip information, used to prompt the business to perform some operations.
+         * @type {number}
+         * @since 9
+         */
         tip : number;
     }
 
     /**
-     * Authentication instance, used to initiate a complete authentication
+     * Authentication instance, used to initiate a complete authentication.
+     * @interface AuthInstance
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
@@ -644,6 +762,9 @@ declare namespace userAuth {
 
     /**
      * Get Authentication instance.
+     * @param challenge Pass in challenge value.
+     * @param authType Credential type for authentication.
+     * @param authTrustLevel Trust level of authentication result.
      * @returns Returns an authentication instance.
      * @throws { BusinessError } 401 - Incorrect parameters.
      * @throws { BusinessError } 12500002 - General operation error.
@@ -655,7 +776,8 @@ declare namespace userAuth {
     function getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance;
 
     /**
-     * Result code.
+     * Enum for operation result.
+     * @enum {number}
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
