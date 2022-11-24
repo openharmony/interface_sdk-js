@@ -16,12 +16,14 @@
 /**
  * This module provides the capability to manage face auth.
  * @namespace faceAuth
+ * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9
  */
 declare namespace faceAuth {
     /**
      * Provides the abilities for face authentication.
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     class FaceAuthManager {
