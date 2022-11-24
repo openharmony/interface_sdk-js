@@ -22,7 +22,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 /**
  * class of form extension.
  * @syscap SystemCapability.Ability.Form
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class FormExtensionAbility {
@@ -30,7 +30,7 @@ export default class FormExtensionAbility {
      * Indicates form extension context.
      * @type { FormExtensionContext }
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     context: FormExtensionContext;
@@ -43,7 +43,7 @@ export default class FormExtensionAbility {
      *                        acquisition, update, and deletion.
      * @return { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAddForm(want: Want): formBindingData.FormBindingData;
@@ -52,7 +52,7 @@ export default class FormExtensionAbility {
      * Called when the form provider is notified that a temporary form is successfully converted to a normal form.
      * @param { string } formId - Indicates the ID of the form.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onCastToNormalForm(formId: string): void;
@@ -61,7 +61,7 @@ export default class FormExtensionAbility {
      * Called to notify the form provider to update a specified form.
      * @param { string } formId - Indicates the ID of the form to update.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onUpdateForm(formId: string): void;
@@ -74,7 +74,7 @@ export default class FormExtensionAbility {
      *        {@link formInfo#VisibilityType#FORM_VISIBLE} means that the form becomes visible, and
      *        {@link formInfo#VisibilityType#FORM_INVISIBLE} means that the form becomes invisible.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onChangeFormVisibility(newStatus: { [key: string]: number }): void;
@@ -87,7 +87,7 @@ export default class FormExtensionAbility {
      * @param { string } message - Indicates the value of the {@code params} field of the message event. This parameter
      *                             is used to identify the specific component on which the event is triggered.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onFormEvent(formId: string, message: string): void;
@@ -97,7 +97,7 @@ export default class FormExtensionAbility {
      * you want your application, as the form provider, to be notified of form deletion.
      * @param { string } formId - Indicates the ID of the destroyed form.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onRemoveForm(formId: string): void;
@@ -106,7 +106,7 @@ export default class FormExtensionAbility {
      * Called when the system configuration is updated.
      * @param { Configuration } newConfig - Indicates the system configuration, such as language and color mode.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onConfigurationUpdate(newConfig: Configuration): void;
@@ -120,7 +120,7 @@ export default class FormExtensionAbility {
      *                        form name, and form dimensions.
      * @return { formInfo.FormState } Returns the {@link formInfo#FormState} object.
      * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAcquireFormState?(want: Want): formInfo.FormState;
@@ -131,7 +131,7 @@ export default class FormExtensionAbility {
      * @return { { [key: string]: any } } Returns the wantParams object.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onShareForm?(formId: string): { [key: string]: any };

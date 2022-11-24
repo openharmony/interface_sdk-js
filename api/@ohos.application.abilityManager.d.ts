@@ -52,7 +52,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the new configuration.
      * @systemapi Hide this for inner system use.
-     * @return -
+     * @returns -
      * @permission ohos.permission.UPDATE_CONFIGURATION
      */
     function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
@@ -64,7 +64,7 @@ declare namespace abilityManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link AbilityRunningInfo}.
+     * @returns Returns the array of {@link AbilityRunningInfo}.
      * @permission ohos.permission.GET_RUNNING_INFO
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
@@ -77,7 +77,7 @@ declare namespace abilityManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param upperLimit Get the maximum limit of the number of messages
      * @systemapi Hide this for inner system use.
-     * @return Returns the array of {@link ExtensionRunningInfo}.
+     * @returns Returns the array of {@link ExtensionRunningInfo}.
      * @permission ohos.permission.GET_RUNNING_INFO
      */
     function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
@@ -89,7 +89,7 @@ declare namespace abilityManager {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi Hide this for inner system use.
-     * @return Returns the {@link ElementName} info of the top ability.
+     * @returns Returns the {@link ElementName} info of the top ability.
      */
     function getTopAbility(): Promise<ElementName>;
     function getTopAbility(callback: AsyncCallback<ElementName>): void;

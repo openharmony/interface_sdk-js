@@ -212,7 +212,7 @@ declare namespace distributedDataObject {
         /*
          * Change object session.
          *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param {string} sessionId - sessionId The sessionId to be joined, if empty, leave all session.
          * @param {AsyncCallback<void>} callback - the callback of setSessionId.
          * @throws {BusinessError} 201 - the permissions check failed.
@@ -227,7 +227,7 @@ declare namespace distributedDataObject {
         /*
          * Change object session.
          *
-         * @permission ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.DISTRIBUTED_DATASYNC
          * @param {string} sessionId - sessionId The sessionId to be joined, if empty, leave all session.
          * @returns {Promise<void>} - the promise returned by the function.
          * @throws {BusinessError} 201 - the permissions check failed.
