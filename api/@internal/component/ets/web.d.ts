@@ -1563,6 +1563,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#textZoomRatio
    */
   textZoomAtio(textZoomAtio: number): WebAttribute;
 
@@ -1750,6 +1751,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onSslErrorEventReceive
    */
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
@@ -1776,6 +1778,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onRenderExited
    */
   onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
 
@@ -1785,6 +1788,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onShowFileSelector
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
