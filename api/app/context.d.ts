@@ -31,7 +31,6 @@ import bundle from '../@ohos.bundle';
  *
  * @since 6
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import abilityManager from 'app/context'
  * @permission N/A
  * @FAModelOnly
  */

@@ -15,7 +15,6 @@
 
 /**
  * This module provides the capability to app receovery.
- * @import appReceovery from '@ohos.app.ability.appRecovery'
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
