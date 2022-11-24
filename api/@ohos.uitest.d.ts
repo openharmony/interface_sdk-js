@@ -576,10 +576,10 @@ declare interface Rect {
  * @since 9
  */
 declare interface WindowFilter {
-  readonly bundleName?: string;
-  readonly title?: string;
-  readonly focused?: boolean;
-  readonly actived?: boolean;
+  bundleName?: string;
+  title?: string;
+  focused?: boolean;
+  actived?: boolean;
 }
 
 /**
