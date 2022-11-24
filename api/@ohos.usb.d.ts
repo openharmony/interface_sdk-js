@@ -21,7 +21,7 @@ declare namespace usb {
     /**
      * Obtains the USB device list.
      *
-     * @return Returns the {@link USBDevice} list.
+     * @returns Returns the {@link USBDevice} list.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -31,7 +31,7 @@ declare namespace usb {
      * Connects to the USB device based on the device information returned by {@link getDevices()}.
      *
      * @param device USB device on the device list returned by {@link getDevices()}.
-     * @return Returns the {@link USBDevicePipe} object for data transfer.
+     * @returns Returns the {@link USBDevicePipe} object for data transfer.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -41,7 +41,7 @@ declare namespace usb {
      * Checks whether the application has the permission to access the device.
      *
      * @param deviceName Device name defined by {@link USBDevice.name}.
-     * @return Returns **true** if the user has the permission to access the device; return **false** otherwise.
+     * @returns Returns **true** if the user has the permission to access the device; return **false** otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -51,7 +51,7 @@ declare namespace usb {
      * Requests the temporary permission for a given application to access the USB device.
      *
      * @param deviceName Device name defined by {@link USBDevice.name}.
-     * @return Returns **true** if the temporary device access permissions are granted; return **false** otherwise.
+     * @returns Returns **true** if the temporary device access permissions are granted; return **false** otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -61,7 +61,7 @@ declare namespace usb {
      * Converts the string descriptor of a given USB function list to a numeric mask combination.
      *
      * @param funcs Descriptor of the supported function list.
-     * @return Returns the numeric mask combination of the function list.
+     * @returns Returns the numeric mask combination of the function list.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -72,7 +72,7 @@ declare namespace usb {
      * Converts the numeric mask combination of a given USB function list to a string descriptor.
      *
      * @param funcs Numeric mask combination of the function list.
-     * @return Returns the string descriptor of the supported function list.
+     * @returns Returns the string descriptor of the supported function list.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -83,16 +83,17 @@ declare namespace usb {
      * Sets the current USB function list in Device mode.
      *
      * @param funcs Numeric mask combination of the supported function list.
-     * @return Returns **true** if the setting is successful; returns **false** otherwise.
+     * @returns Returns **true** if the setting is successful; returns **false** otherwise.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
     function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
+
     /**
      * Obtains the numeric mask combination for the current USB function list in Device mode.
      *
-     * @return Returns the numeric mask combination for the current USB function list in {@link FunctionType}.
+     * @returns Returns the numeric mask combination for the current USB function list in {@link FunctionType}.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -103,7 +104,7 @@ declare namespace usb {
     /**
      * Obtains the {@link USBPort} list.
      *
-     * @return Returns the {@link USBPort} list.
+     * @returns Returns the {@link USBPort} list.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -113,7 +114,7 @@ declare namespace usb {
     /**
      * Gets the mask combination for the supported mode list of the specified {@link USBPort}.
      *
-     * @return Returns the mask combination for the supported mode list in {@link PortModeType}.
+     * @returns Returns the mask combination for the supported mode list in {@link PortModeType}.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -126,7 +127,7 @@ declare namespace usb {
      * @param portId Unique ID of the port.
      * @param powerRole Charging role defined by {@link PowerRoleType}.
      * @param dataRole Data role defined by {@link DataRoleType}.
-     * @return Returns the supported role type.
+     * @returns Returns the supported role type.
      * @systemapi
      * @syscap SystemCapability.USB.USBManager
      * @since 9
@@ -138,68 +139,74 @@ declare namespace usb {
      * Claims a USB interface.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
-      * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to claim.
+     * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to claim.
      * @param force Optional parameter that determines whether to forcibly claim the USB interface. 
-     * @return Returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
+     * @returns Returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
+
     /**
      * Releases a USB interface.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
-      * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to release.
-     * @return Returns **0** if the USB interface is successfully released; returns an error code otherwise.
+     * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to release.
+     * @returns Returns **0** if the USB interface is successfully released; returns an error code otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
+
     /**
      * Sets the device configuration.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
      * @param config Device configuration defined by {@link USBConfig}.
-     * @return Returns **0** if the device configuration is successfully set; returns an error code otherwise.
+     * @returns Returns **0** if the device configuration is successfully set; returns an error code otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
+
     /**
      * Sets a USB interface.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
-      * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to set.
-     * @return Returns **0** if the USB interface is successfully set; return an error code otherwise.
+     * @param iface USB interface defined by {@link USBInterface}, which is used to determine the interface to set.
+     * @returns Returns **0** if the USB interface is successfully set; return an error code otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
+
     /**
      * Obtains the raw USB descriptor.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the bus number and device address.
-       * @return Returns the raw descriptor data.
+     * @returns Returns the raw descriptor data.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
+
     /**
      * Obtains the file descriptor.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
-      * @return Returns the file descriptor of the USB device.
+     * @returns Returns the file descriptor of the USB device.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
     function getFileDescriptor(pipe: USBDevicePipe): number;
+
     /**
       * Performs control transfer.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
      * @param contrlparam Control transfer parameters.
      * @param timeout Timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-     * @return Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
+     * @returns Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -212,7 +219,7 @@ declare namespace usb {
      * @param endpoint USB endpoint defined by {@link USBEndpoint}, which is used to determine the USB port for data transfer.
      * @param buffer Buffer for writing or reading data.
      * @param timeout Timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-     * @return Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
+     * @returns Returns the size of the transmitted or received data block if the control transfer is successful; return **-1** if an exception occurs. 
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -223,7 +230,7 @@ declare namespace usb {
      * Closes a USB device pipe.
      *
      * @param pipe Device pipe defined by {@link USBDevicePipe}, which is used to determine the USB device.
-     * @return Returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
+     * @returns Returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
      * @syscap SystemCapability.USB.USBManager
      * @since 8
      */
@@ -330,7 +337,7 @@ declare namespace usb {
         subClass: number;
 
         /**
-         * Alternating between descriptors of the same USB interface
+         * Alternation between descriptors of the same USB interface
          *
          * @since 8
          */
@@ -423,72 +430,84 @@ declare namespace usb {
          * @since 8
          */
         busNum: number;
+
         /**
          * Device address
          *
          * @since 8
          */
         devAddress: number;
+
         /**
          * Device SN
          *
          * @since 8
          */
         serial: string;
+
         /**
          * Device name
          *
          * @since 8
          */
         name: string;
+
         /**
          * Device manufacturer
          *
          * @since 8
          */
         manufacturerName: string;
+
         /**
          * Product information
          *
          * @since 8
          */
         productName: string;
+
         /**
          * Product version
          *
          * @since 8
          */
         version: string;
+
         /**
          * Vendor ID
          *
          * @since 8
          */
         vendorId: number;
+
         /**
          * Product ID
          *
          * @since 8
          */
         productId: number;
+
         /**
          * Device class
          *
          * @since 8
          */
         clazz: number;
+
         /**
          * Device subclass
          *
          * @since 8
          */
         subClass: number;
+
         /**
          * Device protocol code
          *
          * @since 8
          */
         protocol: number;
+
         /**
          * Device configuration descriptor information defined by {@link USBConfig}
          *
@@ -510,6 +529,7 @@ declare namespace usb {
          * @since 8
          */
         busNum: number;
+
         /**
          * Device address
          *
@@ -532,12 +552,14 @@ declare namespace usb {
          * @since 9
          */
         NONE = 0,
+
         /**
          * External power supply
          *
          * @since 9
          */
         SOURCE = 1,
+
         /**
          * Internal power supply
          *
@@ -560,12 +582,14 @@ declare namespace usb {
          * @since 9
          */
         NONE = 0,
+
         /**
          * Host mode
          *
          * @since 9
          */
         HOST = 1,
+
         /**
          * Device mode
          *
@@ -588,24 +612,28 @@ declare namespace usb {
          * @since 9
          */
         NONE = 0,
+
         /**
          * Upstream facing port, which functions as the sink of power supply
          *
          * @since 9
          */
         UFP = 1,
+
         /**
          * Downstream facing port, which functions as the source of power supply
          *
          * @since 9
          */
         DFP = 2,
+
         /**
-         * Dynamic reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported currently.
+         * Dynamic configuration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported currently.
          *
          * @since 9
          */
         DRP = 3,
+
         /**
          * Not supported currently
          *
@@ -687,30 +715,35 @@ declare namespace usb {
          * @since 8
          */
         request: number;
+
         /**
          * Request target type
          *
          * @since 8
          */
         target: USBRequestTargetType;
+
         /**
          * Control request type
          *
          * @since 8
          */
         reqType: USBControlRequestType;
+
         /**
          * Request parameter value
          *
          * @since 8
            */
         value: number;
+
         /**
          * Index of the parameter value
          *
          * @since 8
          */
         index: number;
+
         /**
          * Data written to or read from the buffer
          * @since 8
@@ -731,18 +764,21 @@ declare namespace usb {
          * @since 8
          */
         USB_REQUEST_TARGET_DEVICE = 0,
+
         /**
          * USB interface
          *
          * @since 8
          */
         USB_REQUEST_TARGET_INTERFACE = 1,
+
         /**
          * Endpoint
          *
          * @since 8
          */
         USB_REQUEST_TARGET_ENDPOINT = 2,
+
         /**
          * Others
          *
@@ -764,12 +800,14 @@ declare namespace usb {
          * @since 8
          */
         USB_REQUEST_TYPE_STANDARD = 0,
+
         /**
          * Class
          *
          * @since 8
          */
         USB_REQUEST_TYPE_CLASS = 1,
+
         /**
          * Vendor
          *
@@ -791,6 +829,7 @@ declare namespace usb {
          * @since 8
          */
         USB_REQUEST_DIR_TO_DEVICE = 0,
+
         /**
          * Request for reading data from the device to the host
          *
@@ -813,54 +852,63 @@ declare namespace usb {
          * @since 9
          */
         NONE = 0,
+
         /**
          * Serial port device
          *
          * @since 9
          */
         ACM = 1,
+
         /**
          * Ethernet port device
          *
          * @since 9
          */
         ECM = 2,
+
         /**
          * HDC device
          *
          * @since 9
          */
         HDC = 4,
+
         /**
          * MTP device
          *
          * @since 9
          */
         MTP = 8,
+
         /**
          * PTP device
          *
          * @since 9
          */
         PTP = 16,
+
         /**
          * RNDIS device
          *
          * @since 9
          */
         RNDIS = 32,
+
         /**
          * MIDI device
          *
          * @since 9
          */
         MIDI = 64,
+
         /**
          * Audio source device
          *
          * @since 9
          */
         AUDIO_SOURCE = 128,
+        
         /**
          * NCM device
          *
