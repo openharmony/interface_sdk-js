@@ -51,7 +51,7 @@ declare namespace distributedAccount {
 
         /**
          * Gets the distributed information of the current OS account.
-         * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC.
+         * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
          * @returns The distributed information of the current OS account.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
@@ -63,7 +63,7 @@ declare namespace distributedAccount {
 
         /**
          * Updates the distributed information of the OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @param accountInfo Indicates the information of the OS account used for a distributed system.
          * @returns void
          * @since 7
@@ -75,7 +75,7 @@ declare namespace distributedAccount {
 
         /**   
          * Sets the distributed information of the OS account.
-         * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS.
+         * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
          * @param accountInfo Indicates the information of the OS account used for a distributed system.
          * @returns void
          * @throws {BusinessError} 201 - permission denied.
