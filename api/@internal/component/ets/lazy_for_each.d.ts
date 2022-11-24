@@ -28,6 +28,7 @@ declare interface DataChangeListener {
    * Data added.
    * @since 7
    * @deprecated since 8
+   * @useinstead onDataAdd
    */
   onDataAdded(index: number): void;
 
@@ -41,6 +42,7 @@ declare interface DataChangeListener {
    * Data moved.
    * @since 7
    * @deprecated since 8
+   * @useinstead onDataMove
    */
   onDataMoved(from: number, to: number): void;
 
@@ -54,6 +56,7 @@ declare interface DataChangeListener {
    * Data deleted.
    * @since 7
    * @deprecated since 8
+   * @useinstead onDataDelete
    */
   onDataDeleted(index: number): void;
 
@@ -67,6 +70,7 @@ declare interface DataChangeListener {
    * Call when has data change.
    * @since 7
    * @deprecated since 8
+   * @useinstead onDataChange
    */
   onDataChanged(index: number): void;
 

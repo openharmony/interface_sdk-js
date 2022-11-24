@@ -195,6 +195,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * Called when judging whether the text editing change finished.
    * @since 7
    * @deprecated since 8
+   * @useinstead onEditChange
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 

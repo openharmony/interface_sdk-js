@@ -50,7 +50,7 @@ declare interface NavigationCustomTitle {
 }
 
 /**
- * Nativation mode
+ * Navigation mode
  * @since 9
  */
 declare enum NavigationMode {
