@@ -15,7 +15,6 @@
 
 const path = require("path");
 const fs = require("fs");
-const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "";
@@ -27,14 +26,14 @@ function checkEntry(url) {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
-    result += scanEntry(mdFilesPath);
-    result += `,,,mdFilePath = ${mdFilesPath}, content = ${content}`;
+    result = scanEntry(mdFilesPath);
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result += `CATCHERROR : ${error}, mdFilePath = ${mdFilesPath}, content = ${content}`;
+    result = `CATCHERROR : ${error}, mdFilePath = ${mdFilesPath}, content = ${content}`;
   }
+  const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
 checkEntry(process.argv[2]);

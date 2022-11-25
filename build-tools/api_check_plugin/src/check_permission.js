@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-const result = require("../check_result.json");
 const rules = require("../code_style_rule.json");
 const { getAPINote, error_type } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
@@ -63,7 +62,7 @@ function checkPermission(node, sourcefile, fileName) {
     });
 
     if (hasPermissionError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_PERMISSION, errorInfo);
+        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_PERMISSION, errorInfo, 'Api');
     }
 }
 exports.checkPermission = checkPermission;
