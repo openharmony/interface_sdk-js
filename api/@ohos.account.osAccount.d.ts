@@ -497,7 +497,7 @@ declare namespace osAccount {
          * @since 9
          */
         getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
-        getCurrentOsAccount(): Promise<OsAccountInfo>; 
+        getCurrentOsAccount(): Promise<OsAccountInfo>;
 
         /**
          * Queries OS account information based on the local ID.
