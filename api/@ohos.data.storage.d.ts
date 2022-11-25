@@ -20,7 +20,7 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @name storage
  * @since 6
- * @deprecated since 9, please use @ohos.data.preferences instead.
+ * @deprecated since 9
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  *
  */
@@ -35,7 +35,8 @@ declare namespace storage {
      * @return Returns the {@link Storage} instance matching the specified storage file name.
      * @throws BusinessError if invoked failed
      * @since 6
-     * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.getPreferences
      */
 
     function getStorageSync(path: string): Storage;
@@ -48,13 +49,14 @@ declare namespace storage {
      * storage file.
      *
      * <p>When deleting the {@link Storage} instance, you must release all references
-     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
      * will occur.
      *
      * @param path Indicates the path of storage file
      * @throws BusinessError if invoked failed
      * @since 6
-     * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.deletePreferences
      */
     function deleteStorageSync(path: string): void;
     function deleteStorage(path: string, callback: AsyncCallback<void>): void;
@@ -65,13 +67,14 @@ declare namespace storage {
      * from the cache.
      *
      * <p>When deleting the {@link Storage} instance, you must release all references
-     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, data inconsistency
+     * of the instance. In addition, do not use the instance to perform data operations. Otherwise, inconsistent data
      * will occur.
      *
      * @param path Indicates the path of storage file.
      * @throws BusinessError if invoked failed
      * @since 6
-     * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @deprecated since 9
+     * @useinstead ohos.preferences.preferences.removePreferencesFromCache
      */
     function removeStorageFromCacheSync(path: string): void;
     function removeStorageFromCache(path: string, callback: AsyncCallback<void>): void;
@@ -82,13 +85,13 @@ declare namespace storage {
      *
      * <p>The storage data is stored in a file, which matches only one {@link Storage} instance in the memory.
      * You can use getStorage to obtain the {@link Storage} instance matching
-     * the file that stores storage data, and use emoveStorageFromCache
+     * the file that stores storage data, and use removeStorageFromCache
      * to remove the {@link Storage} instance from the memory.
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      *
      * @since 6
-     * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @deprecated since 9
      */
     interface Storage {
         /**
@@ -101,7 +104,8 @@ declare namespace storage {
         * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
         * @throws BusinessError if invoked failed
         * @since 6
-        * @deprecated since 9, please use @ohos.data.preferences instead.
+        * @deprecated since 9
+        * @useinstead ohos.preferences.preferences.get
         */
         getSync(key: string, defValue: ValueType): ValueType;
         get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
@@ -115,7 +119,8 @@ declare namespace storage {
          * returns {@code false} otherwise.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.has
          */
         hasSync(key: string): boolean;
         has(key: string, callback: AsyncCallback<boolean>): boolean;
@@ -132,7 +137,9 @@ declare namespace storage {
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.put
          */
         putSync(key: string, value: ValueType): void;
         put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
@@ -148,7 +155,8 @@ declare namespace storage {
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.delete
          */
         deleteSync(key: string): void;
         delete(key: string, callback: AsyncCallback<void>): void;
@@ -162,7 +170,8 @@ declare namespace storage {
          *
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.clear
          */
         clearSync(): void;
         clear(callback: AsyncCallback<void>): void;
@@ -173,7 +182,8 @@ declare namespace storage {
          *
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.flush
          */
         flushSync(): void;
         flush(callback: AsyncCallback<void>): void;
@@ -185,17 +195,19 @@ declare namespace storage {
          * @param callback Indicates the callback when storage changes.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.on
          */
         on(type: 'change', callback: Callback<StorageObserver>): void;
 
         /**
-         * Unregisters an existing observer.
+         * Unregister an existing observer.
          *
          * @param callback Indicates the registered callback.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9, please use @ohos.data.preferences instead.
+         * @deprecated since 9
+         * @useinstead ohos.preferences.preferences.off
          */
         off(type: 'change', callback: Callback<StorageObserver>): void;
     }
@@ -211,7 +223,7 @@ declare namespace storage {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      *
      * @since 6
-     * @deprecated since 9, please use @ohos.data.preferences instead.
+     * @deprecated since 9
      */
     interface StorageObserver {
         /**

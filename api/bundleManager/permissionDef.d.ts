@@ -27,7 +27,7 @@
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    permissionName: string;
+     readonly permissionName: string;
 
     /**
      * Indicates the grant mode of this permission
@@ -35,7 +35,7 @@
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    grantMode: number;
+     readonly grantMode: number;
 
     /**
      * Indicates the labelId of this permission
@@ -43,7 +43,7 @@
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    labelId: number;
+     readonly labelId: number;
 
     /**
      * Indicates the descriptionId of this permission
@@ -51,5 +51,5 @@
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    descriptionId: number;
+     readonly descriptionId: number;
   }

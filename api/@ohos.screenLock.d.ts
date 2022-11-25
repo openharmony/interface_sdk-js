@@ -59,7 +59,7 @@ declare namespace screenLock {
   function isSecure(): boolean;
 
   /**
-   * Unlocks the screen.
+   * Unlock the screen.
    * return -
    * @since 7
    * @deprecated since 9
@@ -69,7 +69,7 @@ declare namespace screenLock {
   function unlockScreen():Promise<void>;
   
   /**
-   * Unlocks the screen. Returns true if the screen unlocked successfully. returns false otherwise.
+   * Unlock the screen. Returns true if the screen unlocked successfully. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * @throws {BusinessError} 401 - parameter error.
    * @since 9
@@ -95,8 +95,8 @@ declare namespace screenLock {
   }
 
   /**
-   * Register system event related to syscreen lock. Returns true if register system event is success. returns false otherwise.
-   * @params callback The callback function for indcating the system event related screen lock
+   * Register system event related to sysscreen lock. Returns true if register system event is success. returns false otherwise.
+   * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
    * @returns { boolean } the boolean returned by the function.
    * @throws {BusinessError} 401 - parameter error.
    * @systemapi Hide this for inner system use.
@@ -105,8 +105,9 @@ declare namespace screenLock {
   function onSystemEvent(callback: Callback<SystemEvent>): boolean;
 
   /**
-   * screenlockAPP send event to screenlockSA.
-   * @params parameter The params of the event.
+   * The screen lock app sends the event to the screen lock service.
+   * @param { String } event - event type.
+   * @param { number } parameter - operation result of the event.
    * @throws {BusinessError} 401 - parameter error.
    * @systemapi Hide this for inner system use.
    * @since 9

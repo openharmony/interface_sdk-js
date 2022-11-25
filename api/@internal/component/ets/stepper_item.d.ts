@@ -56,7 +56,7 @@ interface StepperItemInterface {
 }
 
 /**
- * Defines the stepper item attrbute functions.
+ * Defines the stepper item attribute functions.
  * @since 8
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {

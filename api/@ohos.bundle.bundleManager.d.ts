@@ -159,7 +159,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
      */
     GET_ABILITY_INFO_DEFAULT = 0x00000000,
     /**
-     * Used to obtain the abilityInfo containing disabled abilityInfo.
+     * Used to obtain the abilityInfo containing permission.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
@@ -575,7 +575,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -594,7 +594,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -612,7 +612,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -631,7 +631,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -647,7 +647,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -663,7 +663,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -678,7 +678,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback } callback - The callback of getting a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -694,7 +694,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -849,7 +849,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700030 - The specified bundleName does not support cleaning cache files.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -864,7 +864,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700030 - The specified bundleName does not support cleaning cache files.
+   * @throws { BusinessError } 17700030 - The specified bundle does not support clearing of cache files.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -994,7 +994,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1012,7 +1012,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1031,7 +1031,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.GET_BUNDLE_INFO_PRIVILEGED'.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1047,8 +1047,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @param { AsyncCallback<Array<string>> } callback - The callback of returning string in json-format of the corresponding config file.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700003 - The specified anilityName is not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1064,8 +1064,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @returns { Promise<Array<string>> } Returns string in json-format of the corresponding config file.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
-   * @throws { BusinessError } 17700003 - The specified anilityName is not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not existed.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700029 - The specified ability is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1082,7 +1082,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -1098,7 +1098,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
    * @throws { BusinessError } 17700003 - The specified extensionAbilityName not existed.
-   * @throws { BusinessError } 17700024 - The specified metadataName is not existed or the profile is not json-format.
+   * @throws { BusinessError } 17700024 - Failed to get the profile because there is no profile in the HAP.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 9
@@ -1227,7 +1227,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -1245,7 +1246,8 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700004 - The specified userId is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9

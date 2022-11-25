@@ -23,7 +23,6 @@ import { ShortcutInfo } from './bundle/shortcutInfo';
  * @name innerBundleManager
  * @since 8
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager
@@ -37,7 +36,7 @@ declare namespace innerBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
    * @param userId Indicates the id for the user.
-   * @return Returns the LauncherAbilityInfo object.
+   * @returns Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -53,7 +52,7 @@ declare namespace innerBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
    * @param LauncherStatusCallback Indicates the callback to be register.
-   * @return Returns the result or error maeeage.
+   * @returns { string | Promise<string> } Returns the result of register.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -68,7 +67,7 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param type Indicates the command should be implement.
-   * @return Returns the result or error maeeage.
+   * @returns { string | Promise<string> } Returns the result of unregister.
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -83,7 +82,7 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param userId Indicates the id for the user.
-   * @return Returns the LauncherAbilityInfo object.
+   * @returns Returns the LauncherAbilityInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9
@@ -98,7 +97,7 @@ declare namespace innerBundleManager {
    * @since 8
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @param bundleName Indicates the application bundle name to be queried.
-   * @return Returns the LauncherShortcutInfo object.
+   * @returns Returns the LauncherShortcutInfo object.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi Hide this for inner system use
    * @deprecated since 9

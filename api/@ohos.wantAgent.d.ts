@@ -25,7 +25,6 @@ import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
  * @name wantAgent
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import wantAgent from '@ohos.wantAgent';
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.app.ability.wantAgent
@@ -35,7 +34,7 @@ declare namespace wantAgent {
    * Obtains the bundle name of a WantAgent.
    *
    * @param WantAgent whose bundle name to obtain.
-   * @return Returns the bundle name of the {@link WantAgent} if any.
+   * @returns Returns the bundle name of the {@link WantAgent} if any.
    */
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
   function getBundleName(agent: WantAgent): Promise<string>;
@@ -44,7 +43,7 @@ declare namespace wantAgent {
    * Obtains the UID of a WantAgent.
    *
    * @param WantAgent whose UID to obtain.
-   * @return Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
+   * @returns Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
   function getUid(agent: WantAgent): Promise<number>;
@@ -53,7 +52,7 @@ declare namespace wantAgent {
    * Obtains the {@link Want} of an {@link WantAgent}.
    *
    * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
+   * @returns Returns the {@link Want} of the {@link WantAgent}.
    * @systemapi Hide this for inner system use.
    */
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
@@ -62,13 +61,13 @@ declare namespace wantAgent {
    * Obtains the {@link Want} of an {@link WantAgent}.
    *
    * @param agent Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @return Returns the {@link Want} of the {@link WantAgent}.
+   * @returns Returns the {@link Want} of the {@link WantAgent}.
    * @systemapi Hide this for inner system use.
    */
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    *
    * @param WantAgent to cancel.
    */
@@ -99,7 +98,7 @@ declare namespace wantAgent {
    *
    * @param WantAgent to compare.
    * @param WantAgent to compare.
-   * @return Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
+   * @returns Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
    */
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
@@ -108,7 +107,7 @@ declare namespace wantAgent {
    * Obtains a WantAgent object.
    *
    * @param Information about the WantAgent object to obtain.
-   * @return Returns the created {@link WantAgent} object.
+   * @returns Returns the created {@link WantAgent} object.
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
@@ -118,7 +117,7 @@ declare namespace wantAgent {
    *
    * @since 9
    * @param agent Indicates the {@link WantAgent} whose {@link OperationType} is to be obtained.
-   * @return Returns the {@link OperationType} of the {@link WantAgent}.
+   * @returns Returns the {@link OperationType} of the {@link WantAgent}.
    */
   function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
   function getOperationType(agent: WantAgent): Promise<number>;

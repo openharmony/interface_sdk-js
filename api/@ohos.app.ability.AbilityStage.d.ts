@@ -21,7 +21,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 /**
  * The class of an ability stage.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class AbilityStage {
@@ -29,7 +29,7 @@ export default class AbilityStage {
      * Indicates configuration information about context.
      * @type { AbilityStageContext }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     context: AbilityStageContext;
@@ -37,19 +37,19 @@ export default class AbilityStage {
     /**
      * Called back when an ability stage is started for initialization.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onCreate(): void;
 
     /**
      * Called back when start specified ability.
-     * @param { Want } want - Indicates the want info of startd ability.
+     * @param { Want } want - Indicates the want info of started ability.
      * @return { string } The user returns an ability string ID. If the ability of this ID has been started before,
      *         do not create a new instance and pull it back to the top of the stack.
      *         Otherwise, create a new instance and start it.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAcceptWant(want: Want): string;
@@ -58,7 +58,7 @@ export default class AbilityStage {
      * Called when the system configuration is updated.
      * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onConfigurationUpdate(newConfig: Configuration): void;
@@ -68,7 +68,7 @@ export default class AbilityStage {
      * background and there is no enough memory for running as many background processes as possible.
      * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;

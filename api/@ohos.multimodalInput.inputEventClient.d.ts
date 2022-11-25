@@ -18,7 +18,6 @@
  *
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @import import inputEventClient from '@ohos.multimodalInput.inputEventClient';
  * @systemapi hide for inner use
  */
 

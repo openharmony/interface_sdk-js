@@ -48,7 +48,7 @@ interface PluginComponentInterface {
 }
 
 /**
- * Defines the plugin component attibute functions.
+ * Defines the plugin component attribute functions.
  * @since 9
  * @systemapi
  */

@@ -32,7 +32,7 @@ import image from '../@ohos.multimedia.image';
 /**
  * The context of an ability. It allows access to ability-specific resources.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class UIAbilityContext extends Context {
@@ -40,7 +40,7 @@ export default class UIAbilityContext extends Context {
      * Indicates configuration information about an ability.
      * @type { AbilityInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     abilityInfo: AbilityInfo;
@@ -49,7 +49,7 @@ export default class UIAbilityContext extends Context {
      * Indicates configuration information about the module.
      * @type { HapModuleInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     currentHapModuleInfo: HapModuleInfo;
@@ -58,7 +58,7 @@ export default class UIAbilityContext extends Context {
      * Indicates configuration information.
      * @type { Configuration }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     config: Configuration;
@@ -69,7 +69,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -81,7 +81,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -93,7 +93,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbility(want: Want, options?: StartOptions): Promise<void>;
@@ -105,7 +105,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityByCall(want: Want): Promise<Caller>;
@@ -119,7 +119,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
@@ -134,7 +134,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -149,7 +149,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<void>;
@@ -160,7 +160,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
@@ -172,7 +172,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<AbilityResult> } callback - The callback is used to return the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
@@ -184,7 +184,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<AbilityResult> } Returns the result of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
@@ -198,7 +198,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResultWithAccount(want: Want, accountId: number, callback: AsyncCallback<AbilityResult>): void;
@@ -213,7 +213,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResultWithAccount(want: Want, accountId: number, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -228,7 +228,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startAbilityForResultWithAccount(want: Want, accountId: number, options?: StartOptions): Promise<AbilityResult>;
@@ -240,7 +240,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -252,35 +252,35 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startServiceExtensionAbility(want: Want): Promise<void>;
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     startServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
@@ -292,7 +292,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -304,35 +304,35 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     stopServiceExtensionAbility(want: Want): Promise<void>;
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     stopServiceExtensionAbilityWithAccount(want: Want, accountId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     stopServiceExtensionAbilityWithAccount(want: Want, accountId: number): Promise<void>;
@@ -342,7 +342,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     terminateSelf(callback: AsyncCallback<void>): void;
@@ -352,7 +352,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     terminateSelf(): Promise<void>;
@@ -364,7 +364,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
@@ -376,7 +376,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -388,7 +388,7 @@ export default class UIAbilityContext extends Context {
      * @returns { number } Returns the number code of the ability connected
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
@@ -403,7 +403,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
@@ -414,7 +414,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
@@ -425,7 +425,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     disconnectServiceExtensionAbility(connection: number): Promise<void>;
@@ -436,7 +436,7 @@ export default class UIAbilityContext extends Context {
      * @param { AsyncCallback<void> } callback - The callback of setMissionLabel.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     setMissionLabel(label: string, callback: AsyncCallback<void>): void;
@@ -447,7 +447,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     setMissionLabel(label: string): Promise<void>;
@@ -459,7 +459,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     setMissionIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
@@ -471,7 +471,7 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     setMissionIcon(icon: image.PixelMap): Promise<void>;
@@ -484,8 +484,7 @@ export default class UIAbilityContext extends Context {
      *                                                                     request result.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
@@ -497,8 +496,7 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<PermissionRequestResult> } Returns the permission request result.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     requestPermissionsFromUser(permissions: Array<string>): Promise<PermissionRequestResult>;
@@ -508,8 +506,7 @@ export default class UIAbilityContext extends Context {
      * @param { LocalStorage } localStorage - the storage data used to restore window stage
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     restoreWindowStage(localStorage: LocalStorage): void;
@@ -518,8 +515,7 @@ export default class UIAbilityContext extends Context {
      * Check to see ability is in terminating state.
      * @returns { boolean } Returns true when ability is in terminating state, else returns false.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     isTerminating(): boolean;

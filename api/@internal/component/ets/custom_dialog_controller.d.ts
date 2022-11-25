@@ -50,7 +50,7 @@ declare interface CustomDialogControllerOptions {
   offset?: Offset;
 
   /**
-   * Defines if use costom style.
+   * Defines if use custom style.
    * @since 7
    */
   customStyle?: boolean;

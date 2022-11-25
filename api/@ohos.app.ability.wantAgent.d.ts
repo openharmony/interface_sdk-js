@@ -81,7 +81,7 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -91,7 +91,7 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.

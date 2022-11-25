@@ -40,7 +40,7 @@ declare namespace missionManager {
     function on(type: "mission", listener: MissionListener): number;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @param { AsyncCallback<void> } callback - The callback of off.
@@ -51,7 +51,7 @@ declare namespace missionManager {
     function off(type: "mission", listenerId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      * @param { string } type - mission.
      * @param { number } listenerId - Indicates the listener id to be unregistered.
      * @returns { Promise<void> } The promise returned by the function.

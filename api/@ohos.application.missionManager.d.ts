@@ -42,7 +42,7 @@ declare namespace missionManager {
     function registerMissionListener(listener: MissionListener): number;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission

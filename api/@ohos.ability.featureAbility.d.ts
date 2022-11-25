@@ -35,12 +35,12 @@ import window from './@ohos.window';
  */
 declare namespace featureAbility {
   /**
-   * Obtain the want sended from the source ability.
+   * Obtain the want sent from the source ability.
    *
    * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function getWant(callback: AsyncCallback<Want>): void;
@@ -52,7 +52,7 @@ declare namespace featureAbility {
    * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void;
@@ -62,7 +62,7 @@ declare namespace featureAbility {
    * Obtains the application context.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return Returns the application context.
+   * @returns Returns the application context.
    * @since 6
    * @FAModelOnly
    */
@@ -74,7 +74,7 @@ declare namespace featureAbility {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
-   * @return Returns the {@link AbilityResult}.
+   * @returns Returns the {@link AbilityResult}.
    * @FAModelOnly
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
@@ -87,7 +87,7 @@ declare namespace featureAbility {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the result to return.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
@@ -98,7 +98,7 @@ declare namespace featureAbility {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
@@ -110,7 +110,7 @@ declare namespace featureAbility {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
-   * @return Returns the dataAbilityHelper.
+   * @returns Returns the dataAbilityHelper.
    * @FAModelOnly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
@@ -120,7 +120,7 @@ declare namespace featureAbility {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
+   * @returns Returns {@code true} if this ability currently has window focus; returns {@code false} otherwise.
    * @FAModelOnly
    */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
@@ -133,7 +133,7 @@ declare namespace featureAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request The element name of the service ability
    * @param options The remote object instance
-   * @return Returns the number code of the ability connected
+   * @returns Returns the number code of the ability connected
    * @FAModelOnly
    */
   function connectAbility(request: Want, options:ConnectOptions ): number;
@@ -154,7 +154,7 @@ declare namespace featureAbility {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return Returns the window corresponding to the current ability.
+   * @returns Returns the window corresponding to the current ability.
    * @FAModelOnly
    */
   function getWindow(callback: AsyncCallback<window.Window>): void;
@@ -223,7 +223,6 @@ declare namespace featureAbility {
    *
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @import import abilityManager from 'app/context'
    * @FAModelOnly
    */
   export type Context = _Context
@@ -239,7 +238,6 @@ declare namespace featureAbility {
    * @name This class saves process information about an application
    * @since 9
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @import import ProcessInfo from 'app/processInfo'
    */
   export type ProcessInfo = _ProcessInfo
 }

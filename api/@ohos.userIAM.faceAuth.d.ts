@@ -15,51 +15,39 @@
 
 /**
  * This module provides the capability to manage face auth.
- *
+ * @namespace faceAuth
+ * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
  * @since 9
  */
 declare namespace faceAuth {
     /**
      * Provides the abilities for face authentication.
-     * @name FaceAuth
-     * @since 9
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
+     * @since 9
      */
     class FaceAuthManager {
         /**
          * Constructor to get the FaceAuthManager class instance.
-         *
-         * @since 9
-         * @return Returns the FaceAuthManager class instance.
+         * @returns Returns the FaceAuthManager class instance.
+         * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
          * @systemapi Hide this for inner system use.
+         * @since 9
          */
         constructor();
 
         /**
          * Set XComponent surface id for camera preview during enroll.
-         *
-         * @since 9
-         * @param surfaceId Indicates surface id for face enroll preview.
          * @permission ohos.permission.MANAGE_USER_IDM
+         * @param surfaceId Indicates surface id for face enroll preview.
+         * @throws { BusinessError } 201 - Permission verification failed.
+         * @throws { BusinessError } 202 - The caller is not a system application.
+         * @throws { BusinessError } 12700001 - The operation is failed.
+         * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
          * @systemapi Hide this for inner system use.
+         * @since 9
          */
         setSurfaceId(surfaceId: string): void;
-    }
-
-    /**
-     * Indicates the enumeration of operation result code.
-     *
-     * @name ResultCode
-     * @since 9
-     * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
-     * @systemapi Hide this for inner system use.
-     */
-    enum ResultCode {
-        /**
-         * Indicates that operation is fail.
-         */
-        FAIL = 12700001,
     }
 }
 

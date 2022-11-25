@@ -50,7 +50,7 @@ interface ToggleInterface {
 }
 
 /**
- * Defines the toggle attibute functions
+ * Defines the toggle attribute functions
  * @since 8
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {

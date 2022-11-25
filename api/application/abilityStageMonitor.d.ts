@@ -19,7 +19,6 @@
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityStageMonitor from 'application/AbilityStageMonitor.d'
  * @permission N/A
  */
 export interface AbilityStageMonitor {
