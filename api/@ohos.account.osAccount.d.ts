@@ -502,7 +502,7 @@ declare namespace osAccount {
         /**
          * Queries OS account information based on the local ID.
          *
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION or ohos.permission.GET_LOCAL_ACCOUNTS
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
          * @param localId Indicates the local ID of the OS account.
          * @returns Returns the OS account information; returns {@code null} if the query fails.
          * @throws {BusinessError} 201 - permission denied.
