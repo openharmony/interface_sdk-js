@@ -30,7 +30,7 @@ declare class TreeMap<K, V> {
   length: number;
   /**
    * Returns whether the Map object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -38,7 +38,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a key is contained in this map
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -46,7 +46,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a value is contained in this map
    * @param value need to determine whether to include the value
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,7 +54,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a specified element in a Map object, or null if there is no corresponding element
    * @param key the index in TreeMap
-   * @return value or null
+   * @returns value or null
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -62,7 +62,7 @@ declare class TreeMap<K, V> {
   /**
    * Obtains the first sorted key in the treemap.
    * Or returns undefined if tree map is empty
-   * @return value or undefined
+   * @returns value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -70,7 +70,7 @@ declare class TreeMap<K, V> {
   /**
    * Obtains the last sorted key in the treemap.
    * Or returns undefined if tree map is empty
-   * @return value or undefined
+   * @returns value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -94,7 +94,7 @@ declare class TreeMap<K, V> {
   /**
    * Remove a specified element from a Map object
    * @param key  Target to be deleted
-   * @return Target mapped value
+   * @returns Target mapped value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -107,18 +107,18 @@ declare class TreeMap<K, V> {
   clear(): void;
   /**
    * Returns the greatest element smaller than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getLowerKey(key: K): K;
   /**
    * Returns the least element greater than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

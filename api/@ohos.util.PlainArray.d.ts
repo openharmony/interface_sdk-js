@@ -49,7 +49,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -57,7 +57,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    * @param key Looking for goals
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -65,7 +65,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    * @param key Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,14 +73,14 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified value
    * @param value Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getIndexOfValue(value: T): number;
   /**
    * Checks whether the current PlainArray object is empty
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -88,7 +88,7 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    * @param index Target subscript for search
-   * @return the key of key-value pairs
+   * @returns the key of key-value pairs
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -96,7 +96,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    * @param key  Target to be deleted
-   * @return Target mapped value
+   * @returns Target mapped value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -104,7 +104,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    * @param index  Target subscript for search
-   * @return the T type
+   * @returns the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -113,7 +113,7 @@ declare class PlainArray<T> {
    * Remove a group of key-value pairs from a specified index
    * @param index  remove start index
    * @param size Expected deletion quantity
-   * @return Actual deleted quantity
+   * @returns Actual deleted quantity
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -135,7 +135,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    * @param index Target subscript for search
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

@@ -28,7 +28,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns whether this map has all the object in a specified map
    * @param map the Map object to compare
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -36,7 +36,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns whether a key is contained in this map
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -44,7 +44,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns whether a value is contained in this map
    * @param value need to determine whether to include the value
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -66,7 +66,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
    * @param key the index in LightWeightMap
-   * @return value or undefined
+   * @returns value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -74,7 +74,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the index of the key equal to a specified key in an LightWeightMap container
    * @param key Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -82,22 +82,22 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the index of the value equal to a specified value in an LightWeightMap container
    * @param value Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getIndexOfValue(value: V): number;
   /**
    * Returns whether the Map object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   isEmpty(): boolean;
   /**
-   * Obtains the key at the loaction identified by index in an LightWeightMap container
+   * Obtains the key at the location identified by index in an LightWeightMap container
    * @param index Target subscript for search
-   * @return the key of key-value pairs
+   * @returns the key of key-value pairs
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -127,15 +127,15 @@ declare class LightWeightMap<K, V> {
   /**
    * Remove the mapping for this key from this map if present
    * @param key  Target to be deleted
-   * @return Target mapped value
+   * @returns Target mapped value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   remove(key: K): V;
   /**
-   * Deletes a key-value pair at the loaction identified by index from an LightWeightMap container
+   * Deletes a key-value pair at the location identified by index from an LightWeightMap container
    * @param index  Target subscript for search
-   * @return the boolean type(Is there a delete value)
+   * @returns the boolean type(Is there a delete value)
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -151,7 +151,7 @@ declare class LightWeightMap<K, V> {
    * Sets the value identified by index in an LightWeightMap container to a specified value
    * @param index Target subscript for search
    * @param value Updated the target mapped value
-   * @return the boolean type(Is there a value corresponding to the subscript)
+   * @returns the boolean type(Is there a value corresponding to the subscript)
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -179,7 +179,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the value identified by index in an LightWeightMap container
    * @param index Target subscript for search
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

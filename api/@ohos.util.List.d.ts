@@ -46,7 +46,7 @@ declare class List<T> {
    * Returns the element at the specified position in this list,
    * or returns undefined if this list is empty
    * @param index specified position
-   * @return the T type
+   * @returns the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,7 +54,7 @@ declare class List<T> {
   /**
    * Check if list contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if list contains the specified element,return true,else return false
+   * @returns the boolean type,if list contains the specified element,return true,else return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -63,7 +63,7 @@ declare class List<T> {
    * Returns the index of the first occurrence of the specified element
    * in this list, or -1 if this list does not contain the element.
    * @param element element to be contained
-   * @return the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -71,7 +71,7 @@ declare class List<T> {
   /**
    * Find the corresponding element according to the index,
    * @param index the index in the list
-   * @return the T type ,returns undefined if list is empty,If the index is
+   * @returns the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -82,7 +82,7 @@ declare class List<T> {
    * if it is present.  If the list does not contain the element, it is
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
-   * @return the boolean type ,If there is no such element, return false
+   * @returns the boolean type ,If there is no such element, return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -91,7 +91,7 @@ declare class List<T> {
    * Returns in the index of the last occurrence of the specified element in this list ,
    * or -1 if the list does not contain the element.
    * @param element element to find
-   * @return the number type
+   * @returns the number type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -99,7 +99,7 @@ declare class List<T> {
   /**
    * Returns the first element (the item at index 0) of this list.
    * or returns undefined if list is empty
-   * @return the T type ,returns undefined if list is empty
+   * @returns the T type ,returns undefined if list is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -107,7 +107,7 @@ declare class List<T> {
   /**
    * Returns the Last element (the item at index length-1) of this list.
    * or returns undefined if list is empty
-   * @return the T type ,returns undefined if list is empty
+   * @returns the T type ,returns undefined if list is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -116,7 +116,7 @@ declare class List<T> {
    * Replaces the element at the specified position in this List with the specified element
    * @param element replaced element
    * @param index index to find
-   * @return the T type
+   * @returns the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -125,7 +125,7 @@ declare class List<T> {
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
    * @param obj Compare objects
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -189,14 +189,14 @@ declare class List<T> {
   thisArg?: Object): void;
   /**
    * convert list to array
-   * @return the Array type
+   * @returns the Array type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   convertToArray(): Array<T>;
   /**
    * Determine whether list is empty and whether there is an element
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

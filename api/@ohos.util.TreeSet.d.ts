@@ -30,7 +30,7 @@ declare class TreeSet<T> {
   length: number;
   /**
    * Returns whether the Set object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -38,7 +38,7 @@ declare class TreeSet<T> {
   /**
    * Returns whether the Set object contain s the elements
    * @param value need to determine whether to include the element
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -54,7 +54,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    * @param value  Target to be deleted
-   * @return the boolean type(Is there contain this element)
+   * @returns the boolean type(Is there contain this element)
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -67,46 +67,46 @@ declare class TreeSet<T> {
   clear(): void;
   /**
    * Gets the first elements in a set
-   * @return value or undefined
+   * @returns value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getFirstValue(): T;
   /**
    * Gets the last elements in a set
-   * @return value or undefined
+   * @returns value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getLastValue(): T;
   /**
    * Returns the greatest element smaller than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getLowerValue(key: T): T;
   /**
    * Returns the least element greater than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getHigherValue(key: T): T;
   /**
    * Return and delete the first element, returns undefined if tree set is empty
-   * @return first value or undefined
+   * @returns first value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   popFirst(): T;
   /**
    * Return and delete the last element, returns undefined if tree set is empty
-   * @return last value or undefined
+   * @returns last value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
