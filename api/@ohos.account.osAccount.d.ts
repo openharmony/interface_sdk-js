@@ -489,7 +489,7 @@ declare namespace osAccount {
 
         /**
          * Gets information about the current OS account.
-         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
          * @returns Returns information about the current OS account; returns {@code null} if the query fails.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
