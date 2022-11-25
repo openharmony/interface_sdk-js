@@ -69,7 +69,7 @@ declare namespace thermal {
      * Subscribes to callbacks of thermal level changes.
      *
      * @param callback Callback of thermal level changes.
-     * @return Returns the thermal level.
+     * @returns Returns the thermal level.
      * @since 8
      * @deprecated since 9
      * @useinstead {@link thermal#registerThermalLevelCallback}
@@ -109,7 +109,7 @@ declare namespace thermal {
     /**
      * Obtains the current thermal level.
      *
-     * @return Returns the thermal level.
+     * @returns Returns the thermal level.
      * @since 8
      * @deprecated since 9
      * @useinstead {@link thermal#getLevel}
@@ -119,7 +119,7 @@ declare namespace thermal {
     /**
      * Obtains the current thermal level.
      *
-     * @return {ThermalLevel} The thermal level.
+     * @returns {ThermalLevel} The thermal level.
      * @throws {BusinessError} 4800101 If connecting to the service failed.
      * @since 9
      */

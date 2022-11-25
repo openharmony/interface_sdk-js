@@ -70,7 +70,7 @@ declare namespace power {
     /**
      * Checks whether the screen of a device is on or off.
      *
-     * @return Returns true if the screen is on; returns false otherwise.
+     * @returns Returns true if the screen is on; returns false otherwise.
      * @since 7
      * @deprecated since 9
      * @useinstead {@link power#isActive}
@@ -83,7 +83,7 @@ declare namespace power {
      * <p>
      * The screen will be on if device is active, screen will be off otherwise.
      *
-     * @return Returns true if the device is active; returns false otherwise.
+     * @returns Returns true if the device is active; returns false otherwise.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
      */
@@ -113,7 +113,7 @@ declare namespace power {
      * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
      *
      * @permission ohos.permission.POWER_OPTIMIZATION
-     * @return The power mode {@link DevicePowerMode} of current device .
+     * @returns The power mode {@link DevicePowerMode} of current device .
      * @throws {BusinessError} 201 – If the permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
