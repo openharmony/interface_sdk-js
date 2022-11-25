@@ -1812,11 +1812,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregister a callback used to receive notifications of the death of a remote object.
+         * Unregister a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregister.
+         * @param recipient Indicates the callback to be unregister.
          * @param flags Indicates the flag of the death notification.
-         * @returns Return {@code true} if the callback is deregister successfully; return {@code false} otherwise.
+         * @returns Return {@code true} if the callback is unregister successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.IRemoteObject#unregisterDeathRecipient
@@ -1824,9 +1824,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregister a callback used to receive notifications of the death of a remote object.
+         * Unregister a callback used to receive notifications of the death of a remote object.
          *
-         * @param recipient Indicates the callback to be deregister.
+         * @param recipient Indicates the callback to be unregister.
          * @param flags Indicates the flag of the death notification.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
@@ -2327,11 +2327,11 @@ declare namespace rpc {
         registerDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
-         * Deregister a callback used to receive death notifications of a remote object.
+         * Unregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregister.
+         * @param recipient Indicates the callback to be unregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
-         * @returns Return {@code true} if the callback is deregister successfully; return {@code false} otherwise.
+         * @returns Return {@code true} if the callback is unregister successfully; return {@code false} otherwise.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.rpc.RemoteProxy#unregisterDeathRecipient
@@ -2339,9 +2339,9 @@ declare namespace rpc {
         removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
 
         /**
-         * Deregister a callback used to receive death notifications of a remote object.
+         * Unregister a callback used to receive death notifications of a remote object.
          *
-         * @param recipient Indicates the callback to be deregister.
+         * @param recipient Indicates the callback to be unregister.
          * @param flags Indicates the flag of the death notification. This is a reserved parameter. Set it to {@code 0}.
          * @throws { BusinessError } 401 - check param failed
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
