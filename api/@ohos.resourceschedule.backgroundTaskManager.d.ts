@@ -71,7 +71,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9900001 - Caller information verification failed.
      * @throws { BusinessError } 9900002 - Background task verification failed.
-     * @return The remaining delay time
+     * @returns The remaining delay time
      */
     function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
     function getRemainingDelayTime(requestId: number): Promise<number>;
@@ -90,7 +90,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9900001 - Caller information verification failed.
      * @throws { BusinessError } 9900002 - Background task verification failed.
-     * @return Info of delay request
+     * @returns Info of delay request
      */
     function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
