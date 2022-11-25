@@ -21,6 +21,7 @@ import { AsyncCallback, Callback } from './basic';
  * @name storage
  * @since 6
  * @deprecated since 9
+ * @useinstead ohos.preferences.preferences
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  *
  */
@@ -32,7 +33,7 @@ declare namespace storage {
      * resides in the memory. You can use removeStorageFromCache to remove the instance from the memory.
      *
      * @param path Indicates the path of storage file stored.
-     * @return Returns the {@link Storage} instance matching the specified storage file name.
+     * @returns Returns the {@link Storage} instance matching the specified storage file name.
      * @throws BusinessError if invoked failed
      * @since 6
      * @deprecated since 9
@@ -92,6 +93,7 @@ declare namespace storage {
      *
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.preferences.preferences
      */
     interface Storage {
         /**
@@ -101,7 +103,7 @@ declare namespace storage {
         *
         * @param key Indicates the key of the storage. It cannot be {@code null} or empty.
         * @param defValue Indicates the default value to return.
-        * @return Returns the value matching the specified key if it is found; returns the default value otherwise.
+        * @returns Returns the value matching the specified key if it is found; returns the default value otherwise.
         * @throws BusinessError if invoked failed
         * @since 6
         * @deprecated since 9
@@ -115,7 +117,7 @@ declare namespace storage {
          * Checks whether the {@link Storage} object contains a storage matching a specified key.
          *
          * @param key Indicates the key of the storage to check for.
-         * @return Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
+         * @returns Returns {@code true} if the {@link Storage} object contains a storage with the specified key;
          * returns {@code false} otherwise.
          * @throws BusinessError if invoked failed
          * @since 6
@@ -137,7 +139,6 @@ declare namespace storage {
          * <tt>MAX_KEY_LENGTH</tt>.
          * @throws BusinessError if invoked failed
          * @since 6
-         * @deprecated since 9
          * @deprecated since 9
          * @useinstead ohos.preferences.preferences.put
          */
@@ -224,6 +225,7 @@ declare namespace storage {
      *
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.preferences.preference
      */
     interface StorageObserver {
         /**
