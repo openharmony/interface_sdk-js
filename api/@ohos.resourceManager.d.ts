@@ -447,7 +447,7 @@ export interface ResourceManager {
     /**
      * Obtains the device configuration in Promise mode.
      *
-     * @return Returns the device configuration.
+     * @returns Returns the device configuration.
      * @since 6
      */
     getConfiguration(): Promise<Configuration>;
