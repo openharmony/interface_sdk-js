@@ -28,7 +28,7 @@ declare namespace systemParameter {
      *
      * @param key Key of the system attribute.
      * @param def Default value.
-     * @return if the parameter is empty or doesn't exist, empty string will be returned.
+     * @returns if the parameter is empty or doesn't exist, empty string will be returned.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
@@ -60,7 +60,7 @@ declare namespace systemParameter {
      *
      * @param key Key of the system attribute.
      * @param def Default value.
-     * @return Promise, which is used to obtain the result asynchronously.
+     * @returns Promise, which is used to obtain the result asynchronously.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
@@ -92,7 +92,7 @@ declare namespace systemParameter {
      *
      * @param key Key of the system attribute.
      * @param value Default value.
-     * @return Promise, which is used to obtain the result asynchronously.
+     * @returns Promise, which is used to obtain the result asynchronously.
      * @syscap SystemCapability.Startup.SystemInfo
      * @since 6
      */
