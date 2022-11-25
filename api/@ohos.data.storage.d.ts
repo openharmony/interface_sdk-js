@@ -225,7 +225,6 @@ declare namespace storage {
      *
      * @since 6
      * @deprecated since 9
-     * @useinstead ohos.preferences.preference
      */
     interface StorageObserver {
         /**
