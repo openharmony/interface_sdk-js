@@ -260,7 +260,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
-     * @return Returns {@code true} if the application is idle in a particular period;
+     * @returns Returns {@code true} if the application is idle in a particular period;
      * returns {@code false} otherwise. The time range of the particular period is defined by the system,
      * which may be hours or days.
      */
@@ -285,7 +285,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000005 - Application is not installed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10100002 - Get Application group info failed.
-     * @return Returns the app group of the calling application.
+     * @returns Returns the app group of the calling application.
      */
     function queryAppGroup(callback: AsyncCallback<number>): void;
     function queryAppGroup(): Promise<number>;
@@ -311,7 +311,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000005 - Application is not installed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10100002 - Get Application group info failed.
-     * @return Returns the usage priority group of the calling application.
+     * @returns Returns the usage priority group of the calling application.
      */
      function queryAppGroup(bundleName : string, callback: AsyncCallback<number>): void;
      function queryAppGroup(bundleName : string): Promise<number>;
@@ -345,7 +345,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link BundleStatsMap} objects containing the usage information about each bundle.
+     * @returns Returns the {@link BundleStatsMap} objects containing the usage information about each bundle.
      */
     function queryBundleStatsInfos(begin: number, end: number, callback: AsyncCallback<BundleStatsMap>): void;
     function queryBundleStatsInfos(begin: number, end: number): Promise<BundleStatsMap>;
@@ -405,7 +405,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
+     * @returns Returns the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
      */
     function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number, callback: AsyncCallback<Array<BundleStatsInfo>>): void;
     function queryBundleStatsInfoByInterval(byInterval: IntervalType, begin: number, end: number): Promise<Array<BundleStatsInfo>>;
@@ -428,7 +428,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the list of {@link BundleEvents} objects containing the state data of all bundles.
+     * @returns Returns the list of {@link BundleEvents} objects containing the state data of all bundles.
      */
     function queryBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
     function queryBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
@@ -449,7 +449,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link BundleEvents} object Array containing the state data of the current bundle.
+     * @returns Returns the {@link BundleEvents} object Array containing the state data of the current bundle.
      */
     function queryCurrentBundleEvents(begin: number, end: number, callback: AsyncCallback<Array<BundleEvents>>): void;
     function queryCurrentBundleEvents(begin: number, end: number): Promise<Array<BundleEvents>>;
@@ -471,7 +471,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @returns Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
      */
     function queryModuleUsageRecords(maxNum: number, callback: AsyncCallback<Array<HapModuleInfo>>): void;
     function queryModuleUsageRecords(maxNum: number): Promise<Array<HapModuleInfo>>;
@@ -492,7 +492,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @returns Returns the {@link HapModuleInfo} object Array containing the usage data of the modules.
      */
     function queryModuleUsageRecords(callback: AsyncCallback<Array<HapModuleInfo>>): void;
     function queryModuleUsageRecords(): Promise<Array<HapModuleInfo>>;
@@ -574,7 +574,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000003 - System service operation failed.
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10100001 - Application group operation repeated.
-     * @return Returns AppGroupCallbackInfo when the group of bundle changed.
+     * @returns Returns AppGroupCallbackInfo when the group of bundle changed.
      */
     function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
     function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
@@ -616,7 +616,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link DeviceEventStats} object Array containing the event states data.
+     * @returns Returns the {@link DeviceEventStats} object Array containing the event states data.
      */
     function queryDeviceEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
     function queryDeviceEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
@@ -639,7 +639,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC Communication failed.
      * @throws { BusinessError } 10000006 - Get application info failed.
      * @throws { BusinessError } 10000007 - Get system or actual time failed.
-     * @return Returns the {@link NotificationEventStats} object Array containing the event states data.
+     * @returns Returns the {@link NotificationEventStats} object Array containing the event states data.
      */
     function queryNotificationEventStats(begin: number, end: number, callback: AsyncCallback<Array<DeviceEventStats>>): void;
     function queryNotificationEventStats(begin: number, end: number): Promise<Array<DeviceEventStats>>;
