@@ -1589,7 +1589,7 @@ declare namespace sensor {
      * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
      * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
      * since the Unix epoch.
-     * @return Returns the geomagnetic field data, {@code GeomagneticResponse}.
+     * @returns Returns the geomagnetic field data, {@code GeomagneticResponse}.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1618,7 +1618,7 @@ declare namespace sensor {
      *
      * @param seaPressure Indicates the sea level pressure, in hPa.
      * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-     * @return Returns the altitude in meters at which the device is located.
+     * @returns Returns the altitude in meters at which the device is located.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1645,7 +1645,7 @@ declare namespace sensor {
      * Computes the geomagnetic inclination angle in radians from the inclination matrix.
      *
      * @param inclinationMatrix Indicates the inclination matrix.
-     * @return Returns the geomagnetic inclination angle in radians.
+     * @returns Returns the geomagnetic inclination angle in radians.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1672,7 +1672,7 @@ declare namespace sensor {
      *
      * @param currentRotationMatrix Indicates the current rotation matrix.
      * @param preRotationMatrix Indicates the current rotation matrix.
-     * @return Returns the array of number(z, x and y) in which the angle variety.
+     * @returns Returns the array of number(z, x and y) in which the angle variety.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1701,7 +1701,7 @@ declare namespace sensor {
      * Convert rotation vector to rotation matrix.
      *
      * @param rotationVector Indicates the rotation vector.
-     * @return Returns the rotation matrix.
+     * @returns Returns the rotation matrix.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1745,7 +1745,7 @@ declare namespace sensor {
      * Coordinate System
      * @param inRotationVector Indicates the rotation matrix to be transformed.
      * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-     * @return Returns the transformed rotation matrix.
+     * @returns Returns the transformed rotation matrix.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1774,7 +1774,7 @@ declare namespace sensor {
      * convert a rotation vector to a normalized quaternion.
      *
      * @param rotationVector Indicates the rotation vector.
-     * @return Returns the normalized quaternion.
+     * @returns Returns the normalized quaternion.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1800,7 +1800,7 @@ declare namespace sensor {
      * Computes the device's orientation based on the rotation matrix.
      *
      * @param rotationMatrix Indicates the rotation matrix.
-     * @return Returns the array is the angle of rotation around the z, x, y axis.
+     * @returns Returns the array is the angle of rotation around the z, x, y axis.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
@@ -1837,7 +1837,7 @@ declare namespace sensor {
      *
      * @param gravity Indicates the gravity vector.
      * @param geomagnetic Indicates the geomagnetic vector.
-     * @return Returns the rotation matrix, {@code RotationMatrixResponse}.
+     * @returns Returns the rotation matrix, {@code RotationMatrixResponse}.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8
      * @deprecated since 9
