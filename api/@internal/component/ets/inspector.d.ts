@@ -17,7 +17,8 @@
  * Get inspector node infos.
  * @since 7
  * @systemapi
- * @deprecated
+ * @deprecated since 9
+ * @useinstead getInspectorTree
  */
 declare function getInspectorNodes(): object;
 
@@ -25,7 +26,8 @@ declare function getInspectorNodes(): object;
  * Get inspector node info by node id.
  * @since 7
  * @systemapi
- * @deprecated
+ * @deprecated since 9
+ * @useinstead getInspectorByKey
  */
 declare function getInspectorNodeById(id: number): object;
 

@@ -361,7 +361,7 @@ declare enum Curve {
   LinearOutSlowIn,
 
   /**
-   * Fast OutL inear In.
+   * Fast Out Linear In.
    * @since 7
    */
   FastOutLinearIn,
@@ -1514,13 +1514,13 @@ declare enum HitTestMode {
  */
 declare enum TitleHeight {
   /**
-   * Title height when only main title is avaliable.
+   * Title height when only main title is available.
    * @since 9
    */
   MainOnly,
 
   /**
-   * Title height when main title and subtitle are both avaliable.
+   * Title height when main title and subtitle are both available.
    * @since 9
    */
   MainWithSub,

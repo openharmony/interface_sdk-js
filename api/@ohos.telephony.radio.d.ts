@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import {AsyncCallback, Callback} from "./basic";
 
 /**
  * Provides interfaces for applications to obtain the network state, cell information, signal information,

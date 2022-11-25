@@ -96,8 +96,8 @@ export interface BundleInstaller {
    *
    * @param bundleFilePaths Indicates the path where the bundle of the application is stored. The path should be the
    *                        relative path to the data directory of the current application.
-   * @param installParam Indicates other parameters required for the installation.
-   * @return InstallStatus
+   * @param param Indicates other parameters required for the installation.
+   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#install
@@ -111,8 +111,8 @@ export interface BundleInstaller {
    * @syscap SystemCapability.BundleManager.BundleFramework
    *
    * @param bundleName Indicates the bundle name of the application to be uninstalled.
-   * @param installParam Indicates other parameters required for the uninstallation.
-   * @return InstallStatus
+   * @param param Indicates other parameters required for the uninstall.
+   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
    * @deprecated since 9
    * @useinstead ohos.bundle.installer.BundleInstaller#uninstall
@@ -126,8 +126,8 @@ export interface BundleInstaller {
    * @syscap SystemCapability.BundleManager.BundleFramework
    *
    * @param bundleName Indicates the bundle name of the application to be recovered.
-   * @param installParam Indicates other parameters required for the recover.
-   * @return InstallStatus
+   * @param param Indicates other parameters required for the recover.
+   * @returns InstallStatus
    * @permission ohos.permission.INSTALL_BUNDLE
    * @systemapi Hide this for inner system use
    * @deprecated since 9

@@ -249,7 +249,7 @@ export default class Brightness {
     static setMode(options?: SetBrightnessModeOptions): void;
 
     /**
-     * Sets whether to always keey the screen on.
+     * Sets whether to always keep the screen on.
      * @param options Options.
      * @since 3
      * @deprecated since 7

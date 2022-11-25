@@ -95,8 +95,8 @@ declare namespace installer {
     /**
      * recover an application.
      * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
-     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 401 - Input parameters check failed.

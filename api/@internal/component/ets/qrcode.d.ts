@@ -26,7 +26,7 @@ interface QRCodeInterface {
 }
 
 /**
- * Defines the qrcode attibute functions.
+ * Defines the qrcode attribute functions.
  * @since 7
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {

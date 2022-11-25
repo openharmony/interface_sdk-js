@@ -21,7 +21,6 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
  *
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
- * @import import inputDevice from '@ohos.multimodalInput.inputDevice';
  */
 declare namespace inputDevice {
   /**
@@ -93,7 +92,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: "change", listener: Callback<DeviceListener>): void;
@@ -104,7 +103,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param type Type of the input device event, which is **change**.
-   * @return Callback for the input device event.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: "change", listener?: Callback<DeviceListener>): void;
@@ -318,10 +317,10 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
-   * @return Returns a result indicating whether the specified key codes are supported.
+   * @returns Returns a result indicating whether the specified key codes are supported.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: Callback<Array<boolean>>): void;
+  function supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
@@ -330,7 +329,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the input device.
    * @param keys Key codes of the input device, You can query a maximum of five key codes at a time.
-   * @return Returns a result indicating whether the specified key codes are supported.
+   * @returns Returns a result indicating whether the specified key codes are supported.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>;
@@ -341,7 +340,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the specified input device.
-   * @return Returns the keyboard type.
+   * @returns Returns the keyboard type.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void;
@@ -352,7 +351,7 @@ declare namespace inputDevice {
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @param deviceId ID of the specified input device.
-   * @return Returns the keyboard type.
+   * @returns Returns the keyboard type.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getKeyboardType(deviceId: number): Promise<KeyboardType>;

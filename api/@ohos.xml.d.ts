@@ -32,7 +32,7 @@ declare namespace xml {
         /**
          * A parameterized constructor used to create a new XmlSerializer instance.
          * As the input parameter of the constructor function, init supports three types.
-         * The input parameter is an Arrarybuff.
+         * The input parameter is an Arrarybuffer.
          * The input parameter is a DataView.
          * The input parameter is an encoding format of string type.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
@@ -67,7 +67,7 @@ declare namespace xml {
         setDeclaration(): void;
 
         /**
-         * Writes a elemnet start tag with the given name.
+         * Writes a element start tag with the given name.
          * @since 8
          * @syscap SystemCapability.Utils.Lang
          * @param name Name of the element.
@@ -285,7 +285,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param name The current tag name.
          * @param value The current tag value.
-         * @return Returns a Boolean variable for whether parse continually.
+         * @returns Returns a Boolean variable for whether parse continually.
          */
         tagValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -295,7 +295,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param name The current attribute name.
          * @param value The current attribute value.
-         * @return Returns a Boolean variable for whether parse continually.
+         * @returns Returns a Boolean variable for whether parse continually.
          */
         attributeValueCallbackFunction?: (name: string, value: string) => boolean;
 
@@ -305,7 +305,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param eventType The current token eventtype.
          * @param value The current token parseinfo.
-         * @return Returns a Boolean variable for whether parse continually.
+         * @returns Returns a Boolean variable for whether parse continually.
          */
         tokenValueCallbackFunction?: (eventType: EventType, value: ParseInfo) => boolean;
     }

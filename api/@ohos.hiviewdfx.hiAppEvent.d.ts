@@ -272,7 +272,7 @@ declare namespace hiAppEvent {
          *
          * @since 9
          * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         * @return {AppEventPackage} The read event package.
+         * @returns {AppEventPackage} The read event package.
          */
         takeNext(): AppEventPackage;
     }
@@ -353,7 +353,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @static
      * @param {Watcher} watcher Watcher object for monitoring events.
-     * @return {AppEventPackageHolder} Holder object, which is used to read the monitoring data of the watcher.
+     * @returns {AppEventPackageHolder} Holder object, which is used to read the monitoring data of the watcher.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 11102001 - Invalid watcher name.
      * @throws {BusinessError} 11102002 - Invalid filtering event domain.

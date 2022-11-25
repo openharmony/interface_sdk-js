@@ -34,7 +34,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return the pid of the current process.
+        * @returns Return the pid of the current process.
         */
         readonly pid: number;
         
@@ -43,7 +43,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return the pid of the current child process.
+        * @returns Return the pid of the current child process.
         */
         readonly ppid: number;
 
@@ -52,7 +52,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return the exit code of the current child process.
+        * @returns Return the exit code of the current child process.
         */
         readonly exitCode: number;
 
@@ -61,7 +61,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return whether the current process signal is sent successfully.
+        * @returns Return whether the current process signal is sent successfully.
         */
         readonly killed: boolean;
 
@@ -70,7 +70,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return the target process exit code.
+        * @returns Return the target process exit code.
         */
         wait(): Promise<number>;
 
@@ -79,7 +79,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return subprocess standard outpute.
+        * @returns Return subprocess standard output.
         */
         getOutput(): Promise<Uint8Array>;
 
@@ -88,7 +88,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
-        * @return Return subprocess standard error output.
+        * @returns Return subprocess standard error output.
         */
         getErrorOutput(): Promise<Uint8Array>;
 
@@ -123,7 +123,7 @@ declare namespace process {
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v An id.
-        * @return Return a boolean whether the specified uid belongs to a particular application.
+        * @returns Return a boolean whether the specified uid belongs to a particular application.
         * @throws {BusinessError} 401 - The type of v must be number.
         */
         isAppUid(v: number): boolean;
@@ -133,7 +133,7 @@ declare namespace process {
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v Process name.
-        * @return Return the uid based on the specified user name.
+        * @returns Return the uid based on the specified user name.
         * @throws {BusinessError} 401 - The type of v must be string.
         */
         getUidForName(v: string): number;
@@ -143,7 +143,7 @@ declare namespace process {
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param v The tid of the process.
-        * @return Return the thread priority based on the specified tid.
+        * @returns Return the thread priority based on the specified tid.
         * @throws {BusinessError} 401 - The type of v must be number.
         */
         getThreadPriority(v: number): number;
@@ -153,7 +153,7 @@ declare namespace process {
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param name Parameters defined by the system configuration.
-        * @return Return the system configuration at runtime.
+        * @returns Return the system configuration at runtime.
         * @throws {BusinessError} 401 - The type of name must be number.
         */
         getSystemConfig(name: number): number;
@@ -163,7 +163,7 @@ declare namespace process {
         * @since 9
         * @syscap SystemCapability.Utils.Lang
         * @param name Parameters defined by the system environment variables.
-        * @Returns the system value for environment variables.
+        * @returns Return the system value for environment variables.
         * @throws {BusinessError} 401 - The type of name must be string.
         */
         getEnvironmentVar(name: string): string;
@@ -183,7 +183,7 @@ declare namespace process {
         * @syscap SystemCapability.Utils.Lang
         * @param signal Signal sent.
         * @param pid Send signal to target pid.
-        * @return Return the result of the signal.
+        * @returns Return the result of the signal.
         * @throws {BusinessError} 401 - if the input parameters are invalid.
         */
         kill(signal: number, pid: number): boolean;
@@ -194,7 +194,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return the numeric valid group ID of the process.
+    * @returns Return the numeric valid group ID of the process.
     */
     const egid: number;
 
@@ -203,7 +203,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return the numeric valid user identity of the process.
+    * @returns Return the numeric valid user identity of the process.
     */
     const euid: number;
 
@@ -212,7 +212,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return the numeric group if of the process.
+    * @returns Return the numeric group if of the process.
     */
     const gid: number
 
@@ -220,7 +220,7 @@ declare namespace process {
     * Returns the digital user id of the process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @return Return the digital user id of the process.
+    * @returns Return the digital user id of the process.
     */
     const uid: number;
 
@@ -229,7 +229,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return an array with supplementary group id.
+    * @returns Return an array with supplementary group id.
     */
     const groups: number[];
 
@@ -237,7 +237,7 @@ declare namespace process {
     * Return pid is The pid of the current process
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @return Return The pid of the current process.
+    * @returns Return The pid of the current process.
     */
     const pid: number;
 
@@ -246,7 +246,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return The pid of the current child process.
+    * @returns Return The pid of the current child process.
     */
     const ppid: number;
 
@@ -254,7 +254,7 @@ declare namespace process {
     * Returns the tid of the current thread.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return Return the tid of the current thread.
+    * @returns Return the tid of the current thread.
     */
     const tid: number;
 
@@ -262,7 +262,7 @@ declare namespace process {
     * Returns a boolean whether the process is isolated.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return Return boolean whether the process is isolated.
+    * @returns Return boolean whether the process is isolated.
     */
     function isIsolatedProcess(): boolean;
 
@@ -273,7 +273,7 @@ declare namespace process {
     * @useinstead ohos.process.ProcessManager.isAppUid
     * @syscap SystemCapability.Utils.Lang
     * @param v An id.
-    * @return Return a boolean whether the specified uid belongs to a particular application.
+    * @returns Return a boolean whether the specified uid belongs to a particular application.
     */
     function isAppUid(v: number): boolean;
 
@@ -281,7 +281,7 @@ declare namespace process {
     * Returns a boolean whether the process is running in a 64-bit environment.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return Return a boolean whether the process is running in a 64-bit environment.
+    * @returns Return a boolean whether the process is running in a 64-bit environment.
     */
     function is64Bit(): boolean;
 
@@ -292,7 +292,7 @@ declare namespace process {
     * @useinstead ohos.process.ProcessManager.getUidForName
     * @syscap SystemCapability.Utils.Lang
     * @param v Process name.
-    * @return Return the uid based on the specified user name.
+    * @returns Return the uid based on the specified user name.
     */
     function getUidForName(v: string): number;
 
@@ -303,7 +303,7 @@ declare namespace process {
     * @useinstead ohos.process.ProcessManager.getThreadPriority
     * @syscap SystemCapability.Utils.Lang
     * @param v The tid of the process.
-    * @return Return the thread priority based on the specified tid.
+    * @returns Return the thread priority based on the specified tid.
     */
     function getThreadPriority(v: number): number;
 
@@ -311,7 +311,7 @@ declare namespace process {
     * Returns the elapsed real time (in milliseconds) taken from the start of the system to the start of the process.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return Return the start of the system to the start of the process.
+    * @returns Return the start of the system to the start of the process.
     */
     function getStartRealtime(): number;
 
@@ -319,7 +319,7 @@ declare namespace process {
     * Returns the cpu time (in milliseconds) from the time when the process starts to the current time.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
-    * @return Return the cpu time (in milliseconds) from the time when the process starts to the current time.
+    * @returns Return the cpu time (in milliseconds) from the time when the process starts to the current time.
     */
     function getPastCpuTime(): number;
 
@@ -330,7 +330,7 @@ declare namespace process {
     * @useinstead ohos.process.ProcessManager.getSystemConfig
     * @syscap SystemCapability.Utils.Lang
     * @param name Parameters defined by the system configuration.
-    * @return Return the system configuration at runtime.
+    * @returns Return the system configuration at runtime.
     */
     function getSystemConfig(name: number): number;
 
@@ -341,13 +341,13 @@ declare namespace process {
     * @useinstead ohos.process.ProcessManager.getEnvironmentVar
     * @syscap SystemCapability.Utils.Lang
     * @param name Parameters defined by the system environment variables.
-    * @Returns the system value for environment variables.
+    * @returns Return the system value for environment variables.
     */
     function getEnvironmentVar(name: string): string;
 
     type EventListener = (evt: Object) => void;
     /**
-    * Return a child process object and spawns a new ChildProcess to run the command
+    * Return a child process object and spawns a new ChildProcess to run the command.
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @param command String of the shell commands executed by the child process.
@@ -355,7 +355,7 @@ declare namespace process {
     * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
     * maximum buffer area for standard input and output.
     * @systemapi Hide this for inner system use
-    * @return Return a child process object.
+    * @returns Return a child process object.
     */
     function runCmd(command: string,
         options?: { timeout?: number, killSignal?: number | string, maxBuffer?: number }): ChildProcess;
@@ -383,7 +383,7 @@ declare namespace process {
     * @syscap SystemCapability.Utils.Lang
     * @param type Remove the type of registered event.
     * @systemapi Hide this for inner system use
-    * @return Return removed result.
+    * @returns Return removed result.
     */
     function off(type: string): boolean;
 
@@ -402,7 +402,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
-    * @return Return the current work directory.
+    * @returns Return the current work directory.
     */
     function cwd(): string;
 
@@ -419,7 +419,7 @@ declare namespace process {
     * Returns the running time of the system
     * @since 7
     * @syscap SystemCapability.Utils.Lang
-    * @return Return the running time of the system.
+    * @returns Return the running time of the system.
     */
     function uptime(): number;
 
@@ -431,7 +431,7 @@ declare namespace process {
     * @syscap SystemCapability.Utils.Lang
     * @param signal Signal sent.
     * @param pid Send signal to target pid.
-    * @return Return the result of the signal.
+    * @returns Return the result of the signal.
     */
     function kill(signal: number, pid: number): boolean;
 }

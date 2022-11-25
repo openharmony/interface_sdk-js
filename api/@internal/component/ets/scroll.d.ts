@@ -115,7 +115,7 @@ interface ScrollInterface {
 }
 
 /**
- * Defines the scroll attibute functions.
+ * Defines the scroll attribute functions.
  * @since 7
  */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
@@ -168,7 +168,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 
   /**
-   * Event called when sroll will scroll.
+   * Event called when Scroll will scroll.
    * @since 9
    */
   onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;

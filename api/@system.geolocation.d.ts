@@ -15,6 +15,8 @@
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @deprecated since 9
+ * @useinstead ohos.geoLocationManager/geoLocationManager.Location
  */
 export interface GeolocationResponse {
   /**
@@ -51,6 +53,8 @@ export interface GeolocationResponse {
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @permission ohos.permission.LOCATION
+ * @deprecated since 9
+ * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
  */
 export interface GetLocationOption {
   /**
@@ -92,6 +96,7 @@ export interface GetLocationOption {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @deprecated since 9
  */
 export interface GetLocationTypeResponse {
   /**
@@ -102,6 +107,7 @@ export interface GetLocationTypeResponse {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @deprecated since 9
  */
 export interface GetLocationTypeOption {
   /**
@@ -126,6 +132,8 @@ export interface GetLocationTypeOption {
 /**
  * @syscap SystemCapability.Location.Location.Lite
  * @permission ohos.permission.LOCATION
+ * @deprecated since 9
+ * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
  */
 export interface SubscribeLocationOption {
   /**
@@ -150,18 +158,23 @@ export interface SubscribeLocationOption {
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @deprecated since 9
+ * @useinstead ohos.geoLocationManager/geoLocationManager
  */
 export default class Geolocation {
   /**
    * Obtains the geographic location.
    * @permission ohos.permission.LOCATION
    * @param options Options.
+   * @deprecated since 9
+   * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
    */
   static getLocation(options?: GetLocationOption): void;
 
   /**
    * Obtains the location types supported by the system.
    * @param options Options.
+   * @deprecated since 9
    */
   static getLocationType(options?: GetLocationTypeOption): void;
 
@@ -169,18 +182,23 @@ export default class Geolocation {
    * Listens to the geographical location. If this method is called multiple times, the last call takes effect.
    * @permission ohos.permission.LOCATION
    * @param options Options.
+   * @deprecated since 9
+   * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:locationChange
    */
   static subscribe(options: SubscribeLocationOption): void;
 
   /**
    * Cancels listening to the geographical location.
    * @permission ohos.permission.LOCATION
+   * @deprecated since 9
+   * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:locationChange
    */
   static unsubscribe(): void;
 
   /**
    * Obtains the supported coordinate system types.
    * @returns A string array of the supported coordinate system types, for example, ['wgs84'].
+   * @deprecated since 9
    */
   static getSupportedCoordTypes(): Array<string>;
 }

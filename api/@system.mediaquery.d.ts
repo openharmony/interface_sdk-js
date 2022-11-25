@@ -73,7 +73,7 @@ export interface MediaQueryList {
 }
 
 /**
- * Defines the mediaqurey interface.
+ * Defines the mediaquery interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */

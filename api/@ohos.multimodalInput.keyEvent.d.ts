@@ -19,7 +19,6 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {Action} from '@ohos.multimodalInput.keyEvent';
 */
 export declare enum Action {
   /**
@@ -43,7 +42,6 @@ export declare enum Action {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {Key} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface Key {
   /**
@@ -67,7 +65,6 @@ export declare interface Key {
 *
 * @since 9
 * @syscap SystemCapability.MultimodalInput.Input.Core
-* @import import {KeyEvent} from '@ohos.multimodalInput.keyEvent';
 */
 export declare interface KeyEvent extends InputEvent {
   /**
