@@ -61,7 +61,7 @@ declare namespace batteryStats {
     /**
      * Obtains the power consumption information list.
      *
-     * @return {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
+     * @returns {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
      * @systemapi
      * @since 8
      */
@@ -81,7 +81,7 @@ declare namespace batteryStats {
      * Obtains power consumption information(Mah) for a given uid.
      *
      * @param {number} uid Indicates the uid.
-     * @return {number} Power consumption information(Mah).
+     * @returns {number} Power consumption information(Mah).
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
@@ -92,7 +92,7 @@ declare namespace batteryStats {
      * Obtains power consumption information(Percent) for a given uid.
      *
      * @param {number} uid Indicates the uid.
-     * @return {number} Power consumption information(Percent).
+     * @returns {number} Power consumption information(Percent).
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
@@ -103,7 +103,7 @@ declare namespace batteryStats {
      * Obtains power consumption information(Mah) for a given type.
      *
      * @param {ConsumptionType} type Indicates the hardware type.
-     * @return {number} Power consumption information(Mah).
+     * @returns {number} Power consumption information(Mah).
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
@@ -115,7 +115,7 @@ declare namespace batteryStats {
      * Obtains power consumption information(Percent) for a given type.
      *
      * @param {ConsumptionType} type Indicates the hardware type.
-     * @return {number} Power consumption information(Percent).
+     * @returns {number} Power consumption information(Percent).
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
