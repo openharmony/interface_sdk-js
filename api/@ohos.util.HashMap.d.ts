@@ -29,7 +29,7 @@ declare class HashMap<K, V> {
   length: number;
   /**
    * Returns whether the Map object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -38,7 +38,7 @@ declare class HashMap<K, V> {
   /**
    * Returns whether a key is contained in this map
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -47,7 +47,7 @@ declare class HashMap<K, V> {
   /**
    * Returns whether a value is contained in this map
    * @param value need to determine whether to include the value
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -56,7 +56,7 @@ declare class HashMap<K, V> {
   /**
    * Returns a specified element in a Map object, or null if there is no corresponding element
    * @param key the index in HashMap
-   * @return value or null
+   * @returns value or null
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -85,7 +85,7 @@ declare class HashMap<K, V> {
   /**
    * Remove a specified element from a Map object
    * @param key  Target to be deleted
-   * @return Target mapped value
+   * @returns Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

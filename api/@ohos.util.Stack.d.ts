@@ -29,7 +29,7 @@ declare class Stack<T> {
   length: number;
   /**
    * Tests if this stack is empty
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -37,8 +37,8 @@ declare class Stack<T> {
   isEmpty(): boolean;
   /**
    * Looks at the object at the top of this stack without removing it from the stack
-   * Return undfined if this stack is empty
-   * @return the top value or undefined
+   * Return undefined if this stack is empty
+   * @returns the top value or undefined
    * @throws { BusinessError } 10200011 - The peek method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

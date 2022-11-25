@@ -49,7 +49,7 @@ declare class LightWeightSet<T> {
   /**
    * Returns whether this set has all the object in a specified set
    * @param set the Set object to compare
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -59,7 +59,7 @@ declare class LightWeightSet<T> {
   /**
    * Checks whether an LightWeightSet container has a specified key
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -68,7 +68,7 @@ declare class LightWeightSet<T> {
   /**
    * Checks whether an the objects of an LightWeighSet containeer are of the same type as a specified Object LightWeightSet
    * @param obj need to determine whether to include the obj
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -88,7 +88,7 @@ declare class LightWeightSet<T> {
   /**
    * Obtains the index of s key of a specified Object type in an LightWeightSet container
    * @param key Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -97,16 +97,16 @@ declare class LightWeightSet<T> {
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    * @param key  Target to be deleted
-   * @return Target element
+   * @returns Target element
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   remove(key: T): T;
   /**
-   * Deletes an object at the loaction identified by index from an LightWeightSet container
+   * Deletes an object at the location identified by index from an LightWeightSet container
    * @param index  Target subscript for search
-   * @return the boolean type(Is there a delete value)
+   * @returns the boolean type(Is there a delete value)
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -154,7 +154,7 @@ declare class LightWeightSet<T> {
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    * @param index Target subscript for search
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
