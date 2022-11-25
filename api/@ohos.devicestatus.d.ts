@@ -20,7 +20,6 @@ import { Callback } from "./basic";
  *
  * @since 9
  * @syscap SystemCapability.Msdp.DeviceStatus
- * @import import DeviceStatus from '@ohos.DeviceStatus'
  */
 declare namespace deviceStatus {
     /**
