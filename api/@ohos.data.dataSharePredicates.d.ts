@@ -25,7 +25,7 @@ declare namespace dataSharePredicates {
  */
     class DataSharePredicates {
     /**
-     * Configures the DataSharePredicates to match the field whose data type is ValueType and value is equal
+     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
      * to a specified value.
      * This method is similar to = of the SQL statement.
      *
@@ -39,7 +39,7 @@ declare namespace dataSharePredicates {
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
+     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
      * a specified value.
      * This method is similar to != of the SQL statement.
      *
@@ -97,7 +97,7 @@ declare namespace dataSharePredicates {
      */
     and(): DataSharePredicates;
     /**
-     * Configures the DataSharePredicates to match the field whose data type is string and value
+     * Configure the DataSharePredicates to match the field whose data type is string and value
      * contains a specified value.
      * This method is similar to contains of the SQL statement.
      *
@@ -111,7 +111,7 @@ declare namespace dataSharePredicates {
     contains(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the field whose data type is string and value starts
+     * Configure the DataSharePredicates to match the field whose data type is string and value starts
      * with a specified string.
      * This method is similar to value% of the SQL statement.
      *
@@ -125,7 +125,7 @@ declare namespace dataSharePredicates {
     beginsWith(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the field whose data type is string and value
+     * Configure the DataSharePredicates to match the field whose data type is string and value
      * ends with a specified string.
      * This method is similar to %value of the SQL statement.
      *
@@ -139,7 +139,7 @@ declare namespace dataSharePredicates {
     endsWith(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the fields whose value is null.
+     * Configure the DataSharePredicates to match the fields whose value is null.
      * This method is similar to is null of the SQL statement.
      *
      * @since 9
@@ -151,7 +151,7 @@ declare namespace dataSharePredicates {
     isNull(field: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the specified fields whose value is not null.
+     * Configure the DataSharePredicates to match the specified fields whose value is not null.
      * This method is similar to is not null of the SQL statement.
      *
      * @since 9
@@ -163,7 +163,7 @@ declare namespace dataSharePredicates {
     isNotNull(field: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the fields whose data type is string and value is
+     * Configure the DataSharePredicates to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to like of the SQL statement.
      *
@@ -178,7 +178,7 @@ declare namespace dataSharePredicates {
     like(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configures the DataSharePredicates to match the fields whose data type is string and value is
+     * Configure the DataSharePredicates to match the fields whose data type is string and value is
      * similar to a specified string.
      * This method is similar to unlike of the SQL statement.
      *
@@ -193,7 +193,7 @@ declare namespace dataSharePredicates {
      unlike(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configures DataSharePredicates to match the specified field whose data type is string and the value contains
+     * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
      * a wildcard.
      * Different from like, the input parameters of this method are case-sensitive.
      *
@@ -220,7 +220,7 @@ declare namespace dataSharePredicates {
     between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
-     * Configures DataSharePredicates to match the specified field whose data type is int and value is
+     * Configure DataSharePredicates to match the specified field whose data type is int and value is
      * out of a given range.
      *
      * @since 9
@@ -328,7 +328,7 @@ declare namespace dataSharePredicates {
     limit(total: number, offset: number): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} to group query results by specified columns.
+     * Configure {@code DataSharePredicates} to group query results by specified columns.
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -339,7 +339,7 @@ declare namespace dataSharePredicates {
     groupBy(fields: Array<string>): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} to specify the index column.
+     * Configure {@code DataSharePredicates} to specify the index column.
      * Before using this method, you need to create an index column.
      *
      * @since 9
@@ -351,7 +351,7 @@ declare namespace dataSharePredicates {
     indexedBy(field: string): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
      * are within a given range.
      *
      * @since 9
@@ -364,7 +364,7 @@ declare namespace dataSharePredicates {
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
      * are out of a given range.
      *
      * @since 9
@@ -377,7 +377,7 @@ declare namespace dataSharePredicates {
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} Creates a query condition using the specified key prefix.
+     * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
@@ -388,7 +388,7 @@ declare namespace dataSharePredicates {
     prefixKey(prefix: string): DataSharePredicates;
 
     /**
-     * Configures {@code DataSharePredicates} to match the specified value whose key is within a given range.
+     * Configure {@code DataSharePredicates} to match the specified value whose key is within a given range.
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
