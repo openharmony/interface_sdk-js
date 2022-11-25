@@ -54,7 +54,7 @@ declare class PlainArray<T> {
   /**
    * Checks whether the current PlainArray object contains the specified key
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -64,7 +64,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value associated with the specified key
    * @param key Looking for goals
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -74,7 +74,7 @@ declare class PlainArray<T> {
   /**
    * Queries the index for a specified key
    * @param key Looking for goals
-   * @return Subscript corresponding to target
+   * @returns Subscript corresponding to target
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -84,7 +84,7 @@ declare class PlainArray<T> {
   /**
     * Queries the index for a specified value
     * @param value Looking for goals
-    * @return Subscript corresponding to target
+    * @returns Subscript corresponding to target
     * @throws { BusinessError } 10200011 - The getIndexOfValue method cannot be bound.
     * @since 8
     * @syscap SystemCapability.Utils.Lang
@@ -92,7 +92,7 @@ declare class PlainArray<T> {
   getIndexOfValue(value: T): number;
   /**
    * Checks whether the current PlainArray object is empty
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -101,7 +101,7 @@ declare class PlainArray<T> {
   /**
    * Queries the key at a specified index
    * @param index Target subscript for search
-   * @return the key of key-value pairs
+   * @returns the key of key-value pairs
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -111,7 +111,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    * @param key  Target to be deleted
-   * @return Target mapped value
+   * @returns Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -121,7 +121,7 @@ declare class PlainArray<T> {
   /**
    * Remove the key-value pair at a specified index if it exists and return the value
    * @param index  Target subscript for search
-   * @return the T type
+   * @returns the T type
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -132,7 +132,7 @@ declare class PlainArray<T> {
    * Remove a group of key-value pairs from a specified index
    * @param index  remove start index
    * @param size Expected deletion quantity
-   * @return Actual deleted quantity
+   * @returns Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
@@ -161,7 +161,7 @@ declare class PlainArray<T> {
   /**
    * Queries the value at a specified index
    * @param index Target subscript for search
-   * @return the value of key-value pairs
+   * @returns the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The type of parameters are out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.

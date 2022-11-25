@@ -31,7 +31,7 @@ declare class Queue<T> {
    * Inserting specified element at the end of a queue if it is possible to do
    * so immediately without violating capacity restrictions.
    * @param element to be appended to this queue
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -39,7 +39,7 @@ declare class Queue<T> {
   add(element: T): boolean;
   /**
    * Obtains the header element of a queue.
-   * @return the T type
+   * @returns the T type
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -47,7 +47,7 @@ declare class Queue<T> {
   getFirst(): T;
   /**
    * Retrieves and removes the head of this queue
-   * @return the T type
+   * @returns the T type
    * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

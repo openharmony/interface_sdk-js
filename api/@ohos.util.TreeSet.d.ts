@@ -33,7 +33,7 @@ declare class TreeSet<T> {
   length: number;
   /**
    * Returns whether the Set object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -42,7 +42,7 @@ declare class TreeSet<T> {
   /**
    * Returns whether the Set object contain s the elements
    * @param value need to determine whether to include the element
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -61,7 +61,7 @@ declare class TreeSet<T> {
   /**
    * Remove a specified element from a Set object
    * @param value  Target to be deleted
-   * @return the boolean type(Is there contain this element)
+   * @returns the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -76,7 +76,7 @@ declare class TreeSet<T> {
   clear(): void;
   /**
    * Gets the first elements in a set
-   * @return value or undefined
+   * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getFirstValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -84,7 +84,7 @@ declare class TreeSet<T> {
   getFirstValue(): T;
   /**
    * Gets the last elements in a set
-   * @return value or undefined
+   * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getLastValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -92,9 +92,9 @@ declare class TreeSet<T> {
   getLastValue(): T;
   /**
    * Returns the greatest element smaller than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -103,9 +103,9 @@ declare class TreeSet<T> {
   getLowerValue(key: T): T;
   /**
    * Returns the least element greater than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -114,7 +114,7 @@ declare class TreeSet<T> {
   getHigherValue(key: T): T;
   /**
    * Return and delete the first element, returns undefined if tree set is empty
-   * @return first value or undefined
+   * @returns first value or undefined
    * @throws { BusinessError } 10200011 - The popFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -122,7 +122,7 @@ declare class TreeSet<T> {
   popFirst(): T;
   /**
    * Return and delete the last element, returns undefined if tree set is empty
-   * @return last value or undefined
+   * @returns last value or undefined
    * @throws { BusinessError } 10200011 - The popLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
