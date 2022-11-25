@@ -26,7 +26,7 @@ declare namespace update {
     /**
      * Get online update handler for the calling device.
      *
-     * @param upgradeInfo indicates client app and business type
+     * @param upgradeInfo indicates client app and business type.
      * @returns online update handler to perform online update.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 11500104 - IPC error.
