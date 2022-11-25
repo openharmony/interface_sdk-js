@@ -23,7 +23,6 @@ import { NotificationSlot } from './notification/notificationSlot';
  *
  * @since 7
  * @syscap SystemCapability.Notification.ReminderAgent
- * @import reminderAgent from '@ohos.reminderAgent';
  * @deprecated since 9
  * @useinstead reminderAgentManager
  */
