@@ -343,7 +343,7 @@ declare namespace hiAppEvent {
         /**
          * The callback function of watcher.
          */
-        onTrigger?: (curRow: number, curSize:number, holder:AppEventPackageHolder) => void;
+        onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
     }
 
     /**
