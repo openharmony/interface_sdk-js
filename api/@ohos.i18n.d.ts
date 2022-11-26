@@ -328,7 +328,7 @@ export class System {
  * @syscap SystemCapability.Global.I18n
  * @since 8
  * @deprecated since 9
- * @useinstead I18NUitl
+ * @useinstead I18NUtil
  */
 export interface Util {
     /**
@@ -1103,7 +1103,7 @@ export class TimeZone {
      * Get the offset of the TimeZone object.
      * 
      * @syscap SystemCapability.Global.I18n
-     * @date Indicates a date use to compute offset.
+     * @param date Indicates a date use to compute offset.
      * @returns Returns a number represents the offset with date.
      * @since 7
      */
