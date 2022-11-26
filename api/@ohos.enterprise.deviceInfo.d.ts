@@ -21,7 +21,7 @@ import Want from "./@ohos.app.ability.Want";
  * @namespace deviceInfo.
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
- * @since 9
+ * @since 10
  */
 declare namespace deviceInfo {
 
@@ -38,7 +38,7 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -55,9 +55,77 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
   function getDeviceSerial(admin: Want): Promise<string>;
+
+  /**
+   * Gets the display version.
+   * This function can be called by a super administrator.
+   * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AsyncCallback<string> } callback - the callback of getDisplayVersion.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function getDisplayVersion(admin: Want, callback: AsyncCallback<string>): void;
+
+  /**
+   * Gets the display version.
+   * This function can be called by a super administrator.
+   * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<string> } the promise returned by the getDisplayVersion.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function getDisplayVersion(admin: Want): Promise<string>;
+
+  /**
+   * Gets the device name.
+   * This function can be called by a super administrator.
+   * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { AsyncCallback<string> } callback - the callback of getDeviceName.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function getDeviceName(admin: Want, callback: AsyncCallback<string>): void;
+
+  /**
+   * Gets the device name.
+   * This function can be called by a super administrator.
+   * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<string> } the promise returned by the getDeviceName.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function getDeviceName(admin: Want): Promise<string>;
 }
 
 export default deviceInfo;
