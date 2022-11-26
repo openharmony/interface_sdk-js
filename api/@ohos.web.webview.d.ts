@@ -194,7 +194,7 @@ declare namespace webview {
     class WebDataBase {
         /**
         * Get whether instances holds any http authentication credentials.
-        * @return { boolean } true if instances saved any http authentication credentials otherwise false.
+        * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
         *
         * @since 9
         */
@@ -212,7 +212,7 @@ declare namespace webview {
          * @param { string } host - The host to which the credentials apply.
          * @param { string } realm - The realm to which the credentials apply.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @return { Array<string> } Return an array containing username and password.
+         * @returns { Array<string> } Return an array containing username and password.
          * @since 9
          */
         static getHttpAuthCredentials(host: string, realm: string): Array<string>;
@@ -320,7 +320,7 @@ declare namespace webview {
          *                                              geographic location permission status.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100011 - Invalid origin.
-         * @return { Promise<boolean> } Return whether there is a saved result.
+         * @returns { Promise<boolean> } Return whether there is a saved result.
          *
          * @since 9
          */
@@ -332,7 +332,7 @@ declare namespace webview {
          * @param { AsyncCallback<boolean> } callback - Return all source information of
          *                                              stored geographic location permission status.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @return { Promise<Array<string>> } Return whether there is a saved result.
+         * @returns { Promise<Array<string>> } Return whether there is a saved result.
          *
          * @since 9
          */
@@ -376,7 +376,7 @@ declare namespace webview {
          *
          * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @return { Promise<void> } A promise resolved after the cookies have been saved.
+         * @returns { Promise<void> } A promise resolved after the cookies have been saved.
          *
          * @since 9
          */
