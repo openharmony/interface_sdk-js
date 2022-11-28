@@ -497,7 +497,7 @@ declare namespace osAccount {
          * @since 9
          */
         getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
-        getCurrentOsAccount(): Promise<OsAccountInfo>; 
+        getCurrentOsAccount(): Promise<OsAccountInfo>;
 
         /**
          * Queries OS account information based on the local ID.
@@ -914,7 +914,6 @@ declare namespace osAccount {
          * Sets property that can be used to initialize algorithms.
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
          * @param request Indicates the request information, including authentication type and the key-value to be set.
-         * @returns Returns a number value indicating whether the property setting was successful.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
@@ -922,8 +921,8 @@ declare namespace osAccount {
          * @systemapi Hide this for inner system use.
          * @since 8
          */
-        setProperty(request: SetPropertyRequest, callback: AsyncCallback<number>): void;
-        setProperty(request: SetPropertyRequest): Promise<number>;
+        setProperty(request: SetPropertyRequest, callback: AsyncCallback<void>): void;
+        setProperty(request: SetPropertyRequest): Promise<void>;
 
         /**
          * Executes authentication.
