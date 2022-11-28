@@ -2218,27 +2218,12 @@ declare namespace distributedKVStore {
      *
      * @param {KVManagerConfig} config - Indicates the KVStore configuration information,
      * including the package name and context.
-     * @param {AsyncCallback<KVManager>} callback - {KVManager}: the {@code KVManager} instance.
+     * @returns {KVManager}: the {@code KVManager} instance.
      * @throws {BusinessError} 401 - if parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
-    function createKVManager(config: KVManagerConfig, callback: AsyncCallback<KVManager>): void;
-
-    /**
-     * Creates a {@link KVManager} instance based on the configuration information.
-     *
-     * <p>You must pass {@link KVManagerConfig} to provide configuration information
-     * to create a {@link KVManager} instance.
-     *
-     * @param {KVManagerConfig} config - Indicates the KVStore configuration information,
-     * including the package name and context.
-     * @returns {Promise<KVManager>} {KVManager}: the {@code KVManager} instance.
-     * @throws {BusinessError} 401 - if parameter check failed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 9
-     */
-    function createKVManager(config: KVManagerConfig): Promise<KVManager>;
+    function createKVManager(config: KVManagerConfig): KVManager;
 
     /**
      * Provides interfaces to manage a {@code SingleKVStore} database, including obtaining, closing, and deleting the {@code SingleKVStore}.
