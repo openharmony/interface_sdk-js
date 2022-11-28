@@ -29,7 +29,7 @@ declare namespace connection {
   type UDPSocket = socket.UDPSocket;
 
   /**
-   * Create a network connection with optional netSpefifier and timeout.
+   * Create a network connection with optional netSpecifier and timeout.
    *
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
@@ -52,7 +52,7 @@ declare namespace connection {
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
-   * @return Returns the {@link NetHandle} object;
+   * @returns Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
@@ -212,7 +212,7 @@ declare namespace connection {
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
-     * @return Returns the first NetAddress.
+     * @param callback Returns the first NetAddress.
      * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
