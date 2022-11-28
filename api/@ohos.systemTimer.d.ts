@@ -46,8 +46,8 @@ declare namespace systemTimer {
 
   /**
    * Creates a timer.
-   * @Param options Indicates the timer options.
-   * @Return timer ID.
+   * @param options Indicates the timer options.
+   * @returns timer ID.
    */
   function createTimer(options: TimerOptions, callback: AsyncCallback<number>): void;
   function createTimer(options: TimerOptions): Promise<number>;
@@ -55,8 +55,8 @@ declare namespace systemTimer {
   /**
    * Starts a timer.
    *
-   * @Param timer The timer ID.
-   * @Param triggerTime Indicates the time at which the timer is triggered for the first time, in milliseconds.
+   * @param timer The timer ID.
+   * @param triggerTime Indicates the time at which the timer is triggered for the first time, in milliseconds.
    *                    The time will be automatically set to 5000 milliseconds after the current time if the passed
    *                    value is smaller than the current time plus 5000 milliseconds.
    */
@@ -65,14 +65,14 @@ declare namespace systemTimer {
 
   /**
    * Stops a timer.
-   * @Param timer The timer ID.
+   * @param timer The timer ID.
    */
   function stopTimer(timer: number, callback: AsyncCallback<void>): void;
   function stopTimer(timer: number): Promise<void>;
 
   /**
    * Destroy a timer.
-   * @Param timer The timer ID.
+   * @param timer The timer ID.
    */
   function destroyTimer(timer: number, callback: AsyncCallback<void>): void;
   function destroyTimer(timer: number): Promise<void>;
