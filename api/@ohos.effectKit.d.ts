@@ -19,7 +19,6 @@ import image from './@ohos.multimedia.image';
 /**
  * @name  effectKit
  * @since 9
- * @import  effectKit from '@ohos.effectKit';
  */
 declare namespace effectKit {
 
@@ -35,7 +34,7 @@ declare namespace effectKit {
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
     * @param radius The degree of blur, the value is measured in pixels.
-    * @return Filters for the current effect have been added.
+    * @returns Filters for the current effect have been added.
     */
     blur(radius:number): Filter;
 
@@ -44,7 +43,7 @@ declare namespace effectKit {
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
     * @param bright The degree of light and darkness,the value range is 0 to 1.
-    * @return Filters for the current effect have been added.
+    * @returns Filters for the current effect have been added.
     */
     brightness(bright:number): Filter;
 
@@ -52,7 +51,7 @@ declare namespace effectKit {
     * A Grayscale effect is added to the image.
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @return Filters for the current effect have been added.
+    * @returns Filters for the current effect have been added.
     */
     grayscale(): Filter;
 
@@ -60,7 +59,7 @@ declare namespace effectKit {
     * Gets the PixelMap where all filter effects have been added to the image.
     * @since 9
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @return image.PixelMap.
+    * @returns image.PixelMap.
     */
     getPixelMap(): image.PixelMap;
   }
@@ -128,7 +127,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @return Returns the head node of FilterChain.
+   * @returns Returns the head node of FilterChain.
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -137,7 +136,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @return Returns the ColorPicker.
+   * @returns Returns the ColorPicker.
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -146,7 +145,7 @@ declare namespace effectKit {
    * @since 9
    * @syscap SystemCapability.Multimedia.Image.Core
    * @param image.PixelMap.
-   * @return Returns the ColorPicker.
+   * @returns Returns the ColorPicker.
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
 }
