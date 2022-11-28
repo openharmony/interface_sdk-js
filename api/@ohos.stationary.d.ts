@@ -21,7 +21,7 @@ import { Callback } from "./basic";
  * @since 9
  * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
  */
-declare namespace Stationary {
+declare namespace stationary {
     /**
      * Declares a response interface to receive the device status.
      *
@@ -115,4 +115,4 @@ declare namespace Stationary {
     function off(activity: ActivityType, event: ActivityEvent, callback?: Callback<ActivityResponse>): void;
 }
 
-export default deviceStatus;
+export default stationary;
