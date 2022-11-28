@@ -207,7 +207,7 @@ declare namespace sharing {
     SHARING_WIFI = 0,
 
     /**
-     * this type is not supported temporarily
+     * This type is not supported temporarily
      */
     SHARING_USB = 1,
 
