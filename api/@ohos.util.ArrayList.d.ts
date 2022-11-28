@@ -47,7 +47,7 @@ declare class ArrayList<T> {
   /**
    * Check if arraylist contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if arraylist contains the specified element,return true,else return false
+   * @returns the boolean type,if arraylist contains the specified element,return true,else return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -56,7 +56,7 @@ declare class ArrayList<T> {
    * Returns the index of the first occurrence of the specified element
    * in this arraylist, or -1 if this arraylist does not contain the element.
    * @param element element to be contained
-   * @return the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -65,7 +65,7 @@ declare class ArrayList<T> {
    * Find the corresponding element according to the index,
    * delete the element, and move the index of all elements to the right of the element forward by one.
    * @param index the index in the arraylist
-   * @return the T type ,returns undefined if arraylist is empty,If the index is
+   * @returns the T type ,returns undefined if arraylist is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -76,7 +76,7 @@ declare class ArrayList<T> {
    * if it is present.  If the arraylist does not contain the element, it is
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
-   * @return the boolean type ,If there is no such element, return false
+   * @returns the boolean type ,If there is no such element, return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -85,7 +85,7 @@ declare class ArrayList<T> {
    * Returns in the index of the last occurrence of the specified element in this arraylist ,
    * or -1 if the arraylist does not contain the element.
    * @param element element to find
-   * @return the number type
+   * @returns the number type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -160,28 +160,28 @@ declare class ArrayList<T> {
   clear(): void;
   /**
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
-   * @return this arraylist instance
+   * @returns this arraylist instance
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   clone(): ArrayList<T>;
   /**
    * returns the capacity of this arraylist
-   * @return the number type
+   * @returns the number type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getCapacity(): number;
   /**
    * convert arraylist to array
-   * @return the Array type
+   * @returns the Array type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   convertToArray(): Array<T>;
   /**
    * Determine whether arraylist is empty and whether there is an element
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

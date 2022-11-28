@@ -31,7 +31,7 @@ declare namespace buffer {
      * @param size The desired length of the new Buffer
      * @param [fill=0] A value to pre-fill the new Buffer with
      * @param [encoding='utf8']  If `fill` is a string, this is its encoding
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function alloc(size: number, fill?: string | Buffer | number, encoding?: BufferEncoding): Buffer;
@@ -41,7 +41,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function allocUninitializedFromPool(size: number): Buffer;
@@ -51,7 +51,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param size The desired length of the new Buffer
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function allocUninitialized(size: number): Buffer;
@@ -64,7 +64,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param string A value to calculate the length of
      * @param [encoding='utf8'] If `string` is a string, this is its encoding
-     * @return The number of bytes contained within `string`
+     * @returns The number of bytes contained within `string`
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function byteLength(string: string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number;
@@ -75,7 +75,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param list List of `Buffer` or Uint8Array instances to concatenate
      * @param totalLength Total length of the `Buffer` instances in `list` when concatenated
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max. Received value is: [length] 
      */
@@ -86,7 +86,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param array an array of bytes in the range 0 – 255
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function from(array: number[]): Buffer;
@@ -98,7 +98,7 @@ declare namespace buffer {
      * @param arrayBuffer An ArrayBuffer, SharedArrayBuffer, for example the .buffer property of a TypedArray.
      * @param [byteOffset = 0] Index of first byte to expose
      * @param [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-     * @return Return a view of the ArrayBuffer
+     * @returns Return a view of the ArrayBuffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200001 - The value of "[byteOffset/length]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
      */
@@ -109,7 +109,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param buffer An existing Buffer or Uint8Array from which to copy data
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function from(buffer: Buffer | Uint8Array): Buffer;
@@ -122,7 +122,7 @@ declare namespace buffer {
      * @param object An object supporting Symbol.toPrimitive or valueOf()
      * @param offsetOrEncoding A byte-offset or encoding
      * @param length A length
-     * @return Return a new allocated Buffer
+     * @returns Return a new allocated Buffer
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function from(object: Object, offsetOrEncoding: number | string, length: number): Buffer;
@@ -134,7 +134,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param string  A string to encode
      * @param [encoding='utf8'] The encoding of string
-     * @return Return a new Buffer containing string
+     * @returns Return a new Buffer containing string
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function from(string: String, encoding?: BufferEncoding): Buffer;
@@ -144,7 +144,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param obj Objects to be judged
-     * @return true or false
+     * @returns true or false
      */
     function isBuffer(obj: Object): boolean;
 
@@ -153,7 +153,7 @@ declare namespace buffer {
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param encoding A character encoding name to check
-     * @return true or false
+     * @returns true or false
      */
     function isEncoding(encoding: string):boolean;
 
@@ -163,7 +163,7 @@ declare namespace buffer {
      * @syscap SystemCapability.Utils.Lang
      * @param buf1 A Buffer or Uint8Array instance.
      * @param buf2 A Buffer or Uint8Array instance.
-     * @return 0 is returned if target is the same as buf
+     * @returns 0 is returned if target is the same as buf
      *         1 is returned if target should come before buf when sorted.
      *        -1 is returned if target should come after buf when sorted.
      * @throws {BusinessError} 401 - if the input parameters are invalid.
@@ -177,7 +177,7 @@ declare namespace buffer {
      * @param source A Buffer or Uint8Array instance.
      * @param fromEnc The current encoding
      * @param toEnc To target encoding
-     * @return Returns a new Buffer instance
+     * @returns Returns a new Buffer instance
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      */
     function transcode(source: Buffer | Uint8Array, fromEnc: string, toEnc: string): Buffer;
@@ -218,7 +218,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to fill buf
          * @param [end = buf.length] Where to stop filling buf (not inclusive)
          * @param [encoding='utf8'] The encoding for value if value is a string
-         * @return A reference to buf
+         * @returns A reference to buf
          * @throws {BusinessError} 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <= [right range]. Received value is: [offset/end]
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
@@ -234,7 +234,7 @@ declare namespace buffer {
          * @param [targetEnd = target.length] The offset within target at which to end comparison (not inclusive)
          * @param [sourceStart = 0] The offset within buf at which to begin comparison
          * @param [sourceEnd = buf.length] The offset within buf at which to end comparison (not inclusive)
-         * @return 0 is returned if target is the same as buf
+         * @returns 0 is returned if target is the same as buf
          *         1 is returned if target should come before buf when sorted.
          *        -1 is returned if target should come after buf when sorted.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
@@ -252,7 +252,7 @@ declare namespace buffer {
          * @param [targetStart = 0] The offset within target at which to begin writing
          * @param [sourceStart = 0] The offset within buf from which to begin copying
          * @param [sourceEnd = buf.length] The offset within buf at which to stop copying (not inclusive)
-         * @return The number of bytes copied
+         * @returns The number of bytes copied
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must be >= 0. 
          *                                    Received value is: [targetStart/sourceStart/sourceEnd]
@@ -264,7 +264,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param otherBuffer A Buffer or Uint8Array with which to compare buf
-         * @return true or false
+         * @returns true or false
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         equals(otherBuffer: Uint8Array | Buffer): boolean;
@@ -276,7 +276,7 @@ declare namespace buffer {
          * @param value What to search for
          * @param [byteOffset = 0] Where to begin searching in buf. If negative, then offset is calculated from the end of buf
          * @param [encoding='utf8'] If value is a string, this is its encoding
-         * @return true or false
+         * @returns true or false
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         includes(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean;
@@ -288,7 +288,7 @@ declare namespace buffer {
          * @param value What to search for
          * @param [byteOffset = 0] Where to begin searching in buf
          * @param [encoding='utf8'] If value is a string, this is the encoding used to determine the binary representation of the string that will be searched for in buf
-         * @return The index of the first occurrence of value in buf, or -1 if buf does not contain value
+         * @returns The index of the first occurrence of value in buf, or -1 if buf does not contain value
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         indexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
@@ -321,7 +321,7 @@ declare namespace buffer {
          * @param value What to search for
          * @param [byteOffset = 0] Where to begin searching in buf
          * @param [encoding='utf8'] If value is a string, this is the encoding used to determine the binary representation of the string that will be searched for in buf
-         * @return The index of the last occurrence of value in buf, or -1 if buf does not contain value
+         * @returns The index of the last occurrence of value in buf, or -1 if buf does not contain value
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         lastIndexOf(value: string | number | Buffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number;
@@ -331,7 +331,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a signed, big-endian 64-bit integer 
+         * @returns Return a signed, big-endian 64-bit integer 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -342,7 +342,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a signed, little-endian 64-bit integer
+         * @returns Return a signed, little-endian 64-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -353,7 +353,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a unsigned, big-endian 64-bit integer 
+         * @returns Return a unsigned, big-endian 64-bit integer 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -364,7 +364,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a unsigned, little-endian 64-bit integer 
+         * @returns Return a unsigned, little-endian 64-bit integer 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -375,7 +375,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a 64-bit, big-endian double 
+         * @returns Return a 64-bit, big-endian double 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -386,7 +386,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return Return a 64-bit, little-endian double 
+         * @returns Return a 64-bit, little-endian double 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -397,7 +397,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return Return  a 32-bit, big-endian float 
+         * @returns Return  a 32-bit, big-endian float 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -408,7 +408,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return Return  a 32-bit, little-endian float
+         * @returns Return  a 32-bit, little-endian float
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -419,7 +419,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 1
-         * @return Return  a signed 8-bit integer
+         * @returns Return  a signed 8-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
          */
@@ -430,7 +430,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
-         * @return Return a signed, big-endian 16-bit integer
+         * @returns Return a signed, big-endian 16-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          */
@@ -441,7 +441,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 2
-         * @return Return a signed, little-endian 16-bit integer
+         * @returns Return a signed, little-endian 16-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          */
@@ -452,7 +452,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return Return a signed, big-endian 32-bit integer
+         * @returns Return a signed, big-endian 32-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -463,7 +463,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return Return a signed, little-endian 32-bit integer
+         * @returns Return a signed, little-endian 32-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -476,7 +476,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
-         * @return 
+         * @returns 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -489,7 +489,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
-         * @return 
+         * @returns 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -500,7 +500,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 1
-         * @return Reads an unsigned 8-bit integer
+         * @returns Reads an unsigned 8-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]
          */
@@ -511,7 +511,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
-         * @return Reads an unsigned, big-endian 16-bit integer
+         * @returns Reads an unsigned, big-endian 16-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          */
@@ -522,7 +522,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 2
-         * @return Reads an unsigned, little-endian 16-bit integer
+         * @returns Reads an unsigned, little-endian 16-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]
          */
@@ -533,7 +533,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
-         * @return Reads an unsigned, big-endian 32-bit integer
+         * @returns Reads an unsigned, big-endian 32-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -544,7 +544,7 @@ declare namespace buffer {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param [offset = 0] Number of bytes to skip before starting to read. Must satisfy 0 <= offset <= buf.length - 4
-         * @return Reads an unsigned, little-endian 32-bit integer
+         * @returns Reads an unsigned, little-endian 32-bit integer
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -557,7 +557,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
-         * @return 
+         * @returns 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -570,7 +570,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param offset Number of bytes to skip before starting to read. Must satisfy: 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to read. Must satisfy 0 < byteLength <= 6
-         * @return 
+         * @returns 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -582,7 +582,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang
          * @param [start = 0] Where the new Buffer will start
          * @param [end = buf.length] Where the new Buffer will end (not inclusive)
-         * @return Returns a new Buffer that references the same memory as the original
+         * @returns Returns a new Buffer that references the same memory as the original
          */
         subarray(start?: number, end?: number): Buffer;
 
@@ -590,7 +590,7 @@ declare namespace buffer {
          * Interprets buf as an array of unsigned 16-bit integers and swaps the byte order in-place.
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
-         * @return A reference to buf
+         * @returns A reference to buf
          * @throws {BusinessError} 10200009 - Buffer size must be a multiple of 16-bits
          */
         swap16(): Buffer;
@@ -599,7 +599,7 @@ declare namespace buffer {
          * Interprets buf as an array of unsigned 32-bit integers and swaps the byte order in-place.
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
-         * @return A reference to buf
+         * @returns A reference to buf
          * @throws {BusinessError} 10200009 - Buffer size must be a multiple of 32-bits
          */
         swap32(): Buffer;
@@ -608,7 +608,7 @@ declare namespace buffer {
          * Interprets buf as an array of unsigned 64-bit integers and swaps the byte order in-place.
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
-         * @return A reference to buf
+         * @returns A reference to buf
          * @throws {BusinessError} 10200009 - Buffer size must be a multiple of 64-bits
          */
         swap64(): Buffer;
@@ -617,7 +617,7 @@ declare namespace buffer {
          * Returns a JSON representation of buf
          * @since 9
          * @syscap SystemCapability.Utils.Lang 
-         * @return Returns a JSON
+         * @returns Returns a JSON
          */
         toJSON(): Object;
 
@@ -640,7 +640,7 @@ declare namespace buffer {
          * @param [offset = 0] Number of bytes to skip before starting to write string
          * @param [length = buf.length - offset] Maximum number of bytes to write (written bytes will not exceed buf.length - offset)
          * @param [encoding='utf8'] The character encoding of string.
-         * @return Number of bytes written.
+         * @returns Number of bytes written.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <= buf.length. Received value is: [offset/length]
          */
@@ -652,7 +652,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -664,7 +664,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -676,7 +676,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -688,7 +688,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written 
+         * @returns offset plus the number of bytes written 
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -700,7 +700,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -712,7 +712,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 8
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]
          */
@@ -724,7 +724,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -736,7 +736,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0]  Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]
          */
@@ -748,7 +748,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 1
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -760,7 +760,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -772,7 +772,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 2
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -784,7 +784,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -796,7 +796,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy: 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -809,7 +809,7 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -822,7 +822,7 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param offset  Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -834,7 +834,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 1
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -846,7 +846,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -858,7 +858,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 2
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -870,7 +870,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -882,7 +882,7 @@ declare namespace buffer {
          * @syscap SystemCapability.Utils.Lang 
          * @param value Number to be written to buf
          * @param [offset = 0] Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - 4
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -895,7 +895,7 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
@@ -908,7 +908,7 @@ declare namespace buffer {
          * @param value Number to be written to buf
          * @param offset Number of bytes to skip before starting to write. Must satisfy 0 <= offset <= buf.length - byteLength
          * @param byteLength Number of bytes to write. Must satisfy 0 < byteLength <= 6
-         * @return offset plus the number of bytes written
+         * @returns offset plus the number of bytes written
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param]
          */
