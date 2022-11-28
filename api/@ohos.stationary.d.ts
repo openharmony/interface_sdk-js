@@ -21,7 +21,7 @@ import { Callback } from "./basic";
  * @since 9
  * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
  */
-declare namespace deviceStatus {
+declare namespace Stationary {
     /**
      * Declares a response interface to receive the device status.
      *
