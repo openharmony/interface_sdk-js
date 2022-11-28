@@ -30,7 +30,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @return -
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -39,7 +38,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @return -
+     * @returns { Promise<void> } the promise returned by the function.
      */
     destroy(): Promise<void>;
 }
