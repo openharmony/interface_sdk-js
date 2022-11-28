@@ -27,6 +27,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     */
     export interface ChildProcess {
         /**
@@ -34,6 +35,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return the pid of the current process.
         */
         readonly pid: number;
@@ -43,6 +45,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return the pid of the current child process.
         */
         readonly ppid: number;
@@ -52,6 +55,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return the exit code of the current child process.
         */
         readonly exitCode: number;
@@ -61,6 +65,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return whether the current process signal is sent successfully.
         */
         readonly killed: boolean;
@@ -70,6 +75,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return the target process exit code.
         */
         wait(): Promise<number>;
@@ -79,6 +85,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return subprocess standard output.
         */
         getOutput(): Promise<Uint8Array>;
@@ -88,6 +95,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @returns Return subprocess standard error output.
         */
         getErrorOutput(): Promise<Uint8Array>;
@@ -97,6 +105,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         */
         close(): void;
 
@@ -105,6 +114,7 @@ declare namespace process {
         * @since 7
         * @syscap SystemCapability.Utils.Lang
         * @systemapi Hide this for inner system use
+        * @test
         * @param signal Number or string represents the signal sent.
         */
         kill(signal: number | string): void;
@@ -194,6 +204,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return the numeric valid group ID of the process.
     */
     const egid: number;
@@ -203,6 +214,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return the numeric valid user identity of the process.
     */
     const euid: number;
@@ -212,6 +224,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return the numeric group if of the process.
     */
     const gid: number
@@ -229,6 +242,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return an array with supplementary group id.
     */
     const groups: number[];
@@ -246,6 +260,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return The pid of the current child process.
     */
     const ppid: number;
@@ -355,6 +370,7 @@ declare namespace process {
     * process, killSignal is the signal sent when the child process reaches timeout, and maxBuffer is the size of the
     * maximum buffer area for standard input and output.
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return a child process object.
     */
     function runCmd(command: string,
@@ -373,6 +389,7 @@ declare namespace process {
     * @syscap SystemCapability.Utils.Lang
     * @param type Indicates the type of event registered.
     * @systemapi Hide this for inner system use
+    * @test
     * @param listener Represents the registered event function
     */
     function on(type: string, listener: EventListener): void;
@@ -383,6 +400,7 @@ declare namespace process {
     * @syscap SystemCapability.Utils.Lang
     * @param type Remove the type of registered event.
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return removed result.
     */
     function off(type: string): boolean;
@@ -402,6 +420,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @returns Return the current work directory.
     */
     function cwd(): string;
@@ -411,6 +430,7 @@ declare namespace process {
     * @since 7
     * @syscap SystemCapability.Utils.Lang
     * @systemapi Hide this for inner system use
+    * @test
     * @param dir The path you want to change.
     */
     function chdir(dir: string): void;
