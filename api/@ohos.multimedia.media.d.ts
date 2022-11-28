@@ -1010,7 +1010,7 @@ declare namespace media {
       */
     reset(): Promise<void>;
     /**
-     * Jumps to the specified playback position by default SeekMode(SEEK_CLOSEST),
+     * Jumps to the specified playback position by default SeekMode(SEEK_PREV_SYNC),
      * the performance may be not the best.
      * @since 8
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
