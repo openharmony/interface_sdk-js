@@ -251,7 +251,6 @@ declare namespace request {
    * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
-   * @return -
    * @FAModelOnly
    */
   function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
@@ -266,7 +265,6 @@ declare namespace request {
    * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
-   * @return -
    */
   function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
@@ -278,7 +276,6 @@ declare namespace request {
    * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
    * @permission ohos.permission.INTERNET
-   * @return -
    * @throws {BusinessError} 201 - the permissions check fails
    * @throws {BusinessError} 401 - the parameters check fails
    * @throws {BusinessError} 13400001 - file operation error
@@ -295,7 +292,7 @@ declare namespace request {
    * @useinstead ohos.request.downloadFile
    * @param config Download config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<DownloadTask> } the promise returned by the function.
    * @FAModelOnly
    */
   function download(config: DownloadConfig): Promise<DownloadTask>;
@@ -309,7 +306,7 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<DownloadTask> } the promise returned by the function.
    */
   function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
@@ -320,7 +317,7 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<DownloadTask> } the promise returned by the function.
    * @throws {BusinessError} 201 - the permissions check fails
    * @throws {BusinessError} 401 - the parameters check fails
    * @throws {BusinessError} 13400001 - file operation error
@@ -338,7 +335,6 @@ declare namespace request {
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
-   * @return -
    * @FAModelOnly
    */
   function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
@@ -353,7 +349,6 @@ declare namespace request {
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
    * @permission ohos.permission.INTERNET
-   * @return -
    */
   function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
@@ -364,7 +359,6 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
-   * @return -
    * @throws {BusinessError} 201 - the permissions check fails
    * @throws {BusinessError} 401 - the parameters check fails
    * @throws {BusinessError} 13400002 - bad file path
@@ -379,7 +373,7 @@ declare namespace request {
    * @useinstead ohos.request.uploadFile
    * @param config Upload config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<UploadTask> } the promise returned by the function.
    * @FAModelOnly
    */
   function upload(config: UploadConfig): Promise<UploadTask>;
@@ -393,7 +387,7 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<UploadTask> } the promise returned by the function.
    */
   function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
@@ -404,7 +398,7 @@ declare namespace request {
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @permission ohos.permission.INTERNET
-   * @return -
+   * @returns { Promise<UploadTask> } the promise returned by the function.
    * @throws {BusinessError} 201 - the permissions check fails
    * @throws {BusinessError} 401 - the parameters check fails
    * @throws {BusinessError} 13400002 - bad file path
@@ -582,7 +576,6 @@ declare namespace request {
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     on(type: 'progress', callback: (receivedSize: number, totalSize: number) => void): void;
 
@@ -595,35 +588,32 @@ declare namespace request {
      *        receivedSize the length of downloaded data, in bytes
      *        totalSize he length of data expected to be downloaded, in bytes.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => void): void;
 
     /**
-     * Called when the current download session complete、pause or remove.
+     * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete、pause or remove change event.
+     * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
 
     /**
-     * Called when the current download session complete、pause or remove.
+     * Called when the current download session complete pause or remove.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7
      * @param type Indicates the download session event type
      *        complete: download task completed,
      *        pause: download task stopped,
      *        remove: download task deleted.
-     * @param callback The callback function for the download complete、pause or remove change event.
+     * @param callback The callback function for the download complete pause or remove change event.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
 
@@ -635,7 +625,6 @@ declare namespace request {
      * @param callback The callback function for the download fail change event
      *        err The error code for download task.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     on(type: 'fail', callback: (err: number) => void): void;
 
@@ -647,7 +636,6 @@ declare namespace request {
      * @param callback Indicate the callback function to receive err.
      *        err The error code for download task.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     off(type: 'fail', callback?: (err: number) => void): void;
 
@@ -659,7 +647,6 @@ declare namespace request {
      * @useinstead ohos.request.delete
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     remove(callback: AsyncCallback<boolean>): void;
 
@@ -670,7 +657,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.delete
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<boolean> } the promise returned by the function.
      */
     remove(): Promise<boolean>;
 
@@ -682,7 +669,6 @@ declare namespace request {
      * @useinstead ohos.request.suspend
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     pause(callback: AsyncCallback<void>): void;
 
@@ -693,7 +679,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.suspend
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<void> } the promise returned by the function.
      */
     pause(): Promise<void>;
 
@@ -705,7 +691,6 @@ declare namespace request {
      * @useinstead ohos.request.restore
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     resume(callback: AsyncCallback<void>): void;
 
@@ -716,7 +701,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.restore
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<void> } the promise returned by the function.
      */
     resume(): Promise<void>;
 
@@ -728,7 +713,6 @@ declare namespace request {
      * @useinstead ohos.request.getTaskInfo
      * @param callback Indicate the callback function to receive download info.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     query(callback: AsyncCallback<DownloadInfo>): void;
 
@@ -739,7 +723,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.getTaskInfo
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<DownloadInfo> } the promise returned by the function.
      */
     query(): Promise<DownloadInfo>;
 
@@ -751,7 +735,6 @@ declare namespace request {
      * @useinstead ohos.request.getTaskMimeType
      * @param callback Indicate the callback function to receive download file MIME type.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     queryMimeType(callback: AsyncCallback<string>): void;
 
@@ -762,7 +745,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.getTaskMimeType
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<string> } the promise returned by the function.
      */
     queryMimeType(): Promise<string>;
 
@@ -786,6 +769,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     suspend(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Suspend the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
     suspend(): Promise<boolean>;
 
     /**
@@ -797,6 +790,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     restore(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Restore the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
     restore(): Promise<boolean>;
 
     /**
@@ -808,6 +811,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
+
+    /**
+     * Get the download task info
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<DownloadInfo> } the promise returned by the function.
+     */
     getTaskInfo(): Promise<DownloadInfo>;
 
     /**
@@ -819,6 +832,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     getTaskMimeType(callback: AsyncCallback<string>): void;
+
+    /**
+     * Get mimetype of the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<string> } the promise returned by the function.
+     */
     getTaskMimeType(): Promise<string>;
   }
 
@@ -974,7 +997,6 @@ declare namespace request {
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     on(type: 'progress', callback: (uploadedSize: number, totalSize: number) => void): void;
 
@@ -987,7 +1009,6 @@ declare namespace request {
      *        uploadedSize The length of uploaded data, in bytes
      *        totalSize The length of data expected to be uploaded, in bytes.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => void): void;
 
@@ -999,7 +1020,6 @@ declare namespace request {
      * @param callback The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     on(type: 'headerReceive', callback: (header: object) => void): void;
 
@@ -1011,7 +1031,6 @@ declare namespace request {
      * @param callback The callback function for the HTTP Response Header event
      *        header HTTP Response Header returned by the developer server.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     off(type: 'headerReceive', callback?: (header: object) => void): void;
 
@@ -1024,7 +1043,6 @@ declare namespace request {
      *        fail: upload task failed
      * @param callback The callback function for the upload complete or fail change event.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
      on(type:'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
 
@@ -1036,7 +1054,6 @@ declare namespace request {
       *        complete: upload task completed
      *         fail: upload task failed
       * @permission ohos.permission.INTERNET
-      * @return -
       */
     off(type:'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
@@ -1048,7 +1065,6 @@ declare namespace request {
      * @useinstead ohos.request.delete
      * @param callback Indicates asynchronous invoking Result.
      * @permission ohos.permission.INTERNET
-     * @return -
      */
     remove(callback: AsyncCallback<boolean>): void;
 
@@ -1059,7 +1075,7 @@ declare namespace request {
      * @deprecated since 9
      * @useinstead ohos.request.delete
      * @permission ohos.permission.INTERNET
-     * @return -
+     * @returns { Promise<boolean> } the promise returned by the function.
      */
     remove(): Promise<boolean>;
 
@@ -1080,6 +1096,7 @@ declare namespace request {
      * @throws {BusinessError} 201 - the permissions check fails
      * @throws {BusinessError} 401 - the parameters check fails
      * @syscap SystemCapability.MiscServices.Upload
+     * @returns { Promise<boolean> } the promise returned by the function.
      */
     delete(): Promise<boolean>;
   }
