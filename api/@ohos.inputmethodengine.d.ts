@@ -216,7 +216,7 @@ declare namespace inputMethodEngine {
 
     /**
      * @since 9
-     * @return InputMethodAbility object of the current input method
+     * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getInputMethodAbility(): InputMethodAbility;
@@ -230,7 +230,7 @@ declare namespace inputMethodEngine {
 
     /**
      * @since 9
-     * @return KeyboardDelegate object of the current input method
+     * @returns { KeyboardDelegate } the object of KeyboardDelegate.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getKeyboardDelegate(): KeyboardDelegate;
@@ -284,7 +284,6 @@ declare namespace inputMethodEngine {
          * @since 8
          * @param type inputStart
          * @param callback give keyboard controller and text input client
-         * @return :-
          */
         on(type: 'inputStart', callback: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
@@ -293,7 +292,6 @@ declare namespace inputMethodEngine {
          * @since 8
          * @param type inputStart
          * @param callback optional, give keyboard controller and text input client
-         * @return :-
          */
         off(type: 'inputStart', callback?: (kbController: KeyboardController, textInputClient: TextInputClient) => void): void;
 
@@ -301,7 +299,6 @@ declare namespace inputMethodEngine {
          * Subscribe 'keyboardShow'|'keyboardHide'
          * @since 8
          * @param type keyboardShow|keyboardHide
-         * @return :-
          */
         on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
 
@@ -309,7 +306,6 @@ declare namespace inputMethodEngine {
          * Unsubscribe 'keyboardShow'|'keyboardHide'
          * @since 8
          * @param type keyboardShow|keyboardHide
-         * @return :-
          */
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
     }
@@ -324,7 +320,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @param type inputStart
          * @param callback give keyboard controller and text input client
-         * @return :-
          */
         on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
@@ -333,7 +328,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @param type inputStart
          * @param callback optional, give keyboard controller and text input client
-         * @return :-
          */
         off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
@@ -342,7 +336,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param type inputStop
-         * @return :-
          */
         on(type: 'inputStop', callback: () => void): void;
 
@@ -351,7 +344,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param type inputStop
-         * @return :-
          */
         off(type: 'inputStop', callback: () => void): void;
 
@@ -360,7 +352,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param type setCallingWindow
-         * @return :-
          */
         on(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
@@ -369,7 +360,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param type setCallingWindow
-         * @return :-
          */
         off(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
@@ -377,7 +367,6 @@ declare namespace inputMethodEngine {
          * Subscribe 'keyboardShow'|'keyboardHide'
          * @since 9
          * @param type keyboardShow|keyboardHide
-         * @return :-
          */
         on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
 
@@ -385,14 +374,12 @@ declare namespace inputMethodEngine {
          * Unsubscribe 'keyboardShow'|'keyboardHide'
          * @since 9
          * @param type keyboardShow|keyboardHide
-         * @return :-
          */
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
 
         /**
          * Subscribe 'setSubtype'
          * @since 9
-         * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void;
@@ -400,7 +387,6 @@ declare namespace inputMethodEngine {
         /**
          * Unsubscribe 'setSubtype'
          * @since 9
-         * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
@@ -526,6 +512,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -543,6 +530,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -561,6 +549,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -579,6 +568,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800002 - Input method engine error.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -597,6 +587,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<string> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800006 - Input method controller error.
@@ -615,6 +606,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<string> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800006 - Input method controller error.
@@ -631,6 +623,7 @@ declare namespace inputMethodEngine {
 
         /**
          * @since 9
+         * @returns { Promise<EditorAttribute> } the promise returned by the function.
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -642,7 +635,6 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param direction Indicates the distance of cursor to be moved.
-         * @return -
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          */
@@ -654,7 +646,7 @@ declare namespace inputMethodEngine {
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @param direction Indicates the distance of cursor to be moved.
-         * @return -
+         * @returns { Promise<void> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
          */
