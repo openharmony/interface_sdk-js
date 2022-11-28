@@ -86,7 +86,7 @@ declare class Deque<T> {
   popLast(): T;
   /**
    * Executes a provided function once for each value in the deque object.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to be called for each element in the deque
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to be called for each element in the deque
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
    * @param deque (Optional) The deque object to which the current element belongs.
@@ -97,7 +97,7 @@ declare class Deque<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, deque?: Deque<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

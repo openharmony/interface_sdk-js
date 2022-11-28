@@ -129,7 +129,7 @@ declare class LightWeightSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
+  forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
