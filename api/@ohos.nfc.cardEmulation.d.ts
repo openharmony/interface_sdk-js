@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
+import { ElementName } from './bundle/elementName';
 
 /**
  * Provides methods to operate or manage NFC card emulation.
@@ -35,6 +36,19 @@ declare namespace cardEmulation {
   }
 
   /**
+   * Define the card emulation type, payment or other.
+   *
+   * @since 9
+   */
+  enum CardType {
+    /** payment type of card emulation */
+    PAYMENT = "payment",
+
+    /** other type of card emulation */
+    OTHER = "other",
+  }
+
+  /**
    * Checks whether a specified type of card emulation is supported.
    *
    * <p>This method is used to check Whether the host or secure element supports card emulation.
@@ -46,6 +60,20 @@ declare namespace cardEmulation {
    * @since 6
    */
   function isSupported(feature: number): boolean;
+
+  /**
+   * Checks whether a service is default for given type.
+   *
+   * @param { ElementName } elementName - The element name of the service ability
+   * @param { CardType } type - The type to query, pyament or other.
+   * @return { boolean } Returns true if the service is default, otherwise false.
+   * @permission ohos.permission.NFC_CARD_EMULATION
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @since 9
+   */
+  function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
   /**
    * A class for NFC host application.
