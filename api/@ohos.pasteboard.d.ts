@@ -19,7 +19,6 @@ import image from './@ohos.multimedia.image';
 /**
  * systemPasteboard
  * @syscap SystemCapability.MiscServices.Pasteboard
- * @import import pasteboard from '@ohos.pasteboard';
  */
 declare namespace pasteboard {
   /**
@@ -184,7 +183,7 @@ declare namespace pasteboard {
     LocalDevice,
     /**
      * CrossDevice indicates that paste in any app across devices is allowed.
-     * @since9
+     * @since 9
      */
     CrossDevice
   }

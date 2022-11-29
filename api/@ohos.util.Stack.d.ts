@@ -27,15 +27,15 @@ declare class Stack<T> {
   length: number;
   /**
    * Tests if this stack is empty
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   isEmpty(): boolean;
   /**
    * Looks at the object at the top of this stack without removing it from the stack
-   * Return undfined if this stack is empty
-   * @return the top value or undefined
+   * Return undefined if this stack is empty
+   * @returns the top value or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

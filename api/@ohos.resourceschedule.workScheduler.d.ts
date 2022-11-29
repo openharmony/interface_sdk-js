@@ -157,7 +157,7 @@ declare namespace workScheduler {
      * @throws { BusinessError } 9700001 - Memory operation failed.
      * @throws { BusinessError } 9700002 - Parcel operation failed.
      * @throws { BusinessError } 9700003 - System service operation failed.
-     * @return the work info list.
+     * @returns the work info list.
      */
     function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
     function obtainAllWorks(): Promise<Array<WorkInfo>>;
@@ -188,7 +188,7 @@ declare namespace workScheduler {
      * @throws { BusinessError } 9700002 - Parcel operation failed.
      * @throws { BusinessError } 9700003 - System service operation failed.
      * @throws { BusinessError } 9700004 - Check workInfo failed.
-     * @return true if last work running is timeout, otherwise false.
+     * @returns true if last work running is timeout, otherwise false.
      */
     function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
     function isLastWorkTimeOut(workId: number): Promise<boolean>;

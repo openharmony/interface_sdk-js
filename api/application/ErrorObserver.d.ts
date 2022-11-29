@@ -27,7 +27,7 @@ export default class ErrorObserver {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param errMsg the message and error stacktrace about the exception.
-     * @return -
+     * @returns -
      */
     onUnhandledException(errMsg: string): void;
 }

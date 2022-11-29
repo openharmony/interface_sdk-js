@@ -27,7 +27,7 @@ declare class HashSet<T> {
   length: number;
   /**
    * Returns whether the Set object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -35,7 +35,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contain s the elements
    * @param value need to determine whether to include the element
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -51,7 +51,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    * @param value  Target to be deleted
-   * @return the boolean type(Is there contain this element)
+   * @returns the boolean type(Is there contain this element)
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

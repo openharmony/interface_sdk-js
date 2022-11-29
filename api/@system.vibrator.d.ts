@@ -15,14 +15,14 @@
 
 /**
  * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@system.vibrator';
  * @permission ohos.permission.VIBRATE
  * @since 3
  * @deprecated since 8
+ * @useinstead ohos.vibrator/vibrator.VibrateTime
  */
-export interface VibrateOptions {
+ export interface VibrateOptions {
   /**
-   * Vibration mode. The value long indicates long vibration, and short indicates short vibration.
+   * Vibration mode. The value long  indicates long vibration, and short indicates short vibration.
    * The default value is long.
    * @since 3
    */
@@ -47,20 +47,21 @@ export interface VibrateOptions {
   complete?: () => void;
 }
 
-/**
- * @syscap SystemCapability.Sensors.MiscDevice
- * @import import vibrator from '@system.vibrator';
- * @permission ohos.permission.VIBRATE
- * @since 3
- * @deprecated since 8
- */
-export default class Vibrator {
+  /**
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @permission ohos.permission.VIBRATE
+   * @since 3
+   * @deprecated since 8
+   * @useinstead ohos.vibrator/vibrator
+   */
+  export default class Vibrator {
   /**
    * Triggers vibration.
    * @param options Options.
    * @permission ohos.permission.VIBRATE
    * @since 3
    * @deprecated since 8
+   * @useinstead ohos.vibrator/vibrator#startVibration
    */
   static vibrate(options?: VibrateOptions): void;
 }

@@ -42,21 +42,21 @@ declare class Deque<T> {
   /**
    * Check if deque contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if deque contains the specified element,return true,else return false
+   * @returns the boolean type,if deque contains the specified element,return true,else return false
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   has(element: T): boolean;
   /**
    * Obtains the header element of a deque.
-   * @return the T type
+   * @returns the T type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getFirst(): T;
   /**
    * Obtains the end element of a deque.
-   * @return the T type
+   * @returns the T type
    * @throws an exception if the queue is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -64,7 +64,7 @@ declare class Deque<T> {
   getLast(): T;
   /**
    * Obtains the header element of a deque and delete the element.
-   * @return the T type
+   * @returns the T type
    * @throws an exception if the deque is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -72,7 +72,7 @@ declare class Deque<T> {
   popFirst(): T;
   /**
    * Obtains the end element of a deque and delete the element.
-   * @return the T type
+   * @returns the T type
    * @throws an exception if the deque is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang

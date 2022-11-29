@@ -24,7 +24,6 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import AbilityDelegatorRegistry from '@ohos.application.abilityDelegatorRegistry'
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.app.ability.abilityDelegatorRegistry
@@ -35,7 +34,7 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the AbilityDelegator object initialized when the application is started.
+     * @returns the AbilityDelegator object initialized when the application is started.
      */
     function getAbilityDelegator(): AbilityDelegator;
 
@@ -44,7 +43,7 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return the previously registered AbilityDelegatorArgs object.
+     * @returns the previously registered AbilityDelegatorArgs object.
      */
     function getArguments(): AbilityDelegatorArgs;
 
@@ -67,7 +66,6 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityDelegator from 'application/abilityDelegator.d'
      */
     export type AbilityDelegator = _AbilityDelegator
 
@@ -76,7 +74,6 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityDelegatorArgs from 'application/abilityDelegatorArgs.d'
      */
     export type AbilityDelegatorArgs = _AbilityDelegatorArgs
 
@@ -86,7 +83,6 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import AbilityMonitor from 'application/abilityMonitor.d'
      */
     export type AbilityMonitor = _AbilityMonitor
 
@@ -95,7 +91,6 @@ declare namespace abilityDelegatorRegistry {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @import import ShellCmdResult from 'application/shellCmdResult.d'
      */
     export type ShellCmdResult = _ShellCmdResult
 }

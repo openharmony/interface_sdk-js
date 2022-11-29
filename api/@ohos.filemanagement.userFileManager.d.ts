@@ -23,7 +23,6 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @since 9
  * @systemapi
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
- * @import Import userFileManager from '@ohos.filemanagement.userFileManager'
  */
 declare namespace userFileManager {
   /**
@@ -33,7 +32,7 @@ declare namespace userFileManager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @StageModelOnly
    * @param context Hap context information
-   * @return Instance of UserFileManager
+   * @returns Instance of UserFileManager
    */
   function getUserFileMgr(context: Context): UserFileManager;
 
@@ -86,7 +85,6 @@ declare namespace userFileManager {
    * @since 9
    * @systemapi
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @import Import userFileManager from '@ohos.filemanagement.userFileManager'
    */
   interface FileAsset {
     /**
@@ -111,7 +109,7 @@ declare namespace userFileManager {
      */
     displayName: string;
     /**
-     * Return the fileasset member parameter.
+     * Return the fileAsset member parameter.
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -119,7 +117,7 @@ declare namespace userFileManager {
      */
     get(member: string): MemberType;
     /**
-     * Set the fileasset member parameter.
+     * Set the fileAsset member parameter.
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -187,7 +185,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO
-     * @param callback Callback used to return the thumbnail's pixelmap.
+     * @param callback Callback used to return the thumbnail's pixelMap.
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -197,7 +195,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO or ohos.permission.READ_AUDIO
      * @param size Thumbnail's size
-     * @param callback Callback used to return the thumbnail's pixelmap.
+     * @param callback Callback used to return the thumbnail's pixelMap.
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -486,7 +484,6 @@ declare namespace userFileManager {
    * @since 9
    * @systemapi
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
-   * @import Import userFileManager from '@ohos.filemanagement.userFileManager'
    */
   interface FetchResult<T> {
     /**
@@ -494,7 +491,7 @@ declare namespace userFileManager {
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return Total number of files.
+     * @returns Total number of files.
      */
     getCount(): number;
     /**
@@ -502,9 +499,9 @@ declare namespace userFileManager {
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return Whether the file is the last one.
+     * @returns Whether the file is the last one.
      * You need to check whether the file is the last one before calling getNextObject,
-     * which returns the next file only when True is returned for this method.
+     * which returns the next file only when False is returned for this method.
      */
     isAfterLast(): boolean;
     /**
@@ -527,14 +524,14 @@ declare namespace userFileManager {
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a T instance.
+     * @returns A Promise instance used to return the file in the format of a T instance.
      */
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next T in the file retrieval result.
      * This method uses a callback to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -545,11 +542,11 @@ declare namespace userFileManager {
      * Obtains the next T in the file retrieval result.
      * This method uses a promise to return the file.
      * Before calling this method, you must use isAfterLast() to check whether the result set points to the last row.
-     * This method returns the next file only when True is returned for isAfterLast().
+     * This method returns the next file only when False is returned for isAfterLast().
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a T instance.
+     * @returns A Promise instance used to return the file in the format of a T instance.
      */
     getNextObject(): Promise<T>;
     /**
@@ -565,7 +562,7 @@ declare namespace userFileManager {
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
-     * @return A Promise instance used to return the file in the format of a T instance.
+     * @returns A Promise instance used to return the file in the format of a T instance.
      */
     getLastObject(): Promise<T>;
     /**
@@ -587,7 +584,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param index Index of the file to obtain.
      * @throws {BusinessError} 13900020 - if type index is not number
-     * @return A Promise instance used to return the file in the format of a T instance.
+     * @returns A Promise instance used to return the file in the format of a T instance.
      */
     getPositionObject(index: number): Promise<T>;
   }
@@ -641,7 +638,7 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Detemined which kinds of asset to retrive.
+     * @param type Determined which kinds of asset to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
      * @param callback Callback used to return the files in the format of a FetchResult instance.
@@ -653,10 +650,10 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Detemined which kinds of asset to retrive.
+     * @param type Determined which kinds of asset to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
-     * @return A Promise instance used to return the files in the format of a FetchResult instance.
+     * @returns A Promise instance used to return the files in the format of a FetchResult instance.
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
   }
@@ -713,10 +710,10 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param type Detemined which kinds of asset to retrive.
+     * @param type Determined which kinds of asset to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
-     * @return A promise instance used to return the files in the format of a FetchResult instance
+     * @returns A promise instance used to return the files in the format of a FetchResult instance
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -750,7 +747,7 @@ declare namespace userFileManager {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param displayName File name
      * @param albumUri Album uri is optional, asset will put into the default album without albumUri
-     * @return A Promise instance used to return the FileAsset
+     * @returns A Promise instance used to return the FileAsset
      * @throws {BusinessError} 13900020 - if type displayName or albumUri is not string
      * @systemapi
      * @since 9
@@ -774,7 +771,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param options Retrieval options.
-     * @return A Promise instance used to return an album array.
+     * @returns A Promise instance used to return an album array.
      * @throws {BusinessError} 13900020 - if type options is not AlbumFetchOptions
      */
     getPhotoAlbums(options: AlbumFetchOptions): Promise<FetchResult<Album>>;
@@ -794,7 +791,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param type Private album type
-     * @return A Promise instance used to return a private album FetchResult.
+     * @returns A Promise instance used to return a private album FetchResult.
      * @throws {BusinessError} 13900020 - if type type is not PrivateAlbumType
      * @systemapi
      * @since 9
@@ -817,10 +814,10 @@ declare namespace userFileManager {
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_AUDIO
-     * @param type Detemined which kinds of asset to retrive.
+     * @param type Determined which kinds of asset to retrive.
      * @param options Retrieval options.
      * @throws {BusinessError} 13900020 - if type options is not FetchOptions
-     * @return A promise instance used to return the files in the format of a FetchResult instance
+     * @returns A promise instance used to return the files in the format of a FetchResult instance
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -841,12 +838,12 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
      * @param uri Uri of asset
-     * @return A Promise instance, no value returned
+     * @returns A Promise instance, no value returned
      * @throws {BusinessError} 13900020 - if type uri is not string
      */
     delete(uri: string): Promise<void>;
     /**
-     * Turn on mornitor the data changes
+     * Turn on monitor the data changes
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -855,7 +852,7 @@ declare namespace userFileManager {
      */
     on(type: ChangeEvent, callback: Callback<void>): void;
     /**
-     * Turn off mornitor the data changes
+     * Turn off monitor the data changes
      * @since 9
      * @systemapi
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
@@ -876,7 +873,7 @@ declare namespace userFileManager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @return Promise used to return the list of the active peer devices' information
+     * @returns Promise used to return the list of the active peer devices' information
      */
     getActivePeers(): Promise<Array<PeerInfo>>;
     /**
@@ -892,7 +889,7 @@ declare namespace userFileManager {
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @return Promise used to return the list of the all the peer devices' information
+     * @returns Promise used to return the list of the all the peer devices' information
      */
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
@@ -989,7 +986,7 @@ declare namespace userFileManager {
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @param uri Uri of asset
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-     * @return A Promise instance, no value returned
+     * @returns A Promise instance, no value returned
      * @systemapi
      */
     delete(uri: string): Promise<void>;
@@ -1009,7 +1006,7 @@ declare namespace userFileManager {
      * @param uri Uri of asset
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.WRITE_IMAGEVIDEO or ohos.permission.READ_AUDIO and ohos.permission.WRITE_AUDIO
-     * @return A Promise instance, no value returned
+     * @returns A Promise instance, no value returned
      * @systemapi
      */
     recover(uri: string): Promise<void>;

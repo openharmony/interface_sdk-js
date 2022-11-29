@@ -33,7 +33,7 @@ export default class ApplicationStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param appStateData State changed Application info.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      */
     onForegroundApplicationChanged(appStateData: AppStateData): void;
 
@@ -44,7 +44,7 @@ export default class ApplicationStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param abilityStateData State changed ability info.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      */
     onAbilityStateChanged(abilityStateData: AbilityStateData): void;
 
@@ -55,7 +55,7 @@ export default class ApplicationStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      */
     onProcessCreated(processData: ProcessData): void;
 
@@ -66,7 +66,7 @@ export default class ApplicationStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      */
     onProcessDied(processData: ProcessData): void;
 
@@ -77,7 +77,7 @@ export default class ApplicationStateObserver {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param processData Process info.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      */
     onProcessStateChanged(processData: ProcessData): void;
 }

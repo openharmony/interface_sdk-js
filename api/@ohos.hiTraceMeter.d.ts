@@ -61,8 +61,8 @@ declare namespace hiTraceMeter {
      *
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @param name Indicates the task name. It must be the same whith the {@code name} of startTrace.
-     * @param taskId The unique id used to distinguish the tasks and must be the same whith the .
+     * @param name Indicates the task name. It must be the same with the {@code name} of startTrace.
+     * @param taskId The unique id used to distinguish the tasks and must be the same with the .
      * {@code taskId} of startTrace.
      */
     function finishTrace(name: string, taskId: number): void;

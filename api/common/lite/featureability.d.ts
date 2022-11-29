@@ -118,6 +118,7 @@ export interface SubscribeMessageOptions {
  * @since 5
  * @systemapi
  * @deprecated since 8
+ * @useinstead ohos.ability.featureAbility.FeatureAbility
  */
 export declare class FeatureAbility {
   /**

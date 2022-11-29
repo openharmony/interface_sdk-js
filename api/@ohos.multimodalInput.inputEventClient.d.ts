@@ -18,7 +18,6 @@
  *
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
- * @import import inputEventClient from '@ohos.multimodalInput.inputEventClient';
  * @systemapi hide for inner use
  */
 
@@ -35,7 +34,7 @@ declare namespace inputEventClient {
      * @param isIntercepted Whether the key is blocked.
      */
     interface KeyEvent {
-        isPressed: boolean,
+        isPressed: boolean;
         keyCode: number;
         keyDownDuration: number;
         isIntercepted: boolean;

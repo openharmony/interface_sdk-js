@@ -19,7 +19,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 /**
  * The class of an ability.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class Ability {
@@ -27,7 +27,7 @@ export default class Ability {
      * Called when the system configuration is updated.
      * @param { Configuration } newConfig - Indicates the updated configuration.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onConfigurationUpdate(newConfig: Configuration): void;
@@ -38,7 +38,7 @@ export default class Ability {
      * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory
      *                                                usage status.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
@@ -49,7 +49,7 @@ export default class Ability {
      * @param wantParam Indicates the want parameter.
      * @returns 0 if ability agrees to save data successfully, otherwise errcode.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;

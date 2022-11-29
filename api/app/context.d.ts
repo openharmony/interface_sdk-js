@@ -39,12 +39,12 @@ export interface Context extends BaseContext {
     /**
     * Get the local root dir of an app. If it is the first call, the dir
     * will be created.
-    * @note If in the context of the ability, return the root dir of
+    * If in the context of the ability, return the root dir of
     * the ability; if in the context of the application, return the
     * root dir of the application.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @return the root dir
+    * @returns the root dir
     * @FAModelOnly
     */
     getOrCreateLocalDir(): Promise<string>;
@@ -52,14 +52,14 @@ export interface Context extends BaseContext {
     /**
     * Verify whether the specified permission is allowed for a particular
     * pid and uid running in the system.
+    * Pid and uid are optional. If you do not pass in pid and uid,
+    * it will check your own permission.
     * @param permission The name of the specified permission
     * @param pid process id
     * @param uid user id
-    * @note Pid and uid are optional. If you do not pass in pid and uid,
-    * it will check your own permission.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @return asynchronous callback with {@code 0} if the PID
+    * @returns asynchronous callback with {@code 0} if the PID
     *         and UID have the permission; callback with {@code -1} otherwise.
     * @FAModelOnly
     */
@@ -252,7 +252,7 @@ export interface Context extends BaseContext {
     * Checks whether the configuration of this ability is changing.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @return true if the configuration of this ability is changing and false otherwise.
+    * @returns true if the configuration of this ability is changing and false otherwise.
     * @FAModelOnly
     */
     isUpdatingConfigurations(callback: AsyncCallback<boolean>): void;

@@ -19,7 +19,6 @@ import { InputEvent } from './@ohos.multimodalInput.inputEvent'
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import {Action} from '@ohos.multimodalInput.touchEvent';
  */
 export declare enum Action {
   /**
@@ -48,7 +47,6 @@ export declare enum Action {
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import {ToolType} from '@ohos.multimodalInput.touchEvent';
  */
 export declare enum ToolType {
   /**
@@ -94,7 +92,6 @@ export declare enum ToolType {
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import {SourceType} from '@ohos.multimodalInput.touchEvent';
  */
 export declare enum SourceType {
   /**
@@ -118,7 +115,6 @@ export declare enum SourceType {
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import {Touch} from '@ohos.multimodalInput.touchEvent';
  */
 export declare interface Touch {
   /**
@@ -217,7 +213,6 @@ export declare interface Touch {
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import {TouchEvent} from '@ohos.multimodalInput.touchEvent';
  */
 export declare interface TouchEvent extends InputEvent {
   /**

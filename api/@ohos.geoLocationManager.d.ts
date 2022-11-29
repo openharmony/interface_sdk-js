@@ -20,7 +20,6 @@ import { WantAgent } from './@ohos.wantAgent';
  * and obtaining the location result cached by the system.
  *
  * @since 9
- * @import import geoLocationManager from '@ohos.geoLocationManager'
  */
 declare namespace geoLocationManager {
     /**

@@ -29,14 +29,14 @@ declare class Queue<T> {
    * Inserting specified element at the end of a queue if it is possible to do
    * so immediately without violating capacity restrictions.
    * @param element to be appended to this queue
-   * @return the boolean type
+   * @returns the boolean type
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   add(element: T): boolean;
   /**
    * Obtains the header element of a queue.
-   * @return the T type
+   * @returns the T type
    * @throws an exception if the queue is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -44,7 +44,7 @@ declare class Queue<T> {
   getFirst(): T;
   /**
    * Retrieves and removes the head of this queue
-   * @return the T type
+   * @returns the T type
    * @throws an exception if the queue is empty
    * @since 8
    * @syscap SystemCapability.Utils.Lang

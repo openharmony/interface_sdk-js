@@ -29,7 +29,7 @@ import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 /**
  * The context of an application. It allows access to application-specific resources.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 declare namespace common {
@@ -37,7 +37,7 @@ declare namespace common {
     /**
      * The context of an ability. It allows access to ability-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type UIAbilityContext = _UIAbilityContext.default
@@ -45,7 +45,7 @@ declare namespace common {
     /**
      * The context of an abilityStage. It allows access to abilityStage-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type AbilityStageContext = _AbilityStageContext.default
@@ -53,7 +53,7 @@ declare namespace common {
     /**
      * The context of an application. It allows access to application-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ApplicationContext = _ApplicationContext.default
@@ -69,7 +69,7 @@ declare namespace common {
      * The base context of an ability or an application. It allows access to
      * application-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type Context = _Context.default
@@ -77,7 +77,7 @@ declare namespace common {
     /**
      * The context of an extension. It allows access to extension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ExtensionContext = _ExtensionContext.default
@@ -86,7 +86,7 @@ declare namespace common {
      * The context of form extension. It allows access to
      * formExtension-specific resources.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type FormExtensionContext = _FormExtensionContext.default
@@ -94,7 +94,7 @@ declare namespace common {
     /**
      * File area mode
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export enum AreaMode {
@@ -111,7 +111,7 @@ declare namespace common {
     /**
      * The event center of a context, support the subscription and publication of events.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type EventHub = _EventHub.default
@@ -119,7 +119,7 @@ declare namespace common {
     /**
      * The result of requestPermissionsFromUser with asynchronous callback.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type PermissionRequestResult = _PermissionRequestResult.default
@@ -127,7 +127,7 @@ declare namespace common {
     /**
      * Defines a PacMap object for storing a series of values.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type PacMap = _PacMap
@@ -135,7 +135,7 @@ declare namespace common {
     /**
      * Indicates the result of startAbility.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type AbilityResult = _AbilityResult
@@ -143,7 +143,7 @@ declare namespace common {
     /**
      * Indicates the callback of connection
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     export type ConnectOptions = _ConnectOptions

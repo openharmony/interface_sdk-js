@@ -67,6 +67,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceSelected")
      */
     function on(type: "deviceConnect", callback: Callback<ContinuationResult>): void;
     function off(type: "deviceConnect", callback?: Callback<ContinuationResult>): void;
@@ -80,6 +81,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceUnSelected")
      */
     function on(type: "deviceDisconnect", callback: Callback<string>): void;
     function off(type: "deviceDisconnect", callback?: Callback<string>): void;
@@ -94,7 +96,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.registerContinuation
+     * @useinstead ohos.continuation.continuationManager.continuationManager#registerContinuation
      */
     function register(callback: AsyncCallback<number>): void;
     function register(options: ContinuationExtraParams, callback: AsyncCallback<number>): void;
@@ -109,7 +111,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.unregisterContinuation
+     * @useinstead ohos.continuation.continuationManager.continuationManager#unregisterContinuation
      */
     function unregister(token: number, callback: AsyncCallback<void>): void;
     function unregister(token: number): Promise<void>;
@@ -124,7 +126,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.updateContinuationState
+     * @useinstead ohos.continuation.continuationManager.continuationManager#updateContinuationState
      */
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback<void>): void;
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
@@ -139,7 +141,7 @@ declare namespace continuationManager {
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.startContinuationDeviceManager
+     * @useinstead ohos.continuation.continuationManager.continuationManager#startContinuationDeviceManager
      */
     function startDeviceManager(token: number, callback: AsyncCallback<void>): void;
     function startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void;

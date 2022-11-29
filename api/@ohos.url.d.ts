@@ -70,7 +70,7 @@ declare namespace url {
          * @useinstead ohos.url.URLParams.getAll
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key value.
-         * @return string[] Returns all key-value pairs with the specified name.
+         * @returns string[] Returns all key-value pairs with the specified name.
          */
         getAll(name: string): string[];
 
@@ -81,7 +81,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.entries
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an iterator for ES6.
+         * @returns Returns an iterator for ES6.
          */
         entries(): IterableIterator<[string, string]>;
 
@@ -105,7 +105,7 @@ declare namespace url {
          * @useinstead ohos.url.URLParams.get
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns the first value found by name. If no value is found, null is returned.
+         * @returns Returns the first value found by name. If no value is found, null is returned.
          */
         get(name: string): string | null;
 
@@ -116,7 +116,7 @@ declare namespace url {
          * @useinstead ohos.url.URLParams.has
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns a Boolean value that indicates whether a found
+         * @returns Returns a Boolean value that indicates whether a found
          */
         has(name: string): boolean;
 
@@ -149,7 +149,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.keys
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the names of each name-value pair.
+         * @returns Returns an ES6 Iterator over the names of each name-value pair.
          */
         keys(): IterableIterator<string>;
 
@@ -159,7 +159,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.values
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the values of each name-value pair.
+         * @returns Returns an ES6 Iterator over the values of each name-value pair.
          */
         values(): IterableIterator<string>;
 
@@ -170,7 +170,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.[Symbol.iterator]
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
+         * @returns Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
          */
         [Symbol.iterator](): IterableIterator<[string, string]>;
@@ -181,7 +181,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.toString
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns a search parameter serialized as a string, percent-encoded if necessary.
+         * @returns Returns a search parameter serialized as a string, percent-encoded if necessary.
          */
         toString(): string;
     }
@@ -230,7 +230,7 @@ declare namespace url {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key value.
-         * @return string[] Returns all key-value pairs with the specified name.
+         * @returns string[] Returns all key-value pairs with the specified name.
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         getAll(name: string): string[];
@@ -240,7 +240,7 @@ declare namespace url {
          * The first item of Array is name, and the second item of Array is value.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an iterator for ES6.
+         * @returns Returns an iterator for ES6.
          */
         entries(): IterableIterator<[string, string]>;
 
@@ -261,7 +261,7 @@ declare namespace url {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns the first value found by name. If no value is found, null is returned.
+         * @returns Returns the first value found by name. If no value is found, null is returned.
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         get(name: string): string | null;
@@ -271,7 +271,7 @@ declare namespace url {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns a Boolean value that indicates whether a found
+         * @returns Returns a Boolean value that indicates whether a found
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         has(name: string): boolean;
@@ -300,7 +300,7 @@ declare namespace url {
          * Returns an iterator allowing to go through all keys contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the names of each name-value pair.
+         * @returns Returns an ES6 Iterator over the names of each name-value pair.
          */
         keys(): IterableIterator<string>;
 
@@ -308,7 +308,7 @@ declare namespace url {
          * Returns an iterator allowing to go through all values contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the values of each name-value pair.
+         * @returns Returns an ES6 Iterator over the values of each name-value pair.
          */
         values(): IterableIterator<string>;
 
@@ -317,7 +317,7 @@ declare namespace url {
          * pairs contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
+         * @returns Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
          */
         [Symbol.iterator](): IterableIterator<[string, string]>;
@@ -326,7 +326,7 @@ declare namespace url {
          * Returns a query string suitable for use in a URL.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns a search parameter serialized as a string, percent-encoded if necessary.
+         * @returns Returns a search parameter serialized as a string, percent-encoded if necessary.
          */
         toString(): string;
     }
@@ -369,7 +369,7 @@ declare namespace url {
          * Returns the serialized URL as a string.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
+         * @returns Returns the serialized URL as a string.
          */
         toString(): string;
 
@@ -377,7 +377,7 @@ declare namespace url {
          * Returns the serialized URL as a string.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
+         * @returns Returns the serialized URL as a string.
          */
         toJSON(): string;
 
@@ -457,9 +457,6 @@ declare namespace url {
          * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
-         * @note Be careful when modifying with .searchParams, because the URLSearchParams
-         * object uses different rules to determine which characters to
-         * percent-encode according to the WHATWG specification.
          */
         readonly searchParams: URLSearchParams;
 
