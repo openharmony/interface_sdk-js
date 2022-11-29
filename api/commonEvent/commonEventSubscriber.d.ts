@@ -72,7 +72,6 @@ export interface CommonEventSubscriber {
    * Obtains the result data of the current ordered common event.
    *
    * @since 7
-   * @return
    * @returns Returns data of this common event
    */
   getData(): Promise<string>;
@@ -152,7 +151,7 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(): Promise<boolean>;
 
   /**
-   * Aborts the current ordered common event.
+   * Abort the current ordered common event.
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
@@ -161,7 +160,7 @@ export interface CommonEventSubscriber {
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts the current ordered common event.
+   * Abort the current ordered common event.
    *
    * @since 7
    * @returns -
