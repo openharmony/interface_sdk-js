@@ -61,7 +61,7 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
-   * @return Containing the contents of the clipboard content object.
+   * @returns Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -71,7 +71,7 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_WANT.
    * @param want To save the want of content.
-   * @return Containing the contents of the clipboard content object.
+   * @returns Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -81,7 +81,7 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_PLAIN.
    * @param text To save the text of content.
-   * @return Containing the contents of the clipboard content object.
+   * @returns Containing the contents of the clipboard content object.
    * @since 6
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -91,7 +91,7 @@ declare namespace pasteboard {
   /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_URI.
    * @param uri To save the uri of content.
-   * @return Containing the contents of the clipboard content object.
+   * @returns Containing the contents of the clipboard content object.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
@@ -111,7 +111,7 @@ declare namespace pasteboard {
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param htmlText To save the Html text content.
-   * @return The content of a new record
+   * @returns The content of a new record
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -121,7 +121,7 @@ declare namespace pasteboard {
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_WANT.
    * @param want To save the want of content.
-   * @return The content of a new record
+   * @returns The content of a new record
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -131,7 +131,7 @@ declare namespace pasteboard {
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_PLAIN.
    * @param text To save the text of content.
-   * @return The content of a new record
+   * @returns The content of a new record
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -141,7 +141,7 @@ declare namespace pasteboard {
   /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_URI.
    * @param uri To save the uri of content.
-   * @return The content of a new record
+   * @returns The content of a new record
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
@@ -160,7 +160,7 @@ declare namespace pasteboard {
 
   /**
    * get SystemPasteboard
-   * @return The system clipboard object
+   * @returns The system clipboard object
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
@@ -268,7 +268,7 @@ declare namespace pasteboard {
 
     /**
      * Converts data in PasteData to text format.
-     * @return callback Type string callback function
+     * @returns callback Type string callback function
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
@@ -348,42 +348,42 @@ declare namespace pasteboard {
 
     /**
      * MIME types of all content on the pasteboard.
-     * @return string type of array
+     * @returns string type of array
      * @since 7
      */
     getMimeTypes(): Array<string>;
 
     /**
      * HTML text of the primary record in a PasteData object.
-     * @return string type of htmltext
+     * @returns string type of htmltext
      * @since 7
      */
     getPrimaryHtml(): string;
 
     /**
      * the want of the primary record in a PasteData object.
-     * @return want type of want
+     * @returns want type of want
      * @since 7
      */
     getPrimaryWant(): Want;
 
     /**
      * the MIME type of the primary record in a PasteData object.
-     * @return string type of mimetype
+     * @returns string type of mimetype
      * @since 7
      */
     getPrimaryMimeType(): string;
 
     /**
      * the plain text of the primary record in a PasteData object.
-     * @return string type of text
+     * @returns string type of text
      * @since 6
      */
     getPrimaryText(): string;
 
     /**
      * the URI of the primary record in a PasteData object.
-     * @return string type of uri
+     * @returns string type of uri
      * @since 7
      */
     getPrimaryUri(): string;
@@ -397,7 +397,7 @@ declare namespace pasteboard {
 
     /**
      * DataProperty of a PasteData object.
-     * @return PasteDataProperty type of PasteDataProperty
+     * @returns PasteDataProperty type of PasteDataProperty
      * @since 7
      */
     getProperty(): PasteDataProperty;
@@ -413,7 +413,7 @@ declare namespace pasteboard {
     /**
      * a Record based on a specified index.
      * @param index The index to specify the content item
-     * @return PasteDataRecord type of PasteDataRecord
+     * @returns PasteDataRecord type of PasteDataRecord
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getRecord
@@ -432,14 +432,14 @@ declare namespace pasteboard {
 
     /**
      * the number of records in a PasteData object.
-     * @return The number of the clipboard contents
+     * @returns The number of the clipboard contents
      * @since 7
      */
     getRecordCount(): number;
 
     /**
      * the user-defined tag of a PasteData object.
-     * @return string type of tag
+     * @returns string type of tag
      * @since 7
      */
     getTag(): string;
@@ -447,7 +447,7 @@ declare namespace pasteboard {
     /**
      * Checks whether there is a specified MIME type of data in DataProperty.
      * @param mimeType To query data types.
-     * @return if having mimeType in PasteData returns true, else returns false.
+     * @returns if having mimeType in PasteData returns true, else returns false.
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasType
@@ -466,7 +466,7 @@ declare namespace pasteboard {
     /**
      * Removes a Record based on a specified index.
      * @param index The index to specify the content item.
-     * @return The query returns True on success, or False on failure.
+     * @returns The query returns True on success, or False on failure.
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#removeRecord
@@ -485,7 +485,7 @@ declare namespace pasteboard {
     /**
      * Replaces a specified record with a new one.
      * @param index The index to specify the content item. record record The content of a new record.
-     * @return The query returns True on success, or False on failure.
+     * @returns The query returns True on success, or False on failure.
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#replaceRecord
@@ -547,7 +547,7 @@ declare namespace pasteboard {
 
     /**
      * data in a PasteData object.
-     * @return PasteData callback data in a PasteData object.
+     * @returns PasteData callback data in a PasteData object.
      * @since 6
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
@@ -574,7 +574,7 @@ declare namespace pasteboard {
 
     /**
      * Checks whether there is content in the pasteboard.
-     * @return boolean The callback success to true to false failure
+     * @returns boolean The callback success to true to false failure
      * @since 7
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasData
