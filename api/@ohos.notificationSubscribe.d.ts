@@ -24,7 +24,6 @@ import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } f
  * @since 9
  * @systemapi
  * @syscap SystemCapability.Notification.Notification
- * @import import notificationSubscribe from '@ohos.notification.subscribe';
  * @permission N/A
  */
 declare namespace notificationSubscribe {
