@@ -47,7 +47,7 @@ declare namespace systemTimer {
   /**
    * Creates a timer.
    * @param options Indicates the timer options.
-   * @returns timer ID.
+   * @returns {void | Promise<number>} timer ID.
    */
   function createTimer(options: TimerOptions, callback: AsyncCallback<number>): void;
   function createTimer(options: TimerOptions): Promise<number>;
