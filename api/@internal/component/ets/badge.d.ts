@@ -116,7 +116,7 @@ declare interface BadgeParamWithString extends BadgeParam {
 }
 
 /**
- * Defines Badge Componrnt.
+ * Defines Badge Component.
  * @since 7
  */
 interface BadgeInterface {
@@ -140,7 +140,7 @@ interface BadgeInterface {
 }
 
 /**
- * Defines Badge Componrnt attribute.
+ * Defines Badge Component attribute.
  * @since 7
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}

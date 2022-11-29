@@ -368,14 +368,12 @@ interface ISinglePropertyChangeSubscriber<T> extends IPropertySubscriber {
  * Defines the Subscribale base class.
  * @since 7
  * @systemapi
- * @hide
  */
 declare abstract class SubscribaleAbstract {
   /**
    * Returns the ownership attribute set by the.
    * @since 7
    * @systemapi
-   * @hide
    */
   private owningProperties_: Set<number>;
 
@@ -383,7 +381,6 @@ declare abstract class SubscribaleAbstract {
    * Constructor.
    * @since 7
    * @systemapi
-   * @hide
    */
   constructor();
 
@@ -391,7 +388,6 @@ declare abstract class SubscribaleAbstract {
    * Called when the notification property has changed.
    * @since 7
    * @systemapi
-   * @hide
    */
   protected notifyPropertyHasChanged(propName: string, newValue: any): void;
 
@@ -399,7 +395,6 @@ declare abstract class SubscribaleAbstract {
    * Called when adding an already owned property.
    * @since 7
    * @systemapi
-   * @hide
    */
   public addOwningProperty(subscriber: IPropertySubscriber): void;
 
@@ -407,7 +402,6 @@ declare abstract class SubscribaleAbstract {
    * Called when an already owned property is deleted.
    * @since 7
    * @systemapi
-   * @hide
    */
   public removeOwningProperty(property: IPropertySubscriber): void;
 
@@ -415,7 +409,6 @@ declare abstract class SubscribaleAbstract {
    * Called when an already owned property is deleted by ID
    * @since 7
    * @systemapi
-   * @hide
    */
   public removeOwningPropertyById(subscriberId: number): void;
 }
@@ -429,7 +422,6 @@ declare class Environment {
    * Constructor.
    * @since 7
    * @systemapi
-   * @hide
    */
   constructor();
 
@@ -466,7 +458,6 @@ declare class PersistentStorage {
    * Constructor parameters.
    * @since 7
    * @systemapi
-   * @hide
    */
   constructor(appStorage: AppStorage, storage: Storage);
 
@@ -504,7 +495,6 @@ declare class PersistentStorage {
  * Used for ide.
  * @since 7
  * @systemapi
- * @hide
  */
 declare const appStorage: AppStorage;
 
@@ -527,7 +517,7 @@ declare const appStorage: AppStorage;
   static GetShared(): LocalStorage;
 
   /**
-   * Return true if prooperty with given name exists
+   * Return true if property with given name exists
    * @since 9
    */
   has(propName: string): boolean;

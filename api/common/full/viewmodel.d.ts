@@ -20,7 +20,7 @@ import image from "../../@ohos.multimedia.image";
 import { CanvasPattern } from './canvaspattern';
 
 /**
- * Defines the foucs param.
+ * Defines the focus param.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
@@ -555,7 +555,7 @@ export interface observer {
   observe(callback: string): void;
 
   /**
-   * Turn off the listenerr.
+   * Turn off the listener.
    * @since 6
    */
   unobserve(): void;
@@ -2546,7 +2546,7 @@ export interface ViewModel {
   $t(path: string, params?: object | Array<any>): string;
 
   /**
-   * Converses between singular and plural forms based on the system language, for example, this.$tc('strings.plurals').
+   * Converse between singular and plural forms based on the system language, for example, this.$tc('strings.plurals').
    * NOTE
    * The resource content is distinguished by the following JSON keys: zero, one, two, few, many, and other.
    * @param path Resource file path.
@@ -2698,7 +2698,7 @@ export declare class Locate {
   language: string;
 
   /**
-   * country or regin, such ass 'CN'.
+   * country or region, such ass 'CN'.
    * @since 4
    */
   countryOrRegion: string;
@@ -2796,7 +2796,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Listens for page active.
-   * Called when the page is activing.
+   * Called when the page is active.
    * @since 5
    */
   onActive?(): void;
