@@ -336,7 +336,7 @@ declare namespace cryptoFramework {
     interface Random {
 
         /**
-         * Generate radom DataBlob by given length.
+         * Generate random DataBlob by given length.
          * @param len Indicates the length of random DataBlob.
          * @returns Returns the generated random blob.
          * @syscap SystemCapability.Security.CryptoFramework
@@ -371,7 +371,7 @@ declare namespace cryptoFramework {
     interface AsyKeyGenerator {
 
         /**
-         * Used to generate asymetric key pair.
+         * Used to generate asymmetric key pair.
          * @param { AsyncCallback<KeyPair> } callback - the callback used to return keypair.
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
@@ -641,7 +641,7 @@ declare namespace cryptoFramework {
         /**
          * The sign algName.
          * @type { string }
-         * @syscap SystemCapability.Security.CryptoFramework.
+         * @syscap SystemCapability.Security.CryptoFramework
          * @readonly
          * @since 9
          */
