@@ -165,7 +165,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_OFF = "usual.event.SCREEN_OFF",
 
     /**
-     * This commonEvent means when the device is waked up and interactive.
+     * This commonEvent means when the device is awakened and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
@@ -175,7 +175,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
-     * This commonEvent means when the user is present after the device waked up.
+     * This commonEvent means when the user is present after the device is awakened.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -441,7 +441,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE = "usual.event.wifi.mplink.STATE_CHANGE",
 
     /**
-     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnecting P2P.
+     * Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
      */
     COMMON_EVENT_WIFI_P2P_CONN_STATE = "usual.event.wifi.p2p.CONN_STATE_CHANGE",
 

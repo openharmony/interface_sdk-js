@@ -31,7 +31,7 @@ export interface MissionParameter {
     deviceId: string;
 
     /**
-     * If needed to fix the versions confilct.
+     * If needed to fix the versions conflict.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
