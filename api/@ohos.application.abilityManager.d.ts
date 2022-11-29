@@ -59,7 +59,7 @@ declare namespace abilityManager {
     function updateConfiguration(config: Configuration): Promise<void>;
 
     /**
-     * Get information about running abilitys
+     * Get information about running abilities
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

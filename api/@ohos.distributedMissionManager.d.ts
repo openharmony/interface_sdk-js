@@ -62,7 +62,7 @@ declare namespace distributedMissionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param parameter Parameters corresponding to mission.
-   * @param options The callbacks for regist mission.
+   * @param options The callbacks for registering mission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission

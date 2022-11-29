@@ -33,7 +33,7 @@
     notifyMissionsChanged(deviceId: string): void;
 
     /**
-     * Called by system when snapshop changed.
+     * Called by system when snapshot changed.
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission

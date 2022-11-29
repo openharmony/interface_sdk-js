@@ -35,7 +35,7 @@ import window from './@ohos.window';
  */
 declare namespace featureAbility {
   /**
-   * Obtain the want sended from the source ability.
+   * Obtain the want sent from the source ability.
    *
    * @since 6
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel

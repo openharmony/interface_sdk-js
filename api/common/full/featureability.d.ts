@@ -44,7 +44,7 @@ export interface SubscribeMessageResponse {
   deviceId: string;
 
   /**
-   * Name of the bundle where the peer ability locates. The name is case sensitive.
+   * Name of the bundle where the peer ability located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -68,7 +68,7 @@ export interface SubscribeMessageResponse {
  */
 export interface CallAbilityParam {
   /**
-   * Name of the bundle where the ability locates. The name is case sensitive and must be the same as that on the AA side.
+   * Name of the bundle where the ability located. The name is case sensitive and must be the same as that on the AA side.
    * @since 5
    */
   bundleName: string;
@@ -114,7 +114,7 @@ export interface CallAbilityParam {
  */
 export interface SubscribeAbilityEventParam {
   /**
-   * Name of the bundle where the ability locates. The name is case sensitive and must be the same as that on the AA side.
+   * Name of the bundle where the ability located. The name is case sensitive and must be the same as that on the AA side.
    * @since 5
    */
   bundleName: string;
@@ -161,7 +161,7 @@ export interface SendMessageOptions {
   deviceId: string;
 
   /**
-   * Name of the destination bundle where the ability locates. The name is case sensitive.
+   * Name of the destination bundle where the ability located. The name is case sensitive.
    * @since 5
    */
   bundleName: string;
@@ -319,12 +319,12 @@ export declare class FeatureAbility {
   static startAbilityForResult(request: RequestParams): Promise<Result>;
 
   /**
-   * FA call the interface to destory itself and set the result as parameters.
+   * FA call the interface to destroy itself and set the result as parameters.
    * @param request Indicates the request param.
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
    * @deprecated since 8
-   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSlefWithResult
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSelfWithResult
    */
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 

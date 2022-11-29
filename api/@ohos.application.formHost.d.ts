@@ -137,7 +137,7 @@ declare namespace formHost {
     function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
     /**
-     * Notifys the form framework to make the specified forms non updatable.
+     * Notify the form framework to make the specified forms non updatable.
      *
      * <p>You can use this method to set form refresh state to false, the form do not receive
      * new update from service.</p>

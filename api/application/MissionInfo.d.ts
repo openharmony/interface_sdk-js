@@ -81,7 +81,7 @@ export interface MissionInfo {
     iconPath: string;
 
     /**
-     * Indicates whether the mision is continuable.
+     * Indicates whether the mission is continuable.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
