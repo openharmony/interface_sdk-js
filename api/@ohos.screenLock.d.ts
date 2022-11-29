@@ -95,7 +95,7 @@ declare namespace screenLock {
   }
 
   /**
-   * Register system event related to sysscreen lock. Returns true if register system event is success. returns false otherwise.
+   * Register system event related to screen lock service. Returns true if register system event is success. returns false otherwise.
    * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
    * @returns { boolean } the boolean returned by the function.
    * @throws {BusinessError} 401 - parameter error.
