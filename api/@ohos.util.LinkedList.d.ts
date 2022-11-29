@@ -192,7 +192,7 @@ declare class LinkedList<T> {
   set(index: number, element: T): T;
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the linkedlist,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -204,7 +204,7 @@ declare class LinkedList<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void,
   thisArg?: Object): void;
   /**
    * Removes all of the elements from this linkedlist.The linkedlist will

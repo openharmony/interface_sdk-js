@@ -73,7 +73,7 @@ declare class Stack<T> {
   locate(element: T): number;
   /**
    * Executes a provided function once for each value in the Stack object.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function 
+   * @param callbackFn (required) A function that accepts up to four arguments.The function 
    * to be called for each element in the Stack
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -85,7 +85,7 @@ declare class Stack<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, stack?: Stack<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, stack?: Stack<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
