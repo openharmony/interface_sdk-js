@@ -605,7 +605,7 @@ declare class ControllerHandler {
    * Set WebController object.
    * @since 9
    */
-  setWebController(controller: WebController): void;
+  setWebController(controller: WebviewController): void;
 }
 
 /**
