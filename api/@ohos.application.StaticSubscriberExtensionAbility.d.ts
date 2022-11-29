@@ -30,7 +30,7 @@ export default class StaticSubscriberExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onReceiveEvent(event: CommonEventData): void;

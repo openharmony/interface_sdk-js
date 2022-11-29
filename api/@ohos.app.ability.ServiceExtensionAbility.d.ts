@@ -112,7 +112,7 @@ export default class ServiceExtensionAbility {
      * Called when dump client information is required.
      * It is recommended that developers don't DUMP sensitive information.
      * @param { Array<string> } params - Indicates the params from command.
-     * @return { Array<string> } The dump info array.
+     * @returns { Array<string> } The dump info array.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly

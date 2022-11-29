@@ -27,7 +27,7 @@ import rpc from './@ohos.rpc';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @param msg Monitor status notification information.
- * @return -
+ * @returns -
  * @StageModelOnly
  * @deprecated since 9
  * @useinstead ohos.app.ability.UIAbility
@@ -43,7 +43,7 @@ export interface OnReleaseCallBack {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @permission N/A
  * @param indata Notification data notified from the caller.
- * @return rpc.Sequenceable
+ * @returns rpc.Sequenceable
  * @StageModelOnly
  * @deprecated since 9
  * @useinstead ohos.app.ability.UIAbility
@@ -70,7 +70,7 @@ export interface Caller {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method The notification event string listened to by the callee.
      * @param data Notification data to the callee.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      call(method: string, data: rpc.Sequenceable): Promise<void>;
@@ -82,7 +82,7 @@ export interface Caller {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method The notification event string listened to by the callee.
      * @param data Notification data to the callee.
-     * @return Returns the callee's notification result data on success, and returns undefined on failure.
+     * @returns Returns the callee's notification result data on success, and returns undefined on failure.
      * @StageModelOnly
      */
      callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
@@ -92,7 +92,7 @@ export interface Caller {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      release(): void;
@@ -103,7 +103,7 @@ export interface Caller {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param callback Register a callback function for listening for notifications.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      onRelease(callback: OnReleaseCallBack): void;
@@ -128,7 +128,7 @@ export interface Callee {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method A string registered to listen for notification events.
      * @param callback Register a callback function that listens for notification events.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      on(method: string, callback: CalleeCallBack): void;
@@ -139,7 +139,7 @@ export interface Callee {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param method A string registered to listen for notification events.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      off(method: string): void;
@@ -199,7 +199,7 @@ export default class Ability {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param want Indicates the want info of the created ability.
      * @param param Indicates the launch param.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onCreate(want: Want, param: AbilityConstant.LaunchParam): void;
@@ -210,7 +210,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param windowStage Indicates the created WindowStage.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onWindowStageCreate(windowStage: window.WindowStage): void;
@@ -220,7 +220,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onWindowStageDestroy(): void;
@@ -231,7 +231,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param windowStage window stage to restore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onWindowStageRestore(windowStage: window.WindowStage): void;
@@ -241,7 +241,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onDestroy(): void;
@@ -251,7 +251,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onForeground(): void;
@@ -261,7 +261,7 @@ export default class Ability {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onBackground(): void;
@@ -272,7 +272,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param wantParam Indicates the want parameter.
-     * @return 0 if ability agrees to continue and saves data successfully, otherwise errcode.
+     * @returns 0 if ability agrees to continue and saves data successfully, otherwise errcode.
      * @StageModelOnly
      */
      onContinue(wantParam : {[key: string]: any}): AbilityConstant.OnContinueResult;
@@ -285,7 +285,7 @@ export default class Ability {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param want Indicates the want info of ability.
      * @param launchParams Indicates the launch parameters.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onNewWant(want: Want, launchParams: AbilityConstant.LaunchParam): void;
@@ -296,7 +296,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param config Indicates the updated configuration.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
@@ -308,7 +308,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param params Indicates the params from command.
-     * @return The dump info array.
+     * @returns The dump info array.
      * @StageModelOnly
      */
     dump(params: Array<string>): Array<string>;
@@ -320,7 +320,7 @@ export default class Ability {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param level Indicates the memory trim level, which shows the current memory usage status.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
@@ -332,7 +332,7 @@ export default class Ability {
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param reason state type when save.
      * @param wantParam Indicates the want parameter.
-     * @return 0 if ability agrees to save data successfully, otherwise errcode.
+     * @returns 0 if ability agrees to save data successfully, otherwise errcode.
      * @StageModelOnly
     */
     onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;

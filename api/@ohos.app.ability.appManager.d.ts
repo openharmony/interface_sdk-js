@@ -63,7 +63,7 @@ declare namespace appManager {
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
      * @param { string } type - applicationState.
      * @param { ApplicationStateObserver } observer - The application state observer.
-     * @return { number } Returns the number code of the observer.
+     * @returns { number } Returns the number code of the observer.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -77,7 +77,7 @@ declare namespace appManager {
      * @param { string } type - applicationState.
      * @param { ApplicationStateObserver } observer - The application state observer.
      * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
-     * @return { number } Returns the number code of the observer.
+     * @returns { number } Returns the number code of the observer.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
