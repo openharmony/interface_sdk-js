@@ -34,6 +34,7 @@
    * Sets the style of Progress.
    * @since 7
    * @deprecated since 8
+   * @useinstead type
    */
   style?: ProgressStyle
 
@@ -92,7 +93,7 @@ declare interface ProgressStyleOptions {
   strokeWidth?: Length;
 
   /**
-   * Defines the scaleCoun property.
+   * Defines the scaleCount property.
    * @since 8
    */
   scaleCount?: number;
@@ -153,7 +154,7 @@ interface ProgressInterface {
 }
 
 /**
- * Defines the progress attibute functions.
+ * Defines the progress attribute functions.
  * @since 7
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {

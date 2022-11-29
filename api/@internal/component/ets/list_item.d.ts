@@ -50,7 +50,7 @@ declare enum EditMode {
   None,
 
   /**
-   * Deleteable.
+   * Deletable.
    * @since 7
    */
   Deletable,

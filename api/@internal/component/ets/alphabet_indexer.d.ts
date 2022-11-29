@@ -53,6 +53,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * Index bar selection callback.
    * @since 7
    * @deprecated since 8
+   * @useinstead onSelect
    */
   onSelected(callback: (index: number) => void): AlphabetIndexerAttribute;
 

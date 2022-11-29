@@ -68,7 +68,7 @@ interface ScrollBarInterface {
 }
 
 /**
- * Defines the scrollbar attibute functions.
+ * Defines the scrollbar attribute functions.
  * @since 8
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
