@@ -192,7 +192,7 @@ declare namespace deviceManager {
     freq: ExchangeFreq;
 
     /**
-     *  Whether the device should be ranged  by discoverer.
+     *  Whether the device should be ranged by discoverer.
      */
     ranging : boolean;
   }
@@ -358,7 +358,7 @@ declare namespace deviceManager {
      *
      * @throws {BusinessError} 401 - Input parameter error.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
@@ -369,7 +369,7 @@ declare namespace deviceManager {
      * @since 8
      * @param callback Indicates the callback to be invoked upon getTrustedDeviceList
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceList(callback:AsyncCallback<Array<DeviceInfo>>): void;
@@ -379,7 +379,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns a list of trusted devices.
+     * @returns Returns a list of trusted devices.
      * @systemapi this method can be used only by system applications.
      */
     getTrustedDeviceList(): Promise<Array<DeviceInfo>>;
@@ -390,7 +390,7 @@ declare namespace deviceManager {
      * @since 8
      * @throws {BusinessError} 401 - Input parameter error.
      * @throws {BusinessError} 11600101 - Failed to execute the function.
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfoSync(): DeviceInfo;
@@ -401,7 +401,7 @@ declare namespace deviceManager {
      * @since 8
      * @param callback Indicates the callback to be invoked upon getLocalDeviceInfo
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfo(callback:AsyncCallback<DeviceInfo>): void;
@@ -411,7 +411,7 @@ declare namespace deviceManager {
      *
      * @since 8
      * @throws {BusinessError} 401 - Input parameter error.
-     * @return Returns local device info.
+     * @returns Returns local device info.
      * @systemapi this method can be used only by system applications.
      */
     getLocalDeviceInfo(): Promise<DeviceInfo>;
