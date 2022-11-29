@@ -43,7 +43,7 @@ export default class AbilityStage {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onCreate(): void;
@@ -53,8 +53,8 @@ export default class AbilityStage {
      *
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the want info of startd ability.
-     * @return The user returns an ability string ID. If the ability of this ID has been started before,
+     * @param want Indicates the want info of started ability.
+     * @returns The user returns an ability string ID. If the ability of this ID has been started before,
      *         do not create a new instance and pull it back to the top of the stack.
      *         Otherwise, create a new instance and start it.
      * @StageModelOnly
@@ -67,7 +67,7 @@ export default class AbilityStage {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the updated configuration.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
@@ -79,7 +79,7 @@ export default class AbilityStage {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param level Indicates the memory trim level, which shows the current memory usage status.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      onMemoryLevel(level: AbilityConstant.MemoryLevel): void;

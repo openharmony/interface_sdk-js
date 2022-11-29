@@ -324,7 +324,7 @@ export declare class FeatureAbility {
    * @returns A Promise object is returned, which contains the result whether to callback successfully.
    * @since 5
    * @deprecated since 8
-   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSlefWithResult
+   * @useinstead ohos.ability.featureAbility.FeatureAbility#terminateSelfWithResult
    */
   static finishWithResult(param: FinishWithResultParams): Promise<Result>;
 

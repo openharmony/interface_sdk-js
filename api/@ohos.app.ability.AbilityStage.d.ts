@@ -44,8 +44,8 @@ export default class AbilityStage {
 
     /**
      * Called back when start specified ability.
-     * @param { Want } want - Indicates the want info of startd ability.
-     * @return { string } The user returns an ability string ID. If the ability of this ID has been started before,
+     * @param { Want } want - Indicates the want info of started ability.
+     * @returns { string } The user returns an ability string ID. If the ability of this ID has been started before,
      *         do not create a new instance and pull it back to the top of the stack.
      *         Otherwise, create a new instance and start it.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core

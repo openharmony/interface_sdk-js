@@ -14,11 +14,11 @@
  */
 
 /**
- * This module provides the capability to app receovery.
+ * This module provides the capability to app recovery.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9
  */
-declare namespace appReceovery {
+declare namespace appRecovery {
     /**
      * The type of no restart mode.
      * @enum { number }
@@ -42,7 +42,7 @@ declare namespace appReceovery {
         JS_CRASH_NO_RESTART = 0x0002,
 
         /**
-         * APP_FREEZE_NO_RESTART: Do not restart if process terminates due to appliction not respondong
+         * APP_FREEZE_NO_RESTART: Do not restart if process terminates due to application not responding
          */
         APP_FREEZE_NO_RESTART = 0x0004,
 
@@ -109,7 +109,7 @@ declare namespace appReceovery {
 
     /**
      * Save App state data when called
-     * @return true if save data successfully, otherwise false
+     * @returns true if save data successfully, otherwise false
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
@@ -117,4 +117,4 @@ declare namespace appReceovery {
     function saveAppState(): boolean;
 }
 
-export default appReceovery;
+export default appRecovery;

@@ -259,7 +259,7 @@ export default class AbilityContext extends Context {
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
@@ -273,7 +273,7 @@ export default class AbilityContext extends Context {
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
@@ -311,7 +311,7 @@ export default class AbilityContext extends Context {
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
@@ -325,7 +325,7 @@ export default class AbilityContext extends Context {
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.
@@ -389,7 +389,7 @@ export default class AbilityContext extends Context {
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @systemapi Hide this for inner system use.
-     * @return Returns the number code of the ability connected
+     * @returns Returns the number code of the ability connected
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead connectServiceExtensionAbility
@@ -405,7 +405,7 @@ export default class AbilityContext extends Context {
      * @param accountId The account to connect
      * @param options The remote object instance
      * @systemapi hide for inner use.
-     * @return Returns the number code of the ability connected
+     * @returns Returns the number code of the ability connected
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      * @deprecated since 9
