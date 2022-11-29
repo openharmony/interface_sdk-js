@@ -32,7 +32,7 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @systemapi
      * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-     * @returns Returns the wants.
+     * @returns {(void | Promise<Array<Want>>)} Returns the wants.
      */
     function getFileAccessAbilityInfo(callback: AsyncCallback<Array<Want>>): void;
     function getFileAccessAbilityInfo(): Promise<Array<Want>>;
@@ -45,7 +45,7 @@ declare namespace fileAccess {
      * @systemapi
      * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
-     * @returns Returns the fileAccessHelper.
+     * @returns {FileAccessHelper} Returns the fileAccessHelper.
      */
     function createFileAccessHelper(context: Context): FileAccessHelper;
 
@@ -58,7 +58,7 @@ declare namespace fileAccess {
      * @permission ohos.permission.FILE_ACCESS_MANAGER and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
      * @param context Indicates the application context.
      * @param want Represents the connected data provider.
-     * @returns Returns the fileAccessHelper.
+     * @returns {FileAccessHelper} Returns the fileAccessHelper.
      */
     function createFileAccessHelper(context: Context, wants: Array<Want>): FileAccessHelper;
 
@@ -116,7 +116,7 @@ declare namespace fileAccess {
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param filter Indicates the filter of file.
-         * @returns Returns the FileIterator Object.
+         * @returns {FileIterator} Returns the FileIterator Object.
          */
         listFile(filter?: Filter): FileIterator;
 
@@ -128,7 +128,7 @@ declare namespace fileAccess {
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param filter Indicates the filter of file.
-         * @returns Returns the FileIterator Object.
+         * @returns {FileIterator} Returns the FileIterator Object.
          */
         scanFile(filter?: Filter): FileIterator;
     }
@@ -183,7 +183,7 @@ declare namespace fileAccess {
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param filter Indicates the filter of file.
-         * @returns Returns the RootIterator Object.
+         * @returns {FileIterator} Returns the RootIterator Object.
          */
         listFile(filter?: Filter): FileIterator;
 
@@ -195,7 +195,7 @@ declare namespace fileAccess {
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param filter Indicates the filter of file.
-         * @returns Returns the RootIterator Object.
+         * @returns {FileIterator} Returns the RootIterator Object.
          */
         scanFile(filter?: Filter): FileIterator;
     }
@@ -247,7 +247,7 @@ declare namespace fileAccess {
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param uri Indicates the path of the file to open.
          * @param flags Indicate options of opening a file. The default value is read-only.
-         * @returns Returns the file descriptor.
+         * @returns {(void | Promise<number>)} Returns the file descriptor.
          */
         openFile(uri: string, flags: OPENFLAGS) : Promise<number>;
         openFile(uri: string, flags: OPENFLAGS, callback: AsyncCallback<number>) : void;
@@ -262,7 +262,7 @@ declare namespace fileAccess {
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param uri Represents a specific parent directory.
          * @param displayName Indicates the new file name, and supports with suffix.
-         * @returns Returns the new file's URI.
+         * @returns {(void | Promise<string>)} Returns the new file's URI.
          */
         createFile(uri: string, displayName: string) : Promise<string>;
         createFile(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
@@ -277,7 +277,7 @@ declare namespace fileAccess {
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param parentUri Represents a specific parent directory.
          * @param displayName Indicates the new directory name.
-         * @returns Returns the new directory's URI.
+         * @returns {(void | Promise<string>)} Returns the new directory's URI.
          */
         mkDir(parentUri: string, displayName: string) : Promise<string>;
         mkDir(parentUri: string, displayName: string, callback: AsyncCallback<string>) : void;
@@ -305,7 +305,7 @@ declare namespace fileAccess {
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param sourceFile Indicates the file or directory to be moved.
          * @param destFile Represents the destination folder.
-         * @returns Returns the generated new file or directory.
+         * @returns {(void | Promise<string>)} Returns the generated new file or directory.
          */
         move(sourceFile: string, destFile: string) : Promise<string>;
         move(sourceFile: string, destFile: string, callback: AsyncCallback<string>) : void;
@@ -320,7 +320,7 @@ declare namespace fileAccess {
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param uri Indicates the selected file or directory.
          * @param displayName Indicates the new directory or file name.
-         * @returns Returns a URI representing the new file or directory.
+         * @returns {(void | Promise<string>)} Returns a URI representing the new file or directory.
          */
         rename(uri: string, displayName: string) : Promise<string>;
         rename(uri: string, displayName: string, callback: AsyncCallback<string>) : void;
@@ -334,7 +334,7 @@ declare namespace fileAccess {
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
          * @param uri Indicates the selected file or directory.
-         * @returns Returns whether it exists.
+         * @returns {(void | Promise<boolean>)} Returns whether it exists.
          */
         access(sourceFileUri: string) : Promise<boolean>;
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
@@ -347,7 +347,7 @@ declare namespace fileAccess {
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @returns Returns a RootIterator.
+         * @returns {(void | Promise<RootIterator>)} Returns a RootIterator.
          */
         getRoots(): Promise<RootIterator>;
         getRoots(callback:AsyncCallback<RootIterator>) : void;
