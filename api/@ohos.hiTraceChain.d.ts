@@ -31,42 +31,42 @@ declare namespace hiTraceChain {
      */
     enum HiTraceFlag {
         /**
-         * default value
+         * Default value
          */
         DEFAULT           = 0,
 
         /**
-         * trace sync and async call. default: trace sync call only.
+         * Trace sync and async call. default: trace sync call only.
          */
         INCLUDE_ASYNC     = 1,
 
         /**
-         * do not create child span. default: create child span.
+         * Do not create child span. default: create child span.
          */
         DONOT_CREATE_SPAN = 1 << 1,
 
         /**
-         * output tracepoint info in span. default: do not output tracepoint info.
+         * Output tracepoint info in span. default: do not output tracepoint info.
          */
         TP_INFO           = 1 << 2,
 
         /**
-         * do not output begin and end info. default: output begin and end info.
+         * Do not output begin and end info. default: output begin and end info.
          */
         NO_BE_INFO        = 1 << 3,
 
         /**
-         * do not add id to log. default: add id to log.
+         * Do not add id to log. default: add id to log.
          */
         DISABLE_LOG  = 1 << 4,
 
         /**
-         * the trace is triggered by fault.
+         * The trace is triggered by fault.
          */
         FAILURE_TRIGGER   = 1 << 5,
 
         /**
-         * output device-to-device tracepoint info in span only. default: do not output device-to-device tracepoint info.
+         * Output device-to-device tracepoint info in span only. default: do not output device-to-device tracepoint info.
          */
         D2D_TP_INFO       = 1 << 6,
     }
@@ -79,27 +79,27 @@ declare namespace hiTraceChain {
      */
     enum HiTraceTracepointType {
         /**
-         * client send
+         * Client send
          */
         CS = 0,
 
         /**
-         * client receive
+         * Client receive
          */
         CR = 1,
 
         /**
-         * server send
+         * Server send
          */
         SS = 2,
 
         /**
-         * server receive
+         * Server receive
          */
         SR = 3,
 
         /**
-         * general info
+         * General info
          */
         GENERAL = 4,
     }
@@ -112,22 +112,22 @@ declare namespace hiTraceChain {
      */
     enum HiTraceCommunicationMode {
         /**
-         * unspecified
+         * Unspecified
          */
         DEFAULT = 0,
 
         /**
-         * thread-to-thread
+         * Thread-to-thread
          */
         THREAD  = 1,
 
         /**
-         * process-to-process
+         * Process-to-process
          */
         PROCESS = 2,
 
         /**
-         * device-to-device
+         * Device-to-device
          */
         DEVICE  = 3,
     }
