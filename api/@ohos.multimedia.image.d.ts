@@ -916,7 +916,7 @@ declare namespace image {
     createAlphaPixelmap(): Promise<PixelMap>;
 
     /**
-     * Obtains new pixel map with allpha information. This method uses a callback to return the information.
+     * Obtains new pixel map with alpha information. This method uses a callback to return the information.
      * @since 9
      * @syscap SystemCapability.Multimedia.Image.Core
      * @param callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
