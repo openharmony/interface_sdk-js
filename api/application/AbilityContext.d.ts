@@ -389,7 +389,7 @@ export default class AbilityContext extends Context {
      * @param want The element name of the service ability
      * @param options The remote object instance
      * @systemapi Hide this for inner system use.
-     * @return Returns the number code of the ability connected
+     * @returns Returns the number code of the ability connected
      * @StageModelOnly
      * @deprecated since 9
      * @useinstead connectServiceExtensionAbility
@@ -405,7 +405,7 @@ export default class AbilityContext extends Context {
      * @param accountId The account to connect
      * @param options The remote object instance
      * @systemapi hide for inner use.
-     * @return Returns the number code of the ability connected
+     * @returns Returns the number code of the ability connected
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @StageModelOnly
      * @deprecated since 9

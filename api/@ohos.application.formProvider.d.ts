@@ -35,7 +35,7 @@ declare namespace formProvider {
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID.
      * @param minute Indicates duration minute before next update.
-     * @return -
+     * @returns -
      */
     function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
     function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
@@ -49,7 +49,7 @@ declare namespace formProvider {
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the form ID
      * @param formBindingData Indicates the form data
-     * @return -
+     * @returns -
      */
     function updateForm(formId: string, formBindingData: formBindingData.FormBindingData,
         callback: AsyncCallback<void>): void;
@@ -63,7 +63,7 @@ declare namespace formProvider {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param filter Indicates the requirements the forms that the formInfos belong to have to meet.
-     * @return Infos of all forms.
+     * @returns Infos of all forms.
      */
     function getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
     function getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
@@ -77,7 +77,7 @@ declare namespace formProvider {
      * @param want The want of the form to publish
      * @param formBindingData Indicates the form data
      * @systemapi hide for inner use
-     * @return Returns form id
+     * @returns Returns form id
      */
      function requestPublishForm(want: Want, formBindingData: formBindingData.FormBindingData,
         callback: AsyncCallback<string>): void;
@@ -90,7 +90,7 @@ declare namespace formProvider {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @systemapi hide for inner use
-     * @return Returns true if the request is supported and false otherwise
+     * @returns Returns true if the request is supported and false otherwise
      */
     function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
     function isRequestPublishFormSupported(): Promise<boolean>;

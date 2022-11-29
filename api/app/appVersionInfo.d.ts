@@ -17,7 +17,7 @@
  * Defines an AppVersionInfo object.
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @permission NA
+ * @permission N/A
  */
 export interface AppVersionInfo {
 

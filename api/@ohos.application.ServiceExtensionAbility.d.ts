@@ -46,7 +46,7 @@ export default class ServiceExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of created service extension.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onCreate(want: Want): void;
@@ -57,7 +57,7 @@ export default class ServiceExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onDestroy(): void;
@@ -72,7 +72,7 @@ export default class ServiceExtensionAbility {
      *     incremented by 1 every time the service extension is started. For example, if the service extension
      *     has been started for six times.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onRequest(want: Want, startId: number): void;
@@ -84,7 +84,7 @@ export default class ServiceExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates connection information about the Service ability.
      * @systemapi hide for inner use.
-     * @return Returns the proxy of the Service ability.
+     * @returns Returns the proxy of the Service ability.
      * @StageModelOnly
      */
     onConnect(want: Want): rpc.RemoteObject;
@@ -96,7 +96,7 @@ export default class ServiceExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates disconnection information about the service extension.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onDisconnect(want: Want): void;
@@ -109,7 +109,7 @@ export default class ServiceExtensionAbility {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param want Indicates the want of the service extension being connected.
      * @systemapi hide for inner use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onReconnect(want: Want): void;
@@ -120,7 +120,7 @@ export default class ServiceExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param config Indicates the updated configuration.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
@@ -132,7 +132,7 @@ export default class ServiceExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param params Indicates the params from command.
-     * @return The dump info array.
+     * @returns The dump info array.
      * @StageModelOnly
      */
     dump(params: Array<string>): Array<string>;
