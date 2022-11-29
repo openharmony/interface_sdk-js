@@ -1450,7 +1450,7 @@ declare namespace rpc {
          * @param fd File descriptor to be duplicated.
          * @returns A duplicated file descriptor.
          * @throws { BusinessError } 401 - check param failed
-         * @throws { BusinessError } 1900013 call os dup function failed
+         * @throws { BusinessError } 1900013 - call os dup function failed
          * @since 9
          */
         static dupFileDescriptor(fd: number) :number;
