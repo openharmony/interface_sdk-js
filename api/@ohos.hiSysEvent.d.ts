@@ -135,7 +135,7 @@ declare namespace hiSysEvent {
    */
   enum RuleType {
     /**
-     * whole word match
+     * Whole word match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -144,7 +144,7 @@ declare namespace hiSysEvent {
     WHOLE_WORD = 1,
 
     /**
-     * prefix match
+     * Prefix match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -153,7 +153,7 @@ declare namespace hiSysEvent {
     PREFIX = 2,
 
     /**
-     * regular match
+     * Regular match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -186,7 +186,7 @@ declare namespace hiSysEvent {
     tag: string;
 
     /**
-     * the rule of match system event
+     * The rule of match system event
      */
     ruleType: RuleType;
   }
@@ -200,12 +200,12 @@ declare namespace hiSysEvent {
    */
   interface Watcher {
     /**
-     * rule of filter system event
+     * Rule of filter system event
      */
      rules: WatchRule[];
 
      /**
-     * receive system event.
+     * Receive system event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -216,7 +216,7 @@ declare namespace hiSysEvent {
     onEvent: (info: SysEventInfo) => void;
 
     /**
-     * hisysevent service shutdown.
+     * Hisysevent service shutdown.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -237,17 +237,17 @@ declare namespace hiSysEvent {
    */
   interface QueryArg {
     /**
-     * begin time
+     * Begin time
      */
     beginTime: number;
 
     /**
-     * end time
+     * End time
      */
     endTime: number;
 
     /**
-     * max number of receive system event
+     * Max number of receive system event
      */
     maxEvents: number;
   }
@@ -266,7 +266,7 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * lists of event name
+     * List of event name
      */
     names: string[];
   }
@@ -280,7 +280,7 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * handle query result, the query result will be send in severval times.
+     * Handle query result, the query result will be send in several times.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -291,7 +291,7 @@ declare namespace hiSysEvent {
     onQuery: (infos: SysEventInfo[]) => void;
 
     /**
-     * notify Querier execute query has finished.
+     * Notify querier execute query has finished.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -304,7 +304,7 @@ declare namespace hiSysEvent {
   }
 
   /**
-   * add watcher to watch system event
+   * Add watcher to watch system event
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -320,7 +320,7 @@ declare namespace hiSysEvent {
   function addWatcher(watcher: Watcher): void;
 
   /**
-   * remove watcher
+   * Remove watcher
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -335,7 +335,7 @@ declare namespace hiSysEvent {
   function removeWatcher(watcher: Watcher): void;
 
   /**
-   * query system event
+   * Query system event
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
