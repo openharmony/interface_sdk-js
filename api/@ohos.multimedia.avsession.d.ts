@@ -23,7 +23,6 @@ import audio from './@ohos.multimedia.audio';
 /**
  * @name avSession
  * @syscap SystemCapability.Multimedia.AVSession.Core
- * @import import avsession from '@ohos.multimedia.avsession';
  * @since 9
  */
 declare namespace avSession {
