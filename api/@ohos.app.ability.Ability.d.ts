@@ -47,7 +47,7 @@ export default class Ability {
      * Called back when an ability prepares to save.
      * @param reason state type when save.
      * @param wantParam Indicates the want parameter.
-     * @return 0 if ability agrees to save data successfully, otherwise errcode.
+     * @returns 0 if ability agrees to save data successfully, otherwise errcode.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @since 9

@@ -109,7 +109,7 @@ declare namespace appReceovery {
 
     /**
      * Save App state data when called
-     * @return true if save data successfully, otherwise false
+     * @returns true if save data successfully, otherwise false
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 9

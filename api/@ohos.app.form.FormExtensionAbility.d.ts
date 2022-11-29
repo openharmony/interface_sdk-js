@@ -41,7 +41,7 @@ export default class FormExtensionAbility {
      *                        The {@code Want} object must include the form ID, form name, and grid style of the form.
      *                        Such form information must be managed as persistent data for further form
      *                        acquisition, update, and deletion.
-     * @return { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
+     * @returns { formBindingData.FormBindingData } Returns the created {@link formBindingData#FormBindingData} object.
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
      * @since 9
@@ -118,7 +118,7 @@ export default class FormExtensionAbility {
      * @param { Want } want - Indicates the description of the form for which the {@link formInfo#FormState}
      *                        is obtained. The description covers the bundle name, ability name, module name,
      *                        form name, and form dimensions.
-     * @return { formInfo.FormState } Returns the {@link formInfo#FormState} object.
+     * @returns { formInfo.FormState } Returns the {@link formInfo#FormState} object.
      * @syscap SystemCapability.Ability.Form
      * @stagemodelonly
      * @since 9
@@ -128,7 +128,7 @@ export default class FormExtensionAbility {
     /**
      * Called when the system shares the form.
      * @param { string } formId - Indicates the ID of the form.
-     * @return { { [key: string]: any } } Returns the wantParams object.
+     * @returns { { [key: string]: any } } Returns the wantParams object.
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly

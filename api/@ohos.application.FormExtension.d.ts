@@ -47,7 +47,7 @@ export default class FormExtension {
      *               The {@code Want} object must include the form ID, form name, and grid style of the form.
      *               Such form information must be managed as persistent data for further form
      *               acquisition, update, and deletion.
-     * @return Returns the created {@link formBindingData#FormBindingData} object.
+     * @returns Returns the created {@link formBindingData#FormBindingData} object.
      * @StageModelOnly
      */
     onCreate(want: Want): formBindingData.FormBindingData;
@@ -58,7 +58,7 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the form.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onCastToNormal(formId: string): void;
@@ -69,7 +69,7 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the form to update.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onUpdate(formId: string): void;
@@ -84,7 +84,7 @@ export default class FormExtension {
      *    or {@link formInfo#VisibilityType#FORM_INVISIBLE}. {@link formInfo#VisibilityType#FORM_VISIBLE}
      *    means that the form becomes visible, and {@link formInfo#VisibilityType#FORM_INVISIBLE}
      *    means that the form becomes invisible.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onVisibilityChange(newStatus: { [key: string]: number }): void;
@@ -99,7 +99,7 @@ export default class FormExtension {
      *               the client to the form provider.
      * @param message Indicates the value of the {@code params} field of the message event. This parameter is
      *                used to identify the specific component on which the event is triggered.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onEvent(formId: string, message: string): void;
@@ -111,7 +111,7 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the destroyed form.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onDestroy(formId: string): void;
@@ -122,7 +122,7 @@ export default class FormExtension {
      * @since 9
      * @syscap SystemCapability.Ability.Form
      * @param configuration Indicates the system configuration, such as language and color mode.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onConfigurationUpdated(config: Configuration): void;
@@ -137,7 +137,7 @@ export default class FormExtension {
      * @syscap SystemCapability.Ability.Form
      * @param want Indicates the description of the form for which the {@link formInfo#FormState} is obtained.
      *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
-     * @return Returns the {@link formInfo#FormState} object.
+     * @returns Returns the {@link formInfo#FormState} object.
      * @StageModelOnly
      */
     onAcquireFormState?(want: Want): formInfo.FormState;
@@ -149,7 +149,7 @@ export default class FormExtension {
      * @syscap SystemCapability.Ability.Form
      * @param formId Indicates the ID of the form.
      * @systemapi hide for inner use.
-     * @return Returns the wantParams object.
+     * @returns Returns the wantParams object.
      * @StageModelOnly
      */
     onShare?(formId: string): {[key: string]: any};

@@ -134,7 +134,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbilityWithAccount.
@@ -148,7 +148,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
     /**
      * Starts a new service extension ability with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the account to start.
      * @returns { Promise<void> } The promise returned by the function.
@@ -186,7 +186,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbilityWithAccount.
@@ -200,7 +200,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
     /**
      * Stops a service within the same application with account.
-     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
      * @param { Want } want - Indicates the want info to start.
      * @param { number } accountId - Indicates the accountId to start.
      * @returns { Promise<void> } The promise returned by the function.

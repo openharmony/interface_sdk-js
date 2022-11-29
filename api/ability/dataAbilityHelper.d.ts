@@ -39,7 +39,7 @@ export interface DataAbilityHelper {
      *             file, "wa" for write-only access to append to any existing data, "rw" for read and write access on
      *             any existing data, or "rwt" for read and write access that truncates any existing file.
      * @param callback Indicates the callback when openfile success
-     * @return Returns the file descriptor.
+     * @returns Returns the file descriptor.
      * @FAModelOnly
      */
     openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
@@ -53,7 +53,7 @@ export interface DataAbilityHelper {
      * @param type dataChange.
      * @param uri Indicates the path of the data to operate.
      * @param callback Indicates the callback when dataChange.
-     * @return -
+     * @returns -
      * @FAModelOnly
      */
     on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
@@ -66,7 +66,7 @@ export interface DataAbilityHelper {
      * @param type dataChange.
      * @param uri Indicates the path of the data to operate.
      * @param callback Indicates the registered callback.
-     * @return -
+     * @returns -
      * @FAModelOnly
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
@@ -77,7 +77,7 @@ export interface DataAbilityHelper {
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the data to operate.
-     * @return Returns the MIME type that matches the data specified by uri.
+     * @returns Returns the MIME type that matches the data specified by uri.
      * @FAModelOnly
      */
     getType(uri: string, callback: AsyncCallback<string>): void;
@@ -90,7 +90,7 @@ export interface DataAbilityHelper {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the files to obtain.
      * @param mimeTypeFilter Indicates the MIME types of the files to obtain.
-     * @return Returns the matched MIME types Array.
+     * @returns Returns the matched MIME types Array.
      * @FAModelOnly
      */
     getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
@@ -102,7 +102,7 @@ export interface DataAbilityHelper {
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the uri object to normalize.
-     * @return Returns the normalized uri object if the Data ability supports URI normalization or null.
+     * @returns Returns the normalized uri object if the Data ability supports URI normalization or null.
      * @FAModelOnly
      */
     normalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -114,7 +114,7 @@ export interface DataAbilityHelper {
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the uri object to normalize.
-     * @return Returns the denormalized uri object if the denormalization is successful.
+     * @returns Returns the denormalized uri object if the denormalization is successful.
      * @FAModelOnly
      */
     denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -126,7 +126,7 @@ export interface DataAbilityHelper {
      * @since 7
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the data to operate.
-     * @return -
+     * @returns -
      * @FAModelOnly
      */
     notifyChange(uri: string, callback: AsyncCallback<void>): void;
@@ -139,7 +139,7 @@ export interface DataAbilityHelper {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the data to insert.
      * @param valuesBucket Indicates the data record to insert. If this parameter is null, a blank row will be inserted.
-     * @return Returns the index of the inserted data record.
+     * @returns Returns the index of the inserted data record.
      * @FAModelOnly
      */
     insert(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
@@ -152,7 +152,7 @@ export interface DataAbilityHelper {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the data to batchInsert.
      * @param valuesBuckets Indicates the data records to insert.
-     * @return Returns the number of data records inserted.
+     * @returns Returns the number of data records inserted.
      * @FAModelOnly
      */
     batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -165,7 +165,7 @@ export interface DataAbilityHelper {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of the data to delete.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-     * @return Returns the number of data records deleted.
+     * @returns Returns the number of data records deleted.
      * @FAModelOnly
      */
     delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -180,7 +180,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of data to update.
      * @param valuesBucket Indicates the data to update.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-     * @return Returns the number of data records updated.
+     * @returns Returns the number of data records updated.
      * @FAModelOnly
      */
     update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -195,7 +195,7 @@ export interface DataAbilityHelper {
      * @param uri Indicates the path of data to query.
      * @param columns Indicates the columns to query. If this parameter is null, all columns are queried.
      * @param predicates Indicates filter criteria. You should define the processing logic when this parameter is null.
-     * @return Returns the query result {@link ResultSet}.
+     * @returns Returns the query result {@link ResultSet}.
      * @FAModelOnly
      */
     query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -217,7 +217,7 @@ export interface DataAbilityHelper {
      * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
      * If the PacMap object is to be transferred to a non-OHOS process,
      * values of primitive types are supported, but not custom Sequenceable objects.
-     * @return Returns the query result {@link PacMap}.
+     * @returns Returns the query result {@link PacMap}.
      * @FAModelOnly
      */
     call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
@@ -230,7 +230,7 @@ export interface DataAbilityHelper {
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @param uri Indicates the path of data to query.
      * @param operations Indicates the data operation list, which can contain multiple operations on the database.
-     * @return Returns the result of each operation, in array {@link DataAbilityResult}.
+     * @returns Returns the result of each operation, in array {@link DataAbilityResult}.
      */
      executeBatch(uri: string, operations: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
      executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;

@@ -32,7 +32,7 @@ export default class ExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @param newConfig Indicates the updated configuration.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onConfigurationUpdated(newConfig: Configuration): void;
@@ -44,7 +44,7 @@ export default class ExtensionAbility {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @param level Indicates the memory trim level, which shows the current memory usage status.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
      onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
