@@ -21,7 +21,6 @@ import { WantAgent } from './@ohos.wantAgent';
  *
  * @since 7
  * @syscap SystemCapability.Location.Location.Core
- * @import import geolocation from '@ohos.geolocation'
  * @permission ohos.permission.LOCATION
  */
 declare namespace geolocation {
