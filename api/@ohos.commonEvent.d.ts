@@ -35,7 +35,7 @@ declare namespace commonEvent {
    * @since 7
    * @param event name of the common event.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.publish
    */
@@ -48,7 +48,7 @@ declare namespace commonEvent {
    * @param event name of the common event.
    * @param options Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.publish
    */
@@ -61,7 +61,7 @@ declare namespace commonEvent {
    * @param event Specified the names of the common events.
    * @param userId Specified the user to receive the common events.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    *
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
@@ -77,7 +77,7 @@ declare namespace commonEvent {
    * @param userId Specified the user to receive the common events.
    * @param options Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    *
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
@@ -91,7 +91,7 @@ declare namespace commonEvent {
    * @since 7
    * @param subscribeInfo Indicates the information of the subscriber.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.createSubscriber
    */
@@ -102,7 +102,7 @@ declare namespace commonEvent {
    *
    * @since 7
    * @param subscribeInfo Indicates the information of the subscriber.
-   * @return Returns common event subscriber object
+   * @returns Returns common event subscriber object
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.createSubscriber
    */
@@ -114,7 +114,7 @@ declare namespace commonEvent {
    * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.subscribe
    */
@@ -126,7 +126,7 @@ declare namespace commonEvent {
    * @since 7
    * @param subscriber Indicate the subscriber of the common event.
    * @param callback Specified callback method.
-   * @return -
+   * @returns -
    * @deprecated since 9
    * @useinstead ohos.commonEventManager.unsubscribe
    */

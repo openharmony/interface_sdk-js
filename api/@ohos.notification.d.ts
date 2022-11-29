@@ -211,7 +211,7 @@ declare namespace notification {
    *
    * @param slotType Type of the notification slot to obtain.
    * @param callback callback function
-   * @return Returns the created {@link NotificationSlot}.
+   * @returns Returns the created {@link NotificationSlot}.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlot
    */
@@ -221,7 +221,7 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
-   * @return Returns all notification slots of this application.
+   * @returns Returns all notification slots of this application.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlots
    */
