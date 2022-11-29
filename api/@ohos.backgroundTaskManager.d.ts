@@ -116,7 +116,7 @@ declare namespace backgroundTaskManager {
      *
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @return True if efficiency resources apply success, else false.
+     * @returns True if efficiency resources apply success, else false.
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.applyEfficiencyResources

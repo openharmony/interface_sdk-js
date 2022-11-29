@@ -110,7 +110,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @param work The info of work.
-     * @return true if success, otherwise false.
+     * @returns true if success, otherwise false.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.workScheduler.startWork
      */
@@ -124,7 +124,7 @@ declare namespace workScheduler {
      * @StageModelOnly
      * @param work The info of work.
      * @param needCancel True if need to be canceled after being stopped, otherwise false.
-     * @return true if success, otherwise false.
+     * @returns true if success, otherwise false.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.workScheduler.stopWork
      */
@@ -149,7 +149,7 @@ declare namespace workScheduler {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @return the work info list.
+     * @returns the work info list.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.workScheduler.obtainAllWorks
      */
@@ -162,7 +162,7 @@ declare namespace workScheduler {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @return true if success, otherwise false.
+     * @returns true if success, otherwise false.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.workScheduler.stopAndClearWorks
      */
@@ -175,7 +175,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @param workId The id of work.
-     * @return true if last work running is timeout, otherwise false.
+     * @returns true if last work running is timeout, otherwise false.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.workScheduler.isLastWorkTimeOut
      */
