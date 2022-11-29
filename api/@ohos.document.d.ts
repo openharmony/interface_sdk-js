@@ -20,7 +20,6 @@ export default document;
  * document
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
- * @import import document from '@ohos.document';
  * @permission N/A
  */
 declare namespace document {
@@ -31,7 +30,6 @@ declare namespace document {
 /**
  * choose.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
  * @permission N/A
@@ -49,7 +47,6 @@ declare function choose(types: string[], callback: AsyncCallback<string>): void;
 /**
  * show.
  *
- * @note N/A
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 6
  * @permission N/A
