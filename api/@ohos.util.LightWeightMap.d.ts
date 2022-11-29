@@ -162,7 +162,7 @@ declare class LightWeightMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void,
+  forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void,
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object

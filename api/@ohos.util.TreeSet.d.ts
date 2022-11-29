@@ -116,7 +116,7 @@ declare class TreeSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, set?: TreeSet<T>) => void,
+  forEach(callbackFn: (value?: T, key?: T, set?: TreeSet<T>) => void,
   thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the values contained in this set

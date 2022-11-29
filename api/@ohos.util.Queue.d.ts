@@ -52,7 +52,7 @@ declare class Queue<T> {
   pop(): T;
   /**
    * Executes a provided function once for each value in the queue object.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to
    * be called for each element in the queue
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -62,7 +62,7 @@ declare class Queue<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, Queue?: Queue<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
