@@ -17,7 +17,6 @@
  * The url module provides utilities for URL resolution and parsing.
  * @since 7
  * @syscap SystemCapability.Utils.Lang
- * @import import url from '@ohos.url';
  * @permission N/A
  */
 declare namespace url {
@@ -42,7 +41,7 @@ declare namespace url {
          */
         constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
 
-        /** 
+        /**
          * Appends a specified key/value pair as a new search parameter.
          * @since 7
          * @deprecated since 9
@@ -53,7 +52,7 @@ declare namespace url {
          */
         append(name: string, value: string): void;
 
-        /** 
+        /**
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 7
          * @deprecated since 9
@@ -63,7 +62,7 @@ declare namespace url {
          */
         delete(name: string): void;
 
-        /** 
+        /**
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 7
          * @deprecated since 9
@@ -85,7 +84,7 @@ declare namespace url {
          */
         entries(): IterableIterator<[string, string]>;
 
-        /** 
+        /**
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
          * @since 7
          * @deprecated since 9
@@ -206,7 +205,7 @@ declare namespace url {
          */
         constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
 
-        /** 
+        /**
          * Appends a specified key/value pair as a new search parameter.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -216,7 +215,7 @@ declare namespace url {
          */
         append(name: string, value: string): void;
 
-        /** 
+        /**
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -225,7 +224,7 @@ declare namespace url {
          */
         delete(name: string): void;
 
-        /** 
+        /**
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -244,7 +243,7 @@ declare namespace url {
          */
         entries(): IterableIterator<[string, string]>;
 
-        /** 
+        /**
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -357,9 +356,11 @@ declare namespace url {
 
         /**
          * Check the validity of parameters
-         * url: Absolute or relative input URL to resolve. Base is required if input is relative.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param url Absolute or relative input URL to resolve. Base is required if input is relative.
          * If input is an absolute value, base ignores the value.
-         * base: Base URL to parse if input is not absolute.
+         * @param base Base URL to parse if input is not absolute.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200002 - Invalid url string.
          */
@@ -381,14 +382,14 @@ declare namespace url {
          */
         toJSON(): string;
 
-        /** 
+        /**
          * Gets and sets the fragment portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         hash: string;
 
-        /** 
+        /**
          * Gets and sets the host portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang

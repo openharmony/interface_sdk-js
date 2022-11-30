@@ -18,7 +18,6 @@
 * the working directory of the process, exit and close the process.
 * @since 7
 * @syscap SystemCapability.Utils.Lang
-* @import import url from '@ohos.process';
 */
 
 declare namespace process {
