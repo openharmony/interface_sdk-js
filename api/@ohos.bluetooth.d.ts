@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage Bluetooth.
- * @since 7
- * @import import bluetooth from '@ohos.bluetooth'
+ * @namespace bluetooth
  * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @since 7
  */
 declare namespace bluetooth {
     /**
      * Obtains the Bluetooth status of a device.
      *
-     * @return Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
+     * @returns { BluetoothState } Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
      * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
      * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
      * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
@@ -37,7 +37,7 @@ declare namespace bluetooth {
     /**
      * Get the local device connection state to any profile of any remote device.
      *
-     * @return One of {@link ProfileConnectionState#STATE_DISCONNECTED},
+     * @returns { ProfileConnectionState } One of {@link ProfileConnectionState#STATE_DISCONNECTED},
      * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
      * {@link ProfileConnectionState#STATE_DISCONNECTING}.
      * @since 7
@@ -49,7 +49,7 @@ declare namespace bluetooth {
      * Starts pairing with a remote Bluetooth device.
      *
      * @param deviceId The address of the remote device to pair.
-     * @return Returns {@code true} if the pairing process is started; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the pairing process is started; returns {@code false} otherwise.
      * @since 7
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
@@ -59,7 +59,7 @@ declare namespace bluetooth {
      * Remove a paired remote device.
      *
      * @param deviceId The address of the remote device to be removed.
-     * @return Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @systemapi Hide this for inner system use
@@ -70,7 +70,7 @@ declare namespace bluetooth {
      * Obtains the name of a peer Bluetooth device.
      *
      * @param deviceId The address of the remote device.
-     * @return Returns the device name in character string format.
+     * @returns { string } Returns the device name in character string format.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -80,7 +80,7 @@ declare namespace bluetooth {
      * Obtains the class of a peer Bluetooth device.
      *
      * @param deviceId The address of the remote device.
-     * @return The class of the remote device, {@link DeviceClass}.
+     * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -89,7 +89,7 @@ declare namespace bluetooth {
     /**
      * Enables Bluetooth on a device.
      *
-     * @return Returns {@code true} if Bluetooth is being enabled; returns {@code false} if an error occurs.
+     * @returns { boolean } Returns {@code true} if Bluetooth is being enabled; returns {@code false} if an error occurs.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
@@ -98,7 +98,7 @@ declare namespace bluetooth {
     /**
      * Disables Bluetooth on a device.
      *
-     * @return Returns {@code true} if Bluetooth is being disabled; returns {@code false} if an error occurs.
+     * @returns { boolean } Returns {@code true} if Bluetooth is being disabled; returns {@code false} if an error occurs.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
@@ -107,7 +107,7 @@ declare namespace bluetooth {
     /**
      * Obtains the Bluetooth local name of a device.
      *
-     * @return Returns the name the device.
+     * @returns { string } Returns the name the device.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -116,7 +116,7 @@ declare namespace bluetooth {
     /**
      * Obtains the list of Bluetooth devices that have been paired with the current device.
      *
-     * @return Returns a list of paired Bluetooth devices's address.
+     * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -126,7 +126,7 @@ declare namespace bluetooth {
      * Obtains the connection state of profile.
      *
      * @param profileId The profile id.
-     * @return Returns the connection state.
+     * @returns { ProfileConnectionState } Returns the connection state.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -137,7 +137,7 @@ declare namespace bluetooth {
      *
      * @param device The address of the remote device.
      * @param accept Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
-     * @return Returns {@code true} if the pairing confirmation is set; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the pairing confirmation is set; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.MANAGE_BLUETOOTH
      */
@@ -147,7 +147,7 @@ declare namespace bluetooth {
      * Sets the Bluetooth friendly name of a device.
      *
      * @param name Indicates a valid Bluetooth name.
-     * @return Returns {@code true} if the Bluetooth name is set successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the Bluetooth name is set successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
@@ -158,7 +158,7 @@ declare namespace bluetooth {
      *
      * @param mode Indicates the Bluetooth scan mode to set, {@link ScanMode}.
      * @param duration Indicates the duration in seconds, in which the host is discoverable.
-     * @return Returns {@code true} if the Bluetooth scan mode is set; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the Bluetooth scan mode is set; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -167,7 +167,7 @@ declare namespace bluetooth {
     /**
      * Obtains the Bluetooth scanning mode of a device.
      *
-     * @return Returns the Bluetooth scanning mode, {@link ScanMode}.
+     * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
      */
@@ -176,16 +176,16 @@ declare namespace bluetooth {
     /**
      * Starts scanning Bluetooth devices.
      *
-     * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
      */
     function startBluetoothDiscovery(): boolean;
 
     /**
      * Stops Bluetooth device scanning.
      *
-     * @return Returns {@code true} if scanning is stopped successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if scanning is stopped successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      */
@@ -323,7 +323,7 @@ declare namespace bluetooth {
      *
      * @param clientSocket Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
      * @param data Indicates the data to write.
-     * @return Returns {@code true} if the data is write successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the data is write successfully; returns {@code false} otherwise.
      * @since 8
      */
     function sppWrite(clientSocket: number, data: ArrayBuffer): boolean;
@@ -350,7 +350,7 @@ declare namespace bluetooth {
      * Obtains the instance of profile.
      *
      * @param profileId The profile id..
-     * @return Returns instance of profile.
+     * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile } Returns instance of profile.
      * @since 8
      */
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
@@ -359,7 +359,7 @@ declare namespace bluetooth {
      * Obtains the instance of profile.
      *
      * @param profileId The profile id..
-     * @return Returns instance of profile.
+     * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
      * @since 9
      */
     function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
@@ -371,7 +371,7 @@ declare namespace bluetooth {
         /**
          * Obtains the connected devices list of profile.
          *
-         * @return Returns the address of connected devices list.
+         * @returns { Array<string> } Returns the address of connected devices list.
          * @since 8
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -381,7 +381,7 @@ declare namespace bluetooth {
          * Obtains the profile state of device.
          *
          * @param device The address of bluetooth device.
-         * @return Returns {@link ProfileConnectionState} of device.
+         * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
          * @since 8
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -396,9 +396,9 @@ declare namespace bluetooth {
          * Connect to device with a2dp.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
 
@@ -406,9 +406,9 @@ declare namespace bluetooth {
          * Disconnect to device with a2dp.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
 
@@ -434,7 +434,7 @@ declare namespace bluetooth {
          * Obtains the playing state of device.
          *
          * @param device The address of the remote device.
-         * @return Returns {@link PlayingState} of the remote device.
+         * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
          * @since 8
          */
         getPlayingState(device: string): PlayingState;
@@ -448,9 +448,9 @@ declare namespace bluetooth {
          * Connect to device with hfp.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         connect(device: string): boolean;
 
@@ -458,9 +458,9 @@ declare namespace bluetooth {
          * Disconnect to device with hfp.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          */
         disconnect(device: string): boolean;
 
@@ -491,9 +491,9 @@ declare namespace bluetooth {
          * Connect to device with hid host.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         connect(device: string): boolean;
@@ -502,9 +502,9 @@ declare namespace bluetooth {
          * Disconnect to device with hid host.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         disconnect(device: string): boolean;
@@ -536,9 +536,9 @@ declare namespace bluetooth {
          * Disconnect to device with pan.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.USE_BLUETOOTH
+         * @permission ohos.permission.USE_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         disconnect(device: string): boolean;
@@ -567,7 +567,7 @@ declare namespace bluetooth {
          * @param enable Specifies whether to enable tethering. The value {@code true} indicates
          * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
          */
         setTethering(enable: boolean): void;
@@ -575,7 +575,7 @@ declare namespace bluetooth {
         /**
          * Obtains the tethering enable or disable.
          *
-         * @return Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
+         * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
          * @since 9
          * @systemapi Hide this for inner system use.
          */
@@ -586,7 +586,7 @@ declare namespace bluetooth {
         /**
          * create a JavaScript Gatt server instance.
          *
-         * @return Returns a JavaScript Gatt server instance {@code GattServer}.
+         * @returns { GattServer } Returns a JavaScript Gatt server instance {@code GattServer}.
          * @since 7
          */
         function createGattServer(): GattServer;
@@ -595,7 +595,7 @@ declare namespace bluetooth {
          * create a JavaScript Gatt client device instance.
          *
          * @param deviceId The address of the remote device.
-         * @return Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
+         * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
          * @since 7
          */
         function createGattClientDevice(deviceId: string): GattClientDevice;
@@ -603,7 +603,7 @@ declare namespace bluetooth {
         /**
          * Obtains the list of devices in the connected status.
          *
-         * @return Returns the list of device address.
+         * @returns { Array<string> } Returns the list of device address.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -681,7 +681,7 @@ declare namespace bluetooth {
          * <p>The added service and its characteristics are provided by the local device.
          *
          * @param service Indicates the service to add.
-         * @return Returns {@code true} if the service is added; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the service is added; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -691,7 +691,7 @@ declare namespace bluetooth {
          * Removes a specified service from the list of GATT services provided by this device.
          *
          * @param serviceUuid Indicates the UUID of the service to remove.
-         * @return Returns {@code true} if the service is removed; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the service is removed; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -712,7 +712,7 @@ declare namespace bluetooth {
          *
          * @param deviceId Indicates the address of the BLE peripheral device to receive the notification.
          * @param notifyCharacteristic Indicates the local characteristic that has changed.
-         * @return Returns {@code true} if the notification is sent successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the notification is sent successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -722,7 +722,7 @@ declare namespace bluetooth {
          * Sends a response to a specified read or write request to a given BLE peripheral device.
          *
          * @param serverResponse Indicates the response parameters {@link ServerResponse}.
-         * @return Returns {@code true} if the response is sent successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the response is sent successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -839,7 +839,7 @@ declare namespace bluetooth {
          *
          * <p>The 'BLEConnectionStateChange' event is subscribed to return the connection state.
          *
-         * @return Returns {@code true} if the connection process starts; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connection process starts; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -848,7 +848,7 @@ declare namespace bluetooth {
         /**
          * Disconnects from or stops an ongoing connection to a BLE peripheral device.
          *
-         * @return Returns {@code true} if the disconnection process starts; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnection process starts; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -859,7 +859,7 @@ declare namespace bluetooth {
          *
          * <p> This method unregisters the device and clears the registered callbacks and handles.
          *
-         * @return Returns {@code true} if the the device is disabled; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the the device is disabled; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -868,7 +868,7 @@ declare namespace bluetooth {
         /**
          * Obtains the name of BLE peripheral device.
          *
-         * @return Returns a string representation of the name if obtained;
+         * @returns { Promise<string> } Returns a string representation of the name if obtained;
          * returns {@code null} if the name fails to be obtained or the name does not exist.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
@@ -879,7 +879,7 @@ declare namespace bluetooth {
         /**
          * Starts discovering services.
          *
-         * @return Returns the list of services {@link GattService} of the BLE peripheral device.
+         * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -910,7 +910,7 @@ declare namespace bluetooth {
          * Writes the characteristic of a BLE peripheral device.
          *
          * @param characteristic Indicates the characteristic to write.
-         * @return Returns {@code true} if the characteristic is written successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the characteristic is written successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -920,7 +920,7 @@ declare namespace bluetooth {
          * Writes the descriptor of a BLE peripheral device.
          *
          * @param descriptor Indicates the descriptor to write.
-         * @return Returns {@code true} if the descriptor is written successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the descriptor is written successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -929,7 +929,7 @@ declare namespace bluetooth {
         /**
          * Get the RSSI value of this BLE peripheral device.
          *
-         * @return Returns the RSSI value.
+         * @returns { Promise<number> } Returns the RSSI value.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -940,7 +940,7 @@ declare namespace bluetooth {
          * Set the mtu size of a BLE peripheral device.
          *
          * @param mtu The maximum transmission unit.
-         * @return Returns {@code true} if the set mtu is successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the set mtu is successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
          */
@@ -951,7 +951,7 @@ declare namespace bluetooth {
          *
          * @param enable Specifies whether to enable notification of the characteristic. The value {@code true} indicates
          * that notification is enabled, and the value {@code false} indicates that notification is disabled.
-         * @return Returns {@code true} if notification of the characteristic is enabled or disabled;
+         * @returns { boolean } Returns {@code true} if notification of the characteristic is enabled or disabled;
          * returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
@@ -1280,13 +1280,13 @@ declare namespace bluetooth {
          * @since 7
          */
         serviceUuid?: string;
-        
+
         /**
          * Service UUID mask.
          * @since 9
          */
         serviceUuidMask?: string;
-        
+
         /**
          * Service solicitation UUID mask.
          * @since 9
@@ -1649,7 +1649,7 @@ declare namespace bluetooth {
          * @since 9
          */
         PROFILE_HID_HOST = 6,
-        
+
         /**
          * @since 9
          */
