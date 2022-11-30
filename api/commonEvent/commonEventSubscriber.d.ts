@@ -28,7 +28,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   getCode(callback: AsyncCallback<number>): void;
 
@@ -36,7 +36,7 @@ export interface CommonEventSubscriber {
    * Obtains the result code of the current ordered common event.
    *
    * @since 7
-   * @return Returns code of this common event
+   * @returns Returns code of this common event
    */
   getCode(): Promise<number>;
 
@@ -46,7 +46,7 @@ export interface CommonEventSubscriber {
    * @since 7
    * @param code Indicates the custom result code to set. You can set it to any value.
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   setCode(code: number, callback: AsyncCallback<void>): void;
 
@@ -55,7 +55,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param code Indicates the custom result code to set. You can set it to any value.
-   * @return -
+   * @returns -
    */
   setCode(code: number): Promise<void>;
 
@@ -64,7 +64,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   getData(callback: AsyncCallback<string>): void;
 
@@ -72,8 +72,7 @@ export interface CommonEventSubscriber {
    * Obtains the result data of the current ordered common event.
    *
    * @since 7
-   * @return
-   * @return Returns data of this common event
+   * @returns Returns data of this common event
    */
   getData(): Promise<string>;
 
@@ -83,7 +82,7 @@ export interface CommonEventSubscriber {
    * @since 7
    * @param data Indicates the custom result data to set. You can set it to any character string.
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   setData(data: string, callback: AsyncCallback<void>): void;
 
@@ -92,7 +91,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param data Indicates the custom result data to set. You can set it to any character string.
-   * @return -
+   * @returns -
    */
   setData(data: string): Promise<void>;
 
@@ -103,7 +102,7 @@ export interface CommonEventSubscriber {
    * @param code Indicates the custom result code to set. You can set it to any value.
    * @param data Indicates the custom result data to set. You can set it to any character string.
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   setCodeAndData(code: number, data: string, callback: AsyncCallback<void>): void;
 
@@ -113,7 +112,7 @@ export interface CommonEventSubscriber {
    * @since 7
    * @param code Indicates the custom result code to set. You can set it to any value.
    * @param data Indicates the custom result data to set. You can set it to any character string.
-   * @return -
+   * @returns -
    */
   setCodeAndData(code: number, data: string): Promise<void>;
 
@@ -122,7 +121,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   isOrderedCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -130,7 +129,7 @@ export interface CommonEventSubscriber {
    * Checks whether the current common event is an ordered common event.
    *
    * @since 7
-   * @return Returns true if this common event is ordered, false otherwise
+   * @returns Returns true if this common event is ordered, false otherwise
    */
   isOrderedCommonEvent(): Promise<boolean>;
 
@@ -139,7 +138,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   isStickyCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -147,7 +146,7 @@ export interface CommonEventSubscriber {
    * Checks whether the current common event is a sticky common event.
    *
    * @since 7
-   * @return Returns true if this common event is sticky, false otherwise
+   * @returns Returns true if this common event is sticky, false otherwise
    */
   isStickyCommonEvent(): Promise<boolean>;
 
@@ -156,7 +155,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -164,7 +163,7 @@ export interface CommonEventSubscriber {
    * Abort the current ordered common event.
    *
    * @since 7
-   * @return -
+   * @returns -
    */
   abortCommonEvent(): Promise<void>;
 
@@ -173,7 +172,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   clearAbortCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -181,7 +180,7 @@ export interface CommonEventSubscriber {
    * Clears the abort state of the current ordered common event
    *
    * @since 7
-   * @return -
+   * @returns -
    */
   clearAbortCommonEvent(): Promise<void>;
 
@@ -190,7 +189,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   getAbortCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -198,7 +197,7 @@ export interface CommonEventSubscriber {
    * Checks whether the current ordered common event should be aborted.
    *
    * @since 7
-   * @return Returns true if this common event is aborted, false otherwise
+   * @returns Returns true if this common event is aborted, false otherwise
    */
   getAbortCommonEvent(): Promise<boolean>;
 
@@ -207,7 +206,7 @@ export interface CommonEventSubscriber {
    *
    * @since 7
    * @param callback Indicate the callback function to receive the common event.
-   * @return -
+   * @returns -
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
 
@@ -215,7 +214,7 @@ export interface CommonEventSubscriber {
    * get the CommonEventSubscribeInfo of this CommonEventSubscriber.
    *
    * @since 7
-   * @return Returns the commonEvent subscribe information
+   * @returns Returns the commonEvent subscribe information
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
@@ -224,7 +223,7 @@ export interface CommonEventSubscriber {
    *
    * @since 9
    * @param callback Indicate the callback function after the ordered common event is finished.
-   * @return -
+   * @returns -
    */
   finishCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -232,7 +231,7 @@ export interface CommonEventSubscriber {
    * finish the current ordered common event.
    *
    * @since 9
-   * @return -
+   * @returns -
    */
   finishCommonEvent(): Promise<void>;
 }
