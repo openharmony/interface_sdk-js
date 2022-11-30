@@ -17,7 +17,6 @@ import {Callback} from './basic';
 
 /**
  * Used to do mediaquery operations.
- * @import import mediaquery from '@ohos.mediaquery'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
