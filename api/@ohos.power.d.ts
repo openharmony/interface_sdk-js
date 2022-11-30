@@ -112,9 +112,7 @@ declare namespace power {
     /**
      * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
      *
-     * @permission ohos.permission.POWER_OPTIMIZATION
      * @returns The power mode {@link DevicePowerMode} of current device .
-     * @throws {BusinessError} 201 – If the permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
      */
