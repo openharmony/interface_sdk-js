@@ -17,7 +17,6 @@
  * The url module provides utilities for URL resolution and parsing.
  * @since 7
  * @syscap SystemCapability.Utils.Lang
- * @import import url from '@ohos.url';
  * @permission N/A
  */
 declare namespace url {
@@ -357,9 +356,11 @@ declare namespace url {
 
         /**
          * Check the validity of parameters
-         * url: Absolute or relative input URL to resolve. Base is required if input is relative.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param url Absolute or relative input URL to resolve. Base is required if input is relative.
          * If input is an absolute value, base ignores the value.
-         * base: Base URL to parse if input is not absolute.
+         * @param base Base URL to parse if input is not absolute.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200002 - Invalid url string.
          */
@@ -381,14 +382,14 @@ declare namespace url {
          */
         toJSON(): string;
 
-        /** 
+        /**
          * Gets and sets the fragment portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         hash: string;
 
-        /** 
+        /**
          * Gets and sets the host portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
