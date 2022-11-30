@@ -56,7 +56,7 @@ declare class LightWeightMap<K, V> {
    */
   hasValue(value: V): boolean;
   /**
-   * Ensures that the capacity of an LightWeightMap container is greater than or equal to a apecified value,
+   * Ensures that the capacity of an LightWeightMap container is greater than or equal to a specified value,
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
