@@ -779,8 +779,21 @@ declare namespace worker {
      */
     terminate(): void;
   }
+
+  /**
+   * The object used by the worker thread to communicate with the host thread.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.workerPort
+   * @syscap SystemCapability.Utils.Lang
+   */
   const parentPort: DedicatedWorkerGlobalScope;
 
+  /**
+   * The object used by the worker thread to communicate with the host thread.
+   * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
   const workerPort: ThreadWorkerGlobalScope;
 }
 export default worker;
