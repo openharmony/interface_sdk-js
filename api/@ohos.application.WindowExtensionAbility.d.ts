@@ -55,7 +55,6 @@ export default class WindowExtensionAbility {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @param want Indicates disconnection information about the window extension.
      * @systemapi hide for inner use.
-     * @return -
      * @StageModelOnly
      */
     onDisconnect(want: Want): void;
@@ -66,7 +65,6 @@ export default class WindowExtensionAbility {
      * @since 9
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi hide for inner use.
-     * @return -
      * @StageModelOnly
      */
     onWindowReady(window: window.Window): void;
