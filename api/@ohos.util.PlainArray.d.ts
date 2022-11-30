@@ -145,7 +145,7 @@ declare class PlainArray<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void,
   thisArg?: Object): void;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

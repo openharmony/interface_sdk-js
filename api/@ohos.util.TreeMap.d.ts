@@ -150,7 +150,7 @@ declare class TreeMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: V, key?: K, map?: TreeMap<K, V>) => void,
+  forEach(callbackFn: (value?: V, key?: K, map?: TreeMap<K, V>) => void,
   thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order

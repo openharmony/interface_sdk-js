@@ -162,7 +162,7 @@ declare class Vector<T> {
   removeByRange(fromIndex: number, toIndex: number): void;
   /**
    * Replaces each element of this vector with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to be called
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to be called
    * for each element in the vector,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -172,11 +172,11 @@ declare class Vector<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  replaceAllElements(callbackfn: (value: T, index?: number, vector?: Vector<T>) => T,
+  replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T,
   thisArg?: Object): void;
   /**
    * Executes a provided function once for each value in the vector object.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to be 
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to be 
    * called for each element in the vector
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -186,7 +186,7 @@ declare class Vector<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, vector?: Vector<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this vector according to the order induced by the specified comparator,without comparator 
