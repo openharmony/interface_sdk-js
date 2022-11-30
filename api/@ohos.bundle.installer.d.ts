@@ -31,13 +31,12 @@ declare namespace installer {
    * @systemapi
    * @since 9
    */
-  function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void
+  function getBundleInstaller(callback: AsyncCallback<BundleInstaller>) : void
 
   /**
    * Obtains the interface used to install bundle.
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInstaller objects.
    * @returns { Promise<BundleInstaller> } BundleInstaller object.
-   * @throws { BusinessError } 401 - Input parameters check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -77,6 +76,29 @@ declare namespace installer {
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>) : void;
 
     /**
+     * Install haps for an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { Array<string> } hapFilePaths - Indicates the path where the hap of the application is stored.
+     * @param { InstallParam } installParam - Indicates other parameters required for the installation.
+     * @param { AsyncCallback } callback - The callback of installing haps result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700004 - The specified userId is not existed.
+     * @throws { BusinessError } 17700010 - To parse file of config.json or module.json failed.
+     * @throws { BusinessError } 17700011 - To verify signature failed.
+     * @throws { BusinessError } 17700012 - Invalid hap file path or too large file size.
+     * @throws { BusinessError } 17700015 - Multiple haps have inconsistent configured information.
+     * @throws { BusinessError } 17700016 - No disk space left for installation.
+     * @throws { BusinessError } 17700017 - Downgrade installation is prohibited.
+     * @throws { BusinessError } 17700101 - The system service is excepted.
+     * @throws { BusinessError } 17700103 - I/O operation is failed.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    install(hapFilePaths: Array<string>, installParam?: InstallParam) : Promise<void>;
+
+    /**
      * Uninstall an application.
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
@@ -95,7 +117,24 @@ declare namespace installer {
     uninstall(bundleName: string, callback : AsyncCallback<void>) : void;
 
     /**
-     * recover an application.
+     * Uninstall an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
+     * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
+     * @param { AsyncCallback } callback - The callback of uninstalling application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700004 - The specified userId is not existed.
+     * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
+     * @throws { BusinessError } 17700101 - The system service is excepted.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    uninstall(bundleName: string, installParam?: InstallParam) : Promise<void>;
+
+    /**
+     * Recover an application.
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
@@ -109,6 +148,21 @@ declare namespace installer {
      */
     recover(bundleName: string, installParam: InstallParam, callback: AsyncCallback<void>): void;
     recover(bundleName: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Recover an application.
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Indicates other parameters required for the recover.
+     * @param { AsyncCallback } callback - The callback of recovering application result.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700004 - The specified user ID is not found.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 9
+     */
+    recover(bundleName: string, installParam?: InstallParam) : Promise<void>;
   }
 
   /**
