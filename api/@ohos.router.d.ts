@@ -20,7 +20,6 @@ import { AsyncCallback } from './basic';
  * @namespace router
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
- * @import router from '@ohos.router';
  */
 declare namespace router {
 

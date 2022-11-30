@@ -158,7 +158,7 @@ export interface AnimatorResult {
   reverse(): void;
   /**
    * Trigger when vsync callback.
-   * @param { number } progress - The current progress of animtion
+   * @param { number } progress - The current progress of animation
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
@@ -187,7 +187,6 @@ export interface AnimatorResult {
  * Defines the Animator class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
- * @import prompt from '@ohos.animator';
  */
 export default class Animator {
   /**

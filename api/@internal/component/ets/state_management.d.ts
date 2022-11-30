@@ -65,7 +65,6 @@ declare class Storage {
    * Constructor parameters.
    * @since 7
    * @systemapi
-   * @hide
    */
   constructor(needCrossThread?: boolean, file?: string);
 
@@ -73,7 +72,6 @@ declare class Storage {
    * Called when data is obtained.
    * @since 7
    * @systemapi
-   * @hide
    */
   get(key: string): string | undefined;
 
@@ -81,7 +79,6 @@ declare class Storage {
    * Called when setting.
    * @since 7
    * @systemapi
-   * @hide
    */
   set(key: string, val: any): void;
 
@@ -89,7 +86,6 @@ declare class Storage {
    * Called when data is cleared.
    * @since 7
    * @systemapi
-   * @hide
    */
   clear(): void;
 
@@ -97,7 +93,6 @@ declare class Storage {
    * Called when data is deleted.
    * @since 7
    * @systemapi
-   * @hide
    */
   delete(key: string): void;
 }
