@@ -22,7 +22,6 @@ import { Resource } from 'GlobalResource';
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @import prompt from '@ohos.promptAction';
  */
 declare namespace promptAction {
 
