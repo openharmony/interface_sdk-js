@@ -142,7 +142,7 @@ declare class ArrayList<T> {
    */
   sort(comparator?: (firstValue: T, secondValue: T) => number): void;
   /**
-   * Returns a view of the portion of this arraylist between the specified fromIndex,inclusize,and toIndex,exclusive
+   * Returns a view of the portion of this arraylist between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
    * @throws If the fromIndex or toIndex index is out of range (greater than or equal to length or less than 0),

@@ -29,7 +29,7 @@ declare class PlainArray<T> {
    * Appends a key-value pair to PlainArray
    * @param key Added the key of key-value
    * @param value Added the value of key-value
-   * @throws Throws this exception if input is invaild
+   * @throws Throws this exception if input is invalid
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
