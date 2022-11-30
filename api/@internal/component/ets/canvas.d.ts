@@ -640,7 +640,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely blacked out.
+   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
    * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
    *           --- <offset-x>: Describes the horizontal distance of the shadow.
@@ -648,7 +648,7 @@ declare class CanvasRenderer extends CanvasPath {
    *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
    *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
    *           --- <color>: Shadow Color
-   * grayscale(<percentage>)：Converts the image to a gray image. When the value is 100%, the image is completely grayed out.
+   * grayscale(<percentage>)：Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>)：Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
    * invert(<percentage>)：Inverted image (representing the effect of a photographic negative). When the value is 100%,

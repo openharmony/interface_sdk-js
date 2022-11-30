@@ -90,7 +90,7 @@ declare enum NavBarPosition {
 }
 
 /**
- * Naivagtion title mode.
+ * Navigation title mode.
  * @since 8
  */
 declare enum NavigationTitleMode {
