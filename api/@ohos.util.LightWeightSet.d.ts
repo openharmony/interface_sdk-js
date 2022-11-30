@@ -58,7 +58,7 @@ declare class LightWeightSet<T> {
    */
   has(key: T): boolean;
   /**
-   * Checks whether an the objects of an LightWeighSet containeer are of the same type as a specified Object LightWeightSet
+   * Checks whether an the objects of an LightWeighSet container are of the same type as a specified Object LightWeightSet
    * @param obj need to determine whether to include the obj
    * @returns the boolean type
    * @since 8
@@ -66,7 +66,7 @@ declare class LightWeightSet<T> {
    */
   equal(obj: Object): boolean;
   /**
-   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a apecified value,
+   * Ensures that the capacity of an LightWeightSet container is greater than or equal to a specified value,
    * and that the container has all the original objects after capacity expansion
    * @param minimumCapacity Minimum capacity to be reserved
    * @since 8

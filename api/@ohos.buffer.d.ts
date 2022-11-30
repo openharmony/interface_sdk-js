@@ -16,7 +16,6 @@
  * The Buffer class is a global type for dealing with binary data directly. It can be constructed in a variety of ways.
  * @since 
  * @syscap SystemCapability.Utils.Lang
- * @import import buffer from '@ohos.buffer';
  * @permission N/A
  */
 declare namespace buffer {
