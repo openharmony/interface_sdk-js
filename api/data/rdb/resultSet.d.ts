@@ -23,7 +23,7 @@ import { AsyncCallback } from '../../basic'
  * @deprecated since 9
  * @useinstead ohos.data.rdb.ResultSetV9
  */
- interface ResultSet {
+ export interface ResultSet {
 
     /**
      * Obtains the names of all columns in a result set.
@@ -310,7 +310,7 @@ import { AsyncCallback } from '../../basic'
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
  */
- interface ResultSetV9 {
+ export interface ResultSetV9 {
 
     /**
      * Obtains the names of all columns in a result set.
