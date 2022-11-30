@@ -19,7 +19,7 @@
  */
 interface ImageAnimatorInterface {
   /**
-   * ImageAimator is returned.
+   * ImageAnimator is returned.
    * @since 7
    */
   (): ImageAnimatorAttribute;
