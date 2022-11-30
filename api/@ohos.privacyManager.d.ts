@@ -34,7 +34,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -44,7 +44,7 @@ import { Permissions } from './permissions'
     /**
      * Queries the access records of sensitive permission.
      * @param request The request of permission used records.
-     * @return Return the response of permission used records.
+     * @returns Return the response of permission used records.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
      * @throws { BusinessError } 12100001 - The parameter is invalid. the value of flag in request is invalid.
@@ -52,7 +52,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100003 - The specified permission does not exist or it is not an user_grant permission.
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -72,7 +72,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input. It means the application specified by the tokenID has been using the specified permission.
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -92,7 +92,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100004 - The interface is not used with "startUsingPermission".
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -109,7 +109,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -124,7 +124,7 @@ import { Permissions } from './permissions'
      * @throws { BusinessError } 12100004 - The interface is not used with "on".
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
-     * @permission ohos.permission.PERMISSION_USED_STATS.
+     * @permission ohos.permission.PERMISSION_USED_STATS
      * @systemapi
      * @since 9
      */
@@ -221,7 +221,7 @@ import { Permissions } from './permissions'
         bundleName: string;
 
         /**
-         * The list of permision name
+         * The list of permission name
          */ 
         permissionNames: Array<Permissions>;
 
@@ -258,7 +258,7 @@ import { Permissions } from './permissions'
         endTime: number;
 
         /**
-         * The list of permision used records of bundle
+         * The list of permission used records of bundle
          */ 
         bundleRecords: Array<BundleUsedRecord>;
     }
