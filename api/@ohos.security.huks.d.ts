@@ -248,7 +248,7 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks
      * @param keyAlias Indicates the key's name.
      * @param options Indicates the properties of the key.
-     * @return The handle of the init Operation.
+     * @returns The handle of the init Operation.
      */
     function init(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksHandle>) : void;
     function init(keyAlias: string, options: HuksOptions) : Promise<HuksHandle>;
@@ -409,7 +409,7 @@ declare namespace huks {
      * @since 8
      * @syscap SystemCapability.Security.Huks
      * @param options Indicates the properties of the key.
-     * @return Return the character string of the sdk version.
+     * @returns Return the character string of the sdk version.
      */
     function getSdkVersion(options: HuksOptions) : string;
 
