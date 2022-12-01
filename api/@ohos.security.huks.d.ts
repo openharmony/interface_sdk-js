@@ -285,6 +285,8 @@ declare namespace huks {
      * @param options Indicates the properties of the update operation.
      * @param token Indicates the value of token.
      */
+    function update(handle: number, token?: Uint8Array, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
+    function update(handle: number, token?: Uint8Array, options: HuksOptions) : Promise<HuksResult>;
     function update(handle: number, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
     function update(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksResult>) : void;
     function update(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksResult>;
