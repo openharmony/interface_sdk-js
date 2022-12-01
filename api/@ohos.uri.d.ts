@@ -17,7 +17,6 @@
  * The uri module provides utilities for URI resolution and parsing.
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @import import uri from '@ohos.uri';
  * @permission N/A
  */
 declare namespace uri {

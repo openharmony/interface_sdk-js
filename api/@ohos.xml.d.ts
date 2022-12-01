@@ -17,7 +17,6 @@
  * The xml module provides utilities for converting XML text to Javascript object, XML generation and parsing.
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @import import xml from '@ohos.xml';
  * @permission N/A
  */
 declare namespace xml {
