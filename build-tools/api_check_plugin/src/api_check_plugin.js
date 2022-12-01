@@ -73,7 +73,7 @@ function checkAllNode(node, sourcefile, fileName) {
     // check apiNote spelling
     checkSpelling(node, sourcefile, fileName);
     // check syscap
-    // checkSyscap(node, sourcefile, fileName);
+    checkSyscap(node, sourcefile, fileName);
     // check deprecated
     checkDeprecated(node, sourcefile, fileName);
     // check permission
@@ -83,7 +83,7 @@ function checkAllNode(node, sourcefile, fileName) {
     // check variable spelling
     checkSpelling(node, sourcefile, fileName);
     // check hump naming
-    checkAPINameOfHump(node, sourcefile, fileName);
+    // checkAPINameOfHump(node, sourcefile, fileName);
   }
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }

@@ -13,16 +13,17 @@
  * limitations under the License.
  */
 
-const path = require("path");
-
 function checkEntryLocalText(url) {
   let execSync = require("child_process").execSync;
   execSync("npm install");
+  const path = require("path");
+  const { writeResultFile, excelApiCheckResult, apiCheckArr, removeDir } =
+    require(path.resolve(__dirname, "../src/utils"));
   const { scanEntry } = require("../src/api_check_plugin");
   result = scanEntry(url);
-  const { removeDir } = require(path.resolve(__dirname, "../src/utils"));
   removeDir(path.resolve(__dirname, "../node_modules"));
-  console.log(JSON.stringify(result))
+  writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
+  excelApiCheckResult(apiCheckArr);
 }
 
 checkEntryLocalText("./mdFiles.txt");

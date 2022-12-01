@@ -48,7 +48,7 @@ function checkAPIDecorators(node, sourcefile, fileName) {
     if (hasCodeStyleError) {
       API_ERROR_DECORATOR_POS.add(node.pos);
       errorInfo += `.`;
-      addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DECORATOR, errorInfo);
+      addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DECORATOR, errorInfo, 'JsDoc');
     }
   }
 }
