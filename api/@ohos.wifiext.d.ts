@@ -29,7 +29,7 @@ declare namespace wifiext {
     /**
      * Enables a Wi-Fi hotspot.
      *
-     * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+     * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
      * @syscap SystemCapability.Communication.WiFi.AP.Extension
@@ -41,7 +41,7 @@ declare namespace wifiext {
      /**
       * Disables a Wi-Fi hotspot.
       *
-      * @return Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
+      * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
       * @since 8
       * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
       * @syscap SystemCapability.Communication.WiFi.AP.Extension
@@ -53,7 +53,7 @@ declare namespace wifiext {
     /**
      * Obtains the supported power model.
      *
-     * @return Returns the array of supported power model.
+     * @returns Returns the array of supported power model.
      *
      * @since 8
      * @permission ohos.permission.GET_WIFI_INFO
@@ -67,7 +67,7 @@ declare namespace wifiext {
     /**
      * Obtains the current Wi-Fi power mode.
      *
-     * @return Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
+     * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
      *
      * @since 8
      * @permission ohos.permission.GET_WIFI_INFO
@@ -81,7 +81,7 @@ declare namespace wifiext {
     /**
      * Set the current Wi-Fi power mode.
      *
-     * @return Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
+     * @returns Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
      *
      * @since 8
      * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
