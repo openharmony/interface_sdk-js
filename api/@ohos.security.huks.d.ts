@@ -287,9 +287,6 @@ declare namespace huks {
      */
     function update(handle: number, token?: Uint8Array, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
     function update(handle: number, token?: Uint8Array, options: HuksOptions) : Promise<HuksResult>;
-    function update(handle: number, options: HuksOptions, callback: AsyncCallback<HuksResult>) : void;
-    function update(handle: number, options: HuksOptions, token: Uint8Array, callback: AsyncCallback<HuksResult>) : void;
-    function update(handle: number, options: HuksOptions, token?: Uint8Array) : Promise<HuksResult>;
 
     /**
      * Update Operation.
