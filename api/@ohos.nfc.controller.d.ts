@@ -41,7 +41,7 @@ declare namespace nfcController {
   /**
    * Checks whether a device supports NFC.
    *
-   * @return Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
    *
    * @since 7
    */
@@ -70,7 +70,7 @@ declare namespace nfcController {
   /**
    * Enables NFC.
    *
-   * @return Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    *
    * @since 7
@@ -80,7 +80,7 @@ declare namespace nfcController {
   /**
    * Disables NFC.
    *
-   * @return Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    *
    * @since 7
@@ -90,7 +90,7 @@ declare namespace nfcController {
   /**
    * Checks whether NFC is enabled.
    *
-   * @return Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
    *
    * @since 7
    */
@@ -104,7 +104,7 @@ declare namespace nfcController {
    * <li>{@link #STATE_ON}: Indicates that NFC is enabled. <li>{@link #STATE_TURNING_OFF}: Indicates
    * that NFC is being disabled.</ul>
    *
-   * @return Returns the NFC status.
+   * @returns Returns the NFC status.
    *
    * @since 7
    */

@@ -18,8 +18,6 @@ import { ElementName } from './bundle/elementName';
 /**
  * Provides methods to operate or manage NFC card emulation.
  *
- * @import import cardEmulation from '@ohos.nfc.cardEmulation';
- *
  * @since 6
  * @syscap SystemCapability.Communication.NFC.Core
  */
@@ -54,7 +52,7 @@ declare namespace cardEmulation {
    * <p>This method is used to check Whether the host or secure element supports card emulation.
    *
    * @param feature Indicates the card emulation type, {@code HCE}, {@code UICC}, or {@code ESE}.
-   * @return Returns {@code true} if the specified type of card emulation is supported; returns
+   * @returns Returns {@code true} if the specified type of card emulation is supported; returns
    * {@code false} otherwise.
    *
    * @since 6
@@ -66,7 +64,7 @@ declare namespace cardEmulation {
    *
    * @param { ElementName } elementName - The element name of the service ability
    * @param { CardType } type - The type to query, pyament or other.
-   * @return { boolean } Returns true if the service is default, otherwise false.
+   * @returns { boolean } Returns true if the service is default, otherwise false.
    * @permission ohos.permission.NFC_CARD_EMULATION
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -88,7 +86,7 @@ declare namespace cardEmulation {
     /**
      * start HCE
      *
-     * @return Returns {@code true} if HCE is enabled or has been enabled; returns {@code false} otherwise.
+     * @returns Returns {@code true} if HCE is enabled or has been enabled; returns {@code false} otherwise.
      * @permission ohos.permission.NFC_CARD_EMULATION
      *
      * @since 8
@@ -98,7 +96,7 @@ declare namespace cardEmulation {
     /**
      * stop HCE
      *
-     * @return Returns {@code true} if HCE is disabled or has been disabled; returns {@code false} otherwise.
+     * @returns Returns {@code true} if HCE is disabled or has been disabled; returns {@code false} otherwise.
      * @permission ohos.permission.NFC_CARD_EMULATION
      *
      * @since 8
