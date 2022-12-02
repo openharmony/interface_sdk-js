@@ -588,7 +588,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.p2pDisconnect
+     * @useinstead ohos.wifiManager/wifiManager.p2pCancelConnect
      */
     function p2pCancelConnect(): boolean;
 

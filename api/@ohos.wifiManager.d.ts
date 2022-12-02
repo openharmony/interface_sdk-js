@@ -255,7 +255,7 @@ declare namespace wifiManager {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
-    function disconnect(): boolean;
+    function disconnect(): void;
 
     /**
      * Calculates the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
@@ -726,7 +726,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      */
-    function p2pDisconnect(): void;
+    function p2pCancelConnect(): void;
 
     /**
      * Discover Wi-Fi P2P devices.
