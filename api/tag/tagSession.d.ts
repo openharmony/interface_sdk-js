@@ -28,7 +28,7 @@ export interface TagSession {
   /**
    * Obtains the tag information.
    *
-   * @return Returns the tag information, which is a {@link TagInfo} object.
+   * @returns Returns the tag information, which is a {@link TagInfo} object.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -40,7 +40,7 @@ export interface TagSession {
    *
    * <p>This method must be called before data is read from or written to the tag.
    *
-   * @return Returns {@code true} if the connection is set up; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the connection is set up; returns {@code false} otherwise.
    * @permission ohos.permission.NFC_TAG
    *
    * @since 7
@@ -59,7 +59,7 @@ export interface TagSession {
   /**
    * Checks whether a connection has been set up with a tag.
    *
-   * @return Returns {@code true} if a connection has been set up with the tag;
+   * @returns Returns {@code true} if a connection has been set up with the tag;
    * returns {@code false} otherwise.
    *
    * @permission ohos.permission.NFC_TAG
@@ -74,7 +74,7 @@ export interface TagSession {
    * <p>If data is not sent to the tag within the duration, data sending fails.
    *
    * @param timeout Indicates the timeout duration to be set.
-   * @return Returns {@code true} if the setting is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the setting is successful; returns {@code false} otherwise.
    *
    * @permission ohos.permission.NFC_TAG
    *
@@ -85,7 +85,7 @@ export interface TagSession {
   /**
    * Queries the timeout duration (ms) for sending data to a tag.
    *
-   * @return Returns the timeout duration.
+   * @returns Returns the timeout duration.
    *
    * @permission ohos.permission.NFC_TAG
    *
@@ -97,7 +97,7 @@ export interface TagSession {
    * Writes data to a tag.
    *
    * @param data Indicates the data to be written to the tag.
-   * @return Returns bytes received in response. Or bytes with a length of 0 if the
+   * @returns Returns bytes received in response. Or bytes with a length of 0 if the
    * data fails to be written to the tag.
    *
    * @permission ohos.permission.NFC_TAG
@@ -110,7 +110,7 @@ export interface TagSession {
   /**
    * Queries the maximum length of data that can be sent to a tag.
    *
-   * @return Returns the maximum length of the data to be sent to the tag.
+   * @returns Returns the maximum length of the data to be sent to the tag.
    *
    * @permission ohos.permission.NFC_TAG
    *
