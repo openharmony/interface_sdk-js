@@ -17,7 +17,6 @@
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  * @since 7
  * @syscap SystemCapability.Utils.Lang
- * @import import util from '@ohos.util';
  * @permission N/A
  */
 declare namespace util {
