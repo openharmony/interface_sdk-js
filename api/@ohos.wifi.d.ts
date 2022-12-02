@@ -1377,7 +1377,7 @@ declare namespace wifi {
         /** Device status */
         deviceStatus: P2pDeviceStatus;
 
-        /** Device group capabilities */
+        /** Device group capabilitys */
         groupCapabilitys: number;
     }
 
