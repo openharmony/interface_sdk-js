@@ -32,8 +32,6 @@ import Want from './@ohos.application.Want';
 /**
  * Provides methods to operate or manage NFC tag.
  *
- * @import import tag from '@ohos.nfc.tag';
- *
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
@@ -384,6 +382,7 @@ declare namespace tag {
     *
     * @since 7
     * @deprecated since 9
+    * @useinstead tag.TagInfo#technology
     */
     supportedProfiles: number[];
   }
@@ -413,7 +412,7 @@ declare namespace tag {
     * Creates an NDEF record with uri data.
     *
     * @param { string } uri - Uri data for new NDEF record.
-    * @return { NdefRecord } The instance of NdefRecord.
+    * @returns { NdefRecord } The instance of NdefRecord.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -425,7 +424,7 @@ declare namespace tag {
     *
     * @param { string } text - Text data for new an NDEF record.
     * @param { string } locale - Language code for the NDEF record. if locale is null, use default locale.
-    * @return { NdefRecord } The instance of NdefRecord.
+    * @returns { NdefRecord } The instance of NdefRecord.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -437,7 +436,7 @@ declare namespace tag {
     *
     * @param { string } mimeType type of mime data for new an NDEF record.
     * @param { string } mimeData mime data for new an NDEF record.
-    * @return { NdefRecord } The instance of NdefRecord.
+    * @returns { NdefRecord } The instance of NdefRecord.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -450,7 +449,7 @@ declare namespace tag {
     * @param { string } domainName - Domain name of issuing organization for the external data.
     * @param { string } type - Domain specific type of data for the external data.
     * @param { number[] } externalData - Data payload of an NDEF record.
-    * @return { NdefRecord } The instance of NdefRecord.
+    * @returns { NdefRecord } The instance of NdefRecord.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -460,7 +459,7 @@ declare namespace tag {
     * Creates an NDEF message with raw bytes.
     *
     * @param { number[] } data - The raw bytes to parse NDEF message.
-    * @return { NdefMessage } The instance of NdefMessage.
+    * @returns { NdefMessage } The instance of NdefMessage.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -471,7 +470,7 @@ declare namespace tag {
     * Creates an NDEF message with record list.
     *
     * @param { NdefRecord[] } ndefRecords - The NDEF records to parse NDEF message.
-    * @return { NdefMessage } The instance of NdefMessage.
+    * @returns { NdefMessage } The instance of NdefMessage.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
@@ -482,7 +481,7 @@ declare namespace tag {
     * Parses an NDEF message into raw bytes.
     *
     * @param { NdefMessage } ndefMessage - An NDEF message to parse.
-    * @return { number[] } Returns the raw bytes of an NDEF message.
+    * @returns { number[] } Returns the raw bytes of an NDEF message.
     * @throws { BusinessError } 401 - The parameter check failed.
     * @syscap SystemCapability.Communication.NFC.Core
     * @since 9
