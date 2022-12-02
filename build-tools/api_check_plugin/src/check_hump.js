@@ -15,7 +15,7 @@
 
 const path = require('path');
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { error_type } = require('./utils');
+const { errorType, errorLevel } = require('./utils');
 const rules = require("../code_style_rule.json");
 const { addAPICheckErrorLogs } = require('./compile_info');
 
@@ -23,7 +23,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
   let errorInfo = '';
   if (node.parent && !ts.isImportClause(node.parent) && !ts.isImportSpecifier(node.parent) &&
     (ts.isInterfaceDeclaration(node.parent) || ts.isClassDeclaration(node.parent) ||
-    ts.isEnumDeclaration(node.parent))) {
+      ts.isEnumDeclaration(node.parent))) {
     if (!checkLargeHump(node.escapedText.toString())) {
       errorInfo = `This moduleName [${node.escapedText.toString()}] should be used by large hump.`;
     }
@@ -35,7 +35,7 @@ function checkAPINameOfHump(node, sourcefile, fileName) {
     }
   }
   if (errorInfo !== '') {
-    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.NAMING_ERRORS, errorInfo);
+    addAPICheckErrorLogs(node, sourcefile, fileName, errorType.NAMING_ERRORS, errorInfo, errorLevel.MIDDLE);
   }
 }
 exports.checkAPINameOfHump = checkAPINameOfHump;
@@ -52,24 +52,24 @@ function checkAPIFileName(sourcefile, fileName) {
     }
   });
   if (exportAssignments.size > 1) {
-    addAPICheckErrorLogs(sourcefile, sourcefile, fileName, error_type.NAMING_ERRORS,
-      `This API file can only have one export default statement.`);
+    addAPICheckErrorLogs(sourcefile, sourcefile, fileName, errorType.NAMING_ERRORS,
+      `This API file can only have one export default statement.`, errorLevel.MIDDLE);
   } else if (exportAssignments.size === 1) {
     const basename = path.basename(fileName);
     if (/^@ohos|@system/g.test(basename)) {
       for (const exportAssignment of exportAssignments) {
         const lastModuleName = basename.split('.').at(-1);
         if (moduleNames.has(exportAssignment) && !checkSmallHump(lastModuleName)) {
-          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, error_type.NAMING_ERRORS,
-            `This API file should be named by small hump.`);
+          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, errorType.NAMING_ERRORS,
+            `This API file should be named by small hump.`, errorLevel.MIDDLE);
         } else if (!checkLargeHump(lastModuleName)) {
-          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, error_type.NAMING_ERRORS,
-            `This API file should be named by large hump.`);
+          addAPICheckErrorLogs(sourcefile, sourcefile, fileName, errorType.NAMING_ERRORS,
+            `This API file should be named by large hump.`, errorLevel.MIDDLE);
         }
       }
     } else if (!checkSmallHump(basename)) {
-      addAPICheckErrorLogs(sourcefile, sourcefile, fileName, error_type.NAMING_ERRORS,
-        `This API file should be named by small hump.`);
+      addAPICheckErrorLogs(sourcefile, sourcefile, fileName, errorType.NAMING_ERRORS,
+        `This API file should be named by small hump.`, errorLevel.MIDDLE);
     }
   }
 }

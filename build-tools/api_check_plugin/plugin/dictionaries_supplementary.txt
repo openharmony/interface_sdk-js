@@ -588,3 +588,11 @@ zoomout
 zoomreset
 zooms
 zpass
+nets
+kbps
+dnses
+ifaces
+headersreceive
+precon
+negotiated
+cft

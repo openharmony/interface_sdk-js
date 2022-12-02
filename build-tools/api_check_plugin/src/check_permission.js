@@ -14,7 +14,7 @@
  */
 
 const rules = require("../code_style_rule.json");
-const { getAPINote, error_type } = require('./utils');
+const { getAPINote, errorType, errorLevel } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkPermission(node, sourcefile, fileName) {
@@ -62,7 +62,7 @@ function checkPermission(node, sourcefile, fileName) {
     });
 
     if (hasPermissionError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_PERMISSION, errorInfo, 'Api');
+        addAPICheckErrorLogs(node, sourcefile, fileName, errorType.UNKNOW_PERMISSION, errorInfo, 'Api', errorLevel.MIDDLE);
     }
 }
 exports.checkPermission = checkPermission;

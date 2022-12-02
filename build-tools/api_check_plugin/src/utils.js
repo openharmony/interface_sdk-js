@@ -69,7 +69,7 @@ function overwriteIndexOf(item, array) {
 }
 exports.overwriteIndexOf = overwriteIndexOf;
 
-const error_type = {
+const errorType = {
   UNKNOW_DECORATOR: 'unknow decorator',
   MISSPELL_WORDS: 'misspell words',
   NAMING_ERRORS: 'naming errors',
@@ -78,10 +78,22 @@ const error_type = {
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import'
 }
-exports.error_type = error_type;
+exports.errorType = errorType;
+
+const errorLevel = {
+  HIGH: 3,
+  MIDDLE: 2,
+  LOW: 1
+}
+exports.errorLevel = errorLevel;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+class ApiCheckResultClass {
+  format_check_result = true
+}
+exports.ApiCheckResult = new ApiCheckResultClass();
 
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();

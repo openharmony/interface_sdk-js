@@ -15,7 +15,7 @@
 
 const rules = require("../code_style_rule.json");
 const { addAPICheckErrorLogs } = require('./compile_info');
-const { getAPINote, error_type } = require("./utils");
+const { getAPINote, errorType, errorLevel } = require("./utils");
 
 // duplicate removal
 const API_ERROR_DECORATOR_POS = new Set([]);
@@ -48,7 +48,7 @@ function checkAPIDecorators(node, sourcefile, fileName) {
     if (hasCodeStyleError) {
       API_ERROR_DECORATOR_POS.add(node.pos);
       errorInfo += `.`;
-      addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DECORATOR, errorInfo, 'JsDoc');
+      addAPICheckErrorLogs(node, sourcefile, fileName, errorType.UNKNOW_DECORATOR, errorInfo, 'JsDoc', errorLevel.MIDDLE);
     }
   }
 }

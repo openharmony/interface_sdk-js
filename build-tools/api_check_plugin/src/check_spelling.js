@@ -16,7 +16,7 @@
 const fs = require("fs");
 const path = require("path");
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { hasAPINote, getAPINote, overwriteIndexOf, error_type } = require("./utils");
+const { hasAPINote, getAPINote, overwriteIndexOf, errorType, errorLevel } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const rules = require("../code_style_rule.json");
 const dictionariesContent = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
@@ -64,7 +64,7 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
       }
     });
     const errorInfo = `Error words in [${nodeText}]: {${errorWords}}.Do you want to spell it as [${suggest}]?`;
-    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.MISSPELL_WORDS, errorInfo, type);
+    addAPICheckErrorLogs(node, sourcefile, fileName, errorType.MISSPELL_WORDS, errorInfo, type, errorLevel.LOW);
   }
 }
 
