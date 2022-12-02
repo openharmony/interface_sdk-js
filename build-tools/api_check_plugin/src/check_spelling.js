@@ -16,14 +16,16 @@
 const fs = require("fs");
 const path = require("path");
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { hasAPINote, getAPINote, overwriteIndexOf, errorType, errorLevel } = require("./utils");
+const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, errorLevel } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const rules = require("../code_style_rule.json");
 const dictionariesContent = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
 const dictionariesArr = dictionariesContent.split(/[(\r\n)\r\n]+/g);
-const dictionariesSupplementaryContent = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries_supplementary.txt"), 'utf-8');
+const dictionariesSupplementaryContent = fs.readFileSync(path.resolve(__dirname,
+  "../plugin/dictionaries_supplementary.txt"), 'utf-8');
 const dictionariesSupplementaryArr = dictionariesSupplementaryContent.split(/[(\r\n)\r\n]+/g);
-const dictionariesSet = new Set([...dictionariesArr, ...dictionariesSupplementaryArr, ...rules.decorators.customDoc, ...rules.decorators.jsDoc]);
+const dictionariesSet = new Set([...dictionariesArr, ...dictionariesSupplementaryArr, ...rules.decorators.customDoc,
+  ...rules.decorators.jsDoc]);
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
@@ -64,7 +66,7 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
       }
     });
     const errorInfo = `Error words in [${nodeText}]: {${errorWords}}.Do you want to spell it as [${suggest}]?`;
-    addAPICheckErrorLogs(node, sourcefile, fileName, errorType.MISSPELL_WORDS, errorInfo, type, errorLevel.LOW);
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.MISSPELL_WORDS, errorInfo, type, errorLevel.LOW);
   }
 }
 

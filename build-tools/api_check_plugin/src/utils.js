@@ -69,7 +69,7 @@ function overwriteIndexOf(item, array) {
 }
 exports.overwriteIndexOf = overwriteIndexOf;
 
-const errorType = {
+const ErrorType = {
   UNKNOW_DECORATOR: 'unknow decorator',
   MISSPELL_WORDS: 'misspell words',
   NAMING_ERRORS: 'naming errors',
@@ -78,14 +78,14 @@ const errorType = {
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import'
 }
-exports.errorType = errorType;
+exports.ErrorType = ErrorType;
 
-const errorLevel = {
+const ErrorLevel = {
   HIGH: 3,
   MIDDLE: 2,
   LOW: 1
 }
-exports.errorLevel = errorLevel;
+exports.ErrorLevel = ErrorLevel;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
@@ -151,7 +151,8 @@ function getApiInfo(node) {
     if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
-          apiInfo.permission = permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
+          apiInfo.permission =
+            permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
         })
     }
   }

@@ -16,7 +16,7 @@
 const path = require('path');
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const rules = require("../code_style_rule.json");
-const { getAPINote, errorType, errorLevel } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkSyscap(node, sourcefile, fileName) {
@@ -29,7 +29,7 @@ function checkSyscap(node, sourcefile, fileName) {
     // } else {
     //     invalidImport += diagnostic;
     // }
-    // addAPICheckErrorLogs(node, sourcefile, fileName, errorType.INVALID_IMPORT, invalidImport);
+    // addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.INVALID_IMPORT, invalidImport);
     // check syscap
     const syscapTags = rules.syscap.SystemCapability;
     const syscapRuleSet = new Set();
@@ -51,7 +51,8 @@ function checkSyscap(node, sourcefile, fileName) {
                 } else {
                     errorInfo += syscapNote;
                 }
-                addAPICheckErrorLogs(node, sourcefile, fileName, errorType.UNKNOW_SYSCAP, errorInfo, 'JsDoc', errorLevel.MIDDLE);
+                addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_SYSCAP, errorInfo, 'JsDoc',
+                  ErrorLevel.MIDDLE);
             }
         }
     });

@@ -14,20 +14,20 @@
  */
 const path = require("path")
 const result = require("../check_result.json");
-const { apiCheckArr, getApiInfo, errorLevel, ApiCheckResult } = require("../src/utils");
+const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/utils");
 
 /**
  * 
- * @param {tsNode} node 
- * @param {sourcefile} sourcefile 
- * @param {fileName} fileName 
- * @param {errorType} errorType 
- * @param {errorInfo} errorInfo 
- * @param {type} type 
- * @param {1|2|3} level
+ * @param {ts.Node} node current node
+ * @param {ts.Sourcefile} sourcefile root node
+ * @param {String} fileName full file name
+ * @param {String} errorType enum object:ErrorType
+ * @param {String} errorInfo error infomation
+ * @param {String} type jsdoc | api
+ * @param {Enum} level enum object:ErrorLevel
  */
 function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type, level) {
-  if (level === errorLevel.HIGH || level === errorLevel.MIDDLE) {
+  if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
     ApiCheckResult.format_check_result = false;
   }
   const checkFailFileNameSet = new Set(result.apiFiles);

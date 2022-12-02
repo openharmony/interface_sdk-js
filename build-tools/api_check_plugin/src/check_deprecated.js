@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { getAPINote, errorType, errorLevel } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkDeprecated(node, sourcefile, fileName) {
@@ -59,7 +59,8 @@ function checkDeprecated(node, sourcefile, fileName) {
     });
 
     if (hasDeprecatedError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, errorType.UNKNOW_DEPRECATED, errorInfo, 'JsDoc', errorLevel.MIDDLE);
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DEPRECATED, errorInfo, 'JsDoc',
+          ErrorLevel.MIDDLE);
     }
 }
 exports.checkDeprecated = checkDeprecated;
