@@ -69,7 +69,7 @@ function overwriteIndexOf(item, array) {
 }
 exports.overwriteIndexOf = overwriteIndexOf;
 
-const error_type = {
+const ErrorType = {
   UNKNOW_DECORATOR: 'unknow decorator',
   MISSPELL_WORDS: 'misspell words',
   NAMING_ERRORS: 'naming errors',
@@ -78,10 +78,22 @@ const error_type = {
   UNKNOW_DEPRECATED: 'unknow deprecated',
   INVALID_IMPORT: 'invalid import'
 }
-exports.error_type = error_type;
+exports.ErrorType = ErrorType;
+
+const ErrorLevel = {
+  HIGH: 3,
+  MIDDLE: 2,
+  LOW: 1
+}
+exports.ErrorLevel = ErrorLevel;
 
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
+
+class ApiCheckResultClass {
+  format_check_result = true
+}
+exports.ApiCheckResult = new ApiCheckResultClass();
 
 async function excelApiCheckResult(apiCheckArr) {
   const workbook = new ExcelJS.Workbook();
@@ -139,7 +151,8 @@ function getApiInfo(node) {
     if (/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(notesStr)) {
       notesStr.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
         permissionInfo => {
-          apiInfo.permission = permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
+          apiInfo.permission =
+            permissionInfo.replace(/\@[P|p][E|e][R|r][M|m][I|i][S|s][S|s][I|i][O|o][N|n]/g, '').trim();
         })
     }
   }

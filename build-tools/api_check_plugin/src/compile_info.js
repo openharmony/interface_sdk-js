@@ -14,10 +14,22 @@
  */
 const path = require("path")
 const result = require("../check_result.json");
-const { apiCheckArr, getApiInfo } = require("../src/utils")
+const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/utils");
 
-// print compile info
-function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type) {
+/**
+ * 
+ * @param {ts.Node} node current node
+ * @param {ts.Sourcefile} sourcefile root node
+ * @param {String} fileName full file name
+ * @param {String} errorType enum object:ErrorType
+ * @param {String} errorInfo error infomation
+ * @param {String} type jsdoc | api
+ * @param {Enum} level enum object:ErrorLevel
+ */
+function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type, level) {
+  if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
+    ApiCheckResult.format_check_result = false;
+  }
   const checkFailFileNameSet = new Set(result.apiFiles);
   if (!checkFailFileNameSet.has(fileName)) {
     result.apiFiles.push(fileName);
@@ -35,7 +47,8 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     type: type,
     errorInfo: errorInfo,
     version: getApiInfo(node).version,
-    basename: path.basename(fileName).replace(/\.d\.ts/g, "")
+    basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
+    level: level
   })
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

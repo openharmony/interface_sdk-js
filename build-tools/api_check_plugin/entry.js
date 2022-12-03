@@ -21,7 +21,6 @@ function checkEntry(url) {
   const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', "all_files.txt");
-  const content = fs.readFileSync(mdFilesPath, "utf-8");
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
@@ -31,7 +30,7 @@ function checkEntry(url) {
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result = `CATCHERROR : ${error}, mdFilePath = ${mdFilesPath}, content = ${content}`;
+    result = `API_CHECK_ERROR : ${error}`;
   }
   const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});

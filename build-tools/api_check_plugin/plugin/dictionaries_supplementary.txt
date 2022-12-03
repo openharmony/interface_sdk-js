@@ -70,6 +70,7 @@ cancels
 capturers
 ccm
 certsign
+cft
 channeldown
 channelup
 checkboxgroup
@@ -140,6 +141,7 @@ dispatches
 displacement
 dlp
 dnd
+dnses
 donot
 downlink
 dpad
@@ -200,6 +202,7 @@ hapmodule
 haps
 haptic
 headed
+headersreceive
 headphones
 heapsnapshot
 heating
@@ -220,6 +223,7 @@ htmltext
 huks
 hwid
 idm
+ifaces
 imager
 imagevideo
 imclient
@@ -254,6 +258,7 @@ ivi
 judged
 kbdillum
 kbdinputassist
+kbps
 keyframe
 keyguard
 keyusage
@@ -319,7 +324,9 @@ multisample
 multitask
 mutes
 neglects
+negotiated
 neighborhoods
+nets
 nextgroup
 nlink
 nmea
@@ -370,6 +377,7 @@ pooled
 ppid
 pread
 precisiontype
+precon
 preempted
 preferentially
 premises

@@ -266,11 +266,13 @@
         "BundleFramework.Core",
         "BundleFramework.FreeInstall",
         "BundleFramework.Resource",
+        "BundleFramework.DefaultApp",
         "BundleFramework.Launcher",
         "BundleFramework.SandboxApp",
         "BundleFramework.QuickFix",
         "BundleFramework.AppControl"
-      ],"Developtools":[
+      ],
+      "Developtools":[
         "Syscap"
       ],
       "Graphic":[
@@ -304,7 +306,11 @@
         "NFC.Core",
         "ConnectedTag",
         "NFC.Tag",
-        "NFC.CardEmulation"
+        "NFC.CardEmulation",
+        "NFCManager.Ethernet",
+        "NFCManager.NetSharing",
+        "NFCManager.MDNS",
+        "NFCManager.Vpn"
       ],
       "Location":[
         "Location.Core",
@@ -370,7 +376,7 @@
         "MediaLibrary.DistributedCore",
         "Media.AVPlayer",
         "Media.AVRecorder",
-        "Image.ImageCreater"
+        "Image.ImageCreator"
       ],
       "Telephony":[
         "CoreService",
