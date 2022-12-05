@@ -149,7 +149,7 @@ template("ohos_declaration_template") {
     script = "//interface/sdk-js/remove_internal.py"
     input_api_dir = "//interface/sdk-js/api"
     outputs = [ root_out_dir + "/ohos_declaration/$target_name" ]
-    if (sdk_build_public) {
+    if (sdk_build_public || product_name == "ohos-sdk") {
       script = "//out/sdk-public/public_interface/sdk-js/remove_internal.py"
       input_api_dir = "//out/sdk-public/public_interface/sdk-js/api"
     }
