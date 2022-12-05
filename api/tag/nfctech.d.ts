@@ -345,10 +345,10 @@ export interface MifareClassicTag extends TagSession {
   incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
 
  /**
-  * Decrements the contents of a block, and stores the result in the internal transfer buffer.
+  * Decreases the contents of a block, and stores the result in the internal transfer buffer.
   *
-  * @param { number } blockIndex - The index of block to decrement.
-  * @param { number } value - The value to decrement, none-negative.
+  * @param { number } blockIndex - The index of block to decrease.
+  * @param { number } value - The value to decrease, none-negative.
   * @permission ohos.permission.NFC_TAG
   * @throws { BusinessError } 201 - Permission denied.
   * @throws { BusinessError } 401 - The parameter check failed.
