@@ -979,28 +979,27 @@ declare namespace call {
      *
      * @since 8
      */
-
     UNASSIGNED_NUMBER = 1,
+
     /**
      * No route to destination.
      *
      * @since 8
      */
-
     NO_ROUTE_TO_DESTINATION = 3,
+
     /**
      * Channel unacceptable.
      *
      * @since 8
      */
-
     CHANNEL_UNACCEPTABLE = 6,
+
     /**
      * Operator determined barring.
      *
      * @since 8
      */
-
     OPERATOR_DETERMINED_BARRING = 8,
 
     /**
