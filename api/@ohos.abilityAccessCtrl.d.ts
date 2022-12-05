@@ -15,6 +15,8 @@
 
 import { AsyncCallback, Callback } from './basic';
 import { Permissions } from './permissions';
+import Context from "./application/Context";
+import PermissionRequestResult from "./security/PermissionRequestResult";
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -22,7 +24,7 @@ import { Permissions } from './permissions';
  declare namespace abilityAccessCtrl {
     /**
      * Obtains the AtManager instance.
-     * @return returns the instance of the AtManager.
+     * @returns returns the instance of the AtManager.
      * @since 8
      */
     function createAtManager(): AtManager;
@@ -36,7 +38,7 @@ import { Permissions } from './permissions';
          * Checks whether a specified application has been granted the given permission.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified.
-         * @return Returns permission verify result.
+         * @returns Returns permission verify result.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.abilityAccessCtrl.AtManager#checkAccessToken
@@ -47,7 +49,7 @@ import { Permissions } from './permissions';
          * Checks whether a specified application has been granted the given permission.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be verified. Permissions type only support the valid permission name.
-         * @return Returns permission verify result.
+         * @returns Returns permission verify result.
          * @since 9
          */
         verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
@@ -58,7 +60,7 @@ import { Permissions } from './permissions';
          * @param permissionName The permission name to be verified.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
-         * @return Returns permission verify result.
+         * @returns Returns permission verify result.
          * @since 9
          */
         verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
@@ -69,10 +71,24 @@ import { Permissions } from './permissions';
          * @param permissionName The permission name to be verified.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
-         * @return Returns permission verify result.
+         * @returns Returns permission verify result.
          * @since 9
          */
         checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+
+        /**
+         * Requests certain permissions from the user.
+         *
+         * @param context The context that initiates the permission request.
+         * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+         * @returns Returns the {@link PermissionRequestResult}.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+         * @since 9
+         * @StageModelOnly
+         */
+        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>) : Promise<PermissionRequestResult>;
 
         /**
          * Grants a specified user_grant permission to the given application.
@@ -118,7 +134,7 @@ import { Permissions } from './permissions';
          * Queries specified permission flag of the given application.
          * @param tokenID The tokenId of specified application.
          * @param permissionName The permission name to be granted.
-         * @return Return permission flag.
+         * @returns Return permission flag.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
@@ -134,7 +150,7 @@ import { Permissions } from './permissions';
 
         /**
          * Queries permission management version.
-         * @return Return permission version.
+         * @returns Return permission version.
          * @systemapi
          * @since 9
          */
@@ -244,3 +260,4 @@ import { Permissions } from './permissions';
  }
 
  export default abilityAccessCtrl;
+ export { Permissions };
