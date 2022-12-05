@@ -75,7 +75,7 @@ declare namespace observer {
    * @param options including slotId Indicates the ID of the target card slot.
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including an array of instances of the classes derived from {@link CellInformation}.
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -185,13 +185,13 @@ declare namespace observer {
     SIM_PUK,
     SIM_PN_PIN, //Network Personalization (refer 3GPP TS 22.022 [33])
     SIM_PN_PUK,
-    SIM_PU_PIN, //network sUbset Personalization (refer 3GPP TS 22.022 [33])
+    SIM_PU_PIN, //Network Subset Personalization (refer 3GPP TS 22.022 [33])
     SIM_PU_PUK,
-    SIM_PP_PIN, //service Provider Personalization (refer 3GPP TS 22.022 [33])
+    SIM_PP_PIN, //Service Provider Personalization (refer 3GPP TS 22.022 [33])
     SIM_PP_PUK,
     SIM_PC_PIN, //Corporate Personalization (refer 3GPP TS 22.022 [33])
     SIM_PC_PUK,
-    SIM_SIM_PIN, //SIM/USIM personalisation (refer 3GPP TS 22.022 [33])
+    SIM_SIM_PIN, //SIM/USIM Personalization (refer 3GPP TS 22.022 [33])
     SIM_SIM_PUK,
   }
 }
