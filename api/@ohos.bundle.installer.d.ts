@@ -204,6 +204,13 @@ declare namespace installer {
     userId?: number;
 
     /**
+     * Indicates the install flag, which 0x00 for normal, 0x10 for freeInstall
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 9
+     */
+     installFlag?: number;
+
+    /**
      * Indicates whether the param has data
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
