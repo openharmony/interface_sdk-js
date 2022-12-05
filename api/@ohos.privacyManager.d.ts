@@ -366,3 +366,4 @@ import { Permissions } from './permissions'
 }
 
 export default privacyManager;
+export { Permissions };

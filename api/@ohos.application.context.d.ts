@@ -114,6 +114,7 @@ declare namespace context {
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @deprecated since 9
      */
     export type PermissionRequestResult = _PermissionRequestResult.default
 }

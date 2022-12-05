@@ -121,6 +121,7 @@ declare namespace common {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     * @deprecated since 9
      */
     export type PermissionRequestResult = _PermissionRequestResult.default
 
