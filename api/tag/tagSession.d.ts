@@ -22,7 +22,7 @@ import { AsyncCallback } from '../basic';
  * tags, read data from tags, and write data to tags.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface TagSession {
   /**
