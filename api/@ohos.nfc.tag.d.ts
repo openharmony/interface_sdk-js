@@ -248,7 +248,7 @@ declare namespace tag {
    * During tag reading, if the tag supports the IsoDep technology, an {@link IsoDepTag} object
    * will be created based on the tag information.
    *
-   * @param { TagInfo } tagInfo - Indicates the diapatched tag information.
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
@@ -263,7 +263,7 @@ declare namespace tag {
    * During tag reading, if the tag supports the NDEF technology, an {@link NdefTag} object
    * will be created based on the tag information.
    *
-   * @param { TagInfo } tagInfo - Indicates the diapatched tag information.
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
@@ -278,7 +278,7 @@ declare namespace tag {
    * During tag reading, if the tag supports the MIFARE Classic technology,
    * an {@link MifareClassicTag} object will be created based on the tag information.
    *
-   * @param { TagInfo } tagInfo - Indicates the diapatched tag information.
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
@@ -293,7 +293,7 @@ declare namespace tag {
    * During tag reading, if the tag supports the MIFARE Ultralight technology,
    * an {@link MifareUltralightTag} object will be created based on the tag information.
    *
-   * @param { TagInfo } tagInfo - Indicates the diapatched tag information.
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
@@ -308,7 +308,7 @@ declare namespace tag {
    * During tag reading, if the tag supports the NDEF Formatable technology,
    * an {@link NdefFormatableTag} object will be created based on the tag information.
    *
-   * @param { TagInfo } tagInfo - Indicates the diapatched tag information.
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.

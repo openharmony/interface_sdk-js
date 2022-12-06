@@ -20,14 +20,13 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @since 8
  * @syscap SystemCapability.Communication.ConnectedTag
- * @import import connectedTag from '@ohos.connectedTag';
  */
 declare namespace connectedTag {
     /**
      * Initializes Connected Tag.
      *
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
+     * @returns Returns true or false.
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
@@ -36,8 +35,8 @@ declare namespace connectedTag {
     /**
      * UnInitializes Connected Tag.
      *
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
+     * @returns Returns true or false.
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
@@ -46,8 +45,8 @@ declare namespace connectedTag {
     /**
      * Reads the NDEF Data.
      *
-     * @return Returns the NDEF Data.
-     * @permissions ohos.permission.NFC_TAG
+     * @returns Returns the NDEF Data.
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
@@ -58,8 +57,8 @@ declare namespace connectedTag {
      * Writes the NDEF Data.
      *
      * @param data The Data to write.
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
+     * @returns Returns true or false.
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
@@ -71,8 +70,8 @@ declare namespace connectedTag {
      *
      * @type The callback type.
      * @param callback The callback function to be registered.
-     * @return Returns NFC_RF_LEAVE or NFC_RF_ENTER
-     * @permissions ohos.permission.NFC_TAG
+     * @returns Returns NFC_RF_LEAVE or NFC_RF_ENTER
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
@@ -81,11 +80,11 @@ declare namespace connectedTag {
     /**
      * Unsubscribes NFC RF status change events.
      *
-     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
      *
      * @type The callback type.
      * @param callback The callback function to be unregistered.
-     * @permissions ohos.permission.NFC_TAG
+     * @permission ohos.permission.NFC_TAG
      *
      * @since 8
      */
