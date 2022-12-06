@@ -936,7 +936,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300101 - credential is incorrect.
          * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @throws {BusinessError} 12300110 - authentication is locked.
@@ -960,7 +960,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid userId, challenge, authType or authTrustLevel.
-         * @throws {BusinessError} 12300101 - token is invalid.
+         * @throws {BusinessError} 12300101 - credential is incorrect.
          * @throws {BusinessError} 12300105 - unsupported authTrustLevel.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @throws {BusinessError} 12300110 - authentication is locked.
@@ -1007,6 +1007,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
+         * @throws {BusinessError} 12300002 - invalid inputer.
          * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @systemapi Hide this for inner system use.
          * @since 8
@@ -1017,9 +1018,46 @@ declare namespace osAccount {
          * Unregister inputer.
          * @permission ohos.permission.ACCESS_PIN_AUTH
          * @systemapi Hide this for inner system use.
+         * @throws {BusinessError} 201 - permission denied.
          * @since 8
          */
         unregisterInputer(): void;
+    }
+
+    /**
+     * Provides the management of credential inputers. 
+     * @name InputerManager
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    class InputerManager {
+        /**
+         * Register credential inputer by authentication type.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @param authType Indicates the authentication type.
+         * @param inputer Indicates the credential input box callback.
+         * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 12300001 - system service exception.
+         * @throws {BusinessError} 12300002 - invalid authType or inputer.
+         * @throws {BusinessError} 12300103 - the credential inputer has been registered.
+         * @throws {BusinessError} 12300106 - unsupported authType.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        registerInputer(authType: AuthType, inputer: IInputer): void;
+
+        /**
+         * Unregister credential inputer by authentication type.
+         * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @param authType Indicates the authentication type.
+         * @throws {BusinessError} 201 - permission denied.
+         * @throws {BusinessError} 401 - the parameter check failed.
+         * @throws {BusinessError} 12300002 - invalid authType.
+         * @systemapi Hide this for inner system use.
+         * @since 10
+         */
+        unregisterInputer(authType: AuthType): void;
     }
 
     /**
@@ -1173,14 +1211,14 @@ declare namespace osAccount {
     interface IInputData {
         /**
          * Notifies to set data.
-         * @param pinSubType Indicates the credential subtype for authentication.
+         * @param authSubType Indicates the credential subtype for authentication.
          * @param data Indicates the data to set.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid pinSubType.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
-        onSetData: (pinSubType: AuthSubType, data: Uint8Array) => void;
+        onSetData: (authSubType: AuthSubType, data: Uint8Array) => void;
     }
     
     /**
@@ -1193,12 +1231,12 @@ declare namespace osAccount {
     interface IInputer {
         /**
          * Notifies to get data.
-         * @param pinSubType Indicates the credential subtype for authentication.
+         * @param authSubType Indicates the credential subtype for authentication.
          * @param callback Indicates the password data callback.
          * @systemapi Hide this for inner system use.
          * @since 8
          */
-        onGetData: (pinSubType: AuthSubType, callback: IInputData) => void;
+        onGetData: (authSubType: AuthSubType, callback: IInputData) => void;
     }
 
     /**
@@ -1479,7 +1517,19 @@ declare namespace osAccount {
         /**
          * Indicates the FACE authentication type.
          */
-        FACE = 2
+        FACE = 2,
+                
+        /**
+         * Indicates the FINGERPRINT authentication type.
+         * @since 10
+         */
+        FINGERPRINT = 4,
+
+        /**
+         * Indicates the DOMAIN authentication type.
+         * @since 10
+         */
+        DOMAIN = 1024
     }
 
     /**
@@ -1513,7 +1563,13 @@ declare namespace osAccount {
         /**
          * Indicates the 3D face credential.
          */
-        FACE_3D = 20001
+        FACE_3D = 20001,
+
+        /**
+         * Indicates the mixed domain credential.
+         * @since 10
+         */
+        DOMAIN_MIXED = 10240001
     }
 
     /**
