@@ -80,7 +80,7 @@ declare namespace connectedTag {
     /**
      * Unsubscribes NFC RF status change events.
      *
-     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
+     * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
      *
      * @type The callback type.
      * @param callback The callback function to be unregistered.
