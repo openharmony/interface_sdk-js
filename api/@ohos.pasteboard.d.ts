@@ -341,7 +341,7 @@ declare namespace pasteboard {
      * @param { string } mimeType - indicates the MIME type of value.
      * @param { ValueType } value - content to be saved.
      * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
-     * @throws { BusinessError } 12900002 - The number of record exteeds the maximum limit.
+     * @throws { BusinessError } 12900002 - The number of record exceeds the maximum limit.
      * @since 9
      */
     addRecord(mimeType: string, value: ValueType): void;
