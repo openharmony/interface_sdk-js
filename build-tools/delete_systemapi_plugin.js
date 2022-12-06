@@ -85,6 +85,8 @@ function writeFile(url, data, option) {
   })
 }
 
+const globalModules = new Set(['GlobalResource', 'StateManagement', 'SpecialEvent']);
+
 function formatImportDeclaration(url) {
   return (context) => {
     const allIdentifierSet = new Set([]);
@@ -140,9 +142,9 @@ function formatImportDeclaration(url) {
                 });
               }
             }
-            const importSpecifier = statement.moduleSpecifier.getText();
-            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier.replace(/[\'\"]/g, '')}.d.ts`);
-            if (fs.existsSync(importSpecifierRealPath) && clauseSet.size > 0) {
+            const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
+            const importSpecifierRealPath = path.resolve(url, `../${importSpecifier}.d.ts`);
+            if ((fs.existsSync(importSpecifierRealPath) || globalModules.has(importSpecifier)) && clauseSet.size > 0) {
               const clasueCheckList = [];
               let exsitClauseSet = new Set([]);
               for (const clause of clauseSet) {
