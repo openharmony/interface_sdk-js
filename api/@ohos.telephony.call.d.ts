@@ -164,6 +164,7 @@ declare namespace call {
   /**
    * Hang up the foreground call without callId.
    *
+   * @permission ohos.permission.ANSWER_CALL
    * @systemapi Hide this for inner system use.
    * @since 9
    */
