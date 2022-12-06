@@ -18,8 +18,6 @@ import { Callback } from './basic';
 /**
  * Provides methods to operate or manage NFC.
  *
- * @import import controller from '@ohos.nfc.controller';
- *
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
