@@ -2730,7 +2730,7 @@ declare namespace audio {
 
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param volume Volume to set. The value type is float, form 0.0 to 1.0.
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -2738,7 +2738,7 @@ declare namespace audio {
     setVolume(volume: number, callback: AsyncCallback<void>): void;
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param volume Volume to set. The value type is float, form 0.0 to 1.0.
      * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
