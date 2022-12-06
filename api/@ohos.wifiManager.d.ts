@@ -17,9 +17,8 @@ import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage Wi-Fi.
- *
+ * @namespace wifiManager
  * @since 9
- * @import import wifiManager from '@ohos.wifiManager';
  */
 declare namespace wifiManager {
     /**
@@ -261,7 +260,7 @@ declare namespace wifiManager {
      * Calculates the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
      *
      * @param rssi Indicates the Wi-Fi RSSI.
-     * @band Indicates the Wi-Fi frequency band.
+     * @param band Indicates the Wi-Fi frequency band.
      * @returns Returns Wi-Fi signal level ranging from 0 to 4.
      *
      * @since 9
