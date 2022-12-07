@@ -49,7 +49,14 @@ declare namespace notificationManager {
    * this method will update the notification.
    * @param { NotificationRequest } request - notification request
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -61,7 +68,14 @@ declare namespace notificationManager {
    * this method will update the notification.
    * @param { NotificationRequest } request - notification request
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -73,7 +87,15 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - a notification.
    * @param { number } userId - of subscriber receiving the notification.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -86,7 +108,15 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - a notification.
    * @param { number } userId - of subscriber receiving the notification.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -100,7 +130,15 @@ declare namespace notificationManager {
    * @param { string } representativeBundle - bundle name of the representative
    * @param { number } userId - userid of the representative
    * @param { AsyncCallback<void> } callback - The callback of publishAsBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -114,7 +152,15 @@ declare namespace notificationManager {
    * @param { string } representativeBundle - bundle name of the representative
    * @param { number } userId - userid of the representative
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -125,7 +171,14 @@ declare namespace notificationManager {
    * Cancel a notification with the specified ID.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Failed to connect service.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -136,7 +189,11 @@ declare namespace notificationManager {
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string }label - Label of the notification to cancel.
    * @param { AsyncCallback<void> } callback - The callback of cancel.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -147,7 +204,12 @@ declare namespace notificationManager {
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string }label - Label of the notification to cancel.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -160,7 +222,13 @@ declare namespace notificationManager {
    * @param { string } representativeBundle - bundle name of the representative.
    * @param { number } userId - userid of the representative.
    * @param { AsyncCallback<void> } callback - The callback of cancelAsBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -174,7 +242,13 @@ declare namespace notificationManager {
    * @param { string } representativeBundle - bundle name of the representative.
    * @param { number } userId - userid of the representative.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -184,7 +258,11 @@ declare namespace notificationManager {
   /**
    * Cancel all notifications of the current application.
    * @param { AsyncCallback<void> } callback - The callback of cancelAll.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -193,7 +271,11 @@ declare namespace notificationManager {
   /**
    * Cancel all notifications of the current application.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -204,7 +286,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * @param { AsyncCallback<void> } callback - The callback of addSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -216,7 +302,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { NotificationSlot } slot - Indicates the notification slot to be created, which is set by {@link NotificationSlot}.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -227,7 +317,11 @@ declare namespace notificationManager {
    * Adds a slot type.
    * @param { SlotType } type - Slot type to add.
    * @param { AsyncCallback<void> } callback - The callback of addSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -237,7 +331,11 @@ declare namespace notificationManager {
    * Adds a slot type.
    * @param { SlotType } type - Slot type to add.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -248,7 +346,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * @param { AsyncCallback<void> } callback - The callback of addSlots.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -260,7 +362,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<NotificationSlot> } slots - Indicates the notification slots to be created, which is set by {@link NotificationSlot}.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -271,7 +377,11 @@ declare namespace notificationManager {
    * Obtains a notification slot of the specified slot type.
    * @param { SlotType } slotType - Type of the notification slot to obtain.
    * @param { AsyncCallback<NotificationSlot> } callback - The callback is used to return the NotificationSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -281,7 +391,11 @@ declare namespace notificationManager {
    * Obtains a notification slot of the specified slot type.
    * @param { SlotType } slotType - Type of the notification slot to obtain.
    * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -290,7 +404,11 @@ declare namespace notificationManager {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback is used to return all notification slots of this application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -299,7 +417,11 @@ declare namespace notificationManager {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    * @returns { Promise<Array<NotificationSlot>> } Returns all notification slots of this application.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -309,7 +431,11 @@ declare namespace notificationManager {
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    * @param { SlotType } slotType - Type of the NotificationSlot to remove.
    * @param { AsyncCallback<void> } callback - The callback of removeSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -319,7 +445,11 @@ declare namespace notificationManager {
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    * @param { SlotType } slotType - Type of the NotificationSlot to remove.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -328,7 +458,11 @@ declare namespace notificationManager {
   /**
    * Removes all NotificationSlot objects created by the current application.
    * @param { AsyncCallback<void> } callback - The callback of removeAllSlots.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -337,7 +471,11 @@ declare namespace notificationManager {
   /**
    * Removes all NotificationSlot objects created by the current application.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -349,7 +487,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setNotificationEnable.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -362,7 +505,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -374,7 +522,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -386,7 +539,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -397,7 +555,11 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -408,7 +570,11 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -420,7 +586,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userid of the representative.
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -432,7 +603,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userid of the representative.
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -445,7 +622,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of displayBadge.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -458,7 +640,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -470,7 +657,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<boolean> } callback - The callback of isBadgeDisplayed.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -482,7 +674,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -495,7 +692,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { NotificationSlot } slot - Indicates the notification slot.
    * @param { AsyncCallback<void> } callback - The callback of setSlotByBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -508,7 +710,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { NotificationSlot } slot - Indicates the notification slot.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -520,7 +727,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - The callback of getSlotsByBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -532,7 +744,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<Array<NotificationSlot>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -544,7 +761,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -556,7 +778,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -568,7 +795,11 @@ declare namespace notificationManager {
    * call this method.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - The callback of getAllActiveNotifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -580,7 +811,11 @@ declare namespace notificationManager {
    * call this method.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -590,7 +825,11 @@ declare namespace notificationManager {
   /**
    * Obtains the number of all active notifications.
    * @param { AsyncCallback<number> } callback - The callback of getActiveNotificationCount.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -599,7 +838,11 @@ declare namespace notificationManager {
   /**
    * Obtains the number of all active notifications.
    * @returns { Promise<number> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -608,7 +851,11 @@ declare namespace notificationManager {
   /**
    * Obtains an array of active notifications.
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - The callback of getActiveNotifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -617,7 +864,11 @@ declare namespace notificationManager {
   /**
    * Obtains an array of active notifications.
    * @returns { Promise<Array<NotificationRequest>> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -627,7 +878,11 @@ declare namespace notificationManager {
    * Cancel the notification of a specified group for this application.
    * @param { string } groupName - The name of the group.
    * @param { AsyncCallback<void> } callback - The callback of cancelGroup.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -637,7 +892,11 @@ declare namespace notificationManager {
    * Cancel the notification of a specified group for this application.
    * @param { string } groupName - The name of the group.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -649,7 +908,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { string } groupName - The name of the group.
    * @param { AsyncCallback<void> } callback - The callback of removeGroupByBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -662,7 +926,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { string } groupName - The name of the group.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -674,7 +943,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -686,7 +959,11 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -699,7 +976,12 @@ declare namespace notificationManager {
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { number } userId - The userId.
    * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -712,7 +994,12 @@ declare namespace notificationManager {
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
    * @param { number } userId - The userId.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -723,7 +1010,11 @@ declare namespace notificationManager {
    * Obtains the Do Not Disturb date.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -734,7 +1025,11 @@ declare namespace notificationManager {
    * Obtains the Do Not Disturb date.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -746,7 +1041,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -758,7 +1058,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -769,7 +1074,11 @@ declare namespace notificationManager {
    * Obtains whether to support the Do Not Disturb mode.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether Do Not Disturb mode is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -780,7 +1089,11 @@ declare namespace notificationManager {
    * Obtains whether to support the Do Not Disturb mode.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<boolean> } Returns whether Do Not Disturb mode is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -791,7 +1104,11 @@ declare namespace notificationManager {
    * Obtains whether the template is supported by the system.
    * @param templateName Name of template to be Obtained.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the template is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -801,7 +1118,11 @@ declare namespace notificationManager {
    * Obtains whether the template is supported by the system.
    * @param templateName Name of template to be Obtained.
    * @returns { Promise<boolean> } Returns whether the template is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -810,7 +1131,11 @@ declare namespace notificationManager {
   /**
    * Request permission to send notification.
    * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -819,7 +1144,11 @@ declare namespace notificationManager {
   /**
    * Request permission to send notification.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -830,7 +1159,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setDistributedEnable.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -842,7 +1176,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -852,7 +1191,12 @@ declare namespace notificationManager {
   /**
    * Obtains whether the device supports distributed notification.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -861,7 +1205,12 @@ declare namespace notificationManager {
   /**
    * Obtains whether the device supports distributed notification.
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -873,7 +1222,13 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setDistributedEnableByBundle.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -886,7 +1241,13 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -898,7 +1259,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -910,7 +1277,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -921,7 +1294,11 @@ declare namespace notificationManager {
    * Obtains the remind modes of the notification.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { AsyncCallback<DeviceRemindType> } callback - The callback is used to return the RemindType.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -932,7 +1309,11 @@ declare namespace notificationManager {
    * Obtains the remind modes of the notification.
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @returns { Promise<DeviceRemindType> } Returns the RemindType.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -946,7 +1327,12 @@ declare namespace notificationManager {
    * @param { SlotType } type - Type of the notification slot.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -960,7 +1346,12 @@ declare namespace notificationManager {
    * @param { SlotType } type - Type of the notification slot.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -973,7 +1364,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether the application slot is enabled.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -986,7 +1382,12 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
    * @returns { Promise<boolean> } Returns whether the application slot is enabled.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -999,7 +1400,12 @@ declare namespace notificationManager {
    * @param { number } userId - The userId.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setSyncNotificationEnabledWithoutApp.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1012,7 +1418,12 @@ declare namespace notificationManager {
    * @param { number } userId - The userId.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1024,7 +1435,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether to sync notifications to devices.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1036,7 +1452,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } userId - The userId.
    * @returns { Promise<boolean> } Returns whether to sync notifications to devices.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
