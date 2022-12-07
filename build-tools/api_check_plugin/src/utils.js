@@ -87,6 +87,12 @@ const ErrorLevel = {
 }
 exports.ErrorLevel = ErrorLevel;
 
+const FileType = {
+  API: 'Api',
+  JSDOC: 'JsDoc'
+}
+exports.FileType = FileType;
+
 let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
