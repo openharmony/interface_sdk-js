@@ -25,6 +25,11 @@ import cryptoFramework from "./@ohos.security.cryptoFramework";
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
+  /**
+   * Deposit certificate
+   *
+   * @since 9
+   */
   export type X509CertRawData = cryptoFramework.EncodingBlob;
 
   /**
