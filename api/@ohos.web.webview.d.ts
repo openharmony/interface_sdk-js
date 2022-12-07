@@ -17,6 +17,7 @@
 
 import {AsyncCallback} from "./basic";
 import {Resource} from 'GlobalResource';
+import image from "./@ohos.multimedia.image";
 
 /**
  * This module provides the capability to manage web modules.
@@ -480,6 +481,75 @@ declare namespace webview {
     }
 
     /**
+     * Provides information for history item in BackForwardList.
+     * @name HistoryItem
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+     interface HistoryItem {
+        /**
+         * Pixelmap of icon.
+         *
+         * @since 9
+         */
+        icon: image.PixelMap;
+
+        /**
+         * Url of this history item.
+         *
+         * @since 9
+         */
+        historyUrl: string;
+
+        /**
+         * Original request url of this history item.
+         *
+         * @since 9
+         */
+        historyRawUrl: string;
+
+        /**
+         * Title of this history item.
+         *
+         * @since 9
+         */
+        title: string;
+    }
+
+    /**
+     * Provides back and forward history list information method. related to {@link HistoryItem}.
+     * @name BackForwardList
+     * @since 9
+     * @syscap SystemCapability.Web.Webview.Core
+     */
+    interface BackForwardList {
+        /**
+         * Current index in BackForwardList.
+         *
+         * @since 9
+         */
+        currentIndex: number;
+
+        /**
+         * Size of in BackForwardList.
+         *
+         * @since 9
+         */
+        size: number;
+        
+        /**
+         * Get history entry at given index.
+         * 
+         * @param { number } index Index of back forward list entry.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @returns { HistoryItem } HistroyItem at given index in back forward list.
+         * 
+         * @since 9
+         */
+        getItemAtIndex(index: number): HistoryItem;
+    }
+
+    /**
      * Provides methods for controlling the web controller.
      *
      * @since 9
@@ -906,6 +976,103 @@ declare namespace webview {
          * @since 9
          */
         getUrl(): string;
+
+        /**
+         * Scroll the contents of this Webview up by half the view size.
+         *
+         * @param { boolean } top - Jump to the top of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageUp(top:boolean): void;
+ 
+        /**
+         * Scroll the contents of this Webview down by half the view size.
+         *
+         * @param { boolean } bottom - Jump to the bottom of the page if true.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        pageDown(bottom:boolean): void;
+ 
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getOriginalUrl(): string;
+ 
+        /**
+         * Gets the original url of current Web page.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { string } Return the the original url of the current page.
+         *
+         * @since 9
+         */
+        getFavicon(): image.PixelMap;
+ 
+        /**
+         * Put network state for web. Which is used to set window.navigator.isOnline property in
+         * JavaScript.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @param { boolean } enable - Whether enable window.navigator.isOnline.
+         * @since 9
+         */
+        setNetworkAvailable(enable: boolean): void;
+        
+        /**
+         * Query if current document has image.
+         *
+         * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { Promise<boolean> } A promise resolved after query image has finished.
+         *
+         * @since 9
+         */
+        hasImage(): Promise<boolean>;
+        hasImage(callback: AsyncCallback<boolean>): void;
+ 
+        /**
+         * Get back forward stack list from current webview.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { BackForwardList } Back forward list for current webview.
+         *
+         * @since 9
+         */
+        getBackForwardEntries(): BackForwardList;
+ 
+        /**
+         * Remove resource cache in application. So this method will Remove all cache for all webviews in the
+         * same application.
+         * 
+         * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
+         *                               in ram.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @since 9
+         */
+        removeCache(clearRom: boolean): void;
     }
 }
 
