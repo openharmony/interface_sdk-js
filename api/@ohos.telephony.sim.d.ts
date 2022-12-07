@@ -313,7 +313,7 @@ declare namespace sim {
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @return Returns the operatorconfigs in a specified slot; returns empty  OperatorConfig
+   * @returns Returns the operatorconfigs in a specified slot; returns empty OperatorConfig
    * if no SIM card is inserted
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @systemapi Hide this for inner system use.

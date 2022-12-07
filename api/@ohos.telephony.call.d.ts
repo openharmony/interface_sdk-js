@@ -1192,7 +1192,7 @@ declare namespace call {
     BEARER_CAPABILITY_NOT_PRESENTLY_AVAILABLE = 58,
 
     /**
-     * Service or option not available, unspec.
+     * Service or option not available, unspecified.
      * 
      * @since 9
      */
@@ -1206,11 +1206,11 @@ declare namespace call {
     BEARER_SERVICE_NOT_IMPLEMENTED = 65,
 
     /**
-     * ACM equal to or greater than ACMmax.
+     * ACM equal to or greater than the maximum value.
      * 
      * @since 9
      */
-    ACM_EQUALTO_OR_GREATE_THAN_ACMMAX = 68,
+     ACM_EQUALTO_OR_GREATER_THAN_THE_MAXIMUM_VALUE = 68,
 
     /**
      * Requested facility not implemented.
@@ -1227,7 +1227,7 @@ declare namespace call {
     ONLY_RESTRICTED_DIGITAL_INFO_BEARER_CAPABILITY_IS_AVAILABLE = 70,
 
     /**
-     * Service or option not implemented, unspec.
+     * Service or option not implemented, unspecified.
      * 
      * @since 9
      */
