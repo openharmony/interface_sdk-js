@@ -105,6 +105,7 @@ declare namespace connection {
    * Checks whether the default data network is activated.
    *
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
