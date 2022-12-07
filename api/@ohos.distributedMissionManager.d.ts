@@ -89,8 +89,7 @@ declare namespace distributedMissionManager {
   /**
    * Continue mission
    *
-   * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @permission ohos.permission.MANAGE_MISSIONS
+   * @permission ohos.permission.MANAGE_MISSIONS and ohos.permission.DISTRIBUTED_DATASYNC
    * @param parameter Parameters corresponding to continue mission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -99,7 +98,7 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 16300503 - The application is not installed on the remote end and installation-free is
    * not supported.
    * @throws { BusinessError } 16300504 - The application is not installed on the remote end but installation-free is
-   * supported, try again with freeInstall flag
+   * supported, try again with freeInstall flag.
    * @throws { BusinessError } 16300505 - The operation device must be the device where the application to be continued
    * is located or the target device to be continued.
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
