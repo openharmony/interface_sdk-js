@@ -850,7 +850,7 @@ declare namespace settings {
  
    /**
     * set settingsdata value(synchronization method)
-    * @permission permission ohos.permission.WRITE_SYSTEM_SETTING
+    * @need permission ohos.permission.WRITE_SYSTEM_SETTING
     * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
