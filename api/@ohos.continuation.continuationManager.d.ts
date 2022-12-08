@@ -35,8 +35,8 @@ declare namespace continuationManager {
      * @returns callback Indicates the information about the selected devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @throws { BusinessError } 16600004 - The specified callback has been registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -53,8 +53,8 @@ declare namespace continuationManager {
      * @returns callback Indicates the information about the unselected devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @throws { BusinessError } 16600004 - The specified callback has been registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -161,7 +161,7 @@ declare namespace continuationManager {
      * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
      * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -179,8 +179,8 @@ declare namespace continuationManager {
      * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
@@ -197,8 +197,8 @@ declare namespace continuationManager {
      * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
@@ -215,8 +215,8 @@ declare namespace continuationManager {
      * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
