@@ -15,6 +15,8 @@
 
 import { AsyncCallback, Callback } from './basic';
 import { Permissions } from './permissions';
+import Context from "./application/Context";
+import PermissionRequestResult from "./security/PermissionRequestResult";
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -73,6 +75,20 @@ import { Permissions } from './permissions';
          * @since 9
          */
         checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+
+        /**
+         * Requests certain permissions from the user.
+         *
+         * @param context The context that initiates the permission request.
+         * @param permissions Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+         * @returns Returns the {@link PermissionRequestResult}.
+         * @throws { BusinessError } 401 - The parameter check failed.
+         * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+         * @since 9
+         * @StageModelOnly
+         */
+        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
+        requestPermissionsFromUser(context: Context, permissions: Array<Permissions>) : Promise<PermissionRequestResult>;
 
         /**
          * Grants a specified user_grant permission to the given application.
@@ -244,3 +260,4 @@ import { Permissions } from './permissions';
  }
 
  export default abilityAccessCtrl;
+ export { Permissions };
