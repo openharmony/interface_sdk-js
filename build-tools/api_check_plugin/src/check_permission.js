@@ -13,19 +13,11 @@
  * limitations under the License.
  */
 
-const fs = require('fs');
 const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkPermission(node, sourcefile, fileName) {
   const permissionTags = [];
-  const content = fs.readFileSync('../../../../base/global/system_resources/systemres/main/config.json', 'utf-8');
-  const permissionFileContent = JSON.parse(content);
-  const permissionTagsObj = permissionFileContent.module.definePermissions;
-  permissionTagsObj.forEach((item) => {
-    permissionTags.push(item.name);
-  })
-
   const permissionRuleSet = new Set(permissionTags);
   const apiNote = getAPINote(node);
   const apiNoteArr = apiNote.split('*');

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 const path = require("path")
+const fs = require("fs")
 const result = require("../check_result.json");
 const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/utils");
 
@@ -27,6 +28,13 @@ const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult } = require("../src/
  * @param {Enum} level enum object:ErrorLevel
  */
 function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, type, level) {
+  const info1 = __dirname;
+  const info2 = path.resolve(__dirname, "../../../../");
+  const info3 = path.resolve(__dirname, "../../../../../");
+  const info4 = fs.existsSync(path.resolve(__dirname,
+    "../../../../base/global/system_resources/systemres/main/config.json"));
+  const info5 = fs.existsSync(path.resolve(__dirname,
+    "../../../../../base/global/system_resources/systemres/main/config.json"));
   if (level === ErrorLevel.HIGH || level === ErrorLevel.MIDDLE) {
     ApiCheckResult.format_check_result = false;
   }
@@ -45,7 +53,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
     errorType: errorType,
     fileName: `${fileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     type: type,
-    errorInfo: errorInfo,
+    errorInfo: `${errorInfo}~~${info1}~~${info2}~~${info3}~~${info4}~~${info5}`,
     version: getApiInfo(node).version,
     basename: path.basename(fileName).replace(/\.d\.ts/g, ""),
     level: level

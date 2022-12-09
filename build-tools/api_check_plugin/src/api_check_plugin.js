@@ -92,7 +92,7 @@ function checkAllNode(node, sourcefile, fileName) {
 function scanEntry(url) {
   // scan entry
   checkAPICodeStyle(url);
-  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
+  result.scanResult.push("api_check: true");
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
