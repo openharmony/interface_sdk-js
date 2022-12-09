@@ -98,6 +98,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @returns { void | Promise<void> } No callback return Promise otherwise return void.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
          * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
@@ -118,6 +119,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @returns { void | Promise<void> } No callback return Promise otherwise return void.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flag value is invalid.
          * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
@@ -137,6 +139,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @returns Return permission flag.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
          * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
          * @throws { BusinessError } 12100003 - The specified permission does not exist.
@@ -151,6 +154,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
         /**
          * Queries permission management version.
          * @returns Return permission version.
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @systemapi
          * @since 9
          */
@@ -175,6 +179,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @param callback Callback used to listen for the permission state changed event.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
          * @throws { BusinessError } 12100004 - The interface is called repeatedly with the same input.
          * @throws { BusinessError } 12100005 - The registration time has exceeded the limitation.
@@ -193,6 +198,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @param callback Callback used to listen for the permission state changed event.
          * @throws { BusinessError } 401 - The parameter check failed.
          * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+         * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
          * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID in list is all invalid, or the permissionName in list is all invalid.
          * @throws { BusinessError } 12100004 - The interface is not used with "on".
          * @throws { BusinessError } 12100007 - Service is abnormal.
