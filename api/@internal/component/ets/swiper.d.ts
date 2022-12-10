@@ -226,6 +226,22 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 8
    */
   indicatorStyle(value?: IndicatorStyle): SwiperAttribute;
+
+  /**
+   * Called when the swiper animation start.
+   * @param { number } index - the index value of the swiper page that when animation start.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  onAnimationStart(event: (index: number) => void): SwiperAttribute;
+
+  /**
+   * Called when the swiper animation end.
+   * @param { number } index - the index value of the swiper page that when animation end.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  onAnimationEnd(event: (index: number) => void): SwiperAttribute;
 }
 
 declare const Swiper: SwiperInterface;
