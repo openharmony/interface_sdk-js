@@ -27,6 +27,7 @@ import { Configuration } from '../@ohos.app.ability.Configuration';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
+import dialogRequest from "../@ohos.app.ability.dialogRequest";
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -493,4 +494,67 @@ export default class UIAbilityContext extends Context {
      * @since 9
      */
     isTerminating(): boolean;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
+
+    /**
+     * Requests certain permissions from the system.
+     * @param want { Want } - Indicates the dialog service to start.
+     * @param { AsyncCallback<RequestResult> } result - The callback is used to return the request result.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void;
+
+    /**
+     * Requests certain permissions from the system.
+     * @param want { Want } - Indicates the dialog service to start.
+     * @returns { Promise<request.RequestResult> } Returns the request result.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 9
+     */
+    requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
 }

@@ -295,4 +295,45 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @since 9
      */
     startAbilityByCall(want: Want): Promise<Caller>;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 }
