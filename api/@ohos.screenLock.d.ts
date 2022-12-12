@@ -79,6 +79,7 @@ declare namespace screenLock {
    * Lock the screen. Returns true if the screen locked successfully. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -98,6 +99,7 @@ declare namespace screenLock {
    * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
    * @returns { boolean } the boolean returned by the function.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
@@ -109,6 +111,7 @@ declare namespace screenLock {
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
    * @throws {BusinessError} 401 - parameter error.
+   * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @systemapi Hide this for inner system use.
    * @since 9
