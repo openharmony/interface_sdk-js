@@ -35,7 +35,7 @@ function checkDeprecated(node, sourcefile, fileName) {
           } else {
             errorInfo += note;
           }
-        } 
+        }
       } else if (arr == null) {
         hasDeprecatedError = true;
         if (errorInfo !== "") {

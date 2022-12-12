@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
 const rules = require("../code_style_rule.json");
 const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
