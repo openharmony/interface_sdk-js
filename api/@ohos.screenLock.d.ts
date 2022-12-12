@@ -25,7 +25,6 @@ declare namespace screenLock {
   /**
    * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-   * otherwise.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.isLocked
@@ -43,7 +42,6 @@ declare namespace screenLock {
   /**
    * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
    * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-   * otherwise.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.isSecure
@@ -60,7 +58,6 @@ declare namespace screenLock {
 
   /**
    * Unlock the screen.
-   * return -
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.unlock
