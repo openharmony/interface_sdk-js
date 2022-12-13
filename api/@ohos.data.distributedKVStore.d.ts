@@ -1956,9 +1956,9 @@ declare namespace distributedKVStore {
         getEntries(deviceId: string, query: Query): Promise<Entry[]>;
 
         /**
-         * Obtains the result set with the local device ID and specified prefix from a {@code SingleKVStore} database.
+         * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
          * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-         * Each {@code SingleKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+         * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
          * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
          * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
          *
@@ -1974,9 +1974,9 @@ declare namespace distributedKVStore {
         getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
         /**
-         * Obtains the result set with the local device ID and specified prefix from a {@code SingleKVStore} database.
+         * Obtains the result set with the local device ID and specified prefix from a {@code DeviceKVStore} database.
          * The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria.
-         * Each {@code SingleKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
+         * Each {@code DeviceKVStore} instance can have a maximum of four {@code KVStoreResultSet} objects at the same time.
          * If you have created four objects, calling this method will return a failure. Therefore, you are advised to
          * call the closeResultSet method to close unnecessary {@code KVStoreResultSet} objects in a timely manner.
          *
@@ -1994,7 +1994,7 @@ declare namespace distributedKVStore {
         /**
          * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
          *
-         * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
+         * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
          * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
          * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
          * {@code KVStoreResultSet} objects in a timely manner.
@@ -2014,7 +2014,7 @@ declare namespace distributedKVStore {
         /**
          * Obtains the {@code KVStoreResultSet} object matching the specified device ID and key prefix.
          *
-         * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code SingleKVStore}
+         * <p>The {@code KVStoreResultSet} object can be used to query all key-value pairs that meet the search criteria. Each {@code DeviceKVStore}
          * instance can have a maximum of four {@code KVStoreResultSet} objects at the same time. If you have created four objects,
          * calling this method will return a failure. Therefore, you are advised to call the closeResultSet method to close unnecessary
          * {@code KVStoreResultSet} objects in a timely manner.
