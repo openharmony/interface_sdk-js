@@ -197,11 +197,26 @@ declare namespace tag {
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.nfc.tag/tag#getNfcA
    */
   function getNfcATag(tagInfo: TagInfo): NfcATag
+
+  /**
+   * Obtains an {@link NfcATag} object based on the tag information.
+   *
+   * During tag reading, if the tag supports the NFC-A technology, an {@link NfcATag} object
+   * will be created based on the tag information.
+   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+   function getNfcA(tagInfo: TagInfo): NfcATag
 
   /**
    * Obtains an {@link NfcBTag} object based on the tag information.
@@ -210,11 +225,26 @@ declare namespace tag {
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.nfc.tag/tag#getNfcB
    */
   function getNfcBTag(tagInfo: TagInfo): NfcBTag
+
+  /**
+   * Obtains an {@link NfcBTag} object based on the tag information.
+   *
+   * During tag reading, if the tag supports the NFC-B technology, an {@link NfcBTag} object
+   * will be created based on the tag information.
+   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+   function getNfcB(tagInfo: TagInfo): NfcBTag
 
   /**
    * Obtains an {@link NfcFTag} object based on the tag information.
@@ -223,11 +253,26 @@ declare namespace tag {
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.nfc.tag/tag#getNfcF
    */
   function getNfcFTag(tagInfo: TagInfo): NfcFTag
+
+  /**
+   * Obtains an {@link NfcFTag} object based on the tag information.
+   *
+   * During tag reading, if the tag supports the NFC-F technology, an {@link NfcFTag} object
+   * will be created based on the tag information.
+   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+   function getNfcF(tagInfo: TagInfo): NfcFTag
 
   /**
    * Obtains an {@link NfcVTag} object based on the tag information.
@@ -236,11 +281,26 @@ declare namespace tag {
    * will be created based on the tag information.
    *
    * @param tagInfo Indicates the tag information.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.nfc.tag/tag#getNfcV
    */
   function getNfcVTag(tagInfo: TagInfo): NfcVTag
+
+  /**
+   * Obtains an {@link NfcVTag} object based on the tag information.
+   *
+   * During tag reading, if the tag supports the NFC-V technology, an {@link NfcVTag} object
+   * will be created based on the tag information.
+   *
+   * @param { TagInfo } tagInfo - Indicates the dispatched tag information.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
+   function getNfcV(tagInfo: TagInfo): NfcVTag
 
   /**
    * Obtains an {@link IsoDepTag} object based on the tag information.
@@ -382,7 +442,7 @@ declare namespace tag {
     *
     * @since 7
     * @deprecated since 9
-    * @useinstead tag.TagInfo#technology
+    * @useinstead ohos.nfc.tag/tag.TagInfo#technology
     */
     supportedProfiles: number[];
   }
