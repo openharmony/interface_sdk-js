@@ -193,17 +193,17 @@ declare namespace url {
      */
     class URLParams {
         /**
-         * A parameterized constructor used to create an URLSearchParams instance.
+         * A parameterized constructor used to create an URLParams instance.
          * As the input parameter of the constructor function, init supports four types.
          * The input parameter is a character string two-dimensional array.
          * The input parameter is the object list.
          * The input parameter is a character string.
-         * The input parameter is the URLSearchParams object.
+         * The input parameter is the URLParams object.
          * @since 9
          * @throws {BusinessError} 401 - The type of init must be string two-dimensional array or object list
-         * or string or URLSearchParams object.
+         * or string or URLParams object.
          */
-        constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
+        constructor(init?: string[][] | Record<string, string> | string | URLParams);
 
         /**
          * Appends a specified key/value pair as a new search parameter.
@@ -244,7 +244,7 @@ declare namespace url {
         entries(): IterableIterator<[string, string]>;
 
         /**
-         * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
+         * Callback functions are used to traverse key-value pairs on the URLParams instance object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param value Current traversal key value.
@@ -457,9 +457,20 @@ declare namespace url {
          * This property is read-only, but URLSearchParams provides an object that can be used to change
          * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.url.URL.params
          * @syscap SystemCapability.Utils.Lang
          */
         readonly searchParams: URLSearchParams;
+
+        /**
+         * Gets the URLParams object that represents the URL query parameter.
+         * This property is read-only, but URLParams provides an object that can be used to change
+         * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         */
+        readonly params: URLParams;
 
         /**
          * Gets and sets the username portion of the URL.
