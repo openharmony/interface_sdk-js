@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import rpc from "./@ohos.rpc";
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import InputMethodExtensionContext from "./@ohos.inputmethodextensioncontext";
 
 /**

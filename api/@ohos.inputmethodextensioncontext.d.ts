@@ -14,8 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
 import ExtensionContext from './application/ExtensionContext';
 
 /**
