@@ -21,7 +21,7 @@ import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
 import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
 import Context from "./Context";
-import Want from "../@ohos.application.Want";
+import Want from "../@ohos.app.ability.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
 import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.app.ability.Configuration';

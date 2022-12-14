@@ -15,7 +15,7 @@
 
 import rpc from "./@ohos.rpc";
 import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
 /**

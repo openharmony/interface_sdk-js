@@ -95,12 +95,4 @@ export default class Want {
      * @default -
      */
     entities?: Array<string>;
-
-    /**
-     * The description of an module name in an want.
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @default -
-     */
-    moduleName?: string;
 }

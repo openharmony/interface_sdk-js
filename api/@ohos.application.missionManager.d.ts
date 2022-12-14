@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
-import StartOptions from "./@ohos.application.StartOptions";
+import StartOptions from "./@ohos.app.ability.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -87,18 +87,6 @@ declare namespace missionManager {
      */
     function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
-
-    /**
-     * Get the mission low resolution snapshot with the given missionId.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @returns The {@link MissionSnapshot} of the given id.
-     */
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
      * Lock the mission.
