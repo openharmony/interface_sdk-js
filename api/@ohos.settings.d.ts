@@ -777,6 +777,7 @@ declare namespace settings {
    * @param name Indicates the name of the setting to set.
    * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
+   * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
@@ -790,6 +791,8 @@ declare namespace settings {
    * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
+   * @deprecated since 9
+   * @FAModelOnly
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
@@ -804,6 +807,8 @@ declare namespace settings {
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
+   * @deprecated since 9
+   * @FAModelOnly
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
@@ -834,7 +839,7 @@ declare namespace settings {
    * get settingsdata uri(synchronization method)
    * @since 8
    * @param name Indicates the name of the setting to set.
-   * @returns Return settingsdata uri.
+   * @returns Returns settingsdata uri.
    */
    function getUriSync(name: string): string;
 
@@ -845,17 +850,21 @@ declare namespace settings {
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
     * @returns settingsdata value
+    * @deprecated since 9
+    * @FAModelOnly
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
  
    /**
     * set settingsdata value(synchronization method)
-    * @need permission ohos.permission.WRITE_SYSTEM_SETTING
+    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
     * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
     * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @deprecated since 9
+    * @FAModelOnly
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 }
