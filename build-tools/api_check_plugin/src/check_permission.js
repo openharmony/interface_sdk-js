@@ -39,16 +39,16 @@ function checkPermission(node, sourcefile, fileName) {
   apiNoteArr.forEach(note => {
     if (note.match(new RegExp('@permission'))) {
       const permissionNote = note.replace('@permission', '').trim();
-      if (/( or | and )/g.test(permissionNote)) {
-        const permissionArr = permissionNote.split(/( or | and )/)
-        permissionArr.forEach(item => {
-          if (!/( or | and )/g.test(item)) {
-            if (!permissionRuleSet.has(item)) {
+      if (/(or|and)/g.test(permissionNote)) {
+        const permissionArr = permissionNote.replace(/( |or|and|\(|\))/g, '$').split('$');
+        permissionArr.forEach(permissionStr => {
+          if (permissionStr !== '') {
+            if (!permissionRuleSet.has(permissionStr)) {
               hasPermissionError = true;
               if (errorInfo !== "") {
-                errorInfo += `,${item}`;
+                errorInfo += `,${permissionStr}`;
               } else {
-                errorInfo += item;
+                errorInfo += permissionStr;
               }
             }
           }

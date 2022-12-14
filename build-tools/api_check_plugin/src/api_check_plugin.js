@@ -40,7 +40,7 @@ function getMdFiles(url) {
 function tsTransform(uFiles, callback) {
   uFiles.forEach((filePath, index) => {
     console.log(`scaning file in no ${++index}!`)
-    if (/\.d\.ts/.test(filePath)) {
+    if (/\.d\.ts/.test(filePath) && fs.existsSync(filePath)) {
       const content = fs.readFileSync(filePath, "utf-8");
       const fileName = path.basename(filePath).replace(/.d.ts/g, ".ts");
       ts.transpileModule(content, {
