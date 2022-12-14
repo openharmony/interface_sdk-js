@@ -28,60 +28,6 @@ import { ProcessRunningInformation } from "./ProcessRunningInformation";
 export default class ApplicationContext extends Context {
     /**
      * Register ability lifecycle callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The ability lifecycle callback.
-     * @returns Returns the number code of the callback.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead on
-     */
-    registerAbilityLifecycleCallback(callback: AbilityLifecycleCallback): number;
-
-    /**
-     * Unregister ability lifecycle callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @returns -
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead off
-     */
-    unregisterAbilityLifecycleCallback(callbackId: number,  callback: AsyncCallback<void>): void;
-    unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
-
-    /**
-     * Register environment callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The environment callback.
-     * @returns Returns the number code of the callback.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead on
-     */
-    registerEnvironmentCallback(callback: EnvironmentCallback): number;
-
-    /**
-     * Unregister environment callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @returns -
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead off
-     */
-    unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
-    unregisterEnvironmentCallback(callbackId: number): Promise<void>;
-
-    /**
-     * Register ability lifecycle callback.
      * @param { string } type - abilityLifecycle.
      * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
      * @returns { number } Returns the number code of the callback.

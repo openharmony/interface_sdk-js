@@ -31,37 +31,6 @@ import { ProcessRunningInformation as _ProcessRunningInformation } from './appli
  */
 declare namespace appManager {
     /**
-     * @name ApplicationState
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
-     */
-    export enum ApplicationState {
-        STATE_CREATE,
-        STATE_FOREGROUND,
-        STATE_ACTIVE,
-        STATE_BACKGROUND,
-        STATE_DESTROY
-    }
-
-
-    /**
-     * @name ProcessState
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @permission N/A
-     */
-    export enum ProcessState {
-        STATE_CREATE,
-        STATE_FOREGROUND,
-        STATE_ACTIVE,
-        STATE_BACKGROUND,
-        STATE_DESTROY
-    }
-
-    /**
      * Register application state observer.
      *
      * @default -
@@ -73,20 +42,6 @@ declare namespace appManager {
      * @permission ohos.permission.RUNNING_STATE_OBSERVER
      */
     function registerApplicationStateObserver(observer: ApplicationStateObserver): number;
-
-    /**
-     * Register application state observer.
-     *
-     * @default -
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param observer The application state observer.
-     * @param bundleNameList The list of bundleName. The max length is 128.
-     * @systemapi
-     * @returns Returns the number code of the observer.
-     * @permission ohos.permission.RUNNING_STATE_OBSERVER
-     */
-     function registerApplicationStateObserver(observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
     /**
      * Unregister application state observer.
@@ -189,17 +144,6 @@ declare namespace appManager {
      */
     function getAppMemorySize(): Promise<number>;
     function getAppMemorySize(callback: AsyncCallback<number>): void;
-
-    /**
-    * Get information about running processes
-    *
-    * @since 9
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @returns Returns the array of {@link ProcessRunningInformation}.
-    * @permission ohos.permission.GET_RUNNING_INFO
-    */
-    function getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
-    function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
 
     /**
      * The ability or extension state data.

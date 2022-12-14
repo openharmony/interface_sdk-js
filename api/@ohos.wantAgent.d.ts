@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback , Callback} from './basic';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 
@@ -84,16 +84,6 @@ declare namespace wantAgent {
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
 
   /**
-   * Triggers a WantAgent.
-   *
-   * @since 9
-   * @param WantAgent to trigger.
-   * @param Trigger parameters.
-   * @param callback Indicates the AsyncCallback method to be called after the {@link WantAgent} is triggered.
-   */
-  function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
-
-  /**
    * Checks whether two WantAgent objects are equal.
    *
    * @param WantAgent to compare.
@@ -111,16 +101,6 @@ declare namespace wantAgent {
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
-
-  /**
-   * Obtains the {@link OperationType} of a {@link WantAgent}.
-   *
-   * @since 9
-   * @param agent Indicates the {@link WantAgent} whose {@link OperationType} is to be obtained.
-   * @returns Returns the {@link OperationType} of the {@link WantAgent}.
-   */
-  function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
-  function getOperationType(agent: WantAgent): Promise<number>;
 
   /**
    * Enumerates flags for using a WantAgent.

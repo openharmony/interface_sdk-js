@@ -19,7 +19,7 @@ import AbilityStage from '../@ohos.app.ability.AbilityStage';
 import { AbilityMonitor } from './abilityMonitor';
 import { AbilityStageMonitor } from './abilityStageMonitor';
 import Context from './Context';
-import Want from "../@ohos.application.Want";
+import Want from "../@ohos.app.ability.Want";
 import { ShellCmdResult } from './shellCmdResult';
 
 /**

@@ -82,22 +82,6 @@ declare namespace notification {
    function publish(request: NotificationRequest, userId: number): Promise<void>;
 
   /**
-   * Publishes a representative notification.
-   *
-   * @since 9
-   * @param request a notification.
-   * @param representativeBundle bundle name of the representative
-   * @param userId userid of the representative
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.publishAsBundle
-   *
-   */
-    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
-    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
-
-  /**
    * Cancel a notification with the specified ID.
    *
    * @param id of the notification to cancel, which must be unique in the application.
@@ -118,22 +102,6 @@ declare namespace notification {
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
-
-  /**
-   * Cancel a representative notification.
-   *
-   * @since 9
-   * @param id ID of the notification to cancel, which must be unique in the application.
-   * @param representativeBundle bundle name of the representative
-   * @param userId userid of the representative
-   * @param callback callback function
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.cancelAsBundle
-   */
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
 
   /**
    * Cancels all notifications of the current application.
@@ -860,54 +828,6 @@ declare namespace notification {
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
   /**
-   * Set whether the application slot is enabled.
-   *
-   * @since 9
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.setNotificationEnableSlot
-   */
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
-
-  /**
-    * Obtains whether the application slot is enabled.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.isNotificationSlotEnabled
-    */
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
-
-  /**
-    * Set whether to sync notifications to devices that do not have the app installed.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.setSyncNotificationEnabledWithoutApp
-    */
-    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
-    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
-  
-  /**
-    * Obtains whether to sync notifications to devices that do not have the app installed.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.getSyncNotificationEnabledWithoutApp
-    */
-   function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
-   function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
-
-  /**
    * Describes a BundleOption.
    *
    * @deprecated since 9
@@ -1047,7 +967,6 @@ declare namespace notification {
    /**
    * Reason for remove a notification
    *
-   * @since 9
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.RemoveReason

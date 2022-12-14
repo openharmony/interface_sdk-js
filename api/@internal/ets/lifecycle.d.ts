@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import Want from "../../@ohos.application.Want";
+import Want from "../../@ohos.app.ability.Want";
 import { ResultSet } from "../../data/rdb/resultSet";
 import { AbilityInfo } from "../../bundle/abilityInfo";
 import { DataAbilityResult } from "../../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../../ability/dataAbilityOperation";
 import dataAbility from "../../@ohos.data.dataAbility";
 import formBindingData from "../../@ohos.application.formBindingData";
-import formInfo from "../../@ohos.application.formInfo";
+import formInfo from "../../@ohos.app.form.formInfo";
 import rdb from "../../@ohos.data.rdb";
 import rpc from "../../@ohos.rpc";
 import resourceManager from "../../@ohos.resourceManager";

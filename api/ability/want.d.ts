@@ -20,7 +20,7 @@
   * @syscap SystemCapability.Ability.AbilityBase
   * @permission N/A
   * @deprecated since 9
-  * @useinstead ohos.application.Want
+  * @useinstead ohos.app.ability.Want
   */
 export declare interface Want {
   /**
