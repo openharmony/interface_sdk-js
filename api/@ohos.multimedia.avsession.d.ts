@@ -949,7 +949,7 @@ declare namespace avSession {
    */
   enum AVSessionErrorCode {
     /**
-     * Server exception
+     * Session service exception.
      * @since 9
      */
     ERR_CODE_SERVICE_EXCEPTION = 6600101,
@@ -961,31 +961,31 @@ declare namespace avSession {
     ERR_CODE_SESSION_NOT_EXIST = 6600102,
 
     /**
-     * The controller does not exist
+     * The session controller does not exist.
      * @since 9
      */
     ERR_CODE_CONTROLLER_NOT_EXIST = 6600103,
 
     /**
-     * Remote connection error
+     * The remote session connection failed.
      * @since 9
      */
     ERR_CODE_REMOTE_CONNECTION_ERR = 6600104,
 
     /**
-     * Command not supported
+     * Invalid session command.
      * @since 9
      */
     ERR_CODE_COMMAND_INVALID = 6600105,
 
     /**
-     * Session inactive
+     * The session is not activated.
      * @since 9
      */
     ERR_CODE_SESSION_INACTIVE = 6600106,
 
     /**
-     * Command or event overload
+     * Too many commands or events.
      * @since 9
      */
     ERR_CODE_MESSAGE_OVERLOAD = 6600107,
