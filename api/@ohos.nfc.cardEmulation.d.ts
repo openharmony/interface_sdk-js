@@ -19,7 +19,7 @@ import { ElementName } from './bundle/elementName';
  * Provides methods to operate or manage NFC card emulation.
  *
  * @since 6
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.CardEmulation
  */
 declare namespace cardEmulation {
   enum FeatureType {
@@ -80,7 +80,7 @@ declare namespace cardEmulation {
    * installation information and connect to services of the application.
    *
    * @since 8
-   * @syscap SystemCapability.Communication.NFC.Core
+   * @syscap SystemCapability.Communication.NFC.CardEmulation
    */
   export class HceService {
     /**

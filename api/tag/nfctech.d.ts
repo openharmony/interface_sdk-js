@@ -23,7 +23,7 @@ import { AsyncCallback, Callback } from '../basic';
  * {@code NfcATag} objects and obtain the ATQA and SAK.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcATag extends TagSession {
   /**
@@ -54,7 +54,7 @@ export interface NfcATag extends TagSession {
  * {@code NfcBTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcBTag extends TagSession {
   /**
@@ -85,7 +85,7 @@ export interface NfcBTag extends TagSession {
  * {@code NfcFTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcFTag extends TagSession {
   /**
@@ -116,7 +116,7 @@ export interface NfcFTag extends TagSession {
  * {@code NfcVTag} and obtain the tag information.
  *
  * @since 7
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NfcVTag extends TagSession {
   /**
@@ -144,7 +144,7 @@ export interface NfcVTag extends TagSession {
  * Provides methods for accessing IsoDep tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface IsoDepTag extends TagSession {
  /**
@@ -184,6 +184,7 @@ export interface NdefMessage {
   * Obtains all records of an NDEF message.
   *
   * @returns { tag.NdefRecord[] } Records the list of NDEF records.
+  * @syscap SystemCapability.Communication.NFC.Tag
   * @since 9
   */
   getNdefRecords(): tag.NdefRecord[];
@@ -193,7 +194,7 @@ export interface NdefMessage {
  * Provides methods for accessing NDEF tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefTag extends TagSession {
  /**
@@ -284,7 +285,7 @@ export interface NdefTag extends TagSession {
  * Provides methods for accessing MifareClassic tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareClassicTag extends TagSession {
  /**
@@ -451,7 +452,7 @@ export interface MifareClassicTag extends TagSession {
  * Provides methods for accessing MifareUltralight tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface MifareUltralightTag extends TagSession {
  /**
@@ -495,7 +496,7 @@ export interface MifareUltralightTag extends TagSession {
  * Provides methods for accessing NdefFormatable tag.
  *
  * @since 9
- * @syscap SystemCapability.Communication.NFC.Core
+ * @syscap SystemCapability.Communication.NFC.Tag
  */
 export interface NdefFormatableTag extends TagSession {
  /**
