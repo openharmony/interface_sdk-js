@@ -23,8 +23,9 @@ import { Callback } from './basic';
 declare namespace screenLock {
 
   /**
-   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
-   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * Checks whether the screen is currently locked.
+   *
+   * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.isLocked
@@ -33,15 +34,17 @@ declare namespace screenLock {
   function isScreenLocked(): Promise<boolean>;
 
   /**
-   * Checks whether the screen is currently locked. Returns true if the screen is currently locked. returns false otherwise.
-   * @returns { boolean } the boolean returned by the function.
+   * Checks whether the screen is currently locked.
+   *
+   * @returns Returns {@code true} if the screen is currently locked; returns {@code false} otherwise.
    * @since 9
    */
   function isLocked(): boolean;
 
   /**
-   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
-   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * Checks whether the screen lock of the current device is secure.
+   *
+   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.isSecure
@@ -50,14 +53,16 @@ declare namespace screenLock {
   function isSecureMode(): Promise<boolean>;
   
   /**
-   * Checks whether the screen lock of the current device is secure. Returns true if the screen lock of the current device is secure. returns false otherwise.
-   * @returns { boolean } the boolean returned by the function.
+   * Checks whether the screen lock of the current device is secure.
+   *
+   * @returns Returns {@code true} if the screen lock of the current device is secure; returns {@code false} otherwise.
    * @since 9
    */
   function isSecure(): boolean;
 
   /**
    * Unlock the screen.
+   *
    * @since 7
    * @deprecated since 9
    * @useinstead ohos.screenLock.unlock
@@ -66,8 +71,9 @@ declare namespace screenLock {
   function unlockScreen():Promise<void>;
   
   /**
-   * Unlock the screen. Returns true if the screen unlocked successfully. returns false otherwise.
-   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * Unlock the screen.
+   *
+   * @returns Returns {@code true} if the screen is unlocked successfully; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
    * @since 9
@@ -76,8 +82,9 @@ declare namespace screenLock {
   function unlock():Promise<boolean>;
 
   /**
-   * Lock the screen. Returns true if the screen locked successfully. returns false otherwise.
-   * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
+   * Lock the screen.
+   *
+   * @returns Returns {@code true} if the screen is locked successfully; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
@@ -95,9 +102,10 @@ declare namespace screenLock {
   }
 
   /**
-   * Register system event related to screen lock service. Returns true if register system event is success. returns false otherwise.
+   * Register system event related to screen lock service.
+   *
    * @param { Callback<SystemEvent> } callback - the callback function for indicating the system event related screen lock
-   * @returns { boolean } the boolean returned by the function.
+   * @returns Returns {@code true} if register system event is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
@@ -108,6 +116,7 @@ declare namespace screenLock {
 
   /**
    * The screen lock app sends the event to the screen lock service.
+   *
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
    * @throws {BusinessError} 401 - parameter error.
