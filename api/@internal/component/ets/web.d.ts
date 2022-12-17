@@ -649,7 +649,7 @@ declare class WebContextMenuParam {
    *
    * @since 9
    */
-  getUnfilterendLinkUrl(): string;
+  getUnfilteredLinkUrl(): string;
 
   /**
    * Returns the SRC URL if the selected element has a SRC attribute.
