@@ -100,6 +100,7 @@ export default class AbilityContext extends Context {
 
     /**
      * Get the caller object of the startup capability
+     * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
      * @param { Want } want - Indicates the ability to start.
      * @returns { Promise<Caller> } Returns the Caller interface.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
