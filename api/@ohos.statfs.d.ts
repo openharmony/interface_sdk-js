@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (C) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-import {AsyncCallback, Callback} from "./basic";
+import { AsyncCallback } from "./basic";
 
 /**
  * Provides filesystem statistics APIs
@@ -26,6 +26,8 @@ declare namespace Statfs {
    * Get the number of free bytes on the specified path.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.file.statvfs.getFreeSize
    */
   function getFreeBytes(path: string, callback: AsyncCallback<number>): void;
   function getFreeBytes(path: string): Promise<number>;
@@ -33,6 +35,8 @@ declare namespace Statfs {
    * Get the total number of bytes of the specified path.
    *
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.file.statvfs.getTotalSize
    */
   function getTotalBytes(path: string, callback: AsyncCallback<number>): void;
   function getTotalBytes(path: string): Promise<number>;
