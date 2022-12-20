@@ -708,6 +708,7 @@ declare namespace osAccount {
          * Obtain bundle id from uid.
          * @param uid Indicates the target uid.
          * @returns bundle id.
+         * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid uid.
@@ -1164,6 +1165,7 @@ declare namespace osAccount {
          * <p>
          * End an IDM operation.  
          * @permission ohos.permission.MANAGE_USER_IDM
+         * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 202 - not system application.
          * @systemapi Hide this for inner system use.
          * @since 8
