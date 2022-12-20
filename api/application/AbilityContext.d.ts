@@ -532,6 +532,8 @@ export default class AbilityContext extends Context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     * @deprecated since 9
+     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
      */
     requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
 
@@ -544,6 +546,8 @@ export default class AbilityContext extends Context {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
+     * @deprecated since 9
+     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
      */
     requestPermissionsFromUser(permissions: Array<string>): Promise<PermissionRequestResult>;
 

@@ -17,18 +17,16 @@
  * The result of requestPermissionsFromUser with asynchronous callback.
  *
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Security.AccessToken
  * @permission N/A
  * @StageModelOnly
- * @deprecated since 9
- * @useinstead security/PermissionRequestResult
  */
 export default class PermissionRequestResult {
     /**
      * The permissions passed in by the user.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Security.AccessToken
      * @StageModelOnly
      */
     permissions: Array<string>;
@@ -38,7 +36,7 @@ export default class PermissionRequestResult {
      * permission is granted, and the value -1 indicates not.
      *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Security.AccessToken
      * @StageModelOnly
      */
     authResults: Array<number>;
