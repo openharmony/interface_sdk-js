@@ -494,19 +494,19 @@ declare class HttpAuthHandler {
    * Constructor.
    * @since 9
    */
-   constructor();
+  constructor();
 
   /**
    * Confirm to use the SSL certificate.
    * @since 9
    */
-   handleConfirm(): void;
+  handleConfirm(): void;
 
   /**
    * Cancel this request.
    * @since 9
    */
-   handleCancel(): void;
+  handleCancel(): void;
 }
 
 /**
@@ -717,9 +717,9 @@ declare enum ContextMenuInputFieldType {
 }
 
 /**
-* Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
-* @since 9
-*/
+ * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
+ * @since 9
+ */
 declare enum ContextMenuEditStateFlags {
   NONE = 0,
   CAN_CUT = 1 << 0,
@@ -789,39 +789,43 @@ declare class WebContextMenuParam {
 
   /**
    * Returns the type of context node.
+   *
    * @since 9
    */
-   getMediaType(): ContextMenuMediaType;
+  getMediaType(): ContextMenuMediaType;
 
-   /**
-    * Returns the text of the selection.
-    * @since 9
-    */
-   getSelectionText(): string;
+  /**
+   * Returns the text of the selection.
+   *
+   * @since 9
+   */
+  getSelectionText(): string;
+
+  /**
+   * Returns the context menu source type.
+   *
+   * @since 9
+   */
+  getSourceType(): ContextMenuSourceType;
+
+  /**
+   * Returns input field type if the context menu was invoked on an input field.
+   *
+   * @since 9
+   */
+  getInputFieldType(): ContextMenuInputFieldType;
  
-   /**
-    * Returns the context menu source type.
-    * @since 9
-    */
-   getSourceType(): ContextMenuSourceType;
- 
-   /**
-    * Returns input field type if the context menu was invoked on an input field.
-    * @since 9
-    */
-   getInputFieldType(): ContextMenuInputFieldType;
- 
-   /**
-    * Returns whether the context is editable. 
-    * @since 9
-    */
-   isEditable(): boolean;
- 
-   /**
-    * Returns the context editable flags {@link ContextMenuEditStateFlags}.
-    * @since 9
-    */
-    getEditStateFlags(): number;
+  /**
+   * Returns whether the context is editable.
+   * @since 9
+   */
+  isEditable(): boolean;
+
+  /**
+   * Returns the context editable flags {@link ContextMenuEditStateFlags}.
+   * @since 9
+   */
+  getEditStateFlags(): number;
 }
 
 /**
@@ -853,23 +857,25 @@ declare class WebContextMenuResult {
 
   /**
    * Executes the copy operation ralated to this context menu.
+   *
    * @since 9
    */
   copy(): void;
 
   /**
    * Executes the paste operation ralated to this context menu.
+   *
    * @since 9
    */
   paste(): void;
-  
+
   /**
    * Executes the cut operation ralated to this context menu.
    *
    * @since 9
    */
   cut(): void;
-  
+
   /**
    * Executes the selectAll operation ralated to this context menu.
    *
