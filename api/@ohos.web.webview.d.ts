@@ -542,7 +542,7 @@ declare namespace webview {
          * 
          * @param { number } index Index of back forward list entry.
          * @throws { BusinessError } 401 - Invalid input parameter.
-         * @returns { HistoryItem } HistroyItem at given index in back forward list.
+         * @returns { HistoryItem } HistoryItem at given index in back forward list.
          * 
          * @since 9
          */
@@ -557,9 +557,8 @@ declare namespace webview {
      class WebviewController {
         /**
          * Initialize the web engine before loading the Web components.
-         *
-         * @note This is a global static API that must be called on the UI thread, and it will have no effect if any
-         *       Web components are loaded.
+         * This is a global static API that must be called on the UI thread, and it will have no effect if any
+         * Web components are loaded.
          *
          * @since 9
          */
@@ -1072,7 +1071,7 @@ declare namespace webview {
         getBackForwardEntries(): BackForwardList;
  
         /**
-         * Remove resource cache in application. So this method will Remove all cache for all webviews in the
+         * Remove resource cache in application. So this method will remove all cache for all web components in the
          * same application.
          * 
          * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
