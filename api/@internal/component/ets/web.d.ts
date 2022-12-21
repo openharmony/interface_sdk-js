@@ -2032,12 +2032,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultFontSize(size: number): WebAttribute;
  
   /**
-  * Set the minimum value of webview font. The default value is 8, and the values are 1 to 72.
+  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
   * @param size Font size.
   *
   * @since 9
   */
   minFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minLogicalFontSize(size: number): WebAttribute;
  
   /**
    * Whether web component can load resource from network.
