@@ -175,40 +175,24 @@ declare namespace relationalStore
      * Returns RdbStore status when GetRdbStore is called.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 10
      */
     enum OpenStatus {
         /**
-         * Indicates that the RDB database is in the create state.
+         * Indicates that the RDB database is in the creation state.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
+         * @since 10
          */
-        ON_CREATE = 1 << 0,
+        ON_CREATE = 0,
 
         /**
          * Indicates that the RDB database is in the open state.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
+         * @since 10
          */
-        ON_OPEN = 1 << 1,
-
-        /**
-         * Indicates that the RDB database is in the upgrade state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        ON_UPGRADE = 1 << 2,
-
-        /**
-         * Indicates that the RDB database is in the downgrade state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
-         */
-        ON_DOWNGRADE = 1 << 3,
+        ON_OPEN = 1,
     }
 
     /**
@@ -221,10 +205,10 @@ declare namespace relationalStore
      */
     interface RdbStore {
         /**
-         * Obtains the RdbStore status.
+         * Obtains the RdbStore {@link OpenStatus}.
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 9
+         * @since 10
          */
         openStatus: number;
 
