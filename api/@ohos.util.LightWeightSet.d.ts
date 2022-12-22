@@ -80,7 +80,7 @@ declare class LightWeightSet<T> {
    * @param minimumCapacity Minimum capacity to be reserved
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
