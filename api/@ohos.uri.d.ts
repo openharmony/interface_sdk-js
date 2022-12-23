@@ -32,6 +32,7 @@ declare namespace uri {
          * URI constructor, which is used to instantiate a URI object.
          * uri: Constructs a URI by parsing a given string.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
+	 * @throws {BusinessError} 10200002 - Invalid uri string.
          */
         constructor(uri: string);
 
@@ -60,7 +61,7 @@ declare namespace uri {
          * @syscap SystemCapability.Utils.Lang
          * @param other URI object to be compared
          * @returns boolean Tests whether this URI is equivalent to other URI objects.
-         * @throws {BusinessError} 10200002 - The type of other must be URI.
+         * @throws {BusinessError} 401 - The type of other must be URI.
          */
         equalsTo(other: URI): boolean;
 
