@@ -712,9 +712,14 @@ declare namespace userAuth {
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @throws { BusinessError } 201 - Permission verification failed.
          * @throws { BusinessError } 401 - Incorrect parameters.
+         * @throws { BusinessError } 12500001 - Execution failed.
          * @throws { BusinessError } 12500002 - General operation error.
+         * @throws { BusinessError } 12500003 - The operation is canceled.
+         * @throws { BusinessError } 12500004 - The operation is time-out.
          * @throws { BusinessError } 12500005 - The authentication type is not supported.
          * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+         * @throws { BusinessError } 12500007 - The authentication task is busy.
+         * @throws { BusinessError } 12500009 - The authenticator is locked.
          * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since since 9
