@@ -14,9 +14,9 @@
  */
 
 import { AsyncCallback } from './basic';
-import { MissionInfo as _MissionInfo } from './application/MissionInfo';
-import { MissionListener as _MissionListener } from './application/MissionListener';
-import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
+import { MissionInfo } from './application/MissionInfo';
+import { MissionListener } from './application/MissionListener';
+import { MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from "./@ohos.app.ability.StartOptions";
 
 /**
@@ -143,34 +143,6 @@ declare namespace missionManager {
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
-
-    /**
-     * Mission information corresponding to ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionInfo = _MissionInfo
-
-    /**
-     * MissionListener registered by app.
-     *
-     * @name MissionListener
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionListener = _MissionListener
-
-    /**
-     * Mission snapshot corresponding to mission.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionSnapshot = _MissionSnapshot
 }
 
 export default missionManager;

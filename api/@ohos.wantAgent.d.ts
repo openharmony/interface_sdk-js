@@ -15,8 +15,8 @@
 
 import { AsyncCallback , Callback} from './basic';
 import Want from './@ohos.app.ability.Want';
-import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
-import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
+import { WantAgentInfo } from './wantAgent/wantAgentInfo';
+import { TriggerInfo } from './wantAgent/triggerInfo';
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -220,24 +220,6 @@ declare namespace wantAgent {
      */
     extraInfo?: {[key: string]: any};
   }
-
-  /**
-   * Provides the information required for triggering a WantAgent.
-   *
-   * @name TriggerInfo
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  export type TriggerInfo = _TriggerInfo
-
-  /**
-   * Provides the information required for triggering a WantAgent.
-   *
-   * @name WantAgentInfo
-   * @since 9
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   */
-  export type WantAgentInfo = _WantAgentInfo
 }
 
 /**
