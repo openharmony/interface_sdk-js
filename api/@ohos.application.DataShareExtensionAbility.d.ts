@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from "./basic";
 import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 

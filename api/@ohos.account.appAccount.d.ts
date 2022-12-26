@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import rpc from './@ohos.rpc'
 
 /**

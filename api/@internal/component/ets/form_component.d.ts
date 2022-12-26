@@ -94,7 +94,7 @@ interface FormComponentInterface {
     module: string;
     dimension?: FormDimension;
     temporary?: boolean;
-    want?: import('../api/@ohos.application.Want').default;
+    want?: import('../api/@ohos.app.ability.Want').default;
   }): FormComponentAttribute;
 }
 

@@ -15,8 +15,8 @@
 
 import { AsyncCallback } from "./basic";
 import { Callback } from "./basic";
-import Want from './@ohos.application.Want';
-import formInfo from './@ohos.application.formInfo'
+import Want from './@ohos.app.ability.Want';
+import formInfo from './@ohos.app.form.formInfo'
 
 /**
  * interface of formHost.
@@ -269,33 +269,5 @@ declare namespace formHost {
      */
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean, callback: AsyncCallback<void>): void;
     function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
-
-    /**
-     * Share form by formId and deviceId.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @param formId Indicates the form ID
-     * @param deviceId Indicates the remote device ID
-     * @systemapi hide for inner use.
-     * @returns -
-     * @permission ohos.permission.REQUIRE_FORM
-     */
-    function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
-    function shareForm(formId: string, deviceId: string): Promise<void>;
-
-    /**
-     * Notify form that privacy wether need to be protected.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     * @param formIds Indicates the specified form id.
-     * @param isProtected Indicates whether enable update.
-     * @systemapi hide for inner use.
-     * @returns -
-     * @permission ohos.permission.REQUIRE_FORM
-     */
-    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean, callback: AsyncCallback<void>): void;
-    function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 }
 export default formHost;
