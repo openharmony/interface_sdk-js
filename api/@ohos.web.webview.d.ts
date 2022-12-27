@@ -1073,6 +1073,45 @@ declare namespace webview {
          * @since 9
          */
         removeCache(clearRom: boolean): void;
+
+        /**
+         * Scroll to the position.
+         *
+         * @param { boolean } x - the x of the position.
+         * @param { boolean } y - the y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollTo(x:number, y:number): void;
+
+        /**
+         * Scroll by the delta position.
+         *
+         * @param { boolean } deltaX - the delta x of the position.
+         * @param { boolean } deltaY - the delta y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollBy(deltaX:number, deltaY:number): void;
+
+        /**
+         * Slide by the speed.
+         *
+         * @param { boolean } vx - the x speed of the speed.
+         * @param { boolean } vy - the y speed of the speed.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        slideScroll(vx:number, vy:number): void;
     }
 }
 
