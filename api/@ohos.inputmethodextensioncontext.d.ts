@@ -14,8 +14,6 @@
  */
 
 import {AsyncCallback} from './basic';
-import Want from './@ohos.application.Want';
-import StartOptions from "./@ohos.application.StartOptions";
 import ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -30,7 +28,6 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @return -
      */
     destroy(callback: AsyncCallback<void>): void;
 
@@ -39,7 +36,7 @@ export default class InputMethodExtensionContext extends ExtensionContext {
      *
      * @since 9
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @return -
+     * @returns { Promise<void> } the promise returned by the function.
      */
     destroy(): Promise<void>;
 }

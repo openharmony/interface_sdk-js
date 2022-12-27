@@ -114,7 +114,7 @@ declare namespace sms {
   /**
    * Returns whether a device is capable of sending and receiving SMS messages.
    *
-   * @return Returns {@code true} if the device is capable of sending and receiving SMS messages;
+   * @returns Returns {@code true} if the device is capable of sending and receiving SMS messages;
    *     returns {@code false} otherwise.
    * @since 7
    */
@@ -170,12 +170,14 @@ declare namespace sms {
   /**
    * SMS over IMS is supported if IMS is registered and SMS is supported on IMS.
    *
+   * @param slotId Indicates the default SIM card for Ims Sms. The value {@code 0} indicates card slot 1,
+   *     and the value {@code 1} indicates card slot 2.
    * @param callback Returns true if SMS over IMS is supported, false otherwise.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
-  function isImsSmsSupported(callback: AsyncCallback<boolean>): void;
-  function isImsSmsSupported(): Promise<boolean>;
+  function isImsSmsSupported(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isImsSmsSupported(slotId: number): Promise<boolean>;
 
   /**
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.

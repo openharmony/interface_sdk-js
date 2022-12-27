@@ -221,11 +221,11 @@ declare namespace wantConstant {
     ACTION_APP_ACCOUNT_OAUTH = "ohos.account.appAccount.action.oauth",
 
     /**
-     * Indicates the action of providing auth service.
+     * Indicates the action of providing the application account auth service.
      *
      * @since 9
      */
-    ACTION_APP_ACCOUNT_AUTH = "account.appAccount.action.auth",
+    ACTION_APP_ACCOUNT_AUTH = "ohos.appAccount.action.auth",
 
     /**
      * Indicates the action of an application downloaded from the application market.
@@ -395,7 +395,7 @@ declare namespace wantConstant {
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 
     /**
-     * Install the specifiedi ability with background mode if it's not installed.
+     * Install the specified ability with background mode if it's not installed.
      */
     FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
 

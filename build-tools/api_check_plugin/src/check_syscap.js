@@ -13,50 +13,35 @@
  * limitations under the License.
  */
 
-const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const fs = require("fs");
-const result = require("../check_result.json");
 const rules = require("../code_style_rule.json");
-const { getAPINote, error_type } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
-
 function checkSyscap(node, sourcefile, fileName) {
-    // check invalid import
-    const program = ts.createProgram({ rootNames: fileName, option: {} });
-    const diagnostic = program.getSuggestionDiagnostics(sourcefile);
-    const invalidImport = '';
-    if (invalidImport !== "") {
-        invalidImport += `,${diagnostic}`;
-    } else {
-        invalidImport += diagnostic;
-    }
-    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.INVALID_IMPORT, invalidImport);
-    // check syscap
-    const syscapTags = rules.syscap.SystemCapability;
-    const syscapRuleSet = new Set();
-    for (const i in syscapTags) {
-        syscapTags[i].forEach(syscap => {
-            const syscapTag = 'SystemCapability.' + i + '.' + syscap;
-            syscapRuleSet.add(syscapTag);
-        });
-    }
-    const apiNote = getAPINote(node);
-    const apiNoteArr = apiNote.split('*');
-    let errorInfo = "";
-    apiNoteArr.forEach(note => {
-        if (note.match(new RegExp('@syscap'))) {
-            const syscapNote = note.replace('@syscap', '').trim();
-            if (!syscapRuleSet.has(syscapNote)) {
-                if (errorInfo !== "") {
-                    errorInfo += `,${syscapNote}`;
-                } else {
-                    errorInfo += syscapNote;
-                }
-                addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_SYSCAP, errorInfo);
-            }
-        }
+  const syscapTags = rules.syscap.SystemCapability;
+  const syscapRuleSet = new Set();
+  for (const i in syscapTags) {
+    syscapTags[i].forEach(syscap => {
+      const syscapTag = 'SystemCapability.' + i + '.' + syscap;
+      syscapRuleSet.add(syscapTag);
     });
+  }
+  const apiNote = getAPINote(node);
+  const apiNoteArr = apiNote.split('*');
+  let errorInfo = "";
+  apiNoteArr.forEach(note => {
+    if (note.match(new RegExp('@syscap'))) {
+      const syscapNote = note.replace('@syscap', '').trim();
+      if (!syscapRuleSet.has(syscapNote)) {
+        if (errorInfo !== "") {
+          errorInfo += `,${syscapNote}`;
+        } else {
+          errorInfo += syscapNote;
+        }
+        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_SYSCAP, errorInfo, FileType.JSDOC,
+          ErrorLevel.MIDDLE);
+      }
+    }
+  });
 }
 exports.checkSyscap = checkSyscap;

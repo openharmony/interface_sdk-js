@@ -65,12 +65,13 @@ if (!sdk_build_public) {
 
 template("ohos_declaration_template") {
   forward_variables_from(invoker, "*")
+  _module_info_target = "/ohos_declaration/${target_name}_info"
   action_with_pydeps(target_name) {
     script = "//interface/sdk-js/remove_internal.py"
     input_api_dir = "//interface/sdk-js/api"
     inputs = [ "//interface/sdk-js/api" ]
     outputs = [ root_out_dir + "/ohos_declaration/$target_name" ]
-    if (sdk_build_public) {
+    if (sdk_build_public || product_name == "ohos-sdk") {
       script = "//out/sdk-public/public_interface/sdk-js/remove_internal.py"
       input_api_dir = "//out/sdk-public/public_interface/sdk-js/api"
     }
@@ -81,8 +82,12 @@ template("ohos_declaration_template") {
       rebase_path(root_out_dir + "/ohos_declaration/$target_name/",
                   root_build_dir),
     ]
+    if (defined(deps)) {
+      deps += [ ":$_module_info_target" ]
+    } else {
+      deps = [ ":$_module_info_target" ]
+    }
   }
-  _module_info_target = "/ohos_declaration/${target_name}_info"
   _target_name = target_name
   generate_module_info(_module_info_target) {
     module_type = "jsdoc"

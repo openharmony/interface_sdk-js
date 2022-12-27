@@ -20,7 +20,7 @@ import window from './@ohos.window';
 /**
  * The ability lifecycle callback.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
+ * @StageModelOnly
  * @since 9
  */
 export default class AbilityLifecycleCallback {
@@ -28,7 +28,7 @@ export default class AbilityLifecycleCallback {
      * Called back when an ability is started for initialization.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAbilityCreate(ability: UIAbility): void;
@@ -38,27 +38,27 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to create
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
-     * Called back when a window stage is actived.
+     * Called back when a window stage is active.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to active
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
     /**
-     * Called back when a window stage is inactived.
+     * Called back when a window stage is inactive.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to inactive
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
@@ -68,7 +68,7 @@ export default class AbilityLifecycleCallback {
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @param { window.WindowStage } windowStage - window stage to destroy
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
@@ -77,7 +77,7 @@ export default class AbilityLifecycleCallback {
      * Called back when an ability is destroyed.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAbilityDestroy(ability: UIAbility): void;
@@ -86,7 +86,7 @@ export default class AbilityLifecycleCallback {
      * Called back when the state of an ability changes to foreground.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAbilityForeground(ability: UIAbility): void;
@@ -95,7 +95,7 @@ export default class AbilityLifecycleCallback {
      * Called back when the state of an ability changes to background.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAbilityBackground(ability: UIAbility): void;
@@ -104,7 +104,7 @@ export default class AbilityLifecycleCallback {
      * Called back when an ability prepares to continue.
      * @param { Ability } ability - Indicates the ability to register for listening.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     onAbilityContinue(ability: UIAbility): void;

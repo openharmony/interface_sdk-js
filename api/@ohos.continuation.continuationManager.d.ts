@@ -19,7 +19,7 @@ import { ContinuationExtraParams } from './continuation/continuationExtraParams'
 
 /**
  * Provides methods for interacting with the continuation manager service, including methods for registering and
- * unregistering the ability to hop, updating the device connection state, and showing the list of devices
+ * Unregister the ability to hop, updating the device connection state, and showing the list of devices
  * that can be selected for hopping.
  * @namespace continuationManager
  * @syscap SystemCapability.Ability.DistributedAbilityManager
@@ -32,11 +32,11 @@ declare namespace continuationManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param type deviceSelected.
-     * @return callback Indicates the information about the selected devices.
+     * @returns callback Indicates the information about the selected devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @throws { BusinessError } 16600004 - The specified callback has been registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -50,11 +50,11 @@ declare namespace continuationManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param type deviceUnselected.
-     * @return callback Indicates the information about the unselected devices.
+     * @returns callback Indicates the information about the unselected devices.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @throws { BusinessError } 16600004 - The specified callback has been registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -67,10 +67,11 @@ declare namespace continuationManager {
      * You can implement your own processing logic in this callback to initiate the hop process.
      *
      * @param type deviceConnect.
-     * @return callback Indicates the information about the selected device.
+     * @returns callback Indicates the information about the selected device.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceSelected")
      */
     function on(type: "deviceConnect", callback: Callback<ContinuationResult>): void;
     function off(type: "deviceConnect", callback?: Callback<ContinuationResult>): void;
@@ -80,10 +81,11 @@ declare namespace continuationManager {
      * You can implement your own processing logic in this callback, such as notifying the user of the disconnection.
      *
      * @param type deviceDisconnect.
-     * @return callback Indicates the ID of the disconnected device.
+     * @returns callback Indicates the ID of the disconnected device.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.continuation.continuationManager.continuationManager#on/off(type: "deviceUnSelected")
      */
     function on(type: "deviceDisconnect", callback: Callback<string>): void;
     function off(type: "deviceDisconnect", callback?: Callback<string>): void;
@@ -94,11 +96,11 @@ declare namespace continuationManager {
      *
      * @param options Indicates the {@link ExtraParams} object containing the extra parameters used to filter
      * the list of available devices.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.registerContinuation
+     * @useinstead ohos.continuation.continuationManager.continuationManager#registerContinuation
      */
     function register(callback: AsyncCallback<number>): void;
     function register(options: ContinuationExtraParams, callback: AsyncCallback<number>): void;
@@ -109,11 +111,11 @@ declare namespace continuationManager {
      * registration.
      *
      * @param token Indicates the registration token of the ability.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.unregisterContinuation
+     * @useinstead ohos.continuation.continuationManager.continuationManager#unregisterContinuation
      */
     function unregister(token: number, callback: AsyncCallback<void>): void;
     function unregister(token: number): Promise<void>;
@@ -124,11 +126,11 @@ declare namespace continuationManager {
      * @param token Indicates the registration token of the ability.
      * @param deviceId Indicates the ID of the device whose connection state is to be updated.
      * @param status Indicates the connection state to update.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.updateContinuationState
+     * @useinstead ohos.continuation.continuationManager.continuationManager#updateContinuationState
      */
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback<void>): void;
     function updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise<void>;
@@ -139,11 +141,11 @@ declare namespace continuationManager {
      * @param token Indicates the registration token of the ability.
      * @param options Indicates the extraParams object containing the extra parameters used to filter
      * the list of available devices. This parameter can be null.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.continuation.continuationManager.startContinuationDeviceManager
+     * @useinstead ohos.continuation.continuationManager.continuationManager#startContinuationDeviceManager
      */
     function startDeviceManager(token: number, callback: AsyncCallback<void>): void;
     function startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void;
@@ -156,10 +158,10 @@ declare namespace continuationManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param options Indicates the {@link ExtraParams} object containing the extra parameters used to filter
      * the list of available devices.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
      * @throws { BusinessError } 16600003 - The number of token registration times has reached the upper limit.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
@@ -174,11 +176,11 @@ declare namespace continuationManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param token Indicates the registration token of the ability.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
@@ -192,11 +194,11 @@ declare namespace continuationManager {
      * @param token Indicates the registration token of the ability.
      * @param deviceId Indicates the ID of the device whose connection state is to be updated.
      * @param status Indicates the connection state to update.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */
@@ -210,11 +212,11 @@ declare namespace continuationManager {
      * @param token Indicates the registration token of the ability.
      * @param options Indicates the extraParams object containing the extra parameters used to filter
      * the list of available devices. This parameter can be null.
-     * @return callback Indicates the callback to be invoked when the continuation manager service is connected.
+     * @returns callback Indicates the callback to be invoked when the continuation manager service is connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 16600001 - The system ability work abnormally.
-     * @throws { BusinessError } 16600002 - The specified token or callback has not registered.
+     * @throws { BusinessError } 16600001 - The system ability works abnormally.
+     * @throws { BusinessError } 16600002 - The specified token or callback is not registered.
      * @syscap SystemCapability.Ability.DistributedAbilityManager
      * @since 9
      */

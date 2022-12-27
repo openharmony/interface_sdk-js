@@ -18,8 +18,6 @@ import { Callback } from './basic';
 /**
  * Provides methods to operate or manage NFC.
  *
- * @import import controller from '@ohos.nfc.controller';
- *
  * @since 7
  * @syscap SystemCapability.Communication.NFC.Core
  */
@@ -41,9 +39,10 @@ declare namespace nfcController {
   /**
    * Checks whether a device supports NFC.
    *
-   * @return Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
-   *
+   * @returns Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
    * @since 7
+   * @deprecated since 9
+   * @useinstead global#canIUse("SystemCapability.Communication.NFC.Core")
    */
   function isNfcAvailable(): boolean
 
@@ -51,8 +50,7 @@ declare namespace nfcController {
    * register nfc state changed event.
    *
    * @param type the type to register.
-   * @param callback Callback used to listen for the nfc state changed event.
-   *
+   * @param callback Callback used to listen to the nfc state changed event.
    * @since 7
    */
   function on(type: "nfcStateChange", callback: Callback<NfcState>): void
@@ -61,8 +59,7 @@ declare namespace nfcController {
    * unregister nfc state changed event.
    *
    * @param type the type to unregister.
-   * @param callback Callback used to listen for the nfc state changed event.
-   *
+   * @param callback Callback used to listen to the nfc state changed event.
    * @since 7
    */
   function off(type: "nfcStateChange", callback?: Callback<NfcState>): void
@@ -70,28 +67,51 @@ declare namespace nfcController {
   /**
    * Enables NFC.
    *
-   * @return Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead @ohos.nfc.controller.nfcController#enableNfc
    */
   function openNfc(): boolean
 
   /**
+   * Enables NFC.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @since 9
+   */
+  function enableNfc(): void
+
+  /**
    * Disables NFC.
    *
-   * @return Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead @ohos.nfc.controller.nfcController#disableNfc
    */
   function closeNfc(): boolean
 
   /**
+   * Disables NFC.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100101 - NFC state is abnormal in service.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @since 9
+   */
+   function disableNfc(): void
+
+  /**
    * Checks whether NFC is enabled.
    *
-   * @return Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
-   *
+   * @returns Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
    * @since 7
    */
   function isNfcOpen(): boolean
@@ -104,8 +124,7 @@ declare namespace nfcController {
    * <li>{@link #STATE_ON}: Indicates that NFC is enabled. <li>{@link #STATE_TURNING_OFF}: Indicates
    * that NFC is being disabled.</ul>
    *
-   * @return Returns the NFC status.
-   *
+   * @returns Returns the NFC status.
    * @since 7
    */
   function getNfcState(): NfcState

@@ -63,7 +63,7 @@ declare namespace backgroundTaskManager {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param requestId Indicates the identifier of the delay request.
-     * @return The remaining delay time
+     * @returns The remaining delay time
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.getRemainingDelayTime
      */
@@ -77,7 +77,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @param reason Indicates the reason for delayed transition to the suspended state.
      * @param callback The callback delay time expired.
-     * @return Info of delay request
+     * @returns Info of delay request
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.backgroundTaskManager.requestSuspendDelay
      */

@@ -22,7 +22,6 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  * @name distributedBundle
  * @since 8
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
- * @permission NA
  * @systemapi Hide this for inner system use
  * @deprecated since 9
  * @useinstead ohos.bundle.distributeBundle
@@ -34,7 +33,7 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    * @since 8
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @param elementName Indicates the elementName.
-   * @return Returns the ability info of the remote device.
+   * @returns Returns the ability info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
    * @deprecated since 9
@@ -49,7 +48,7 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
    * @since 8
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @param elementNames Indicates the elementNames, Maximum array length ten.
-   * @return Returns the ability infos of the remote device.
+   * @returns Returns the ability infos of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @systemapi
    * @deprecated since 9

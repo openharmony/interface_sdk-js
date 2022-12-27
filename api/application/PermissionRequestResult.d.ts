@@ -20,6 +20,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
  * @StageModelOnly
+ * @deprecated since 9
+ * @useinstead security/PermissionRequestResult
  */
 export default class PermissionRequestResult {
     /**

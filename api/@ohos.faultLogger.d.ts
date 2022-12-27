@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Huawei Device Co., Ltd.
+* Copyright (C) 2021-2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -48,7 +48,7 @@ declare namespace FaultLogger {
      */
     JS_CRASH = 3,
     /**
-     * APP_FREEZE app feeeze log type.
+     * APP_FREEZE app freeze log type.
      * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
      * @since 8
      */
@@ -81,9 +81,9 @@ declare namespace FaultLogger {
    * Query the result of the current application FaultLog in callback Mode.
    * @param faultType Fault type to query
    * @param callback Faultlog information data callback function
-   * @throws { BusinessError } 401 - the parameter check failed
-   * @throws { BusinessError } 801 - the specified SystemCapability name was not found
-   * @throws { BusinessError } 10600001 - the service is not running or broken
+   * @throws { BusinessError } 401 - The parameter check failed
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found
+   * @throws { BusinessError } 10600001 - The service is not running or broken
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    */
@@ -93,9 +93,9 @@ declare namespace FaultLogger {
    * Query the result of the current application FaultLog in return promise mode.
    * @param faultType Fault type to query
    * @returns return faultlog information data by promise
-   * @throws { BusinessError } 401 - the parameter check failed
-   * @throws { BusinessError } 801 - the specified SystemCapability name was not found
-   * @throws { BusinessError } 10600001 - the service is not running or broken
+   * @throws { BusinessError } 401 - The parameter check failed
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found
+   * @throws { BusinessError } 10600001 - The service is not running or broken
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    */

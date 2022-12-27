@@ -19,11 +19,10 @@ import { NotificationSlot } from './notification/notificationSlot';
 
 /**
  * Providers static methods for managing reminders, including publishing or canceling a reminder.
- * adding or removing a notification slot, and obtaining or cancelling all reminders of the current application.
+ * Add or remove a notification slot, and obtain or cancel all reminders of the current application.
  *
  * @since 9
  * @syscap SystemCapability.Notification.ReminderAgent
- * @import reminderAgentManager from '@ohos.reminderAgentManager';
  */
 declare namespace reminderAgentManager {
   /**
@@ -51,7 +50,7 @@ declare namespace reminderAgentManager {
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
   /**
-   * Cancels a reminder.
+   * Cancel a reminder.
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -62,7 +61,7 @@ declare namespace reminderAgentManager {
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a reminder.
+   * Cancel a reminder.
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -93,7 +92,7 @@ declare namespace reminderAgentManager {
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
   /**
-   * Cancels all the reminders of current application.
+   * Cancel all the reminders of current application.
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -103,7 +102,7 @@ declare namespace reminderAgentManager {
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all the reminders of current application.
+   * Cancel all the reminders of current application.
    *
    * @since 9
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -420,7 +419,7 @@ declare namespace reminderAgentManager {
     minute: number;
 
     /**
-     * Days of a week when the reminder repeates.
+     * Days of a week when the reminder repeats.
      * @since 9
      * @syscap SystemCapability.Notification.ReminderAgent
      */

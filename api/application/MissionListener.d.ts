@@ -31,7 +31,7 @@ import image from "../@ohos.multimedia.image";
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of created mission.
-     * @return -
+     * @returns -
      */
     onMissionCreated(mission: number): void;
 
@@ -41,27 +41,27 @@ import image from "../@ohos.multimedia.image";
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of destroyed mission.
-     * @return -
+     * @returns -
      */
     onMissionDestroyed(mission: number): void;
 
     /**
-     * Called by system when mission shapshot changed.
+     * Called by system when mission snapshot changed.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of the mission which the snapshot changes
-     * @return -
+     * @returns -
      */
     onMissionSnapshotChanged(mission: number): void;
 
     /**
-     * Called by system when mission moved to fornt.
+     * Called by system when mission moved to front.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of the mission being moved to the foreground.
-     * @return -
+     * @returns -
      */
     onMissionMovedToFront(mission: number): void;
 
@@ -71,7 +71,7 @@ import image from "../@ohos.multimedia.image";
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of the mission whose label has changed.
-     * @return -
+     * @returns -
      */
      onMissionLabelUpdated(mission: number): void;
 
@@ -82,7 +82,7 @@ import image from "../@ohos.multimedia.image";
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of the mission whose icon has changed.
      * @param icon Indicates the icon of the mission whose icon has changed.
-     * @return -
+     * @returns -
      */
      onMissionIconUpdated(mission: number, icon: image.PixelMap): void;
 
@@ -92,7 +92,7 @@ import image from "../@ohos.multimedia.image";
      * @since 9
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param mission Indicates the id of the mission whose ability instance is destroyed.
-     * @return -
+     * @returns -
      */
     onMissionClosed(mission: number): void;
 }

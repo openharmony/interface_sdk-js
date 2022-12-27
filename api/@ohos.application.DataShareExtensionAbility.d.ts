@@ -15,7 +15,7 @@
 
 import { AsyncCallback } from "./basic";
 import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
@@ -45,7 +45,7 @@ export default class DataShareExtensionAbility {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param want Indicates connection information about the datashare extension ability.
      * @systemapi Hide this for inner system use.
-     * @return -
+     * @returns -
      * @StageModelOnly
      */
     onCreate?(want: Want, callback: AsyncCallback<void>): void;
@@ -58,7 +58,7 @@ export default class DataShareExtensionAbility {
      * @param uri Indicates the position where the data is to insert.
      * @param valueBucket Indicates the data to insert.
      * @systemapi Hide this for inner system use.
-     * @return Returns the index of the newly inserted data record.
+     * @returns Returns the index of the newly inserted data record.
      * @StageModelOnly
      */
     insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
@@ -73,7 +73,7 @@ export default class DataShareExtensionAbility {
      *        default.
      * @param valueBucket Indicates the data to update. This parameter can be null.
      * @systemapi Hide this for inner system use.
-     * @return Returns the number of data records updated.
+     * @returns Returns the number of data records updated.
      * @StageModelOnly
      */
     update?(uri: string, predicates: dataSharePredicates.DataSharePredicates, valueBucket: ValuesBucket,
@@ -88,15 +88,14 @@ export default class DataShareExtensionAbility {
      * @param predicates Indicates filter criteria. If this parameter is null, all data records will be deleted by
      *     default.
      * @systemapi Hide this for inner system use.
-     * @return Returns the number of data records deleted.
+     * @returns Returns the number of data records deleted.
      * @StageModelOnly
      */
     delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
     /**
      * Queries one or more data records in the database. This method should be implemented by a data share.
-     *
-     * @note Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
+     * Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the database table storing the data to query.
@@ -105,7 +104,7 @@ export default class DataShareExtensionAbility {
      * @param columns Indicates the columns to be queried, in array, for example, {"name","age"}. You should define
      *                the processing logic when this parameter is null.
      * @systemapi Hide this for inner system use.
-     * @return Returns the queried data, only support result set of rdb or kvstore.
+     * @returns Returns the queried data, only support result set of rdb or kvstore.
      * @StageModelOnly
      */
     query?(uri: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>,
@@ -119,7 +118,7 @@ export default class DataShareExtensionAbility {
      * @param uri Indicates the position where the data is to insert.
      * @param valueBuckets Indicates the data to insert.
      * @systemapi Hide this for inner system use.
-     * @return Returns the number of data records inserted.
+     * @returns Returns the number of data records inserted.
      * @StageModelOnly
      */
     batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -133,7 +132,7 @@ export default class DataShareExtensionAbility {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the uri to normalize.
      * @systemapi Hide this for inner system use.
-     * @return Returns the normalized uri if the data share supports URI normalization;
+     * @returns Returns the normalized uri if the data share supports URI normalization;
      * @StageModelOnly
      */
     normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
@@ -146,7 +145,7 @@ export default class DataShareExtensionAbility {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @param uri Indicates the uri to denormalize.
      * @systemapi Hide this for inner system use.
-     * @return Returns the denormalized {@code uri} object if the denormalization is successful; returns the original
+     * @returns Returns the denormalized {@code uri} object if the denormalization is successful; returns the original
      * {@code uri} passed to this method if there is nothing to do; returns {@code null} if the data identified by
      * the original {@code uri} cannot be found in the current environment.
      * @StageModelOnly

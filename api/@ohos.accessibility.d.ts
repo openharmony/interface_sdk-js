@@ -21,7 +21,6 @@ import { Callback } from './basic';
  * @name Accessibility
  * @since 7
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @import basic,abilityInfo
  */
 declare namespace accessibility {
   /**
@@ -49,12 +48,6 @@ declare namespace accessibility {
 
   /**
    * The type of the accessibility event.
-   * @note windowsChange
-   * @note windowContentChange
-   * @note windowStateChange
-   * @note announcement
-   * @note notificationChange
-   * @note textTraversedAtMove
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -64,7 +57,6 @@ declare namespace accessibility {
 
   /**
    * The change type of the windowsChange event.
-   * @note It's used when received the {@code windowsChange} event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -79,12 +71,6 @@ declare namespace accessibility {
 
   /**
    * The ability that accessibility subsystem support.
-   * @note touchExplorer: Describes the capability to talkback.
-   * magnification: Describes the capability to request to control the display magnification.
-   * gesturesSimulation: Describes the capability to request to simulate the gesture.
-   * windowContent: Describes the capability to search for the content of the active window.
-   * filterKeyEvents: Describes the capability to request to filter key events.
-   * fingerprintGesture: Describes the capability to request to fingerprint gesture.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -92,7 +78,6 @@ declare namespace accessibility {
 
   /**
    * The granularity of text move.
-   * @note The granularity of text move.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
@@ -103,7 +88,7 @@ declare namespace accessibility {
    * @since 7
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
    */
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
   function isOpenAccessibility(): Promise<boolean>;
@@ -113,7 +98,7 @@ declare namespace accessibility {
    * @since 7
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @return Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
    */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
   function isOpenTouchGuide(): Promise<boolean>;
@@ -124,7 +109,7 @@ declare namespace accessibility {
    * @param abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns the list of abilityInfos.
+   * @returns Returns the list of abilityInfos.
    * @deprecated since 9
    * @useinstead ohos.accessibility#getAccessibilityExtensionList
    */
@@ -140,7 +125,7 @@ declare namespace accessibility {
    * @param abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns the list of abilityInfos.
+   * @returns Returns the list of abilityInfos.
    * @throws { BusinessError } 401 - Input parameter error.
    */
   function getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState): Promise<Array<AccessibilityAbilityInfo>>;
@@ -152,7 +137,7 @@ declare namespace accessibility {
    * @param event The object of the accessibility {@code EventInfo} .
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if success ; returns {@code false} otherwise.
    * @deprecated since 9
    * @useinstead ohos.accessibility#sendAccessibilityEvent
    */
@@ -165,7 +150,7 @@ declare namespace accessibility {
    * @param event The object of the accessibility {@code EventInfo} .
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
   function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
@@ -177,7 +162,7 @@ declare namespace accessibility {
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the register is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
@@ -188,7 +173,7 @@ declare namespace accessibility {
    * @param type state event type.
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @return Returns {@code true} if the register is success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the register is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
@@ -199,7 +184,7 @@ declare namespace accessibility {
    * @param type state event type
    * @param callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @return Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
@@ -209,7 +194,7 @@ declare namespace accessibility {
    * @since 7
    * @param type state event type
    * @param callback Asynchronous callback interface.
-   * @return Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the Unregister is success ; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Input parameter error.
    */
    function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
@@ -218,7 +203,7 @@ declare namespace accessibility {
    * Get the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
-   * @return Returns the captions manager.
+   * @returns Returns the captions manager.
    */
    function getCaptionsManager(): CaptionsManager;
 
@@ -416,7 +401,6 @@ declare namespace accessibility {
 
     /**
      * The content list.
-     * @note
      * @since 7
      */
     contents?: Array<string>;
@@ -447,7 +431,6 @@ declare namespace accessibility {
 
     /**
      * The total of the items.
-     * @note talkback used it when scroll.
      * @since 7
      */
     itemCount?: number;

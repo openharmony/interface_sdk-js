@@ -22,7 +22,6 @@ import { AsyncCallback } from './basic';
  *
  * @syscap SystemCapability.HiviewDFX.HiSysEvent
  * @systemapi hide for inner use
- * @import import hiSysEvent from '@ohos.hiSysEvent'
  * @since 9
  */
 declare namespace hiSysEvent {
@@ -119,7 +118,7 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200052 - Size of the event parameter of the string type is over limit.
    * @throws {BusinessError} 11200053 - Count of event parameters is over limit.
    * @throws {BusinessError} 11200054 - Count of event parameter of the array type is over limit.
-   * @return {void | Promise<void>} no callback return Promise otherwise return void.
+   * @returns {void | Promise<void>} no callback return Promise otherwise return void.
    * @since 9
    */
   function write(info: SysEventInfo): Promise<void>;
@@ -136,7 +135,7 @@ declare namespace hiSysEvent {
    */
   enum RuleType {
     /**
-     * whole word match
+     * Whole word match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -145,7 +144,7 @@ declare namespace hiSysEvent {
     WHOLE_WORD = 1,
 
     /**
-     * prefix match
+     * Prefix match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -154,7 +153,7 @@ declare namespace hiSysEvent {
     PREFIX = 2,
 
     /**
-     * regular match
+     * Regular match
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
@@ -187,7 +186,7 @@ declare namespace hiSysEvent {
     tag: string;
 
     /**
-     * the rule of match system event
+     * The rule of match system event
      */
     ruleType: RuleType;
   }
@@ -201,27 +200,27 @@ declare namespace hiSysEvent {
    */
   interface Watcher {
     /**
-     * rule of filter system event
+     * Rule of filter system event
      */
      rules: WatchRule[];
 
      /**
-     * receive system event.
+     * Receive system event.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo} info system event information of receive.
-     * @return {void} return void.
+     * @returns {void} return void.
      * @since 9
      */
     onEvent: (info: SysEventInfo) => void;
 
     /**
-     * hisysevent service shutdown.
+     * Hisysevent service shutdown.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @return {void} return void.
+     * @returns {void} return void.
      * @since 9
      */
     onServiceDied: () => void;
@@ -238,17 +237,17 @@ declare namespace hiSysEvent {
    */
   interface QueryArg {
     /**
-     * begin time
+     * Begin time
      */
     beginTime: number;
 
     /**
-     * end time
+     * End time
      */
     endTime: number;
 
     /**
-     * max number of receive system event
+     * Max number of receive system event
      */
     maxEvents: number;
   }
@@ -267,7 +266,7 @@ declare namespace hiSysEvent {
     domain: string;
 
     /**
-     * lists of event name
+     * List of event name
      */
     names: string[];
   }
@@ -281,31 +280,31 @@ declare namespace hiSysEvent {
    */
   interface Querier {
     /**
-     * handle query result, the query result will be send in serval times.
+     * Handle query result, the query result will be send in several times.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {SysEventInfo[]} infos system event information of query result.
-     * @return {void} return void.
+     * @returns {void} return void.
      * @since 9
      */
     onQuery: (infos: SysEventInfo[]) => void;
 
     /**
-     * notify Querier execute query has finished.
+     * Notify querier execute query has finished.
      *
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @param {number} reason 0 success, 1 fail.
      * @param {number} total the total number of query result.
-     * @return {void} return void.
+     * @returns {void} return void.
      * @since 9
      */
     onComplete: (reason: number, total: number) => void;
   }
 
   /**
-   * add watcher to watch system event
+   * Add watcher to watch system event
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -315,13 +314,13 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200101 - Count of watchers is over limit.
    * @throws {BusinessError} 11200102 - Count of watch rules is over limit.
-   * @return {void} return void.
+   * @returns {void} return void.
    * @since 9
    */
   function addWatcher(watcher: Watcher): void;
 
   /**
-   * remove watcher
+   * Remove watcher
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -330,13 +329,13 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 401 - Invalid argument.
    * @throws {BusinessError} 11200201 - The watcher does not exist.
-   * @return {void} return void.
+   * @returns {void} return void.
    * @since 9
    */
   function removeWatcher(watcher: Watcher): void;
 
   /**
-   * query system event
+   * Query system event
    *
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
@@ -350,7 +349,7 @@ declare namespace hiSysEvent {
    * @throws {BusinessError} 11200302 - Invalid query rule.
    * @throws {BusinessError} 11200303 - Count of concurrent queriers is over limit.
    * @throws {BusinessError} 11200304 - Query frequency is over limit.
-   * @return {void} return void.
+   * @returns {void} return void.
    * @since 9
    */
   function query(queryArg: QueryArg, rules: QueryRule[], querier: Querier): void;

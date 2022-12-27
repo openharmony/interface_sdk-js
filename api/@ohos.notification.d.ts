@@ -14,29 +14,29 @@
  */
 
 import { AsyncCallback } from './basic';
-import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
-import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
-import { NotificationContent as _NotificationContent } from './notification/notificationContent';
-import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
-import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
-import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
-import { NotificationFlags as  _NotificationFlags} from './notification/notificationFlags';
-import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
-import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
-import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
-import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
-import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
-import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notification/notificationSubscribeInfo';
-import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
-import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
-import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
-import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
-import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import { NotificationActionButton } from './notification/notificationActionButton';
+import { NotificationBasicContent } from './notification/notificationContent';
+import { NotificationContent } from './notification/notificationContent';
+import { NotificationLongTextContent } from './notification/notificationContent';
+import { NotificationMultiLineContent } from './notification/notificationContent';
+import { NotificationPictureContent } from './notification/notificationContent';
+import { NotificationFlags } from './notification/notificationFlags';
+import { NotificationFlagStatus } from './notification/notificationFlags';
+import { NotificationRequest } from './notification/notificationRequest';
+import { DistributedOptions } from './notification/notificationRequest';
+import { NotificationSlot } from './notification/notificationSlot';
+import { NotificationSorting } from './notification/notificationSorting';
+import { NotificationSubscribeInfo } from './notification/notificationSubscribeInfo';
+import { NotificationSubscriber } from './notification/notificationSubscriber';
+import { SubscribeCallbackData } from './notification/notificationSubscriber';
+import { EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+import { NotificationTemplate } from './notification/notificationTemplate';
+import { NotificationUserInput } from './notification/notificationUserInput';
 
 /**
  * Manages notifications.
  *
- * <p>Generally, only system applications have permissions on notification subscription and unsubscription.
+ * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
  * You can specify the content of a notification to be published and the content is carried by
  * {@link NotificationRequest}. A notification ID is unique in an application and must be specified
  * when using {@link NotificationRequest} to carry the notification content. If a notification
@@ -47,7 +47,6 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
  * @name notification
  * @since 7
  * @syscap SystemCapability.Notification.Notification
- * @import import notification from '@ohos.notification';
  * @permission N/A
  * @deprecated since 9
  * @useinstead ohos.notificationManager and ohos.notificationSubscribe
@@ -83,23 +82,7 @@ declare namespace notification {
    function publish(request: NotificationRequest, userId: number): Promise<void>;
 
   /**
-   * Publishes a representative notification.
-   *
-   * @since 9
-   * @param request a notification.
-   * @param representativeBundle bundle name of the representative
-   * @param userId userid of the representative
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.publishAsBundle
-   *
-   */
-    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
-    function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
-
-  /**
-   * Cancels a notification with the specified ID.
+   * Cancel a notification with the specified ID.
    *
    * @param id of the notification to cancel, which must be unique in the application.
    * @param callback callback function
@@ -109,7 +92,7 @@ declare namespace notification {
   function cancel(id: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels a notification with the specified label and ID.
+   * Cancel a notification with the specified label and ID.
    *
    * @param id ID of the notification to cancel, which must be unique in the application.
    * @param label Label of the notification to cancel.
@@ -119,22 +102,6 @@ declare namespace notification {
    */
   function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
   function cancel(id: number, label?: string): Promise<void>;
-
-  /**
-   * Cancels a representative notification.
-   *
-   * @since 9
-   * @param id ID of the notification to cancel, which must be unique in the application.
-   * @param representativeBundle bundle name of the representative
-   * @param userId userid of the representative
-   * @param callback callback function
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.cancelAsBundle
-   */
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number, callback: AsyncCallback<void>): void;
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
 
   /**
    * Cancels all notifications of the current application.
@@ -212,7 +179,7 @@ declare namespace notification {
    *
    * @param slotType Type of the notification slot to obtain.
    * @param callback callback function
-   * @return Returns the created {@link NotificationSlot}.
+   * @returns Returns the created {@link NotificationSlot}.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlot
    */
@@ -222,7 +189,7 @@ declare namespace notification {
   /**
    * Obtains all NotificationSlot objects created by the current application.
    *
-   * @return Returns all notification slots of this application.
+   * @returns Returns all notification slots of this application.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.getSlots
    */
@@ -861,54 +828,6 @@ declare namespace notification {
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
   /**
-   * Set whether the application slot is enabled.
-   *
-   * @since 9
-   * @systemapi Hide this for inner system use.
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.setNotificationEnableSlot
-   */
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean, callback: AsyncCallback<void>): void;
-   function enableNotificationSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
-
-  /**
-    * Obtains whether the application slot is enabled.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.isNotificationSlotEnabled
-    */
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType, callback: AsyncCallback<boolean>): void;
-   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
-
-  /**
-    * Set whether to sync notifications to devices that do not have the app installed.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.setSyncNotificationEnabledWithoutApp
-    */
-    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
-    function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
-  
-  /**
-    * Obtains whether to sync notifications to devices that do not have the app installed.
-    *
-    * @since 9
-    * @systemapi Hide this for inner system use.
-    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-    * @deprecated since 9
-    * @useinstead ohos.notificationManager.getSyncNotificationEnabledWithoutApp
-    */
-   function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
-   function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
-
-  /**
    * Describes a BundleOption.
    *
    * @deprecated since 9
@@ -991,7 +910,7 @@ declare namespace notification {
   }
 
   /**
-   * The remind type of the nofication.
+   * The remind type of the notification.
    *
    * @since 8
    * @systemapi Hide this for inner system use.
@@ -1048,7 +967,6 @@ declare namespace notification {
    /**
    * Reason for remove a notification
    *
-   * @since 9
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
    * @useinstead ohos.notificationManager.RemoveReason
@@ -1064,210 +982,6 @@ declare namespace notification {
      */
     CANCEL_REASON_REMOVE = 2,
   }
-
-  /**
-   * Describes an action button displayed in a notification.
-   *
-   * @since 9
-   * @permission N/A
-   * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationActionButton
-   */
-  export type NotificationActionButton = _NotificationActionButton
-
-  /**
-   * Describes a normal text notification.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationBasicContent
-   */
-  export type NotificationBasicContent = _NotificationBasicContent
-
-  /**
-   * Describes notification types.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationContent
-   */
-  export type NotificationContent = _NotificationContent
-
-  /**
-   * Describes a long text notification.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationLongTextContent
-   */
-  export type NotificationLongTextContent = _NotificationLongTextContent
-
-  /**
-   * Describes a multi-line text notification.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationMultiLineContent
-   */
-  export type NotificationMultiLineContent = _NotificationMultiLineContent
-
-  /**
-   * Describes a picture-attached notification.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationPictureContent
-   */
-  export type NotificationPictureContent = _NotificationPictureContent
-
-  /**
-   * Describes a NotificationFlags instance.
-   *
-   * @since 9
-   * @systemapi Hide this for inner system use.
-   * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationFlags
-   */
-  export type NotificationFlags =  _NotificationFlags
-
-  /**
-   * The status of the notification flag.
-   *
-   * @since 9
-   * @systemapi Hide this for inner system use.
-   * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationFlagStatus
-   */
-  export type NotificationFlagStatus = _NotificationFlagStatus
-
-  /**
-   * Defines a NotificationRequest instance.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationRequest
-   */
-  export type NotificationRequest = _NotificationRequest
-
-  /**
-   * Describes distributed options.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.DistributedOptions
-   */
-  export type DistributedOptions = _DistributedOptions
-
-  /**
-   * Describes a NotificationSlot instance.
-   *
-   * @since 9
-   * @permission N/A
-   * @syscap SystemCapability.Notification.Notification
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationSlot
-   */
-  export type NotificationSlot = _NotificationSlot
-
-  /**
-   * Provides sorting information about an active notification.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationSorting
-   */
-  export type NotificationSorting = _NotificationSorting
-
-  /**
-   * Sets filter criteria of publishers for subscribing to desired notifications.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationSubscribe.NotificationSubscribeInfo
-   */
-  export type NotificationSubscribeInfo = _NotificationSubscribeInfo
-
-  /**
-   * Provides methods that will be called back when the subscriber receives a new notification or
-   * a notification is canceled.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationSubscribe.NotificationSubscriber
-   */
-  export type NotificationSubscriber = _NotificationSubscriber
-
-  /**
-   * Provides methods that will be called back when the subscriber receives a new notification or
-   * a notification is canceled.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationSubscribe.SubscribeCallbackData
-   */
-  export type SubscribeCallbackData = _SubscribeCallbackData
-
-  /**
-   * Describes the properties of the application that the permission to send notifications has changed.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi Hide this for inner system use.
-   * @deprecated since 9
-   * @useinstead notificationSubscribe.EnabledNotificationCallbackData
-   */
-  export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData
-
-  /**
-   * Describes a NotificationTemplate instance.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationTemplate
-   */
-  export type NotificationTemplate = _NotificationTemplate
-
-  /**
-   * Describes a NotificationUserInput instance.
-   *
-   * @since 9
-   * @syscap SystemCapability.Notification.Notification
-   * @permission N/A
-   * @deprecated since 9
-   * @useinstead ohos.notificationManager.NotificationUserInput
-   */
-  export type NotificationUserInput = _NotificationUserInput
 }
 
 export default notification;

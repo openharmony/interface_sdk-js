@@ -20,7 +20,6 @@ export default fileIo;
  * fileio
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
- * @import import fileio from '@ohos.file.js';
  */
 declare namespace fileIo {
     export { open };

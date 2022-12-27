@@ -34,7 +34,7 @@ declare class TreeMap<K, V> {
   length: number;
   /**
    * Returns whether the Map object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -43,7 +43,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a key is contained in this map
    * @param key need to determine whether to include the key
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -52,7 +52,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a value is contained in this map
    * @param value need to determine whether to include the value
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -61,7 +61,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a specified element in a Map object, or null if there is no corresponding element
    * @param key the index in TreeMap
-   * @return value or null
+   * @returns value or null
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -70,7 +70,7 @@ declare class TreeMap<K, V> {
   /**
    * Obtains the first sorted key in the treemap.
    * Or returns undefined if tree map is empty
-   * @return value or undefined
+   * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getFirstKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -79,7 +79,7 @@ declare class TreeMap<K, V> {
   /**
    * Obtains the last sorted key in the treemap.
    * Or returns undefined if tree map is empty
-   * @return value or undefined
+   * @returns value or undefined
    * @throws { BusinessError } 10200011 - The getLastKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -109,7 +109,7 @@ declare class TreeMap<K, V> {
    * Remove a specified element from a Map object
    * @param key  Target to be deleted
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @return Target mapped value
+   * @returns Target mapped value
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -123,19 +123,19 @@ declare class TreeMap<K, V> {
   clear(): void;
   /**
    * Returns the greatest element smaller than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
    * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
-   * @return key or undefined
+   * @returns key or undefined
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   getLowerKey(key: K): K;
   /**
    * Returns the least element greater than or equal to the specified key
-   * if the key does not exist, undefied is returned
+   * if the key does not exist, undefined is returned
    * @param key Objective of comparison
-   * @return key or undefined
+   * @returns key or undefined
    * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -173,7 +173,7 @@ declare class TreeMap<K, V> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: V, key?: K, map?: TreeMap<K, V>) => void,
+  forEach(callbackFn: (value?: V, key?: K, map?: TreeMap<K, V>) => void,
   thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the [key, value] pairs for each element in the Map object in insertion order

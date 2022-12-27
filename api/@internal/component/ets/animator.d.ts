@@ -70,7 +70,7 @@ declare class ScrollMotion {
 }
 
 /**
- * Defines Animtor.
+ * Defines Animator.
  * @since 7
  * @systemapi
  */

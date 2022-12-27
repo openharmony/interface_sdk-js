@@ -20,7 +20,6 @@ import { Callback } from './basic';
  *
  * @since 8
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
- * @import import inputConsumer from '@ohos.multimodalInput.inputConsumer';
  * @systemapi hide for inner use
  */
 

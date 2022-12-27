@@ -29,7 +29,7 @@ declare class HashSet<T> {
   length: number;
   /**
    * Returns whether the Set object contains elements
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -38,7 +38,7 @@ declare class HashSet<T> {
   /**
    * Returns whether the Set object contain s the elements
    * @param value need to determine whether to include the element
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -58,7 +58,7 @@ declare class HashSet<T> {
   /**
    * Remove a specified element from a Set object
    * @param value  Target to be deleted
-   * @return the boolean type(Is there contain this element)
+   * @returns the boolean type(Is there contain this element)
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -79,7 +79,7 @@ declare class HashSet<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value?: T, key?: T, set?: HashSet<T>) => void,
+  forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void,
   thisArg?: Object): void;
   /**
    * Returns a new Iterator object that contains the values contained in this set

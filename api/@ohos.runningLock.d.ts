@@ -58,7 +58,7 @@ declare namespace runningLock {
         /**
          * Checks whether a lock is held or in use.
          *
-         * @return Returns true if the lock is held or in use; returns false if the lock has been released.
+         * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
          * @since 7
          * @deprecated since 9
          * @useinstead {@link RunningLock#isHolding}
@@ -68,7 +68,7 @@ declare namespace runningLock {
         /**
          * Checks whether a lock is held or in use.
          *
-         * @return Returns true if the lock is held or in use; returns false if the lock has been released.
+         * @returns Returns true if the lock is held or in use; returns false if the lock has been released.
          * @throws {BusinessError} 4900101 - If connecting to the service failed.
          * @since 9
          */
@@ -125,7 +125,7 @@ declare namespace runningLock {
      * @param type Indicates the specified {@link RunningLockType}.
      * @param callback Indicates the callback function contains the result whether the specified
      * {@link RunningLockType} is supported.
-     * @return Returns true if the specified {@link RunningLockType} is supported;
+     * @returns Returns true if the specified {@link RunningLockType} is supported;
      * returns false otherwise.
      * @since 7
      * @deprecated since 9
@@ -138,7 +138,7 @@ declare namespace runningLock {
      * Checks whether the specified {@link RunningLockType} is supported.
      *
      * @param {RunningLockType} type Indicates the specified {@link RunningLockType}.
-     * @return {boolean} Whether the specified {@link RunningLockType} is supported.
+     * @returns {boolean} Whether the specified {@link RunningLockType} is supported.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
@@ -156,7 +156,7 @@ declare namespace runningLock {
      * a suffix.
      * @param type Indicates the {@link RunningLockType}.
      * @param callback Indicates the callback contains the {@link RunningLock} object.
-     * @return Returns the {@link RunningLock} object.
+     * @returns Returns the {@link RunningLock} object.
      * @permission ohos.permission.RUNNING_LOCK
      * @since 7
      * @deprecated since 9
@@ -193,7 +193,7 @@ declare namespace runningLock {
      * @param {string} name Indicates the {@link RunningLock} name. A recommended name consists of the package or
      * class name and a suffix.
      * @param {RunningLockType} type Indicates the {@link RunningLockType}.
-     * @return {Promise<RunningLock>} The {@link RunningLock} object.
+     * @returns {Promise<RunningLock>} The {@link RunningLock} object.
      * @throws {BusinessError} 401 - If the name or type is not valid.
      * @since 9
      */

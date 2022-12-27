@@ -353,7 +353,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets the title of this file selector.
-    * @return Return the title of this file selector.
+    * @returns Return the title of this file selector.
     *
     * @since 9
     */
@@ -361,7 +361,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets the FileSelectorMode of this file selector.
-    * @return Return the FileSelectorMode of this file selector.
+    * @returns Return the FileSelectorMode of this file selector.
     *
     * @since 9
     */
@@ -369,7 +369,7 @@ declare class FileSelectorParam {
 
   /**
     * Gets an array of acceptable MMIE type.
-    * @return Return an array of acceptable MMIE type.
+    * @returns Return an array of acceptable MMIE type.
     *
     * @since 9
     */
@@ -377,7 +377,7 @@ declare class FileSelectorParam {
 
   /**
    * Gets whether this file selector use a live media captured value.
-   * @return Return {@code true} if captured media; return {@code false} otherwise.
+   * @returns Return {@code true} if captured media; return {@code false} otherwise.
    * @since 9
    */
   isCapture(): boolean;
@@ -591,6 +591,30 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * @since 9
+ */
+declare class DataResubmissionHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Resend related form data.
+   * @since 9
+   */
+  resend(): void;
+   
+  /**
+   * Do not resend related form data.
+   * @since 9
+   */
+  cancel(): void;
+}
+
+/**
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  * @since 9
  */
@@ -605,7 +629,7 @@ declare class ControllerHandler {
    * Set WebController object.
    * @since 9
    */
-  setWebController(controller: WebController): void;
+  setWebController(controller: WebviewController): void;
 }
 
 /**
@@ -621,7 +645,7 @@ declare class WebContextMenuParam {
 
   /**
    * Horizontal offset coordinates of the menu within the Web component.
-   * @return The context menu x coordinate.
+   * @returns The context menu x coordinate.
    *
    * @since 9
    */
@@ -629,7 +653,7 @@ declare class WebContextMenuParam {
 
   /**
    * Vertical offset coordinates for the menu within the Web component.
-   * @return The context menu y coordinate.
+   * @returns The context menu y coordinate.
    *
    * @since 9
    */
@@ -637,7 +661,7 @@ declare class WebContextMenuParam {
 
   /**
    * If the long-press location is the link returns the link's security-checked URL.
-   * @return If relate to a link return link url, else return null.
+   * @returns If relate to a link return link url, else return null.
    *
    * @since 9
    */
@@ -645,15 +669,15 @@ declare class WebContextMenuParam {
 
   /**
    * If the long-press location is the link returns the link's original URL.
-   * @return If relate to a link return unfilterend link url, else return null.
+   * @returns If relate to a link return unfiltered link url, else return null.
    *
    * @since 9
    */
-  getUnfilterendLinkUrl(): string;
+  getUnfilteredLinkUrl(): string;
 
   /**
    * Returns the SRC URL if the selected element has a SRC attribute.
-   * @return If this context menu is "src" attribute, return link url, else return null.
+   * @returns If this context menu is "src" attribute, return link url, else return null.
    *
    * @since 9
    */
@@ -661,7 +685,7 @@ declare class WebContextMenuParam {
 
   /**
    * Long press menu location has image content.
-   * @return Return whether this context menu has image content.
+   * @returns Return whether this context menu has image content.
    *
    * @since 9
    */
@@ -688,7 +712,7 @@ declare class WebContextMenuResult {
   closeContextMenu(): void;
 
   /**
-   * If WebContextMenuParam has image content, this function will copy image ralated to this context menu.
+   * If WebContextMenuParam has image content, this function will copy image related to this context menu.
    * If WebContextMenuParam has no image content, this function will do nothing.
    *
    * @since 9
@@ -722,7 +746,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the message of a console message.
-   * @return Return the message of a console message.
+   * @returns Return the message of a console message.
    *
    * @since 8
    */
@@ -730,7 +754,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the Web source file's path and name of a console message.
-   * @return Return the Web source file's path and name of a console message.
+   * @returns Return the Web source file's path and name of a console message.
    *
    * @since 8
    */
@@ -738,7 +762,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the line number of a console message.
-   * @return Return the line number of a console message.
+   * @returns Return the line number of a console message.
    *
    * @since 8
    */
@@ -746,7 +770,7 @@ declare class ConsoleMessage {
 
   /**
    * Gets the message level of a console message.
-   * @return Return the message level of a console message, which can be {@link MessageLevel}.
+   * @returns Return the message level of a console message, which can be {@link MessageLevel}.
    *
    * @since 8
    */
@@ -771,7 +795,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets request headers.
-   * @return Return the request headers
+   * @returns Return the request headers
    *
    * @since 8
    */
@@ -779,7 +803,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the request URL.
-   * @return Return the request URL.
+   * @returns Return the request URL.
    *
    * @since 8
    */
@@ -787,7 +811,7 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request is associated with gesture.
-   * @return Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @returns Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
    *
    * @since 8
    */
@@ -795,7 +819,7 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request is for getting the main frame.
-   * @return Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @returns Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
    *
    * @since 8
    */
@@ -803,11 +827,19 @@ declare class WebResourceRequest {
 
   /**
    * Check whether the request redirects.
-   * @return Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @returns Return {@code true} if the request redirects; return {@code false} otherwise.
    *
    * @since 8
    */
   isRedirect(): boolean;
+
+  /**
+   * Get request mothod.
+   * @returns Return the request method.
+   * 
+   * @since 9
+   */
+  getRequestMethod(): string;
 }
 
 
@@ -824,7 +856,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response data.
-   * @return Return the response data.
+   * @returns Return the response data.
    *
    * @since 8
    */
@@ -832,7 +864,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response encoding.
-   * @return Return the response encoding.
+   * @returns Return the response encoding.
    *
    * @since 8
    */
@@ -840,7 +872,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response MIME type.
-   * @return Return the response MIME type.
+   * @returns Return the response MIME type.
    *
    * @since 8
    */
@@ -848,7 +880,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the reason message.
-   * @return Return the reason message.
+   * @returns Return the reason message.
    *
    * @since 8
    */
@@ -856,7 +888,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response headers.
-   * @return Return the response headers.
+   * @returns Return the response headers.
    *
    * @since 8
    */
@@ -864,7 +896,7 @@ declare class WebResourceRequest {
 
   /**
    * Gets the response code.
-   * @return Return the response code.
+   * @returns Return the response code.
    *
    * @since 8
    */
@@ -950,7 +982,7 @@ declare class WebResourceError {
 
   /**
    * Gets the info of the Web resource error.
-   * @return Return the info of the Web resource error.
+   * @returns Return the info of the Web resource error.
    *
    * @since 8
    */
@@ -958,7 +990,7 @@ declare class WebResourceError {
 
   /**
    * Gets the code of the Web resource error.
-   * @return Return the code of the Web resource error.
+   * @returns Return the code of the Web resource error.
    *
    * @since 8
    */
@@ -1000,7 +1032,7 @@ declare class WebCookie {
 
   /**
    * Get whether cookies can be send or accepted.
-   * @return true if can send and accept cookies else false.
+   * @returns true if can send and accept cookies else false.
    *
    * @since 9
    */
@@ -1008,7 +1040,7 @@ declare class WebCookie {
 
   /**
    * Get whether third party cookies can be send or accepted.
-   * @return true if can send and accept third party cookies else false.
+   * @returns true if can send and accept third party cookies else false.
    *
    * @since 9
    */
@@ -1016,7 +1048,7 @@ declare class WebCookie {
 
   /**
    * Get whether file scheme cookies can be send or accepted.
-   * @return true if can send and accept else false.
+   * @returns true if can send and accept else false.
    * @since 9
    */
   isFileURICookieAllowed(): boolean;
@@ -1077,7 +1109,7 @@ declare class WebCookie {
    * Gets all cookies for the given URL.
    *
    * @param url the URL for which the cookies are requested.
-   * @return the cookie value for the given URL.
+   * @returns the cookie value for the given URL.
    *
    * @since 9
    */
@@ -1086,7 +1118,7 @@ declare class WebCookie {
   /**
    * Check whether exists any cookies.
    *
-   * @return true if exists cookies else false;
+   * @returns true if exists cookies else false;
    * @since 9
    */
   existCookie(): boolean;
@@ -1389,7 +1421,7 @@ declare class WebCookie {
 
   /**
    * Gets the url of current Web page.
-   * @return the url of current Web page.
+   * @returns the url of current Web page.
    * @since 9
    */
   getUrl(): string;
@@ -1563,6 +1595,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#textZoomRatio
    */
   textZoomAtio(textZoomAtio: number): WebAttribute;
 
@@ -1750,6 +1783,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onSslErrorEventReceive
    */
   onSslErrorReceive(callback: (event?: { handler: Function, error: object }) => void): WebAttribute;
 
@@ -1776,6 +1810,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onRenderExited
    */
   onRenderExited(callback: (event?: { detail: object }) => boolean): WebAttribute;
 
@@ -1785,6 +1820,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @since 8
    * @deprecated since 9
+   * @useinstead ohos.web.WebAttribute#onShowFileSelector
    */
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
@@ -1829,10 +1865,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    onHttpAuthRequest(callback: (event?: { handler: HttpAuthHandler, host: string, realm: string }) => boolean): WebAttribute;
 
   /**
-   * Triggered when the resouces loading is intercepted.
-   * @param callback The triggered callback when the resouces loading is intercepted.
+   * Triggered when the resources loading is intercepted.
+   * @param callback The triggered callback when the resources loading is intercepted.
    *
-   * @return If the response value is null, the Web will continue to load the resouces. Otherwise, the response value will be used
+   * @returns If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
    * @since 9
    */
   onInterceptRequest(callback: (event?: { request: WebResourceRequest}) => WebResourceResponse): WebAttribute;
@@ -1850,7 +1886,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when called to allow custom display of the context menu.
    * @param callback The triggered callback when called to allow custom display of the context menu.
    *
-   * @return If custom display return true.Otherwise, default display return false.
+   * @returns If custom display return true.Otherwise, default display return false.
    * @since 9
    */
   onContextMenuShow(callback: (event?: { param: WebContextMenuParam, result: WebContextMenuResult }) => boolean): WebAttribute;
@@ -1921,6 +1957,135 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Key events notify the application before the WebView consumes them.
+   * @param event Key event info.
+   *
+   * @returns True if the application consumes key events else false.
+   * @since 9
+   */
+  onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * Set the font of webview standard font library. The default font is "sans serif".
+   * @param family Standard font set series.
+   *
+   * @since 9
+   */
+  webStandardFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview serif font library. The default font is "serif".
+   * @param family Serif font set series.
+   *
+   * @since 9
+   */
+  webSerifFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * @param family Sans serif font set series.
+   *
+   * @since 9
+   */
+  webSansSerifFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview fixed font library. The default font is "monospace".
+   * @param family Fixed font set series.
+   *
+   * @since 9
+   */
+  webFixedFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * @param family fantasy font set series.
+   *
+   * @since 9
+   */
+  webFantasyFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview cursive font library. The default font is "cursive".
+   * @param family Cursive font set series.
+   *
+   * @since 9
+   */
+  webCursiveFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * @param size Font size.
+   *
+   * @since 9
+   */
+  defaultFixedFontSize(size: number): WebAttribute;
+ 
+  /**
+  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  defaultFontSize(size: number): WebAttribute;
+ 
+  /**
+  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minLogicalFontSize(size: number): WebAttribute;
+ 
+  /**
+   * Whether web component can load resource from network.
+   * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  blockNetwork(block: boolean): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive the url of an apple-touch-icon.
+   * @param callback The triggered callback when the application receive an new url of an
+   * apple-touch-icon.
+   * @since 9
+   */
+  onTouchIconUrlReceived(callback: (event: {url: string,
+       precomposed: boolean}) => void): WebAttribute;
+
+  /**
+   * Triggered when the application receive a new favicon for the current web page.
+   * @param callback The triggered callback when the application receive a new favicon for the 
+   * current web page.
+   * @since 9
+   */
+  onFaviconReceived(callback: (event: {favicon: PixelMap}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * @param callback The triggered callback when previous page will no longer be drawn and next
+   * page begin to draw.
+   * @since 9
+   */
+  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when the form could be resubmitted.
+   * @param callback The triggered callback to decision whether resend form data or not.
+   * @since 9
+   */
+  onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;

@@ -63,7 +63,7 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @param txt The text value.
    * @param pattern The {@link MatchPattern} of the text value,default to {@link MatchPattern.EQUALS}
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#text
@@ -75,7 +75,7 @@ declare class By {
    * Specifies the inspector key of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param key The inspectorKey value.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#id
@@ -87,7 +87,7 @@ declare class By {
    * Specifies the id of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param id The id value.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @test
@@ -98,7 +98,7 @@ declare class By {
    * Specifies the type of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param tp The type value.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#type
@@ -110,7 +110,7 @@ declare class By {
    * Specifies the clickable status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param b The clickable status,default to true.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#clickable
@@ -122,7 +122,7 @@ declare class By {
    * Specifies the scrollable status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param b The scrollable status,default to true.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#scrollable
@@ -134,7 +134,7 @@ declare class By {
    * Specifies the enabled status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param b The enabled status,default to true.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#enabled
@@ -146,7 +146,7 @@ declare class By {
    * Specifies the focused status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param b The focused status,default to true.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#focused
@@ -158,7 +158,7 @@ declare class By {
    * Specifies the selected status of the target UiComponent.
    * @syscap SystemCapability.Test.UiTest
    * @param b The selected status,default to true.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.uitest.On#selected
@@ -171,7 +171,7 @@ declare class By {
    * object,used to locate UiComponent relatively.
    * @syscap SystemCapability.Test.UiTest
    * @param by Describes the attribute requirements of UiComponent which the target one is in front of.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead {@link On.isBefore}
@@ -184,7 +184,7 @@ declare class By {
    * object,used to locate UiComponent relatively.
    * @syscap SystemCapability.Test.UiTest
    * @param by Describes the attribute requirements of UiComponent which the target one is in back of.
-   * @return Returns this {@link By} object.
+   * @returns this {@link By} object.
    * @since 8
    * @deprecated since 9
    * @useinstead {@link On.isAfter}
@@ -345,7 +345,7 @@ declare class UiComponent {
    * Scroll on this {@link UiComponent}to find matched {@link UiComponent},applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
    * @param by The attribute requirements of the target {@link UiComponent}.
-   * @return the found result,or undefined if not found.
+   * @returns the found result,or undefined if not found.
    * @since 8
    * @deprecated since 9
    * @useinstead {@link Component.scrollSearch}
@@ -576,10 +576,10 @@ declare interface Rect {
  * @since 9
  */
 declare interface WindowFilter {
-  readonly bundleName?: string;
-  readonly title?: string;
-  readonly focused?: boolean;
-  readonly actived?: boolean;
+  bundleName?: string;
+  title?: string;
+  focused?: boolean;
+  actived?: boolean;
 }
 
 /**
@@ -594,7 +594,7 @@ declare class On {
    * @syscap SystemCapability.Test.UiTest
    * @param txt The text value.
    * @param pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -605,7 +605,7 @@ declare class On {
    * Specifies the id of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param id The id value.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -616,7 +616,7 @@ declare class On {
    * Specifies the type of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param tp The type value.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -627,7 +627,7 @@ declare class On {
    * Specifies the clickable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The clickable status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -638,7 +638,7 @@ declare class On {
    * Specifies the longClickable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The clickable status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -649,7 +649,7 @@ declare class On {
    * Specifies the scrollable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The scrollable status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -660,7 +660,7 @@ declare class On {
    * Specifies the enabled status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The enabled status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -671,7 +671,7 @@ declare class On {
    * Specifies the focused status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The focused status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -682,7 +682,7 @@ declare class On {
    * Specifies the selected status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The selected status,default to true.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -693,7 +693,7 @@ declare class On {
    * Specifies the checked status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The checked status,default to false.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -704,7 +704,7 @@ declare class On {
    * Specifies the checkable status of the target Component.
    * @syscap SystemCapability.Test.UiTest
    * @param b The checkable status,default to false.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -716,7 +716,7 @@ declare class On {
    * object,used to locate Component relatively.
    * @syscap SystemCapability.Test.UiTest
    * @param on Describes the attribute requirements of Component which the target one is in front of.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -728,7 +728,7 @@ declare class On {
    * object,used to locate Component relatively.
    * @syscap SystemCapability.Test.UiTest
    * @param on Describes the attribute requirements of Component which the target one is in back of.
-   * @return Returns this {@link On} object.
+   * @returns this {@link On} object.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @since 9
    * @test
@@ -944,7 +944,7 @@ declare class Component {
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    * @syscap SystemCapability.Test.UiTest
    * @param on The attribute requirements of the target {@link Component}.
-   * @return the found result,or undefined if not found.
+   * @returns the found result,or undefined if not found.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
@@ -956,7 +956,7 @@ declare class Component {
   /**
    * Get the bounds rect of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
-   * @return the bounds rect object.
+   * @returns the bounds rect object.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
@@ -967,7 +967,7 @@ declare class Component {
   /**
    * Get the boundsCenter of this {@link Component}.
    * @syscap SystemCapability.Test.UiTest
-   * @return the boundsCenter object.
+   * @returns the boundsCenter object.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
@@ -1345,7 +1345,7 @@ declare class UiWindow {
   /**
    * Get the bounds rect of this {@link UiWindow}.
    * @syscap SystemCapability.Test.UiTest
-   * @return the bounds rect object.
+   * @returns the bounds rect object.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000004 - if the window is invisible or destroyed.
    * @since 9

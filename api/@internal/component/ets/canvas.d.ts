@@ -74,7 +74,7 @@ declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
  *    and the ideographic baseline is that the ideographic baseline does not need to consider downlink letters.
  * "hanging": The text baseline is a hanging baseline.
  * "ideographic": The text baseline is the ideographic baseline; If the character itself exceeds the alphabetic
- *    baseline, the ideograhpic baseline is at the bottom of the character itself.
+ *    baseline, the ideographic baseline is at the bottom of the character itself.
  * "middle": The text baseline is in the middle of the text block.
  * "top": The text baseline is at the top of the text block.
  * @since 8
@@ -147,7 +147,7 @@ declare class CanvasPath {
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
-   * Returns the pen point to the start point of the current subpath
+   * Returns the pen point to the start point of the current sub-path
    * @since 8
    */
   closePath(): void;
@@ -178,7 +178,7 @@ declare class CanvasPath {
   ): void;
 
   /**
-   * Connect subpaths using straight lines
+   * Connect sub-path using straight lines
    * @param x The x-axis coordinate of the end point of the line.
    * @param y The y-axis coordinate of the end point of the line.
    * @since 8
@@ -186,7 +186,7 @@ declare class CanvasPath {
   lineTo(x: number, y: number): void;
 
   /**
-   * Moves the start point of a new subpath to the (x, y) coordinate.
+   * Moves the start point of a new sub-path to the (x, y) coordinate.
    * @param x The x-axis coordinate of the point.
    * @param y The y-axis coordinate of the point.
    * @since 8
@@ -475,8 +475,8 @@ declare class CanvasRenderer extends CanvasPath {
    * color-dodge: The inverse of dividing the bottom layer by the top layer.
    * color-burn: Divide the inverted bottom layer by the top layer, and reverse the result.
    * hard-light: A combination of multiplication and screen is similar to overlay, but the layers are interchanged.
-   * soft-light: Subtract the bottom from the top or vice versa to get a positive value.
-   * difference: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
+   * difference: Subtract the bottom from the top or vice versa to get a positive value.
+   * soft-light: A softer version of hard-light. Pure black or pure white does not result in pure black or pure white.
    * exclusion: Similar to difference, but with lower contrast.
    * hue: The luminance and chroma of the bottom layer are retained while the hue of the top layer is employed.
    * saturation: The luminance (luma) and hue (hue) of the bottom layer are retained while the chroma (chroma) of
@@ -640,22 +640,22 @@ declare class CanvasRenderer extends CanvasPath {
    * Provides filter effects such as blur and grayscale. You can set the following filter effects:
    * blur(<length>): Adds a Gaussian blur effect to the drawing
    * brightness(<percentage>): Provides a linear multiplication for the drawing and adjusts the brightness level.
-   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely blacked out.
+   * contrast(<percentage>): Adjusts the contrast of the image. When the value is 0%, the image is completely black.
    *    When the value is 100%, there is no change in the image.
-   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading Drawings
+   * drop-shadow(<offset-x>, <offset-y>, <blur-radius>, <spread-radius>, <color>): Shading the image
    *           --- <offset-x>: Describes the horizontal distance of the shadow.
    *           --- <offset-y>: Describes the vertical distance of the shadow.
    *           --- <blur-radius>: Blur radius. The larger the value, the greater the blur. The value cannot be a negative number.
    *           --- <spread-radius>: Positive numbers make the shadow expand larger, negative numbers make the shadow shrink.
    *           --- <color>: Shadow Color
-   * grayscale(<percentage>)：Converts the image to a gray image. When the value is 100%, the image is completely grayed out.
+   * grayscale(<percentage>)：Converts the image to a gray image. When the value is 100%, the image is completely gray.
    *    When the value is 0%, there is no change in the image.
    * hue-rotate(<degree>)：Perform color rotation on an image. When the value is 0 degrees, there is no change in the image.
    * invert(<percentage>)：Inverted image (representing the effect of a photographic negative). When the value is 100%,
    *    the image is completely inverted. When the value is 0%, there is no change in the image.
    * opacity(<percentage>)：Transparency of the image. At 0%, the image is completely transparent.
    *    When the value is 100%, there is no change in the image.
-   * saturate(<percentage>)：Perform saturation processing on the image. At 0%, the image is completely unsaturated.
+   * saturate(<percentage>)：Perform saturation processing on the image. At 0%, the image is completely un-saturated.
    *    When the value is 100%, there is no change in the image.
    * sepia(<percentage>)：The image is sepia (nostalgic style). At 100%, the image turns completely sepia.
    *    When the value is 0%, there is no change in the image.
@@ -785,7 +785,7 @@ declare class CanvasRenderer extends CanvasPath {
 
   /**
    * Sets the dashed line mode for line drawing.
-   * @param segments A set of numbers that describe the length of alternating drawn line segments and
+   * @param segments A set of numbers that describe the length of alternating drawn lines segments and
    *    spacing (coordinate space units).
    * @since 8
    */

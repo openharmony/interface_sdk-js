@@ -25,32 +25,32 @@ import { Callback } from './basic';
  */
 declare namespace emitter {
   /**
-   * Subscribes to a certain event in persistent manner and receives the event callback.
+   * Subscribe to a certain event in persistent manner and receives the event callback.
    *
    * @since 7
    * @param event indicate event to subscribe to.
    * @param callback indicate callback used to receive the event.
-   * @return -
+   * @returns -
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Subscribes to a certain event in one-shot manner and unsubscribes from it
+   * Subscribe to a certain event in one-shot manner and unsubscribe from it
    * after the event callback is received.
    *
    * @since 7
    * @param event indicate event to subscribe to in one shot.
    * @param callback indicate callback used to receive the event.
-   * @return -
+   * @returns -
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribes from an event.
+   * Unsubscribe from an event.
    *
    * @since 7
    * @param eventId indicate ID of the event to unsubscribe from.
-   * @return -
+   * @returns -
    */
   function off(eventId: number): void;
 
@@ -60,7 +60,7 @@ declare namespace emitter {
    * @since 7
    * @param event indicate event to emit.
    * @param data indicate data carried by the event.
-   * @return -
+   * @returns -
    */
   function emit(event: InnerEvent, data?: EventData): void;
 

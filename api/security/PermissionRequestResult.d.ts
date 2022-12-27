@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -14,32 +14,30 @@
  */
 
 /**
- * StartOptions is the basic communication component of the system.
+ * The result of requestPermissionsFromUser with asynchronous callback.
  *
- * @name StartOptions
  * @since 9
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Security.AccessToken
  * @permission N/A
  * @StageModelOnly
- * @deprecated since 9
- * @useinstead ohos.app.ability.StartOptions
  */
-export default class StartOptions {
+export default class PermissionRequestResult {
     /**
-     * windowMode
-     * @default -
+     * The permissions passed in by the user.
+     *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Security.AccessToken
      * @StageModelOnly
      */
-     windowMode?: number;
+    permissions: Array<string>;
 
     /**
-     * displayId
-     * @default -
+     * The results for the corresponding request permissions. The value 0 indicates that a
+     * permission is granted, and the value -1 indicates not.
+     *
      * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Security.AccessToken
      * @StageModelOnly
      */
-    displayId?: number;
+    authResults: Array<number>;
 }

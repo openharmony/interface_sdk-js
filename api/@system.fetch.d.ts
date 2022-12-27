@@ -14,7 +14,6 @@
  */
 
 /**
- * @import import fetch from '@system.fetch';
  * @since 3
  * @syscap SystemCapability.Communication.NetStack
  */
@@ -39,7 +38,6 @@ export interface FetchResponse {
 }
 
 /**
- * @import import fetch from '@system.fetch';
  * @since 3
  * @syscap SystemCapability.Communication.NetStack
  */

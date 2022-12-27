@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from "./basic";
+import {AsyncCallback, Callback} from "./basic";
 
 /**
  * Provides interfaces for applications to obtain the network state, cell information, signal information,
@@ -65,9 +65,9 @@ declare namespace radio {
   function getNetworkState(slotId?: number): Promise<NetworkState>;
 
   /**
-   * Proactively requests to update location information.
+   * Actively requests to update location information.
    *
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @param { AsyncCallback<void> } callback - the callback of sendUpdateCellLocationRequest.
    * @systemapi
@@ -77,9 +77,9 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(slotId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Proactively requests to update location information.
+   * Actively requests to update location information.
    *
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { number } [ slotId ] - indicates the card slot index number.
    * @returns { Promise<void> } the promise returned by the function.
    * @systemapi
@@ -88,7 +88,7 @@ declare namespace radio {
   function sendUpdateCellLocationRequest(slotId?: number): Promise<void>;
 
   /**
-   * @permission ohos.permission.LOCATION
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -223,8 +223,7 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR).
    *
-   * @return Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
-   * @deprecated Advised to use isNrSupported(slotId: number) instead.
+   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 7
    */
   function isNrSupported(): boolean;
@@ -234,7 +233,7 @@ declare namespace radio {
    *
    * @param slotId Indicates the card slot index number, ranging from 0 to the maximum card slot index number
    * supported by the device.
-   * @return Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @since 8
    */
   function isNrSupported(slotId: number): boolean;
@@ -300,7 +299,7 @@ declare namespace radio {
   function getPreferredNetwork(slotId: number): Promise<PreferredNetworkMode>;
 
   /**
-   * Get the IMS registration state info of specificed IMS service type.
+   * Get the IMS registration state info of specified IMS service type.
    *
    * @param slotId Indicates the card slot index number,
    *   ranging from 0 to the maximum card slot index number supported by the device.
@@ -317,11 +316,11 @@ declare namespace radio {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
-   function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+  function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
-   * Called when the IMS registration state of specificed IMS service type corresponding
+   * Called when the IMS registration state of specified IMS service type corresponding
    *   to a monitored {@code slotId} updates.
    *
    * @param slotId Indicates the card slot index number,
@@ -530,7 +529,7 @@ declare namespace radio {
     /**
      * Obtains the operator name in the long alphanumeric format of the registered network.
      *
-     * @return Returns the operator name in the long alphanumeric format as a string;
+     * @returns Returns the operator name in the long alphanumeric format as a string;
      * returns an empty string if no operator name is obtained.
      */
     longOperatorName: string;
@@ -538,7 +537,7 @@ declare namespace radio {
     /**
      * Obtains the operator name in the short alphanumeric format of the registered network.
      *
-     * @return Returns the operator name in the short alphanumeric format as a string;
+     * @returns Returns the operator name in the short alphanumeric format as a string;
      * returns an empty string if no operator name is obtained.
      */
     shortOperatorName: string;
@@ -546,28 +545,28 @@ declare namespace radio {
     /**
      * Obtains the PLMN code of the registered network.
      *
-     * @return Returns the PLMN code as a string; returns an empty string if no operator name is obtained.
+     * @returns Returns the PLMN code as a string; returns an empty string if no operator name is obtained.
      */
     plmnNumeric: string;
 
     /**
      * Checks whether the device is roaming.
      *
-     * @return Returns {@code true} if the device is roaming; returns {@code false} otherwise.
+     * @returns Returns {@code true} if the device is roaming; returns {@code false} otherwise.
      */
     isRoaming: boolean;
 
     /**
      * Obtains the network registration status of the device.
      *
-     * @return Returns the network registration status {@code RegState}.
+     * @returns Returns the network registration status {@code RegState}.
      */
     regState: RegState;
 
     /**
      * Obtains the radio Access technology after config conversion.
      *
-     * @return Returns the radio Access technology {@code RadioTechnology}.
+     * @returns Returns the radio Access technology {@code RadioTechnology}.
      * @since 8
      */
     cfgTech: RadioTechnology;
@@ -575,21 +574,21 @@ declare namespace radio {
     /**
      * Obtains the NSA network registration status of the device.
      *
-     * @return Returns the NSA network registration status {@code NsaState}.
+     * @returns Returns the NSA network registration status {@code NsaState}.
      */
     nsaState: NsaState;
 
     /**
      * Obtains the status of CA.
      *
-     * @return Returns {@code true} if CA is actived; returns {@code false} otherwise.
+     * @returns Returns {@code true} if CA is actived; returns {@code false} otherwise.
      */
     isCaActive: boolean;
 
     /**
      * Checks whether this device is allowed to make emergency calls only.
      *
-     * @return Returns {@code true} if this device is allowed to make emergency calls only;
+     * @returns Returns {@code true} if this device is allowed to make emergency calls only;
      * returns {@code false} otherwise.
      */
     isEmergency: boolean;
@@ -666,14 +665,14 @@ declare namespace radio {
      *
      * <p>An application can call this method to determine the network type that the child class uses.
      *
-     * @return Returns the the network type of the serving cell.
+     * @returns Returns the the network type of the serving cell.
      */
     networkType: NetworkType;
 
     /**
      * Obtains the camp-on status of the serving cell.
      *
-     * @return Returns {@code true} if the user equipment (UE) is camped on the cell; returns
+     * @returns Returns {@code true} if the user equipment (UE) is camped on the cell; returns
      * {@code false} otherwise.
      */
     isCamped: boolean;
@@ -681,7 +680,7 @@ declare namespace radio {
     /**
      * Obtains the timestamp when the cell information is obtained.
      *
-     * @return Returns a timestamp since boot, in nanoseconds.
+     * @returns Returns a timestamp since boot, in nanoseconds.
      */
     timeStamp: number;
 
@@ -689,7 +688,7 @@ declare namespace radio {
      * An abstract method of the parent class whose implementation depends on the child classes.
      * Returned child class objects vary according to the network type.
      *
-     * @return Returns child class objects specific to the network type.
+     * @returns Returns child class objects specific to the network type.
      */
     signalInformation: SignalInformation;
 

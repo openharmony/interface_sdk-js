@@ -98,14 +98,16 @@ declare namespace http {
     /**
      * Registers an observer for HTTP Response Header events.
      *
-     * @deprecated use on_headersReceive instead since 8.
+     * @deprecated since 8
+     * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
 
     /**
      * Unregisters the observer for HTTP Response Header events.
      *
-     * @deprecated use off_headersReceive instead since 8.
+     * @deprecated since 8
+     * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
 

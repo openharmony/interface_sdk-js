@@ -14,7 +14,6 @@
  */
 
 /**
- * @import import network from '@system.network';
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  */
@@ -33,7 +32,6 @@ export interface NetworkResponse {
 }
 
 /**
- * @import import network from '@system.network';
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  */

@@ -18,7 +18,6 @@
  *
  * @since 9
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @import import InputEvent from '@ohos.multimodalInput.inputEvent';
  */
 export declare interface InputEvent {
   /**

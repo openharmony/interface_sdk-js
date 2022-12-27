@@ -24,90 +24,6 @@ import InputMethodSubtype from './@ohos.inputMethodSubtype';
  */
 declare namespace inputMethod {
     /**
-     * Errorcode 201. The permissions check fails.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PERMISSION: number;
-
-    /**
-     * Errorcode 401. The parameters check fails.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PARAMCHECK: number;
-
-    /**
-     * Errorcode 801. Call unsupported api.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_UNSUPPORTED: number;
-
-    /**
-     * Errorcode 12800001. Package manager error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_PACKAGEMANAGER: number;
-
-    /**
-     * Errorcode 12800002. Input method engine error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMENGINE: number;
-
-    /**
-     * Errorcode 12800003. Input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMCLIENT: number;
-
-    /**
-     * Errorcode 12800004. Key event processing error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_KEYEVENT: number;
-
-    /**
-     * Errorcode 12800005. Configuration persisting error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_CONFPERSIST: number;
-
-    /**
-     * Errorcode 12800006. Input method controller error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_CONTROLLER: number;
-
-    /**
-     * Errorcode 12800007. Input method settings extension error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_SETTINGS: number;
-
-    /**
-     * Errorcode 12800008. Input method manager service error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_IMMS: number;
-
-    /**
-     * Errorcode 12899999. Others error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
-     */
-    const EXCEPTION_OTHERS: number;
-
-    /**
      * Keyboard max number
      * @since 8
      */
@@ -132,7 +48,7 @@ declare namespace inputMethod {
     /**
      * Input method setting
      * @since 9
-     * @return :-
+     * @returns { InputMethodSetting } the object of InputMethodSetting.
      * @throws {BusinessError} 12800007 - settings extension error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
@@ -141,7 +57,7 @@ declare namespace inputMethod {
     /**
      * Input method controller
      * @since 9
-     * @return :-
+     * @returns { InputMethodController } the object of InputMethodController.
      * @throws {BusinessError} 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
@@ -149,15 +65,15 @@ declare namespace inputMethod {
 
     /**
      * Switch input method
-     * @since 9
-     * @param target Indicates the input method which will replace the current one
-     * @return :-
      * @permission ohos.permission.CONNECT_IME_ABILITY
+     * @param { InputMethodProperty } [target] - indicates the input method which will replace the current one.
+     * @param { AsyncCallback<boolean> } [callback] - the callback of switchInputMethod.
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 12800005 - configuration persisting error.
      * @throws {BusinessError} 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
@@ -165,7 +81,7 @@ declare namespace inputMethod {
      * Switch input method
      * @since 9
      * @param target Indicates the input method which will replace the current one
-     * @return :-
+     * @returns { Promise<boolean> } the promise returned by the function.
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -178,7 +94,7 @@ declare namespace inputMethod {
     /**
      * Get current input method
      * @since 9
-     * @return The InputMethodProperty object of the current input method
+     * @returns { InputMethodProperty } the property of current inputmethod.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getCurrentInputMethod(): InputMethodProperty;
@@ -187,7 +103,6 @@ declare namespace inputMethod {
      * Switch current input method subtype
      * @since 9
      * @param target Indicates the input method subtype which will replace the current one
-     * @return success or fail
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -201,7 +116,7 @@ declare namespace inputMethod {
      * Switch current input method subtype
      * @since 9
      * @param target Indicates the input method subtype which will replace the current one
-     * @return success or fail
+     * @returns { Promise<boolean> } the promise returned by the function.
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -214,7 +129,7 @@ declare namespace inputMethod {
     /**
      * Get the current input method subtype
      * @since 9
-     * @return The InputMethodSubtype object of the current input method
+     * @returns { InputMethodSubtype } the subtype of the current input method.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     function getCurrentInputMethodSubtype(): InputMethodSubtype;
@@ -224,7 +139,6 @@ declare namespace inputMethod {
      * @since 9
      * @param inputMethodProperty Indicates the target input method
      * @param inputMethodSubtype Indicates the target input method subtype
-     * @return :-
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -235,11 +149,11 @@ declare namespace inputMethod {
     function switchCurrentInputMethodAndSubtype(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Switch input method and subtype
+     * Switch input method and subtype.
      * @since 9
-     * @param inputMethodProperty Indicates the target input method
-     * @param inputMethodSubtype Indicates the target input method subtype
-     * @return :-
+     * @param inputMethodProperty Indicates the target input method.
+     * @param inputMethodSubtype Indicates the target input method subtype.
+     * @returns { Promise<boolean> } the promise returned by the function.
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -254,28 +168,25 @@ declare namespace inputMethod {
      */
     interface InputMethodSetting {
         /**
-         * Subscribe input method or subtype change
+         * Subscribe input method or subtype change.
          * @since 9
-         * @param type Indicates the event type
-         * @return :-
+         * @param type Indicates the event type.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'imeChange', callback: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void;
 
         /**
-         * Unsubscribe input method or subtype change
+         * Unsubscribe input method or subtype change.
          * @since 9
-         * @param type Indicates the event type
-         * @return :-
+         * @param type Indicates the event type.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
          off(type: 'imeChange', callback?: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void;
 
         /**
-         * List subtype of the specified input method
+         * List subtype of the specified input method.
          * @since 9
-         * @param inputMethodProperty Indicates the specified input method
-         * @return :-
+         * @param inputMethodProperty Indicates the specified input method.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -284,10 +195,10 @@ declare namespace inputMethod {
         listInputMethodSubtype(inputMethodProperty: InputMethodProperty, callback: AsyncCallback<Array<InputMethodSubtype>>): void;
 
         /**
-         * List subtype of the specified input method
+         * List subtype of the specified input method.
          * @since 9
-         * @param inputMethodProperty Indicates the specified input method
-         * @return :-
+         * @param inputMethodProperty Indicates the specified input method.
+         * @returns { Promise<Array<InputMethodSubtype>> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -298,7 +209,6 @@ declare namespace inputMethod {
         /**
          * List subtype of current input method
          * @since 9
-         * @return :-
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -308,7 +218,7 @@ declare namespace inputMethod {
         /**
          * List subtype of current input method
          * @since 9
-         * @return :-
+         * @returns { Promise<Array<InputMethodSubtype>> } the promise returned by the function.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -321,7 +231,6 @@ declare namespace inputMethod {
          * @param enable :
          *     If true, collect enabled input methods.
          *     If false, collect disabled input methods.
-         * @return :-
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -335,7 +244,7 @@ declare namespace inputMethod {
          * @param enable :
          *     If true, collect enabled input methods.
          *     If false, collect disabled input methods.
-         * @return :-
+         * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800001 - package manager error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -359,7 +268,6 @@ declare namespace inputMethod {
         /**
          * Show input method setting extension dialog
          * @since 9
-         * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -370,8 +278,8 @@ declare namespace inputMethod {
         /**
          * Show input method setting extension dialog
          * @since 9
-         * @return -
          * @permission ohos.permission.CONNECT_IME_ABILITY
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -400,8 +308,8 @@ declare namespace inputMethod {
         /**
          * Stop input
          * @since 9
-         * @return :-
          * @throws {BusinessError} 201 - permissions check fails.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -410,8 +318,9 @@ declare namespace inputMethod {
         /**
          * Stop input
          * @since 9
-         * @return :-
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 201 - permissions check fails.
+         * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -422,7 +331,6 @@ declare namespace inputMethod {
          * @since 6
          * @deprecated since 9
          * @useinstead ohos.inputmethod.InputMethodController.stopInputSession
-         * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
         */
         stopInput(callback: AsyncCallback<boolean>): void;
@@ -430,9 +338,9 @@ declare namespace inputMethod {
         /**
          * Stop input
          * @since 6
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @deprecated since 9
          * @useinstead ohos.inputmethod.InputMethodController.stopInputSession
-         * @return :-
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         stopInput(): Promise<boolean>;
@@ -440,7 +348,6 @@ declare namespace inputMethod {
         /**
          * Show soft keyboard
          * @since 9
-         * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -452,8 +359,8 @@ declare namespace inputMethod {
         /**
          * Show soft keyboard
          * @since 9
-         * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
+         * @returns { Promise<boolean> } the promise returned by the function.
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -464,7 +371,6 @@ declare namespace inputMethod {
         /**
          * Hide soft keyboard
          * @since 9
-         * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800003 - input method client error.
@@ -476,8 +382,8 @@ declare namespace inputMethod {
         /**
          * Hide soft keyboard
          * @since 9
-         * @return :-
          * @permission ohos.permission.CONNECT_IME_ABILITY
+         * @returns { Promise<void> } the promise returned by the function.
          * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.

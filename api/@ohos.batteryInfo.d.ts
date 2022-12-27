@@ -209,7 +209,7 @@ declare namespace batteryInfo {
      */
     export enum BatteryCapacityLevel {
         /**
-         * The battery is in unknow capacity level.
+         * The battery is in unknown capacity level.
          * @since 9
          */
         LEVEL_NONE,

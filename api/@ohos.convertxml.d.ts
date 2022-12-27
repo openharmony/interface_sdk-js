@@ -17,7 +17,6 @@
  * The convertxml module provides utilities for converting XML text to Javascript object.
  * @since 8
  * @syscap SystemCapability.Utils.Lang
- * @import import convertXml from '@ohos.convertxml';
  * @permission N/A
  */
 declare namespace xml {
@@ -153,7 +152,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
          * @param option Option Inputted by user to set.
-         * @return Returns a JavaScript object converting from XML text.
+         * @returns Returns a JavaScript object converting from XML text.
          */
         convert(xml: string, options?: ConvertOptions) : Object;
 
@@ -163,7 +162,7 @@ declare namespace xml {
          * @syscap SystemCapability.Utils.Lang
          * @param xml The xml text to be converted.
          * @param option Option Inputted by user to set.
-         * @return Returns a JavaScript object converting from XML text.
+         * @returns Returns a JavaScript object converting from XML text.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200002 - Invalid xml string.
          */

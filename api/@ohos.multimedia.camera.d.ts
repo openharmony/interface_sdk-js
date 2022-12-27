@@ -19,8 +19,8 @@ import { Context } from './app/context';
 /**
  * @name camera
  * @syscap SystemCapability.Multimedia.Camera.Core
- * @import import camera from '@ohos.multimedia.camera';
  * @since 9
+ * @systemapi
  */
 declare namespace camera {
 
@@ -36,7 +36,7 @@ declare namespace camera {
   /**
    * Creates a CameraManager instance.
    * @param context Current application context.
-   * @return Promise used to return the CameraManager instance.
+   * @returns Promise used to return the CameraManager instance.
    * @since 9
    * @syscap SystemCapability.Multimedia.Camera.Core
    */
@@ -176,7 +176,7 @@ declare namespace camera {
 
     /**
      * Gets supported camera descriptions.
-     * @return Promise used to return an array of supported cameras.
+     * @returns Promise used to return an array of supported cameras.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -194,7 +194,7 @@ declare namespace camera {
     /**
      * Gets supported output capability for specific camera.
      * @param camera Camera device.
-     * @return Promise used to return the camera output capability.
+     * @returns Promise used to return the camera output capability.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -202,7 +202,7 @@ declare namespace camera {
 
     /**
      * Determine whether camera is muted.
-     * @return Is camera muted.
+     * @returns Is camera muted.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -210,7 +210,7 @@ declare namespace camera {
 
     /**
      * Determine whether camera mute is supported.
-     * @return Is camera mute supported.
+     * @returns Is camera mute supported.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -239,7 +239,7 @@ declare namespace camera {
     /**
      * Creates a CameraInput instance by camera.
      * @param camera Camera device used to create the instance.
-     * @return Promise used to return the CameraInput instance.
+     * @returns Promise used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @permission ohos.permission.CAMERA
@@ -261,7 +261,7 @@ declare namespace camera {
      * Creates a CameraInput instance by camera position and type.
      * @param position Target camera position.
      * @param type Target camera type.
-     * @return Promise used to return the CameraInput instance.
+     * @returns Promise used to return the CameraInput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @permission ohos.permission.CAMERA
@@ -282,7 +282,7 @@ declare namespace camera {
      * Creates a PreviewOutput instance.
      * @param profile Preview output profile.
      * @param surfaceId Surface object id used in camera photo output.
-     * @return Promise used to return the PreviewOutput instance.
+     * @returns Promise used to return the PreviewOutput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -302,7 +302,7 @@ declare namespace camera {
      * Creates a PhotoOutput instance.
      * @param profile Photo output profile.
      * @param surfaceId Surface object id used in camera photo output.
-     * @return Promise used to return the PhotoOutput instance.
+     * @returns Promise used to return the PhotoOutput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -322,7 +322,7 @@ declare namespace camera {
      * Creates a VideoOutput instance.
      * @param profile Video profile.
      * @param surfaceId Surface object id used in camera video output.
-     * @return Promise used to return the VideoOutput instance.
+     * @returns Promise used to return the VideoOutput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -340,7 +340,7 @@ declare namespace camera {
     /**
      * Creates a MetadataOutput instance.
      * @param metadataObjectTypes Array of MetadataObjectType.
-     * @return Promise used to return the MetadataOutput instance.
+     * @returns Promise used to return the MetadataOutput instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -356,7 +356,7 @@ declare namespace camera {
 
     /**
      * Gets a CaptureSession instance.
-     * @return Promise used to return the CaptureSession instance.
+     * @returns Promise used to return the CaptureSession instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -586,7 +586,7 @@ declare namespace camera {
 
     /**
      * Open camera.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -602,7 +602,7 @@ declare namespace camera {
 
     /**
      * Close camera.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -618,7 +618,7 @@ declare namespace camera {
 
     /**
      * Releases instance.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -876,7 +876,7 @@ declare namespace camera {
 
     /**
      * Begin capture session config.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -892,7 +892,7 @@ declare namespace camera {
 
     /**
      * Commit capture session config.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -910,7 +910,7 @@ declare namespace camera {
     /**
      * Adds a camera input.
      * @param cameraInput Target camera input to add.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -928,7 +928,7 @@ declare namespace camera {
     /**
      * Removes a camera input.
      * @param cameraInput Target camera input to remove.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -946,7 +946,7 @@ declare namespace camera {
     /**
      * Adds a camera output.
      * @param cameraOutput Target camera output to add.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -964,7 +964,7 @@ declare namespace camera {
     /**
      * Removes a camera output.
      * @param previewOutput Target camera output to remove.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -980,7 +980,7 @@ declare namespace camera {
 
     /**
      * Starts capture session.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -996,7 +996,7 @@ declare namespace camera {
 
     /**
      * Stops capture session.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1012,7 +1012,7 @@ declare namespace camera {
 
     /**
      * Release capture session instance.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1028,7 +1028,7 @@ declare namespace camera {
 
     /**
      * Check if device has flash light.
-     * @return Promise used to return the flash light support status.
+     * @returns Promise used to return the flash light support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1046,7 +1046,7 @@ declare namespace camera {
     /**
      * Checks whether a specified flash mode is supported.
      * @param flashMode Flash mode
-     * @return Promise used to return flash mode support status.
+     * @returns Promise used to return flash mode support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1062,7 +1062,7 @@ declare namespace camera {
 
     /**
      * Gets current flash mode.
-     * @return Promise used to return the flash mode.
+     * @returns Promise used to return the flash mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1080,7 +1080,7 @@ declare namespace camera {
     /**
      * Sets flash mode.
      * @param flashMode Target flash mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1098,7 +1098,7 @@ declare namespace camera {
     /**
      * Checks whether a specified exposure mode is supported.
      * @param aeMode Exposure mode
-     * @return Promise used to return exposure mode support status.
+     * @returns Promise used to return exposure mode support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1114,7 +1114,7 @@ declare namespace camera {
 
     /**
      * Gets current exposure mode.
-     * @return Promise used to return the current exposure mode.
+     * @returns Promise used to return the current exposure mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1132,7 +1132,7 @@ declare namespace camera {
      /**
       * Sets Exposure mode.
       * @param aeMode Exposure mode
-      * @return Promise used to return the result.
+      * @returns Promise used to return the result.
       * @since 9
       * @syscap SystemCapability.Multimedia.Camera.Core
       */
@@ -1148,7 +1148,7 @@ declare namespace camera {
 
     /**
      * Gets current metering point.
-     * @return Promise used to return the current metering point.
+     * @returns Promise used to return the current metering point.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1166,7 +1166,7 @@ declare namespace camera {
      /**
       * Set the center point of the metering area.
       * @param point metering point
-      * @return Promise used to return the result.
+      * @returns Promise used to return the result.
       * @since 9
       * @syscap SystemCapability.Multimedia.Camera.Core
       */
@@ -1174,7 +1174,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @param callback Callback used to return the array of compenstation range.
+     * @param callback Callback used to return the array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1182,7 +1182,7 @@ declare namespace camera {
 
     /**
      * Query the exposure compensation range.
-     * @return Promise used to return the array of compenstation range.
+     * @returns Promise used to return the array of compensation range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1200,7 +1200,7 @@ declare namespace camera {
     /**
      * Set exposure compensation.
      * @param exposureBias Exposure compensation
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1216,7 +1216,7 @@ declare namespace camera {
 
     /**
      * Query the exposure value.
-     * @return Promise used to return the exposure value.
+     * @returns Promise used to return the exposure value.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1234,7 +1234,7 @@ declare namespace camera {
     /**
      * Checks whether a specified focus mode is supported.
      * @param afMode Focus mode.
-     * @return Promise used to return the focus mode support status.
+     * @returns Promise used to return the focus mode support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1250,7 +1250,7 @@ declare namespace camera {
 
     /**
      * Gets current focus mode.
-     * @return Promise used to return the focus mode.
+     * @returns Promise used to return the focus mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1268,7 +1268,7 @@ declare namespace camera {
     /**
      * Sets focus mode.
      * @param afMode Target focus mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1286,7 +1286,7 @@ declare namespace camera {
     /**
      * Sets focus point.
      * @param afMode Target focus point.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1302,7 +1302,7 @@ declare namespace camera {
 
     /**
      * Gets current focus point.
-     * @return Promise used to return the current focus point.
+     * @returns Promise used to return the current focus point.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1318,7 +1318,7 @@ declare namespace camera {
 
     /**
      * Gets current focal length.
-     * @return Promise used to return the current focal point.
+     * @returns Promise used to return the current focal point.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1334,7 +1334,7 @@ declare namespace camera {
 
     /**
      * Gets all supported zoom ratio range.
-     * @return Promise used to return the zoom ratio range.
+     * @returns Promise used to return the zoom ratio range.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1350,7 +1350,7 @@ declare namespace camera {
 
     /**
      * Gets zoom ratio.
-     * @return Promise used to return the zoom ratio value.
+     * @returns Promise used to return the zoom ratio value.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1368,7 +1368,7 @@ declare namespace camera {
     /**
      * Sets zoom ratio.
      * @param zoomRatio Target zoom ratio.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1386,7 +1386,7 @@ declare namespace camera {
     /**
      * Check whether the specified video stabilization mode is supported.
      * @param callback Callback used to return if video stablization mode is supported.
-     * @return Promise used to return flash mode support status.
+     * @returns Promise used to return flash mode support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1402,7 +1402,7 @@ declare namespace camera {
 
     /**
      * Query the video stabilization mode currently in use.
-     * @return Promise used to return the current video stabilization mode.
+     * @returns Promise used to return the current video stabilization mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1420,7 +1420,7 @@ declare namespace camera {
     /**
      * Set video stabilization mode.
      * @param mode video stabilization mode to set.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1493,7 +1493,7 @@ declare namespace camera {
 
     /**
      * Release output instance.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1516,7 +1516,7 @@ declare namespace camera {
 
     /**
      * Start output instance.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1532,7 +1532,7 @@ declare namespace camera {
 
     /**
      * Stop output instance.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1731,7 +1731,7 @@ declare namespace camera {
     /**
      * Start capture output.
      * @param setting Photo capture settings.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1747,7 +1747,7 @@ declare namespace camera {
 
     /**
      * Check whether to support mirror photo.
-     * @return Promise used to return the mirror support status.
+     * @returns Promise used to return the mirror support status.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1883,7 +1883,7 @@ declare namespace camera {
 
     /**
      * Start video output.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -1899,7 +1899,7 @@ declare namespace camera {
 
     /**
      * Stop video output.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -2082,7 +2082,7 @@ declare namespace camera {
 
     /**
      * Start output metadata
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */
@@ -2098,7 +2098,7 @@ declare namespace camera {
 
     /**
      * Stop output metadata
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Camera.Core
      */

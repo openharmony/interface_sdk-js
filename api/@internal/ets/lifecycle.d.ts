@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import Want from "../../@ohos.application.Want";
-import ResultSet from "../../data/rdb/resultSet";
+import Want from "../../@ohos.app.ability.Want";
+import { ResultSet } from "../../data/rdb/resultSet";
 import { AbilityInfo } from "../../bundle/abilityInfo";
 import { DataAbilityResult } from "../../ability/dataAbilityResult";
 import { DataAbilityOperation } from "../../ability/dataAbilityOperation";
 import dataAbility from "../../@ohos.data.dataAbility";
 import formBindingData from "../../@ohos.application.formBindingData";
-import formInfo from "../../@ohos.application.formInfo";
+import formInfo from "../../@ohos.app.form.formInfo";
 import rdb from "../../@ohos.data.rdb";
 import rpc from "../../@ohos.rpc";
 import resourceManager from "../../@ohos.resourceManager";
@@ -47,7 +47,7 @@ export declare interface LifecycleForm {
    *               {@link formInfo#FormParam#NAME_KEY}, and {@link formInfo#FormParam#DIMENSION_KEY},
    *               respectively. Such form information must be managed as persistent data for further form
    *               acquisition, update, and deletion.
-   * @return Returns the created {@link formBindingData#FormBindingData} object.
+   * @returns Returns the created {@link formBindingData#FormBindingData} object.
    * @FAModelOnly
    */
   onCreate?(want: Want): formBindingData.FormBindingData;
@@ -58,7 +58,7 @@ export declare interface LifecycleForm {
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the form.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onCastToNormal?(formId: string): void;
@@ -69,7 +69,7 @@ export declare interface LifecycleForm {
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the form to update.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onUpdate?(formId: string): void;
@@ -84,7 +84,7 @@ export declare interface LifecycleForm {
    *    or {@link formInfo#VisibilityType#FORM_INVISIBLE}. {@link formInfo#VisibilityType#FORM_VISIBLE}
    *    means that the form becomes visible, and {@link formInfo#VisibilityType#FORM_INVISIBLE}
    *    means that the form becomes invisible.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onVisibilityChange?(newStatus: { [key: string]: number }): void;
@@ -99,7 +99,7 @@ export declare interface LifecycleForm {
    *               the client to the form provider.
    * @param message Indicates the value of the {@code params} field of the message event. This parameter is
    *                used to identify the specific component on which the event is triggered.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onEvent?(formId: string, message: string): void;
@@ -111,7 +111,7 @@ export declare interface LifecycleForm {
    * @since 8
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the deleted form.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onDestroy?(formId: string): void;
@@ -126,7 +126,7 @@ export declare interface LifecycleForm {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the description of the form for which the {@link formInfo#FormState} is obtained.
    *    The description covers the bundle name, ability name, module name, form name, and form dimensions.
-   * @return Returns the {@link formInfo#FormState} object.
+   * @returns Returns the {@link formInfo#FormState} object.
    * @FAModelOnly
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
@@ -138,7 +138,7 @@ export declare interface LifecycleForm {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param formId Indicates the ID of the deleted form.
    * @systemapi hide for inner use.
-   * @return Returns the wantParams object.
+   * @returns Returns the wantParams object.
    * @FAModelOnly
    */
   onShare?(formId: string): {[key: string]: any};
@@ -158,7 +158,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onShow?(): void;
@@ -168,7 +168,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onHide?(): void;
@@ -178,7 +178,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onDestroy?(): void;
@@ -188,7 +188,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onCreate?(): void;
@@ -202,7 +202,7 @@ export declare interface LifecycleApp {
    * @param isShownInMultiWindow Specifies whether this ability is currently in multi-window mode.
    *     The value {@code true} indicates the multi-window mode, and {@code false} indicates another mode.
    * @param newConfig Indicates the new configuration information about this Page ability.
-   * @return -
+   * @returns -
    * @systemapi hide for inner use.
    * @FAModelOnly
    */
@@ -213,7 +213,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the user allows the migration; returns {@code false} otherwise.
    * @FAModelOnly
    */
   onStartContinuation?(): boolean;
@@ -226,7 +226,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param data Indicates the user data to save.
-   * @return Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
    * @FAModelOnly
    */
   onSaveData?(data: Object): boolean;
@@ -241,7 +241,7 @@ export declare interface LifecycleApp {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param result Indicates the migration result code. The value {@code 0} indicates that the migration is
    *               successful, and {@code -1} indicates that the migration fails.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onCompleteContinuation?(result: number): void;
@@ -254,7 +254,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param data Indicates the user data to restore.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onRestoreData?(data: Object): void;
@@ -265,7 +265,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onRemoteTerminated?(): void;
@@ -279,7 +279,7 @@ export declare interface LifecycleApp {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param outState Indicates the {@code PacMap} object used for storing user data and states. This
    * parameter cannot be null.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onSaveAbilityState?(outState: PacMap): void;
@@ -293,7 +293,7 @@ export declare interface LifecycleApp {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param inState Indicates the {@code PacMap} object used for storing data and states. This
    * parameter can not be null.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onRestoreAbilityState?(inState: PacMap): void;
@@ -304,7 +304,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onInactive?(): void;
@@ -314,7 +314,7 @@ export declare interface LifecycleApp {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onActive?(): void;
@@ -325,7 +325,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the new {@code want} containing information about the ability.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onNewWant?(want: Want): void;
@@ -337,7 +337,7 @@ export declare interface LifecycleApp {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param level Indicates the memory trim level, which shows the current memory usage status.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onMemoryLevel?(level: number): void;
@@ -358,7 +358,7 @@ export declare interface LifecycleService {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onStart?(): void;
@@ -372,7 +372,7 @@ export declare interface LifecycleService {
    * @param startId Indicates the number of times the Service ability has been started. The {@code startId} is
    *     incremented by 1 every time the ability is started. For example, if the ability has been started
    *     for six times.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onCommand?(want: Want, startId: number): void;
@@ -382,7 +382,7 @@ export declare interface LifecycleService {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onStop?(): void;
@@ -393,7 +393,7 @@ export declare interface LifecycleService {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates connection information about the Service ability.
-   * @return Returns the proxy of the Service ability.
+   * @returns Returns the proxy of the Service ability.
    * @FAModelOnly
    */
   onConnect?(want: Want): rpc.RemoteObject;
@@ -404,7 +404,7 @@ export declare interface LifecycleService {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates disconnection information about the Service ability.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onDisconnect?(want: Want): void;
@@ -419,7 +419,7 @@ export declare interface LifecycleService {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param want Indicates the want of the Service ability being connected.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onReconnect?(want: Want): void;
@@ -445,7 +445,7 @@ export declare interface LifecycleData {
    *                   default.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    update?(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -462,7 +462,7 @@ export declare interface LifecycleData {
    *                   default.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    query?(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -477,7 +477,7 @@ export declare interface LifecycleData {
    *     default.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    delete?(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -492,7 +492,7 @@ export declare interface LifecycleData {
    * @param uri Indicates the uri to normalize.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
@@ -506,7 +506,7 @@ export declare interface LifecycleData {
    * @param valueBuckets Indicates the data to insert.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    batchInsert?(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -520,7 +520,7 @@ export declare interface LifecycleData {
    * @param uri Indicates the uri to denormalize.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    denormalizeUri?(uri: string, callback: AsyncCallback<string>): void;
@@ -534,7 +534,7 @@ export declare interface LifecycleData {
    * @param valueBucket Indicates the data to insert.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    insert?(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
@@ -551,7 +551,7 @@ export declare interface LifecycleData {
    *     existing data, or "rwt" for read and write access that truncates any existing file.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    openFile?(uri: string, mode: string, callback: AsyncCallback<number>): void;
@@ -569,7 +569,7 @@ export declare interface LifecycleData {
    *     <p>3. "&ast;/jpg": Obtains files whose subtype is JPG of any main type.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    getFileTypes?(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
@@ -580,7 +580,7 @@ export declare interface LifecycleData {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param info Indicates the {@code AbilityInfo} object containing information about this ability.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   onInitialized?(info: AbilityInfo): void;
@@ -596,7 +596,7 @@ export declare interface LifecycleData {
    * @param uri Indicates the uri of the data.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   getType?(uri: string, callback: AsyncCallback<string>): void;
@@ -609,7 +609,7 @@ export declare interface LifecycleData {
    * @param ops Indicates the data operation list, which can contain multiple operations on the database.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   executeBatch?(ops: Array<DataAbilityOperation>, callback: AsyncCallback<Array<DataAbilityResult>>): void;
@@ -624,7 +624,7 @@ export declare interface LifecycleData {
    * @param extras Indicates the parameter transferred by the method.
    * @param callback function specified by framework to receive the result, developer should call this function to
    *                 return the result to framework.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
    call?(method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;

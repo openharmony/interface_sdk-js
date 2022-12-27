@@ -17,7 +17,6 @@
  * The url module provides utilities for URL resolution and parsing.
  * @since 7
  * @syscap SystemCapability.Utils.Lang
- * @import import url from '@ohos.url';
  * @permission N/A
  */
 declare namespace url {
@@ -42,7 +41,7 @@ declare namespace url {
          */
         constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
 
-        /** 
+        /**
          * Appends a specified key/value pair as a new search parameter.
          * @since 7
          * @deprecated since 9
@@ -53,7 +52,7 @@ declare namespace url {
          */
         append(name: string, value: string): void;
 
-        /** 
+        /**
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 7
          * @deprecated since 9
@@ -63,14 +62,14 @@ declare namespace url {
          */
         delete(name: string): void;
 
-        /** 
+        /**
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 7
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.getAll
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key value.
-         * @return string[] Returns all key-value pairs with the specified name.
+         * @returns string[] Returns all key-value pairs with the specified name.
          */
         getAll(name: string): string[];
 
@@ -81,11 +80,11 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.entries
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an iterator for ES6.
+         * @returns Returns an iterator for ES6.
          */
         entries(): IterableIterator<[string, string]>;
 
-        /** 
+        /**
          * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
          * @since 7
          * @deprecated since 9
@@ -94,9 +93,9 @@ declare namespace url {
          * @param value Current traversal key value.
          * @param key Indicates the name of the key that is traversed.
          * @param searchParams The instance object that is currently calling the forEach method.
-         * @param thisArg to be used as this value for when callbackfn is called
+         * @param thisArg to be used as this value for when callbackFn is called
          */
-        forEach(callbackfn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
+        forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
 
         /**
          * Returns the first value associated to the given search parameter.
@@ -105,7 +104,7 @@ declare namespace url {
          * @useinstead ohos.url.URLParams.get
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns the first value found by name. If no value is found, null is returned.
+         * @returns Returns the first value found by name. If no value is found, null is returned.
          */
         get(name: string): string | null;
 
@@ -116,7 +115,7 @@ declare namespace url {
          * @useinstead ohos.url.URLParams.has
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns a Boolean value that indicates whether a found
+         * @returns Returns a Boolean value that indicates whether a found
          */
         has(name: string): boolean;
 
@@ -149,7 +148,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.keys
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the names of each name-value pair.
+         * @returns Returns an ES6 Iterator over the names of each name-value pair.
          */
         keys(): IterableIterator<string>;
 
@@ -159,7 +158,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.values
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the values of each name-value pair.
+         * @returns Returns an ES6 Iterator over the values of each name-value pair.
          */
         values(): IterableIterator<string>;
 
@@ -170,7 +169,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.[Symbol.iterator]
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
+         * @returns Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
          */
         [Symbol.iterator](): IterableIterator<[string, string]>;
@@ -181,7 +180,7 @@ declare namespace url {
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.toString
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns a search parameter serialized as a string, percent-encoded if necessary.
+         * @returns Returns a search parameter serialized as a string, percent-encoded if necessary.
          */
         toString(): string;
     }
@@ -194,19 +193,19 @@ declare namespace url {
      */
     class URLParams {
         /**
-         * A parameterized constructor used to create an URLSearchParams instance.
+         * A parameterized constructor used to create an URLParams instance.
          * As the input parameter of the constructor function, init supports four types.
          * The input parameter is a character string two-dimensional array.
          * The input parameter is the object list.
          * The input parameter is a character string.
-         * The input parameter is the URLSearchParams object.
+         * The input parameter is the URLParams object.
          * @since 9
          * @throws {BusinessError} 401 - The type of init must be string two-dimensional array or object list
-         * or string or URLSearchParams object.
+         * or string or URLParams object.
          */
-        constructor(init?: string[][] | Record<string, string> | string | URLSearchParams);
+        constructor(init?: string[][] | Record<string, string> | string | URLParams);
 
-        /** 
+        /**
          * Appends a specified key/value pair as a new search parameter.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -216,7 +215,7 @@ declare namespace url {
          */
         append(name: string, value: string): void;
 
-        /** 
+        /**
          * Deletes the given search parameter and its associated value,from the list of all search parameters.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
@@ -225,12 +224,12 @@ declare namespace url {
          */
         delete(name: string): void;
 
-        /** 
+        /**
          * Returns all key-value pairs associated with a given search parameter as an array.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key value.
-         * @return string[] Returns all key-value pairs with the specified name.
+         * @returns string[] Returns all key-value pairs with the specified name.
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         getAll(name: string): string[];
@@ -240,28 +239,28 @@ declare namespace url {
          * The first item of Array is name, and the second item of Array is value.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an iterator for ES6.
+         * @returns Returns an iterator for ES6.
          */
         entries(): IterableIterator<[string, string]>;
 
-        /** 
-         * Callback functions are used to traverse key-value pairs on the URLSearchParams instance object.
+        /**
+         * Callback functions are used to traverse key-value pairs on the URLParams instance object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param value Current traversal key value.
          * @param key Indicates the name of the key that is traversed.
          * @param searchParams The instance object that is currently calling the forEach method.
-         * @param thisArg to be used as this value for when callbackfn is called
+         * @param thisArg to be used as this value for when callbackFn is called
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
-        forEach(callbackfn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
+        forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
 
         /**
          * Returns the first value associated to the given search parameter.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns the first value found by name. If no value is found, null is returned.
+         * @returns Returns the first value found by name. If no value is found, null is returned.
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         get(name: string): string | null;
@@ -271,7 +270,7 @@ declare namespace url {
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param name Specifies the name of a key-value pair.
-         * @return Returns a Boolean value that indicates whether a found
+         * @returns Returns a Boolean value that indicates whether a found
          * @throws {BusinessError} 401 - The type of name must be string.
          */
         has(name: string): boolean;
@@ -300,7 +299,7 @@ declare namespace url {
          * Returns an iterator allowing to go through all keys contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the names of each name-value pair.
+         * @returns Returns an ES6 Iterator over the names of each name-value pair.
          */
         keys(): IterableIterator<string>;
 
@@ -308,7 +307,7 @@ declare namespace url {
          * Returns an iterator allowing to go through all values contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 Iterator over the values of each name-value pair.
+         * @returns Returns an ES6 Iterator over the values of each name-value pair.
          */
         values(): IterableIterator<string>;
 
@@ -317,7 +316,7 @@ declare namespace url {
          * pairs contained in this object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
+         * @returns Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
          */
         [Symbol.iterator](): IterableIterator<[string, string]>;
@@ -326,7 +325,7 @@ declare namespace url {
          * Returns a query string suitable for use in a URL.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns a search parameter serialized as a string, percent-encoded if necessary.
+         * @returns Returns a search parameter serialized as a string, percent-encoded if necessary.
          */
         toString(): string;
     }
@@ -357,9 +356,11 @@ declare namespace url {
 
         /**
          * Check the validity of parameters
-         * url: Absolute or relative input URL to resolve. Base is required if input is relative.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         * @param url Absolute or relative input URL to resolve. Base is required if input is relative.
          * If input is an absolute value, base ignores the value.
-         * base: Base URL to parse if input is not absolute.
+         * @param base Base URL to parse if input is not absolute.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          * @throws {BusinessError} 10200002 - Invalid url string.
          */
@@ -369,7 +370,7 @@ declare namespace url {
          * Returns the serialized URL as a string.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
+         * @returns Returns the serialized URL as a string.
          */
         toString(): string;
 
@@ -377,18 +378,18 @@ declare namespace url {
          * Returns the serialized URL as a string.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
-         * @return Returns the serialized URL as a string.
+         * @returns Returns the serialized URL as a string.
          */
         toJSON(): string;
 
-        /** 
+        /**
          * Gets and sets the fragment portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
          */
         hash: string;
 
-        /** 
+        /**
          * Gets and sets the host portion of the URL.
          * @since 7
          * @syscap SystemCapability.Utils.Lang
@@ -456,12 +457,20 @@ declare namespace url {
          * This property is read-only, but URLSearchParams provides an object that can be used to change
          * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.url.URL.params
          * @syscap SystemCapability.Utils.Lang
-         * @note Be careful when modifying with .searchParams, because the URLSearchParams
-         * object uses different rules to determine which characters to
-         * percent-encode according to the WHATWG specification.
          */
         readonly searchParams: URLSearchParams;
+
+        /**
+         * Gets the URLParams object that represents the URL query parameter.
+         * This property is read-only, but URLParams provides an object that can be used to change
+         * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
+         * @since 9
+         * @syscap SystemCapability.Utils.Lang
+         */
+        readonly params: URLParams;
 
         /**
          * Gets and sets the username portion of the URL.

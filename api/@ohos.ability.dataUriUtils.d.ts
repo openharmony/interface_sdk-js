@@ -19,6 +19,8 @@
  * @since 7
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @permission N/A
+ * @deprecated since 9
+ * @useinstead @ohos.app.ability.dataUriUtils.d.ts
  */
 declare namespace dataUriUtils {
   /**
@@ -27,7 +29,7 @@ declare namespace dataUriUtils {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be obtained.
-   * @return Returns the ID attached to the end of the path component;
+   * @returns Returns the ID attached to the end of the path component;
    */
   function getId(uri: string): number
 
@@ -38,7 +40,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri string from which the ID is to be obtained.
    * @param id Indicates the ID to attach.
-   * @return Returns the uri object with the given ID attached.
+   * @returns Returns the uri object with the given ID attached.
    */
   function attachId(uri: string, id: number): string
 
@@ -48,7 +50,7 @@ declare namespace dataUriUtils {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object from which the ID is to be deleted.
-   * @return Returns the uri object with the ID deleted.
+   * @returns Returns the uri object with the ID deleted.
    */
   function deleteId(uri: string): string
 
@@ -59,7 +61,7 @@ declare namespace dataUriUtils {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @param uri Indicates the uri object to be updated.
    * @param id Indicates the new ID.
-   * @return Returns the updated uri object.
+   * @returns Returns the updated uri object.
    */
   function updateId(uri: string, id: number): string
 

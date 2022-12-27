@@ -18,7 +18,7 @@ import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';
 import { ConnectOptions } from './ability/connectOptions';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * A Particle Ability represents an ability with service.
@@ -35,7 +35,7 @@ declare namespace particleAbility {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param parameter Indicates the ability to start.
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
@@ -46,7 +46,7 @@ declare namespace particleAbility {
    *
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @return -
+   * @returns -
    * @FAModelOnly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
@@ -58,7 +58,7 @@ declare namespace particleAbility {
    * @since 7
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param uri Indicates the path of the file to open.
-   * @return Returns the dataAbilityHelper.
+   * @returns Returns the dataAbilityHelper.
    * @FAModelOnly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
@@ -72,7 +72,8 @@ declare namespace particleAbility {
    * @param id Identifies the notification bar information.
    * @param request Indicates the notificationRequest instance containing information for displaying a notification bar.
    * @FAModelOnly
-   * @deprecated
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.startBackgroundRunning
    */
   function startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void;
   function startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>;
@@ -83,7 +84,8 @@ declare namespace particleAbility {
    * @since 7
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
-   * @deprecated
+   * @deprecated since 9
+   * @useinstead ohos.resourceschedule.backgroundTaskManager.stopBackgroundRunning
    */
   function cancelBackgroundRunning(callback: AsyncCallback<void>): void;
   function cancelBackgroundRunning(): Promise<void>;
@@ -95,7 +97,7 @@ declare namespace particleAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @param request Indicates the Service ability to connect.
    * @param options Callback object for the client. If this parameter is null, an exception is thrown.
-   * @return unique identifier of the connection between the client and the service side.
+   * @returns unique identifier of the connection between the client and the service side.
    * @FAModelOnly
    */
    function connectAbility(request: Want, options:ConnectOptions): number;

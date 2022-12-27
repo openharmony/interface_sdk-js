@@ -69,7 +69,7 @@ declare interface ButtonStyle {
   width?: number;
 
   /**
-   * Set the heigth of control button
+   * Set the height of control button
    * @since 8
    */
   height?: number;

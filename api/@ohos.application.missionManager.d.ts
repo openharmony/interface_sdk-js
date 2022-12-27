@@ -14,10 +14,10 @@
  */
 
 import { AsyncCallback } from './basic';
-import { MissionInfo as _MissionInfo } from './application/MissionInfo';
-import { MissionListener as _MissionListener } from './application/MissionListener';
-import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
-import StartOptions from "./@ohos.application.StartOptions";
+import { MissionInfo } from './application/MissionInfo';
+import { MissionListener } from './application/MissionListener';
+import { MissionSnapshot } from './application/MissionSnapshot';
+import StartOptions from "./@ohos.app.ability.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -37,17 +37,17 @@ declare namespace missionManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param listener Indicates the MissionListener to be registered.
-     * @return The index number of the MissionListener.
+     * @returns The index number of the MissionListener.
      */
     function registerMissionListener(listener: MissionListener): number;
 
     /**
-     * Unrgister the missionListener to ams.
+     * Unregister the missionListener to ams.
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param listenerId Indicates the listener id to be unregistered.
-     * @return -
+     * @returns -
      */
     function unregisterMissionListener(listenerId: number, callback: AsyncCallback<void>): void;
     function unregisterMissionListener(listenerId: number): Promise<void>;
@@ -59,7 +59,7 @@ declare namespace missionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param missionId Indicates mission id to be queried.
-     * @return the {@link MissionInfo} of the given id.
+     * @returns the {@link MissionInfo} of the given id.
      */
     function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
     function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
@@ -71,7 +71,7 @@ declare namespace missionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param numMax Indicates the maximum number of returned missions.
-     * @return The array of the {@link MissionInfo}.
+     * @returns The array of the {@link MissionInfo}.
      */
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
     function getMissionInfos(deviceId: string, numMax: number): Promise<Array<MissionInfo>>;
@@ -83,22 +83,10 @@ declare namespace missionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param deviceId Indicates the device to be queried.
      * @param missionId Indicates mission id to be queried.
-     * @return The {@link MissionSnapshot} of the given id.
+     * @returns The {@link MissionSnapshot} of the given id.
      */
     function getMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
-
-    /**
-     * Get the mission low resolution snapshot with the given missionId.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @return The {@link MissionSnapshot} of the given id.
-     */
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
      * Lock the mission.
@@ -106,7 +94,7 @@ declare namespace missionManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be locked.
-     * @return -
+     * @returns -
      */
     function lockMission(missionId: number, callback: AsyncCallback<void>): void;
     function lockMission(missionId: number): Promise<void>;
@@ -117,7 +105,7 @@ declare namespace missionManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be unlocked.
-     * @return -
+     * @returns -
      */
     function unlockMission(missionId: number, callback: AsyncCallback<void>): void;
     function unlockMission(missionId: number): Promise<void>;
@@ -128,7 +116,7 @@ declare namespace missionManager {
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be cleared.
-     * @return -
+     * @returns -
      */
     function clearMission(missionId: number, callback: AsyncCallback<void>): void;
     function clearMission(missionId: number): Promise<void>;
@@ -138,7 +126,7 @@ declare namespace missionManager {
      *
      * @since 8
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @return -
+     * @returns -
      */
     function clearAllMissions(callback: AsyncCallback<void>): void;
     function clearAllMissions(): Promise<void>;
@@ -150,39 +138,11 @@ declare namespace missionManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @param missionId Indicates mission id to be moved to foreground.
      * @param options Indicates the start options.
-     * @return -
+     * @returns -
      */
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
-
-    /**
-     * Mission information corresponding to ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionInfo = _MissionInfo
-
-    /**
-     * MissionListener registered by app.
-     *
-     * @name MissionListener
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionListener = _MissionListener
-
-    /**
-     * Mission snapshot corresponding to mission.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionSnapshot = _MissionSnapshot
 }
 
 export default missionManager;

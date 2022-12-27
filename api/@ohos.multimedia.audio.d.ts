@@ -18,7 +18,6 @@ import {ErrorCallback, AsyncCallback, Callback} from './basic';
 /**
  * @name audio
  * @since 7
- * @import import audio from '@ohos.multimedia.audio'
  */
 declare namespace audio {
   /**
@@ -95,7 +94,7 @@ declare namespace audio {
 
   /**
    * Obtains an AudioManager instance.
-   * @return AudioManager object.
+   * @returns AudioManager object.
    * @since 7
    * @syscap SystemCapability.Multimedia.Audio.Core
    */
@@ -113,7 +112,7 @@ declare namespace audio {
   /**
    * Obtains an AudioCapturer instance. This method uses a promise to return the capturer instance.
    * @param options Capturer configurations.
-   * @return Promise used to return the audio capturer instance.
+   * @returns Promise used to return the audio capturer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    */
@@ -131,7 +130,7 @@ declare namespace audio {
   /**
    * Obtains an AudioRenderer instance. This method uses a promise to return the renderer instance.
    * @param options Renderer configurations.
-   * @return Promise used to return the audio renderer instance.
+   * @returns Promise used to return the audio renderer instance.
    * @since 8
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    */
@@ -140,7 +139,7 @@ declare namespace audio {
   /**
    * Obtains a TonePlayer instance. This method uses an asynchronous callback to return the renderer instance.
    * @param options Tone playing attribute.
-   * @return Promise used to return the tone player instance.
+   * @returns Promise used to return the tone player instance.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
@@ -150,7 +149,7 @@ declare namespace audio {
   /**
    * Obtains a TonePlayer instance. This method uses a promise to return the renderer instance.
    * @param options Tone playing attribute.
-   * @return Promise used to return the tone player instance.
+   * @returns Promise used to return the tone player instance.
    * @since 9
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
@@ -401,6 +400,7 @@ declare namespace audio {
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
+     * @useinstead ohos.multimedia.audio.CommunicationDeviceType.SPEAKER
      */
     SPEAKER = 2,
     /**
@@ -661,7 +661,7 @@ declare namespace audio {
    */
   enum StreamUsage {
     /**
-     * Unkown usage.
+     * Unknown usage.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -1081,7 +1081,7 @@ declare namespace audio {
      * Sets the volume for a stream. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
      * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -1102,7 +1102,7 @@ declare namespace audio {
     /**
      * Obtains the volume of a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the volume.
+     * @returns Promise used to return the volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
@@ -1122,7 +1122,7 @@ declare namespace audio {
     /**
      * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the minimum volume.
+     * @returns Promise used to return the minimum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
@@ -1142,7 +1142,7 @@ declare namespace audio {
     /**
      * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the maximum volume.
+     * @returns Promise used to return the maximum volume.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
@@ -1162,7 +1162,7 @@ declare namespace audio {
     /**
      * Obtains the audio devices with a specific flag. This method uses a promise to return the query result.
      * @param deviceFlag Audio device flag.
-     * @return Promise used to return the device list.
+     * @returns Promise used to return the device list.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
@@ -1184,7 +1184,7 @@ declare namespace audio {
      * Mutes a stream. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
      * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @deprecated since 9
@@ -1205,7 +1205,7 @@ declare namespace audio {
     /**
      * Checks whether a stream is muted. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the mute status of the stream. The value true means that the stream is muted,
+     * @returns Promise used to return the mute status of the stream. The value true means that the stream is muted,
      * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -1227,7 +1227,7 @@ declare namespace audio {
     /**
      * Checks whether a stream is active. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the active status of the stream. The value true means that the stream is active,
+     * @returns Promise used to return the active status of the stream. The value true means that the stream is active,
      * and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -1249,7 +1249,7 @@ declare namespace audio {
     /**
      * Mutes or unmutes the microphone. This method uses a promise to return the result.
      * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @permission ohos.permission.MICROPHONE
@@ -1270,7 +1270,7 @@ declare namespace audio {
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether the microphone is muted. This method uses a promise to return the query result.
-     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
+     * @returns Promise used to return the mute status of the microphone. The value true means that the microphone is
      * muted, and false means the opposite.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1293,7 +1293,7 @@ declare namespace audio {
     /**
      * Sets the ringer mode. This method uses a promise to return the result.
      * @param mode Ringer mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -1312,7 +1312,7 @@ declare namespace audio {
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
      * Obtains the ringer mode. This method uses a promise to return the query result.
-     * @return Promise used to return the ringer mode.
+     * @returns Promise used to return the ringer mode.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @deprecated since 9
@@ -1333,7 +1333,7 @@ declare namespace audio {
      * Sets an audio parameter. This method uses a promise to return the result.
      * @param key Key of the audio parameter to set.
      * @param value Value of the audio parameter to set.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
@@ -1350,7 +1350,7 @@ declare namespace audio {
     /**
      * Obtains the value of an audio parameter. This method uses a promise to return the query result.
      * @param key Key of the audio parameter whose value is to be obtained.
-     * @return Promise used to return the value of the audio parameter.
+     * @returns Promise used to return the value of the audio parameter.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -1372,7 +1372,7 @@ declare namespace audio {
      * @param deviceType Audio device type.
      * @param active Active status to set. The value true means to set the device to the active status, and false
      * means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
@@ -1392,7 +1392,7 @@ declare namespace audio {
     /**
      * Checks whether a device is active. This method uses a promise to return the query result.
      * @param deviceType Audio device type.
-     * @return Promise used to return the active status of the device.
+     * @returns Promise used to return the active status of the device.
      * @since 7
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @deprecated since 9
@@ -1432,7 +1432,7 @@ declare namespace audio {
     /**
      * Sets the audio scene mode to change audio strategies. This method uses a promise to return the result.
      * @param scene Audio scene mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
@@ -1447,7 +1447,7 @@ declare namespace audio {
     getAudioScene(callback: AsyncCallback<AudioScene>): void;
     /**
      * Obtains the audio scene mode. This method uses a promise to return the query result.
-     * @return Promise used to return the audio scene mode.
+     * @returns Promise used to return the audio scene mode.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
@@ -1496,7 +1496,7 @@ declare namespace audio {
 
     /**
      * Obtains an AudioVolumeManager instance.
-     * @return AudioVolumeManager instance.
+     * @returns AudioVolumeManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1504,7 +1504,7 @@ declare namespace audio {
 
     /**
      * Obtains an AudioStreamManager instance. This method uses an asynchronous callback to return the result.
-     * @return AudioStreamManager instance.
+     * @returns AudioStreamManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Core
      */
@@ -1512,7 +1512,7 @@ declare namespace audio {
 
     /**
      * Obtains an AudioRoutingManager instance.
-     * @return AudioRoutingManager instance.
+     * @returns AudioRoutingManager instance.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1582,7 +1582,7 @@ declare namespace audio {
     /**
      * Obtains the audio devices with a specific flag. This method uses a promise to return the query result.
      * @param deviceFlag Audio device flag.
-     * @return Promise used to return the device list.
+     * @returns Promise used to return the device list.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      */
@@ -1625,7 +1625,7 @@ declare namespace audio {
      * @param deviceType Audio device type.
      * @param active Active status to set. The value true means to set the device to the active status, and false
      * means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
@@ -1642,7 +1642,7 @@ declare namespace audio {
     /**
      * Checks whether a device is active. This method uses a promise to return the query result.
      * @param deviceType Audio device type.
-     * @return Promise used to return the active status of the device.
+     * @returns Promise used to return the active status of the device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Communication
      */
@@ -1660,7 +1660,7 @@ declare namespace audio {
     /**
      * Select the output device. This method uses a promise to return the result.
      * @param outputAudioDevices Audio device description
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
@@ -1681,7 +1681,7 @@ declare namespace audio {
      * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
      * @param filter Filter for AudioRenderer.
      * @param outputAudioDevices Audio device description
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
@@ -1700,7 +1700,7 @@ declare namespace audio {
     /**
      * Select the input device. This method uses a promise to return the result.
      * @param inputAudioDevices Audio device description
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
@@ -1723,7 +1723,7 @@ declare namespace audio {
     getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void;
     /**
      * Get information of current existing audio renderers.
-     * @return Promise used to return the information of current existing audio renderers.
+     * @returns Promise used to return the information of current existing audio renderers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -1738,7 +1738,7 @@ declare namespace audio {
     getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void;
     /**
      * Get information of current existing audio capturers.
-     * @return Promise used to return the information of current existing audio capturers.
+     * @returns Promise used to return the information of current existing audio capturers.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -1798,7 +1798,7 @@ declare namespace audio {
     /**
      * Checks whether a stream is active. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the active status of the stream. The value true means that the stream is active,
+     * @returns Promise used to return the active status of the stream. The value true means that the stream is active,
      * and false means the opposite.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1824,7 +1824,7 @@ declare namespace audio {
     /**
      * Get the volume group list for a networkId. This method uses a promise to return the result.
      * @param networkId Distributed deice net work id
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -1880,7 +1880,7 @@ declare namespace audio {
      * Sets the volume for a stream. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
      * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -1899,7 +1899,7 @@ declare namespace audio {
     /**
      * Obtains the volume of a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the volume.
+     * @returns Promise used to return the volume.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1916,7 +1916,7 @@ declare namespace audio {
     /**
      * Obtains the minimum volume allowed for a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the minimum volume.
+     * @returns Promise used to return the minimum volume.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1933,7 +1933,7 @@ declare namespace audio {
     /**
      * Obtains the maximum volume allowed for a stream. This method uses a promise to return the query result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the maximum volume.
+     * @returns Promise used to return the maximum volume.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -1954,7 +1954,7 @@ declare namespace audio {
      * Mutes a stream. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
      * @param mute Mute status to set. The value true means to mute the stream, and false means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -1974,7 +1974,7 @@ declare namespace audio {
     /**
      * Checks whether a stream is muted. This method uses a promise to return the result.
      * @param volumeType Audio stream type.
-     * @return Promise used to return the mute status of the stream. The value true means that the stream is muted,
+     * @returns Promise used to return the mute status of the stream. The value true means that the stream is muted,
      * and false means the opposite.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -1994,7 +1994,7 @@ declare namespace audio {
     /**
      * Sets the ringer mode. This method uses a promise to return the result.
      * @param mode Ringer mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
@@ -2011,7 +2011,7 @@ declare namespace audio {
     getRingerMode(callback: AsyncCallback<AudioRingMode>): void;
     /**
      * Obtains the ringer mode. This method uses a promise to return the query result.
-     * @return Promise used to return the ringer mode.
+     * @returns Promise used to return the ringer mode.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -2039,7 +2039,7 @@ declare namespace audio {
     /**
      * Mutes or unmutes the microphone. This method uses a promise to return the result.
      * @param mute Mute status to set. The value true means to mute the microphone, and false means the opposite.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
@@ -2056,7 +2056,7 @@ declare namespace audio {
     isMicrophoneMute(callback: AsyncCallback<boolean>): void;
     /**
      * Checks whether the microphone is muted. This method uses a promise to return the query result.
-     * @return Promise used to return the mute status of the microphone. The value true means that the microphone is
+     * @returns Promise used to return the mute status of the microphone. The value true means that the microphone is
      * muted, and false means the opposite.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -2082,14 +2082,14 @@ declare namespace audio {
    */
   enum ConnectType {
     /**
-     * Descript connect type for local device.
+     * Connect type for local device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
     CONNECT_TYPE_LOCAL = 1,
 
     /**
-     * Descript virtual type for local device.
+     * Connect type for distributed device.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Volume
      */
@@ -2273,42 +2273,42 @@ declare namespace audio {
     /**
      * Audio device id.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly id: number;
 
     /**
      * Audio device name.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly name: string;
 
     /**
      * Audio device address.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly address: string;
 
     /**
      * Supported sampling rates.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly sampleRates: Array<number>;
 
     /**
      * Supported channel counts.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly channelCounts: Array<number>;
 
     /**
      * Supported channel masks.
      * @since 9
-     * @SysCap SystemCapability.Multimedia.Audio.Device
+     * @syscap SystemCapability.Multimedia.Audio.Device
      */
     readonly channelMasks: Array<number>;
     /**
@@ -2517,7 +2517,7 @@ declare namespace audio {
     /**
      * Obtains the renderer information provided while creating a renderer instance. This method uses a promise to
      * return the result.
-     * @return Promise used to return the renderer information.
+     * @returns Promise used to return the renderer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2532,7 +2532,7 @@ declare namespace audio {
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
      * Obtains the renderer stream information. This method uses a promise to return the result.
-     * @return Promise used to return the stream information.
+     * @returns Promise used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2547,7 +2547,7 @@ declare namespace audio {
     getAudioStreamId(callback: AsyncCallback<number>): void;
     /**
      * Obtains the renderer stream id. This method uses a promise to return the result.
-     * @return Promise used to return the stream id.
+     * @returns Promise used to return the stream id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2562,7 +2562,7 @@ declare namespace audio {
     start(callback: AsyncCallback<void>): void;
     /**
      * Starts the renderer. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2580,7 +2580,7 @@ declare namespace audio {
     /**
      * Writes the buffer. This method uses a promise to return the result.
      * @param buffer Buffer to be written.
-     * @return Returns the number of bytes written if the operation is successful; returns an error code otherwise.
+     * @returns Returns the number of bytes written if the operation is successful; returns an error code otherwise.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2597,7 +2597,7 @@ declare namespace audio {
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
      * promise to return the result.
-     * @return Promise used to return the timestamp.
+     * @returns Promise used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2612,7 +2612,7 @@ declare namespace audio {
     drain(callback: AsyncCallback<void>): void;
     /**
      * Drains the playback buffer. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2627,7 +2627,7 @@ declare namespace audio {
     pause(callback: AsyncCallback<void>): void;
     /**
      * Pauses rendering. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2642,7 +2642,7 @@ declare namespace audio {
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops rendering. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2657,7 +2657,7 @@ declare namespace audio {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the renderer. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2673,7 +2673,7 @@ declare namespace audio {
     getBufferSize(callback: AsyncCallback<number>): void;
     /**
      * Obtains a reasonable minimum buffer size in bytes for rendering. This method uses a promise to return the result.
-     * @return Promise used to return the buffer size.
+     * @returns Promise used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2690,7 +2690,7 @@ declare namespace audio {
     /**
      * Sets the render rate. This method uses a promise to return the result.
      * @param rate Audio render rate.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2705,7 +2705,7 @@ declare namespace audio {
     getRenderRate(callback: AsyncCallback<AudioRendererRate>): void;
     /**
      * Obtains the current render rate. This method uses a promise to return the result.
-     * @return Promise used to return the audio render rate.
+     * @returns Promise used to return the audio render rate.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2722,7 +2722,7 @@ declare namespace audio {
     /**
      * Set interrupt mode.
      * @param mode The interrupt mode.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      */
@@ -2730,7 +2730,7 @@ declare namespace audio {
 
     /**
      * Sets the volume for this stream. This method uses an asynchronous callback to return the result.
-     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param volume Volume to set. The value type is float, form 0.0 to 1.0.
      * @param callback Callback used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -2738,8 +2738,8 @@ declare namespace audio {
     setVolume(volume: number, callback: AsyncCallback<void>): void;
     /**
      * Sets the volume for a stream. This method uses a promise to return the result.
-     * @param volume Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
-     * @return Promise used to return the result.
+     * @param volume Volume to set. The value type is float, form 0.0 to 1.0.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      */
@@ -2893,7 +2893,7 @@ declare namespace audio {
     /**
      * Obtains the capturer information provided while creating a capturer instance. This method uses a promise to
      * return the result.
-     * @return Promise used to return the capturer information.
+     * @returns Promise used to return the capturer information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2908,7 +2908,7 @@ declare namespace audio {
     getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void;
     /**
      * Obtains the capturer stream information. This method uses a promise to return the result.
-     * @return Promise used to return the stream information.
+     * @returns Promise used to return the stream information.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2923,7 +2923,7 @@ declare namespace audio {
     getAudioStreamId(callback: AsyncCallback<number>): void;
     /**
      * Obtains the capturer stream id. This method uses a promise to return the result.
-     * @return Promise used to return the stream id.
+     * @returns Promise used to return the stream id.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2938,7 +2938,7 @@ declare namespace audio {
     start(callback: AsyncCallback<void>): void;
     /**
      * Starts capturing. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2957,7 +2957,7 @@ declare namespace audio {
      * Reads the buffer from the audio capturer. This method uses a promise to return the result.
      * @param size Number of bytes to read.
      * @param isBlockingRead Whether the read operation should be blocked.
-     * @return Returns the buffer data read if the operation is successful; returns an error code otherwise.
+     * @returns Returns the buffer data read if the operation is successful; returns an error code otherwise.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2974,7 +2974,7 @@ declare namespace audio {
     /**
      * Obtains the timestamp in Unix epoch time (starts from January 1, 1970), in nanoseconds. This method uses a
      * promise to return the result.
-     * @return Promise used to return the timestamp.
+     * @returns Promise used to return the timestamp.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -2989,7 +2989,7 @@ declare namespace audio {
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops capturing. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -3004,7 +3004,7 @@ declare namespace audio {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the capturer. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -3020,7 +3020,7 @@ declare namespace audio {
     getBufferSize(callback: AsyncCallback<number>): void;
     /**
      * Obtains a reasonable minimum buffer size in bytes for capturing. This method uses a promise to return the result.
-     * @return Promise used to return the buffer size.
+     * @returns Promise used to return the buffer size.
      * @since 8
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      */
@@ -3189,7 +3189,7 @@ declare namespace audio {
      */
     TONE_TYPE_COMMON_SUPERVISORY_CONGESTION = 102,
     /**
-     * Supervisory tone for radio path acknowlegment.
+     * Supervisory tone for radio path acknowledgment.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3219,7 +3219,7 @@ declare namespace audio {
      */
     TONE_TYPE_COMMON_PROPRIETARY_BEEP = 200,
     /**
-     * Proprietary tone for positive acknowlegment.
+     * Proprietary tone for positive acknowledgment.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3246,7 +3246,7 @@ declare namespace audio {
    */
   interface TonePlayer {
     /**
-     * Starts player. This method uses an asynchronous callback to return the result.
+     * Loads tone. This method uses an asynchronous callback to return the result.
      * @param type Tone type to play.
      * @param callback Callback used to return the result.
      * @since 9
@@ -3254,9 +3254,9 @@ declare namespace audio {
      */
     load(type: ToneType, callback: AsyncCallback<void>): void;
     /**
-     * Starts tplayerone. This method uses a promise to return the result.
+     * Loads tone. This method uses a promise to return the result.
      * @param type Tone type to play.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3271,7 +3271,7 @@ declare namespace audio {
     start(callback: AsyncCallback<void>): void;
     /**
      * Starts player. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3286,7 +3286,7 @@ declare namespace audio {
     stop(callback: AsyncCallback<void>): void;
     /**
      * Stops player. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */
@@ -3301,7 +3301,7 @@ declare namespace audio {
     release(callback: AsyncCallback<void>): void;
     /**
      * Releases the player. This method uses a promise to return the result.
-     * @return Promise used to return the result.
+     * @returns Promise used to return the result.
      * @since 9
      * @syscap SystemCapability.Multimedia.Audio.Tone
      */

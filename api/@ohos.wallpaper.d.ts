@@ -18,7 +18,6 @@ import image from './@ohos.multimedia.image';
 /**
  * System wallpaper
  * @syscap SystemCapability.MiscServices.Wallpaper
- * @import import wallpaper from '@ohos.wallpaper';
  * @since 7
  */
 declare namespace wallpaper {
@@ -76,7 +75,7 @@ declare namespace wallpaper {
     /**
      * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
-     * @permission ohos.permission.GET_WALLPAPER.
+     * @permission ohos.permission.GET_WALLPAPER
      * ohos.permission.READ_USER_STORAGE.
      * @returns { Promise<number> } the Promise<number> returned by the function.
      * @since 8
@@ -89,7 +88,7 @@ declare namespace wallpaper {
     /**
      * Obtains a file of the wallpaper of the specified type. Returns the file descriptor.
      * @param wallpaperType Indicates the wallpaper type.
-     * @permission ohos.permission.GET_WALLPAPER.
+     * @permission ohos.permission.GET_WALLPAPER
      * @returns { number } the number returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 201 - permission denied.
@@ -228,6 +227,7 @@ declare namespace wallpaper {
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 201 - permission denied.
+     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
      * @since 9

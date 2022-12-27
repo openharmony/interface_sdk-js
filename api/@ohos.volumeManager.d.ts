@@ -44,7 +44,7 @@ declare namespace volumeManager {
    * Get All Volumes
    * 
    * @since 9
-   * @return Returns the information of all volumes
+   * @returns Returns the information of all volumes
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @permission ohos.permission.STORAGE_MANAGER
    * @systemapi
@@ -133,7 +133,7 @@ function format(volumeId: string, fsType: string): Promise<void>;
    * 
    * @since 9
    * @param diskId that indicates the disk
-   * @param type of partition such as private partition or publick partition
+   * @param type of partition such as private partition or public partition
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @systemapi
