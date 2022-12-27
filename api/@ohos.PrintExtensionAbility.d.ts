@@ -14,7 +14,7 @@
  */
 
 /**
- * class of print extension.
+ * class of print extensionAbility.
  *
  * @systemapi Hide this for inner system use.
  * @since 9
@@ -28,7 +28,7 @@ import print from "./@ohos.print";
 export default class PrintExtensionAbility {
 
     /**
-     * Called once to initialize the extension.
+     * Called once to initialize the extensionAbility.
      *
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -36,7 +36,7 @@ export default class PrintExtensionAbility {
      * @return -
      * @StageModelOnly
      */
-    onCreated(want: Want): void;
+    onCreate(want: Want): void;
 
     /**
      * Called once to start to discover the printers connected with the device.
@@ -127,7 +127,7 @@ export default class PrintExtensionAbility {
     onRequestPreview(jobInfo: print.PrintJob): string;
 
     /**
-     * Called once to finalize the extension.
+     * Called once to finalize the extensionAbility.
      *
      * @systemapi Hide this for inner system use.
      * @since 9
