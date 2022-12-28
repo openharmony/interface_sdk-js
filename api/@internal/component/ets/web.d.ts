@@ -2211,6 +2211,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   blockNetwork(block: boolean): WebAttribute;
  
+ /**
+   * Set whether paint horizontal scroll bar.
+   * @param horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   *
+   * @since 9
+   */
+  horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
+
+ /**
+   * Set whether paint vertical scroll bar.
+   * @param verticalScrollBar True if it needs to paint vertical scroll bar.
+   *
+   * @since 9
+   */
+  verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
+
   /**
    * Triggered when the application receive the url of an apple-touch-icon.
    * @param callback The triggered callback when the application receive an new url of an
