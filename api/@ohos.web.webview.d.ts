@@ -448,6 +448,7 @@ declare namespace webview {
         static deleteSessionCookie(): void;
     }
 
+    type WebMessage = ArrayBuffer | string;
     /**
      * Define html web message port.
      * @since 9
@@ -461,23 +462,23 @@ declare namespace webview {
 
         /**
          * Post a message to other port.
-         * @param { string } message - Message to send.
+         * @param { WebMessage } message - Message to send.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
          */
-        postMessageEvent(message: string): void;
+        postMessageEvent(message: WebMessage): void;
 
         /**
          * Receive message from other port.
-         * @param { (result: string) => void } callback - Callback function for receiving messages.
+         * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
          */
-        onMessageEvent(callback: (result: string) => void): void;
+        onMessageEvent(callback: (result: WebMessage) => void): void;
     }
 
     /**
