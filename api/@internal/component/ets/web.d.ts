@@ -633,7 +633,7 @@ declare class ControllerHandler {
 }
 
 /**
-* Defines the context menue source type, related to {@link onContextMenuShow} method.
+* Defines the context menu source type, related to {@link onContextMenuShow} method.
 * @since 9
 */
 declare enum ContextMenuSourceType {
@@ -662,7 +662,7 @@ declare enum ContextMenuSourceType {
 */
 declare enum ContextMenuMediaType {
   /**
-   * Not an special node or other media types.
+   * Not a special node or other media types.
    * @since 9
    */
   None,
@@ -675,7 +675,7 @@ declare enum ContextMenuMediaType {
 }
 
 /**
-* Defines the context menue input field type, related to {@link onContextMenuShow} method.
+* Defines the context menu input field type, related to {@link onContextMenuShow} method.
 * @since 9
 */
 declare enum ContextMenuInputFieldType {
