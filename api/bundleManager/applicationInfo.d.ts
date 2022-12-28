@@ -190,4 +190,12 @@ export interface ApplicationInfo {
    * @since 9
    */
   readonly appProvisionType: string;
+
+  /**
+   * Indicates whether the application is a system application
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */ 
+  readonly systemApp: boolean;
 }
