@@ -1072,7 +1072,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.
@@ -1113,6 +1113,14 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseCode(code: number);
+  
+  /**
+   * Sets the response is ready or not.
+   * @param IsReady whether the response is ready.
+   *
+   * @since 9
+   */
+   setResponseIsReady(IsReady: boolean);
 }
 
 /**
@@ -2258,6 +2266,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+
+  /**
+   * Set whether enable pinch smooth mode.
+   * @param isEnabled True if it needs to enable smooth mode.
+   * @since 9
+   */
+  pinchSmooth(isEnabled: boolean)
 }
 
 declare const Web: WebInterface;
