@@ -42,7 +42,7 @@ declare class ArrayList<T> {
    * any subsequent elements to the right (adds one to their index).
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -73,7 +73,7 @@ declare class ArrayList<T> {
    * delete the element, and move the index of all elements to the right of the element forward by one.
    * @param index the index in the arraylist
    * @returns the T type ,returns undefined if arraylist is empty,If the index is
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -105,7 +105,7 @@ declare class ArrayList<T> {
    * Removes from this arraylist all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -163,7 +163,7 @@ declare class ArrayList<T> {
    * Returns a view of the portion of this arraylist between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    
