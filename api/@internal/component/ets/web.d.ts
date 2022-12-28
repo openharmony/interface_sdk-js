@@ -2211,7 +2211,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   blockNetwork(block: boolean): WebAttribute;
  
- /**
+  /**
    * Set whether paint horizontal scroll bar.
    * @param horizontalScrollBar True if it needs to paint horizontal scroll bar.
    *
@@ -2219,7 +2219,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
 
- /**
+  /**
    * Set whether paint vertical scroll bar.
    * @param verticalScrollBar True if it needs to paint vertical scroll bar.
    *
