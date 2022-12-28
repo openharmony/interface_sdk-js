@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 declare class List<T> {
   /**
    * A constructor used to create a List object.
+   * @throws { BusinessError } 10200012 - The List's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -29,6 +31,7 @@ declare class List<T> {
    * Appends the specified element to the end of this list.
    * @param element to be appended to this list
    * @returns the boolean type, returns true if the addition is successful, and returns false if it fails.
+   * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -37,7 +40,9 @@ declare class List<T> {
    * Inserts the specified element at the specified position in this list.
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws If index is greater than or equal to length, or less than 0, an exception is thrown and cannot be inserted
+   * @throws { BusinessError } 10200011 - The insert method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -47,6 +52,8 @@ declare class List<T> {
    * or returns undefined if this list is empty
    * @param index specified position
    * @returns the T type
+   * @throws { BusinessError } 10200011 - The get method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -55,6 +62,7 @@ declare class List<T> {
    * Check if list contains the specified element
    * @param element element to be contained
    * @returns the boolean type,if list contains the specified element,return true,else return false
+   * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -64,6 +72,7 @@ declare class List<T> {
    * in this list, or -1 if this list does not contain the element.
    * @param element element to be contained
    * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,6 +82,9 @@ declare class List<T> {
    * @param index the index in the list
    * @returns the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
+   * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -83,6 +95,7 @@ declare class List<T> {
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
    * @returns the boolean type ,If there is no such element, return false
+   * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -92,6 +105,7 @@ declare class List<T> {
    * or -1 if the list does not contain the element.
    * @param element element to find
    * @returns the number type
+   * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -100,6 +114,7 @@ declare class List<T> {
    * Returns the first element (the item at index 0) of this list.
    * or returns undefined if list is empty
    * @returns the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -108,6 +123,7 @@ declare class List<T> {
    * Returns the Last element (the item at index length-1) of this list.
    * or returns undefined if list is empty
    * @returns the T type ,returns undefined if list is empty
+   * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -117,6 +133,9 @@ declare class List<T> {
    * @param element replaced element
    * @param index index to find
    * @returns the T type
+   * @throws { BusinessError } 10200011 - The set method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -126,6 +145,7 @@ declare class List<T> {
    * return true, otherwise return false.
    * @param obj Compare objects
    * @returns the boolean type
+   * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -139,6 +159,8 @@ declare class List<T> {
    * @param List (Optional) The list object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -152,6 +174,8 @@ declare class List<T> {
    * minus firstValue, it returns an list sorted in descending order;
    * @param firstValue (Optional) previous element
    * @param secondValue (Optional) next elements
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -159,6 +183,7 @@ declare class List<T> {
   /**
    * Removes all of the elements from this list.The list will
    * be empty after this call returns.length becomes 0
+   * @throws { BusinessError } 10200011 - The clear method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -167,8 +192,9 @@ declare class List<T> {
    * Returns a view of the portion of this list between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws If the fromIndex or toIndex index is out of range (greater than or equal to length or less than 0),
-   * or if toIndex is less than fromIndex, an IndexOutOfBoundException is thrown
+   * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -182,6 +208,8 @@ declare class List<T> {
    * @param list (Optional) The list object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -190,6 +218,7 @@ declare class List<T> {
   /**
    * convert list to array
    * @returns the Array type
+   * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -197,12 +226,14 @@ declare class List<T> {
   /**
    * Determine whether list is empty and whether there is an element
    * @returns the boolean type
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
   isEmpty(): boolean;
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */

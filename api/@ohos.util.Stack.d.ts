@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 declare class Stack<T> {
   /**
    * A constructor used to create a Stack object.
+   * @throws { BusinessError } 10200012 - The Stack's constructor cannot be directly invoked.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -28,6 +30,7 @@ declare class Stack<T> {
   /**
    * Tests if this stack is empty
    * @returns the boolean type
+   * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -36,6 +39,7 @@ declare class Stack<T> {
    * Looks at the object at the top of this stack without removing it from the stack
    * Return undefined if this stack is empty
    * @returns the top value or undefined
+   * @throws { BusinessError } 10200011 - The peek method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -44,6 +48,7 @@ declare class Stack<T> {
    * Removes the object at the top of this stack and returns that object as the value of this function
    * an exception if the stack is empty
    * @returns Stack top value or undefined
+   * @throws { BusinessError } 10200011 - The pop method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -52,6 +57,7 @@ declare class Stack<T> {
    * Pushes an item onto the top of this stack
    * @param item to be appended to this Stack
    * @returns the T type
+   * @throws { BusinessError } 10200011 - The push method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -60,6 +66,7 @@ declare class Stack<T> {
    * Returns the 1-based position where an object is on this stack
    * @param element Target to be deleted
    * @returns the T type,If there is no such element, return -1
+   * @throws { BusinessError } 10200011 - The locate method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -73,6 +80,8 @@ declare class Stack<T> {
    * @param stack (Optional) The Stack object to which the current element belongs.
    * @param thisArg (Optional) The value passed to the function generally uses the "this" value.
    * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -80,6 +89,7 @@ declare class Stack<T> {
   thisArg?: Object): void;
   /**
    * returns an ES6 iterator.Each item of the iterator is a Javascript Object
+   * @throws { BusinessError } 10200011 - The Symbol.iterator method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
