@@ -61,17 +61,6 @@ declare namespace print {
     function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
     function print(files: Array<string>): Promise<PrintTask>;
 
-    /**
-     * Start new print task for App.
-     * @since 9
-     * @param fdList Indicates the file descriptor list to be printed.
-     * @param callback The callback function for print task.
-     * @permission {@code ohos.permission.PRINT}
-     * @return -
-     */
-    function print(fdList: Array<number>, callback: AsyncCallback<PrintTask>): void;
-    function print(fdList: Array<number>): Promise<PrintTask>;
-
     interface PrintMargin {
         top?: number;  // top margin
         bottom?: number;  // bottom margin
