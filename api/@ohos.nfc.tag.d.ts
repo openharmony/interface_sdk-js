@@ -27,7 +27,7 @@ import { TagSession as _TagSession } from './tag/tagSession';
 import { PacMap } from "./ability/dataAbilityHelper";
 import rpc from "./@ohos.rpc";
 import { AsyncCallback, Callback } from './basic';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Provides methods to operate or manage NFC tag.

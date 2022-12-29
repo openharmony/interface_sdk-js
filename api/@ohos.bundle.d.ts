@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { ApplicationInfo } from './bundle/applicationInfo';
 import { AbilityInfo } from './bundle/abilityInfo';
 import { PermissionDef } from  './bundle/PermissionDef';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import { BundleInfo } from './bundle/bundleInfo';
 import { BundleInstaller } from './bundle/bundleInstaller';

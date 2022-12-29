@@ -15,8 +15,8 @@
 
 import { AsyncCallback } from './basic';
 import { Configuration } from './@ohos.application.Configuration';
-import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
-import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import { AbilityRunningInfo } from './application/AbilityRunningInfo';
+import { ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName }  from './bundle/elementName';
 
 /**
@@ -69,48 +69,6 @@ declare namespace abilityManager {
      */
     function getAbilityRunningInfos(): Promise<Array<AbilityRunningInfo>>;
     function getAbilityRunningInfos(callback: AsyncCallback<Array<AbilityRunningInfo>>): void;
-
-    /**
-     * Get information about running extensions
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param upperLimit Get the maximum limit of the number of messages
-     * @systemapi Hide this for inner system use.
-     * @returns Returns the array of {@link ExtensionRunningInfo}.
-     * @permission ohos.permission.GET_RUNNING_INFO
-     */
-    function getExtensionRunningInfos(upperLimit: number): Promise<Array<ExtensionRunningInfo>>;
-    function getExtensionRunningInfos(upperLimit: number, callback: AsyncCallback<Array<ExtensionRunningInfo>>): void;
-
-    /**
-     * Get the top ability information of the display.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi Hide this for inner system use.
-     * @returns Returns the {@link ElementName} info of the top ability.
-     */
-    function getTopAbility(): Promise<ElementName>;
-    function getTopAbility(callback: AsyncCallback<ElementName>): void;
-
-    /**
-     * The class of an ability running information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     */
-    export type AbilityRunningInfo = _AbilityRunningInfo
-
-    /**
-     * The class of an extension running information.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi hide this for inner system use
-     */
-    export type ExtensionRunningInfo = _ExtensionRunningInfo
 }
 
 export default abilityManager;
