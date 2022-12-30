@@ -121,7 +121,7 @@ declare namespace relationalStore
     enum SubscribeType {
         /**
          * Subscription to remote data changes
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
