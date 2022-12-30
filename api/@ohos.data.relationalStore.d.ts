@@ -400,6 +400,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -414,6 +415,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @returns {Promise<number>} return the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -449,6 +451,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -462,6 +465,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -500,6 +504,7 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
          * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -514,6 +519,7 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
          * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - Permission denied.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
