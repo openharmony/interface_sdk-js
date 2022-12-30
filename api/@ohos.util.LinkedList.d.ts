@@ -42,7 +42,7 @@ declare class LinkedList<T> {
    * @param element element to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -110,7 +110,7 @@ declare class LinkedList<T> {
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
@@ -184,7 +184,7 @@ declare class LinkedList<T> {
    * @param index index to find
    * @returns the T type ,returns undefined if linkedList is empty
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

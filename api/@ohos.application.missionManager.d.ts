@@ -14,10 +14,10 @@
  */
 
 import { AsyncCallback } from './basic';
-import { MissionInfo as _MissionInfo } from './application/MissionInfo';
-import { MissionListener as _MissionListener } from './application/MissionListener';
-import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
-import StartOptions from "./@ohos.application.StartOptions";
+import { MissionInfo } from './application/MissionInfo';
+import { MissionListener } from './application/MissionListener';
+import { MissionSnapshot } from './application/MissionSnapshot';
+import StartOptions from "./@ohos.app.ability.StartOptions";
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -89,18 +89,6 @@ declare namespace missionManager {
     function getMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
 
     /**
-     * Get the mission low resolution snapshot with the given missionId.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @param deviceId Indicates the device to be queried.
-     * @param missionId Indicates mission id to be queried.
-     * @returns The {@link MissionSnapshot} of the given id.
-     */
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number, callback: AsyncCallback<MissionSnapshot>): void;
-     function getLowResolutionMissionSnapShot(deviceId: string, missionId: number): Promise<MissionSnapshot>;
-
-    /**
      * Lock the mission.
      *
      * @since 8
@@ -155,34 +143,6 @@ declare namespace missionManager {
     function moveMissionToFront(missionId: number, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options: StartOptions, callback: AsyncCallback<void>): void;
     function moveMissionToFront(missionId: number, options?: StartOptions): Promise<void>;
-
-    /**
-     * Mission information corresponding to ability.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionInfo = _MissionInfo
-
-    /**
-     * MissionListener registered by app.
-     *
-     * @name MissionListener
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionListener = _MissionListener
-
-    /**
-     * Mission snapshot corresponding to mission.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-     * @systemapi hide for inner use.
-     */
-    export type MissionSnapshot = _MissionSnapshot
 }
 
 export default missionManager;

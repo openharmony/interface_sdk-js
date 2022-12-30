@@ -34,34 +34,6 @@
         COLOR_MODE_DARK = 0,
         COLOR_MODE_LIGHT = 1,
     }
-
-    /**
-     * @name Direction
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
-     */
-    export enum Direction {
-        DIRECTION_NOT_SET = -1,
-        DIRECTION_VERTICAL = 0,
-        DIRECTION_HORIZONTAL = 1,
-    }
-
-    /**
-     * @name ScreenDensity
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @permission N/A
-     */
-    export enum ScreenDensity {
-        SCREEN_DENSITY_NOT_SET = 0,
-        SCREEN_DENSITY_SDPI = 120,
-        SCREEN_DENSITY_MDPI = 160,
-        SCREEN_DENSITY_LDPI = 240,
-        SCREEN_DENSITY_XLDPI = 320,
-        SCREEN_DENSITY_XXLDPI = 480,
-        SCREEN_DENSITY_XXXLDPI = 640,
-    }
 }
 
 export default ConfigurationConstant

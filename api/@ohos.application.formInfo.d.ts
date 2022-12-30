@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * interface of formInfo.
@@ -192,15 +192,7 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        JS = 1,
-
-        /**
-         * eTS form.
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         */
-        eTS = 2
+        JS = 1
     }
 
     /**
@@ -314,17 +306,6 @@ declare namespace formInfo {
          * @syscap SystemCapability.Ability.Form
          * @systemapi hide for inner use.
          */
-        /**
-         * Indicates the key specifying the ID of the form to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
-         *       IDENTITY_KEY: "119476135"
-         *    }
-         * }.
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         */
         IDENTITY_KEY = "ohos.extra.param.key.form_identity",
 
         /**
@@ -405,127 +386,7 @@ declare namespace formInfo {
          * @since 8
          * @syscap SystemCapability.Ability.Form
          */
-        TEMPORARY_KEY = "ohos.extra.param.key.form_temporary",
-
-        /**
-         * Indicates the key specifying the name of the bundle to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
-         *       BUNDLE_NAME_KEY: "bundleName"
-         *    }
-         * }
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         */
-        BUNDLE_NAME_KEY = "ohos.extra.param.key.bundle_name",
-
-        /**
-         * Indicates the key specifying the name of the ability to be obtained, which is represented as
-         * want: {
-         *   "parameters": {
-         *       ABILITY_NAME_KEY: "abilityName"
-         *    }
-         * }
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         */
-        ABILITY_NAME_KEY = "ohos.extra.param.key.ability_name",
-
-        /**
-         * Indicates the key specifying the the device ID, which is represented as
-         * want: {
-         *   "parameters": {
-         *       DEVICE_ID_KEY : "EFC11C0C53628D8CC2F8CB5052477E130D075917034613B9884C55CD22B3DEF2"
-         *    }
-         * }
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         * @systemapi hide for inner use.
-         */
-        DEVICE_ID_KEY = "ohos.extra.param.key.device_id"
-    }
-
-    /**
-     * The optional options used as filters to ask
-     * getFormsInfo to return formInfos from only forms that match the options.
-     *
-     * @name FormInfoFilter
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     */
-    interface FormInfoFilter {
-        /**
-         * optional moduleName that used to ask getFormsInfo to return
-         * form infos with the same moduleName.
-         *
-         * @since 9
-         * @syscap SystemCapability.Ability.Form
-         */
-        moduleName?: string;
-    }
-
-    /**
-     * Defines the FormDimension enum.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     */
-    enum FormDimension {
-        /**
-         * 1 x 2 form
-         * @since 9
-         */
-        Dimension_1_2 = 1,
-
-        /**
-         * 2 x 2 form
-         * @since 9
-         */
-        Dimension_2_2,
-
-        /**
-         * 2 x 4 form
-         * @since 9
-         */
-        Dimension_2_4,
-
-        /**
-         * 4 x 4 form
-         * @since 9
-         */
-        Dimension_4_4,
-
-        /**
-         * 2 x 1 form
-         * @since 9
-         */
-        Dimension_2_1,
-    }
-    /**
-     * The visibility of a form.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.Form
-     */
-    enum VisibilityType {
-        /**
-         * Indicates the type of the form is visible.
-         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
-         * changing to visible.
-         * @since 9
-         */
-        FORM_VISIBLE = 1,
-        /**
-         * Indicates the type of the form is invisible.
-         * Often used as a condition variable in function OnVisibilityChange() to specify actions only on forms that are
-         * changing to invisible.
-         * @since 9
-         */
-        FORM_INVISIBLE,
+        TEMPORARY_KEY = "ohos.extra.param.key.form_temporary"
     }
 }
 export default formInfo;

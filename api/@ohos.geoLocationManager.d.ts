@@ -308,36 +308,6 @@ declare namespace geoLocationManager {
     function isLocationEnabled(): boolean;
 
     /**
-     * Request enable location. The user needs to confirm whether to enable the location switch.
-     * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @param { AsyncCallback<boolean> } callback - Indicates the callback for reporting the user confirmation result,
-     * If the function fails to execute, the error message will be carried in the first parameter err of AsyncCallback,
-     * If the function executes successfully, returns {@code true} if user agrees to open the location switch, returns {@code false} otherwise.
-     * @returns { void }.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3301000 - Location service is unavailable.
-     * @throws { BusinessError } 3301700 - No response to the request.
-     * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    function requestEnableLocation(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Request enable location. The user needs to confirm whether to enable the location switch.
-     * @permission ohos.permission.APPROXIMATELY_LOCATION
-     * @returns { Promise<boolean> } The promise returned by the function. Returns {@code true} if user agrees to open the location switch, returns {@code false} otherwise.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3301000 - Location service is unavailable.
-     * @throws { BusinessError } 3301700 - No response to the request.
-     * @syscap SystemCapability.Location.Location.Core
-     * @since 9
-     */
-    function requestEnableLocation(): Promise<boolean>;
-
-    /**
      * Enable location switch.
      * @permission ohos.permission.MANAGE_SECURE_SETTINGS
      * @param { AsyncCallback<void> } callback - Indicates the callback for reporting the error message.

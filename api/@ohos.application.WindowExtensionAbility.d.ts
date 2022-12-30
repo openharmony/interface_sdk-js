@@ -14,8 +14,8 @@
  */
 
 import rpc from "./@ohos.rpc";
-import ExtensionContext from "./application/ExtensionContext";
-import Want from './@ohos.application.Want';
+import WindowExtensionContext from "./application/WindowExtensionContext";
+import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 
 /**
@@ -35,7 +35,7 @@ export default class WindowExtensionAbility {
      * @systemapi hide for inner use.
      * @StageModelOnly
      */
-    context: ExtensionContext;
+    context: WindowExtensionContext;
 
     /**
      * Called back when a window extension is first connected to an ability.
