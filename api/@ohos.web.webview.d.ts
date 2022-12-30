@@ -16,6 +16,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import {AsyncCallback} from "./basic";
+import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
 
@@ -120,6 +121,34 @@ declare namespace webview {
     }
 
     /**
+     * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
+     * @since 9
+     */
+    interface WebCustomScheme {
+
+        /**
+         * Name of the custom scheme.
+         *
+         * @since 9
+         */
+        schemeName: string;
+
+        /**
+         * Whether Cross-Origin Resource Sharing is supported.
+         *
+         * @since 9
+         */
+        isSupportCORS: boolean;
+
+        /**
+         * Whether fetch request is supported.
+         *
+         * @since 9
+         */
+        isSupportFetch: boolean;
+    }
+
+    /**
      * Provides basic information of web storage.
      * @name WebStorageOrigin
      * @since 9
@@ -130,6 +159,18 @@ declare namespace webview {
         usage: number;
         quota: number;
     }
+
+    /**
+     * Subscribe to a callback of a specified type of web event once.
+     *
+     * @param type Types of web event.
+     * @param callback Indicate callback used to receive the web event.
+     * 
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * 
+     * @since 9
+     */
+    function once(type: string, callback: Callback<void>): void;
 
     /**
      * Provides methods for managing web storage.
@@ -1144,6 +1185,17 @@ declare namespace webview {
          * @since 9
          */
         restoreWebState(state: Uint8Array) : void;
+
+        /**
+         * Set whether the Web custom scheme supports cross domain and fetch requests.
+         * 
+         * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 9
+         */
+        static customizeSchemes(schemes: Array<WebCustomScheme>): void;
     }
 }
 

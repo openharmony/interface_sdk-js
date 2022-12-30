@@ -160,6 +160,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link darkMode} for setting the web dark mode.
+ * @since 9
+ */
+declare enum WebDarkMode {
+  /**
+   * Disable the web dark mode.
+   * @since 9
+   */
+  Off,
+
+  /**
+   * Enable the web dark mode.
+   * @since 9
+   */
+  On,
+
+  /**
+   * Make web dark mode follow the system.
+   * @since 9
+   */
+  Auto,
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -1736,6 +1760,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
+
+  /**
+   * Sets the dark mode of Web.
+   * @param mode The dark mode, which can be {@link WebDarkMode}.
+   *
+   * @since 9
+   */
+  darkMode(mode: WebDarkMode): WebAttribute;
+
+  /**
+   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * @param access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  forceDarkAccess(access: boolean): WebAttribute;
 
   /**
    * Sets whether the Web should save the table data.
