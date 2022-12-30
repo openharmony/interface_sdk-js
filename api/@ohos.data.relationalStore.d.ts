@@ -172,6 +172,30 @@ declare namespace relationalStore
     }
 
     /**
+     * Returns RdbStore status when GetRdbStore is called.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    enum OpenStatus {
+        /**
+         * Indicates that the RDB database is in the creation state.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CREATE = 0,
+
+        /**
+         * Indicates that the RDB database is in the open state.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_OPEN = 1,
+    }
+
+    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -180,6 +204,14 @@ declare namespace relationalStore
      * @since 9
      */
     interface RdbStore {
+        /**
+         * Obtains the RdbStore {@link OpenStatus}.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        openStatus: number;
+
         /**
          * Inserts a row of data into the target table.
          *
