@@ -135,12 +135,4 @@ export interface HapModuleInfo {
     * @since 9
     */
   readonly hashValue: string;
-
-  /**
-   * Indicates the module source dir of this hap module
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly moduleSourceDir: string;
 }
