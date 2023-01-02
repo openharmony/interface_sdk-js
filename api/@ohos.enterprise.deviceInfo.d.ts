@@ -34,6 +34,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -51,6 +52,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -68,6 +70,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -85,6 +88,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -102,6 +106,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -119,6 +124,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
