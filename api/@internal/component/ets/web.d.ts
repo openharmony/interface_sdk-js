@@ -591,6 +591,30 @@ declare class PermissionRequest {
 }
 
 /**
+ * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
+ * @since 9
+ */
+declare class DataResubmissionHandler {
+  /**
+   * Constructor.
+   * @since 9
+   */
+  constructor();
+
+  /**
+   * Resend related form data.
+   * @since 9
+   */
+  resend(): void;
+   
+  /**
+   * Do not resend related form data.
+   * @since 9
+   */
+  cancel(): void;
+}
+
+/**
  * Defines the onWindowNew callback, related to {@link onWindowNew} method.
  * @since 9
  */
@@ -808,6 +832,14 @@ declare class WebResourceRequest {
    * @since 8
    */
   isRedirect(): boolean;
+
+  /**
+   * Get request mothod.
+   * @returns Return the request method.
+   * 
+   * @since 9
+   */
+  getRequestMethod(): string;
 }
 
 
@@ -1925,6 +1957,135 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   multiWindowAccess(multiWindow: boolean): WebAttribute;
+
+  /**
+   * Key events notify the application before the WebView consumes them.
+   * @param event Key event info.
+   *
+   * @returns True if the application consumes key events else false.
+   * @since 9
+   */
+  onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
+
+  /**
+   * Set the font of webview standard font library. The default font is "sans serif".
+   * @param family Standard font set series.
+   *
+   * @since 9
+   */
+  webStandardFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview serif font library. The default font is "serif".
+   * @param family Serif font set series.
+   *
+   * @since 9
+   */
+  webSerifFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview sans serif font library. The default font is "sans-serif".
+   * @param family Sans serif font set series.
+   *
+   * @since 9
+   */
+  webSansSerifFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview fixed font library. The default font is "monospace".
+   * @param family Fixed font set series.
+   *
+   * @since 9
+   */
+  webFixedFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview fantasy font library. The default font is "fantasy".
+   * @param family fantasy font set series.
+   *
+   * @since 9
+   */
+  webFantasyFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the font of webview cursive font library. The default font is "cursive".
+   * @param family Cursive font set series.
+   *
+   * @since 9
+   */
+  webCursiveFont(family: string): WebAttribute;
+ 
+  /**
+   * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
+   * @param size Font size.
+   *
+   * @since 9
+   */
+  defaultFixedFontSize(size: number): WebAttribute;
+ 
+  /**
+  * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  defaultFontSize(size: number): WebAttribute;
+ 
+  /**
+  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minFontSize(size: number): WebAttribute;
+
+  /**
+  * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
+  * @param size Font size.
+  *
+  * @since 9
+  */
+  minLogicalFontSize(size: number): WebAttribute;
+ 
+  /**
+   * Whether web component can load resource from network.
+   * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * 
+   * @since 9
+   */
+  blockNetwork(block: boolean): WebAttribute;
+ 
+  /**
+   * Triggered when the application receive the url of an apple-touch-icon.
+   * @param callback The triggered callback when the application receive an new url of an
+   * apple-touch-icon.
+   * @since 9
+   */
+  onTouchIconUrlReceived(callback: (event: {url: string,
+       precomposed: boolean}) => void): WebAttribute;
+
+  /**
+   * Triggered when the application receive a new favicon for the current web page.
+   * @param callback The triggered callback when the application receive a new favicon for the 
+   * current web page.
+   * @since 9
+   */
+  onFaviconReceived(callback: (event: {favicon: PixelMap}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when previous page will no longer be drawn and next page begin to draw.
+   * @param callback The triggered callback when previous page will no longer be drawn and next
+   * page begin to draw.
+   * @since 9
+   */
+  onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
+ 
+  /**
+   * Triggered when the form could be resubmitted.
+   * @param callback The triggered callback to decision whether resend form data or not.
+   * @since 9
+   */
+  onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
 }
 
 declare const Web: WebInterface;
