@@ -45,6 +45,8 @@
         "LoadingProgress",
         "Marquee",
         "Menu",
+        "MenuItem",
+        "MenuItemGroup",
         "Navigation",
         "Navigator",
         "Option",
@@ -290,6 +292,16 @@
             "name": "Menu",
             "type": "MenuAttribute",
             "instance": "MenuInstance"
+          },
+          {
+            "name": "MenuItem",
+            "type": "MenuItemAttribute",
+            "instance": "MenuItemInstance"
+          },
+          {
+            "name": "MenuItemGroup",
+            "type": "MenuItemGroupAttribute",
+            "instance": "MenuItemGroupInstance"
           },
           {
             "name": "Navigation",
