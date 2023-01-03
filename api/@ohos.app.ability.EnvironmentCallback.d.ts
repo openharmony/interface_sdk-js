@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import AbilityConstant from "./@ohos.app.ability.AbilityConstant";
 import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
@@ -29,4 +30,15 @@ export default class EnvironmentCallback {
      * @since 9
      */
     onConfigurationUpdated(config: Configuration): void;
+
+    /**
+     * Called when the system has determined to trim the memory, for example, when the ability is running in the
+     * background and there is no enough memory for running as many background processes as possible.
+     *
+     * @param level: Indicates the memory trim level, which shows the current memory usage status.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
