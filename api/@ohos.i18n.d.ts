@@ -1147,6 +1147,19 @@ export class TimeZone {
       * @since 9
       */
     static getTimezoneFromCity(cityID: string): TimeZone;
+
+     /**
+      * Get the possible time zones from the specified longitude and latitude.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param longitude longitude value
+      * @param latitude latitude value
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
+      * @returns Returns a TimeZone array from the specified longitude and latitude.
+      * @since 10
+      */
+    static getTimezonesFromCoordinate(longitude: number, latitude: number): Array<TimeZone>;
 }
 
 /**
@@ -1186,6 +1199,68 @@ export class Transliterator {
      * @since 9
      */
     transform(text: string): string;
+}
+
+  /**
+   * Enumerates the Normalizer modes.
+   * @since 10
+   * @syscap SystemCapability.Global.I18n
+   */
+  enum NormalizerMode {
+    /**
+     * Normalization form C.
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFC = 1,
+    /**
+     * Normalization form D.
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFD = 2,
+    /**
+     * Normalization form KC.
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFKC = 3,
+    /**
+     * Normalization form KD.
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFKD = 4,
+  }
+
+/**
+ * Provides the API for text encoding normalization.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 10
+ */
+export class Normalizer {
+    /**
+     * Get a Normalizer that is specified by id name.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @param mode specified the mode of Normalizer.
+     * @throws {BusinessError} 401 - check param failed
+     * @throws {BusinessError} 890001 - param value not valid
+     * @returns Returns Transliterator that is specified by id name.
+     * @since 10
+     */
+    static getInstance(mode: number): Normalizer;
+
+    /**
+     * Get a string array of all available transliterator ids.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @throws {BusinessError} 401 - check param failed
+     * @returns Returns a string array of all available transliterator ids.
+     * @since 10
+     */
+    normalize(text: string): string;
 }
 }
 export default i18n;
