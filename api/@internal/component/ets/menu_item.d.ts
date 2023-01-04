@@ -70,13 +70,13 @@
      * Whether the relevant check icon is displayed when a menu item is selected.
      * @since 9
      */
-    selectIcon(value: boolean);
+    selectIcon(value: boolean): MenuItemAttribute;
   
     /**
      * Triggers a callback when a menu item is selected or unchecked.
      * @param callback
      */
-    onChange(callback: (selected: boolean) => void);
+    onChange(callback: (selected: boolean) => void): MenuItemAttribute;
   }
   
   declare const MenuItem: MenuItemInterface;
