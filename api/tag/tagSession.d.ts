@@ -30,8 +30,9 @@ export interface TagSession {
    *
    * @returns Returns the tag information, which is a {@link TagInfo} object.
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.nfc.tag/tag#getTagInfo
    */
   getTagInfo(): tag.TagInfo;
 
@@ -42,31 +43,63 @@ export interface TagSession {
    *
    * @returns Returns {@code true} if the connection is set up; returns {@code false} otherwise.
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#connect
    */
   connectTag(): boolean;
+
+  /**
+   * Connects to a tag. Must be called before data is read from or written to the tag.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  connect(): void;
 
   /**
    * Resets a connection with a tag and restores the default timeout duration for writing data to the tag.
    *
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#resetConnection
    */
   reset(): void;
+
+  /**
+   * Resets a connection with a tag and restores the default timeout duration for writing data to the tag.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  resetConnection(): void;
 
   /**
    * Checks whether a connection has been set up with a tag.
    *
    * @returns Returns {@code true} if a connection has been set up with the tag;
    * returns {@code false} otherwise.
-   *
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#isConnected
    */
   isTagConnected(): boolean;
+
+  /**
+   * Checks whether a connection has been set up with a tag.
+   *
+   * @returns Returns true if tag connected, otherwise false.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @since 9
+   */
+   isConnected(): boolean;
 
   /**
    * Sets the timeout duration (ms) for sending data to a tag.
@@ -75,23 +108,48 @@ export interface TagSession {
    *
    * @param timeout Indicates the timeout duration to be set.
    * @returns Returns {@code true} if the setting is successful; returns {@code false} otherwise.
-   *
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#setTimeout
    */
   setSendDataTimeout(timeout: number): boolean;
+
+  /**
+   * Sets the timeout duration (ms) for sending data to a tag.
+   *
+   * @param timeout Indicates the timeout duration to be set.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+   setTimeout(timeout: number): void;
 
   /**
    * Queries the timeout duration (ms) for sending data to a tag.
    *
    * @returns Returns the timeout duration.
-   *
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#getTimeout
    */
   getSendDataTimeout(): number;
+
+  /**
+   * Obtains the timeout duration (ms) for sending data to a tag.
+   *
+   * @returns Returns the timeout duration.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  getTimeout(): number;
 
   /**
    * Writes data to a tag.
@@ -101,11 +159,28 @@ export interface TagSession {
    * data fails to be written to the tag.
    *
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#transmit
    */
   sendData(data: number[]): Promise<number[]>;
   sendData(data: number[], callback: AsyncCallback<number[]>): void;
+
+  /**
+   * Writes data to a tag.
+   *
+   * @param data Indicates the data to be written to the tag.
+   * @returns Returns bytes received in response. Or bytes with a length of 0 if the
+   * data fails to be written to the tag.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  transmit(data: number[]): Promise<number[]>;
+  transmit(data: number[], callback: AsyncCallback<number[]>): void;
 
   /**
    * Queries the maximum length of data that can be sent to a tag.
@@ -113,8 +188,21 @@ export interface TagSession {
    * @returns Returns the maximum length of the data to be sent to the tag.
    *
    * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
+   * @deprecated since 9
+   * @useinstead tagSession.TagSession#getMaxTransmitSize
    */
   getMaxSendLength(): number;
+
+  /**
+   * Obtains the maximum length of data that can be sent to a tag.
+   *
+   * @returns Returns the maximum length of the data to be sent to the tag.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+   getMaxTransmitSize(): number;
 }

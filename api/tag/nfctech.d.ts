@@ -30,8 +30,6 @@ export interface NfcATag extends TagSession {
    * Obtains the SAK of an NFC-A tag.
    *
    * @returns Returns the SAK of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getSak(): number;
@@ -40,8 +38,6 @@ export interface NfcATag extends TagSession {
    * Obtains the ATQA of an NFC-A tag.
    *
    * @returns Returns the ATQA of the NFC-A tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getAtqa(): number[];
@@ -61,8 +57,6 @@ export interface NfcBTag extends TagSession {
    * Obtains the application data of a tag.
    *
    * @returns Returns the application data of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getRespAppData(): number[];
@@ -71,8 +65,6 @@ export interface NfcBTag extends TagSession {
    * Obtains the protocol information of a tag.
    *
    * @returns Returns the protocol information of the tag.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getRespProtocol(): number[];
@@ -92,8 +84,6 @@ export interface NfcFTag extends TagSession {
    * Obtains the system code from this {@code NfcFTag} instance.
    *
    * @returns Returns the system code.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getSystemCode(): number[];
@@ -102,8 +92,6 @@ export interface NfcFTag extends TagSession {
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
    *
    * @returns Returns the PMm.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getPmm(): number[];
@@ -123,8 +111,6 @@ export interface NfcVTag extends TagSession {
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
    * @returns Returns the response flags.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getResponseFlags(): number;
@@ -133,8 +119,6 @@ export interface NfcVTag extends TagSession {
    * Obtains the data storage format identifier (DSFID) from this {@code NfcVTag} instance.
    *
    * @returns Returns the DSFID.
-   * @permission ohos.permission.NFC_TAG
-   *
    * @since 7
    */
   getDsfId(): number;
