@@ -384,9 +384,7 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @returns Returns a list of application accounts.
-         * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @since 9
@@ -422,10 +420,8 @@ declare namespace appAccount {
          * <li>Accounts of third-party applications. To obtain such information,
          * your application must have gained authorization from the third-party applications.</li>
          * </ul>
-         * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
          * @param owner Indicates the account owner of your application or third-party applications.
          * @returns Returns a list of application accounts.
-         * @throws {BusinessError} 201 - permission denied.	
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300001 - system service exception.
          * @throws {BusinessError} 12300002 - invalid owner.
