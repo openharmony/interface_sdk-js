@@ -331,7 +331,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
     PREVIEW = 14,
 
     /**
-     * @default Indicates extension info with type of print
+     * Indicates extension info with type of print
      * @since 9
      * @syscap SystemCapability.BundleManager.BundleFramework
      */
