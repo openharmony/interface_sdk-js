@@ -18,7 +18,7 @@
  *
  * @systemapi Hide this for inner system use.
  * @since 9
- * @sysCap SystemCapability.Print.PrintFramework
+ * @syscap SystemCapability.Print.PrintFramework
  * @StageModelOnly
  */
 import Want from './@ohos.application.Want';
@@ -32,7 +32,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -43,7 +43,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -54,7 +54,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -65,7 +65,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -76,7 +76,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -87,7 +87,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -98,7 +98,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -109,7 +109,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -120,7 +120,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
@@ -131,7 +131,7 @@ export default class PrintExtensionAbility {
      *
      * @systemapi Hide this for inner system use.
      * @since 9
-     * @sysCap SystemCapability.Print.PrintFramework
+     * @syscap SystemCapability.Print.PrintFramework
      * @return -
      * @StageModelOnly
      */
