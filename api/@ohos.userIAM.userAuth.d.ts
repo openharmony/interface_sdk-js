@@ -319,7 +319,7 @@ declare namespace userAuth {
         SUCCESS = 0,
 
         /**
-         * Indicates the the result is failure or ability is not supported.
+         * Indicates that authentication failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
@@ -712,7 +712,7 @@ declare namespace userAuth {
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @throws { BusinessError } 201 - Permission verification failed.
          * @throws { BusinessError } 401 - Incorrect parameters.
-         * @throws { BusinessError } 12500001 - Execution failed.
+         * @throws { BusinessError } 12500001 - Authentication failed.
          * @throws { BusinessError } 12500002 - General operation error.
          * @throws { BusinessError } 12500003 - The operation is canceled.
          * @throws { BusinessError } 12500004 - The operation is time-out.
@@ -795,7 +795,7 @@ declare namespace userAuth {
         SUCCESS = 12500000,
 
         /**
-         * Indicates the result is failure or ability is not supported.
+         * Indicates that authentication failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 9
          */
