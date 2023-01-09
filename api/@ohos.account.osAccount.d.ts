@@ -1055,7 +1055,7 @@ declare namespace osAccount {
      * Provides the management of credential inputers. 
      * @name InputerManager
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 9
      */
     class InputerManager {
         /**
@@ -1071,7 +1071,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
         registerInputer(authType: AuthType, inputer: IInputer): void;
 
@@ -1084,7 +1084,7 @@ declare namespace osAccount {
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
         unregisterInputer(authType: AuthType): void;
     }
@@ -1567,7 +1567,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the DOMAIN authentication type.
-         * @since 10
+         * @since 9
          */
         DOMAIN = 1024
     }
@@ -1607,7 +1607,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the mixed domain credential.
-         * @since 10
+         * @since 9
          */
         DOMAIN_MIXED = 10240001
     }

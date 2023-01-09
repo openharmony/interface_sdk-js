@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -47,10 +47,37 @@ declare namespace pluginComponentManager {
   }
 
   /**
+ * Plugin component push parameters.
+ * @since 9
+ * @systemapi
+ */
+  interface PushParameterForStage {
+    owner: Want;
+    want: Want;
+    name: string;
+    data: KVObject;
+    extraData: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
    * Plugin component request parameters.
    * @since 8
    */
   interface RequestParameters {
+    want: Want;
+    name: string;
+    data: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
+ * Plugin component request parameters.
+ * @since 9
+ * @systemapi
+ */
+  interface RequestParameterForStage {
+    owner: Want;
     want: Want;
     name: string;
     data: KVObject;
@@ -102,6 +129,26 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
+
+  /**
+ * Plugin component push method.
+ * @param param: Plugin component push parameters for stage.
+ * @param callback: Plugin component push event callback.
+ * @StageModelOnly
+ * @since 9
+ * @systemapi
+ */
+  function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
+
+  /**
+   * Plugin component request method.
+   * @param param: Plugin component request parameters for stage.
+   * @param callback: Plugin component request event callback.
+   * @StageModelOnly
+   * @since 9
+   * @systemapi
+   */
+  function request(param: RequestParameterForStage, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
    * Plugin component event listener.

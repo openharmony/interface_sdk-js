@@ -160,6 +160,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link darkMode} for setting the web dark mode.
+ * @since 9
+ */
+declare enum WebDarkMode {
+  /**
+   * Disable the web dark mode.
+   * @since 9
+   */
+  Off,
+
+  /**
+   * Enable the web dark mode.
+   * @since 9
+   */
+  On,
+
+  /**
+   * Make web dark mode follow the system.
+   * @since 9
+   */
+  Auto,
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -494,19 +518,19 @@ declare class HttpAuthHandler {
    * Constructor.
    * @since 9
    */
-   constructor();
+  constructor();
 
   /**
    * Confirm to use the SSL certificate.
    * @since 9
    */
-   handleConfirm(): void;
+  handleConfirm(): void;
 
   /**
    * Cancel this request.
    * @since 9
    */
-   handleCancel(): void;
+  handleCancel(): void;
 }
 
 /**
@@ -633,6 +657,102 @@ declare class ControllerHandler {
 }
 
 /**
+* Defines the context menu source type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuSourceType {
+  /**
+   * Other source types.
+   * @since 9
+   */
+  None,
+
+  /**
+   * Mouse.
+   * @since 9
+   */
+  Mouse,
+
+  /**
+   * Long press.
+   * @since 9
+   */
+  LongPress,
+}
+
+/**
+* Defines the context menu media type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuMediaType {
+  /**
+   * Not a special node or other media types.
+   * @since 9
+   */
+  None,
+
+  /**
+   * Image.
+   * @since 9
+   */
+  Image,
+}
+
+/**
+* Defines the context menu input field type, related to {@link onContextMenuShow} method.
+* @since 9
+*/
+declare enum ContextMenuInputFieldType {
+  /**
+   * Not an input field.
+   * @since 9
+   */
+  None,
+
+  /**
+   * The plain text type.
+   * @since 9
+   */
+  PlainText,
+
+  /**
+   * The password type.
+   * @since 9
+   */
+  Password,
+  
+  /**
+   * The number type.
+   * @since 9
+   */
+  Number,
+
+  /**
+   * The telephone type.
+   * @since 9
+   */
+  Telephone,
+
+  /**
+   * Other types.
+   * @since 9
+   */
+  Other,
+}
+
+/**
+ * Defines the context menu supported event bit flags, related to {@link onContextMenuShow} method.
+ * @since 9
+ */
+declare enum ContextMenuEditStateFlags {
+  NONE = 0,
+  CAN_CUT = 1 << 0,
+  CAN_COPY = 1 << 1,
+  CAN_PASTE = 1 << 2,
+  CAN_SELECT_ALL = 1 << 3,
+}
+
+/**
 * Defines the context menu param, related to {@link WebContextMenuParam} method.
 * @since 9
 */
@@ -690,6 +810,46 @@ declare class WebContextMenuParam {
    * @since 9
    */
   existsImageContents(): boolean;
+
+  /**
+   * Returns the type of context node.
+   *
+   * @since 9
+   */
+  getMediaType(): ContextMenuMediaType;
+
+  /**
+   * Returns the text of the selection.
+   *
+   * @since 9
+   */
+  getSelectionText(): string;
+
+  /**
+   * Returns the context menu source type.
+   *
+   * @since 9
+   */
+  getSourceType(): ContextMenuSourceType;
+
+  /**
+   * Returns input field type if the context menu was invoked on an input field.
+   *
+   * @since 9
+   */
+  getInputFieldType(): ContextMenuInputFieldType;
+ 
+  /**
+   * Returns whether the context is editable.
+   * @since 9
+   */
+  isEditable(): boolean;
+
+  /**
+   * Returns the context editable flags {@link ContextMenuEditStateFlags}.
+   * @since 9
+   */
+  getEditStateFlags(): number;
 }
 
 /**
@@ -718,6 +878,34 @@ declare class WebContextMenuResult {
    * @since 9
    */
   copyImage(): void;
+
+  /**
+   * Executes the copy operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  copy(): void;
+
+  /**
+   * Executes the paste operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  paste(): void;
+
+  /**
+   * Executes the cut operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  cut(): void;
+
+  /**
+   * Executes the selectAll operation ralated to this context menu.
+   *
+   * @since 9
+   */
+  selectAll(): void;
 }
 
 /**
@@ -908,7 +1096,7 @@ declare class WebResourceRequest {
    *
    * @since 9
    */
-  setResponseData(data: string);
+  setResponseData(data: string | number);
 
   /**
    * Sets the response encoding.
@@ -949,6 +1137,14 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseCode(code: number);
+  
+  /**
+   * Sets the response is ready or not.
+   * @param IsReady whether the response is ready.
+   *
+   * @since 9
+   */
+   setResponseIsReady(IsReady: boolean);
 }
 
 /**
@@ -1566,6 +1762,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
   /**
+   * Sets the dark mode of Web.
+   * @param mode The dark mode, which can be {@link WebDarkMode}.
+   *
+   * @since 9
+   */
+  darkMode(mode: WebDarkMode): WebAttribute;
+
+  /**
+   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * @param access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  forceDarkAccess(access: boolean): WebAttribute;
+
+  /**
    * Sets whether the Web should save the table data.
    * @param tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    *
@@ -2056,6 +2268,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   blockNetwork(block: boolean): WebAttribute;
  
   /**
+   * Set whether paint horizontal scroll bar.
+   * @param horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   *
+   * @since 9
+   */
+  horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
+
+  /**
+   * Set whether paint vertical scroll bar.
+   * @param verticalScrollBar True if it needs to paint vertical scroll bar.
+   *
+   * @since 9
+   */
+  verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
+
+  /**
    * Triggered when the application receive the url of an apple-touch-icon.
    * @param callback The triggered callback when the application receive an new url of an
    * apple-touch-icon.
@@ -2086,6 +2314,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onDataResubmitted(callback: (event: {handler: DataResubmissionHandler}) => void): WebAttribute;
+
+  /**
+   * Set whether enable pinch smooth mode.
+   * @param isEnabled True if it needs to enable smooth mode.
+   * @since 9
+   */
+  pinchSmooth(isEnabled: boolean)
 }
 
 declare const Web: WebInterface;

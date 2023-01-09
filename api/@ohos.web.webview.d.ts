@@ -16,6 +16,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import {AsyncCallback} from "./basic";
+import {Callback} from "./basic";
 import {Resource} from 'GlobalResource';
 import image from "./@ohos.multimedia.image";
 
@@ -120,6 +121,34 @@ declare namespace webview {
     }
 
     /**
+     * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
+     * @since 9
+     */
+    interface WebCustomScheme {
+
+        /**
+         * Name of the custom scheme.
+         *
+         * @since 9
+         */
+        schemeName: string;
+
+        /**
+         * Whether Cross-Origin Resource Sharing is supported.
+         *
+         * @since 9
+         */
+        isSupportCORS: boolean;
+
+        /**
+         * Whether fetch request is supported.
+         *
+         * @since 9
+         */
+        isSupportFetch: boolean;
+    }
+
+    /**
      * Provides basic information of web storage.
      * @name WebStorageOrigin
      * @since 9
@@ -130,6 +159,18 @@ declare namespace webview {
         usage: number;
         quota: number;
     }
+
+    /**
+     * Subscribe to a callback of a specified type of web event once.
+     *
+     * @param type Types of web event.
+     * @param callback Indicate callback used to receive the web event.
+     * 
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * 
+     * @since 9
+     */
+    function once(type: string, callback: Callback<void>): void;
 
     /**
      * Provides methods for managing web storage.
@@ -448,6 +489,7 @@ declare namespace webview {
         static deleteSessionCookie(): void;
     }
 
+    type WebMessage = ArrayBuffer | string;
     /**
      * Define html web message port.
      * @since 9
@@ -461,23 +503,23 @@ declare namespace webview {
 
         /**
          * Post a message to other port.
-         * @param { string } message - Message to send.
+         * @param { WebMessage } message - Message to send.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
          */
-        postMessageEvent(message: string): void;
+        postMessageEvent(message: WebMessage): void;
 
         /**
          * Receive message from other port.
-         * @param { (result: string) => void } callback - Callback function for receiving messages.
+         * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
          */
-        onMessageEvent(callback: (result: string) => void): void;
+        onMessageEvent(callback: (result: WebMessage) => void): void;
     }
 
     /**
@@ -1082,6 +1124,78 @@ declare namespace webview {
          * @since 9
          */
         removeCache(clearRom: boolean): void;
+
+        /**
+         * Scroll to the position.
+         *
+         * @param { boolean } x - the x of the position.
+         * @param { boolean } y - the y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollTo(x:number, y:number): void;
+
+        /**
+         * Scroll by the delta position.
+         *
+         * @param { boolean } deltaX - the delta x of the position.
+         * @param { boolean } deltaY - the delta y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollBy(deltaX:number, deltaY:number): void;
+
+        /**
+         * Slide by the speed.
+         *
+         * @param { boolean } vx - the x speed of the speed.
+         * @param { boolean } vy - the y speed of the speed.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        slideScroll(vx:number, vy:number): void;
+
+        /**
+         * Serialize the access stack of the web, that is, the history of access.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { Uint8Array } Web access stack after serialization.
+         *
+         * @since 9
+         */
+        serializeWebState() : Uint8Array;
+
+        /**
+         * Restoring the web access stack, that is, the history of access.
+         * 
+         * @param { Uint8Array } state - Web access stack after serialization.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @since 9
+         */
+        restoreWebState(state: Uint8Array) : void;
+
+        /**
+         * Set whether the Web custom scheme supports cross domain and fetch requests.
+         * 
+         * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+         *
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         *
+         * @since 9
+         */
+        static customizeSchemes(schemes: Array<WebCustomScheme>): void;
     }
 }
 

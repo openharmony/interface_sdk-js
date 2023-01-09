@@ -134,7 +134,7 @@ declare class PlainArray<T> {
    * @param size Expected deletion quantity
    * @returns Actual deleted quantity
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -145,7 +145,7 @@ declare class PlainArray<T> {
    * @param index Target subscript for search
    * @param value Updated the target mapped value
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -163,7 +163,7 @@ declare class PlainArray<T> {
    * @param index Target subscript for search
    * @returns the value of key-value pairs
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

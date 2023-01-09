@@ -41,7 +41,7 @@ declare namespace relationalStore
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
+    function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
     /**
      * Obtains an RDB store.
@@ -59,7 +59,7 @@ declare namespace relationalStore
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
+    function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
     /**
      * Deletes the database with a specified name.
@@ -121,7 +121,7 @@ declare namespace relationalStore
     enum SubscribeType {
         /**
          * Subscription to remote data changes
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
@@ -172,6 +172,86 @@ declare namespace relationalStore
     }
 
     /**
+     * Describes the conflict resolutions to insert data into the table.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    enum ConflictResolution {
+        /**
+         * Implements no action when conflict occurs.
+         * 
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_NONE = 0,
+
+        /**
+         * Implements rollback operation when conflict occurs.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_ROLLBACK = 1,
+
+        /**
+         * Implements abort operation when conflict occurs.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_ABORT = 2,
+
+        /**
+         * Implements fail operation when conflict occurs.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_FAIL = 3,
+
+        /**
+         * Implements ignore operation when conflict occurs.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_IGNORE = 4,
+
+        /**
+         * Implements replace operation operator when conflict occurs.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CONFLICT_REPLACE = 5,
+    }
+
+    /**
+     * Returns RdbStore status when GetRdbStore is called.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    enum OpenStatus {
+        /**
+         * Indicates that the RDB database is in the creation state.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_CREATE = 0,
+
+        /**
+         * Indicates that the RDB database is in the open state.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        ON_OPEN = 1,
+    }
+
+    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -180,6 +260,14 @@ declare namespace relationalStore
      * @since 9
      */
     interface RdbStore {
+        /**
+         * Obtains the RdbStore {@link OpenStatus}.
+         *
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        openStatus: number;
+
         /**
          * Inserts a row of data into the target table.
          *
@@ -197,12 +285,38 @@ declare namespace relationalStore
          *
          * @param {string} table - Indicates the row of data to be inserted into the table.
          * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {ConflictResolution} conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+         * @param {AsyncCallback<number>} callback - the row ID if the operation is successful. returns -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        insert(table: string, values: ValuesBucket, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
+
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
          * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
          */
         insert(table: string, values: ValuesBucket): Promise<number>;
+
+        /**
+         * Inserts a row of data into the target table.
+         *
+         * @param {string} table - Indicates the row of data to be inserted into the table.
+         * @param {ValuesBucket} values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+         * @param {ConflictResolution} conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+         * @returns {Promise<void>} return the row ID if the operation is successful. return -1 otherwise.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<number>;
 
         /**
          * Inserts a batch of data into the target table.
@@ -231,7 +345,7 @@ declare namespace relationalStore
         /**
          * Updates data in the database based on a a specified instance object of RdbPredicates.
          *
-         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -243,7 +357,20 @@ declare namespace relationalStore
         /**
          * Updates data in the database based on a a specified instance object of RdbPredicates.
          *
-         * @param {ValuesBucket} values - Indicates Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @param {ConflictResolution} conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+         * @param {AsyncCallback<number>} callback - the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution, callback: AsyncCallback<number>): void;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicates.
+         *
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
          * @returns {Promise<number>} return the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
@@ -255,11 +382,25 @@ declare namespace relationalStore
         /**
          * Updates data in the database based on a a specified instance object of RdbPredicates.
          *
+         * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
+         * @param {RdbPredicates} predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+         * @param {ConflictResolution} conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+         * @returns {Promise<number>} return the number of affected rows.
+         * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<number>;
+
+        /**
+         * Updates data in the database based on a a specified instance object of RdbPredicates.
+         *
          * @param {string} table - Indicates the target table.
          * @param {ValuesBucket} values - Indicates the row of data to be updated in the database.The key-value pairs are associated with column names of the database table.
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -274,6 +415,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @returns {Promise<number>} return the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -309,6 +451,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -322,6 +465,7 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -360,6 +504,7 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
          * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
@@ -374,6 +519,7 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
          * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9

@@ -104,14 +104,6 @@ export interface ApplicationInfo {
   readonly permissions: Array<string>;
 
   /**
-   * Indicates the path where the {@code Entry.hap} file of the application is saved
-   * @type {string}
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  readonly entryDir: string;
-
-  /**
    * Indicates the application source code path
    * @type {string}
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -190,4 +182,12 @@ export interface ApplicationInfo {
    * @since 9
    */
   readonly appProvisionType: string;
+
+  /**
+   * Indicates whether the application is a system application
+   * @type {boolean}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 9
+   */ 
+  readonly systemApp: boolean;
 }
