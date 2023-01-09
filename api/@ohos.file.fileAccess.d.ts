@@ -86,6 +86,11 @@ declare namespace fileAccess {
          * @type {string}
          * @readonly
          */
+        relativePath: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
         fileName: string;
         /**
          * @type {number}
@@ -164,6 +169,11 @@ declare namespace fileAccess {
          * @readonly
          */
         uri: string;
+        /**
+         * @type {string}
+         * @readonly
+         */
+        relativePath: string;
         /**
          * @type {string}
          * @readonly
@@ -338,6 +348,34 @@ declare namespace fileAccess {
          */
         access(sourceFileUri: string) : Promise<boolean>;
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
+
+        /**
+         * Get a FileInfo by the uri.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param uri Indicates the selected file or directory.
+         * @returns {(void | Promise<FileInfo>)} Returns a FileInfo.
+         */
+        uriToFileInfo(uri: string) : Promise<FileInfo>;
+        uriToFileInfo(uri: string, callback: AsyncCallback<FileInfo>) : void;
+
+        /**
+         * Get a FileInfo by the relative path.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param relativePath Indicates the selected file or directory.
+         * @returns {(void | Promise<FileInfo>)} Returns a FileInfo.
+         */
+        relativePathToFileInfo(relativePath: string) : Promise<FileInfo>;
+        relativePathToFileInfo(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
 
         /**
          * Get a RootIterator.
