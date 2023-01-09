@@ -2321,6 +2321,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   pinchSmooth(isEnabled: boolean)
+
+  /**
+   * Whether the window can be open automatically through JavaScript.
+   * @param flag If it is true, the window can be opened automatically through JavaScript.
+   * If it is false and user behavior, the window can be opened automatically through JavaScript.
+   * Otherwise, the window cannot be opened.
+   * @since 9
+   */
+  allowWindowOpenMethod(flag : boolean)
 }
 
 declare const Web: WebInterface;
