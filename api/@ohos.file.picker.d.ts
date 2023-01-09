@@ -23,7 +23,7 @@ import { AsyncCallback, Callback } from "./basic";
  */
 declare namespace picker {
     /**
-     * PhotoPickerMIMETypes represents the type of media resource that photo picker selects.
+     * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
@@ -34,13 +34,13 @@ declare namespace picker {
     }
 
     /**
-     * PhotoPickerSelectOption Object
+     * PhotoSelectOptions Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
     interface PhotoSelectOptions {
         /**
-         * @type {PhotoPickerMIMETypes}
+         * @type {PhotoViewMIMETypes}
          * @since 9
          */
         MIMEType?: PhotoViewMIMETypes;
@@ -53,7 +53,7 @@ declare namespace picker {
     }
 
     /**
-     * PhotoPickerSelectResult Object
+     * PhotoSelectResult Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
@@ -72,7 +72,20 @@ declare namespace picker {
     }
 
     /**
-     * PhotoPickerViewController Object
+     * PhotoSaveOptions Object
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileService
+     */
+     interface PhotoSaveOptions {
+        /**
+         * @type {Array<string>}
+         * @since 9
+         */
+        newFileNames?: Array<string>;
+    }
+
+    /**
+     * PhotoViewPicker Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
@@ -81,31 +94,42 @@ declare namespace picker {
          * Pull up the photo picker based on the selection mode.
          *
          * @since 9
-         * @syscap SystemCapability.FileManagement.UserFileService         
-         * @param PhotoPickerSelectOption represents the options provided in select mode.
-         * @returns {(void | Promise<PhotoPickerSelectResult>)} Returns the selector result.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @param PhotoSelectOptions represents the options provided in select mode.
+         * @returns {(void | Promise<PhotoSelectResult>)} Returns the selector result.
          */
         select(option: PhotoSelectOptions) : Promise<PhotoSelectResult>;
         select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) : void;
+
+        /**
+         * Pull up the photo picker based on the save mode.
+         *
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @param PhotoSaveOptions represents the options provided in save mode.
+         * @returns {(void | Promise<Array<string>>)} Returns the save result.
+         */
+        save(option: PhotoSaveOptions) : Promise<Array<string>>;
+        save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>) : void;
     }
 
     /**
-     * DocumentPickerSelectOption Object
+     * DocumentSelectOptions Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface DocumentSelectOption {
+    interface DocumentSelectOptions {
         /**
          * @type {string}
          * @since 9
          */
-        defaultPath?: string;
+        defaultFilePathUri?: string;
 
         /**
          * @type {Array<string>}
          * @since 9
          */
-        subMIMEType?: Array<string>;
+        subMIMETypes?: Array<string>;
 
         /**
          * @type {number}
@@ -115,20 +139,20 @@ declare namespace picker {
     }
 
     /**
-     * DocumentPickerSaveOption Object
+     * DocumentSaveOptions Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface DocumentSaveOption {
+    interface DocumentSaveOptions {
         /**
          * @type {Array<string>}
          * @since 9
          */
-        NewFileName?: Array<string>;
+        newFileNames?: Array<string>;
     }
 
     /**
-     * DocumentPickerViewController Object
+     * DocumentViewPicker Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */    
@@ -138,30 +162,30 @@ declare namespace picker {
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
-         * @param DocumentPickerSelectOption represents the options provided in select mode.
+         * @param DocumentSelectOptions represents the options provided in select mode.
          * @returns {(void | Promise<Array<string>>)} Returns the selector result.
          */
-        select(option: DocumentSelectOption) : Promise<Array<string>>;
-        select(option: DocumentSelectOption, callback: AsyncCallback<Array<string>>) : void;
+        select(option: DocumentSelectOptions) : Promise<Array<string>>;
+        select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>) : void;
 
         /**
          * Pull up the document picker based on the save mode.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
-         * @param DocumentPickerSaveOption represents the options provided in save mode.
+         * @param DocumentSaveOptions represents the options provided in save mode.
          * @returns {(void | Promise<Array<string>>)} Returns the save result.
          */
-        save(option: DocumentSaveOption) : Promise<Array<string>>;
-        save(option: DocumentSaveOption, callback: AsyncCallback<Array<string>>) : void;
+        save(option: DocumentSaveOptions) : Promise<Array<string>>;
+        save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>) : void;
     }
 
     /**
-     * AudioPickerSelectOption Object
+     * AudioSelectOptions Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
-    interface AudioSelectOption {
+    interface AudioSelectOptions {
         /**
          * @type {number}
          * @since 9
@@ -170,7 +194,20 @@ declare namespace picker {
     }
 
     /**
-     * AudioPickerViewController Object
+     * AudioSaveOptions Object
+     * @since 9
+     * @syscap SystemCapability.FileManagement.UserFileService
+     */
+    interface AudioSaveOptions {
+        /**
+         * @type {Array<string>}
+         * @since 9
+         */
+        newFileNames?: Array<string>;
+    }
+
+    /**
+     * AudioViewPicker Object
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */ 
@@ -179,11 +216,22 @@ declare namespace picker {
          * Pull up the audio picker based on the selection mode.
          *
          * @since 9
-         * @syscap SystemCapability.FileManagement.UserFileService         
-         * @param AudioPickerSelectOption represents the options provided in select mode.
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @param AudioSelectOptions represents the options provided in select mode.
          * @returns {(void | Promise<Array<string>>)} Returns the selector result.
          */
-        select(option: AudioSelectOption) : Promise<Array<string>>;
-        select(option: AudioSelectOption, callback: AsyncCallback<Array<string>>) : void;
+        select(option: AudioSelectOptions) : Promise<Array<string>>;
+        select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>) : void;
+
+        /**
+         * Pull up the audio picker based on the save mode.
+         *
+         * @since 9
+         * @syscap SystemCapability.FileManagement.UserFileService         
+         * @param AudioSaveOptions represents the options provided in save mode.
+         * @returns {(void | Promise<Array<string>>)} Returns the save result.
+         */
+        save(option: AudioSaveOptions) : Promise<Array<string>>;
+        save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>) : void;
     }
 }
