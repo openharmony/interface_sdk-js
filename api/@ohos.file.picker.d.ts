@@ -43,7 +43,7 @@ declare namespace picker {
          * @type {PhotoPickerMIMETypes}
          * @since 9
          */
-        pickerMIMEType?: PhotoViewMIMETypes;
+        MIMEType?: PhotoViewMIMETypes;
         
         /**
          * @type {number}
@@ -105,7 +105,7 @@ declare namespace picker {
          * @type {Array<string>}
          * @since 9
          */
-        pickerSubMIMEType?: Array<string>;
+        subMIMEType?: Array<string>;
 
         /**
          * @type {number}
