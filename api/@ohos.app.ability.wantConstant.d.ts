@@ -432,7 +432,15 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    FLAG_ABILITY_MISSION_TOP = 0x20000000
+    FLAG_ABILITY_MISSION_TOP = 0x20000000,
+
+    /**
+     * Indicates the abiltiy in this want can back to the current top ability even though they are not in the same
+     * mission stack.
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 9
+     */
+      FLAG_ABILITY_BACK_TO_OTHER_MISSION_STACK = 0x40000000
   }
 }
 
