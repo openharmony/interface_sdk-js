@@ -116,7 +116,6 @@ declare namespace relationalStore
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      */
     enum SubscribeType {
         /**
@@ -427,7 +426,7 @@ declare namespace relationalStore
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
         /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - Indicates the SQL statement to execute.
          * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.

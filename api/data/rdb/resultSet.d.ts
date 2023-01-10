@@ -21,7 +21,7 @@ import { AsyncCallback } from '../../basic'
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7
  * @deprecated since 9
- * @useinstead ohos.data.relationalStore.ResultSet
+ * @useinstead ohos.data.rdb.ResultSetV9
  */
  export interface ResultSet {
 
@@ -33,7 +33,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.columnNames
+     * @useinstead ohos.data.rdb.ResultSetV9.columnNames
      */
     columnNames: Array<string>;
 
@@ -45,7 +45,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.columnCount
+     * @useinstead ohos.data.rdb.ResultSetV9.columnCount
      */
     columnCount: number;
 
@@ -55,7 +55,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core 
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.rowCount
+     * @useinstead ohos.data.rdb.ResultSetV9.rowCount
      */
     rowCount: number;
 
@@ -66,7 +66,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.rowIndex
+     * @useinstead ohos.data.rdb.ResultSetV9.rowIndex
      */
     rowIndex: number;
 
@@ -76,7 +76,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isAtFirstRow
+     * @useinstead ohos.data.rdb.ResultSetV9.isAtFirstRow
      */
     isAtFirstRow: boolean;
 
@@ -86,7 +86,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isAtLastRow
+     * @useinstead ohos.data.rdb.ResultSetV9.isAtLastRow
      */
     isAtLastRow: boolean;
 
@@ -96,7 +96,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isEnded
+     * @useinstead ohos.data.rdb.ResultSetV9.isEnded
      */
     isEnded: boolean;
 
@@ -107,7 +107,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isStarted
+     * @useinstead ohos.data.rdb.ResultSetV9.isStarted
      */
     isStarted: boolean;
 
@@ -119,7 +119,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isClosed
+     * @useinstead ohos.data.rdb.ResultSetV9.isClosed
      */
     isClosed: boolean;
 
@@ -132,7 +132,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getColumnIndex
+     * @useinstead ohos.data.rdb.ResultSetV9.getColumnIndex
      */
     getColumnIndex(columnName: string): number;
 
@@ -145,7 +145,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getColumnName
+     * @useinstead ohos.data.rdb.ResultSetV9.getColumnName
      */
     getColumnName(columnIndex: number): string;
 
@@ -159,7 +159,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goTo
+     * @useinstead ohos.data.rdb.ResultSetV9.goTo
      */
     goTo(offset: number): boolean;
 
@@ -171,7 +171,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goToRow
+     * @useinstead ohos.data.rdb.ResultSetV9.goToRow
      */
     goToRow(position: number): boolean;
 
@@ -183,7 +183,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goToFirstRow
+     * @useinstead ohos.data.rdb.ResultSetV9.goToFirstRow
      */
     goToFirstRow(): boolean;
 
@@ -195,7 +195,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goToLastRow
+     * @useinstead ohos.data.rdb.ResultSetV9.goToLastRow
      */
     goToLastRow(): boolean;
 
@@ -207,7 +207,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goToNextRow
+     * @useinstead ohos.data.rdb.ResultSetV9.goToNextRow
      */
     goToNextRow(): boolean;
 
@@ -219,7 +219,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.goToPreviousRow
+     * @useinstead ohos.data.rdb.ResultSetV9.goToPreviousRow
      */
     goToPreviousRow(): boolean;
 
@@ -233,7 +233,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getBlob
+     * @useinstead ohos.data.rdb.ResultSetV9.getBlob
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -247,7 +247,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getString
+     * @useinstead ohos.data.rdb.ResultSetV9.getString
      */
     getString(columnIndex: number): string;
 
@@ -261,7 +261,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getLong
+     * @useinstead ohos.data.rdb.ResultSetV9.getLong
      */
     getLong(columnIndex: number): number;
 
@@ -275,7 +275,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.getDouble
+     * @useinstead ohos.data.rdb.ResultSetV9.getDouble
      */
     getDouble(columnIndex: number): number;
 
@@ -288,7 +288,7 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.isColumnNull
+     * @useinstead ohos.data.rdb.ResultSetV9.isColumnNull
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -299,8 +299,318 @@ import { AsyncCallback } from '../../basic'
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.ResultSet.close
+     * @useinstead ohos.data.rdb.ResultSetV9.close
      */
     close(): void;
 }
 
+/**
+ * Provides methods for accessing a database result set generated by querying the database.
+ *
+ * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+ * @since 9
+ * @deprecated since 9
+ * @useinstead ohos.data.relationalStore.ResultSet
+ */
+ export interface ResultSetV9 {
+
+    /**
+     * Obtains the names of all columns in a result set.
+     * The column names are returned as a string array, in which the strings are in the same order
+     * as the columns in the result set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.columnNames
+     */
+    columnNames: Array<string>;
+
+    /**
+     * Obtains the number of columns in the result set.
+     * The returned number is equal to the length of the string array returned by the
+     * columnCount method.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.columnCount
+     */
+    columnCount: number;
+
+    /**
+     * Obtains the number of rows in the result set.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.rowCount
+     */
+    rowCount: number;
+
+    /**
+     * Obtains the current index of the result set.
+     * The result set index starts from 0.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.rowIndex
+     */
+    rowIndex: number;
+
+    /**
+     * Checks whether the result set is positioned at the first row.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isAtFirstRow
+     */
+    isAtFirstRow: boolean;
+
+    /**
+     * Checks whether the result set is positioned at the last row.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isAtLastRow
+     */
+    isAtLastRow: boolean;
+
+    /**
+     * Checks whether the result set is positioned after the last row.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isEnded
+     */
+    isEnded: boolean;
+
+    /**
+     * Returns whether the cursor is pointing to the position before the first row.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isStarted
+     */
+    isStarted: boolean;
+
+    /**
+     * Checks whether the current result set is closed.
+     *
+     * If the result set is closed by calling the close method, true will be returned.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isClosed
+     */
+    isClosed: boolean;
+
+    /**
+     * Obtains the column index based on the specified column name.
+     * The column name is passed as an input parameter.
+     *
+     * @param {string} columnName - Indicates the name of the specified column in the result set.
+     * @returns {number} return the index of the specified column.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - the parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getColumnIndex
+     */
+    getColumnIndex(columnName: string): number;
+
+    /**
+     * Obtains the column name based on the specified column index.
+     * The column index is passed as an input parameter.
+     *
+     * @param {number} columnIndex - Indicates the index of the specified column in the result set.
+     * @returns {string} returns the name of the specified column.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getColumnName
+     */
+    getColumnName(columnIndex: number): string;
+
+    /**
+     * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
+     * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
+     *
+     * @param {number} offset - Indicates the offset relative to the current position.
+     * @returns {string} returns true if the result set is moved successfully and does not go beyond the range;
+     *                   returns false otherwise.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goTo
+     */
+    goTo(offset: number): boolean;
+
+    /**
+     * Go to the specified row of the result set.
+     *
+     * @param {number} rowIndex - Indicates the index of the specified row, which starts from 0.
+     * @returns {boolean}  returns true if the result set is moved successfully; returns false otherwise.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToRow
+     */
+    goToRow(position: number): boolean;
+
+    /**
+     * Go to the first row of the result set.
+     *
+     * @returns {boolean} returns true if the result set is moved successfully;
+     *                    returns false otherwise, for example, if the result set is empty.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToFirstRow
+     */
+    goToFirstRow(): boolean;
+
+    /**
+     * Go to the last row of the result set.
+     *
+     * @returns {boolean} returns true if the result set is moved successfully;
+     *                    returns false otherwise, for example, if the result set is empty.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToLastRow
+     */
+    goToLastRow(): boolean;
+
+    /**
+     * Go to the next row of the result set.
+     *
+     * @returns {boolean} returns true if the result set is moved successfully;
+     *                    returns false otherwise, for example, if the result set is already in the last row.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToNextRow
+     */
+    goToNextRow(): boolean;
+
+    /**
+     * Go to the previous row of the result set.
+     *
+     * @returns {boolean} returns true if the result set is moved successfully;
+     *                    returns false otherwise, for example, if the result set is already in the first row.
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToPreviousRow
+     */
+    goToPreviousRow(): boolean;
+
+    /**
+     * Obtains the value of the specified column in the current row as a byte array.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Blob type.
+     *
+     * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns {Uint8Array} returns the value of the specified column as a byte array.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401- Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getBlob
+     */
+    getBlob(columnIndex: number): Uint8Array;
+
+    /**
+     * Obtains the value of the specified column in the current row as string.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the string type.
+     *
+     * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns {string} returns the value of the specified column as a string.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getString
+     */
+    getString(columnIndex: number): string;
+
+    /**
+     * Obtains the value of the specified column in the current row as long.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null, the specified column is not of the integer type.
+     *
+     * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns {number} returns the value of the specified column as a long.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getLong
+     */
+    getLong(columnIndex: number): number;
+
+    /**
+     * Obtains the value of the specified column in the current row as double.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null, the specified column is not of the double type.
+     *
+     * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns {number} returns the value of the specified column as a double.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getDouble
+     */
+    getDouble(columnIndex: number): number;
+
+    /**
+     * Checks whether the value of the specified column in the current row is null.
+     *
+     * @param {number} columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns {boolean} returns true if the value of the specified column in the current row is null;
+     *                    returns false otherwise.
+     * @throws {BusinessError} 14800013 - The column value is null or the column type is incompatible.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isColumnNull
+     */
+    isColumnNull(columnIndex: number): boolean;
+
+    /**
+     * Closes the result set.
+     * Calling this method on the result set will release all of its resources and makes it ineffective.
+     *
+     * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.close
+     */
+    close(): void;
+}
