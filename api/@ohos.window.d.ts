@@ -20,6 +20,7 @@ import BaseContext from './application/BaseContext';
 import { LocalStorage } from 'StateManagement';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
+import dialogRequest from "./@ohos.app.ability.dialogRequest";
 
 /**
  * Window manager.
@@ -1600,6 +1601,30 @@ declare namespace window {
      * @since 9
      */
     bindDialogTarget(token: rpc.RemoteObject, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Bind dialog to the target window.
+     * @param requestInfo requestInfo of the target window.
+     * @param deathCallback the callback of dialogDeath.
+     * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    bindDialogTarget(requestInfo: dialogRequest.RequestInfo, deathCallback: Callback<void>): Promise<void>;
+
+    /**
+     * Bind dialog to the target window.
+     * @param requestInfo requestInfo of the target window.
+     * @param deathCallback the callback of dialogDeath.
+     * @throws {BusinessError} 401 - If param is invalid
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
+    bindDialogTarget(requestInfo: dialogRequest.RequestInfo, deathCallback: Callback<void>, callback: AsyncCallback<void>): void;
 
     /**
      * Whether the window supports thr wide gamut setting.
