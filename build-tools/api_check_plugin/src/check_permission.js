@@ -21,7 +21,7 @@ const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
-function checkPermission(node, sourcefile, fileName) {
+function getPermissionBank() {
   const permissionTags = [];
   const permissionFilesPath = path.resolve(__dirname, '../../../../../',
     "base/global/system_resources/systemres/main/config.json");
@@ -31,14 +31,23 @@ function checkPermission(node, sourcefile, fileName) {
   permissionTagsObj.forEach((item) => {
     permissionTags.push(item.name);
   })
-  const permissionRuleSet = new Set(permissionTags);
+  const permissionRuleSets = new Set(permissionTags);
+  return permissionRuleSets
+}
+
+function checkPermission(node, sourcefile, fileName) {
+  const permissionRuleSet = getPermissionBank();
   const apiNote = getAPINote(node);
-  const apiNoteArr = apiNote.split('*');
   let hasPermissionError = false;
   let errorInfo = "";
+  let apiNoteArr = [];
+  if (apiNote.match(new RegExp('@permission'))) {
+    apiNoteArr = apiNote.split(/ *\* *\@/g);
+  }
   apiNoteArr.forEach(note => {
-    if (note.match(new RegExp('@permission'))) {
-      const permissionNote = note.replace('@permission', '').trim();
+    // 找到jsdoc中的permission标签关键字并拿到待校验的permission字段
+    if (note.match(new RegExp(/^permission\b/))) {
+      const permissionNote = note.replace(/(^permission\b|[(\r\n)\r\n ]|(\*\/|\*))/g, '').trim();
       if (/(or|and)/g.test(permissionNote)) {
         const permissionArr = permissionNote.replace(/( |or|and|\(|\))/g, '$').split('$');
         permissionArr.forEach(permissionStr => {

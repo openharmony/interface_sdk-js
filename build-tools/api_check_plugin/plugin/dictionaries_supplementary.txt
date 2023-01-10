@@ -618,6 +618,7 @@ systemui
 tailoring
 talkback
 taskmanager
+taskpool
 tbla
 tdscdma
 telecom
