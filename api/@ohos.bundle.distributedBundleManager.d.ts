@@ -19,12 +19,12 @@ import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/remoteA
 
 /**
  * DistributedBundle manager.
- * @namespace distributedBundle
+ * @namespace distributedBundleManager
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 9
  */
-declare namespace distributedBundle {
+declare namespace distributedBundleManager {
   /**
    * Obtains information about the ability info of the remote device.
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -182,4 +182,4 @@ declare namespace distributedBundle {
   export type RemoteAbilityInfo = _RemoteAbilityInfo;
 }
 
-export default distributedBundle;
+export default distributedBundleManager;
