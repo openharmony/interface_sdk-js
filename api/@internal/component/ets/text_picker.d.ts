@@ -56,11 +56,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
    * Called when the pop-up value is returned.
    * @since 8
+   * @deprecated since 10
    */
   onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
   /**
    * Called when the Cancel button in the pop-up window is clicked.
    * @since 8
+   * @deprecated since 10
    */
   onCancel(callback: () => void): TextPickerAttribute;
   /**
