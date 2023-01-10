@@ -331,108 +331,11 @@ declare namespace wantConstant {
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
     /**
-     * Returns the result to the source ability.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_FORWARD_RESULT = 0x00000004,
-
-    /**
-     * Determines whether an ability on the local device can be migrated to a remote device.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_CONTINUATION = 0x00000008,
-
-    /**
-     * Specifies whether a component does not belong to OHOS.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_NOT_OHOS_COMPONENT = 0x00000010,
-
-    /**
-     * Specifies whether an ability is started.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_FORM_ENABLED = 0x00000020,
-
-    /**
-     * Indicates the grant for possible persisting on the URI.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi
-     * @since 9
-     */
-    FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
-
-    /**
-     * Returns the result to the source ability slice.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi
-     * @since 9
-     */
-    FLAG_AUTH_PREFIX_URI_PERMISSION = 0x00000080,
-
-    /**
-     * Supports multi-device startup in the distributed scheduling system.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITYSLICE_MULTI_DEVICE = 0x00000100,
-
-    /**
-     * Indicates that an ability using the Service template is started regardless of whether the host application has
-     * been started.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_START_FOREGROUND_ABILITY = 0x00000200,
-
-    /**
-     * Indicates the continuation is reversible.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @systemapi
-     * @since 9
-     */
-    FLAG_ABILITY_CONTINUATION_REVERSIBLE = 0x00000400,
-
-    /**
      * Install the specified ability if it's not installed.
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
-
-    /**
-     * Install the specified ability with background mode if it's not installed.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_INSTALL_WITH_BACKGROUND_MODE = 0x80000000,
-
-    /**
-     * Indicates the operation of clearing other missions. This flag can be set for the {@code Intent} passed to
-     * {@link ohos.app.Context#startAbility} and must be used together with {@link FLAG_ABILITY_NEW_MISSION}.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_CLEAR_MISSION = 0x00008000,
-
-    /**
-     * Indicates the operation of creating a task on the historical mission stack.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_NEW_MISSION = 0x10000000,
-
-    /**
-     * Indicates that the existing instance of the ability to start will be reused if it is already at the top of
-     * the mission stack. Otherwise, a new ability instance will be created.
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    FLAG_ABILITY_MISSION_TOP = 0x20000000
   }
 }
 
