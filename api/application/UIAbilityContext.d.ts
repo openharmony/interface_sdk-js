@@ -23,7 +23,6 @@ import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
 import Context from "./Context";
 import Want from "../@ohos.app.ability.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
-import PermissionRequestResult from "./PermissionRequestResult";
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import { LocalStorage } from 'StateManagement';
@@ -782,35 +781,6 @@ export default class UIAbilityContext extends Context {
      * @since 9
      */
     setMissionIcon(icon: image.PixelMap): Promise<void>;
-
-    /**
-     * Requests certain permissions from the system.
-     * @param { Array<string> } permissions - Indicates the list of permissions to be requested. This parameter
-     *                                        cannot be null or empty.
-     * @param { AsyncCallback<PermissionRequestResult> } requestCallback - The callback is used to return the permission
-     *                                                                     request result.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
-     */
-    requestPermissionsFromUser(permissions: Array<string>, requestCallback: AsyncCallback<PermissionRequestResult>): void;
-
-    /**
-     * Requests certain permissions from the system.
-     * @param { Array<string> } permissions - Indicates the list of permissions to be requested. This parameter
-     *                                        cannot be null or empty.
-     * @returns { Promise<PermissionRequestResult> } Returns the permission request result.
-     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     * @useinstead @ohos.abilityAccessCtrl.requestPermissionsFromUser
-     */
-    requestPermissionsFromUser(permissions: Array<string>): Promise<PermissionRequestResult>;
 
     /**
      * Restore window stage data in ability continuation
