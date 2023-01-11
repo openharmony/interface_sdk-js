@@ -15,14 +15,21 @@
 
 import { ValueType } from './@ohos.data.ValuesBucket';
 
-declare namespace dataSharePredicates {
 /**
- * Manages relational database configurations.
+ * class of datashare predicates.
  *
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
  */
+declare namespace dataSharePredicates {
+    /**
+     * Manages relational database configurations.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
+     */
     class DataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
@@ -96,6 +103,7 @@ declare namespace dataSharePredicates {
      * @returns Returns the DataSharePredicates with the and condition.
      */
     and(): DataSharePredicates;
+
     /**
      * Configure the DataSharePredicates to match the field whose data type is string and value
      * contains a specified value.

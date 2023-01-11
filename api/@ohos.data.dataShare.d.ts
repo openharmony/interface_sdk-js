@@ -67,25 +67,23 @@ declare namespace dataShare {
          * Registers an observer to observe data specified by the given uri.
          * @param {string} type - type must be 'dataChange'.
          * @param {string} uri - Indicates the path of the data to operate.
-         * @param {AsyncCallback<void>} callback - the callback of on.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 9
          */
-        on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
+        on(type: 'dataChange', uri: string): void;
 
         /**
          * Deregisters an observer used for monitoring data specified by the given uri.
          * @param {string} type - type must be 'dataChange'.
          * @param {string} uri - Indicates the path of the data to operate.
-         * @param {AsyncCallback<void>} callback - the callback of off.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
          * @systemapi
          * @StageModelOnly
          * @since 9
          */
-        off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+        off(type: 'dataChange', uri: string): void;
 
         /**
          * Inserts a single data record into the database.
