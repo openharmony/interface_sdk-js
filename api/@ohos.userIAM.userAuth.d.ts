@@ -198,7 +198,7 @@ declare namespace userAuth {
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param authType Credential type for authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @returns Returns a check result, which is specified by getAvailableStatus.
+         * @returns Returns a check result, which is specified by getAvailableStatus, the value of number is related to the ResultCode enum, **201** is check permission failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
@@ -212,7 +212,7 @@ declare namespace userAuth {
          * @param challenge Pass in challenge value.
          * @param authType Type of authentication.
          * @param authTrustLevel Trust level of authentication result.
-         * @param callback Return result and acquireInfo through callback.
+         * @param callback Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum, **201** is check permission failed.
          * @returns Returns ContextId for cancel.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
@@ -225,7 +225,7 @@ declare namespace userAuth {
          * Cancel authentication with ContextID.
          * @permission ohos.permission.ACCESS_BIOMETRIC
          * @param contextID Cancel authentication and pass in ContextID.
-         * @returns Returns a number value indicating whether Cancel authentication was successful.
+         * @returns Returns a number value indicating whether Cancel authentication was successful, the value of number is related to the ResultCode enum, **201** is check permission failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
          * @deprecated since 9
@@ -248,7 +248,7 @@ declare namespace userAuth {
          * If the authentication is passed, the authentication token is returned in extraInfo,
          * If the authentication fails, the remaining authentication times are returned in extraInfo,
          * If the authentication executor is locked, the freezing time is returned in extraInfo.
-         * @param result Authentication result code.
+         * @param result Authentication result code, the value of result code is related to the ResultCode enum, **201** is check permission failed.
          * @param extraInfo Pass the specific information for different situation.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 8
@@ -307,7 +307,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.userIAM.userAuth.ResultCodeV9
+     * @useinstead ohos.userIAM.userAuth.UserAuthResultCode
      */
     enum ResultCode {
         /**
@@ -786,7 +786,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 9
      */
-    enum ResultCodeV9 {
+    enum UserAuthResultCode {
         /**
          * Indicates that the result is success or ability is supported.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -795,7 +795,7 @@ declare namespace userAuth {
         SUCCESS = 12500000,
 
         /**
-         * Indicates that authentication failed.
+         * Indicates that the authentication result is failed.
          * @syscap SystemCapability.UserIAM.UserAuth.Core
          * @since 9
          */
