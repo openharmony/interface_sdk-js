@@ -1520,7 +1520,7 @@ declare namespace sensor {
      */
     interface Sensor {
         sensorName:string; /**< Sensor name */
-        venderName:string; /**< Sensor vendor */
+        vendorName:string; /**< Sensor vendor */
         firmwareVersion:string; /**< Sensor firmware version */
         hardwareVersion:string; /**< Sensor hardware version */
         sensorId:number; /**< Sensor type ID, {@code SensorType} */
