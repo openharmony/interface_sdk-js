@@ -691,11 +691,13 @@ declare enum SourceTool {
 
   /**
    * The finger type.
+   * @since 9
    */
   FINGER,
 
   /**
    * The pen type.
+   * @since 9
    */
   PEN,
 }
@@ -800,6 +802,7 @@ declare interface BaseEvent {
 
   /**
    * The event tool type info.
+   * @since 9
    */
   sourceTool: SourceTool;
 }
