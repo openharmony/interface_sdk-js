@@ -2019,7 +2019,7 @@ declare namespace sensor {
      * @since 8
      */
     interface ProximityResponse extends Response {
-        distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, while 1 indicates distance */
+        distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, and greater than 0 indicates distance */
     }
 
     /**
