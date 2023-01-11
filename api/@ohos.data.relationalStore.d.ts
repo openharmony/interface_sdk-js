@@ -724,6 +724,24 @@ declare namespace relationalStore
         obtainDistributedTableName(device: string, table: string): Promise<string>;
 
         /**
+         * Set database version.
+         *
+         * @param {number} version - Indicates the database version, it must be a non-negative integer.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        setVersion(version: number): void;
+
+        /**
+         * Get database version
+         *
+         * @returns {number} the database version, it is a non-negative integer.
+         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 10
+         */
+        getVersion(): number;
+
+        /**
          * Sync data between devices.
          *
          * @permission ohos.permission.DISTRIBUTED_DATASYNC
