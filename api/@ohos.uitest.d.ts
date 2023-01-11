@@ -257,6 +257,7 @@ declare class UiComponent {
   /**
    * Get the text attribute value.
    * @syscap SystemCapability.Test.UiTest
+   * @returns the text value.
    * @since 8
    * @deprecated since 9
    * @useinstead {@link Component.getText}
@@ -564,10 +565,10 @@ declare interface Point {
  * @since 9
  */
 declare interface Rect {
-  readonly leftX: number;
-  readonly topY: number;
-  readonly rightX: number;
-  readonly bottomY: number;
+  readonly left: number;
+  readonly top: number;
+  readonly right: number;
+  readonly bottom: number;
 }
 
 /**
@@ -788,6 +789,7 @@ declare class Component {
   /**
    * Get the text attribute value.
    * @syscap SystemCapability.Test.UiTest
+   * @returns the text value.
    * @throws {BusinessError} 17000002 - if the async function was not called with await.
    * @throws {BusinessError} 17000004 - if the component is invisible or destroyed.
    * @since 9
