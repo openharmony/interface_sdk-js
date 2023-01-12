@@ -228,30 +228,6 @@ declare namespace relationalStore
     }
 
     /**
-     * Returns RdbStore status when GetRdbStore is called.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    enum OpenStatus {
-        /**
-         * Indicates that the RDB database is in the creation state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        ON_CREATE = 0,
-
-        /**
-         * Indicates that the RDB database is in the open state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        ON_OPEN = 1,
-    }
-
-    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -261,12 +237,13 @@ declare namespace relationalStore
      */
     interface RdbStore {
         /**
-         * Obtains the RdbStore {@link OpenStatus}.
+         * Obtains the RdbStore version. The version number must be an integer greater than 0.
          *
+         * @throws {BusinessError} 401 - Parameter error.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
-        openStatus: number;
+        version: number;
 
         /**
          * Inserts a row of data into the target table.
@@ -722,24 +699,6 @@ declare namespace relationalStore
          * @since 9
          */
         obtainDistributedTableName(device: string, table: string): Promise<string>;
-
-        /**
-         * Set database version.
-         *
-         * @param {number} version - Indicates the database version, it must be a non-negative integer.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        setVersion(version: number): void;
-
-        /**
-         * Get database version
-         *
-         * @returns {number} the database version, it is a non-negative integer.
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        getVersion(): number;
 
         /**
          * Sync data between devices.
