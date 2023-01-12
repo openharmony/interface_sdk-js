@@ -336,14 +336,22 @@ declare namespace wantConstant {
      * @since 9
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
+  }
 
+  /**
+   * the constant for parameter of the want
+   * @enum { string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 9
+   */
+  export enum Parameter {
     /**
-     * Indicates the abiltiy in this want can back to the current top ability even though they are not in the same
+     * Indicates the ability in this want can back to the current top ability even though they are not in the same
      * mission stack.
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    FLAG_ABILITY_BACK_TO_OTHER_MISSION_STACK = 0x40000000,
+    ABILITY_BACK_TO_OTHER_MISSION_STACK = "ability.params.backToOtherMissionStack"
   }
 }
 
