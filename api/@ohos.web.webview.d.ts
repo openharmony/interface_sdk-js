@@ -240,7 +240,7 @@ declare namespace webview {
           /**
            * Constructor.
            *
-           * @param { WebController } controller WebAsyncController needs a WebController 
+           * @param { WebController } controller WebAsyncController needs a WebController
            *                          to associate with corresponding nweb.
            *
            * @since 9
@@ -396,7 +396,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept cookies.
          * By default this is set to be true.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -416,7 +416,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept thirdparty cookies.
          * By default this is set to be false.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -448,6 +448,7 @@ declare namespace webview {
         static deleteSessionCookie(): void;
     }
 
+    type WebMessage = ArrayBuffer | string;
     /**
      * Define html web message port.
      * @since 9
@@ -461,23 +462,23 @@ declare namespace webview {
 
         /**
          * Post a message to other port.
-         * @param { string } message - Message to send.
+         * @param { WebMessage } message - Message to send.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100010 - Can not post message using this port.
          *
          * @since 9
          */
-        postMessageEvent(message: string): void;
+        postMessageEvent(message: WebMessage): void;
 
         /**
          * Receive message from other port.
-         * @param { (result: string) => void } callback - Callback function for receiving messages.
+         * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100006 - Can not register message event using this port.
          *
          * @since 9
          */
-        onMessageEvent(callback: (result: string) => void): void;
+        onMessageEvent(callback: (result: WebMessage) => void): void;
     }
 
     /**
@@ -536,14 +537,14 @@ declare namespace webview {
          * @since 9
          */
         size: number;
-        
+
         /**
          * Get history entry at given index.
-         * 
+         *
          * @param { number } index Index of back forward list entry.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @returns { HistoryItem } HistoryItem at given index in back forward list.
-         * 
+         *
          * @since 9
          */
         getItemAtIndex(index: number): HistoryItem;
@@ -877,7 +878,7 @@ declare namespace webview {
          * Registers the JavaScript object and method list.
          *
          * @param { object } object - Application side JavaScript objects participating in registration.
-         * @param { string } name - The name of the registered object, which is consistent with the 
+         * @param { string } name - The name of the registered object, which is consistent with the
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
@@ -997,7 +998,7 @@ declare namespace webview {
          * @since 9
          */
         pageUp(top:boolean): void;
- 
+
         /**
          * Scroll the contents of this Webview down by half the view size.
          *
@@ -1009,7 +1010,7 @@ declare namespace webview {
          * @since 9
          */
         pageDown(bottom:boolean): void;
- 
+
         /**
          * Gets the original url of current Web page.
          *
@@ -1020,7 +1021,7 @@ declare namespace webview {
          * @since 9
          */
         getOriginalUrl(): string;
- 
+
         /**
          * Gets the original url of current Web page.
          *
@@ -1031,7 +1032,7 @@ declare namespace webview {
          * @since 9
          */
         getFavicon(): image.PixelMap;
- 
+
         /**
          * Put network state for web. Which is used to set window.navigator.isOnline property in
          * JavaScript.
@@ -1044,7 +1045,7 @@ declare namespace webview {
          * @since 9
          */
         setNetworkAvailable(enable: boolean): void;
-        
+
         /**
          * Query if current document has image.
          *
@@ -1058,7 +1059,7 @@ declare namespace webview {
          */
         hasImage(): Promise<boolean>;
         hasImage(callback: AsyncCallback<boolean>): void;
- 
+
         /**
          * Get back forward stack list from current webview.
          *
@@ -1069,11 +1070,11 @@ declare namespace webview {
          * @since 9
          */
         getBackForwardEntries(): BackForwardList;
- 
+
         /**
          * Remove resource cache in application. So this method will remove all cache for all web components in the
          * same application.
-         * 
+         *
          * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
          *                               in ram.
          * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1082,6 +1083,67 @@ declare namespace webview {
          * @since 9
          */
         removeCache(clearRom: boolean): void;
+
+        /**
+         * Scroll to the position.
+         *
+         * @param { boolean } x - the x of the position.
+         * @param { boolean } y - the y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollTo(x:number, y:number): void;
+
+        /**
+         * Scroll by the delta position.
+         *
+         * @param { boolean } deltaX - the delta x of the position.
+         * @param { boolean } deltaY - the delta y of the position.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        scrollBy(deltaX:number, deltaY:number): void;
+
+        /**
+         * Slide by the speed.
+         *
+         * @param { boolean } vx - the x speed of the speed.
+         * @param { boolean } vy - the y speed of the speed.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         *
+         * @since 9
+         */
+        slideScroll(vx:number, vy:number): void;
+
+        /**
+         * Serialize the access stack of the web, that is, the history of access.
+         *
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @returns { Uint8Array } Web access stack after serialization.
+         *
+         * @since 9
+         */
+        serializeWebState() : Uint8Array;
+
+        /**
+         * Restoring the web access stack, that is, the history of access.
+         *
+         * @param { Uint8Array } state - Web access stack after serialization.
+         * @throws { BusinessError } 401 - Invalid input parameter.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @since 9
+         */
+        restoreWebState(state: Uint8Array) : void;
     }
 }
 
