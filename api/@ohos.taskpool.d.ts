@@ -20,7 +20,7 @@
  */
 declare namespace taskpool {
   /**
-   * The Priority define the task priority.
+   * The Priority defines the task priority.
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
@@ -31,7 +31,7 @@ declare namespace taskpool {
   }
 
   /**
-   * The Task class provide interface to create task.
+   * The Task class provides a interface to create task.
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
