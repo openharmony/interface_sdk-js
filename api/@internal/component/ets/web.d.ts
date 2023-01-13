@@ -1844,14 +1844,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   userAgent(userAgent: string): WebAttribute;
 
   /**
-   * Enables debugging of web contents.
-   * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-   *
-   * @since 9
-   */
-  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
-
-  /**
    * Triggered at the end of web page loading.
    * @param callback The triggered function at the end of web page loading.
    *
