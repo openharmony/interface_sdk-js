@@ -70,8 +70,7 @@ declare namespace systemTimer {
    * @param options Indicates the timer options.
    * @param { TimerOptions } options - The necessary configuration information.
    * @param { AsyncCallback<number> } callback - {number} is the timer ID.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -84,8 +83,7 @@ declare namespace systemTimer {
    * @param options Indicates the timer options.
    * @param { TimerOptions } options - The necessary configuration information.
    * @returns { Promise<number> } the timer ID.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -100,8 +98,7 @@ declare namespace systemTimer {
    *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
    *                   value is smaller than the current time plus 5000 milliseconds.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -116,8 +113,7 @@ declare namespace systemTimer {
    *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
    *                   value is smaller than the current time plus 5000 milliseconds.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -129,8 +125,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -142,8 +137,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -155,8 +149,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @param { AsyncCallback<void> } callback - The callback function.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -168,8 +161,7 @@ declare namespace systemTimer {
    *
    * @param { number } timer - The timer ID.
    * @returns { Promise<void> } return a promise object.
-   * @throws { BusinessError } 202 - permission denied.
-   * @throws { BusinessError } 401 - if the parameter type is incorrect.
+   * @throws { BusinessError } -1 - the parameter check failed or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
