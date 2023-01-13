@@ -1160,6 +1160,19 @@ export class TimeZone {
       * @since 10
       */
     static getTimezonesFromCoordinate(longitude: number, latitude: number): Array<TimeZone>;
+
+     /**
+      * Get the possible time zones from the specified region and offset.
+      *
+      * @syscap SystemCapability.Global.I18n
+      * @param region 2 letters region code
+      * @param offset specify the timezone offest
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
+      * @returns Returns a TimeZone array from the specified region and offset.
+      * @since 10
+      */
+    static getRegionTimezones(region: string, offset?: number): Array<TimeZone>;
 }
 
 /**
