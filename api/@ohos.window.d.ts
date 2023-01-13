@@ -2165,6 +2165,34 @@ declare namespace window {
      * @since 9
      */
     setCornerRadius(cornerRadius: number): void;
+
+    /**
+     * Raise app sub window to app top
+     * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300004 - If this window can not raise to app top
+     * @throws {BusinessError} 1300009 - If parent is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseToAppTop(callback: AsyncCallback<void>): void;
+
+    /**
+     * Raise app sub window to app top
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300004 - If this window can not raise to app top
+     * @throws {BusinessError} 1300009 - If parent is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseToAppTop(): Promise<void>;
   }
   /**
    * Window stage callback event type
