@@ -1151,11 +1151,11 @@ export class TimeZone {
      /**
       * Get the possible time zones from the specified longitude and latitude.
       *
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
       * @syscap SystemCapability.Global.I18n
       * @param longitude longitude value
       * @param latitude latitude value
-      * @throws {BusinessError} 401 - check param failed
-      * @throws {BusinessError} 890001 - param value not valid
       * @returns Returns a TimeZone array from the specified longitude and latitude.
       * @since 10
       */
@@ -1164,11 +1164,11 @@ export class TimeZone {
      /**
       * Get the possible time zones from the specified region and offset.
       *
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
       * @syscap SystemCapability.Global.I18n
       * @param region 2 letters region code
       * @param offset specify the timezone offest
-      * @throws {BusinessError} 401 - check param failed
-      * @throws {BusinessError} 890001 - param value not valid
       * @returns Returns a TimeZone array from the specified region and offset.
       * @since 10
       */
@@ -1256,20 +1256,19 @@ export class Normalizer {
     /**
      * Get a Normalizer that is specified by id name.
      *
+     * @throws {BusinessError} 401 - check param failed
      * @syscap SystemCapability.Global.I18n
      * @param mode specified the mode of Normalizer.
-     * @throws {BusinessError} 401 - check param failed
-     * @throws {BusinessError} 890001 - param value not valid
      * @returns Returns Transliterator that is specified by id name.
      * @since 10
      */
-    static getInstance(mode: number): Normalizer;
+    static getInstance(mode: NormalizerMode): Normalizer;
 
     /**
      * Get a string array of all available transliterator ids.
      *
-     * @syscap SystemCapability.Global.I18n
      * @throws {BusinessError} 401 - check param failed
+     * @syscap SystemCapability.Global.I18n
      * @returns Returns a string array of all available transliterator ids.
      * @since 10
      */
