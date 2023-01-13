@@ -984,7 +984,13 @@ declare namespace commonEventManager {
      * Indicate the result of quick fix apply.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
+
+    /**
+     * Indicate the action of a common event that the user information has been updated.
+     * This common event can be triggered only by system.
+     */
+    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED"
   }
 }
 
