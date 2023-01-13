@@ -36,7 +36,6 @@ declare namespace wallpaper {
      * Obtains the wallpaper colors for the wallpaper of the specified type. Returns rgbaColor type of array callback function.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<Array<RgbaColor>> } the Promise<Array<RgbaColor>> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getColorsSync
      */
@@ -57,7 +56,6 @@ declare namespace wallpaper {
      * if the specified type of wallpaper has been set; returns {@code -1} otherwise. The return value is an integer ranging from -1 to 2^31 - 1.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<number> } the Promise<number> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getIdSync
      */
@@ -79,7 +77,6 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER
      * @returns { Promise<number> } the Promise<number> returned by the function.
-     * @since 8
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getFileSync
      */
@@ -100,7 +97,6 @@ declare namespace wallpaper {
     /**
      * Obtains the minimum height of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getMinHeightSync
      */
@@ -117,7 +113,6 @@ declare namespace wallpaper {
     /**
      * Obtains the minimum width of the wallpaper. in pixels. returns 0 if no wallpaper has been set.
      * @returns { Promise<number> } the Promise<number> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getMinWidthSync
      */
@@ -135,7 +130,6 @@ declare namespace wallpaper {
      * Checks whether to allow the application to change the wallpaper for the current user.
      * Returns true if the application is allowed to set a wallpaper for the current user. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.isChangeAllowed
      */
@@ -154,7 +148,6 @@ declare namespace wallpaper {
      * Checks whether a user is allowed to set wallpapers.
      * Returns true if a user is allowed to set wallpapers. returns false otherwise.
      * @returns { Promise<boolean> } the Promise<boolean> returned by the function.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.isUserChangeAllowed
      */
@@ -173,7 +166,6 @@ declare namespace wallpaper {
      * Removes a wallpaper of the specified type and restores the default one.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.recovery
      */
@@ -196,7 +188,6 @@ declare namespace wallpaper {
      * @param source Indicates the uri path from a JPEG or PNG file or the pixel map of the PNG file.
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.SET_WALLPAPER
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.setImage
      */
@@ -221,7 +212,6 @@ declare namespace wallpaper {
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @permission ohos.permission.GET_WALLPAPER
      * @systemapi Hide this for inner system use.
-     * @since 7
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getImage
      */
