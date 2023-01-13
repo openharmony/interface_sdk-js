@@ -61,6 +61,7 @@ declare namespace bundleMonitor {
    * @param { BundleChangedEvent } type - Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -74,6 +75,7 @@ declare namespace bundleMonitor {
    * @param { BundleChangedEvent } type -type Indicates the command should be implement.
    * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
    * @throws {BusinessError} 201 - Verify permission denied.
+   * @throws {BusinessError} 202 - Permission denied, non-system app called system api.
    * @throws {BusinessError} 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

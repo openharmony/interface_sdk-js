@@ -31,6 +31,7 @@ declare namespace appControl {
    * @param { Want } disposedWant - Indicates the disposed want.
    * @param { AsyncCallback } callback - The callback of setting the disposed status result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
@@ -47,6 +48,7 @@ declare namespace appControl {
    * @param { Want } disposedWant - Indicates the disposed want.
    * @returns { Promise<void> } The result of setting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
@@ -62,6 +64,7 @@ declare namespace appControl {
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
@@ -77,6 +80,7 @@ declare namespace appControl {
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
@@ -92,6 +96,7 @@ declare namespace appControl {
    * @param { string } appId - Indicates the app ID of the application.
    * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
@@ -107,6 +112,7 @@ declare namespace appControl {
    * @param { string } appId - Indicates the app ID of the application.
    * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.

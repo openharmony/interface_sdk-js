@@ -26,6 +26,7 @@ declare namespace installer {
   /**
    * Obtains the interface used to install bundle.
    * @param { AsyncCallback } callback - The callback of BundleInstaller object.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Input parameters check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -58,6 +59,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
@@ -81,6 +83,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the installation.
      * @param { AsyncCallback } callback - The callback of installing haps result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700010 - Failed to install the HAP because the HAP fails to be parsed.
