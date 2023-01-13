@@ -14,11 +14,11 @@
  */
 
 /**
- * JS cross-thread task executor
+ * JS cross-thread task executor.
  * @since 9
  * @syscap SystemCapability.Utils.Lang
  */
-declare namespace taskpool {
+ declare namespace taskpool {
   /**
    * The Priority defines the task priority.
    * @since 9
@@ -31,15 +31,15 @@ declare namespace taskpool {
   }
 
   /**
-   * The Task class provides a interface to create task.
+   * The Task class provides an interface to create a task.
    * @since 9
    * @syscap SystemCapability.Utils.Lang
    */
   class Task {
     /**
-     * Creates a Task instance.
-     * @param func Concurrent function to execute in taskpool
-     * @param args The concurrent function arguments
+     * Create a Task instance.
+     * @param func Concurrent function to execute in taskpool.
+     * @param args The concurrent function arguments.
      * @throws {BusinessError} 401 - if the input parameters are invalid.
      * @throws {BusinessError} 10200014 - if the function is not mark as concurrent.
      * @since 9
@@ -48,20 +48,20 @@ declare namespace taskpool {
     constructor(func: Function, ...args: unknown[]);
 
     /**
-     * concurrent function to execute in taskpool.
+     * Concurrent function to execute in taskpool.
      */
     function: Function;
 
     /**
-     * function arguments.
+     * The concurrent function arguments.
      */
     arguments?: unknown[];
   }
 
   /**
-   * Execute a concurrent function
-   * @param func concurrent function want to execute
-   * @param args function arguments
+   * Execute a concurrent function.
+   * @param func Concurrent function want to execute.
+   * @param args The concurrent function arguments.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200003 - Worker initialization failure.
    * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
@@ -73,8 +73,8 @@ declare namespace taskpool {
 
   /**
    * Execute a concurrent task.
-   * @param task Task want to execute
-   * @param priority Task priority, MEDIUM is default
+   * @param task The task want to execute.
+   * @param priority Task priority, MEDIUM is default.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200003 - Worker initialization failure.
    * @throws {BusinessError} 10200006 - Serializing an uncaught exception failed.
@@ -85,8 +85,8 @@ declare namespace taskpool {
   function execute(task: Task, priority?: Priority): Promise<unknown>;
 
   /**
-   * Cancel a concurrent task
-   * @param task Task want to cancel
+   * Cancel a concurrent task.
+   * @param task The task want to cancel.
    * @throws {BusinessError} 401 - if the input parameters are invalid.
    * @throws {BusinessError} 10200015 - if the task is not exist.
    * @throws {BusinessError} 10200016 - if the task is running.
@@ -96,4 +96,4 @@ declare namespace taskpool {
   function cancel(task: Task): void;
 }
 
-export default taskpool
+export default taskpool;
