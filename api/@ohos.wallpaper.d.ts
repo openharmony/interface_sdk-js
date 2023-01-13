@@ -77,6 +77,7 @@ declare namespace wallpaper {
      * @param wallpaperType Indicates the wallpaper type.
      * @permission ohos.permission.GET_WALLPAPER
      * @returns { Promise<number> } the Promise<number> returned by the function.
+     * @since 8
      * @deprecated since 9
      * @useinstead ohos.wallpaper.getFileSync
      */
