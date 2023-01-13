@@ -165,9 +165,9 @@ declare namespace webview {
      *
      * @param type Types of web event.
      * @param callback Indicate callback used to receive the web event.
-     * 
+     *
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * 
+     *
      * @since 9
      */
     function once(type: string, callback: Callback<void>): void;
@@ -1188,7 +1188,7 @@ declare namespace webview {
 
         /**
          * Set whether the Web custom scheme supports cross domain and fetch requests.
-         * 
+         *
          * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
          *
          * @throws { BusinessError } 401 - Invalid input parameter.
