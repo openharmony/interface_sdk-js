@@ -165,9 +165,9 @@ declare namespace webview {
      *
      * @param type Types of web event.
      * @param callback Indicate callback used to receive the web event.
-     * 
+     *
      * @throws { BusinessError } 401 - Invalid input parameter.
-     * 
+     *
      * @since 9
      */
     function once(type: string, callback: Callback<void>): void;
@@ -281,7 +281,7 @@ declare namespace webview {
           /**
            * Constructor.
            *
-           * @param { WebController } controller WebAsyncController needs a WebController 
+           * @param { WebController } controller WebAsyncController needs a WebController
            *                          to associate with corresponding nweb.
            *
            * @since 9
@@ -437,7 +437,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept cookies.
          * By default this is set to be true.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -457,7 +457,7 @@ declare namespace webview {
         /**
          * Set whether the instance should send and accept thirdparty cookies.
          * By default this is set to be false.
-         * 
+         *
          * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
          * @throws { BusinessError } 401 - Invalid input parameter.
          *
@@ -578,14 +578,14 @@ declare namespace webview {
          * @since 9
          */
         size: number;
-        
+
         /**
          * Get history entry at given index.
-         * 
+         *
          * @param { number } index Index of back forward list entry.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @returns { HistoryItem } HistoryItem at given index in back forward list.
-         * 
+         *
          * @since 9
          */
         getItemAtIndex(index: number): HistoryItem;
@@ -928,7 +928,7 @@ declare namespace webview {
          * Registers the JavaScript object and method list.
          *
          * @param { object } object - Application side JavaScript objects participating in registration.
-         * @param { string } name - The name of the registered object, which is consistent with the 
+         * @param { string } name - The name of the registered object, which is consistent with the
          *                          object name called in the window.
          * @param { Array<string> } methodList - Thr method of the application side JavaScript object participating
          *                                       in the registration.
@@ -1048,7 +1048,7 @@ declare namespace webview {
          * @since 9
          */
         pageUp(top:boolean): void;
- 
+
         /**
          * Scroll the contents of this Webview down by half the view size.
          *
@@ -1060,7 +1060,7 @@ declare namespace webview {
          * @since 9
          */
         pageDown(bottom:boolean): void;
- 
+
         /**
          * Gets the original url of current Web page.
          *
@@ -1071,7 +1071,7 @@ declare namespace webview {
          * @since 9
          */
         getOriginalUrl(): string;
- 
+
         /**
          * Gets the original url of current Web page.
          *
@@ -1082,7 +1082,7 @@ declare namespace webview {
          * @since 9
          */
         getFavicon(): image.PixelMap;
- 
+
         /**
          * Put network state for web. Which is used to set window.navigator.isOnline property in
          * JavaScript.
@@ -1095,7 +1095,7 @@ declare namespace webview {
          * @since 9
          */
         setNetworkAvailable(enable: boolean): void;
-        
+
         /**
          * Query if current document has image.
          *
@@ -1109,7 +1109,7 @@ declare namespace webview {
          */
         hasImage(): Promise<boolean>;
         hasImage(callback: AsyncCallback<boolean>): void;
- 
+
         /**
          * Get back forward stack list from current webview.
          *
@@ -1120,11 +1120,11 @@ declare namespace webview {
          * @since 9
          */
         getBackForwardEntries(): BackForwardList;
- 
+
         /**
          * Remove resource cache in application. So this method will remove all cache for all web components in the
          * same application.
-         * 
+         *
          * @param { boolean } clearRom - Remove cache in both rom and ram if true. Otherwise only clear cache
          *                               in ram.
          * @throws { BusinessError } 401 - Invalid input parameter.
@@ -1186,7 +1186,7 @@ declare namespace webview {
 
         /**
          * Restoring the web access stack, that is, the history of access.
-         * 
+         *
          * @param { Uint8Array } state - Web access stack after serialization.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
@@ -1197,7 +1197,7 @@ declare namespace webview {
 
         /**
          * Set whether the Web custom scheme supports cross domain and fetch requests.
-         * 
+         *
          * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
          *
          * @throws { BusinessError } 401 - Invalid input parameter.
