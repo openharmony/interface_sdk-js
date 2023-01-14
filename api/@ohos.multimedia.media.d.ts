@@ -2464,33 +2464,15 @@ declare namespace media {
   /**
    * Enumerates audio source type for recorder.
    * @since 9
-   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-   * @systemapi
-   */
-  /**
-   * Enumerates audio source type for recorder.
-   * @since 9
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    */
   enum AudioSourceType {
     /**
      * Default audio source type.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-     * @systemapi
-     */
-    /**
-     * Default audio source type.
-     * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      */
     AUDIO_SOURCE_TYPE_DEFAULT = 0,
-    /**
-     * Source type mic.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-     * @systemapi
-     */
     /**
      * Source type mic.
      * @since 9
@@ -2502,33 +2484,15 @@ declare namespace media {
   /**
    * Enumerates video source type for recorder.
    * @since 9
-   * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-   * @systemapi
-   */
-  /**
-   * Enumerates video source type for recorder.
-   * @since 9
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    */
   enum VideoSourceType {
     /**
      * Surface raw data.
      * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-     * @systemapi
-     */
-    /**
-     * Surface raw data.
-     * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      */
     VIDEO_SOURCE_TYPE_SURFACE_YUV = 0,
-    /**
-     * Surface ES data.
-     * @since 9
-     * @syscap SystemCapability.Multimedia.Media.VideoRecorder
-     * @systemapi
-     */
     /**
      * Surface ES data.
      * @since 9
