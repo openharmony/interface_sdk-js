@@ -366,9 +366,8 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param contentType Audio content Type. The value ranges from 0 to 5, refer to {@link #audio.ContentType}.
      * @param streamUsage Audio stream usage. The value ranges [0, 1, 2, 3, 4, 6], refer to {@link #audio.StreamUsage}.
-     * @param rendererFlags Audio renderer flags. The value default is 0 currently, refer to {@link #audio.AudioRendererInfo.rendererFlags}.
      */
-    setAudioRendererInfo(contentType: audio.ContentType, streamUsage: audio.StreamUsage, rendererFlags: number): void;
+    setAudioRendererInfo(contentType: audio.ContentType, streamUsage: audio.StreamUsage): void;
 
     /**
      * Get all track infos in MediaDescription, should be called after data loaded callback.
