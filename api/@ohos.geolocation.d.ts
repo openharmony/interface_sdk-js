@@ -221,7 +221,6 @@ declare namespace geolocation {
      * @permission ohos.permission.LOCATION
      * @param callback Indicates the callback for reporting the location switch status.
      * @deprecated since 9
-     * @useinstead ohos.geoLocationManager/geoLocationManager.requestEnableLocation
      */
     function requestEnableLocation(callback: AsyncCallback<boolean>): void;
     function requestEnableLocation(): Promise<boolean>;
