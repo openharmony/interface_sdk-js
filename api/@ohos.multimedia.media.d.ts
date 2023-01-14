@@ -361,6 +361,16 @@ declare namespace media {
     setVolume(volume: number): void;
 
     /**
+     * Sets audio renderer info.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @param contentType Audio content Type. The value ranges from 0 to 5.
+     * @param streamUsage Audio stream usage. The value ranges [0, 1, 2, 3, 4, 6].
+     * @param rendererFlags Audio renderer flags. The value default is 0 currently.
+     */
+     setAudioRendererInfo(contentType: AudioContentType, streamUsage: AudioStreamUsage, rendererFlags: number): void;
+
+    /**
      * Get all track infos in MediaDescription, should be called after data loaded callback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -2216,6 +2226,104 @@ declare namespace media {
      * @useinstead ohos.multimedia.media/media.AVPlayer#event:error
      */
     on(type: 'error', callback: ErrorCallback): void;
+  }
+
+  /**
+   * Enumerates audio content type.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   */
+   enum AudioContentType {
+    /**
+     * Audio content type unknown.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_UNKNOWN = 0,
+
+    /**
+     * Audio content type speech.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_SPEECH = 1,
+
+    /**
+     * Audio content type music.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_MUSIC = 2,
+
+    /**
+     * Audio content type movie.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_MOVIE = 3,
+
+    /**
+     * Audio content type sonfication.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_SONIFICATION = 4,
+
+    /**
+     * Audio content type ringtone.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    CONTENT_TYPE_RINGTONE = 5,
+  }
+
+  /**
+   * Enumerates audio stream usage.
+   * @since 9
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   */
+  enum AudioStreamUsage {
+    /**
+     * Audio stream usage unknown.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_UNKNOWN = 0,
+
+    /**
+     * Audio stream usage media.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_MEDIA = 1,
+
+    /**
+     * Audio stream usage voice communication.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_VOICE_COMMUNICATION = 2,
+
+    /**
+     * Audio stream usage assistant.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_VOICE_ASSISTANT = 3,
+
+    /**
+     * Audio stream usage ringing.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_RANGING = 4,
+
+    /**
+     * Audio stream usage ringtone.
+     * @since 9
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
   }
 
   /**
