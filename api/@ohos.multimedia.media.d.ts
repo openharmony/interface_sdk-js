@@ -364,7 +364,7 @@ declare namespace media {
      * Sets audio renderer info.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param contentType Audio content Type. The value ranges from 0 to 5, refer to refer to {@link #audio.ContentType}.
+     * @param contentType Audio content Type. The value ranges from 0 to 5, refer to {@link #audio.ContentType}.
      * @param streamUsage Audio stream usage. The value ranges [0, 1, 2, 3, 4, 6], refer to {@link #audio.StreamUsage}.
      * @param rendererFlags Audio renderer flags. The value default is 0 currently, refer to {@link #audio.AudioRendererInfo.rendererFlags}.
      */
