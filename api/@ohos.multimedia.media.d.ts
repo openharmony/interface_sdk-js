@@ -361,15 +361,6 @@ declare namespace media {
     setVolume(volume: number): void;
 
     /**
-     * Sets audio renderer info. Set it before calling the {@link #prepare()} in the
-     * first time in order for the audio renderer info to become effective thereafter.
-     * @since 10
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param audioRendererInfo AudioRendererInfo Type. The value refer to {@link #audio.AudioRendererInfo}.
-     */
-    setAudioRendererInfo(audioRendererInfo: audio.AudioRendererInfo): void;
-
-    /**
      * Get all track infos in MediaDescription, should be called after data loaded callback.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -417,6 +408,15 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      */
     audioInterruptMode ?: audio.InterruptMode;
+
+    /**
+     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
+     * calling the {@link #prepare()} in the first time in order for the audio renderer info to
+     * become effective thereafter.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    audioRendererInfo ?: audio.AudioRendererInfo;
 
     /**
      * Current playback position.
