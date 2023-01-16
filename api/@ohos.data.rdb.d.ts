@@ -75,6 +75,8 @@ declare namespace rdb
      * @throws {BusinessError} 14800011 - if failed open database by database corrupted
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.getRdbStore
      */
     function getRdbStoreV9(context: Context, config: StoreConfigV9, version: number, callback: AsyncCallback<RdbStoreV9>): void;
 
@@ -93,6 +95,8 @@ declare namespace rdb
      * @throws {BusinessError} 14800011 - if failed open database by database corrupted
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * ohos.data.relationalStore.getRdbStore
      */
     function getRdbStoreV9(context: Context, config: StoreConfigV9, version: number): Promise<RdbStoreV9>;
 
@@ -131,6 +135,8 @@ declare namespace rdb
      * @throws {BusinessError} 14800010 - if failed delete database by invalid database name
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.getRdbStore
      */
     function deleteRdbStoreV9(context: Context, name: string, callback: AsyncCallback<void>): void;
 
@@ -144,6 +150,8 @@ declare namespace rdb
      * @throws {BusinessError} 14800010 - if failed delete database by invalid database name
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.getRdbStore
      */
     function deleteRdbStoreV9(context: Context, name: string): Promise<void>;
 
@@ -152,21 +160,27 @@ declare namespace rdb
      *
      * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SyncMode
      */
     enum SyncMode {
         /**
          * Indicates the data is pushed to remote device from local device.
          *
-         * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
          */
         SYNC_MODE_PUSH = 0,
 
         /**
          * Indicates the data is pulled from remote device to local device.
          *
-         * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
          */
         SYNC_MODE_PULL = 1,
     }
@@ -174,15 +188,18 @@ declare namespace rdb
     /**
      * Describes the subscription type.
      *
-     * @since 8
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SubscribeType
      */
     enum SubscribeType {
         /**
          * Subscription to remote data changes
-         * @since 8
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+         * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
     }
@@ -192,6 +209,8 @@ declare namespace rdb
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.SecurityLevel
      */
     enum SecurityLevel {
         /**
@@ -200,6 +219,8 @@ declare namespace rdb
          *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.SubscribeType.SecurityLevel.S1
          */
          S1 = 1,
 
@@ -209,6 +230,8 @@ declare namespace rdb
           *
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
+          * @deprecated since 9
+          * @useinstead ohos.data.relationalStore.SubscribeType.SecurityLevel.S2
           */
          S2 = 2,
  
@@ -218,6 +241,8 @@ declare namespace rdb
           *
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
+          * @deprecated since 9
+          * @useinstead ohos.data.relationalStore.SubscribeType.SecurityLevel.S3
           */
          S3 = 3,
  
@@ -227,6 +252,8 @@ declare namespace rdb
           *
           * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
           * @since 9
+          * @deprecated since 9
+          * @useinstead ohos.data.relationalStore.SubscribeType.SecurityLevel.S4
           */
          S4 = 4,
     }
@@ -371,7 +398,7 @@ declare namespace rdb
         query(predicates: RdbPredicates, columns ?: Array<string>): Promise<ResultSet>;
 
         /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - Indicates the SQL statement to execute.
          * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
@@ -384,7 +411,7 @@ declare namespace rdb
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
         /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - Indicates the SQL statement to execute.
          * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
@@ -567,6 +594,8 @@ declare namespace rdb
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbStore
      */
     interface RdbStoreV9 {
         /**
@@ -578,6 +607,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.insert
          */
         insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -590,6 +621,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.insert
          */
         insert(table: string, values: ValuesBucket): Promise<number>;
 
@@ -602,6 +635,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
          */
         batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -614,6 +649,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
          */
         batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -626,6 +663,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.update
          */
         update(values: ValuesBucket, predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
 
@@ -638,6 +677,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.update
          */
         update(values: ValuesBucket, predicates: RdbPredicatesV9): Promise<number>;
 
@@ -652,6 +693,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.update
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -666,6 +709,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.update
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -677,6 +722,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.delete
          */
         delete(predicates: RdbPredicatesV9, callback: AsyncCallback<number>): void;
 
@@ -688,6 +735,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.delete
          */
         delete(predicates: RdbPredicatesV9): Promise<number>;
 
@@ -701,6 +750,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.delete
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -714,6 +765,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.delete
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
 
@@ -726,6 +779,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.query
          */
         query(predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
 
@@ -738,6 +793,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.query
          */
         query(predicates: RdbPredicatesV9, columns ?: Array<string>): Promise<ResultSetV9>;
 
@@ -752,6 +809,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.query
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
 
@@ -766,6 +825,8 @@ declare namespace rdb
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.query
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSetV9>;
 
@@ -780,6 +841,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.remoteQuery
          */
         remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>, callback: AsyncCallback<ResultSetV9>): void;
 
@@ -794,6 +857,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.remoteQuery
          */
         remoteQuery(device: string, table: string, predicates: RdbPredicatesV9, columns: Array<string>): Promise<ResultSetV9>;
 
@@ -806,6 +871,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.querySql
          */
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSetV9>): void;
 
@@ -818,6 +885,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.querySql
          */
         querySql(sql: string, bindArgs ?: Array<ValueType>): Promise<ResultSetV9>;
 
@@ -830,6 +899,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.executeSql
          */
         executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -842,6 +913,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.executeSql
          */
         executeSql(sql: string, bindArgs ?: Array<ValueType>): Promise<void>;
 
@@ -851,6 +924,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
          */
         beginTransaction(): void;
 
@@ -860,6 +935,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.commit
          */
         commit(): void;
 
@@ -869,6 +946,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.rollBack
          */
         rollBack(): void;
 
@@ -880,6 +959,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.backup
          */
         backup(destName: string, callback: AsyncCallback<void>): void;
 
@@ -891,6 +972,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.backup
          */
         backup(destName: string): Promise<void>;
 
@@ -902,6 +985,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.restore
          */
         restore(srcName: string, callback: AsyncCallback<void>): void;
 
@@ -913,6 +998,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.restore
          */
         restore(srcName: string): Promise<void>;
 
@@ -925,6 +1012,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
          */
         setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -937,6 +1026,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
          */
         setDistributedTables(tables: Array<string>): Promise<void>;
 
@@ -950,6 +1041,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
          */
         obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
@@ -963,6 +1056,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
          */
         obtainDistributedTableName(device: string, table: string): Promise<string>;
 
@@ -975,6 +1070,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.sync
          */
         sync(mode: SyncMode, predicates: RdbPredicatesV9, callback: AsyncCallback<Array<[ string, number ]>>): void;
 
@@ -987,6 +1084,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.sync
          */
         sync(mode: SyncMode, predicates: RdbPredicatesV9): Promise<Array<[ string, number ]>>;
 
@@ -1000,6 +1099,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.on
          */
         on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -1012,6 +1113,8 @@ declare namespace rdb
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.data.relationalStore.RdbStore.off
          */
         off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
     }
@@ -1021,6 +1124,8 @@ declare namespace rdb
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ValueType
      */
     type ValueType = number | string | boolean;
 
@@ -1029,6 +1134,8 @@ declare namespace rdb
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ValuesBucket
      */
     type ValuesBucket = { [key:string]: ValueType | Uint8Array | null;
 }
@@ -1050,6 +1157,8 @@ interface StoreConfig {
  *
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
+ * @deprecated since 9
+ * @useinstead ohos.data.relationalStore.StoreConfig
  */
 interface StoreConfigV9 {
     /**
@@ -1057,6 +1166,8 @@ interface StoreConfigV9 {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.StoreConfig.name
      */
     name: string;
 
@@ -1065,6 +1176,8 @@ interface StoreConfigV9 {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.StoreConfig.securityLevel
      */
     securityLevel: SecurityLevel;
 
@@ -1073,6 +1186,8 @@ interface StoreConfigV9 {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.StoreConfig.encrypt
      */
     encrypt ?: boolean;
 }
@@ -1506,6 +1621,8 @@ class RdbPredicates {
  *
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
+ * @deprecated since 9
+ * @useinstead ohos.data.relationalStore.RdbPredicates
  */
 class RdbPredicatesV9 {
     /**
@@ -1515,6 +1632,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.constructor
      */
     constructor(name: string)
 
@@ -1527,6 +1646,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.inDevices
      */
     inDevices(devices: Array<string>): RdbPredicatesV9;
 
@@ -1537,6 +1658,8 @@ class RdbPredicatesV9 {
      * @returns {RdbPredicatesV9} -  the {@link RdbPredicatesV9} self.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.inAllDevices
      */
     inAllDevices(): RdbPredicatesV9;
 
@@ -1551,6 +1674,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.equalTo
      */
     equalTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1565,6 +1690,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notEqualTo
      */
     notEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1575,6 +1702,8 @@ class RdbPredicatesV9 {
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} with the left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.beginWrap
      */
     beginWrap(): RdbPredicatesV9;
 
@@ -1586,6 +1715,8 @@ class RdbPredicatesV9 {
      * @returns {RdbPredicatesV9} - the {@link RdbPredicatesV9} with the right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.endWrap
      */
     endWrap(): RdbPredicatesV9;
 
@@ -1596,6 +1727,8 @@ class RdbPredicatesV9 {
      * @returns Returns the {@link RdbPredicatesV9} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.or
      */
     or(): RdbPredicatesV9;
 
@@ -1606,6 +1739,8 @@ class RdbPredicatesV9 {
      * @returns Returns the {@link RdbPredicatesV9} with the or condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.and
      */
     and(): RdbPredicatesV9;
 
@@ -1620,6 +1755,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.contains
      */
     contains(field: string, value: string): RdbPredicatesV9;
 
@@ -1634,6 +1771,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.beginsWith
      */
     beginsWith(field: string, value: string): RdbPredicatesV9;
 
@@ -1648,6 +1787,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.endsWith
      */
     endsWith(field: string, value: string): RdbPredicatesV9;
 
@@ -1660,6 +1801,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.isNull
      */
     isNull(field: string): RdbPredicatesV9;
 
@@ -1672,6 +1815,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.isNotNull
      */
     isNotNull(field: string): RdbPredicatesV9;
 
@@ -1686,6 +1831,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.like
      */
     like(field: string, value: string): RdbPredicatesV9;
 
@@ -1700,6 +1847,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.glob
      */
     glob(field: string, value: string): RdbPredicatesV9;
 
@@ -1714,6 +1863,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.between
      */
     between(field: string, low: ValueType, high: ValueType): RdbPredicatesV9;
 
@@ -1728,6 +1879,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notBetween
      */
     notBetween(field: string, low: ValueType, high: ValueType): RdbPredicatesV9;
 
@@ -1740,6 +1893,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThan
      */
     greaterThan(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1752,6 +1907,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThan
      */
     lessThan(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1764,6 +1921,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThanOrEqualTo
      */
     greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1776,6 +1935,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThanOrEqualTo
      */
     lessThanOrEqualTo(field: string, value: ValueType): RdbPredicatesV9;
 
@@ -1788,6 +1949,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByAsc
      */
     orderByAsc(field: string): RdbPredicatesV9;
 
@@ -1800,6 +1963,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByDesc
      */
     orderByDesc(field: string): RdbPredicatesV9;
 
@@ -1809,6 +1974,8 @@ class RdbPredicatesV9 {
      * @returns {RdbPredicatesV9} - the SQL query statement with the specified {@link RdbPredicatesV9}.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.distinct
      */
     distinct(): RdbPredicatesV9;
 
@@ -1820,6 +1987,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.limitAs
      */
     limitAs(value: number): RdbPredicatesV9;
 
@@ -1832,6 +2001,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.offsetAs
      */
     offsetAs(rowOffset: number): RdbPredicatesV9;
 
@@ -1843,6 +2014,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.groupBy
      */
     groupBy(fields: Array<string>): RdbPredicatesV9;
 
@@ -1855,6 +2028,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.indexedBy
      */
     indexedBy(field: string): RdbPredicatesV9;
 
@@ -1868,6 +2043,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.in
      */
     in(field: string, value: Array<ValueType>): RdbPredicatesV9;
 
@@ -1881,6 +2058,8 @@ class RdbPredicatesV9 {
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.RdbPredicates.notIn
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicatesV9;
 }

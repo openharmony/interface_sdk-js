@@ -309,6 +309,8 @@ import { AsyncCallback } from '../../basic'
  *
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 9
+ * @deprecated since 9
+ * @useinstead ohos.data.relationalStore.ResultSet
  */
  export interface ResultSetV9 {
 
@@ -319,6 +321,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.columnNames
      */
     columnNames: Array<string>;
 
@@ -329,6 +333,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.columnCount
      */
     columnCount: number;
 
@@ -337,6 +343,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.rowCount
      */
     rowCount: number;
 
@@ -346,14 +354,18 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.rowIndex
      */
     rowIndex: number;
 
     /**
      * Checks whether the result set is positioned at the first row.
      *
-     * @since 9
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isAtFirstRow
      */
     isAtFirstRow: boolean;
 
@@ -362,6 +374,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isAtLastRow
      */
     isAtLastRow: boolean;
 
@@ -370,6 +384,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isEnded
      */
     isEnded: boolean;
 
@@ -378,6 +394,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isStarted
      */
     isStarted: boolean;
 
@@ -388,6 +406,8 @@ import { AsyncCallback } from '../../basic'
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isClosed
      */
     isClosed: boolean;
 
@@ -401,6 +421,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getColumnIndex
      */
     getColumnIndex(columnName: string): number;
 
@@ -414,6 +436,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getColumnName
      */
     getColumnName(columnIndex: number): string;
 
@@ -428,6 +452,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goTo
      */
     goTo(offset: number): boolean;
 
@@ -440,6 +466,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToRow
      */
     goToRow(position: number): boolean;
 
@@ -451,6 +479,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToFirstRow
      */
     goToFirstRow(): boolean;
 
@@ -462,6 +492,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToLastRow
      */
     goToLastRow(): boolean;
 
@@ -473,6 +505,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToNextRow
      */
     goToNextRow(): boolean;
 
@@ -484,6 +518,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.goToPreviousRow
      */
     goToPreviousRow(): boolean;
 
@@ -498,6 +534,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401- Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getBlob
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -512,6 +550,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getString
      */
     getString(columnIndex: number): string;
 
@@ -526,6 +566,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getLong
      */
     getLong(columnIndex: number): number;
 
@@ -540,6 +582,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.getDouble
      */
     getDouble(columnIndex: number): number;
 
@@ -553,6 +597,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.isColumnNull
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -563,6 +609,8 @@ import { AsyncCallback } from '../../basic'
      * @throws {BusinessError} 14800012 - The result set is empty or the specified location is invalid.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.data.relationalStore.ResultSet.close
      */
     close(): void;
 }
