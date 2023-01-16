@@ -1159,7 +1159,7 @@ export class TimeZone {
       * @returns Returns a TimeZone array from the specified longitude and latitude.
       * @since 10
       */
-    static getTimezonesFromCoordinate(longitude: number, latitude: number): Array<TimeZone>;
+    static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
 
      /**
       * Get the possible time zones from the specified region and offset.
@@ -1172,7 +1172,7 @@ export class TimeZone {
       * @returns Returns a TimeZone array from the specified region and offset.
       * @since 10
       */
-    static getRegionTimezones(region: string, offset?: number): Array<TimeZone>;
+    static getTimezonesByRegion(region: string, offset?: number): Array<TimeZone>;
 }
 
 /**
@@ -1265,11 +1265,11 @@ export class Normalizer {
     static getInstance(mode: NormalizerMode): Normalizer;
 
     /**
-     * Get a string array of all available transliterator ids.
+     * Get a normalized string of specified mode.
      *
      * @throws {BusinessError} 401 - check param failed
      * @syscap SystemCapability.Global.I18n
-     * @returns Returns a string array of all available transliterator ids.
+     * @returns Returns a normalized string from source.
      * @since 10
      */
     normalize(text: string): string;
