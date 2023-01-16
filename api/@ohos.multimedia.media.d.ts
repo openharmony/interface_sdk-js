@@ -364,9 +364,9 @@ declare namespace media {
      * Sets audio renderer info.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param options AudioCapturerOptions Type. The value refer to {@link #audio.AudioCapturerOptions}.
+     * @param options AudioRendererInfo Type. The value refer to {@link #audio.AudioRendererInfo}.
      */
-    setAudioRendererInfo(options: audio.AudioCapturerOptions): void;
+    setAudioRendererInfo(audioRendererInfo: audio.AudioRendererInfo): void;
 
     /**
      * Get all track infos in MediaDescription, should be called after data loaded callback.
