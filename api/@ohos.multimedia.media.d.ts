@@ -364,7 +364,7 @@ declare namespace media {
      * Sets audio renderer info.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @param options AudioRendererInfo Type. The value refer to {@link #audio.AudioRendererInfo}.
+     * @param audioRendererInfo AudioRendererInfo Type. The value refer to {@link #audio.AudioRendererInfo}.
      */
     setAudioRendererInfo(audioRendererInfo: audio.AudioRendererInfo): void;
 
