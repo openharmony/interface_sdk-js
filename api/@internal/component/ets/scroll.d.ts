@@ -33,6 +33,7 @@ declare enum ScrollDirection {
   /**
    * Free scrolling is supported.
    * @since 7
+   * @deprecated since 9
    */
   Free,
 
@@ -72,9 +73,16 @@ declare class Scroller {
   /**
    * Called when page turning mode is set.
    * @since 7
+   * @deprecated since 9
    */
   scrollPage(value: { next: boolean; direction?: Axis });
 
+  /**
+   * Called when page turning mode is set.
+   * @since 9
+   */
+  scrollPage(value: { next: boolean });
+  
   /**
    * Called when viewing the scroll offset.
    * @since 7
