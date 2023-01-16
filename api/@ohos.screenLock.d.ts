@@ -100,7 +100,21 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  type EventType = 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
+  type EventType =
+      'beginWakeUp'
+      | 'endWakeUp'
+      | 'beginScreenOn'
+      | 'endScreenOn'
+      | 'beginScreenOff'
+      | 'endScreenOff'
+      | 'unlockScreen'
+      | 'lockScreen'
+      | 'beginExitAnimation'
+      | 'beginSleep'
+      | 'endSleep'
+      | 'changeUser'
+      | 'screenlockEnabled'
+      | 'serviceRestart'
 
   /**
    * Indicates the system event type and parameter related to the screenlock management service.
