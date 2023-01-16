@@ -408,6 +408,15 @@ declare namespace media {
     audioInterruptMode ?: audio.InterruptMode;
 
     /**
+     * Describes audio renderer info, refer to {@link #audio.AudioRendererInfo}. Set it before
+     * calling the {@link #prepare()} in the first time in order for the audio renderer info to
+     * become effective thereafter.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     */
+    audioRendererInfo ?: audio.AudioRendererInfo;
+
+    /**
      * Current playback position.
      * @since 9
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
