@@ -113,7 +113,6 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.UserFileService",
-    "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Startup.SystemInfo",
@@ -148,6 +147,12 @@
     "SystemCapability.BundleManager.BundleFramework.QuickFix",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
+    "SystemCapability.Multimedia.Media.AVPlayer",
+    "SystemCapability.Multimedia.Media.AVRecorder",
+    "SystemCapability.Multimedia.Image.ImageCreator",
+    "SystemCapability.Developtools.Syscap",
+    "SystemCapability.Communication.NetManager.MDNS",
+    "SystemCapability.XTS.DeviceAttest"
   ]
 }
