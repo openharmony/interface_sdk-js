@@ -361,7 +361,8 @@ declare namespace media {
     setVolume(volume: number): void;
 
     /**
-     * Sets audio renderer info.
+     * Sets audio renderer info. Set it before calling the {@link #prepare()} in the
+     * first time in order for the audio renderer info to become effective thereafter.
      * @since 10
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @param audioRendererInfo AudioRendererInfo Type. The value refer to {@link #audio.AudioRendererInfo}.
