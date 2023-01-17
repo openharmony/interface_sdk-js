@@ -16,6 +16,8 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Cloud.OAID",
-    "SystemCapability.Cloud.VAID"
+    "SystemCapability.Cloud.VAID",
+    "SystemCapability.Developtools.Syscap",
+    "SystemCapability.XTS.DeviceAttestLite"
   ]
 }
