@@ -620,7 +620,7 @@ declare enum ResizeDirection {
  */
 declare enum DisplayRotation { 
   /**
-   * Device display does not rotate, vertical display.
+   * Device display does not rotate to display vertically.
    * @syscap SystemCapability.Test.UiTest
    * @since 9
    * @test
