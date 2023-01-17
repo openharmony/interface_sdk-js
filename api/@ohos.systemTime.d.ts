@@ -27,6 +27,7 @@ declare namespace systemTime {
      * Sets the system time.
      * @permission ohos.permission.SET_TIME
      * @param time Target time stamp (ms)
+     * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @since 7
      * @deprecated since 9
      */
@@ -35,6 +36,7 @@ declare namespace systemTime {
 
     /**
      * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+     * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.systemDateTime/systemDateTime.getCurrentTime
@@ -45,6 +47,7 @@ declare namespace systemTime {
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
+     * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.systemDateTime/systemDateTime.getRealActiveTime
@@ -55,6 +58,7 @@ declare namespace systemTime {
 
     /**
      * Obtains the number of milliseconds elapsed since the system was booted, including deep sleep time.
+     * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.systemDateTime/systemDateTime.getRealTime
@@ -67,6 +71,7 @@ declare namespace systemTime {
      * Sets the system time.
      * @permission ohos.permission.SET_TIME
      * @param date The target date
+     * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @since 7
      * @deprecated since 9
      */
@@ -75,6 +80,7 @@ declare namespace systemTime {
 
     /**
      * Obtains the system date.
+     * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.systemDateTime/systemDateTime.getDate
@@ -86,6 +92,7 @@ declare namespace systemTime {
      * Sets the system time zone.
      * @permission ohos.permission.SET_TIME_ZONE
      * @param timezone The system time zone
+     * @throws { BusinessError } -1 - the parameter check failed or permission denied or system error.
      * @since 7
      * @deprecated since 9
      */
@@ -94,6 +101,7 @@ declare namespace systemTime {
 
     /**
      * Obtains the system time zone.
+     * @throws { BusinessError } -1 - the parameter check failed or system error.
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.systemDateTime/systemDateTime.getTimezone
