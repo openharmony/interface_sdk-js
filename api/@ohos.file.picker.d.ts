@@ -98,8 +98,9 @@ declare namespace picker {
          * @param PhotoSelectOptions represents the options provided in select mode.
          * @returns {(void | Promise<PhotoSelectResult>)} Returns the selector result.
          */
-        select(option: PhotoSelectOptions) : Promise<PhotoSelectResult>;
+        select(option?: PhotoSelectOptions) : Promise<PhotoSelectResult>;
         select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) : void;
+        select(callback: AsyncCallback<PhotoSelectResult>) : void;
 
         /**
          * Pull up the photo picker based on the save mode.
@@ -109,8 +110,9 @@ declare namespace picker {
          * @param PhotoSaveOptions represents the options provided in save mode.
          * @returns {(void | Promise<Array<string>>)} Returns the save result.
          */
-        save(option: PhotoSaveOptions) : Promise<Array<string>>;
+        save(option?: PhotoSaveOptions) : Promise<Array<string>>;
         save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>) : void;
+        save(callback: AsyncCallback<Array<string>>) : void;
     }
 
     /**
@@ -165,8 +167,9 @@ declare namespace picker {
          * @param DocumentSelectOptions represents the options provided in select mode.
          * @returns {(void | Promise<Array<string>>)} Returns the selector result.
          */
-        select(option: DocumentSelectOptions) : Promise<Array<string>>;
+        select(option?: DocumentSelectOptions) : Promise<Array<string>>;
         select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>) : void;
+        select(callback: AsyncCallback<Array<string>>) : void;
 
         /**
          * Pull up the document picker based on the save mode.
@@ -176,8 +179,9 @@ declare namespace picker {
          * @param DocumentSaveOptions represents the options provided in save mode.
          * @returns {(void | Promise<Array<string>>)} Returns the save result.
          */
-        save(option: DocumentSaveOptions) : Promise<Array<string>>;
+        save(option?: DocumentSaveOptions) : Promise<Array<string>>;
         save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>) : void;
+        save(callback: AsyncCallback<Array<string>>) : void;
     }
 
     /**
@@ -220,8 +224,9 @@ declare namespace picker {
          * @param AudioSelectOptions represents the options provided in select mode.
          * @returns {(void | Promise<Array<string>>)} Returns the selector result.
          */
-        select(option: AudioSelectOptions) : Promise<Array<string>>;
+        select(option?: AudioSelectOptions) : Promise<Array<string>>;
         select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>) : void;
+        select(callback: AsyncCallback<Array<string>>) : void;
 
         /**
          * Pull up the audio picker based on the save mode.
@@ -231,7 +236,8 @@ declare namespace picker {
          * @param AudioSaveOptions represents the options provided in save mode.
          * @returns {(void | Promise<Array<string>>)} Returns the save result.
          */
-        save(option: AudioSaveOptions) : Promise<Array<string>>;
+        save(option?: AudioSaveOptions) : Promise<Array<string>>;
         save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>) : void;
+        save(callback: AsyncCallback<Array<string>>) : void;
     }
 }
