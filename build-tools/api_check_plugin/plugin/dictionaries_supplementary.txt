@@ -316,6 +316,7 @@ ivi
 iwlan
 jis
 judged
+kaihong
 kbdillum
 kbdinputassist
 kbps
@@ -556,6 +557,7 @@ sfactor
 sha1
 shadertype
 sharedarraybuffer
+shenzhen
 shortkey
 shuts
 sigalgs
@@ -733,6 +735,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+wukong
 wwan
 x25519
 x509

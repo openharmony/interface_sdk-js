@@ -66,7 +66,7 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
       }
     });
     const errorInfo = `Error words in [${nodeText}]: {${errorWords}}.Do you want to spell it as [${suggest}]?`;
-    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.MISSPELL_WORDS, errorInfo, type, ErrorLevel.LOW);
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.MISSPELL_WORDS, errorInfo, type, ErrorLevel.MIDDLE);
   }
 }
 
