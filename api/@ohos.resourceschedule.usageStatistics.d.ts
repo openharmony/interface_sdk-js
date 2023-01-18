@@ -26,7 +26,6 @@ import { AsyncCallback , Callback} from './basic';
  *
  * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
- * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
  * @since 9
  */
 declare namespace usageStatistics {

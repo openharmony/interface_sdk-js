@@ -22,8 +22,6 @@ import Context from './application/BaseContext';
  *
  * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
  * @since 9
  */
 declare namespace backgroundTaskManager {
