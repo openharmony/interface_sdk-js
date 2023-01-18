@@ -17,7 +17,6 @@ import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import {Movement} from './imf/InputMethodCommon';
 import {Range} from './imf/inputMethodCommon';
-
 /**
  * Input method engine
  *
