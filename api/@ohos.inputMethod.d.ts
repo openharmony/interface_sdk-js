@@ -417,7 +417,7 @@ declare namespace inputMethod {
 
         /**
          * Unregister the callback of selectedByRange.
-         * @param { string } type - event type, fixed as 'selectByRange'.
+         * @param {string} type - event type, fixed as 'selectByRange'.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
          */
@@ -425,7 +425,7 @@ declare namespace inputMethod {
 
         /**
          * Unregister the callback of selectedByMovement.
-         * @param { string } type - event type, fixed as 'selectedByMovement'.
+         * @param {string} type - event type, fixed as 'selectedByMovement'.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
          */
