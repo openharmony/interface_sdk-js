@@ -151,7 +151,7 @@ declare namespace relationalStore
           * @since 9
           */
          S2 = 2,
- 
+
          /**
           * S3: mains the db is high level security
           * There are some severity impact, when the data is leaked.
@@ -160,7 +160,7 @@ declare namespace relationalStore
           * @since 9
           */
          S3 = 3,
- 
+
          /**
           * S4: mains the db is critical level security
           * There are some critical impact, when the data is leaked.
@@ -180,7 +180,7 @@ declare namespace relationalStore
     enum ConflictResolution {
         /**
          * Implements no action when conflict occurs.
-         * 
+         *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
@@ -403,6 +403,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -418,6 +419,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -454,6 +456,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -468,6 +471,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -507,6 +511,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -522,6 +527,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSet>;
@@ -1435,7 +1441,7 @@ declare namespace relationalStore
          * @since 9
          */
         getDouble(columnIndex: number): number;
-        
+
         /**
          * Checks whether the value of the specified column in the current row is null.
          *
