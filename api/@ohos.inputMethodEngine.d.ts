@@ -687,7 +687,7 @@ declare namespace inputMethodEngine {
         setSelection(start: number, end: number): Promise<void>;
 
         /**
-         * Selet contents in editor by cursor direction and cursorMoveSkip.
+         * Selet contents in editor by cursor direction and cursor move skip.
          *
          * @since 9
          * @param direction - The move direction of cursor.
@@ -700,7 +700,7 @@ declare namespace inputMethodEngine {
         select(direction: number, skip: number, callback: AsyncCallback<void>): void;
 
         /**
-         * Selet contents in editor by cursor direction and move Skip .
+         * Selet contents in editor by cursor direction and cursor move skip.
          *
          * @since 9
          * @param direction - The move direction of cursor.
