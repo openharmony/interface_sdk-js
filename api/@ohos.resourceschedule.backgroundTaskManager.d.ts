@@ -123,6 +123,7 @@ declare namespace backgroundTaskManager {
      * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
      * @param { AsyncCallback<void> } callback - The callback of the function.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
      * @throws { BusinessError } 9800002 - Parcel operation failed.
@@ -146,6 +147,7 @@ declare namespace backgroundTaskManager {
      * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
      * @throws { BusinessError } 9800002 - Parcel operation failed.
@@ -201,6 +203,7 @@ declare namespace backgroundTaskManager {
      * Apply or unapply efficiency resources.
      *
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 9800001 - Memory operation failed.
      * @throws { BusinessError } 9800002 - Parcel operation failed.
@@ -217,6 +220,7 @@ declare namespace backgroundTaskManager {
       * Reset all efficiency resources apply.
       *
       * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 202 - Not System App.
       * @throws { BusinessError } 401 - Parameter error.
       * @throws { BusinessError } 9800001 - Memory operation failed.
       * @throws { BusinessError } 9800002 - Parcel operation failed.
