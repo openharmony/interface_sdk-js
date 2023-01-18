@@ -136,7 +136,7 @@ declare namespace vibrator {
      type VibrateEffect = VibrateTime | VibratePreset;
 
     /**
-     * Specifies the duration of the vibration effect.
+     * Vibrate continuously for a period of time at the default intensity of the system.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
