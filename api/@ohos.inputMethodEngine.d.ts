@@ -730,7 +730,6 @@ declare namespace inputMethodEngine {
          */
         moveCursor(direction: number): Promise<void>;
 
-
         /**
          * Select text in editor by range.
          * @param range - indicates the range of selected text in editor.
