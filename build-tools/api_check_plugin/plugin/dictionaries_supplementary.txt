@@ -484,6 +484,7 @@ prohibits
 promisify
 provisioned
 proxyed
+psc
 psk
 pss
 puk
