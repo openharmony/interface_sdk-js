@@ -215,6 +215,13 @@ declare namespace inputMethodEngine {
     const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     /**
+     * The move skip of cursor: CHARACTER
+     * @since 9
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     */
+    const CURSOR_SKIP_CHARACTER: number;
+
+    /**
      * @since 9
      * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -651,6 +658,59 @@ declare namespace inputMethodEngine {
          * @throws {BusinessError} 12800003 - input method client error.
          */
         moveCursor(direction: number): Promise<void>;
+
+
+        /**
+         * Set selection in editor from index 'start' to index 'end'
+         *
+         * @since 9
+         * @param start - The first index of selection.
+         * @param end - The last index of selection.
+         * @param {AsyncCallback<void>} callback - the callback of setSelection.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        setSelection(start: number, end: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Set selection in editor from index 'start' to index 'end'
+         *
+         * @since 9
+         * @param start - The first index of selection
+         * @param end - The last index of selection
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        setSelection(start: number, end: number): Promise<void>;
+
+        /**
+         * Selet contents in editor by cursor direction and cursorMoveSkip.
+         *
+         * @since 9
+         * @param direction - The move direction of cursor.
+         * @param skip - The move skip of cursor.
+         * @param {AsyncCallback<void>} callback - the callback of select.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        select(direction: number, skip: number, callback: AsyncCallback<void>): void;
+
+        /**
+         * Selet contents in editor by cursor direction and move Skip .
+         *
+         * @since 9
+         * @param direction - The move direction of cursor.
+         * @param skip - The move skip of cursor.
+         * @returns {Promise<void>} the promise returned by the function.
+         * @throws {BusinessError} 401 - parameter error.
+         * @throws {BusinessError} 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         */
+        select(direction: number, skip: number): Promise<void>;
     }
 
     /**
