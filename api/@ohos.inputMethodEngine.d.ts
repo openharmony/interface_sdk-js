@@ -243,13 +243,6 @@ declare namespace inputMethodEngine {
     const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     /**
-     * The move skip of cursor: CHARACTER
-     * @since 9
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     */
-    const CURSOR_SKIP_CHARACTER: number;
-
-    /**
      * @since 9
      * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
