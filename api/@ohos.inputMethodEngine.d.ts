@@ -661,7 +661,7 @@ declare namespace inputMethodEngine {
 
 
         /**
-         * Set selection in editor from index 'start' to index 'end'
+         * Set selection in editor from index 'start' to index 'end'.
          *
          * @since 9
          * @param start - The first index of selection.
@@ -674,11 +674,11 @@ declare namespace inputMethodEngine {
         setSelection(start: number, end: number, callback: AsyncCallback<void>): void;
 
         /**
-         * Set selection in editor from index 'start' to index 'end'
+         * Set selection in editor from index 'start' to index 'end'.
          *
          * @since 9
-         * @param start - The first index of selection
-         * @param end - The last index of selection
+         * @param start - The first index of selection.
+         * @param end - The last index of selection.
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 401 - parameter error.
          * @throws {BusinessError} 12800003 - input method client error.
