@@ -15,6 +15,8 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.inputMethodSubtype';
+import {Movement} from './imf/InputMethodCommon';
+import {Range} from './imf/inputMethodCommon';
 
 /**
  * Input method engine
@@ -661,56 +663,48 @@ declare namespace inputMethodEngine {
 
 
         /**
-         * Set selection in editor from index 'start' to index 'end'.
-         *
-         * @since 9
-         * @param start - The first index of selection.
-         * @param end - The last index of selection.
-         * @param {AsyncCallback<void>} callback - the callback of setSelection.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Select text in editor by range.
+         * @param range - indicates the range of selected text in editor.
+         * @param { AsyncCallback<void> } callback - the callback of selectByRange.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
-        setSelection(start: number, end: number, callback: AsyncCallback<void>): void;
+        selectByRange(range: Range, callback: AsyncCallback<void>): void;
 
         /**
-         * Set selection in editor from index 'start' to index 'end'.
-         *
-         * @since 9
-         * @param start - The first index of selection.
-         * @param end - The last index of selection.
-         * @returns {Promise<void>} the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Select text in editor by range.
+         * @param range - indicates the range of selected text in editor.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
-        setSelection(start: number, end: number): Promise<void>;
+        selectByRange(range: Range): Promise<void>;
 
         /**
-         * Selet contents in editor by cursor direction and cursor move skip.
-         *
-         * @since 9
-         * @param direction - The move direction of cursor.
-         * @param skip - The move skip of cursor.
-         * @param {AsyncCallback<void>} callback - the callback of select.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Select text in editor by cursor movement.
+         * @param movement - idicates the movement of cursor when selecting.
+         * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
-        select(direction: number, skip: number, callback: AsyncCallback<void>): void;
+        selectByMovement(movement: Movement, callback: AsyncCallback<void>): void;
 
         /**
-         * Selet contents in editor by cursor direction and cursor move skip.
-         *
-         * @since 9
-         * @param direction - The move direction of cursor.
-         * @param skip - The move skip of cursor.
-         * @returns {Promise<void>} the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Select text in editor by cursor movement.
+         * @param movement - idicates the movement of cursor when selecting.
+         * @returns { Promise<void> } the promise returned by the function.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
-        select(direction: number, skip: number): Promise<void>;
+        selectByMovement(movement: Movement): Promise<void>;
     }
 
     /**

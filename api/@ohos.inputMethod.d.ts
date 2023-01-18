@@ -15,6 +15,9 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import {Movement} from './imf/InputMethodCommon';
+import {Range} from './imf/inputMethodCommon';
+
 
 /**
  * Input method
@@ -390,6 +393,45 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hideSoftKeyboard():Promise<void>;
+
+        /**
+         * Register a callback and when text in editor is selected by range,
+         * the callback will be invoked.
+         * @param {string} type - event type, fixed as 'selectByRange'.
+         * @param callback - used to handle selectByRange command. The callback provides
+         * the range of selection.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
+         */
+        on(type: 'selectByRange', callback: (range: Range) => void): void;
+
+        /**
+         * Register a callback and when text in editor is selected by cursor movement,
+         * the callback will be invoked.
+         * @param {string} type - event type, fixed as 'selectByMovement'.
+         * @param callback - used to handle selectByMovement command. The callback provides
+         * the movement of cursor.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
+         */
+        on(type: 'selectByMovement', callback: (movement: Movement) => void): void;
+
+        /**
+         * Unregister the callback of selectedByRange.
+         * @param {string} type - event type, fixed as 'selectByRange'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
+         */
+        off(type: 'selectedByRange'): void;
+
+        /**
+         * Unregister the callback of selectedByMovement.
+         * @param {string} type - event type, fixed as 'selectedByMovement'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
+         */
+        off(type: 'selectedByMovement'): void;
+
     }
 
     /**
