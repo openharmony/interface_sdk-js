@@ -15,14 +15,25 @@
 
 import { ValueType } from './@ohos.data.ValuesBucket';
 
-declare namespace dataSharePredicates {
 /**
- * Manages relational database configurations.
  *
+ * This module provides data share services based on the ExtensionAbility.
+ *
+ * @namespace dataSharePredicates
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
+ * @StageModelOnly
  */
+declare namespace dataSharePredicates {
+    /**
+     * Manages relational database configurations.
+     *
+     * @since 9
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
+     * @StageModelOnly
+     */
     class DataSharePredicates {
     /**
      * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
@@ -32,6 +43,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates.
      * @returns Returns the DataSharePredicates that match the specified field.
@@ -46,6 +58,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates.
      * @returns Returns the DataSharePredicates that match the specified field.
@@ -59,6 +72,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @returns Returns the DataSharePredicates with the left parenthesis.
      */
     beginWrap(): DataSharePredicates;
@@ -71,6 +85,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @returns Returns the DataSharePredicates with the right parenthesis.
      */
     endWrap(): DataSharePredicates;
@@ -82,6 +97,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @returns Returns the DataSharePredicates with the or condition.
      */
     or(): DataSharePredicates;
@@ -93,9 +109,11 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @returns Returns the DataSharePredicates with the and condition.
      */
     and(): DataSharePredicates;
+
     /**
      * Configure the DataSharePredicates to match the field whose data type is string and value
      * contains a specified value.
@@ -104,6 +122,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates.
      * @returns Returns the DataSharePredicates that match the specified field.
@@ -118,6 +137,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates.
      * @returns Returns the DataSharePredicates that match the specified field.
@@ -132,6 +152,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates.
      * @returns Returns the DataSharePredicates that match the specified field.
@@ -145,6 +166,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @returns Returns the DataSharePredicates that match the specified field.
      */
@@ -157,6 +179,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @returns Returns the DataSharePredicates that match the specified field.
      */
@@ -170,6 +193,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
      * is a wildcard (like * in a regular expression).
@@ -185,6 +209,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
      * is a wildcard (like * in a regular expression).
@@ -200,6 +225,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param value Indicates the value to match with DataSharePredicates.
      * @returns Returns the SQL statement with the specified DataSharePredicates.
@@ -212,6 +238,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name.
      * @param low Indicates the minimum value.
      * @param high Indicates the maximum value.
@@ -226,6 +253,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param low Indicates the minimum value to match with DataSharePredicates.
      * @param high Indicates the maximum value to match with DataSharePredicates.
@@ -239,6 +267,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name.
      * @param value Indicates the String field.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
@@ -251,6 +280,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name.
      * @param value Indicates the String field.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
@@ -263,6 +293,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name.
      * @param value Indicates the String field.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
@@ -275,6 +306,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name.
      * @param value Indicates the String field.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
@@ -288,6 +320,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name for sorting the return list.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
      */
@@ -300,6 +333,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name for sorting the return list.
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
      */
@@ -311,6 +345,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @returns Returns the SQL query statement with the specified DataSharePredicates.
      */
     distinct(): DataSharePredicates;
@@ -321,6 +356,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param total Represents the specified number of results.
      * @param offset Indicates the starting position.
      * @returns Returns the query object.
@@ -333,6 +369,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param fields Indicates the specified columns by which query results are grouped.
      * @returns Returns the DataSharePredicates with the specified columns by which query results are grouped.
      */
@@ -345,6 +382,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the name of the index column.
      * @returns Returns DataSharePredicates with the specified index column.
      */
@@ -357,6 +395,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param values Indicates the values to match with DataSharePredicates.
      * @returns Returns DataSharePredicates that matches the specified field.
@@ -370,6 +409,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param field Indicates the column name in the database table.
      * @param values Indicates the values to match with DataSharePredicates.
      * @returns Returns DataSharePredicates that matches the specified field.
@@ -382,6 +422,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param prefix Represents the specified key prefix.
      * @returns Returns the query object.
      */
@@ -393,6 +434,7 @@ declare namespace dataSharePredicates {
      * @since 9
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
+     * @StageModelOnly
      * @param keys Represents the key names.
      * @returns Returns the query object.
      */

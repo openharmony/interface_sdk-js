@@ -19,6 +19,7 @@
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
+ * @StageModelOnly
  */
 export type ValueType = number | string | boolean;
 
@@ -28,6 +29,7 @@ export type ValueType = number | string | boolean;
  * @since 9
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
+ * @StageModelOnly
  */
 export type ValuesBucket = {
     [key: string]: ValueType | Uint8Array | null;

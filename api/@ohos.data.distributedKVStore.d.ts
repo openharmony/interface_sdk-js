@@ -1080,6 +1080,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
@@ -1094,6 +1095,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         putBatch(value: Array<ValuesBucket>): Promise<void>;
@@ -1136,6 +1138,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
@@ -1150,6 +1153,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
@@ -1369,6 +1373,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
@@ -1384,6 +1389,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
@@ -2100,6 +2106,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
@@ -2115,6 +2122,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
@@ -2131,6 +2139,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
@@ -2147,6 +2156,7 @@ declare namespace distributedKVStore {
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         getResultSet(deviceId: string, predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
