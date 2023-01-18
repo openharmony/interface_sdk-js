@@ -83,6 +83,8 @@ declare namespace fileAccess {
          */
         uri: string;
         /**
+         * File or directory relative path
+         * @since 10
          * @type {string}
          * @readonly
          */
@@ -170,6 +172,8 @@ declare namespace fileAccess {
          */
         uri: string;
         /**
+         * File or directory relative path
+         * @since 10
          * @type {string}
          * @readonly
          */
@@ -350,32 +354,56 @@ declare namespace fileAccess {
         access(sourceFileUri: string, callback: AsyncCallback<boolean>) : void;
 
         /**
-         * Get a FileInfo by the uri.
+         * Get a FileInfo by the uri in the promise way.
          *
          * @since 10
          * @syscap SystemCapability.FileManagement.UserFileService
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param uri Indicates the selected file or directory.
-         * @returns {(void | Promise<FileInfo>)} Returns a FileInfo.
+         * @param {string} uri - Indicates the selected file or directory.
+         * @returns {Promise<FileInfo>} Returns a FileInfo.
          */
-        uriToFileInfo(uri: string) : Promise<FileInfo>;
-        uriToFileInfo(uri: string, callback: AsyncCallback<FileInfo>) : void;
+        getFileInfoFromUri(uri: string) : Promise<FileInfo>;
 
         /**
-         * Get a FileInfo by the relative path.
+         * Get a FileInfo by the uri in the asyncCallback way.
          *
          * @since 10
          * @syscap SystemCapability.FileManagement.UserFileService
          * @StageModelOnly
          * @systemapi
          * @permission ohos.permission.FILE_ACCESS_MANAGER
-         * @param relativePath Indicates the selected file or directory.
-         * @returns {(void | Promise<FileInfo>)} Returns a FileInfo.
+         * @param {string} uri - Indicates the selected file or directory.
+         * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
          */
-        relativePathToFileInfo(relativePath: string) : Promise<FileInfo>;
-        relativePathToFileInfo(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
+        getFileInfoFromUri(uri: string, callback: AsyncCallback<FileInfo>) : void;
+
+        /**
+         * Get a FileInfo by the relative path in the promise way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} relativePath - Indicates the selected file or directory.
+         * @returns {Promise<FileInfo>} Returns a FileInfo.
+         */
+        getFileInfoFromRelativePath(relativePath: string) : Promise<FileInfo>;
+
+        /**
+         * Get a FileInfo by the relative path in the asyncCallback way.
+         *
+         * @since 10
+         * @syscap SystemCapability.FileManagement.UserFileService
+         * @StageModelOnly
+         * @systemapi
+         * @permission ohos.permission.FILE_ACCESS_MANAGER
+         * @param {string} relativePath - Indicates the selected file or directory.
+         * @param {AsyncCallback<FileInfo>} callback - The callback is used to return a fileinfo object.
+         */
+        getFileInfoFromRelativePath(relativePath: string, callback: AsyncCallback<FileInfo>) : void;
 
         /**
          * Get a RootIterator.
