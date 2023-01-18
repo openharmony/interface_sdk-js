@@ -20,7 +20,7 @@ import Context from './application/BaseContext';
 /**
  * Manages background tasks.
  *
- * @namespace workScheduler
+ * @namespace backgroundTaskManager
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
@@ -31,7 +31,6 @@ declare namespace backgroundTaskManager {
      * The info of delay suspend.
      *
      * @name DelaySuspendInfo
-     * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
