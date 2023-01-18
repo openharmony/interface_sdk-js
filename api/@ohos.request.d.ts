@@ -572,6 +572,12 @@ declare namespace request {
     downloadTotalBytes: number;
   }
 
+  /**
+   * Download task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface DownloadTask {
     /**
      * Called when the current download session is in process.
@@ -764,6 +770,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     delete(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Delete the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
     delete(): Promise<boolean>;
 
     /**
@@ -993,6 +1009,12 @@ declare namespace request {
     message: string;
   }
 
+  /**
+   * Upload task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface UploadTask {
     /**
      * Called when the current upload session is in process.
