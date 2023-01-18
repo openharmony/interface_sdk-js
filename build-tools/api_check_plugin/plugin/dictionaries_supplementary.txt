@@ -45,6 +45,7 @@ audios
 authenticates
 authinfo
 autocorrect
+averr
 avoidareachange
 avrcp
 avsession
@@ -55,6 +56,7 @@ beta1
 bevels
 bgra
 bidirectionally
+bitrates
 bms
 bolder
 bonded
