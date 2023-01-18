@@ -14,7 +14,7 @@
  */
 
 import {AsyncCallback} from './basic';
-import InputMethodSubtype from './@ohos.inputMethodSubtype';
+import InputMethodSubtype from './@ohos.InputMethodSubtype';
 
 /**
  * Input method engine
@@ -24,156 +24,182 @@ import InputMethodSubtype from './@ohos.inputMethodSubtype';
  */
 declare namespace inputMethodEngine {
     /**
+     * When "enter" key is pressed, there is no action
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_UNSPECIFIED: number;
 
     /**
+     * When "enter" key is pressed, it means GO
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_GO: number;
 
     /**
+     * When "enter" key is pressed, it means SEARCH
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_SEARCH: number;
 
     /**
+     * When "enter" key is pressed, it means SEND
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_SEND: number;
 
     /**
+     * When "enter" key is pressed, it means NEXT
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_NEXT: number;
 
     /**
+     * When "enter" key is pressed, it means DONE
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_DONE: number;
 
     /**
+     * When "enter" key is pressed, it means PREVIOUS
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const ENTER_KEY_TYPE_PREVIOUS: number;
 
     /**
+     * Editor with no special function
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_NULL: number;
 
     /**
+     * Editor of type TEXT
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_TEXT: number;
 
     /**
+     * Editor of type NUMBER
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_NUMBER: number;
 
     /**
+     * Editor of type PHONE NUMBER
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_PHONE: number;
 
     /**
+     * Editor of type DATETIME
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_DATETIME: number;
 
     /**
+     * Editor of type EMAIL
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_EMAIL: number;
 
     /**
+     * Editor of type URI
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_URI: number;
 
     /**
+     * Editor of type PASSWORD
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const PATTERN_PASSWORD: number;
 
     /**
+     * Editor in SELECTING state
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const FLAG_SELECTING: number;
 
     /**
+     * Editor in SINGLE_LINE state
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const FLAG_SINGLE_LINE: number;
 
     /**
+     * The Editor displays in PART mode
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const DISPLAY_MODE_PART: number;
 
     /**
+     * The Editor displays in FULL mode
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const DISPLAY_MODE_FULL: number;
 
     /**
+     * Allows ASCII to be inputted
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_ASCII: number;
 
     /**
+     * Do not specify Editor's input type
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_NONE: number;
 
     /**
+     * Allows CHARACTERS to be inputted
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_AUTO_CAP_CHARACTERS: number;
 
     /**
+     * Allows SENTENCES to be inputted
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_AUTO_CAP_SENTENCES: number;
 
     /**
+     * Allows WORDS to be inputted
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_AUTO_WORDS: number;
 
     /**
+     * Allows MULTI_LINE to be inputted
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
     const OPTION_MULTI_LINE: number;
 
     /**
+     * Half-screen mode
      * @since 8
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      */
@@ -316,77 +342,91 @@ declare namespace inputMethodEngine {
      */
      interface InputMethodAbility {
         /**
-         * Subscribe 'inputStart'
+         * Subscribe 'inputStart' event.
          * @since 9
-         * @param type inputStart
-         * @param callback give keyboard controller and text input client
+         * @param { 'inputStart' } type - the type of subscribe event.
+         * @param { (kbController: KeyboardController, inputClient: InputClient) => void) } callback - the callback of on('inputStart').
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
         /**
-         * Unsubscribe 'inputStart'
+         * Unsubscribe 'inputStart' event.
          * @since 9
-         * @param type inputStart
-         * @param callback optional, give keyboard controller and text input client
+         * @param { 'inputStart' } type - the type of unsubscribe event.
+         * @param { (kbController: KeyboardController, inputClient: InputClient) => void) } [callback] - the callback of off('inputStart').
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
 
         /**
          * Subscribe 'inputStop'.
          * @since 9
+         * @param { 'inputStop' } type - the type of subscribe event.
+         * @param { () => void } callback - the callback of on('inputStop').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param type inputStop
          */
         on(type: 'inputStop', callback: () => void): void;
 
         /**
          * Unsubscribe 'inputStop'.
          * @since 9
+         * @param { 'inputStop' } type - the type of unsubscribe event.
+         * @param { () => void } callback - the callback of off('inputStop').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param type inputStop
          */
         off(type: 'inputStop', callback: () => void): void;
 
         /**
          * Subscribe 'setCallingWindow'.
          * @since 9
+         * @param { 'setCallingWindow' } type - the type of subscribe event.
+         * @param { (wid:number) => void } callback - the callback of on('setCallingWindow').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param type setCallingWindow
          */
         on(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
         /**
          * Unsubscribe 'setCallingWindow'.
          * @since 9
+         * @param { 'setCallingWindow' } type - the type of unsubscribe event.
+         * @param { (wid:number) => void } callback - the callback of off('setCallingWindow').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param type setCallingWindow
          */
         off(type: 'setCallingWindow', callback: (wid:number) => void): void;
 
         /**
-         * Subscribe 'keyboardShow'|'keyboardHide'
+         * Subscribe 'keyboardShow'|'keyboardHide'.
          * @since 9
-         * @param type keyboardShow|keyboardHide
+         * @param { 'keyboardShow'|'keyboardHide' } type - the type of subscribe event.
+         * @param { () => void } callback - the callback of on('keyboardShow'|'keyboardHide').
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'keyboardShow'|'keyboardHide', callback: () => void): void;
 
         /**
-         * Unsubscribe 'keyboardShow'|'keyboardHide'
+         * Unsubscribe 'keyboardShow'|'keyboardHide'.
          * @since 9
-         * @param type keyboardShow|keyboardHide
+         * @param { 'keyboardShow'|'keyboardHide' } type - the type of unsubscribe event.
+         * @param { () => void } [callback] - the callback of off('keyboardShow'|'keyboardHide').
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         off(type: 'keyboardShow'|'keyboardHide', callback?: () => void): void;
 
         /**
-         * Subscribe 'setSubtype'
+         * Subscribe 'setSubtype'.
          * @since 9
+         * @param { 'setSubtype' } type - the type of subscribe event.
+         * @param { (inputMethodSubtype: InputMethodSubtype) => void } callback - the callback of on('setSubtype').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         on(type: 'setSubtype', callback: (inputMethodSubtype: InputMethodSubtype) => void): void;
 
         /**
-         * Unsubscribe 'setSubtype'
+         * Unsubscribe 'setSubtype'.
          * @since 9
+         * @param { 'setSubtype' } type - the type of subscribe event.
+         * @param { (inputMethodSubtype: InputMethodSubtype) => void } [callback] - the callback of off('setSubtype').
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
@@ -498,133 +538,168 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * @since 9
+     * <p>Controls events about Editor.</p>
+     * @interface InputClient
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
      interface InputClient {
         /**
+         * Send the function of the key.
          * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @param { number } action - action indicates the function of "enter" key.
+         * @param { AsyncCallback<boolean> } callback - the callback of sendKeyFunction.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         sendKeyFunction(action: number, callback: AsyncCallback<boolean>): void;
 
         /**
+         * Send the function of the key.
          * @since 9
+         * @param { number } action - action indicates the function of "enter" key.
          * @returns { Promise<boolean> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         sendKeyFunction(action: number): Promise<boolean>;
 
         /**
+         * Delete text forward.
          * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @param { number } length - length of text which will be deleted forward.
+         * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         deleteForward(length: number, callback: AsyncCallback<boolean>): void;
 
         /**
-         * @since 9
+         * Delete text forward.
+         * @param { number } length - length of text which will be deleted forward.
          * @returns { Promise<boolean> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         deleteForward(length: number): Promise<boolean>;
 
         /**
-         * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Delete text backward.
+         * @param { number } length - length of text which will be deleted backward.
+         * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         deleteBackward(length: number, callback: AsyncCallback<boolean>): void;
 
         /**
-         * @since 9
+         * Delete text backward.
+         * @param { number } length - length of text which will be deleted backward.
          * @returns { Promise<boolean> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         deleteBackward(length: number): Promise<boolean>;
 
         /**
-         * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Insert text into Editor.
+         * @param { string } text - text which will be inserted.
+         * @param { AsyncCallback<boolean> } callback - the callback of insertText.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         insertText(text: string, callback: AsyncCallback<boolean>): void;
 
         /**
-         * @since 9
+         * Insert text into Editor.
+         * @param { string } text - text which will be inserted.
          * @returns { Promise<boolean> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800002 - Input method engine error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800002 - Input method engine error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         insertText(text: string): Promise<boolean>;
 
         /**
-         * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
+         * Get the text before cursor.
+         * @param { number } length - the length of text which will be got.
+         * @param { AsyncCallback<string> } callback - the callback of getForward.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         getForward(length: number, callback: AsyncCallback<string>): void;
 
         /**
-         * @since 9
+         * Get the text before cursor.
+         * @param { number } length - the length of text which will be got.
          * @returns { Promise<string> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         getForward(length: number): Promise<string>;
 
         /**
-         * @since 9
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
+         * Get the text after cursor.
+         * @param { number } length - the length of text which will be got.
+         * @param { AsyncCallback<string> } callback - the callback of getBackward.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         getBackward(length: number, callback: AsyncCallback<string>): void;
 
         /**
-         * @since 9
+         * Get the text after cursor.
+         * @param { number } length - the length of text which will be got.
          * @returns { Promise<string> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
-         * @throws {BusinessError} 12800006 - Input method controller error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         getBackward(length: number): Promise<string>;
 
         /**
-         * @since 9
-         * @throws {BusinessError} 12800003 - input method client error.
+         * Get attribute about editor.
+         * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         getEditorAttribute(callback: AsyncCallback<EditorAttribute>): void;
 
         /**
+         * Get attribute about editor.
          * @since 9
          * @returns { Promise<EditorAttribute> } the promise returned by the function.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         getEditorAttribute(): Promise<EditorAttribute>;
@@ -634,9 +709,10 @@ declare namespace inputMethodEngine {
          *
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param direction Indicates the distance of cursor to be moved.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @param { number } direction - Indicates the distance of cursor to be moved.
+         * @param { AsyncCallback<void> } callback - the callback of moveCursor.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          */
         moveCursor(direction: number, callback: AsyncCallback<void>): void;
 
@@ -645,10 +721,10 @@ declare namespace inputMethodEngine {
          *
          * @since 9
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @param direction Indicates the distance of cursor to be moved.
+         * @param { number } direction - Indicates the distance of cursor to be moved.
          * @returns { Promise<void> } the promise returned by the function.
-         * @throws {BusinessError} 401 - parameter error.
-         * @throws {BusinessError} 12800003 - input method client error.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
          */
         moveCursor(direction: number): Promise<void>;
     }
