@@ -56,6 +56,43 @@ declare namespace deviceManager {
      * The distance of discovered device, in centimeter(cm).
      */
     range: number;
+
+    /**
+     * Indicates the device's trusted type
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    trustedType: TrustedType;
+  }
+
+  /**
+   * Device trusted type definitions
+   * @enum {number}
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @systemapi this method can be used only by system applications.
+   * @since 10
+   */
+  enum TrustedType {
+    /**
+     * Indicates identical account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    IDENTICAL_ACCOUNT = 0,
+
+    /**
+     * Indicates peer to peer account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    PEER_TO_PEER = 1,
+
+    /**
+     * Indicates across account trusted device type.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10
+     */
+    ACROSS_ACCOUNT = 2
   }
 
   /**
