@@ -102,7 +102,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-     * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
+     * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
      * @param { AsyncCallback<void> } callback - The callback of the function.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -118,7 +118,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-     * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
+     * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8

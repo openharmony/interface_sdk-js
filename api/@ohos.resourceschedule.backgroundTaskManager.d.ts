@@ -28,7 +28,7 @@ declare namespace backgroundTaskManager {
     /**
      * The info of delay suspend.
      *
-     * @name DelaySuspendInfo
+     * @interface DelaySuspendInfo
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9
      */
@@ -118,7 +118,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-     * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
+     * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
      * @param { AsyncCallback<void> } callback - The callback of the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not System App.
@@ -142,7 +142,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-     * @param {WantAgent} wantAgent - Indicates which ability to start when user click the notification bar.
+     * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not System App.
@@ -234,6 +234,7 @@ declare namespace backgroundTaskManager {
     /**
      * Supported background mode.
      *
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9
      */
@@ -317,6 +318,7 @@ declare namespace backgroundTaskManager {
     /**
      * The type of resource.
      *
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -361,7 +363,7 @@ declare namespace backgroundTaskManager {
     /**
      * The request of efficiency resources.
      *
-     * @name EfficiencyResourcesRequest
+     * @interface EfficiencyResourcesRequest
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
      * @since 9
