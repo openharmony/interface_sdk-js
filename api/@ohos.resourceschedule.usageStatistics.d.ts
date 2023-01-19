@@ -26,6 +26,7 @@ import { AsyncCallback , Callback} from './basic';
  *
  * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+ * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
  * @since 9
  */
 declare namespace usageStatistics {
@@ -257,6 +258,7 @@ declare namespace usageStatistics {
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
      * 
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
      * @param { AsyncCallback<boolean> } callback - the callback of isIdleState,
      * boolean value is true mean the application is idle in a particular period; false mean otherwise.
@@ -270,6 +272,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC failed.
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
@@ -277,6 +280,7 @@ declare namespace usageStatistics {
     /**
      * Checks whether the application with a specified bundle name is in the idle state.
      * 
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
      * @returns { Promise<boolean> } the promise returned by queryAppGroup,
      * boolean value is true mean the application is idle in a particular period; false mean otherwise.
@@ -290,6 +294,7 @@ declare namespace usageStatistics {
      * @throws { BusinessError } 10000004 - IPC failed.
      * @throws { BusinessError } 10000006 - Failed to get the application information.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+     * @systemapi Hide this for inner system use.
      * @since 9
      */
     function isIdleState(bundleName: string): Promise<boolean>;
@@ -452,7 +457,8 @@ declare namespace usageStatistics {
 
     /**
      * Declares interval type.
-     * @enum {number}
+     * 
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -720,7 +726,8 @@ declare namespace usageStatistics {
 
     /**
      * Declares group type.
-     * @enum {number}
+     * 
+     * @enum { number }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9

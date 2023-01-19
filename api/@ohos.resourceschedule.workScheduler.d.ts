@@ -27,7 +27,7 @@ declare namespace workScheduler {
     /**
      * The info of work.
      *
-     * @name WorkInfo
+     * @interface WorkInfo
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
      * @since 9
