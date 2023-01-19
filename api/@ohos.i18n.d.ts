@@ -1208,25 +1208,25 @@ export class Transliterator {
    */
   enum NormalizerMode {
     /**
-     * Normalization form C.
+     * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
      * @since 10
      * @syscap SystemCapability.Global.I18n
      */
     NFC = 1,
     /**
-     * Normalization form D.
+     * Normalization form D, characters are decomposed by canonical equivalence
      * @since 10
      * @syscap SystemCapability.Global.I18n
      */
     NFD = 2,
     /**
-     * Normalization form KC.
+     * Normalization form KC, characters are decomposed by compatibility, then re-composed by canonical equivalence
      * @since 10
      * @syscap SystemCapability.Global.I18n
      */
     NFKC = 3,
     /**
-     * Normalization form KD.
+     * Normalization form KD, characters are decomposed by compatibility
      * @since 10
      * @syscap SystemCapability.Global.I18n
      */
