@@ -15,7 +15,7 @@
 
 import { AsyncCallback, Callback } from './basic';
 
- /**
+/**
  * xts_device_attest authResult information
  *
  * @since 9
