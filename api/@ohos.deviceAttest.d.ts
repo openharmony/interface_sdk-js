@@ -20,7 +20,6 @@ import { AsyncCallback, Callback } from './basic';
  *
  * @since 9
  * @syscap SystemCapability.XTS.DeviceAttest
- * @import import deviceAttest from '@ohos.deviceAttest'
  */
 declare namespace deviceAttest {
     /**
