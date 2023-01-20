@@ -21,7 +21,6 @@ import * as _Context from './application/Context';
 import * as _ExtensionContext from './application/ExtensionContext';
 import * as _FormExtensionContext from './application/FormExtensionContext';
 import * as _EventHub from './application/EventHub';
-import * as _PermissionRequestResult from './application/PermissionRequestResult';
 import { PacMap as _PacMap } from "./ability/dataAbilityHelper";
 import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
 import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
@@ -115,15 +114,6 @@ declare namespace common {
      * @since 9
      */
     export type EventHub = _EventHub.default
-
-    /**
-     * The result of requestPermissionsFromUser with asynchronous callback.
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @since 9
-     * @deprecated since 9
-     */
-    export type PermissionRequestResult = _PermissionRequestResult.default
 
     /**
      * Defines a PacMap object for storing a series of values.

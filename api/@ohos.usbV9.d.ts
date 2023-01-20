@@ -121,7 +121,7 @@ declare namespace usbV9 {
      * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
-    function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
+    function setCurrentFunctions(funcs: FunctionType): Promise<void>;
 
     /**
      * Obtains the numeric mask combination for the current USB function list in Device mode.
@@ -167,7 +167,7 @@ declare namespace usbV9 {
      * @syscap SystemCapability.USB.USBManager
      * @since 9
      */
-    function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<boolean>;
+    function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
     /* usb pipe functions begin */
     /**

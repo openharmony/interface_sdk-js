@@ -45,6 +45,7 @@ audios
 authenticates
 authinfo
 autocorrect
+averr
 avoidareachange
 avrcp
 avsession
@@ -55,6 +56,7 @@ beta1
 bevels
 bgra
 bidirectionally
+bitrates
 bms
 bolder
 bonded
@@ -316,6 +318,7 @@ ivi
 iwlan
 jis
 judged
+kaihong
 kbdillum
 kbdinputassist
 kbps
@@ -556,6 +559,7 @@ sfactor
 sha1
 shadertype
 sharedarraybuffer
+shenzhen
 shortkey
 shuts
 sigalgs
@@ -616,6 +620,7 @@ systemui
 tailoring
 talkback
 taskmanager
+taskpool
 tbla
 tdscdma
 telecom
@@ -732,6 +737,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+wukong
 wwan
 x25519
 x509

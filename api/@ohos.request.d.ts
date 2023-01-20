@@ -65,7 +65,7 @@ declare namespace request {
   const EXCEPTION_OTHERS: number;
 
   /**
-   * Bit flag indicating download is allowed when using the cellular network.
+   * Code 0x00000001. Bit flag indicating download is allowed when using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
    * @since 6
    * @permission ohos.permission.INTERNET
@@ -73,7 +73,7 @@ declare namespace request {
   const NETWORK_MOBILE: number;
 
   /**
-  * Bit flag indicating download is allowed when using the WLAN.
+  * Code 0x00010000. Bit flag indicating download is allowed when using the WLAN.
   * @syscap SystemCapability.MiscServices.Download
   * @since 6
   * @permission ohos.permission.INTERNET
@@ -81,7 +81,7 @@ declare namespace request {
   const NETWORK_WIFI: number;
 
   /**
-   * Indicates that the download cannot be resumed for some temporary errors.
+   * Error code 0. Indicates that the download cannot be resumed for network reasons.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -89,7 +89,7 @@ declare namespace request {
   const ERROR_CANNOT_RESUME: number;
 
   /**
-   * Indicates that no storage device, such as an SD card, is found.
+   * Error code 1. Indicates that no storage device, such as an SD card, is found.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -97,7 +97,7 @@ declare namespace request {
   const ERROR_DEVICE_NOT_FOUND: number;
 
   /**
-   * Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
+   * Error code 2. Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -105,7 +105,7 @@ declare namespace request {
   const ERROR_FILE_ALREADY_EXISTS: number;
 
   /**
-   * Indicates that a file operation fails.
+   * Error code 3. Indicates that a file operation fails.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -113,7 +113,7 @@ declare namespace request {
   const ERROR_FILE_ERROR: number;
 
   /**
-   * Indicates that the HTTP transmission fails.
+   * Error code 4. Indicates that the HTTP transmission fails.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -121,7 +121,7 @@ declare namespace request {
   const ERROR_HTTP_DATA_ERROR: number;
 
   /**
-   * Indicates insufficient storage space.
+   * Error code 5. Indicates insufficient storage space.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -129,7 +129,7 @@ declare namespace request {
   const ERROR_INSUFFICIENT_SPACE: number;
 
   /**
-   * Indicates an error caused by too many network redirections.
+   * Error code 6. Indicates an error caused by too many network redirections.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -137,7 +137,7 @@ declare namespace request {
   const ERROR_TOO_MANY_REDIRECTS: number;
 
   /**
-   * Indicates an HTTP code that cannot be identified.
+   * Error code 7. Indicates an HTTP code that cannot be identified.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -145,7 +145,7 @@ declare namespace request {
   const ERROR_UNHANDLED_HTTP_CODE: number;
 
   /**
-   * Indicates an undefined error.
+   * Error code 8. Indicates an undefined error.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -153,7 +153,7 @@ declare namespace request {
   const ERROR_UNKNOWN: number;
 
   /**
-   * Indicates network offline.
+   * Error code 9. Indicates network offline.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @permission ohos.permission.INTERNET
@@ -161,7 +161,7 @@ declare namespace request {
   const ERROR_OFFLINE: number;
 
   /**
-   * Indicates network type configuration error.
+   * Error code 10. Indicates network type configuration error.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
    * @permission ohos.permission.INTERNET
@@ -169,7 +169,7 @@ declare namespace request {
   const ERROR_UNSUPPORTED_NETWORK_TYPE: number;
 
   /**
-   * Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
+   * Paused code 0. Indicates that the download is paused and waiting for a WLAN connection, because the file size exceeds the maximum allowed for a session using the cellular network.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -177,15 +177,7 @@ declare namespace request {
   const PAUSED_QUEUED_FOR_WIFI: number;
 
   /**
-   * Indicates that the download is paused for some reasons.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   * @permission ohos.permission.INTERNET
-   */
-  const PAUSED_UNKNOWN: number;
-
-  /**
-   * Indicates that the download is paused due to a network problem, for example, network disconnection.
+   * Paused code 1. Indicates that the download is paused due to a network problem, for example, network disconnection.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -193,7 +185,7 @@ declare namespace request {
   const PAUSED_WAITING_FOR_NETWORK: number;
 
   /**
-   * Indicates that a network error occurs, and the download session will be retried.
+   * Paused code 2. Indicates that a network error occurs, and the download session will be retried.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -201,31 +193,31 @@ declare namespace request {
   const PAUSED_WAITING_TO_RETRY: number;
 
   /**
-   * Indicates that the download session has failed and will not be retried.
+   * Paused code 3. Indicates that the download is paused due to the user.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 9
+   * @permission ohos.permission.INTERNET
+   */
+  const PAUSED_BY_USER: number;
+
+  /**
+   * Paused code 4. Indicates that the download is paused for some reasons.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
    */
-  const SESSION_FAILED: number;
+  const PAUSED_UNKNOWN: number;
 
   /**
-   * Indicates that the download session has been paused.
+   * Session status code 0. Indicates that the download session is completed.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
    */
-  const SESSION_PAUSED: number;
+  const SESSION_SUCCESSFUL: number;
 
   /**
-   * Indicates that the download session is being scheduled.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   * @permission ohos.permission.INTERNET
-   */
-  const SESSION_PENDING: number;
-
-  /**
-   * Indicates that the download session is in progress.
+   * Session status code 1. Indicates that the download session is in progress.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
@@ -233,12 +225,28 @@ declare namespace request {
   const SESSION_RUNNING: number;
 
   /**
-   * Indicates that the download session is completed.
+   * Session status code 2. Indicates that the download session is being scheduled.
    * @syscap SystemCapability.MiscServices.Download
    * @since 7
    * @permission ohos.permission.INTERNET
    */
-  const SESSION_SUCCESSFUL: number;
+  const SESSION_PENDING: number;
+
+  /**
+   * Session status code 3. Indicates that the download session has been paused.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 7
+   * @permission ohos.permission.INTERNET
+   */
+  const SESSION_PAUSED: number;
+
+  /**
+   * Session status code 4. Indicates that the download session has failed and will not be retried.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 7
+   * @permission ohos.permission.INTERNET
+   */
+  const SESSION_FAILED: number;
 
   /**
    * Starts a download task.
@@ -564,6 +572,12 @@ declare namespace request {
     downloadTotalBytes: number;
   }
 
+  /**
+   * Download task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface DownloadTask {
     /**
      * Called when the current download session is in process.
@@ -756,6 +770,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     delete(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Delete the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
     delete(): Promise<boolean>;
 
     /**
@@ -985,6 +1009,12 @@ declare namespace request {
     message: string;
   }
 
+  /**
+   * Upload task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface UploadTask {
     /**
      * Called when the current upload session is in process.

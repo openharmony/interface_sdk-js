@@ -160,6 +160,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link darkMode} for setting the web dark mode.
+ * @since 9
+ */
+declare enum WebDarkMode {
+  /**
+   * Disable the web dark mode.
+   * @since 9
+   */
+  Off,
+
+  /**
+   * Enable the web dark mode.
+   * @since 9
+   */
+  On,
+
+  /**
+   * Make web dark mode follow the system.
+   * @since 9
+   */
+  Auto,
+}
+
+/**
  * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
  * @since 9
  */
@@ -534,7 +558,7 @@ declare class HttpAuthHandler {
    * @since 9
    */
   cancel(): void;
-  
+
   /**
    * Ignore this certificate request temporarily.
    * @since 9
@@ -606,7 +630,7 @@ declare class DataResubmissionHandler {
    * @since 9
    */
   resend(): void;
-   
+
   /**
    * Do not resend related form data.
    * @since 9
@@ -696,7 +720,7 @@ declare enum ContextMenuInputFieldType {
    * @since 9
    */
   Password,
-  
+
   /**
    * The number type.
    * @since 9
@@ -814,7 +838,7 @@ declare class WebContextMenuParam {
    * @since 9
    */
   getInputFieldType(): ContextMenuInputFieldType;
- 
+
   /**
    * Returns whether the context is editable.
    * @since 9
@@ -1000,7 +1024,7 @@ declare class WebResourceRequest {
   /**
    * Get request mothod.
    * @returns Return the request method.
-   * 
+   *
    * @since 9
    */
   getRequestMethod(): string;
@@ -1113,14 +1137,14 @@ declare class WebResourceRequest {
    * @since 9
    */
   setResponseCode(code: number);
-  
+
   /**
    * Sets the response is ready or not.
    * @param IsReady whether the response is ready.
    *
    * @since 9
    */
-   setResponseIsReady(IsReady: boolean);
+  setResponseIsReady(IsReady: boolean);
 }
 
 /**
@@ -1738,6 +1762,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
   /**
+   * Sets the dark mode of Web.
+   * @param mode The dark mode, which can be {@link WebDarkMode}.
+   *
+   * @since 9
+   */
+  darkMode(mode: WebDarkMode): WebAttribute;
+
+  /**
+   * Sets whether to enable forced dark algorithm when the web is in dark mode
+   * @param access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   *
+   * @since 9
+   */
+  forceDarkAccess(access: boolean): WebAttribute;
+
+  /**
    * Sets whether the Web should save the table data.
    * @param tableData {@code true} means the Web can save the table data; {@code false} otherwise.
    *
@@ -1802,14 +1842,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   userAgent(userAgent: string): WebAttribute;
-
-  /**
-   * Enables debugging of web contents.
-   * @param webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-   *
-   * @since 9
-   */
-  webDebuggingAccess(webDebuggingAccess: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -2146,7 +2178,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webStandardFont(family: string): WebAttribute;
- 
+
   /**
    * Set the font of webview serif font library. The default font is "serif".
    * @param family Serif font set series.
@@ -2154,7 +2186,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webSerifFont(family: string): WebAttribute;
- 
+
   /**
    * Set the font of webview sans serif font library. The default font is "sans-serif".
    * @param family Sans serif font set series.
@@ -2162,7 +2194,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webSansSerifFont(family: string): WebAttribute;
- 
+
   /**
    * Set the font of webview fixed font library. The default font is "monospace".
    * @param family Fixed font set series.
@@ -2170,7 +2202,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webFixedFont(family: string): WebAttribute;
- 
+
   /**
    * Set the font of webview fantasy font library. The default font is "fantasy".
    * @param family fantasy font set series.
@@ -2178,7 +2210,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webFantasyFont(family: string): WebAttribute;
- 
+
   /**
    * Set the font of webview cursive font library. The default font is "cursive".
    * @param family Cursive font set series.
@@ -2186,7 +2218,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   webCursiveFont(family: string): WebAttribute;
- 
+
   /**
    * Set the default fixed font value of webview. The default value is 13, ranging from 1 to 72.
    * @param size Font size.
@@ -2194,7 +2226,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   defaultFixedFontSize(size: number): WebAttribute;
- 
+
   /**
   * Set the default font value of webview. The default value is 16, ranging from 1 to 72.
   * @param size Font size.
@@ -2202,7 +2234,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @since 9
   */
   defaultFontSize(size: number): WebAttribute;
- 
+
   /**
   * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
   * @param size Font size.
@@ -2218,15 +2250,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   * @since 9
   */
   minLogicalFontSize(size: number): WebAttribute;
- 
+
   /**
    * Whether web component can load resource from network.
    * @param block {@code true} means it can't load resource from network; {@code false} otherwise.
-   * 
+   *
    * @since 9
    */
   blockNetwork(block: boolean): WebAttribute;
- 
+
   /**
    * Set whether paint horizontal scroll bar.
    * @param horizontalScrollBar True if it needs to paint horizontal scroll bar.
@@ -2254,12 +2286,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the application receive a new favicon for the current web page.
-   * @param callback The triggered callback when the application receive a new favicon for the 
+   * @param callback The triggered callback when the application receive a new favicon for the
    * current web page.
    * @since 9
    */
   onFaviconReceived(callback: (event: {favicon: PixelMap}) => void): WebAttribute;
- 
+
   /**
    * Triggered when previous page will no longer be drawn and next page begin to draw.
    * @param callback The triggered callback when previous page will no longer be drawn and next
@@ -2267,7 +2299,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   onPageVisible(callback: (event: {url: string}) => void): WebAttribute;
- 
+
   /**
    * Triggered when the form could be resubmitted.
    * @param callback The triggered callback to decision whether resend form data or not.
@@ -2280,7 +2312,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param isEnabled True if it needs to enable smooth mode.
    * @since 9
    */
-  pinchSmooth(isEnabled: boolean)
+  pinchSmooth(isEnabled: boolean): WebAttribute;
+
+  /**
+   * Whether the window can be open automatically through JavaScript.
+   * @param flag If it is true, the window can be opened automatically through JavaScript.
+   * If it is false and user behavior, the window can be opened automatically through JavaScript.
+   * Otherwise, the window cannot be opened.
+   * @since 9
+   */
+  allowWindowOpenMethod(flag : boolean): WebAttribute;
 }
 
 declare const Web: WebInterface;

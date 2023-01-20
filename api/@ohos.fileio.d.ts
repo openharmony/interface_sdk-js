@@ -94,6 +94,8 @@ declare namespace fileIO {
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.access
  * @permission N/A
  * @function access
  * @param {string} path - path.
@@ -110,6 +112,8 @@ declare function access(path: string, mode: number, callback: AsyncCallback<void
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.accessSync
  * @permission N/A
  * @function accessSync
  * @param {string} path - path.
@@ -123,6 +127,8 @@ declare function accessSync(path: string, mode?: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.close
  * @permission N/A
  * @function close
  * @param {number} fd - fd.
@@ -137,6 +143,8 @@ declare function close(fd: number, callback: AsyncCallback<void>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.closeSync
  * @permission N/A
  * @function closeSync
  * @param {number} fd - fd.
@@ -149,6 +157,8 @@ declare function closeSync(fd: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.copyFile
  * @permission N/A
  * @function copyFile
  * @param {string | number} src - src.
@@ -166,6 +176,8 @@ declare function copyFile(src: string | number, dest: string | number, mode: num
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.copyFileSync
  * @permission N/A
  * @function copyFileSync
  * @param {string | number} src - src.
@@ -180,6 +192,8 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.createStream
  * @permission N/A
  * @function createStream
  * @param {string} path - path.
@@ -195,6 +209,8 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.createStreamSync
  * @permission N/A
  * @function createStreamSync
  * @param {string} path - path.
@@ -208,6 +224,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function appendFile
  * @param {string} path - path.
@@ -224,6 +241,7 @@ declare function chown(path: string, uid: number, gid: number, callback: AsyncCa
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function appendFile
  * @param {string} path - path.
@@ -238,6 +256,7 @@ declare function chownSync(path: string, uid: number, gid: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function chmod
  * @param {string} path - path.
@@ -253,6 +272,7 @@ declare function chmod(path: string, mode: number, callback: AsyncCallback<void>
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function chmodSync
  * @param {string} path - path.
@@ -297,6 +317,8 @@ declare function ftruncateSync(fd: number, len?: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fsync
  * @permission N/A
  * @function fsync
  * @param {number} fd - fd.
@@ -311,6 +333,8 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fsyncSync
  * @permission N/A
  * @function fsyncSync
  * @param {number} fd - fd.
@@ -350,6 +374,8 @@ declare function fstatSync(fd: number): Stat;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdatasync
  * @permission N/A
  * @function fdatasync
  * @param {number} fd - fd.
@@ -364,6 +390,8 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdatasyncSync
  * @permission N/A
  * @function fdatasyncSync
  * @param {number} fd - fd.
@@ -376,6 +404,7 @@ declare function fdatasyncSync(fd: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchown
  * @param {number} fd - fd.
@@ -392,6 +421,7 @@ declare function fchown(fd: number, uid: number, gid: number, callback: AsyncCal
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchownSync
  * @param {number} fd - fd.
@@ -406,6 +436,7 @@ declare function fchownSync(fd: number, uid: number, gid: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchmod
  * @param {number} fd - fd.
@@ -421,6 +452,7 @@ declare function fchmod(fd: number, mode: number, callback: AsyncCallback<void>)
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function fchmodSync
  * @param {number} fd - fd.
@@ -433,6 +465,8 @@ declare function fchmodSync(fd: number, mode: number): void;
  * fdopenStream.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdopenStream
  * @permission N/A
  * @function fdopenStream
  * @param {number} fd - fd.
@@ -447,6 +481,8 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * fdopenStreamSync.
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.fdopenStreamSync
  * @permission N/A
  * @function fdopenStreamSync
  * @param {number} fd - fd.
@@ -460,6 +496,8 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @static
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.hash.hash
  * @permission N/A
  * @function hash
  * @param {string} path - path.
@@ -475,6 +513,7 @@ declare function hash(path: string, algorithm: string, callback: AsyncCallback<s
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function lchown
  * @param {string} path - path.
@@ -491,6 +530,7 @@ declare function lchown(path: string, uid: number, gid: number, callback: AsyncC
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
  * @permission N/A
  * @function lchownSync
  * @param {string} path - path.
@@ -505,6 +545,8 @@ declare function lchownSync(path: string, uid: number, gid: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.lstat
  * @permission N/A
  * @function lstat
  * @param {string} path - path.
@@ -519,6 +561,8 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.lstatSync
  * @permission N/A
  * @function lstatSync
  * @param {string} path - path.
@@ -531,6 +575,8 @@ declare function lstatSync(path: string): Stat;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdir
  * @permission N/A
  * @function mkdir
  * @param {string} path - path.
@@ -547,6 +593,8 @@ declare function mkdir(path: string, mode: number, callback: AsyncCallback<void>
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdirSync
  * @permission N/A
  * @function mkdirSync
  * @param {string} path - path.
@@ -560,6 +608,8 @@ declare function mkdirSync(path: string, mode?: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdtemp
  * @permission N/A
  * @function mkdtemp
  * @param {string} prefix - dir prefix.
@@ -574,6 +624,8 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.mkdtempSync
  * @permission N/A
  * @function mkdtempSync
  * @param {string} prefix - dir prefix.
@@ -642,6 +694,8 @@ declare function opendirSync(path: string): Dir;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readText
  * @permission N/A
  * @function readText
  * @param {string} filePath - file path.
@@ -669,6 +723,8 @@ declare function readText(filePath: string, options: {
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.readTextSync
  * @permission N/A
  * @function readTextSync
  * @param {string} filePath - file path.
@@ -741,6 +797,8 @@ declare function readSync(fd: number, buffer: ArrayBuffer, options?: {
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rename
  * @permission N/A
  * @function rename
  * @param {string} oldPath - oldPath.
@@ -756,6 +814,8 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.renameSync
  * @permission N/A
  * @function renameSync
  * @param {string} oldPath - oldPath.
@@ -769,6 +829,8 @@ declare function renameSync(oldPath: string, newPath: string): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rmdir
  * @permission N/A
  * @function rmdir
  * @param {string} path - path.
@@ -783,6 +845,8 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.rmdirSync
  * @permission N/A
  * @function rmdirSync
  * @param {string} path - path.
@@ -821,6 +885,8 @@ declare function statSync(path: string): Stat;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.symlink
  * @permission N/A
  * @function symlink
  * @param {string} target - target.
@@ -836,6 +902,8 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.symlinkSync
  * @permission N/A
  * @function symlinkSync
  * @param {string} target - target.
@@ -880,6 +948,8 @@ declare function truncateSync(path: string, len?: number): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.unlink
  * @permission N/A
  * @function unlink
  * @param {string} path - path.
@@ -894,6 +964,8 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.unlinkSync
  * @permission N/A
  * @function unlinkSync
  * @param {string} path - path.
@@ -1316,6 +1388,8 @@ declare interface Stat {
  * Stream
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.Stream
  * @permission N/A
  */
 declare interface Stream {

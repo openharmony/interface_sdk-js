@@ -240,7 +240,7 @@ export default class UIAbility extends Ability {
      * @StageModelOnly
      * @since 9
      */
-    onDestroy(): void;
+    onDestroy(): void | Promise<void>;
 
     /**
      * Called back when the state of an ability changes to foreground.

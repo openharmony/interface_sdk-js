@@ -94,8 +94,34 @@ declare namespace screenLock {
   function lock(callback: AsyncCallback<boolean>): void;
   function lock():Promise<boolean>;
 
-  type EventType = 'beginWakeUp' | 'endWakeUp' | 'beginScreenOn' | 'endScreenOn' | 'beginScreenOff' | 'endScreenOff' | 'unlockScreen' | 'lockScreen' | 'beginExitAnimation' | 'beginSleep' | 'endSleep' | 'changeUser' | 'screenlockEnabled' | 'serviceRestart'
+  /**
+   * Indicates the system event type related to the screenlock management service.
+   *
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  type EventType =
+      'beginWakeUp'
+      | 'endWakeUp'
+      | 'beginScreenOn'
+      | 'endScreenOn'
+      | 'beginScreenOff'
+      | 'endScreenOff'
+      | 'unlockScreen'
+      | 'lockScreen'
+      | 'beginExitAnimation'
+      | 'beginSleep'
+      | 'endSleep'
+      | 'changeUser'
+      | 'screenlockEnabled'
+      | 'serviceRestart'
 
+  /**
+   * Indicates the system event type and parameter related to the screenlock management service.
+   *
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   interface SystemEvent {
     eventType: EventType,
     params: string

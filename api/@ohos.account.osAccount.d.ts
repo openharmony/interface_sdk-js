@@ -1055,12 +1055,13 @@ declare namespace osAccount {
      * Provides the management of credential inputers. 
      * @name InputerManager
      * @syscap SystemCapability.Account.OsAccount
-     * @since 10
+     * @since 9
      */
     class InputerManager {
         /**
          * Register credential inputer by authentication type.
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @static
          * @param authType Indicates the authentication type.
          * @param inputer Indicates the credential input box callback.
          * @throws {BusinessError} 201 - permission denied.
@@ -1071,22 +1072,73 @@ declare namespace osAccount {
          * @throws {BusinessError} 12300103 - the credential inputer has been registered.
          * @throws {BusinessError} 12300106 - unsupported authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
-        registerInputer(authType: AuthType, inputer: IInputer): void;
+        static registerInputer(authType: AuthType, inputer: IInputer): void;
 
         /**
          * Unregister credential inputer by authentication type.
          * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
+         * @static
          * @param authType Indicates the authentication type.
          * @throws {BusinessError} 201 - permission denied.
          * @throws {BusinessError} 202 - not system application.
          * @throws {BusinessError} 401 - the parameter check failed.
          * @throws {BusinessError} 12300002 - invalid authType.
          * @systemapi Hide this for inner system use.
-         * @since 10
+         * @since 9
          */
-        unregisterInputer(authType: AuthType): void;
+        static unregisterInputer(authType: AuthType): void;
+    }
+
+    /**
+     * Provides the definition of domain plugin.
+     * @interface DomainPlugin
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    interface DomainPlugin {
+        /**
+         * Authenticates the specified domain account.
+         * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
+         * @param { Uint8Array } credential - Indicates the credential for authentication.
+         * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    }
+
+    /**
+     * Provides abilities for the management of domain account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    class DomainAccountManager {
+        /**
+         * Registers the domain plugin, which provides the capabilities for domain authentication.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @param { DomainPlugin } plugin - Indicates the domain plugin.
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @throws { BusinessError } 401 - the parameter check failed.
+         * @throws { BusinessError } 12300201 - the domain plugin has been registered.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static registerPlugin(plugin: DomainPlugin): void;
+
+        /**
+         * Unregisters domain plugin.
+         * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+         * @static
+         * @throws { BusinessError } 201 - permission denied.
+         * @throws { BusinessError } 202 - not system application.
+         * @systemapi Hide this for inner system use.
+         * @since 9
+         */
+        static unregisterPlugin(): void;
     }
 
     /**
@@ -1567,7 +1619,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the DOMAIN authentication type.
-         * @since 10
+         * @since 9
          */
         DOMAIN = 1024
     }
@@ -1607,7 +1659,7 @@ declare namespace osAccount {
 
         /**
          * Indicates the mixed domain credential.
-         * @since 10
+         * @since 9
          */
         DOMAIN_MIXED = 10240001
     }

@@ -41,7 +41,7 @@ declare namespace relationalStore
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
+    function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
     /**
      * Obtains an RDB store.
@@ -59,7 +59,7 @@ declare namespace relationalStore
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
+    function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
     /**
      * Deletes the database with a specified name.
@@ -121,7 +121,7 @@ declare namespace relationalStore
     enum SubscribeType {
         /**
          * Subscription to remote data changes
-         * @since 8
+         * @since 9
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          */
         SUBSCRIBE_TYPE_REMOTE = 0,
@@ -151,7 +151,7 @@ declare namespace relationalStore
           * @since 9
           */
          S2 = 2,
- 
+
          /**
           * S3: mains the db is high level security
           * There are some severity impact, when the data is leaked.
@@ -160,7 +160,7 @@ declare namespace relationalStore
           * @since 9
           */
          S3 = 3,
- 
+
          /**
           * S4: mains the db is critical level security
           * There are some critical impact, when the data is leaked.
@@ -180,7 +180,7 @@ declare namespace relationalStore
     enum ConflictResolution {
         /**
          * Implements no action when conflict occurs.
-         * 
+         *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
@@ -400,9 +400,10 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -415,9 +416,10 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - Indicates the specified update condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @returns {Promise<number>} return the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -451,9 +453,10 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -465,9 +468,10 @@ declare namespace relationalStore
          * @param {DataSharePredicates} predicates - the specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
          * @param {AsyncCallback<number>} callback - the number of affected rows.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -504,9 +508,10 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is empty array, the query applies to all columns.
          * @param {AsyncCallback<ResultSet>} callback - the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -519,9 +524,10 @@ declare namespace relationalStore
          * @param {Array<string>} columns - the columns to query. If the value is null, the query applies to all columns.
          * @returns {Promise<ResultSet>} return the {@link ResultSet} object if the operation is successful.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
-         * @throws {BusinessError} 202 - Permission denied.
+         * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSet>;
@@ -1435,7 +1441,7 @@ declare namespace relationalStore
          * @since 9
          */
         getDouble(columnIndex: number): number;
-        
+
         /**
          * Checks whether the value of the specified column in the current row is null.
          *
