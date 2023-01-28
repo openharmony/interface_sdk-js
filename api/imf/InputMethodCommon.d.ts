@@ -17,7 +17,7 @@
  * Enumerates the moving direction of cursor
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since 10
  */
 export declare enum Direction {
     /**
@@ -45,7 +45,7 @@ export declare enum Direction {
  * Range of selected text.
  * @interface Range
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since 10
  */
 export interface Range {
     /**
@@ -53,7 +53,7 @@ export interface Range {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since 10
      */
     readonly start: number;
 
@@ -62,7 +62,7 @@ export interface Range {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since 10
      */
     readonly end: number;
 }
@@ -71,14 +71,14 @@ export interface Range {
  * Movement of cursor.
  * @interface Movement
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since 10
  */
 export interface Movement {
     /**
      * Indicates the direction of cursor movement
      * @type { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 9
+     * @since 10
      */
     readonly direction: Direction;
 }

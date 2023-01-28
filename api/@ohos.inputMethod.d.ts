@@ -399,7 +399,7 @@ declare namespace inputMethod {
          * @param callback - used to handle selectByRange command. The callback provides
          * the range of selection.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         on(type: 'selectByRange', callback: (range: Range) => void): void;
 
@@ -410,7 +410,7 @@ declare namespace inputMethod {
          * @param callback - used to handle selectByMovement command. The callback provides
          * the movement of cursor.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         on(type: 'selectByMovement', callback: (movement: Movement) => void): void;
 
@@ -418,7 +418,7 @@ declare namespace inputMethod {
          * Unregister the callback of selectedByRange.
          * @param {string} type - event type, fixed as 'selectByRange'.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         off(type: 'selectByRange'): void;
 
@@ -426,7 +426,7 @@ declare namespace inputMethod {
          * Unregister the callback of selectedByMovement.
          * @param {string} type - event type, fixed as 'selectByMovement'.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         off(type: 'selectByMovement'): void;
 

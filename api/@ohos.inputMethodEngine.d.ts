@@ -736,7 +736,7 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         selectByRange(range: Range, callback: AsyncCallback<void>): void;
 
@@ -747,7 +747,7 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         selectByRange(range: Range): Promise<void>;
 
@@ -758,7 +758,7 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         selectByMovement(movement: Movement, callback: AsyncCallback<void>): void;
 
@@ -769,7 +769,7 @@ declare namespace inputMethodEngine {
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
-         * @since 9
+         * @since 10
          */
         selectByMovement(movement: Movement): Promise<void>;
     }
