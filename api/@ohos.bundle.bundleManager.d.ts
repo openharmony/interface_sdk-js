@@ -20,7 +20,6 @@ import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
 import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
 import { ElementName as _ElementName }  from './bundleManager/elementName';
 import Want from './@ohos.app.ability.Want';
-import image from './@ohos.multimedia.image';
 import * as _AbilityInfo from './bundleManager/abilityInfo';
 import * as _BundleInfo from './bundleManager/bundleInfo';
 import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
@@ -1174,48 +1173,6 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
    * @since 9
    */
   function getAbilityLabel(bundleName: string, moduleName: string, abilityName: string): Promise<string>;
-
-  /**
-   * Obtains the icon of a specified ability.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { AsyncCallAsyncCallback<image.PixelMap> } callback - The callback of getting ability icon result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
-   * @throws { BusinessError } 17700029 - The specified ability is disabled.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
-   * @systemapi
-   * @since 9
-   */
-  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
-
-  /**
-   * Obtains the icon of a specified ability.
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
-   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
-   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
-   * @throws { BusinessError } 17700029 - The specified ability is disabled.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
-   * @systemapi
-   * @since 9
-   */
-  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
 
   /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
