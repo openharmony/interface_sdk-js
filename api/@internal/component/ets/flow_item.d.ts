@@ -26,6 +26,7 @@ interface FlowItemInterface {
 }
 
 /**
+ * Defines the water flow item attribute.
  * @since 9
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
