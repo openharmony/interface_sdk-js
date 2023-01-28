@@ -22,13 +22,13 @@
      * Defines the header display info.
      * @since 9
      */
-    header?: CustomBuilder;
+    header?: ResourceStr | CustomBuilder;
   
     /**
      * Defines the footer display info.
      * @since 9
      */
-    footer?: CustomBuilder;
+    footer?: ResourceStr | CustomBuilder;
   }
   
   /**
