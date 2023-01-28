@@ -24,8 +24,6 @@ import { AsyncCallback , Callback} from './basic';
  * The system stores the query result in a {@link BundleStatsInfo} instance and
  * then returns it to you.
  *
- * @namespace usageStatistics
- * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 9
  */
 declare namespace usageStatistics {
