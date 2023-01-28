@@ -1520,7 +1520,17 @@ declare namespace sensor {
      */
     interface Sensor {
         sensorName:string; /**< Sensor name */
-        vendorName:string; /**< Sensor vendor */
+        /**
+         * Sensor vendor.
+         * @deprecated since 9
+         * @useinstead sensor#event:Sensor.vendorName
+         */
+        venderName:string;
+        /**
+         * Sensor vendor.
+         * @since 9
+         */
+        vendorName:string;
         firmwareVersion:string; /**< Sensor firmware version */
         hardwareVersion:string; /**< Sensor hardware version */
         sensorId:number; /**< Sensor type ID, {@code SensorType} */
