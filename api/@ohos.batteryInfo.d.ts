@@ -209,11 +209,6 @@ declare namespace batteryInfo {
      */
     export enum BatteryCapacityLevel {
         /**
-         * The battery is in unknown capacity level.
-         * @since 9
-         */
-        LEVEL_NONE,
-        /**
          * The battery is in full capacity level.
          * @since 9
          */
@@ -234,10 +229,20 @@ declare namespace batteryInfo {
          */
         LEVEL_LOW,
         /**
+         * The battery is in warning low capacity level.
+         * @since 9
+         */
+        LEVEL_WARNING,
+        /**
          * The battery is in critical low capacity level.
          * @since 9
          */
-        LEVEL_CRITICAL
+        LEVEL_CRITICAL,
+        /**
+         * The battery is in the lowest capacity level, system will shut down automatically in a few seconds.
+         * @since 9
+         */
+        LEVEL_SHUTDOWN
     }
 
     /**
@@ -301,7 +306,12 @@ declare namespace batteryInfo {
          * Extra code of technology.
          * @since 9
          */
-        EXTRA_TECHNOLOGY
+        EXTRA_TECHNOLOGY,
+        /**
+         * Extra code of batteryCapacityLevel.
+         * @since 9
+         */
+        EXTRA_CAPACITY_LEVEL
     }
 }
 export default batteryInfo;
