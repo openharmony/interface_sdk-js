@@ -206,7 +206,7 @@ declare namespace screenLock {
    *
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
-   * @returns Returns {@code true} if send event to screen lock service is success; returns {@code false} otherwise.
+   * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
@@ -221,7 +221,7 @@ declare namespace screenLock {
    *
    * @param { String } event - event type.
    * @param { number } parameter - operation result of the event.
-   * @returns Returns {@code true} if send event to screen lock service is success; returns {@code false} otherwise.
+   * @returns Returns {@code true} if screen lock app send event to screen lock service is success; returns {@code false} otherwise.
    * @throws {BusinessError} 401 - parameter error.
    * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
    * @throws {BusinessError} 13200002 - the screenlock management service is abnormal.
