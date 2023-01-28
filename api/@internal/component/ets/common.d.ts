@@ -19,8 +19,14 @@
 declare const Component: ClassDecorator;
 
 /**
- * Defining Entry ClassDecorator.
- * Only API 9 and later support parameters.
+ * Defines Entry ClassDecorator.
+ * @returns { ClassDecorator } Entry is a ClassDecorator.
+ * @since 7
+ */
+/**
+ * Defines Entry ClassDecorator.
+ * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage as parameters.
  * @since 9
  */
 declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
@@ -134,7 +140,8 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
 /**
- * Get context.
+ * Obtains the Context object associated with a component on the page.
+ * @param { Object } component - indicate the component on the page.
  * @StageModelOnly
  * @since 9
  */
