@@ -346,7 +346,6 @@ declare namespace wallpaper {
     function getPixelMap(wallpaperType: WallpaperType): Promise<image.PixelMap>;
 
     /**
-     *
      * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
      * @throws {BusinessError} 401 - parameter error.
@@ -360,7 +359,6 @@ declare namespace wallpaper {
     function getImage(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
 
     /**
-     *
      * Obtains the default pixel map of a wallpaper of the specified type. Returns the default pixel map.
      * @param wallpaperType Indicates the wallpaper type.
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
