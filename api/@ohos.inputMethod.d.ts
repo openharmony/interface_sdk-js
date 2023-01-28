@@ -421,15 +421,15 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
          */
-        off(type: 'selectedByRange'): void;
+        off(type: 'selectByRange'): void;
 
         /**
          * Unregister the callback of selectedByMovement.
-         * @param {string} type - event type, fixed as 'selectedByMovement'.
+         * @param {string} type - event type, fixed as 'selectByMovement'.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
          */
-        off(type: 'selectedByMovement'): void;
+        off(type: 'selectByMovement'): void;
 
     }
 
