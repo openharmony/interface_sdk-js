@@ -396,7 +396,7 @@ declare namespace inputMethod {
          * Register a callback and when text in editor is selected by range,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByRange'.
-         * @param callback - used to handle selectByRange command. The callback provides
+         * @param callback - processes selectByRange command. The callback provides
          * the range of selection.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
@@ -407,7 +407,7 @@ declare namespace inputMethod {
          * Register a callback and when text in editor is selected by cursor movement,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByMovement'.
-         * @param callback - used to handle selectByMovement command. The callback provides
+         * @param callback - processes selectByMovement command. The callback provides
          * the movement of cursor.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10

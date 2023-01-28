@@ -19,7 +19,7 @@
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 10
  */
-export declare enum Direction {
+export enum Direction {
     /**
      * Cursor moves up
      */
