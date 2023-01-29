@@ -117,7 +117,7 @@ export declare function getInspectorByKey(id: string): string;
   * @since 9
   * @test
   */
-export declare function getInspectorTree(): string;
+export declare function getInspectorTree(): Object;
  
  /**
   * Sends an event to the component with the specified ID.
