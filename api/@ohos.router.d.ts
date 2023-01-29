@@ -279,26 +279,35 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.router.router#enableBackPageAlert
+   * @useinstead ohos.router.router#showAlertBeforeBackPage
    */
   function enableAlertBeforeBackPage(options: EnableAlertOptions):void;
 
   /**
-   * Pop up dialog to ask whether to back
+   * Pop up alert dialog to ask whether to back
    * @param { EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
-  function enableBackPageAlert(options: EnableAlertOptions):void;
+  function showAlertBeforeBackPage(options: EnableAlertOptions):void;
 
   /**
-   * cancel enableAlertBeforeBackPage
+   * Cancel enableAlertBeforeBackPage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.router.router#hideAlertBeforeBackPage
    */
   function disableAlertBeforeBackPage():void;
+
+  /**
+   * Hide alert before back page
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+   function hideAlertBeforeBackPage():void;
 
   /**
    * Obtains information about the current page params.
