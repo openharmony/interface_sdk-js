@@ -772,6 +772,29 @@ declare namespace inputMethodEngine {
          * @since 10
          */
         selectByMovement(movement: Movement): Promise<void>;
+
+        /**
+         * Get the index number of text at cursor.
+         * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
+         * number of text at cursor, if cursor not change or the text is empty, the value is 0; if cursor is a Rectangular area, the value
+         * is the index number of text at the end of cursor.
+         * @throws { BusinessError } 401 - parameter error.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(callback: AsyncCallback<number>): void;
+
+        /**
+         * Get the index number of text at cursor.
+         * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
+         * at cursor, if cursor not change or the text is empty, the value is 0; if cursor is a Rectangular area, the value is the index
+         * number of text at the end of cursor.
+         * @throws { BusinessError } 12800003 - input method client error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        getTextIndexAtCursor(): Promise<number>;
     }
 
     /**
