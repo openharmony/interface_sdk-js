@@ -240,7 +240,7 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.recovery
+     * @useinstead ohos.wallpaper.restore
      */
     function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
@@ -250,7 +250,7 @@ declare namespace wallpaper {
      * @permission ohos.permission.SET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @deprecated since 9
-     * @useinstead ohos.wallpaper.recovery
+     * @useinstead ohos.wallpaper.restore
      */
     function reset(wallpaperType: WallpaperType): Promise<void>;
 
