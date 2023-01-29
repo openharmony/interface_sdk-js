@@ -1,1 +1,2 @@
-export type Permissions = string;
+export type Permission = string;
+export type Permissions = Permission;
