@@ -81,7 +81,7 @@ declare namespace deviceManager {
     IDENTICAL_ACCOUNT = 0,
 
     /**
-     * Indicates peer to peer account trusted device type.
+     * Indicates peer to peer trusted device type without account.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
