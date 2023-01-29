@@ -760,6 +760,78 @@ declare enum RepeatMode {
 }
 
 /**
+ * Define the options of shadow
+ * @since 7
+ */
+declare interface ShadowOptions {
+  /**
+   * Define the radius size of shadow
+   * @since 7
+   */
+  radius: number | Resource;
+
+  /**
+   * Define the color of shadow
+   * @since 7
+   */
+  color?: Color | string | Resource;
+
+  /**
+   * Define the horizontal offset size of shadow
+   * @since 7
+   */
+  offsetX?: number | Resource;
+
+  /**
+   * Define the vertical offset size of shadow
+   * @since 7
+   */
+  offsetY?: number | Resource;
+}
+
+/**
+ * enum Shadow style
+ * @since 10
+ */
+declare enum ShadowStyle {
+  /**
+   * Defines the super small default shadow style.
+   * @since 10
+   */
+  OuterDefaultXS,
+
+  /**
+   * Defines the small default shadow style.
+   * @since 10
+   */
+  OuterDefaultSM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @since 10
+   */
+  OuterDefaultMD,
+
+  /**
+   * Defines the large default shadow style.
+   * @since 10
+   */
+  OuterDefaultLG,
+
+  /**
+   * Defines the small floating shadow style.
+   * @since 10
+   */
+  OuterFloatingSM,
+
+  /**
+   * Defines the medium floating shadow style.
+   * @since 10
+   */
+  OuterFloatingMD,
+}
+
+/**
  * Defines the base event.
  * @since 8
  */
@@ -1886,14 +1958,15 @@ declare class CommonMethod<T> {
 
   /**
    * Add a shadow effect to the current component
+   * @param { ShadowOptions } value
    * @since 7
    */
-  shadow(value: {
-    radius: number | Resource;
-    color?: Color | string | Resource;
-    offsetX?: number | Resource;
-    offsetY?: number | Resource;
-  }): T;
+  /**
+   * Add a shadow effect to the current component
+   * @param { ShadowOptions | ShadowStyle } value
+   * @since 10
+   */
+  shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
