@@ -15,7 +15,6 @@
 
 /**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
- * @import import Curves from '@ohos.curves'
  * @namespace curves
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -106,6 +105,7 @@ declare namespace curves {
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
    * @param { number } y1
+   * @param { number } x2
    * @param { number } y2
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -117,6 +117,7 @@ declare namespace curves {
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
    * @param { number } y1
+   * @param { number } x2
    * @param { number } y2
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,7 +155,6 @@ declare namespace curves {
 
   /**
    * Constructs a spring motion when called.
-   * If one parameter is not specified, it uses the corresponding default values.
    * @param { number } [response]
    * @param { number } [dampingFraction]
    * @param { number } [overlapDuration]
@@ -167,7 +167,6 @@ declare namespace curves {
 
   /**
    * Constructs a responsive spring motion when called.
-   * If one parameter is not specified, it uses the corresponding default values.
    * @param { number } [response]
    * @param { number } [dampingFraction]
    * @param { number } [overlapDuration]
