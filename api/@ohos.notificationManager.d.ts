@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
+import { BundleOption as _BundleOption } from './notification/notificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
@@ -774,7 +775,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function supportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
+  function isSupportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
@@ -785,7 +786,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function supportDoNotDisturbMode(): Promise<boolean>;
+  function isSupportDoNotDisturbMode(): Promise<boolean>;
 
   /**
    * Obtains whether the template is supported by the system.
@@ -1066,7 +1067,7 @@ declare namespace notificationManager {
     SERVICE_INFORMATION = 2,
 
     /**
-     * NotificationSlot for service information.
+     * NotificationSlot for content information.
      */
     CONTENT_INFORMATION = 3,
 
@@ -1144,17 +1145,6 @@ declare namespace notificationManager {
      * icons are displayed in the status bar, with a banner and a prompt tone.
      */
     LEVEL_HIGH = 4,
-  }
-
-  /**
-   * Describes a BundleOption.
-   * @typedef BundleOption
-   * @syscap SystemCapability.Notification.Notification
-   * @since 9
-   */
-  export interface BundleOption {
-    bundle: string;
-    uid?: number;
   }
 
   /**
@@ -1265,6 +1255,13 @@ declare namespace notificationManager {
      */
     TYPE_TIMER = 2,
   }
+
+  /**
+   * Describes an bundleOption in a notification.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  export type BundleOption = _BundleOption
 
   /**
    * Describes an action button displayed in a notification.
