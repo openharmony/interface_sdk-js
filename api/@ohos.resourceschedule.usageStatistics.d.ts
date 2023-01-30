@@ -25,7 +25,6 @@ import { AsyncCallback , Callback} from './basic';
  * then returns it to you.
  *
  * @namespace usageStatistics
- * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 9
  */
 declare namespace usageStatistics {
@@ -259,9 +258,9 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
-     * @param { AsyncCallback<boolean> } callback - the callback of isIdleState,
-     * boolean value is true mean the application is idle in a particular period; false mean otherwise.
-     * The time range of the particular period is defined by the system, which may be hours or days.
+     * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
+     * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
+     * The time range of the particular period is defined by the system, which may be hours or days.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -281,9 +280,9 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - Indicates the bundle name of the application to query.
-     * @returns { Promise<boolean> } the promise returned by queryAppGroup,
-     * boolean value is true mean the application is idle in a particular period; false mean otherwise.
-     * The time range of the particular period is defined by the system, which may be hours or days.
+     * @returns { Promise<boolean> } the promise returned by queryAppGroup.
+     * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
+     * The time range of the particular period is defined by the system, which may be hours or days.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -304,7 +303,7 @@ declare namespace usageStatistics {
      * for example, restricting the running of background tasks. </p>
      *
      * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
-     * Returns the app group of the calling application.
+     * <p> Returns the app group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -326,7 +325,7 @@ declare namespace usageStatistics {
      * for example, restricting the running of background tasks. </p>
      *
      * @returns { Promise<number> } the promise returned by queryAppGroup.
-     * Returns the app group of the calling application.
+     * <p> Returns the app group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -349,8 +348,8 @@ declare namespace usageStatistics {
      *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - name of the application.
-     * @param { AsyncCallback<number> } callback - the callback of queryAppGroup,
-     * the usage priority group of the calling application.
+     * @param { AsyncCallback<number> } callback - the callback of queryAppGroup.
+     * <p> the usage priority group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -375,8 +374,8 @@ declare namespace usageStatistics {
      *
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { string } bundleName - name of the application.
-     * @returns { Promise<number> } the promise returned by queryAppGroup,
-     * the usage priority group of the calling application.
+     * @returns { Promise<number> } the promise returned by queryAppGroup.
+     * <p> the usage priority group of the calling application.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -412,7 +411,7 @@ declare namespace usageStatistics {
      * @param {number} begin - Indicates the start time of the query period, in milliseconds.
      * @param {number} end - Indicates the end time of the query period, in milliseconds.
      * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
-     * the {@link BundleStatsMap} objects containing the usage information about each bundle.
+     * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -436,8 +435,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param {number} begin - Indicates the start time of the query period, in milliseconds.
      * @param {number} end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos,
-     * the {@link BundleStatsMap} objects containing the usage information about each bundle.
+     * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
+     * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -494,12 +493,12 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-     * The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
+     * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval,
-     * the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
+     * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
+     * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -521,12 +520,12 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-     * The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
+     * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+     * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval,
-     * the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.
+     * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
+     * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -549,8 +548,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents,
-     * the list of {@link BundleEvents} objects containing the state data of all bundles.
+     * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
+     * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -573,8 +572,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents,
-     * the list of {@link BundleEvents} objects containing the state data of all bundles.
+     * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
+     * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -596,8 +595,8 @@ declare namespace usageStatistics {
      * 
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents,
-     * the {@link BundleEvents} object Array containing the state data of the current bundle.
+     * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
+     * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -617,8 +616,8 @@ declare namespace usageStatistics {
      * 
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents,
-     * the {@link BundleEvents} object Array containing the state data of the current bundle.
+     * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
+     * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 401 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -638,8 +637,8 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-     * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords,
-     * the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
+     * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -661,8 +660,8 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-     * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords,
-     * the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
+     * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -683,8 +682,8 @@ declare namespace usageStatistics {
      * Queries recently module usage records.
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords,
-     * the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
+     * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -705,8 +704,8 @@ declare namespace usageStatistics {
      * Queries recently module usage records.
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords,
-     * the {@link HapModuleInfo} object Array containing the usage data of the modules.
+     * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
+     * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -814,7 +813,7 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-     * callback when AppGroupCallbackInfo when the group of app changed.
+     * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
      * @param { AsyncCallback<void> } callback - the callback of registerAppGroupCallBack.
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
@@ -836,7 +835,7 @@ declare namespace usageStatistics {
      * 
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-     * callback when AppGroupCallbackInfo when the group of app changed.
+     * <p> callback when AppGroupCallbackInfo when the group of app changed.</p>
      * @returns { Promise<void> } the promise returned by registerAppGroupCallBack.
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
@@ -899,8 +898,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats,
-     * the {@link DeviceEventStats} object Array containing the event states data.
+     * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
+     * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -923,8 +922,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats,
-     * the {@link DeviceEventStats} object Array containing the event states data.
+     * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
+     * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -947,8 +946,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats,
-     * the {@link DeviceEventStats} object Array containing the event states data.
+     * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
+     * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.
@@ -971,8 +970,8 @@ declare namespace usageStatistics {
      * @permission ohos.permission.BUNDLE_ACTIVE_INFO
      * @param { number } begin - Indicates the start time of the query period, in milliseconds.
      * @param { number } end - Indicates the end time of the query period, in milliseconds.
-     * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats,
-     * the {@link DeviceEventStats} object Array containing the event states data.
+     * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
+     * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
      * @throws { BusinessError } 201 - Parameter error.
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - Permission denied.

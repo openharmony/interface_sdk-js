@@ -21,7 +21,6 @@ import Context from './application/BaseContext';
  * Manages background tasks.
  *
  * @namespace backgroundTaskManager
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  * @since 9
  */
 declare namespace backgroundTaskManager {
@@ -113,7 +112,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * Service ability uses this method to request start running in background.
-     * system will publish a notification related to the this service.
+     * <p> System will publish a notification related to the this service. </p>
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
@@ -137,7 +136,7 @@ declare namespace backgroundTaskManager {
 
     /**
      * Service ability uses this method to request start running in background.
-     * system will publish a notification related to the this service.
+     * <p> System will publish a notification related to the this service. </p>
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.

@@ -19,7 +19,6 @@ import {AsyncCallback} from './basic';
  * Work scheduler interface.
  *
  * @namespace workScheduler
- * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 9
  */
@@ -101,7 +100,7 @@ declare namespace workScheduler {
 
     /**
      * Add a work to the queue. A work can be executed only when it meets the preset triggering condition
-     * and complies with the rules of work scheduler manager.
+     * <p> and complies with the rules of work scheduler manager. </p>
      *
      * @param { WorkInfo } work - The info of work.
      * @throws { BusinessError } 401 - Parameter error.
