@@ -33,6 +33,7 @@ declare interface WaterFlowOptions {
 
 
 /**
+ * Defines the water flow interface.
  * @since 9
  */
 interface WaterFlowInterface {
@@ -44,6 +45,7 @@ interface WaterFlowInterface {
 }
 
 /**
+ * Defines the water flow attribute.
  * @since 9
  */
 declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
