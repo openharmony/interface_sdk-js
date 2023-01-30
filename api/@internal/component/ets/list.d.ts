@@ -147,6 +147,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when judging whether it is in editable mode.
    * @since 7
+   * @deprecated since 9
    */
   editMode(value: boolean): ListAttribute;
 
@@ -207,6 +208,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when a list item is deleted.
    * @since 7
+   * @deprecated since 9
    */
   onItemDelete(event: (index: number) => boolean): ListAttribute;
 
