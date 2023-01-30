@@ -104,7 +104,6 @@ export default class UIAbilityContext extends Context {
      * @returns { Promise<Caller> } Returns the Caller interface.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */

@@ -35,7 +35,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -48,7 +47,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -61,7 +59,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -217,7 +214,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -228,7 +224,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
