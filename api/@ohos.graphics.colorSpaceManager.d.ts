@@ -141,7 +141,7 @@ import { AsyncCallback } from './basic';
    */
   interface ColorSpaceManager {
     /**
-     * Get color space type.
+     * Get the name of color space type.
      * @since 9
      * @throws {BusinessError} 18600001 - If param value is abnormal
      */
