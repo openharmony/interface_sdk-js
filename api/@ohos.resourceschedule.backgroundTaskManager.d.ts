@@ -20,6 +20,7 @@ import Context from './application/BaseContext';
 /**
  * Manages background tasks.
  *
+ * @namespace backgroundTaskManager
  * @since 9
  */
 declare namespace backgroundTaskManager {

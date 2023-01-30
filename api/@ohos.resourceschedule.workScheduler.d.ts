@@ -19,7 +19,6 @@ import {AsyncCallback} from './basic';
  * Work scheduler interface.
  *
  * @namespace workScheduler
- * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
  * @since 9
  */

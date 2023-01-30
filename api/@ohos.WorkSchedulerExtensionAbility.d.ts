@@ -29,7 +29,7 @@ export default class WorkSchedulerExtensionAbility {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @param work The info of work.
+     * @param {workScheduler.WorkInfo} work - The info of work.
      */
     onWorkStart(work: workScheduler.WorkInfo): void;
 
@@ -39,7 +39,7 @@ export default class WorkSchedulerExtensionAbility {
      * @since 9
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @param work The info of work.
+     * @param {workScheduler.WorkInfo} work - The info of work.
      */
     onWorkStop(work: workScheduler.WorkInfo): void;
 }
