@@ -1960,6 +1960,15 @@ declare class CommonMethod<T> {
    * @since 9
    */
    onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+
+  /**
+   * Sets hot keys
+   * @param { string } value , single character of the Combination key
+   * @param { Array<CtrlKey>} keys ,cmd keys of CtrlKey
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  keyboardShortcut(value: string, keys: Array<CtrlKey>): T;
 }
 
 /**
