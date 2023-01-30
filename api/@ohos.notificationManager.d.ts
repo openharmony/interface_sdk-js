@@ -1465,6 +1465,32 @@ declare namespace notificationManager {
   function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
 
   /**
+   * Set badge number.
+   * @param { number } badgeNumber - Badge number.
+   * @param { AsyncCallback<void> } callback - callback - The callback of setBadgeNumber..
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 10
+   */
+  function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set badge number.
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 10
+   */
+  function setBadgeNumber(badgeNumber: number): Promise<void>;
+
+  /**
    * Describes NotificationSlot types.
    * @enum { number }
    * @syscap SystemCapability.Notification.Notification
