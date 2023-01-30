@@ -16,8 +16,8 @@
 import { AsyncCallback } from '../basic';
 import UIAbility from '../@ohos.app.ability.UIAbility';
 import AbilityStage from '../@ohos.app.ability.AbilityStage';
-import { AbilityMonitor } from './abilityMonitor';
-import { AbilityStageMonitor } from './abilityStageMonitor';
+import { AbilityMonitor } from './AbilityMonitor';
+import { AbilityStageMonitor } from './AbilityStageMonitor';
 import Context from './Context';
 import Want from "../@ohos.app.ability.Want";
 import { ShellCmdResult } from './shellCmdResult';
@@ -30,7 +30,7 @@ import { ShellCmdResult } from './shellCmdResult';
  */
 export interface AbilityDelegator {
     /**
-     * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability.
+     * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
      * @param { AbilityMonitor } monitor - AbilityMonitor object
      * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -40,7 +40,7 @@ export interface AbilityDelegator {
     addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void;
 
     /**
-     * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability.
+     * Add an AbilityMonitor object for monitoring the lifecycle state changes of the specified ability in this process.
      * @param { AbilityMonitor } monitor - AbilityMonitor object
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -50,7 +50,7 @@ export interface AbilityDelegator {
     addAbilityMonitor(monitor: AbilityMonitor): Promise<void>;
 
     /**
-     * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage.
+     * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -60,7 +60,7 @@ export interface AbilityDelegator {
     addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void;
 
     /**
-     * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage.
+     * Add an AbilityStageMonitor object for monitoring the lifecycle state changes of the specified abilityStage in this process.
      * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -192,7 +192,7 @@ export interface AbilityDelegator {
     getAbilityState(ability: UIAbility): number;
 
     /**
-     * Obtain the ability that is currently being displayed.
+     * Obtain the ability that is currently being displayed in this process.
      * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -201,7 +201,7 @@ export interface AbilityDelegator {
     getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void;
 
     /**
-     * Obtain the ability that is currently being displayed.
+     * Obtain the ability that is currently being displayed in this process.
      * @returns { Promise<UIAbility> } Returns the Ability object.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
