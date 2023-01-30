@@ -18,7 +18,6 @@ import ApplicationStateObserver from './application/ApplicationStateObserver';
 import AbilityStateData from './application/AbilityStateData';
 import AppStateData from './application/AppStateData';
 import { ProcessRunningInfo } from './application/ProcessRunningInfo';
-import { ProcessRunningInformation } from './application/ProcessRunningInformation';
 
 /**
  * This module provides the function of app manager service.
@@ -100,7 +99,7 @@ declare namespace appManager {
     * @returns Returns the array of {@link ProcessRunningInfo}.
     * @permission ohos.permission.GET_RUNNING_INFO
     * @deprecated since 9
-    * @useinstead getProcessRunningInformation
+    * @useinstead ohos.app.ability.appManager#getRunningProcessInformation
     */
     function getProcessRunningInfos(): Promise<Array<ProcessRunningInfo>>;
     function getProcessRunningInfos(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
