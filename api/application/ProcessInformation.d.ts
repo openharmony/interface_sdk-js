@@ -14,12 +14,12 @@
  */
 
 /**
- * The class of an process running information.
+ * The class of an process information.
  *
  * @since 9
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  */
- export interface ProcessRunningInformation {
+ export interface ProcessInformation {
     /**
      * @default process id
      * @since 9

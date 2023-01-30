@@ -26,7 +26,7 @@ import { AbilityResult as _AbilityResult } from "./ability/abilityResult";
 import { ConnectOptions as _ConnectOptions } from "./ability/connectOptions";
 
 /**
- * The context of an application. It allows access to application-specific resources.
+ * This module provides application context classes and common data structures.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @since 9
