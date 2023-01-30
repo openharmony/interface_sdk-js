@@ -84,9 +84,10 @@ declare namespace promptAction {
   interface ShowDialogSuccessResponse {
 
     /**
+     * Index of the selected button, starting from 0.
      * @type { number }
-    * @since 9
-    */
+     * @since 9
+     */
     index: number;
   }
 
@@ -128,6 +129,7 @@ declare namespace promptAction {
   interface ActionMenuSuccessResponse {
 
     /**
+     * Index of the selected button, starting from 0.
      * @type { number }
      * @since 9
      */
