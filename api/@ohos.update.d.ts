@@ -26,8 +26,8 @@ declare namespace update {
     /**
      * Get online update handler for the calling device.
      *
-     * @param upgradeInfo indicates client app and business type
-     * @returns online update handler to perform online update.
+     * @param { UpgradeInfo } upgradeInfo indicates client app and business type.
+     * @returns { Updater } online update handler to perform online update.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 11500104 - IPC error.
      * @since 9
@@ -37,9 +37,7 @@ declare namespace update {
     /**
      * Get restore handler.
      *
-     * @returns restore handler to perform factory reset.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @returns { Restorer } restore handler to perform factory reset.
      * @since 9
      */
     function getRestorer(): Restorer;
@@ -47,9 +45,7 @@ declare namespace update {
     /**
      * Get local update handler.
      *
-     * @returns local update handler to perform local update.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @returns { LocalUpdater } local update handler to perform local update.
      * @since 9
      */
     function getLocalUpdater(): LocalUpdater;
@@ -66,68 +62,142 @@ declare namespace update {
          * Check new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<CheckResult> } callback - Callback used to return the check new version result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         checkNewVersion(callback: AsyncCallback<CheckResult>): void;
+
+        /**
+         * Check new version.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @returns { Promise<CheckResult> } Promise used to return the check new version result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         checkNewVersion(): Promise<CheckResult>;
 
         /**
          * Get new version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<CheckResult> } callback - Callback used to return the get new version result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionInfo(callback: AsyncCallback<NewVersionInfo>): void;
+
+        /**
+         * Get new version.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @returns { Promise<NewVersionInfo> } Promise used to return the check new version result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getNewVersionInfo(): Promise<NewVersionInfo>;
 
         /**
          * Get new version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { DescriptionOptions } descriptionOptions - Options of the description file.
+         * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the get new version description result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
+
+        /**
+         * Get new version description.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { DescriptionOptions } descriptionOptions - Options of the description file.
+         * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getNewVersionDescription(versionDigestInfo: VersionDigestInfo, descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
         /**
          * Get current version.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<Array<CurrentVersionInfo>> } callback - Callback used to return the get current version result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getCurrentVersionInfo(callback: AsyncCallback<CurrentVersionInfo>): void;
+
+        /**
+         * Get current version.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @@returns { Promise<Array<CurrentVersionInfo>> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
         /**
          * Get current version description.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { DescriptionOptions } descriptionOptions - Options of the description file.
+         * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the get current version description result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getCurrentVersionDescription(descriptionOptions: DescriptionOptions, callback: AsyncCallback<Array<ComponentDescription>>): void;
+
+        /**
+         * Get current version description.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { DescriptionOptions } descriptionOptions - Options of the description file.
+         * @returs { Promise<Array<ComponentDescription> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getCurrentVersionDescription(descriptionOptions: DescriptionOptions): Promise<Array<ComponentDescription>>;
 
         /**
          * Get task info.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the get task information result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getTaskInfo(callback: AsyncCallback<TaskInfo>): void;
+
+        /**
+         * Get task info.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @returns { Promise<TaskInfo> } Promise used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getTaskInfo(): Promise<TaskInfo>;
 
         /**
@@ -135,12 +205,29 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { DownloadOptions } downloadOptions - Download options.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions, callback: AsyncCallback<void>): void;
+
+        /**
+         * Trigger download new version packages.
+         * apps should listen to task update event
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { DownloadOptions } downloadOptions - Download options.
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
         /**
@@ -148,12 +235,29 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions, callback: AsyncCallback<void>): void;
+
+        /**
+         * resume download new version packages.
+         * apps should listen to task update event
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
         /**
@@ -161,12 +265,29 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions, callback: AsyncCallback<void>): void;
+
+        /**
+         * pause download new version packages.
+         * apps should listen to task update event
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions): Promise<void>;
 
         /**
@@ -174,62 +295,132 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { UpgradeOptions } upgradeOptions - Update options. 
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions, callback: AsyncCallback<void>): void;
+
+        /**
+         * Install packages for the device.
+         * apps should listen to task update event
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { UpgradeOptions } upgradeOptions - Update options. 
+         * @param { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
         /**
          * clear error during upgrade.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { ClearOptions } ClearOptions - Clear options. 
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
+
+        /**
+         * clear error during upgrade.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
+         * @param { ClearOptions } clearOptions - Clear options. 
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions): Promise<void>;
 
         /**
          * Get current upgrade policy.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         getUpgradePolicy(callback: AsyncCallback<UpgradePolicy>): void;
+
+        /**
+         * Get current upgrade policy.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @returns { Promise<UpgradePolicy> } Promise used to return the get upgrade policy result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         getUpgradePolicy(): Promise<UpgradePolicy>;
 
         /**
          * Set upgrade policy.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { UpgradePolicy } policy - Update policy.
+         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9 
+         */
+        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
+
+        /**
+         * Set upgrade policy.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { policy } UpgradePolicy - Update policy.
+         * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
-        setUpgradePolicy(policy: UpgradePolicy, callback: AsyncCallback<void>): void;
         setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
         /**
          * terminate upgrade task.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         terminateUpgrade(callback: AsyncCallback<void>): void;
+
+        /**
+         * terminate upgrade task.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         terminateUpgrade(): Promise<void>;
 
         /**
          * Subscribe task update events
-         *
+         * 
+         * @param { EventClassifyInfo } eventClassifyInfo - Event information.
+         * @param { UpgradeTaskCallback } taskCallback - Event callback.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -240,6 +431,8 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
+         * @param { EventClassifyInfo } eventClassifyInfo - Event information.
+         * @param { UpgradeTaskCallback } taskCallback - Event callback.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -258,13 +451,24 @@ declare namespace update {
     export interface Restorer {
         /**
          * Reboot and clean user data.
-         *
+         * 
          * @permission ohos.permission.FACTORY_RESET
+         * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         factoryReset(callback: AsyncCallback<void>): void;
+
+        /**
+         * Reboot and clean user data.
+         * 
+         * @permission ohos.permission.FACTORY_RESET
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         factoryReset(): Promise<void>;
     }
 
@@ -278,7 +482,10 @@ declare namespace update {
     export interface LocalUpdater {
         /**
          * Verify local update package.
-         *
+         * 
+         * @param { UpgradeFile } upgradeFile - Update file.
+         * @param { string } certsFile - Path of the certificate file.
+         * @param { AsyncCallback<void> } callback - Callback used to return the verify upgrade package result.
          * @permission ohos.permission.UPDATE_SYSTEM
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -286,6 +493,19 @@ declare namespace update {
          * @since 9
          */
         verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string, callback: AsyncCallback<void>): void;
+
+        /**
+         * Verify local update package.
+         * 
+         * @param { UpgradeFile } upgradeFile - Update file.
+         * @param { string } certsFile - Path of the certificate file.
+         * returns { Promise<void> } Promise that returns no value.
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         verifyUpgradePackage(upgradeFile: UpgradeFile, certsFile: string): Promise<void>;
 
         /**
@@ -293,17 +513,34 @@ declare namespace update {
          * apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { UpgradeFile } upgradeFile - Update file.
+         * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
          */
         applyNewVersion(upgradeFiles: Array<UpgradeFile>, callback: AsyncCallback<void>): void;
+
+        /**
+         * Apply local update package.
+         * apps should listen to task update event
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { UpgradeFile } upgradeFile - Update file.
+         * @returns { Promise<void> } Promise that returns no value.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Parameter error.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         applyNewVersion(upgradeFiles: Array<UpgradeFile>): Promise<void>;
 
         /**
          * Subscribe task update events
          *
+         * @param { EventClassifyInfo } eventClassifyInfo - Event information.
+         * @param { UpgradeTaskCallback } taskCallback - Event callback.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 11500104 - IPC error.
          * @since 9
@@ -313,6 +550,8 @@ declare namespace update {
         /**
          * Unsubscribe task update events
          *
+         * @param { EventClassifyInfo } eventClassifyInfo - Event information.
+         * @param { UpgradeTaskCallback } taskCallback - Event callback.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -329,14 +568,14 @@ declare namespace update {
     export interface UpgradeInfo {
         /**
          * Upgrade client package name
-         *
+         * @type {string}
          * @since 9
          */
         upgradeApp: string;
 
         /**
          * BusinessType of upgrade
-         *
+         * @type {BusinessType}
          * @since 9
          */
         businessType: BusinessType;
@@ -350,14 +589,14 @@ declare namespace update {
     export interface BusinessType {
         /**
          * Vendor of business type
-         *
+         * @type {BusinessVendor}
          * @since 9
          */
         vendor: BusinessVendor;
 
         /**
-         * Type
-         *
+         * Update service type
+         * @type {BusinessSubType}
          * @since 9
          */
         subType: BusinessSubType;
@@ -371,14 +610,14 @@ declare namespace update {
     export interface CheckResult {
         /**
          * New version exist or not
-         *
+         * @type {boolean}
          * @since 9
          */
         isExistNewVersion: boolean;
 
         /**
          * New version info
-         *
+         * @type {NewVersionInfo}
          * @since 9
          */
         newVersionInfo: NewVersionInfo;
@@ -392,14 +631,14 @@ declare namespace update {
     export interface NewVersionInfo {
         /**
          * Digest info of new version
-         *
+         * @type {VersionDigestInfo}
          * @since 9
          */
         versionDigestInfo: VersionDigestInfo;
 
         /**
          * New version component array
-         *
+         * @type {Array<VersionComponent>}
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -413,7 +652,7 @@ declare namespace update {
     export interface VersionDigestInfo {
         /**
          * Version digest value
-         *
+         * @type {string}
          * @since 9
          */
         versionDigest: string;
@@ -426,57 +665,57 @@ declare namespace update {
      */
     export interface VersionComponent {
         /**
-         * Component id
-         *
+         * Version component id
+         * @type {string}
          * @since 9
          */
         componentId: string;
 
         /**
-         * Component type
-         *
+         * Version component type
+         * @type {ComponentType}
          * @since 9
          */
         componentType: ComponentType;
 
         /**
          * Upgrade action
-         *
+         * @type {UpgradeAction}
          * @since 9
          */
         upgradeAction: UpgradeAction;
 
         /**
-         * Display version
-         *
+         * Display version number
+         * @type {string}
          * @since 9
          */
         displayVersion: string;
 
         /**
-         * Inner version
-         *
+         * Internal version number
+         * @type {string}
          * @since 9
          */
         innerVersion: string;
 
         /**
-         * Component size
-         *
+         * Update package size
+         * @type {number}
          * @since 9
          */
         size: number;
 
         /**
          * Effective mode
-         *
+         * @type {EffectiveMode}
          * @since 9
          */
         effectiveMode: EffectiveMode;
 
         /**
-         * Description info
-         *
+         * Information about the version description file
+         * @type {DescriptionInfo}
          * @since 9
          */
         descriptionInfo: DescriptionInfo;
@@ -489,15 +728,15 @@ declare namespace update {
      */
     export interface DescriptionOptions {
         /**
-         * Description format
-         *
+         * Format of the description file
+         * @type {DescriptionFormat}
          * @since 9
          */
         format: DescriptionFormat;
 
         /**
-         * Description language
-         *
+         * Language of the description file
+         * @type {string}
          * @since 9
          */
         language: string;
@@ -511,14 +750,14 @@ declare namespace update {
     export interface ComponentDescription {
         /**
          * Component id
-         *
+         * @type {string}
          * @since 9
          */
         componentId: string;
 
         /**
-         * Description info
-         *
+         * Information about the description file
+         * @type {DescriptionInfo}
          * @since 9
          */
         descriptionInfo: DescriptionInfo;
@@ -532,14 +771,14 @@ declare namespace update {
     export interface DescriptionInfo {
         /**
          * Description content type
-         *
+         * @type {DescriptionType}
          * @since 9
          */
         descriptionType: DescriptionType;
 
         /**
-         * Description content
-         *
+         * Content of the description file
+         * @type {string}
          * @since 9
          */
         content: string;
@@ -552,22 +791,22 @@ declare namespace update {
      */
     export interface CurrentVersionInfo {
         /**
-         * OS version
-         *
+         * System version number
+         * @type {string}
          * @since 9
          */
         osVersion: string;
 
         /**
          * Device name
-         *
+         * @type {string}
          * @since 9
          */
         deviceName: string;
 
         /**
          * Current version component array
-         *
+         * @type {Array<VersionComponent>}
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -581,14 +820,14 @@ declare namespace update {
     export interface DownloadOptions {
         /**
          * Allow download with the network type
-         *
+         * @type {NetType}
          * @since 9
          */
         allowNetwork: NetType;
 
         /**
-         * Upgrade order
-         *
+         * Upgrade command
+         * @type {Order}
          * @since 9
          */
         order: Order;
@@ -602,7 +841,7 @@ declare namespace update {
     export interface ResumeDownloadOptions {
         /**
          * Allow download with the network type
-         *
+         * @type {NetType}
          * @since 9
          */
         allowNetwork: NetType;
@@ -616,7 +855,7 @@ declare namespace update {
     export interface PauseDownloadOptions {
         /**
          * Whether allow auto resume when net available
-         *
+         * @type {boolean}
          * @since 9
          */
         isAllowAutoResume: boolean;
@@ -629,8 +868,8 @@ declare namespace update {
      */
     export interface UpgradeOptions {
         /**
-         * Upgrade order
-         *
+         * Upgrade command
+         * @type {Order}
          * @since 9
          */
         order: Order;
@@ -644,7 +883,7 @@ declare namespace update {
     export interface ClearOptions {
         /**
          * Clear status error
-         *
+         * @type {UpgradeStatus}
          * @since 9
          */
         status: UpgradeStatus;
@@ -658,21 +897,21 @@ declare namespace update {
     export interface UpgradePolicy {
         /**
          * Download strategy: open or close
-         *
+         * @type {boolean}
          * @since 9
          */
         downloadStrategy: boolean;
 
         /**
          * Auto upgrade strategy: open or close
-         *
+         * @type {boolean}
          * @since 9
          */
         autoUpgradeStrategy: boolean;
 
         /**
          * Auto upgrade period
-         *
+         * @type {Array<UpgradePeriod>}
          * @since 9
          */
         autoUpgradePeriods: Array<UpgradePeriod>;
@@ -686,14 +925,14 @@ declare namespace update {
     export interface UpgradePeriod {
         /**
          * Start time of upgrade period
-         *
+         * @type {number}
          * @since 9
          */
         start: number;
 
         /**
          * End time of upgrade period
-         *
+         * @type {number}
          * @since 9
          */
         end: number;
@@ -707,14 +946,14 @@ declare namespace update {
     export interface TaskInfo {
         /**
          * Whether upgrade task exist
-         *
+         * @type {boolean}
          * @since 9
          */
         existTask: boolean;
 
         /**
          * Task body info
-         *
+         * @type {TaskBody}
          * @since 9
          */
         taskBody: TaskBody;
@@ -727,15 +966,15 @@ declare namespace update {
      */
     export interface EventInfo {
         /**
-         * event id
-         *
+         * Event id
+         * @type {EventId}
          * @since 9
          */
         eventId: EventId;
 
         /**
-         * task body info
-         *
+         * Task body info
+         * @type {TaskBody}
          * @since 9
          */
         taskBody: TaskBody;
@@ -749,49 +988,49 @@ declare namespace update {
     export interface TaskBody {
         /**
          * Digest info of new version
-         *
+         * @type {VersionDigestInfo}
          * @since 9
          */
         versionDigestInfo: VersionDigestInfo;
 
         /**
          * Upgrade status
-         *
+         * @type {UpgradeStatus}
          * @since 9
          */
         status: UpgradeStatus;
 
         /**
          * Upgrade sub status
-         *
+         * @type {number}
          * @since 9
          */
         subStatus: number;
 
         /**
          * Upgrade progress
-         *
+         * @type {number}
          * @since 9
          */
         progress: number;
 
         /**
          * Install mode
-         *
+         * @type {number}
          * @since 9
          */
         installMode: number;
 
         /**
          * Error messages
-         *
+         * @type {Array<ErrorMessage>}
          * @since 9
          */
         errorMessages: Array<ErrorMessage>;
 
         /**
          * Version component array
-         *
+         * @type {Array<VersionComponent>}
          * @since 9
          */
         versionComponents: Array<VersionComponent>;
@@ -805,14 +1044,14 @@ declare namespace update {
     export interface ErrorMessage {
         /**
          * Error code
-         *
+         * @type {number}
          * @since 9
          */
         errorCode: number;
 
         /**
          * Error message
-         *
+         * @type {string}
          * @since 9
          */
         errorMessage: string;
@@ -826,14 +1065,14 @@ declare namespace update {
     export interface EventClassifyInfo {
         /**
          * Event classify
-         *
+         * @type {EventClassify}
          * @since 9
          */
         eventClassify: EventClassify;
 
         /**
-         * Extra info
-         *
+         * Additional information
+         * @type {string}
          * @since 9
          */
         extraInfo: string;
@@ -846,15 +1085,15 @@ declare namespace update {
      */
     export interface UpgradeFile {
         /**
-         * File type
-         *
+         * upgrade file type
+         * @type {ComponentType}
          * @since 9
          */
         fileType: ComponentType;
 
         /**
-         * File path
-         *
+         * upgrade file path
+         * @type {string}
          * @since 9
          */
         filePath: string;
@@ -868,6 +1107,15 @@ declare namespace update {
      * @since 9
      */
     export interface UpgradeTaskCallback {
+        /**
+         * Event callback.
+         *
+         * @permission ohos.permission.UPDATE_SYSTEM
+         * @param { EventInfo } eventInfo - Event information.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 11500104 - IPC error.
+         * @since 9
+         */
         (eventInfo: EventInfo): void;
     }
 
@@ -877,6 +1125,10 @@ declare namespace update {
      * @since 9
      */
     export enum BusinessVendor {
+        /**
+         * Represents a device vendor is open source.
+         * @since 9
+         */
         PUBLIC = "public"
     }
 
@@ -886,6 +1138,10 @@ declare namespace update {
      * @since 9
      */
     export enum BusinessSubType {
+        /**
+         * Represents business sub type is Firmware.
+         * @since 9
+         */
         FIRMWARE = 1
     }
 
@@ -895,6 +1151,10 @@ declare namespace update {
      * @since 9
      */
     export enum ComponentType {
+        /**
+         * Represents component type is OTA.
+         * @since 9
+         */
         OTA = 1,
     }
 
@@ -904,7 +1164,16 @@ declare namespace update {
      * @since 9
      */
     export enum UpgradeAction {
+        /**
+         * Differential package.
+         * @since 9
+         */
         UPGRADE = "upgrade",
+
+        /**
+         * Recovery package.
+         * @since 9
+         */
         RECOVERY = "recovery"
     }
 
@@ -914,8 +1183,22 @@ declare namespace update {
      * @since 9
      */
     export enum EffectiveMode {
+        /**
+         * Cold update.
+         * @since 9
+         */
         COLD = 1,
+
+        /**
+         * Live update.
+         * @since 9
+         */
         LIVE = 2,
+
+        /**
+         * Hybrid live and cold update.
+         * @since 9
+         */
         LIVE_AND_COLD = 3
     }
 
@@ -925,7 +1208,16 @@ declare namespace update {
      * @since 9
      */
     export enum DescriptionType {
+        /**
+         * Enumerates description type is content.
+         * @since 9
+         */
         CONTENT = 0,
+
+        /**
+         * Enumerates description type is link.
+         * @since 9
+         */
         URI = 1
     }
 
@@ -935,7 +1227,16 @@ declare namespace update {
      * @since 9
      */
     export enum DescriptionFormat {
+        /**
+         * Enumerates description format is standard format.
+         * @since 9
+         */
         STANDARD = 0,
+
+        /**
+         * Enumerates description format is Simple format.
+         * @since 9
+         */
         SIMPLIFIED = 1
     }
 
@@ -945,10 +1246,34 @@ declare namespace update {
      * @since 9
      */
     export enum NetType {
+        /**
+         * Enumerates network type is data network.
+         * @since 9
+         */
         CELLULAR = 1,
+
+        /**
+         * Enumerates network type is Wi-Fi hotspot.
+         * @since 9
+         */
         METERED_WIFI = 2,
+
+        /**
+         * Enumerates network type is non Wi-Fi hotspot.
+         * @since 9
+         */
         NOT_METERED_WIFI = 4,
+
+        /**
+         * Enumerates network type is Wi-Fi.
+         * @since 9
+         */
         WIFI = 6,
+
+        /**
+         * Enumerates network type is data network and Wi-Fi.
+         * @since 9
+         */
         CELLULAR_AND_WIFI = 7
     }
 
@@ -958,10 +1283,34 @@ declare namespace update {
      * @since 9
      */
     export enum Order {
+        /**
+         * Enumerates upgrade order is download.
+         * @since 9
+         */
         DOWNLOAD = 1,
+
+        /**
+         * Enumerates upgrade order is Iinstall.
+         * @since 9
+         */
         INSTALL = 2,
+
+        /**
+         * Enumerates upgrade order is download and install.
+         * @since 9
+         */
         DOWNLOAD_AND_INSTALL = 3,
+
+        /**
+         * Enumerates upgrade order is apply.
+         * @since 9
+         */
         APPLY = 4,
+
+        /**
+         * Enumerates upgrade order is install and apply.
+         * @since 9
+         */
         INSTALL_AND_APPLY = 6
     }
 
@@ -971,15 +1320,64 @@ declare namespace update {
      * @since 9
      */
     export enum UpgradeStatus {
+        /**
+         * Enumerates upgrade status is waiting for download.
+         * @since 9
+         */
         WAITING_DOWNLOAD = 20,
+
+        /**
+         * Enumerates upgrade status is downloading.
+         * @since 9
+         */
         DOWNLOADING = 21,
+
+        /**
+         * Enumerates upgrade status is download paused.
+         * @since 9
+         */
         DOWNLOAD_PAUSED = 22,
+
+        /**
+         * Enumerates upgrade status is download failed.
+         * @since 9
+         */
         DOWNLOAD_FAIL = 23,
+
+        /**
+         * Enumerates upgrade status is waiting for installation.
+         * @since 9
+         */
         WAITING_INSTALL = 30,
+
+        /**
+         * Enumerates upgrade status is upgrading.
+         * @since 9
+         */
         UPDATING = 31,
+
+        /**
+         * Enumerates upgrade status is waiting for applying the update.
+         * @since 9
+         */
         WAITING_APPLY = 40,
+
+        /**
+         * Enumerates upgrade status is applying the update.
+         * @since 9
+         */
         APPLYING = 41,
+
+        /**
+         * Enumerates upgrade status is update succeeded.
+         * @since 9
+         */
         UPGRADE_SUCCESS = 50,
+
+        /**
+         * Enumerates upgrade status is update failed.
+         * @since 9
+         */
         UPGRADE_FAIL = 51
     }
 
@@ -989,6 +1387,10 @@ declare namespace update {
      * @since 9
      */
     export enum EventClassify {
+        /**
+         * Enumerates event classify is task event.
+         * @since 9
+         */
         TASK = 0x01000000
     }
 
@@ -998,22 +1400,106 @@ declare namespace update {
      * @since 9
      */
     export enum EventId {
+        /**
+         * Enumerates event id is task eventd.
+         * @since 9
+         */
         EVENT_TASK_BASE = EventClassify.TASK,
+
+        /**
+         * Enumerates event id is task received.
+         * @since 9
+         */
         EVENT_TASK_RECEIVE,
+
+        /**
+         * Enumerates event id is task cancelled.
+         * @since 9
+         */
         EVENT_TASK_CANCEL,
+
+        /**
+         * Enumerates event id is waiting for download.
+         * @since 9
+         */
         EVENT_DOWNLOAD_WAIT,
+
+        /**
+         * Enumerates event id is download started.
+         * @since 9
+         */
         EVENT_DOWNLOAD_START,
+
+        /**
+         * Enumerates event id is download progress update.
+         * @since 9
+         */
         EVENT_DOWNLOAD_UPDATE,
+
+        /**
+         * Enumerates event id is download paused.
+         * @since 9
+         */
         EVENT_DOWNLOAD_PAUSE,
+
+        /**
+         * Enumerates event id is download resumed.
+         * @since 9
+         */
         EVENT_DOWNLOAD_RESUME,
+
+        /**
+         * Enumerates event id is download succeeded.
+         * @since 9
+         */
         EVENT_DOWNLOAD_SUCCESS,
+
+        /**
+         * Enumerates event id is download failed.
+         * @since 9
+         */
         EVENT_DOWNLOAD_FAIL,
+
+        /**
+         * Enumerates event id is waiting for updat.
+         * @since 9
+         */
         EVENT_UPGRADE_WAIT,
+
+        /**
+         * Enumerates event id is update started.
+         * @since 9
+         */
         EVENT_UPGRADE_START,
+
+        /**
+         * Enumerates event id is update in progress.
+         * @since 9
+         */
         EVENT_UPGRADE_UPDATE,
+
+        /**
+         * Enumerates event id is waiting for applying the update.
+         * @since 9
+         */
         EVENT_APPLY_WAIT,
+
+        /**
+         * Enumerates event id is applying the update.
+         * @since 9
+         */
         EVENT_APPLY_START,
+
+        /**
+         * Enumerates event id is update succeeded.
+         * @since 9
+         */
         EVENT_UPGRADE_SUCCESS,
+
+        /**
+         * Enumerates event id is update failed.
+         * @since 9
+         */
         EVENT_UPGRADE_FAIL
     }
 }
