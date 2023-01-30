@@ -33,7 +33,6 @@ declare namespace relationalStore
      *
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
      * @param {AsyncCallback<RdbStore>} callback - the RDB store {@link RdbStore}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @throws {BusinessError} 14800010 - if failed open database by invalid database name
@@ -51,7 +50,6 @@ declare namespace relationalStore
      *
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
      * @returns {Promise<RdbStore>} the RDB store {@link RdbStore}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @throws {BusinessError} 14800010 - if failed open database by invalid database name
@@ -573,7 +571,7 @@ declare namespace relationalStore
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
         /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - Indicates the SQL statement to execute.
          * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
@@ -758,7 +756,7 @@ declare namespace relationalStore
          * the callback will be invoked.
          *
          * @param {string} event - Indicates the event must be string 'dataChange'.
-         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -770,7 +768,7 @@ declare namespace relationalStore
          * Remove specified observer of specified type from the database.
          *
          * @param {string} event - Indicates the event must be string 'dataChange'.
-         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
