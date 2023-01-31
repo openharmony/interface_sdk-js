@@ -171,11 +171,11 @@ declare namespace wifiManager {
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Obtain the list of all existing candidate WiFi configurations which added by ourself.
+     * Obtain the list of all existed candidate WiFi configurations which added by ourself.
      *
      * <p>You can obtain only the WiFi configurations you created on your own application.
      *
-     * @returns Returns the list of all existing WiFi configurations you created on your application.
+     * @returns Returns the list of all existed WiFi configurations you created on your application.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
