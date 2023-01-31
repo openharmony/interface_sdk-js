@@ -168,7 +168,7 @@ declare namespace update {
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-         * @returs { Promise<Array<ComponentDescription> } Promise used to return the result.
+         * @returns { Promise<Array<ComponentDescription> } Promise used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
          * @throws { BusinessError } 11500104 - IPC error.
@@ -200,7 +200,7 @@ declare namespace update {
 
         /**
          * Trigger download new version packages.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -215,7 +215,7 @@ declare namespace update {
 
         /**
          * Trigger download new version packages.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -229,12 +229,12 @@ declare namespace update {
         download(versionDigestInfo: VersionDigestInfo, downloadOptions: DownloadOptions): Promise<void>;
 
         /**
-         * resume download new version packages.
-         * apps should listen to task update event
+         * Resume download new version packages.
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
+         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
          * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -244,12 +244,12 @@ declare namespace update {
         resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions, callback: AsyncCallback<void>): void;
 
         /**
-         * resume download new version packages.
-         * apps should listen to task update event
+         * Resume download new version packages.
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
+         * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -259,12 +259,12 @@ declare namespace update {
         resumeDownload(versionDigestInfo: VersionDigestInfo, resumeDownloadOptions: ResumeDownloadOptions): Promise<void>;
 
         /**
-         * pause download new version packages.
-         * apps should listen to task update event
+         * Pause download new version packages.
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
+         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
          * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -274,12 +274,12 @@ declare namespace update {
         pauseDownload(versionDigestInfo: VersionDigestInfo, pauseDownloadOptions: PauseDownloadOptions, callback: AsyncCallback<void>): void;
 
         /**
-         * pause download new version packages.
-         * apps should listen to task update event
+         * Pause download new version packages.
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
+         * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Parameter error.
@@ -290,7 +290,7 @@ declare namespace update {
 
         /**
          * Install packages for the device.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -305,7 +305,7 @@ declare namespace update {
 
         /**
          * Install packages for the device.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -319,7 +319,7 @@ declare namespace update {
         upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
         /**
-         * clear error during upgrade.
+         * Clear error during upgrade.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -333,7 +333,7 @@ declare namespace update {
         clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
         /**
-         * clear error during upgrade.
+         * Clear error during upgrade.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
@@ -393,7 +393,7 @@ declare namespace update {
         setUpgradePolicy(policy: UpgradePolicy): Promise<void>;
 
         /**
-         * terminate upgrade task.
+         * Terminate upgrade task.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
@@ -404,7 +404,7 @@ declare namespace update {
         terminateUpgrade(callback: AsyncCallback<void>): void;
 
         /**
-         * terminate upgrade task.
+         * Terminate upgrade task.
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @returns { Promise<void> } Promise that returns no value.
@@ -502,7 +502,7 @@ declare namespace update {
 
         /**
          * Apply local update package.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { UpgradeFile } upgradeFile - Update file.
@@ -516,7 +516,7 @@ declare namespace update {
 
         /**
          * Apply local update package.
-         * apps should listen to task update event
+         * Apps should listen to task update event
          *
          * @permission ohos.permission.UPDATE_SYSTEM
          * @param { UpgradeFile } upgradeFile - Update file.
@@ -1072,14 +1072,14 @@ declare namespace update {
      */
     export interface UpgradeFile {
         /**
-         * upgrade file type
+         * Upgrade file type
          * @type {ComponentType}
          * @since 9
          */
         fileType: ComponentType;
 
         /**
-         * upgrade file path
+         * Upgrade file path
          * @type {string}
          * @since 9
          */
@@ -1274,7 +1274,7 @@ declare namespace update {
         DOWNLOAD = 1,
 
         /**
-         * Upgrade order is Iinstall.
+         * Upgrade order is Install.
          * @since 9
          */
         INSTALL = 2,
@@ -1385,7 +1385,7 @@ declare namespace update {
      */
     export enum EventId {
         /**
-         * Event id is task eventd.
+         * Event id is task event.
          * @since 9
          */
         EVENT_TASK_BASE = EventClassify.TASK,
@@ -1445,7 +1445,7 @@ declare namespace update {
         EVENT_DOWNLOAD_FAIL,
 
         /**
-         * Event id is waiting for updat.
+         * Event id is waiting for update.
          * @since 9
          */
         EVENT_UPGRADE_WAIT,
