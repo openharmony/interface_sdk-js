@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from "./basic";
 
 /**
- * This module provides the capability to use different types of pickers.
+ * This module provides the capabilities to use different pickers.
  *
  * @since 9
  * @syscap SystemCapability.FileManagement.UserFileService
@@ -40,14 +40,14 @@ declare namespace picker {
      */
     interface PhotoSelectOptions {
         /**
-         * The Type of the file in the picker window
+         * The Type of the file in the picker window.
          * @type {PhotoViewMIMETypes}
          * @since 9
          */
         MIMEType?: PhotoViewMIMETypes;
         
         /**
-         * Maximum number of single file selected
+         * Maximum number of images for a single selection.
          * @type {number}
          * @since 9
          */
@@ -61,14 +61,14 @@ declare namespace picker {
      */
     interface PhotoSelectResult {
         /**
-         * the URIs for the selected files
+         * The uris for the selected files.
          * @type {Array<string>}
          * @since 9
          */
         photoUris: Array<string>;
         
         /**
-         * Judge whether the selected files are the original image
+         * Original option.
          * @type {boolean}
          * @since 9
          */
@@ -82,7 +82,7 @@ declare namespace picker {
      */
      interface PhotoSaveOptions {
         /**
-         * The names of the files waiting to be saved
+         * The names of the files to be saved.
          * @type {Array<string>}
          * @since 9
          */
@@ -101,7 +101,7 @@ declare namespace picker {
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService
          * @param PhotoSelectOptions represents the options provided in select mode.
-         * @returns {(void | Promise<PhotoSelectResult>)} Returns the selector result.
+         * @returns {(void | Promise<PhotoSelectResult>)} Returns the uris for the selected files.
          */
         select(option?: PhotoSelectOptions) : Promise<PhotoSelectResult>;
         select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) : void;
@@ -113,7 +113,7 @@ declare namespace picker {
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService
          * @param PhotoSaveOptions represents the options provided in save mode.
-         * @returns {(void | Promise<Array<string>>)} Returns the save result.
+         * @returns {(void | Promise<Array<string>>)} Returns the uris for the saved files.
          */
         save(option?: PhotoSaveOptions) : Promise<Array<string>>;
         save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>) : void;
@@ -126,7 +126,6 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      */
     interface DocumentSelectOptions {
-
     }
 
     /**
@@ -136,8 +135,8 @@ declare namespace picker {
      */
     interface DocumentSaveOptions {
         /**
-         * The names of the files waiting to be saved.
-         * Only single file is currently supported.
+         * The names of the files to be saved.
+         * Currently, only single file is supported.
          * @type {Array<string>}
          * @since 9
          */
@@ -152,12 +151,12 @@ declare namespace picker {
     interface DocumentViewPicker {
         /**
          * Pull up the document picker based on the selection mode.
-         * Only single file is currently supported.
+         * Currently, only single file is supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
          * @param DocumentSelectOptions represents the options provided in select mode.
-         * @returns {(void | Promise<Array<string>>)} Returns the selector result.
+         * @returns {(void | Promise<Array<string>>)} Returns the uris for the selected files.
          */
         select(option?: DocumentSelectOptions) : Promise<Array<string>>;
         select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>) : void;
@@ -165,12 +164,12 @@ declare namespace picker {
 
         /**
          * Pull up the document picker based on the save mode.
-         * Only single file is currently supported.
+         * Currently, only single file is supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
          * @param DocumentSaveOptions represents the options provided in save mode.
-         * @returns {(void | Promise<Array<string>>)} Returns the save result.
+         * @returns {(void | Promise<Array<string>>)} Returns the uris for the saved files.
          */
         save(option?: DocumentSaveOptions) : Promise<Array<string>>;
         save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>) : void;
@@ -192,8 +191,8 @@ declare namespace picker {
      */
     interface AudioSaveOptions {
         /**
-         * The names of the files waiting to be saved.
-         * Only single file is currently supported.
+         * The names of the files to be saved.
+         * Currently, only single file is supported.
          * @type {Array<string>}
          * @since 9
          */
@@ -208,12 +207,12 @@ declare namespace picker {
     interface AudioViewPicker {
         /**
          * Pull up the audio picker based on the selection mode.
-         * Only single file is currently supported.
+         * Currently, only single file is supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService
          * @param AudioSelectOptions represents the options provided in select mode.
-         * @returns {(void | Promise<Array<string>>)} Returns the selector result.
+         * @returns {(void | Promise<Array<string>>)} Returns the uris for the selected files.
          */
         select(option?: AudioSelectOptions) : Promise<Array<string>>;
         select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>) : void;
@@ -221,12 +220,12 @@ declare namespace picker {
 
         /**
          * Pull up the audio picker based on the save mode.
-         * Only single file is currently supported.
+         * Currently, only single file is supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
          * @param AudioSaveOptions represents the options provided in save mode.
-         * @returns {(void | Promise<Array<string>>)} Returns the save result.
+         * @returns {(void | Promise<Array<string>>)} Returns the uris for the saved files.
          */
         save(option?: AudioSaveOptions) : Promise<Array<string>>;
         save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>) : void;
