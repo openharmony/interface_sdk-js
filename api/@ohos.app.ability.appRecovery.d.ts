@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import UIAbilityContext from './application/UIAbilityContext';
+import Want from './@ohos.app.ability.Want';
+
 /**
  * This module provides the capability of app recovery.
  * You can use this capability to save state and restart the application
@@ -112,6 +115,15 @@ declare namespace appRecovery {
     function restartApp(): void;
 
     /**
+     * Set the want that will be used when app restart initiated by appRecovery.
+     * @param { Want } want that defines the ability you want to start
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    function setRestartWant(want: Want): void;
+
+    /**
      * Actively save application state.
      * The ability framework will call { UIAbility.onSaveState } of first launched ability and
      * persist state as { saveOccasion } flag from { enableAppRecovery } interface.
@@ -121,6 +133,16 @@ declare namespace appRecovery {
      * @since 9
      */
     function saveAppState(): boolean;
+    /**
+     * Save the ability state according to the context.
+     * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
+     * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
+     * @returns true if save data successfully, otherwise false.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    function saveAppState(context?: UIAbilityContext): boolean;
 }
 
 export default appRecovery;
