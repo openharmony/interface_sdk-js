@@ -15,7 +15,6 @@
 
 /**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
- * @import import Curves from '@ohos.curves'
  * @namespace curves
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -161,7 +160,6 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -174,7 +172,6 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
