@@ -741,27 +741,23 @@ declare enum RepeatMode {
 /**
  * enum Blur style
  * @since 9
- * @systemapi
  */
  declare enum BlurStyle {
   /**
    * Defines the fuzzy scale.
    * @since 9
-   * @systemapi
    */
   Thin,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
-   * @systemapi
    */
   Regular,
 
   /**
    * Defines the fuzzy scale.
    * @since 9
-   * @systemapi
    */
   Thick,
 }
@@ -1446,7 +1442,6 @@ declare class CommonMethod<T> {
    * Background blur style.
    * blurStyle:Blur style type.
    * @since 9
-   * @systemapi
    */
    backgroundBlurStyle(value: BlurStyle): T;
   
