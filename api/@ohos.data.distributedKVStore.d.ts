@@ -2373,9 +2373,12 @@ declare namespace distributedKVStore {
         getAllKVStoreId(appId: string): Promise<string[]>;
 
         /**
-         * Register a death callback to get notification when a service is terminated.
+         * Register a death callback to get notification when the data manager service is terminated.
          *
-         * @param {Callback<void>} deathCallback - the service is terminated callback.
+         * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and synchronization
+         * completion notifications, and calling the sync method will return a failure.
+         * 
+         * @param {Callback<void>} deathCallback - callback to be invoked when the data manager service is terminated.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @throws {BusinessError} 401 - if parameter check failed.
          * @since 9
@@ -2383,9 +2386,12 @@ declare namespace distributedKVStore {
         on(event: 'distributedDataServiceDie', deathCallback: Callback<void>): void;
 
         /**
-         * Unregister the death callback and can not receive service is terminated notification any more.
+         * Unregister the death callback. Not notification will be received when the data manager service is terminated.
          *
-         * @param {Callback<void>} deathCallback - the service is terminated callback which has been registered.
+         * <p>The unregistered death callback must be a registered death callback of the database. If no death callback parameter
+         * is passed, all database death callbacks will be unregistered.
+         * 
+         * @param {Callback<void>} deathCallback - the data manager service is terminated callback which has been registered.
          * @throws {BusinessError} 401 - if parameter check failed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
          * @since 9
