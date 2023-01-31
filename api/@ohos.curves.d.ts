@@ -161,7 +161,6 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
@@ -174,7 +173,6 @@ declare namespace curves {
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
