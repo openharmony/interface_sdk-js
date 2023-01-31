@@ -40,12 +40,14 @@ declare namespace picker {
      */
     interface PhotoSelectOptions {
         /**
+         * The Type of the file in the picker window
          * @type {PhotoViewMIMETypes}
          * @since 9
          */
         MIMEType?: PhotoViewMIMETypes;
         
         /**
+         * Maximum number of single file selected
          * @type {number}
          * @since 9
          */
@@ -59,12 +61,14 @@ declare namespace picker {
      */
     interface PhotoSelectResult {
         /**
+         * the URIs for the selected files
          * @type {Array<string>}
          * @since 9
          */
         photoUris: Array<string>;
         
         /**
+         * Judge whether the selected files are the original image
          * @type {boolean}
          * @since 9
          */
@@ -78,6 +82,7 @@ declare namespace picker {
      */
      interface PhotoSaveOptions {
         /**
+         * The names of the files waiting to be saved
          * @type {Array<string>}
          * @since 9
          */
@@ -122,18 +127,21 @@ declare namespace picker {
      */
     interface DocumentSelectOptions {
         /**
+         * Initialize the default path displayed by the picker window
          * @type {string}
          * @since 9
          */
         defaultFilePathUri?: string;
 
         /**
+         * The Types of the files in the picker window
          * @type {Array<string>}
          * @since 9
          */
         subMIMETypes?: Array<string>;
 
         /**
+         * Maximum number of single file selected
          * @type {number}
          * @since 9
          */
@@ -147,6 +155,7 @@ declare namespace picker {
      */
     interface DocumentSaveOptions {
         /**
+         * The names of the files waiting to be saved
          * @type {Array<string>}
          * @since 9
          */
@@ -191,6 +200,7 @@ declare namespace picker {
      */
     interface AudioSelectOptions {
         /**
+         * Maximum number of single file selected
          * @type {number}
          * @since 9
          */
@@ -204,6 +214,7 @@ declare namespace picker {
      */
     interface AudioSaveOptions {
         /**
+         * The names of the files waiting to be saved
          * @type {Array<string>}
          * @since 9
          */
