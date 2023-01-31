@@ -314,6 +314,7 @@ export default class Request {
    * Upload files.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Upload
+   * @since 3
    * @deprecated since 9
    */
   static upload(options: UploadRequestOptions): void;
@@ -322,6 +323,7 @@ export default class Request {
    * This API is used to download files.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Download
+   * @since 3
    * @deprecated since 9
    */
   static download(options: DownloadRequestOptions): void;
@@ -330,6 +332,7 @@ export default class Request {
    * Listens to download task status.
    * @param options Options.
    * @syscap SystemCapability.MiscServices.Download
+   * @since 3
    * @deprecated since 9
    */
   static onDownloadComplete(options: OnDownloadCompleteOptions): void;
