@@ -121,31 +121,12 @@ declare namespace picker {
     }
 
     /**
-     * DocumentSelectOptions Object
+     * DocumentSelectOptions Object. Currently not supported.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
     interface DocumentSelectOptions {
-        /**
-         * Initialize the default path displayed by the picker window
-         * @type {string}
-         * @since 9
-         */
-        defaultFilePathUri?: string;
 
-        /**
-         * The Types of the files in the picker window
-         * @type {Array<string>}
-         * @since 9
-         */
-        subMIMETypes?: Array<string>;
-
-        /**
-         * Maximum number of single file selected
-         * @type {number}
-         * @since 9
-         */
-        maxSelectNumber?: number;
     }
 
     /**
@@ -155,7 +136,8 @@ declare namespace picker {
      */
     interface DocumentSaveOptions {
         /**
-         * The names of the files waiting to be saved
+         * The names of the files waiting to be saved.
+         * Only single file is currently supported.
          * @type {Array<string>}
          * @since 9
          */
@@ -170,6 +152,7 @@ declare namespace picker {
     interface DocumentViewPicker {
         /**
          * Pull up the document picker based on the selection mode.
+         * Only single file is currently supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
@@ -182,6 +165,7 @@ declare namespace picker {
 
         /**
          * Pull up the document picker based on the save mode.
+         * Only single file is currently supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
@@ -194,17 +178,11 @@ declare namespace picker {
     }
 
     /**
-     * AudioSelectOptions Object
+     * AudioSelectOptions Object. Currently not supported.
      * @since 9
      * @syscap SystemCapability.FileManagement.UserFileService
      */
     interface AudioSelectOptions {
-        /**
-         * Maximum number of single file selected
-         * @type {number}
-         * @since 9
-         */
-        maxSelectNumber?: number;
     }
 
     /**
@@ -214,7 +192,8 @@ declare namespace picker {
      */
     interface AudioSaveOptions {
         /**
-         * The names of the files waiting to be saved
+         * The names of the files waiting to be saved.
+         * Only single file is currently supported.
          * @type {Array<string>}
          * @since 9
          */
@@ -229,6 +208,7 @@ declare namespace picker {
     interface AudioViewPicker {
         /**
          * Pull up the audio picker based on the selection mode.
+         * Only single file is currently supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService
@@ -241,6 +221,7 @@ declare namespace picker {
 
         /**
          * Pull up the audio picker based on the save mode.
+         * Only single file is currently supported.
          *
          * @since 9
          * @syscap SystemCapability.FileManagement.UserFileService         
