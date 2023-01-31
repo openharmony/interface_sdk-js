@@ -2375,7 +2375,7 @@ declare namespace distributedKVStore {
         /**
          * Register a death callback to get notification when the data manager service is terminated.
          *
-         * <p>If the data manager service is terminated,you need to resubscribe to data change notifications and synchronization
+         * <p>If the data manager service is terminated,you need to re-subscribe to data change notifications and synchronization
          * completion notifications, and calling the sync method will return a failure.
          * 
          * @param {Callback<void>} deathCallback - callback to be invoked when the data manager service is terminated.
