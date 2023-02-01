@@ -492,8 +492,7 @@
         "VAID"
       ],
       "XTS":[
-        "DeviceAttest",
-        "DeviceAttestLite"
+        "DeviceAttest"
       ]
     }
   }
