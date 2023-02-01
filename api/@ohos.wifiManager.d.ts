@@ -16,13 +16,13 @@
 import { AsyncCallback, Callback } from './basic';
 
 /**
- * Provides methods to operate or manage WiFi.
+ * Provides methods to operate or manage Wi-Fi.
  * @namespace wifiManager
  * @since 9
  */
 declare namespace wifiManager {
     /**
-     * Enable WiFi.
+     * Enable Wi-Fi.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -36,7 +36,7 @@ declare namespace wifiManager {
     function enableWifi(): void;
 
     /**
-     * Disable WiFi.
+     * Disable Wi-Fi.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -50,9 +50,9 @@ declare namespace wifiManager {
     function disableWifi(): void;
 
     /**
-     * Query the WiFi status
+     * Query the Wi-Fi status
      *
-     * @returns Returns {@code true} if the WiFi is active, returns {@code false} otherwise.
+     * @returns Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -64,7 +64,7 @@ declare namespace wifiManager {
     function isWifiActive(): boolean;
 
     /**
-     * Scan WiFi hotspot.
+     * Scan Wi-Fi hotspot.
      *
      * <p>This API works in asynchronous mode.</p>
      *
@@ -82,15 +82,15 @@ declare namespace wifiManager {
     /**
      * Obtain the hotspot information that scanned.
      *
-     * @returns Returns information about scanned WiFi hotspot if any.
+     * @returns Returns information about scanned Wi-Fi hotspot if any.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.getScanResultsSync
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.getScanResultsSync
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
      */
     function getScanResults(): Promise<Array<WifiScanInfo>>;
@@ -99,7 +99,7 @@ declare namespace wifiManager {
     /**
      * Obtain the scanned results.
      *
-     * @returns Returns information about scanned WiFi hotspot if any.
+     * @returns Returns information about scanned Wi-Fi hotspot if any.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -111,11 +111,11 @@ declare namespace wifiManager {
     function getScanResultsSync(): Array<WifiScanInfo>;
 
     /**
-     * Add WiFi connection configuration to the device.
+     * Add Wi-Fi connection configuration to the device.
      *
      * <p>The configuration will be updated when the configuration is added.</p>
      *
-     * @param config Indicates the device configuration for connection to the WiFi network.
+     * @param config Indicates the device configuration for connection to the Wi-Fi network.
      * @returns Returns {@code networkId} if the configuration is added; returns {@code -1} otherwise.
      *
      * @since 9
@@ -171,11 +171,11 @@ declare namespace wifiManager {
      function removeCandidateConfig(networkId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Obtain the list of all existed candidate WiFi configurations which added by ourself.
+     * Obtain the list of all existed candidate Wi-Fi configurations which added by ourself.
      *
-     * <p>You can obtain only the WiFi configurations you created on your own application.
+     * <p>You can obtain only the Wi-Fi configurations you created on your own application.
      *
-     * @returns Returns the list of all existed WiFi configurations you created on your application.
+     * @returns Returns the list of all existed Wi-Fi configurations you created on your application.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -205,7 +205,7 @@ declare namespace wifiManager {
      function connectToCandidateConfig(networkId: number): void;
 
     /**
-     * Connect to WiFi hotspot by networkId.
+     * Connect to Wi-Fi hotspot by networkId.
      *
      * @param networkId ID of the connected network.
      *
@@ -223,9 +223,9 @@ declare namespace wifiManager {
     function connectToNetwork(networkId: number): void;
 
     /**
-     * Connect to WiFi hotspot by WifiDeviceConfig.
+     * Connect to Wi-Fi hotspot by WifiDeviceConfig.
      *
-     * @param config Indicates the device configuration for connection to the WiFi hotspot.
+     * @param config Indicates the device configuration for connection to the Wi-Fi hotspot.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -242,7 +242,7 @@ declare namespace wifiManager {
     function connectToDevice(config: WifiDeviceConfig): void;
 
     /**
-     * Disconnect connection between sta and WiFi hotspot.
+     * Disconnect connection between sta and Wi-Fi hotspot.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -256,11 +256,11 @@ declare namespace wifiManager {
     function disconnect(): void;
 
     /**
-     * Calculate the WiFi signal level based on the WiFi RSSI and frequency band.
+     * Calculate the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
      *
-     * @param rssi Indicates the WiFi RSSI.
-     * @param band Indicates the WiFi frequency band.
-     * @returns Returns WiFi signal level ranging from 0 to 4.
+     * @param rssi Indicates the Wi-Fi RSSI.
+     * @param band Indicates the Wi-Fi frequency band.
+     * @returns Returns Wi-Fi signal level ranging from 0 to 4.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -273,7 +273,7 @@ declare namespace wifiManager {
     function getSignalLevel(rssi: number, band: number): number;
 
     /**
-     * Obtain connection information about the WiFi connection.
+     * Obtain connection information about the Wi-Fi connection.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -288,9 +288,9 @@ declare namespace wifiManager {
     function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
     /**
-     * Check whether the WiFi connection has been set up.
+     * Check whether the Wi-Fi connection has been set up.
      *
-     * @returns Returns {@code true} if a WiFi connection has been set up, returns {@code false} otherwise.
+     * @returns Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -334,11 +334,11 @@ declare namespace wifiManager {
     function isFeatureSupported(featureId: number): boolean;
 
     /**
-     * Obtain the MAC address of a WiFi device. WiFi must be enabled.
+     * Obtain the MAC address of a Wi-Fi device. Wi-Fi must be enabled.
      *
      * <p>The MAC address is unique and cannot be changed.
      *
-     * @returns Returns the MAC address of the WiFi device.
+     * @returns Returns the MAC address of the Wi-Fi device.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -352,11 +352,11 @@ declare namespace wifiManager {
     function getDeviceMacAddress(): string[];
 
     /**
-     * Obtain the IP information of the WiFi connection.
+     * Obtain the IP information of the Wi-Fi connection.
      *
      * <p>The IP information includes the host IP address, gateway address, and DNS information.
      *
-     * @returns Returns the IP information of the WiFi connection.
+     * @returns Returns the IP information of the Wi-Fi connection.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 801 - Capability not supported.
@@ -410,9 +410,9 @@ declare namespace wifiManager {
     function reconnect(): void;
 
     /**
-     * Obtain the list of all existed WiFi configurations.
+     * Obtain the list of all existed Wi-Fi configurations.
      *
-     * @returns Returns the list of all existing WiFi configurations you created on your application.
+     * @returns Returns the list of all existing Wi-Fi configurations you created on your application.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -425,12 +425,12 @@ declare namespace wifiManager {
     function getDeviceConfigs(): Array<WifiDeviceConfig>;
 
     /**
-     * Update the specified WiFi configuration.
+     * Update the specified Wi-Fi configuration.
      *
-     * @param config Indicates the WiFi configuration to update.
+     * @param config Indicates the Wi-Fi configuration to update.
      *
-     * @returns Returns the network ID in the updated WiFi configuration if the update is successful;
-     *     returns {@code -1} if the specified WiFi configuration is not contained in the list.
+     * @returns Returns the network ID in the updated Wi-Fi configuration if the update is successful;
+     *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -439,19 +439,19 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.updateDeviceConfig
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.updateDeviceConfig
      * @systemapi Hide this for inner system use.
      */
     function updateNetwork(config: WifiDeviceConfig): number;
 
     /**
-     * Update the specified WiFi configuration.
+     * Update the specified Wi-Fi configuration.
      *
-     * @param config Indicates the WiFi configuration to update.
+     * @param config Indicates the Wi-Fi configuration to update.
      *
-     * @returns Returns the network ID in the updated WiFi configuration if the update is successful;
-     *     returns {@code -1} if the specified WiFi configuration is not contained in the list.
+     * @returns Returns the network ID in the updated Wi-Fi configuration if the update is successful;
+     *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -478,8 +478,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.disableDeviceConfig
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.disableDeviceConfig
      * @systemapi Hide this for inner system use.
      */
     function disableNetwork(netId: number): void;
@@ -503,7 +503,7 @@ declare namespace wifiManager {
     function disableDeviceConfig(networkId: number): void;
 
     /**
-     * Remove all the saved WiFi configurations.
+     * Remove all the saved Wi-Fi configurations.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -512,14 +512,14 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.removeAllDeviceConfigs
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.removeAllDeviceConfigs
      * @systemapi Hide this for inner system use.
      */
     function removeAllNetwork(): void;
 
     /**
-     * Remove all the saved WiFi configurations.
+     * Remove all the saved Wi-Fi configurations.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -533,13 +533,13 @@ declare namespace wifiManager {
     function removeAllDeviceConfigs(): void;
 
     /**
-     * Remove a WiFi network with a specified ID.
+     * Remove a Wi-Fi network with a specified ID.
      *
-     * <p>After a WiFi network is removed, its configuration will be deleted from the list of WiFi configurations.
-     * If the WiFi network is being connected, the connection will be interrupted.
-     * The application can only delete WiFi networks it has created.
+     * <p>After a Wi-Fi network is removed, its configuration will be deleted from the list of Wi-Fi configurations.
+     * If the Wi-Fi network is being connected, the connection will be interrupted.
+     * The application can only delete Wi-Fi networks it has created.
      *
-     * @param id Indicates the ID of the WiFi DeviceConfig,
+     * @param id Indicates the ID of the Wi-Fi DeviceConfig,
      *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -549,20 +549,20 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.removeDeviceConfig
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.removeDeviceConfig
      * @systemapi Hide this for inner system use.
      */
     function removeDevice(id: number): void;
 
     /**
-     * Remove a WiFi DeviceConfig with networkId.
+     * Remove a Wi-Fi DeviceConfig with networkId.
      *
-     * <p>After a WiFi DeviceConfig is removed, its configuration will be deleted from the list of WiFi configurations.
-     * If the WiFi DeviceConfig is being connected, the connection will be interrupted.
-     * The application can only delete WiFi DeviceConfig it has created.
+     * <p>After a Wi-Fi DeviceConfig is removed, its configuration will be deleted from the list of Wi-Fi configurations.
+     * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
+     * The application can only delete Wi-Fi DeviceConfig it has created.
      *
-     * @param networkId indicate the ID of the WiFi DeviceConfig,
+     * @param networkId indicate the ID of the Wi-Fi DeviceConfig,
      *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -577,9 +577,9 @@ declare namespace wifiManager {
     function removeDeviceConfig(networkId: number): void;
 
     /**
-     * Enable WiFi hotspot function.
+     * Enable Wi-Fi hotspot function.
      *
-     * <p>This method is asynchronous. After the WiFi hotspot is enabled, WiFi may be disabled.
+     * <p>This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -593,9 +593,9 @@ declare namespace wifiManager {
     function enableHotspot(): void;
 
     /**
-     * Disable WiFi hotspot function.
+     * Disable Wi-Fi hotspot function.
      *
-     * <p>This method is asynchronous. If WiFi is enabled after the WiFi hotspot is disabled, WiFi may be re-enabled.
+     * <p>This method is asynchronous. If Wi-Fi is enabled after the Wi-Fi hotspot is disabled, Wi-Fi may be re-enabled.
      *
      * @returns Returns {@code true} if this method is called successfully, returns {@code false} otherwise.
      * @since 9
@@ -610,7 +610,7 @@ declare namespace wifiManager {
     function disableHotspot(): void;
 
     /**
-     * Check whether a device serving as a WiFi hotspot supports both the 2.4 GHz and 5 GHz WiFi.
+     * Check whether a device serving as a Wi-Fi hotspot supports both the 2.4 GHz and 5 GHz Wi-Fi.
      *
      * @returns Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
      * @since 9
@@ -625,9 +625,9 @@ declare namespace wifiManager {
      function isHotspotDualBandSupported(): boolean;
 
     /**
-     * Check whether WiFi hotspot is active on a device.
+     * Check whether Wi-Fi hotspot is active on a device.
      *
-     * @returns Returns {@code true} if WiFi hotspot is enabled, returns {@code false} otherwise.
+     * @returns Returns {@code true} if Wi-Fi hotspot is enabled, returns {@code false} otherwise.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -642,7 +642,7 @@ declare namespace wifiManager {
     /**
      * Set the hotspot for a device.
      *
-     * @param config Indicates the WiFi hotspot configuration.
+     * @param config Indicates the Wi-Fi hotspot configuration.
      *     The SSID and {@code securityType} must be available and correct.
      *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
      * @returns Returns {@code true} if the method is called successfully, returns {@code false} otherwise.
@@ -659,9 +659,9 @@ declare namespace wifiManager {
     function setHotspotConfig(config: HotspotConfig): void;
 
     /**
-     * Obtain the WiFi hotspot configuration.
+     * Obtain the Wi-Fi hotspot configuration.
      *
-     * @returns Returns the configuration of an existing or enabled WiFi hotspot.
+     * @returns Returns the configuration of an existing or enabled Wi-Fi hotspot.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -674,11 +674,11 @@ declare namespace wifiManager {
     function getHotspotConfig(): HotspotConfig;
 
     /**
-     * Obtain the list of clients that are connected to a WiFi hotspot.
+     * Obtain the list of clients that are connected to a Wi-Fi hotspot.
      *
-     * <p>This method can only be used on a device that serves as a WiFi hotspot.
+     * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
      *
-     * @returns Returns the list of clients that are connected to the WiFi hotspot.
+     * @returns Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -686,18 +686,18 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2601000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.getHotspotStations
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.getHotspotStations
      * @systemapi Hide this for inner system use.
      */
     function getStations(): Array<StationInfo>;
 
     /**
-     * Obtain the list of stations that are connected to the WiFi hotspot.
+     * Obtain the list of stations that are connected to the Wi-Fi hotspot.
      *
-     * <p>This method can only be used on a device that serves as a WiFi hotspot.
+     * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
      *
-     * @returns Returns the list of clients that are connected to the WiFi hotspot.
+     * @returns Returns the list of clients that are connected to the Wi-Fi hotspot.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
@@ -733,8 +733,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.getCurrentP2pGroup
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.getCurrentP2pGroup
      */
     function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
     function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
@@ -771,7 +771,7 @@ declare namespace wifiManager {
      * Obtain the information about own device info. 
      *
      * <p> deviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
-	 * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
+     * if ohos.permission.GET_WIFI_LOCAL_MAC is not granted.
      *
      * @returns Returns the information about own device info.
      * @since 9
@@ -795,8 +795,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.createP2pGroup
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.createP2pGroup
      */
     function createGroup(config: WifiP2PConfig): void;
 
@@ -823,8 +823,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.removeP2pGroup
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.removeP2pGroup
      */
     function removeGroup(): void;
 
@@ -867,7 +867,7 @@ declare namespace wifiManager {
     function p2pCancelConnect(): void;
 
     /**
-     * Discover WiFi P2P devices.
+     * Discover Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -875,13 +875,13 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.startDiscoverP2pDevices
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.startDiscoverP2pDevices
      */
     function startDiscoverDevices(): void;
 
     /**
-     * Discover WiFi P2P devices.
+     * Discover Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -893,7 +893,7 @@ declare namespace wifiManager {
     function startDiscoverP2pDevices(): void;
 
     /**
-     * Stop discovering WiFi P2P devices.
+     * Stop discovering Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -901,13 +901,13 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.stopDiscoverP2pDevices
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.stopDiscoverP2pDevices
      */
     function stopDiscoverDevices(): void;
 
     /**
-     * Stop discovering WiFi P2P devices.
+     * Stop discovering Wi-Fi P2P devices.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -930,8 +930,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.deletePersistentP2pGroup
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.deletePersistentP2pGroup
      * @systemapi Hide this for inner system use.
      */
     function deletePersistentGroup(netId: number): void;
@@ -969,7 +969,7 @@ declare namespace wifiManager {
     function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
 
     /**
-     * Set the name of the WiFi P2P device.
+     * Set the name of the Wi-Fi P2P device.
      *
      * @param devName Indicate the name to be set.
      * @since 9
@@ -980,14 +980,14 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-	 * @deprecated since 9
-	 * @useinstead ohos.wifiManager/wifiManager.setP2pDeviceName
+     * @deprecated since 9
+     * @useinstead ohos.wifiManager/wifiManager.setP2pDeviceName
      * @systemapi Hide this for inner system use.
      */
     function setDeviceName(devName: string): void;
 
     /**
-     * Set the name of the WiFi P2P device.
+     * Set the name of the Wi-Fi P2P device.
      *
      * @param devName Indicate the name to be set.
      * @since 9
@@ -1003,7 +1003,7 @@ declare namespace wifiManager {
     function setP2pDeviceName(devName: string): void;
 
     /**
-     * Subscribe WiFi status change events.
+     * Subscribe Wi-Fi status change events.
      *
      * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
@@ -1017,7 +1017,7 @@ declare namespace wifiManager {
     function on(type: "wifiStateChange", callback: Callback<number>): void;
 
     /**
-     * Unsubscribe WiFi status change events.
+     * Unsubscribe Wi-Fi status change events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1032,7 +1032,7 @@ declare namespace wifiManager {
     function off(type: "wifiStateChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi connection change events.
+     * Subscribe Wi-Fi connection change events.
      *
      * @returns Returns 0: disconnected, 1: connected
      * @since 9
@@ -1046,7 +1046,7 @@ declare namespace wifiManager {
     function on(type: "wifiConnectionChange", callback: Callback<number>): void;
 
     /**
-     * Unsubscribe WiFi connection change events.
+     * Unsubscribe Wi-Fi connection change events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1061,7 +1061,7 @@ declare namespace wifiManager {
     function off(type: "wifiConnectionChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi scan status change events.
+     * Subscribe Wi-Fi scan status change events.
      *
      * @returns Returns 0: scan fail, 1: scan success
      * @since 9
@@ -1075,7 +1075,7 @@ declare namespace wifiManager {
     function on(type: "wifiScanStateChange", callback: Callback<number>): void;
 
     /**
-     * Unsubscribe WiFi scan status change events.
+     * Unsubscribe Wi-Fi scan status change events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1090,7 +1090,7 @@ declare namespace wifiManager {
     function off(type: "wifiScanStateChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi rssi change events.
+     * Subscribe Wi-Fi rssi change events.
      *
      * @returns Returns RSSI value in dBm
      * @since 9
@@ -1104,7 +1104,7 @@ declare namespace wifiManager {
     function on(type: "wifiRssiChange", callback: Callback<number>): void;
 
     /**
-     * Unsubscribe WiFi rssi change events.
+     * Unsubscribe Wi-Fi rssi change events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1119,7 +1119,7 @@ declare namespace wifiManager {
     function off(type: "wifiRssiChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi stream change events.
+     * Subscribe Wi-Fi stream change events.
      *
      * @returns Returns 0: stream none, 1: stream down, 2: stream up, 3: stream bidirectional
      * @since 9
@@ -1135,7 +1135,7 @@ declare namespace wifiManager {
      function on(type: "streamChange", callback: Callback<number>): void;
 
      /**
-      * Unsubscribe WiFi stream change events.
+      * Unsubscribe Wi-Fi stream change events.
       *
       * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
       *
@@ -1152,7 +1152,7 @@ declare namespace wifiManager {
      function off(type: "streamChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi device config change events.
+     * Subscribe Wi-Fi device config change events.
      *
      * @returns Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
@@ -1168,7 +1168,7 @@ declare namespace wifiManager {
      function on(type: "deviceConfigChange", callback: Callback<number>): void;
 
     /**
-     * Subscribe WiFi device config change events.
+     * Subscribe Wi-Fi device config change events.
      *
      * @returns Returns 0: config is added, 1: config is changed, 2: config is removed.
      * @since 9
@@ -1184,7 +1184,7 @@ declare namespace wifiManager {
      function off(type: "deviceConfigChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi hotspot state change events.
+     * Subscribe Wi-Fi hotspot state change events.
      *
      * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
@@ -1199,7 +1199,7 @@ declare namespace wifiManager {
     function on(type: "hotspotStateChange", callback: Callback<number>): void;
 
     /**
-     * Unsubscribe WiFi hotspot state change events.
+     * Unsubscribe Wi-Fi hotspot state change events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1215,7 +1215,7 @@ declare namespace wifiManager {
     function off(type: "hotspotStateChange", callback?: Callback<number>): void;
 
     /**
-     * Subscribe WiFi hotspot sta join events.
+     * Subscribe Wi-Fi hotspot sta join events.
      *
      * @returns Returns StationInfo
      * @since 9
@@ -1231,7 +1231,7 @@ declare namespace wifiManager {
     function on(type: "hotspotStaJoin", callback: Callback<StationInfo>): void;
 
     /**
-     * Unsubscribe WiFi hotspot sta join events.
+     * Unsubscribe Wi-Fi hotspot sta join events.
      *
      * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
      *
@@ -1248,7 +1248,7 @@ declare namespace wifiManager {
     function off(type: "hotspotStaJoin", callback?: Callback<StationInfo>): void;
 
     /**
-     * Subscribe WiFi hotspot sta leave events.
+     * Subscribe Wi-Fi hotspot sta leave events.
      *
      * @returns Returns {@link #StationInfo} object
      * @since 9
@@ -1264,7 +1264,7 @@ declare namespace wifiManager {
     function on(type: "hotspotStaLeave", callback: Callback<StationInfo>): void;
 
     /**
-     * Unsubscribe WiFi hotspot sta leave events.
+     * Unsubscribe Wi-Fi hotspot sta leave events.
      *
      * @returns Returns {@link #StationInfo} object
      * @since 9
@@ -1443,7 +1443,7 @@ declare namespace wifiManager {
     function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
     /**
-     * WiFi EAP method.
+     * Wi-Fi EAP method.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -1462,7 +1462,7 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi phase 2 method.
+     * Wi-Fi phase 2 method.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -1480,7 +1480,7 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi EAP config.
+     * Wi-Fi EAP config.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -1528,19 +1528,19 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi device configuration information.
+     * Wi-Fi device configuration information.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiDeviceConfig {
-        /** WiFi SSID: the maximum length is 32 */
+        /** Wi-Fi SSID: the maximum length is 32 */
         ssid: string;
 
-        /** WiFi bssid(MAC): the length is 6 */
+        /** Wi-Fi bssid(MAC): the length is 6 */
         bssid: string;
 
-        /** WiFi key: maximum length is 64 */
+        /** Wi-Fi key: maximum length is 64 */
         preSharedKey: string;
 
         /** Hide SSID or not, false(default): not hide */
@@ -1549,7 +1549,7 @@ declare namespace wifiManager {
         /** Security type: reference definition of WifiSecurityType */
         securityType: WifiSecurityType;
 
-        /** The UID of the WiFi configuration creator */
+        /** The UID of the Wi-Fi configuration creator */
         /* @systemapi */
         creatorUid: number;
 
@@ -1585,7 +1585,7 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi IP configuration information.
+     * Wi-Fi IP configuration information.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -1600,7 +1600,7 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi information elements.
+     * Wi-Fi information elements.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -1628,16 +1628,16 @@ declare namespace wifiManager {
     }
 
     /**
-     * Describes the scanned WiFi information.
+     * Describes the scanned Wi-Fi information.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiScanInfo {
-        /** WiFi SSID: the maximum length is 32 */
+        /** Wi-Fi SSID: the maximum length is 32 */
         ssid: string;
 
-        /** WiFi bssid(MAC): the length is 6 */
+        /** Wi-Fi bssid(MAC): the length is 6 */
         bssid: string;
 
         /** Hotspot capability */
@@ -1750,45 +1750,45 @@ declare namespace wifiManager {
     }
 
     /**
-     * WiFi connection information.
+     * Wi-Fi connection information.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface WifiLinkedInfo {
-        /** The SSID of the WiFi hotspot */
+        /** The SSID of the Wi-Fi hotspot */
         ssid: string;
 
-        /** The BSSID of the WiFi hotspot */
+        /** The BSSID of the Wi-Fi hotspot */
         bssid: string;
 
-        /** The ID(uniquely identifies) of a WiFi connection. */
+        /** The ID(uniquely identifies) of a Wi-Fi connection. */
         /* @systemapi */
         networkId: number;
 
-        /** The RSSI(dBm) of a WiFi access point. */
+        /** The RSSI(dBm) of a Wi-Fi access point. */
         rssi: number;
 
-        /** The frequency band of a WiFi access point. */
+        /** The frequency band of a Wi-Fi access point. */
         band: number;
 
-        /** The speed of a WiFi access point. */
+        /** The speed of a Wi-Fi access point. */
         linkSpeed: number;
 
-        /** The frequency of a WiFi access point. */
+        /** The frequency of a Wi-Fi access point. */
         frequency: number;
 
-        /** Whether the SSID of the access point (AP) of this WiFi connection is hidden. */
+        /** Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden. */
         isHidden: boolean;
 
-        /** Whether this WiFi connection restricts the data volume. */
+        /** Whether this Wi-Fi connection restricts the data volume. */
         isRestricted: boolean;
 
-        /** The load value of this WiFi connection. A greater value indicates a higher load. */
+        /** The load value of this Wi-Fi connection. A greater value indicates a higher load. */
         /* @systemapi */
         chload: number;
 
-        /** The signal-to-noise ratio (SNR) of this WiFi connection. */
+        /** The signal-to-noise ratio (SNR) of this Wi-Fi connection. */
         /* @systemapi */
         snr: number;
 
@@ -1800,93 +1800,93 @@ declare namespace wifiManager {
          */
         macType: number;
 
-        /** The WiFi MAC address of a device. */
+        /** The Wi-Fi MAC address of a device. */
         macAddress: string;
 
-        /** The IP address of this WiFi connection. */
+        /** The IP address of this Wi-Fi connection. */
         ipAddress: number;
 
-        /** The state of the supplicant of this WiFi connection. */
+        /** The state of the supplicant of this Wi-Fi connection. */
         /* @systemapi */
         suppState: SuppState;
 
-        /** The state of this WiFi connection. */
+        /** The state of this Wi-Fi connection. */
         connState: ConnState;
     }
 
     /**
-     * WiFi IP information.
+     * Wi-Fi IP information.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
      */
     interface IpInfo {
-        /** The IP address of the WiFi connection */
+        /** The IP address of the Wi-Fi connection */
         ipAddress: number;
 
-        /** The gateway of the WiFi connection */
+        /** The gateway of the Wi-Fi connection */
         gateway: number;
 
-        /** The network mask of the WiFi connection */
+        /** The network mask of the Wi-Fi connection */
         netmask: number;
 
-        /** The primary DNS server IP address of the WiFi connection */
+        /** The primary DNS server IP address of the Wi-Fi connection */
         primaryDns: number;
 
-        /** The secondary DNS server IP address of the WiFi connection */
+        /** The secondary DNS server IP address of the Wi-Fi connection */
         secondDns: number;
 
-        /** The DHCP server IP address of the WiFi connection */
+        /** The DHCP server IP address of the Wi-Fi connection */
         serverIp: number;
 
-        /** The IP address lease duration of the WiFi connection */
+        /** The IP address lease duration of the Wi-Fi connection */
         leaseDuration: number;
     }
 
     /**
-     * WiFi hotspot configuration information.
+     * Wi-Fi hotspot configuration information.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      */
     interface HotspotConfig {
-        /** The SSID of the WiFi hotspot */
+        /** The SSID of the Wi-Fi hotspot */
         ssid: string;
 
-        /** The encryption mode of the WiFi hotspot */
+        /** The encryption mode of the Wi-Fi hotspot */
         securityType: WifiSecurityType;
 
-        /** The frequency band of the WiFi hotspot */
+        /** The frequency band of the Wi-Fi hotspot */
         band: number;
 
-        /** The password of the WiFi hotspot */
+        /** The password of the Wi-Fi hotspot */
         preSharedKey: string;
 
-        /** The maximum number of connections allowed by the WiFi hotspot */
+        /** The maximum number of connections allowed by the Wi-Fi hotspot */
         maxConn: number;
     }
 
     /**
-     * WiFi station information.
+     * Wi-Fi station information.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      */
     interface StationInfo {
-        /** the network name of the WiFi client */
+        /** the network name of the Wi-Fi client */
         name: string;
 
-        /** The MAC address of the WiFi client */
+        /** The MAC address of the Wi-Fi client */
         macAddress: string;
 
-        /** The IP address of the WiFi client */
+        /** The IP address of the Wi-Fi client */
         ipAddress: string;
     }
 
     /**
-     * WiFi IP type enumeration.
+     * Wi-Fi IP type enumeration.
      *
      * @since 9
      * @systemapi Hide this for inner system use.
@@ -1920,7 +1920,7 @@ declare namespace wifiManager {
         /** The supplicant is disabled. */
         INACTIVE,
 
-        /** The supplicant is scanning for a WiFi connection. */
+        /** The supplicant is scanning for a Wi-Fi connection. */
         SCANNING,
 
         /** The supplicant is authenticating with a specified AP. */
@@ -1949,7 +1949,7 @@ declare namespace wifiManager {
     }
 
     /**
-     * The state of WiFi connection enumeration.
+     * The state of Wi-Fi connection enumeration.
      *
      * @since 9
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -1958,25 +1958,25 @@ declare namespace wifiManager {
         /** The device is searching for an available AP. */
         SCANNING,
 
-        /** The WiFi connection is being set up. */
+        /** The Wi-Fi connection is being set up. */
         CONNECTING,
 
-        /** The WiFi connection is being authenticated. */
+        /** The Wi-Fi connection is being authenticated. */
         AUTHENTICATING,
 
-        /** The IP address of the WiFi connection is being obtained. */
+        /** The IP address of the Wi-Fi connection is being obtained. */
         OBTAINING_IPADDR,
 
-        /** The WiFi connection has been set up. */
+        /** The Wi-Fi connection has been set up. */
         CONNECTED,
 
-        /** The WiFi connection is being torn down. */
+        /** The Wi-Fi connection is being torn down. */
         DISCONNECTING,
 
-        /** The WiFi connection has been torn down. */
+        /** The Wi-Fi connection has been torn down. */
         DISCONNECTED,
 
-        /** Failed to set up the WiFi connection. */
+        /** Failed to set up the Wi-Fi connection. */
         UNKNOWN
     }
 
