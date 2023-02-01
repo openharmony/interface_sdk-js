@@ -742,24 +742,109 @@ declare enum RepeatMode {
  * enum Blur style
  * @since 9
  */
- declare enum BlurStyle {
+declare enum BlurStyle {
   /**
-   * Defines the fuzzy scale.
+   * Defines the thin card material.
    * @since 9
    */
   Thin,
 
   /**
-   * Defines the fuzzy scale.
+   * Defines the regular card material.
    * @since 9
    */
   Regular,
 
   /**
-   * Defines the fuzzy scale.
+   * Defines the thick card material.
    * @since 9
    */
   Thick,
+
+  /**
+   * Defines the thin background material.
+   * @since 10
+   */
+  BackgroundThin,
+
+  /**
+   * Defines the thin regular material.
+   * @since 10
+   */
+  BackgroundRegular,
+
+  /**
+   * Defines the thin thick material.
+   * @since 10
+   */
+  BackgroundThick,
+
+  /**
+   * Defines the thin ultra thick material.
+   * @since 10
+   */
+  BackgroundUltraThick,
+}
+
+/**
+ * enum color mode
+ * @since 10
+ */
+declare enum ThemeColorMode {
+  /**
+   * Defines the mode which is follow up with system.
+   * @since 10
+   */
+  System,
+
+  /**
+   * Defines the light mode.
+   * @since 10
+   */
+  Light,
+
+  /**
+   * Defines the dark mode.
+   * @since 10
+   */
+  Dark,
+}
+
+/**
+ * Defines adaptive color
+ * @since 10
+ */
+declare enum AdaptiveColor {
+  /**
+   * Defines the fixed value color adaptive mode.
+   * @since 10
+   */
+  Default,
+
+  /**
+   * Defines the background average color adaptive mode.
+   * @since 10
+   */
+  Average,
+}
+
+/**
+ * Defines the options of backgroundBlurStyle
+ * @since 10
+ */
+declare interface BackgroundBlurStyleOptions {
+  /**
+   * color mode
+   * @since 10
+   */
+  colorMode?: ThemeColorMode;
+
+
+  /**
+   * adaptive color
+   * @since 10
+   */
+  adaptiveColor?: AdaptiveColor;
 }
 
 /**
@@ -1441,9 +1526,17 @@ declare class CommonMethod<T> {
   /**
    * Background blur style.
    * blurStyle:Blur style type.
+   * @param { BlurStyle } value
    * @since 9
    */
-   backgroundBlurStyle(value: BlurStyle): T;
+  /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { BackgroundBlurStyleOptions } options
+   * @since 10
+   */
+   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
   
   /**
    * Opacity
