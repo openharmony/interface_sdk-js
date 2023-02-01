@@ -50,7 +50,7 @@ declare namespace wifiManager {
     function disableWifi(): void;
 
     /**
-     * Querie the WiFi status
+     * Query the WiFi status
      *
      * @returns Returns {@code true} if the WiFi is active, returns {@code false} otherwise.
      *
@@ -1005,7 +1005,7 @@ declare namespace wifiManager {
     /**
      * Subscribe WiFi status change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 401 - Invalid parameters.
@@ -1186,7 +1186,7 @@ declare namespace wifiManager {
     /**
      * Subscribe WiFi hotspot state change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
      * @throws {BusinessError} 202 - System API is not allowed called by third HAP.
