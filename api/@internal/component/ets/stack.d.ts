@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Provides ports for stacking containers.
  * @since 7
  */
+/**
+ * Provides ports for stacking containers.
+ * @form
+ * @since 9
+ */
 interface StackInterface {
   /**
    * Set the value.
    * @since 7
+   */
+  /**
+   * Set the value.
+   * @form
+   * @since 9
    */
   (value?: { alignContent?: Alignment }): StackAttribute;
 }
@@ -28,10 +38,19 @@ interface StackInterface {
 /**
  * @since 7
  */
+/**
+ * @form
+ * @since 9
+ */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
    * Called when the occupancy of items in the container is set.
    * @since 7
+   */
+  /**
+   * Called when the occupancy of items in the container is set.
+   * @form
+   * @since 9
    */
   alignContent(value: Alignment): StackAttribute;
 }

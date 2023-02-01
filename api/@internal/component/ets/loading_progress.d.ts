@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Load style of progress bar.
  * @since 8
  */
+/**
+ * Load style of progress bar.
+ * @form
+ * @since 9
+ */
 declare enum LoadingProgressStyle {
   /**
    * Default style.
    * @since 8
+   */
+  /**
+   * Default style.
+   * @form
+   * @since 9
    */
   Default,
 
@@ -28,11 +38,21 @@ declare enum LoadingProgressStyle {
    * Announcement style.
    * @since 8
    */
+  /**
+   * Announcement style.
+   * @form
+   * @since 9
+   */
   Circular,
 
   /**
    * The style of the track.
    * @since 8
+   */
+  /**
+   * The style of the track.
+   * @form
+   * @since 9
    */
   Orbital,
 }
@@ -41,10 +61,20 @@ declare enum LoadingProgressStyle {
  * Provides an interface for extending the loading progress.
  * @since 8
  */
+/**
+ * Provides an interface for extending the loading progress.
+ * @form
+ * @since 9
+ */
 interface LoadingProgressInterface {
   /**
    * Called when the progress bar progress is viewed.
    * @since 8
+   */
+  /**
+   * Called when the progress bar progress is viewed.
+   * @form
+   * @since 9
    */
   (): LoadingProgressAttribute;
 }
@@ -53,10 +83,20 @@ interface LoadingProgressInterface {
  * Declare the progress bar being loaded
  * @since 8
  */
+/**
+ * Declare the progress bar being loaded
+ * @form
+ * @since 9
+ */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
    * Load the color of the progress bar.
    * @since 8
+   */
+  /**
+   * Load the color of the progress bar.
+   * @form
+   * @since 9
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 }
@@ -64,9 +104,18 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 /**
  * @since 8
  */
+/**
+ * @form
+ * @since 9
+ */
 declare const LoadingProgress: LoadingProgressInterface;
 /**
  * Loading Progress Extensions on Declarative Classes
  * @since 8
+ */
+/**
+ * Loading Progress Extensions on Declarative Classes
+ * @form
+ * @since 9
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;
