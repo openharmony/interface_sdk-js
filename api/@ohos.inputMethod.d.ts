@@ -431,7 +431,6 @@ declare namespace inputMethod {
          * @since 10
          */
         off(type: 'selectByMovement'): void;
-
     }
 
     /**
