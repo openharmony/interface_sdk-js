@@ -1538,50 +1538,50 @@ declare namespace wifiManager {
         ssid: string;
 
         /** Wi-Fi bssid(MAC): the length is 6 */
-        bssid: string;
+        bssid?: string;
 
         /** Wi-Fi key: maximum length is 64 */
         preSharedKey: string;
 
         /** Hide SSID or not, false(default): not hide */
-        isHiddenSsid: boolean;
+        isHiddenSsid?: boolean;
 
         /** Security type: reference definition of WifiSecurityType */
         securityType: WifiSecurityType;
 
         /** The UID of the Wi-Fi configuration creator */
         /* @systemapi */
-        creatorUid: number;
+        creatorUid?: number;
 
         /** Disable reason */
         /* @systemapi */
-        disableReason: number;
+        disableReason?: number;
 
         /** Allocated networkId */
         /* @systemapi */
-        netId: number;
+        netId?: number;
 
         /** Random mac type */
         /* @systemapi */
-        randomMacType: number;
+        randomMacType?: number;
 
         /** Random mac address, the length is 6 */
         /* @systemapi */
-        randomMacAddr: string;
+        randomMacAddr?: string;
 
         /** IP Type */
         /* @systemapi */
-        ipType: IpType;
+        ipType?: IpType;
 
         /** IP config of static */
         /* @systemapi */
-        staticIp: IpConfig;
+        staticIp?: IpConfig;
 
         /**
          * EAP config info.
          * @systemapi
          */
-        eapConfig: WifiEapConfig;
+        eapConfig?: WifiEapConfig;
     }
 
     /**
