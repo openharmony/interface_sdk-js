@@ -398,6 +398,7 @@ declare namespace inputMethod {
          * @param {string} type - event type, fixed as 'selectByRange'.
          * @param callback - processes selectByRange command. The range of selection is provided for this callback,
          * and subscribers are expected to select corresponding text in callback according to the range.
+         * @throws {BusinessError} 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
@@ -409,6 +410,7 @@ declare namespace inputMethod {
          * @param {string} type - event type, fixed as 'selectByMovement'.
          * @param callback - processes selectByMovement command. The movement of cursor is provided for this callback,
          * and subscribers are expected to select corresponding text in callback according to the movement.
+         * @throws {BusinessError} 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
