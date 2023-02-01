@@ -393,26 +393,26 @@ declare namespace inputMethod {
         hideSoftKeyboard():Promise<void>;
 
         /**
-         * Register a callback and when text in editor is selected by range,
+         * Register a callback and when IME sends select event with range of selection,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByRange'.
-         * @param callback - processes selectByRange command. The callback provides
-         * the range of selection.
+         * @param callback - processes selectByRange command. The range of selection is provided for this callback,
+         * and subscribers are expected to select corresponding text in callback according to the range.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
-        on(type: 'selectByRange', callback: (range: Range) => void): void;
+        on(type: 'selectByRange', callback: Callback<Range>): void;
 
         /**
-         * Register a callback and when text in editor is selected by cursor movement,
+         * Register a callback and when IME sends select event witch movement of cursor,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByMovement'.
-         * @param callback - processes selectByMovement command. The callback provides
-         * the movement of cursor.
+         * @param callback - processes selectByMovement command. The movement of cursor is provided for this callback,
+         * and subscribers are expected to select corresponding text in callback according to the movement.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
-        on(type: 'selectByMovement', callback: (movement: Movement) => void): void;
+        on(type: 'selectByMovement', callback: Callback<Movement>): void;
 
         /**
          * Unregister the callback of selectedByRange.

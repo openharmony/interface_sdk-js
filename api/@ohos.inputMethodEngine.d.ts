@@ -776,8 +776,7 @@ declare namespace inputMethodEngine {
         /**
          * Get the index number of text at cursor.
          * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
-         * number of text at cursor, if cursor not change or the text is empty, the value is 0; if cursor is a Rectangular area, the value
-         * is the index number of text at the end of cursor.
+         * number of text at cursor, if text filed is not focused, the value is -1.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -788,8 +787,7 @@ declare namespace inputMethodEngine {
         /**
          * Get the index number of text at cursor.
          * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
-         * at cursor, if cursor not change or the text is empty, the value is 0; if cursor is a Rectangular area, the value is the index
-         * number of text at the end of cursor.
+         * at cursor, if text filed is not focused, the value is -1.
          * @throws { BusinessError } 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
