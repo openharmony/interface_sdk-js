@@ -457,6 +457,7 @@ perso
 personalisation
 pertaining
 photographing
+pickers
 pixelmap
 playpause
 playstate
