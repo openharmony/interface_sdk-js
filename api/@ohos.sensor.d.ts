@@ -1520,17 +1520,7 @@ declare namespace sensor {
      */
     interface Sensor {
         sensorName:string; /**< Sensor name */
-        /**
-         * Sensor vendor.
-         * @deprecated since 9
-         * @useinstead sensor#event:Sensor.vendorName
-         */
-        venderName:string;
-        /**
-         * Sensor vendor.
-         * @since 9
-         */
-        vendorName:string;
+        vendorName:string; /**< Sensor vendor */
         firmwareVersion:string; /**< Sensor firmware version */
         hardwareVersion:string; /**< Sensor hardware version */
         sensorId:number; /**< Sensor type ID, {@code SensorType} */
@@ -1949,7 +1939,7 @@ declare namespace sensor {
      * @useinstead sensor#getRotationMatrix
      */
     function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
-    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>): Promise<RotationMatrixResponse>;
+    function createRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
 
     /**
      * Calculate rotation matrix based on gravity vector and geomagnetic vector.
