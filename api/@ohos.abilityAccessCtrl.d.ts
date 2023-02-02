@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback, Callback } from './basic';
-import { Permissions, Permission } from './permissions';
+import { Permissions } from './permissions';
 import Context from "./application/Context";
 import PermissionRequestResult from "./security/PermissionRequestResult";
 
@@ -53,7 +53,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 9
          */
         verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
-        verifyAccessToken(tokenID: number, permissionName: Permission): Promise<GrantStatus>;
 
         /**
          * Checks whether a specified application has been granted the given permission synchronously.
@@ -65,7 +64,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 9
          */
         verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
-        verifyAccessTokenSync(tokenID: number, permissionName: Permission): GrantStatus;
 
         /**
          * Checks whether a specified application has been granted the given permission.
@@ -77,7 +75,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 9
          */
         checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
-        checkAccessToken(tokenID: number, permissionName: Permission): Promise<GrantStatus>;
 
         /**
          * Requests certain permissions from the user.
@@ -92,8 +89,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          */
         requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
         requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>) : Promise<PermissionRequestResult>;
-        requestPermissionsFromUser(context: Context, permissionList: Array<Permission>, requestCallback: AsyncCallback<PermissionRequestResult>) : void;
-        requestPermissionsFromUser(context: Context, permissionList: Array<Permission>) : Promise<PermissionRequestResult>;
 
         /**
          * Grants a specified user_grant permission to the given application.
@@ -115,8 +110,7 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          */
         grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
         grantUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number, callback: AsyncCallback<void>): void;
-        grantUserGrantedPermission(tokenID: number, permissionName: Permission, permissionFlags: number): Promise<void>;
-        grantUserGrantedPermission(tokenID: number, permissionName: Permission, permissionFlags: number, callback: AsyncCallback<void>): void;
+
         /**
          * Revoke a specified user_grant permission to the given application.
          * @param tokenID The tokenId of specified application.
@@ -137,8 +131,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          */
         revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number): Promise<void>;
         revokeUserGrantedPermission(tokenID: number, permissionName: Permissions, permissionFlags: number, callback: AsyncCallback<void>): void;
-        revokeUserGrantedPermission(tokenID: number, permissionName: Permission, permissionFlags: number): Promise<void>;
-        revokeUserGrantedPermission(tokenID: number, permissionName: Permission, permissionFlags: number, callback: AsyncCallback<void>): void;
 
         /**
          * Queries specified permission flags of the given application.
@@ -158,7 +150,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 8
          */
         getPermissionFlags(tokenID: number, permissionName: Permissions): Promise<number>;
-        getPermissionFlags(tokenID: number, permissionName: Permission): Promise<number>;
 
         /**
          * Queries permission management version.
@@ -199,7 +190,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 9
          */
         on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permissions>, callback: Callback<PermissionStateChangeInfo>): void;
-        on(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permission>, callback: Callback<PermissionStateChangeInfo>): void;
 
         /**
          * Unregisters a permission state callback so that the specified applications cannot be notified upon specified permissions state changes anymore.
@@ -218,7 +208,6 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
          * @since 9
          */
         off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permissions>, callback?: Callback<PermissionStateChangeInfo>): void;
-        off(type: 'permissionStateChange', tokenIDList: Array<number>, permissionList: Array<Permission>, callback?: Callback<PermissionStateChangeInfo>): void;
     }
   
     /**
@@ -272,9 +261,9 @@ import PermissionRequestResult from "./security/PermissionRequestResult";
         /**
          * Indicates the permission whose state has been changed.
          */
-        permissionName: Permissions | Permission;
+        permissionName: Permissions;
     }
  }
 
  export default abilityAccessCtrl;
- export { Permissions, Permission};
+ export { Permissions };

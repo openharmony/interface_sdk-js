@@ -14,7 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from './basic'
-import { Permissions, Permission } from './permissions'
+import { Permissions } from './permissions'
 
 /**
  * @syscap SystemCapability.Security.AccessToken
@@ -41,8 +41,6 @@ import { Permissions, Permission } from './permissions'
      */
     function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number): Promise<void>;
     function addPermissionUsedRecord(tokenID: number, permissionName: Permissions, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
-    function addPermissionUsedRecord(tokenID: number, permissionName: Permission, successCount: number, failCount: number): Promise<void>;
-    function addPermissionUsedRecord(tokenID: number, permissionName: Permission, successCount: number, failCount: number, callback: AsyncCallback<void>): void;
 
     /**
      * Queries the access records of sensitive permission.
@@ -83,8 +81,6 @@ import { Permissions, Permission } from './permissions'
      */
     function startUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
     function startUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
-    function startUsingPermission(tokenID: number, permissionName: Permission): Promise<void>;
-    function startUsingPermission(tokenID: number, permissionName: Permission, callback: AsyncCallback<void>): void;
 
     /**
      * Stop using sensitive permission.
@@ -106,8 +102,6 @@ import { Permissions, Permission } from './permissions'
      */
     function stopUsingPermission(tokenID: number, permissionName: Permissions): Promise<void>;
     function stopUsingPermission(tokenID: number, permissionName: Permissions, callback: AsyncCallback<void>): void;
-    function stopUsingPermission(tokenID: number, permissionName: Permission): Promise<void>;
-    function stopUsingPermission(tokenID: number, permissionName: Permission, callback: AsyncCallback<void>): void;
 
     /**
      * Subscribes to the change of active state of the specified permission.
@@ -125,7 +119,7 @@ import { Permissions, Permission } from './permissions'
      * @since 9
      */
     function on(type: 'activeStateChange', permissionList: Array<Permissions>, callback: Callback<ActiveChangeResponse>): void;
-    function on(type: 'activeStateChange', permissionList: Array<Permission>, callback: Callback<ActiveChangeResponse>): void;
+
     /**
      * Unsubscribes to the change of active state of the specified permission.
      * @param permissionList Indicates the permission list, which are specified.
@@ -133,7 +127,7 @@ import { Permissions, Permission } from './permissions'
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 12100001 - The parameter is invalid. The permissionName in list is all invalid or the list size is larger than 1024.
-     * @throws { BusinessError } 12100004 - The interface is not used with "on".
+     * @throws { BusinessError } 12100004 - The interface is not used together with "on".
      * @throws { BusinessError } 12100007 - Service is abnormal.
      * @throws { BusinessError } 12100008 - Out of memory.
      * @permission ohos.permission.PERMISSION_USED_STATS
@@ -141,7 +135,6 @@ import { Permissions, Permission } from './permissions'
      * @since 9
      */
     function off(type: 'activeStateChange', permissionList: Array<Permissions>, callback?: Callback<ActiveChangeResponse>): void;
-    function off(type: 'activeStateChange', permissionList: Array<Permission>, callback?: Callback<ActiveChangeResponse>): void;
 
     /**
      * Enum for permission for status.
@@ -179,7 +172,7 @@ import { Permissions, Permission } from './permissions'
         /**
         * The permission name
         */
-        permissionName: Permissions | Permission;
+        permissionName: Permissions;
     
         /**
         * The device id
@@ -236,7 +229,7 @@ import { Permissions, Permission } from './permissions'
         /**
          * The list of permission name
          */ 
-        permissionNames: Array<Permissions | Permission>;
+        permissionNames: Array<Permissions>;
 
         /**
          * The begin time, in milliseconds
@@ -317,7 +310,7 @@ import { Permissions, Permission } from './permissions'
         /**
         * The permission name 
         */
-        permissionName: Permissions | Permission;
+        permissionName: Permissions;
 
         /**
          * The access counts
@@ -379,4 +372,4 @@ import { Permissions, Permission } from './permissions'
 }
 
 export default privacyManager;
-export { Permissions, Permission };
+export { Permissions };
