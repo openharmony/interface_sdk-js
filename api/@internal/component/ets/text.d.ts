@@ -214,6 +214,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 9
    */
   copyOption(value: CopyOptions): TextAttribute;
+
+  /**
+   * Enable the selectable area can be dragged.
+   * @type boolean
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  draggable(value: boolean): TextAttribute;
 }
 
 declare const TextInstance: TextAttribute;

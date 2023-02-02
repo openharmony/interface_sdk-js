@@ -90,7 +90,7 @@ declare enum ListItemAlign {
  * @form
  * @since 9
  */
- declare enum StickyStyle {
+declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
    * @form
@@ -300,6 +300,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   onReachEnd(event: () => void): ListAttribute;
 
   /**
+   * Called when the slider start.
+   * @since 9
+   */
+  onScrollStart(event: () => void): ListAttribute;
+
+  /**
    * Called when the slider stops.
    * @since 7
    */
@@ -388,11 +394,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
   /**
-   * Event called when list will scroll.
+   * Called when scrolling begin each frame.
    * @form
    * @since 9
    */
-  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ListAttribute;
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
 }
 
 declare const List: ListInterface;

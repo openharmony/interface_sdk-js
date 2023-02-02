@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -672,6 +672,8 @@ declare function openSync(path: string, flags?: number, mode?: number): number;
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @permission N/A
  * @function opendir
  * @param {string} path - directory name.
@@ -683,7 +685,9 @@ declare function opendir(path: string): Promise<Dir>;
 declare function opendir(path: string, callback: AsyncCallback<Dir>): void;
 /**
  * opendirSync.
- *
+ * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @param {string} path - directory name.
  * @returns {Dir} opendir Dir Object
  * @throws {TypedError | Error} opendir fail
@@ -1056,6 +1060,8 @@ declare interface Dir {
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function read
      * @param {AsyncCallback<Dirent>} [callback] - callback.
@@ -1068,6 +1074,8 @@ declare interface Dir {
      * readSync.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function readSync
      * @returns {Dirent} Dirent Object
@@ -1078,6 +1086,8 @@ declare interface Dir {
      * close.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function close
      * @param {AsyncCallback<void>} [callback] - callback.
@@ -1090,6 +1100,8 @@ declare interface Dir {
      * closeSync.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @function closeSync
      * @returns {void} close success
@@ -1102,6 +1114,8 @@ declare interface Dir {
  * Dirent
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
+ * @deprecated since 9
+ * @useinstead ohos.file.fs.listFile
  * @permission N/A
  */
 declare interface Dirent {
@@ -1110,6 +1124,8 @@ declare interface Dirent {
      * @readonly
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      */
     readonly name: string;
@@ -1117,6 +1133,8 @@ declare interface Dirent {
      * isBlockDevice.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1125,6 +1143,8 @@ declare interface Dirent {
      * isCharacterDevice.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1133,6 +1153,8 @@ declare interface Dirent {
      * isDirectory.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1141,6 +1163,8 @@ declare interface Dirent {
      * isFIFO.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1149,6 +1173,8 @@ declare interface Dirent {
      * isFile.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1157,6 +1183,8 @@ declare interface Dirent {
      * isSocket.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
@@ -1165,6 +1193,8 @@ declare interface Dirent {
      * isSymbolicLink.
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.file.fs.listFile
      * @permission N/A
      * @returns {boolean} is or not
      */
