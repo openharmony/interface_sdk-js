@@ -31,7 +31,7 @@ declare namespace webview {
      * Defines the Web's request/response header.
      * @since 9
      */
-    interface HeaderV9 {
+    interface WebHeader {
         /**
          * Gets the key of the request/response header.
          * @since 9
@@ -49,7 +49,7 @@ declare namespace webview {
      * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
      * @since 9
      */
-    enum HitTestTypeV9 {
+    enum WebHitTestType {
         /**
          * The edit text.
          * @since 9
@@ -96,7 +96,7 @@ declare namespace webview {
          * Other unknown HitTest.
          * @since 9
          */
-        Unknown,
+        Unknown
     }
 
     /**
@@ -110,7 +110,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        type: HitTestTypeV9;
+        type: WebHitTestType;
 
         /**
          * Get the hit test extra data.
@@ -184,7 +184,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        static deleteAllData() : void;
+        static deleteAllData(): void;
 
         /**
          * Delete the storage data with the origin.
@@ -194,7 +194,7 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static deleteOrigin(origin : string): void;
+        static deleteOrigin(origin: string): void;
 
         /**
          * Get current all the web storage origins.
@@ -203,8 +203,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @since 9
          */
-        static getOrigins() : Promise<Array<WebStorageOrigin>>;
-        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>) : void;
+        static getOrigins(): Promise<Array<WebStorageOrigin>>;
+        static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
         /**
          * Get the web storage quota with the origin.
@@ -213,8 +213,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static getOriginQuota(origin : string) : Promise<number>;
-        static getOriginQuota(origin : string, callback : AsyncCallback<number>) : void;
+        static getOriginQuota(origin: string): Promise<number>;
+        static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
         /**
          * Get the web storage quota with the origin.
@@ -223,8 +223,8 @@ declare namespace webview {
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @since 9
          */
-        static getOriginUsage(origin : string) : Promise<number> ;
-        static getOriginUsage(origin : string, callback : AsyncCallback<number>) : void;
+        static getOriginUsage(origin: string): Promise<number> ;
+        static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
     }
 
     /**
@@ -378,8 +378,8 @@ declare namespace webview {
          *
          * @since 9
          */
-        static getStoredGeolocation() : Promise<Array<string>>;
-        static getStoredGeolocation(callback : AsyncCallback<Array<string>>): void;
+        static getStoredGeolocation(): Promise<Array<string>>;
+        static getStoredGeolocation(callback: AsyncCallback<Array<string>>): void;
     }
 
       /**
@@ -730,7 +730,7 @@ declare namespace webview {
          * Loads the data or URL.
          *
          * @param { string | Resource } url - The URL to load.
-         * @param { Array<HeaderV9> } [headers] - Additional HTTP request header for URL.
+         * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
@@ -739,18 +739,18 @@ declare namespace webview {
          *
          * @since 9
          */
-        loadUrl(url: string | Resource, headers?: Array<HeaderV9>): void;
+        loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
         /**
          * Gets the type of HitTest.
          *
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
-         * @returns { HitTestTypeV9 } The type of HitTest.
+         * @returns { WebHitTestType } The type of HitTest.
          *
          * @since 9
          */
-        getHitTest(): HitTestTypeV9;
+        getHitTest(): WebHitTestType;
 
         /**
          * Stores the current page as a web archive.
@@ -774,7 +774,7 @@ declare namespace webview {
          * @since 9
          */
         storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
-        storeWebArchive(baseName: string, autoName: boolean, callback : AsyncCallback<string>): void;
+        storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
         /**
          * Let the Web zoom by.
@@ -1024,7 +1024,7 @@ declare namespace webview {
          * @since 9
          */
         runJavaScript(script: string): Promise<string>;
-        runJavaScript(script: string, callback : AsyncCallback<string>): void;
+        runJavaScript(script: string, callback: AsyncCallback<string>): void;
 
         /**
          * Gets the url of current Web page.
@@ -1182,7 +1182,7 @@ declare namespace webview {
          *
          * @since 9
          */
-        serializeWebState() : Uint8Array;
+        serializeWebState(): Uint8Array;
 
         /**
          * Restoring the web access stack, that is, the history of access.
@@ -1193,7 +1193,7 @@ declare namespace webview {
          *                           The WebviewController must be associated with a Web component.
          * @since 9
          */
-        restoreWebState(state: Uint8Array) : void;
+        restoreWebState(state: Uint8Array): void;
 
         /**
          * Set whether the Web custom scheme supports cross domain and fetch requests.
