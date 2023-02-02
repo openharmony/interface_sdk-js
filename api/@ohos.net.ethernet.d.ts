@@ -70,7 +70,7 @@ declare namespace ethernet {
      * See {@link IPSetMode}
      */
     mode: IPSetMode;
-   /**
+    /**
      * Ethernet connection static configuration IP information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
      * (DHCP mode does not need to be configured)
