@@ -137,6 +137,33 @@ declare namespace display {
   }
 
   /**
+   * Enumerates the display orientation.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 10
+   */
+  enum Orientation {
+    /**
+     * Indicate that the display content is in portrait mode.
+     */
+    PORTRAIT = 0,
+
+    /**
+     * Indicate that the display content is in landscape mode.
+     */
+    LANDSCAPE = 1,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the portrait mode.
+     */
+    PORTRAIT_INVERTED = 2,
+
+    /**
+     * Indicate that the display content is in the opposite direction of the landscape mode.
+     */
+    LANDSCAPE_INVERTED = 3,
+  }
+
+  /**
    * Rectangle
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -227,6 +254,12 @@ declare namespace display {
      * Display resolution.
      */
     densityDPI: number;
+
+    /**
+     * Display orientation.
+     * @since 10
+     */
+    orientation: Orientation;
 
     /**
      * Display density, in pixels. The value for a low-resolution display is 1.0.
