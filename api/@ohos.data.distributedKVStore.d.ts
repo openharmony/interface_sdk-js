@@ -1076,6 +1076,7 @@ declare namespace distributedKVStore {
          * @param {Array<ValuesBucket>} value - Indicates the ValuesBucket array to be inserted.
          * @param {AsyncCallback<void>} callback - the callback of putBatch.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1091,6 +1092,7 @@ declare namespace distributedKVStore {
          * @param {Array<ValuesBucket>} value - Indicates the ValuesBucket array to be inserted.
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1134,6 +1136,7 @@ declare namespace distributedKVStore {
          * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
          * @param {AsyncCallback<void>} callback - the callback of delete.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1149,6 +1152,7 @@ declare namespace distributedKVStore {
          * @param {dataSharePredicates.DataSharePredicates} predicates - Indicates the dataSharePredicates.
          * @returns {Promise<void>} the promise returned by the function.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1369,6 +1373,7 @@ declare namespace distributedKVStore {
          * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -1385,6 +1390,7 @@ declare namespace distributedKVStore {
          * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2102,6 +2108,7 @@ declare namespace distributedKVStore {
          * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2118,6 +2125,7 @@ declare namespace distributedKVStore {
          * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2135,6 +2143,7 @@ declare namespace distributedKVStore {
          * @param {AsyncCallback<KVStoreResultSet>} callback - {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
@@ -2152,6 +2161,7 @@ declare namespace distributedKVStore {
          * @returns {Promise<KVStoreResultSet>} {KVStoreResultSet}: the {@code KVStoreResultSet}
          * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
          * @throws {BusinessError} 401 - if parameter check failed.
+         * @throws {BusinessError} 202 - if the caller is not a system app or FA model.
          * @throws {BusinessError} 15100003 - if the database is corrupted.
          * @throws {BusinessError} 15100005 - if the database or result set has been closed.
          * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
