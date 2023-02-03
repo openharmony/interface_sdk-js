@@ -159,7 +159,6 @@ declare type Context = import('../api/application/Context').default;
  * @param { Object } component - indicate the card entry component.
  * @param { Object } action - indicate the router or message event.
  * @StageModelOnly
- * @systemapi
  * @since 9
  */
  declare function postCardAction(component: Object, action: Object): void;
