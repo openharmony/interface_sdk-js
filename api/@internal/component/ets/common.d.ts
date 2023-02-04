@@ -122,6 +122,12 @@ declare const Styles: MethodDecorator;
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
+ * Defining Concurrent MethodDecorator
+ * @since 9
+ */
+declare const Concurrent: MethodDecorator;
+
+/**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
