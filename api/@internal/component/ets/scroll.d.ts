@@ -17,31 +17,16 @@
  * Content scroll direction.
  * @since 7
  */
-/**
- * Content scroll direction.
- * @form
- * @since 9
- */
 declare enum ScrollDirection {
   /**
    * Vertical scrolling is supported.
    * @since 7
-   */
-  /**
-   * Vertical scrolling is supported.
-   * @form
-   * @since 9
    */
   Vertical,
 
   /**
    * Horizontal scrolling is supported.
    * @since 7
-   */
-  /**
-   * Horizontal scrolling is supported.
-   * @form
-   * @since 9
    */
   Horizontal,
 
@@ -56,41 +41,22 @@ declare enum ScrollDirection {
    * Non-scrollable.
    * @since 7
    */
-  /**
-   * Non-scrollable.
-   * @form
-   * @since 9
-   */
   None,
 }
 
 /**
  * @since 7
  */
-/**
- * @form
- * @since 9
- */
 declare class Scroller {
   /**
    * constructor.
    * @since 7
-   */
-  /**
-   * constructor.
-   * @form
-   * @since 9
    */
   constructor();
 
   /**
    * Called when the setting slides to the specified position.
    * @since 7
-   */
-  /**
-   * Called when the setting slides to the specified position.
-   * @form
-   * @since 9
    */
   scrollTo(value: {
     xOffset: number | string;
@@ -101,11 +67,6 @@ declare class Scroller {
   /**
    * Called when scrolling to the edge of the container.
    * @since 7
-   */
-  /**
-   * Called when scrolling to the edge of the container.
-   * @form
-   * @since 9
    */
   scrollEdge(value: Edge);
 
@@ -118,14 +79,12 @@ declare class Scroller {
 
   /**
    * Called when page turning mode is set.
-   * @form
    * @since 9
    */
   scrollPage(value: { next: boolean });
 
   /**
    * Called when viewing the scroll offset.
-   * @form
    * @since 7
    */
   currentOffset();
@@ -134,16 +93,10 @@ declare class Scroller {
    * Called when sliding to the specified index.
    * @since 7
    */
-  /**
-   * Called when sliding to the specified index.
-   * @form
-   * @since 9
-   */
   scrollToIndex(value: number);
 
   /**
    * Called when the setting slides by offset.
-   * @form
    * @since 9
    */
   scrollBy(dx: Length, dy: Length);
@@ -153,20 +106,10 @@ declare class Scroller {
  * Provides interfaces for scrollable containers.
  * @since 7
  */
-/**
- * Provides interfaces for scrollable containers.
- * @form
- * @since 9
- */
 interface ScrollInterface {
   /**
    * Called when a scrollable container is set.
    * @since 7
-   */
-  /**
-   * Called when a scrollable container is set.
-   * @form
-   * @since 9
    */
   (scroller?: Scroller): ScrollAttribute;
 }
@@ -175,20 +118,10 @@ interface ScrollInterface {
  * Defines the scroll attribute functions.
  * @since 7
  */
-/**
- * Defines the scroll attribute functions.
- * @form
- * @since 9
- */
 declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   /**
    * Called when the scroll method is slid.
    * @since 7
-   */
-  /**
-   * Called when the scroll method is slid.
-   * @form
-   * @since 9
    */
   scrollable(value: ScrollDirection): ScrollAttribute;
 
@@ -196,21 +129,11 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * Called when the setting slides to the specified position.
    * @since 7
    */
-  /**
-   * Called when the setting slides to the specified position.
-   * @form
-   * @since 9
-   */
   onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
    * @since 7
-   */
-  /**
-   * Called when scrolling to the edge of the container.
-   * @form
-   * @since 9
    */
   onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
 
@@ -226,11 +149,6 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @deprecated since 9
    * @useinstead scroll/Scroll#onScrollStop
    */
-  /**
-   * Called when scrolling has stopped.
-   * @form
-   * @since 9
-   */
   onScrollEnd(event: () => void): ScrollAttribute;
 
   /**
@@ -243,21 +161,11 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * Called when the status of the scroll bar is set.
    * @since 7
    */
-  /**
-   * Called when the status of the scroll bar is set.
-   * @form
-   * @since 9
-   */
   scrollBar(barState: BarState): ScrollAttribute;
 
   /**
    * Called when the color of the scroll bar is set.
    * @since 7
-   */
-  /**
-   * Called when the color of the scroll bar is set.
-   * @form
-   * @since 9
    */
   scrollBarColor(color: Color | number | string): ScrollAttribute;
 
@@ -265,27 +173,16 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * Called when the width of the scroll bar is set.
    * @since 7
    */
-  /**
-   * Called when the width of the scroll bar is set.
-   * @form
-   * @since 9
-   */
   scrollBarWidth(value: number | string): ScrollAttribute;
 
   /**
    * Called when the sliding effect is set.
    * @since 7
    */
-  /**
-   * Called when the sliding effect is set.
-   * @form
-   * @since 9
-   */
   edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 
   /**
    * Called when scrolling begin each frame.
-   * @form
    * @since 9
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;

@@ -210,6 +210,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Allow replication.
+   * @since 9
+   */
+  /**
+   * Allow replication.
    * @form
    * @since 9
    */

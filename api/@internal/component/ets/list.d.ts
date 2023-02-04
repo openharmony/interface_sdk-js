@@ -59,10 +59,18 @@ declare enum ScrollState {
 
 /**
  * Declare list item alignment status
+ * @since 9
+ */
+/**
+ * Declare list item alignment status
  * @form
  * @since 9
  */
 declare enum ListItemAlign {
+  /**
+   * Start position in the direction of cross axis.
+   * @since 9
+   */
   /**
    * Start position in the direction of cross axis.
    * @form
@@ -72,11 +80,19 @@ declare enum ListItemAlign {
 
   /**
    * Center position in the direction of cross axis.
+   * @since 9
+   */
+  /**
+   * Center position in the direction of cross axis.
    * @form
    * @since 9
    */
   Center,
 
+  /**
+   * End position in the direction of cross axis
+   * @since 9
+   */
   /**
    * End position in the direction of cross axis
    * @form
@@ -87,10 +103,18 @@ declare enum ListItemAlign {
 
 /**
  * Declare item group sticky style.
+ * @since 9
+ */
+/**
+ * Declare item group sticky style.
  * @form
  * @since 9
  */
 declare enum StickyStyle {
+  /**
+   * The header and footer of each item group will not be pinned.
+   * @since 9
+   */
   /**
    * The header and footer of each item group will not be pinned.
    * @form
@@ -100,11 +124,19 @@ declare enum StickyStyle {
 
   /**
    * The header of each item group will be pinned.
+   * @since 9
+   */
+  /**
+   * The header of each item group will be pinned.
    * @form
    * @since 9
    */
   Header = 1,
 
+  /**
+   * The footer of each item group will be pinned.
+   * @since 9
+   */
   /**
    * The footer of each item group will be pinned.
    * @form
@@ -145,11 +177,19 @@ interface ListInterface {
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when need to decide how much lanes the list will show.
+   * @since 9
+   */
+  /**
+   * Called when need to decide how much lanes the list will show.
    * @form
    * @since 9
    */
   lanes(value: number | LengthConstrain): ListAttribute;
 
+  /**
+   * Called when need to decide how to align lanes in the direction of the cross axis.
+   * @since 9
+   */
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    * @form
@@ -250,6 +290,10 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when header or footer of item group will be pinned.
+   * @since 9
+   */
+  /**
+   * Called when header or footer of item group will be pinned.
    * @form
    * @since 9
    */
@@ -327,11 +371,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when a list item is moved.
    * @since 7
    */
-  /**
-   * Called when a list item is moved.
-   * @form
-   * @since 9
-   */
   onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
   /**
@@ -339,22 +378,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   * @form
-   * @since 9
-   */
   onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
-   * @form
-   * @since 9
    */
   onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
@@ -362,21 +390,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   * @form
-   * @since 9
-   */
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   * @form
-   * @since 9
    */
   onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
 
@@ -385,14 +403,12 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
    */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   * @form
-   * @since 9
-   */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
+  /**
+   * Called when scrolling begin each frame.
+   * @since 9
+   */
   /**
    * Called when scrolling begin each frame.
    * @form

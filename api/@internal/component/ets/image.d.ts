@@ -111,6 +111,12 @@ interface ImageInterface {
    * @since 7
    */
   (src: string | PixelMap | Resource): ImageAttribute;
+  /**
+   * Set src to obtain images, only support Resource type in form mode
+   * @form
+   * @since 9
+   */
+  (src: Resource): ImageAttribute;
 }
 
 /**
@@ -125,12 +131,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Placeholder displayed on load
    * @since 7
    */
-  /**
-   * Placeholder displayed on load
-   * @form
-   * @since 9
-   */
   alt(value: string | Resource): ImageAttribute;
+    /**
+    * Placeholder displayed on load, only support Resource type in form mode
+    * @form
+    * @since 9
+    */
+    alt(value: Resource): ImageAttribute;
 
   /**
    * match Text Direction
@@ -249,11 +256,20 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the color filter effect on the image.
    * @param value ColorFilter object.
+   * @since 9
+   */
+  /**
+   * Sets the color filter effect on the image.
+   * @param value ColorFilter object.
    * @form
    * @since 9
    */
   colorFilter(value: ColorFilter): ImageAttribute;
 
+  /**
+   * Allow replication.
+   * @since 9
+   */
   /**
    * Allow replication.
    * @form
@@ -262,6 +278,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   copyOption(value: CopyOptions): ImageAttribute;
 
   /**
+   * Enable image dragging.
+   * Default value is false.
+   * @since 9
+   */
+   /**
    * Enable image dragging.
    * Default value is false.
    * @form
@@ -301,6 +322,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
 
+  /**
+   * This callback is triggered when an exception occurs during image loading.
+   * The field of "message" carries the detailed information of failed image loading.
+   * @since 9
+   */
   /**
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.

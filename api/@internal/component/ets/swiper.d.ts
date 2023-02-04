@@ -20,6 +20,7 @@
 /**
  * Provides methods for switching components.
  * @form
+ * @systemapi
  * @since 9
  */
 declare class SwiperController {
@@ -75,6 +76,7 @@ declare class SwiperController {
 /**
  * Declare the size of the swiper on the spindle.
  * @form
+ * @systemapi
  * @since 9
  */
 declare enum SwiperDisplayMode {
@@ -108,6 +110,7 @@ declare enum SwiperDisplayMode {
 /**
  * Provides an interface for sliding containers.
  * @form
+ * @systemapi
  * @since 9
  */
 interface SwiperInterface {
@@ -130,6 +133,7 @@ interface SwiperInterface {
 /**
  * Setting indicator style navigation.
  * @form
+ * @systemapi
  * @since 9
  */
 declare interface IndicatorStyle {
@@ -229,6 +233,7 @@ declare interface IndicatorStyle {
 /**
  * Defines the swiper attribute functions.
  * @form
+ * @systemapi
  * @since 9
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
@@ -411,11 +416,23 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * Called when the swiper animation start.
    * @param { number } index - the index value of the swiper page that when animation start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Called when the swiper animation start.
+   * @param { number } index - the index value of the swiper page that when animation start.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   onAnimationStart(event: (index: number) => void): SwiperAttribute;
 
+  /**
+   * Called when the swiper animation end.
+   * @param { number } index - the index value of the swiper page that when animation end.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
   /**
    * Called when the swiper animation end.
    * @param { number } index - the index value of the swiper page that when animation end.

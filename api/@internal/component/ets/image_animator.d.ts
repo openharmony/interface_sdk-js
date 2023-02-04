@@ -19,6 +19,7 @@
  */
 /**
  * Defines the ImageAnimator Interface.
+ * @systemapi
  * @form
  * @since 9
  */

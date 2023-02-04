@@ -1819,14 +1819,6 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
    */
-  /**
-   * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @form
-   * @since 9
-   */
   toDataURL(type?: string, quality?: any): string;
 
   /**
@@ -1859,14 +1851,6 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @since 8
-   */
-  /**
-   * Generate a character string in the data url format.
-   * @param type Image format. The default value is image/png.
-   * @param quality If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
-   *    If the value is out of the range, the default value 0.92 is used.
-   * @form
-   * @since 9
    */
   toDataURL(type?: string, quality?: any): string;
 

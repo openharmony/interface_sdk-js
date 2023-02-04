@@ -15,193 +15,305 @@
 
 
 /**
-* Defines the option in length unit of grid-row component.
-* @form
-* @since 9
-*/
+ * Defines the option in length unit of grid-row component.
+ * @since 9
+ */
+/**
+ * Defines the option in length unit of grid-row component.
+ * @form
+ * @since 9
+ */
 declare interface GridRowSizeOption {
     /**
-    * Grid Row Size Option xs
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option xs
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option xs
+     * @form
+     * @since 9
+     */
     xs?: Length,
 
     /**
-    * Grid Row Size Option sm
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option sm
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option sm
+     * @form
+     * @since 9
+     */
     sm?: Length,
 
     /**
-    * Grid Row Size Option md
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option md
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option md
+     * @form
+     * @since 9
+     */
     md?: Length,
 
     /**
-    * Grid Row Size Option lg
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option lg
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option lg
+     * @form
+     * @since 9
+     */
     lg?: Length,
 
     /**
-    * Grid Row Size Option xl
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option xl
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option xl
+     * @form
+     * @since 9
+     */
     xl?: Length,
 
     /**
-    * Grid Row Size Option xxl
-    * @form
-    * @since 9
-    */
+     * Grid Row Size Option xxl
+     * @since 9
+     */
+    /**
+     * Grid Row Size Option xxl
+     * @form
+     * @since 9
+     */
     xxl?: Length,
 }
 
 /**
-* Defines the option in number unit of grid-container component.
-* @form
-* @since 9
-*/
+ * Defines the option in number unit of grid-container component.
+ * @since 9
+ */
+/**
+ * Defines the option in number unit of grid-container component.
+ * @form
+ * @since 9
+ */
 declare interface GridRowColumnOption {
     /**
-    * Grid Row Column Option xs
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option xs
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option xs
+     * @form
+     * @since 9
+     */
     xs?: number,
 
     /**
-    * Grid Row Column Option sm
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option sm
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option sm
+     * @form
+     * @since 9
+     */
     sm?: number,
     
     /**
-    * Grid Row Column Option md
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option md
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option md
+     * @form
+     * @since 9
+     */
     md?: number,
     
     /**
-    * Grid Row Column Option lg
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option lg
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option lg
+     * @form
+     * @since 9
+     */
     lg?: number,
     
     /**
-    * Grid Row Column Option xl
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option xl
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option xl
+     * @form
+     * @since 9
+     */
     xl?: number,
     
     /**
-    * Grid Row Column Option xxl
-    * @form
-    * @since 9
-    */
+     * Grid Row Column Option xxl
+     * @since 9
+     */
+    /**
+     * Grid Row Column Option xxl
+     * @form
+     * @since 9
+     */
     xxl?: number,
 }
 
 /**
-* Defines the gutter of grid-row component.
-* @form
-* @since 9
-*/
+ * Defines the gutter of grid-row component.
+ * @since 9
+ */
+/**
+ * Defines the gutter of grid-row component.
+ * @form
+ * @since 9
+ */
 declare interface GutterOption {
     /**
-    * Define x in GutterOption
-    * @form
-    * @since 9
-    */
+     * Define x in GutterOption
+     * @since 9
+     */
+    /**
+     * Define x in GutterOption
+     * @form
+     * @since 9
+     */
     x?: Length | GridRowSizeOption,
     
     /**
-    * Define y in GutterOption
-    * @form
-    * @since 9
-    */
+     * Define y in GutterOption
+     * @since 9
+     */
+    /**
+     * Define y in GutterOption
+     * @form
+     * @since 9
+     */
     y?: Length | GridRowSizeOption
 }
 
 /**
-* Defines the breakpoint reference of grid-container component.
-* @form
-* @since 9
-*/
+ * Defines the breakpoint reference of grid-container component.
+ * @since 9
+ */
+/**
+ * Defines the breakpoint reference of grid-container component.
+ * @form
+ * @since 9
+ */
 declare enum BreakpointsReference {
     /**
-    * Respond to breakpoint changes according to window width
-    * @form
-    * @since 9
-    */
+     * Respond to breakpoint changes according to window width
+     * @since 9
+     */
+    /**
+     * Respond to breakpoint changes according to window width
+     * @form
+     * @since 9
+     */
     WindowSize,
 
     /**
-    * Respond to breakpoint changes according to component width
-    * @form
-    * @since 9
-    */
+     * Respond to breakpoint changes according to component width
+     * @since 9
+     */
+    /**
+     * Respond to breakpoint changes according to component width
+     * @form
+     * @since 9
+     */
     ComponentSize,
 }
 
 /**
-* Defines the direction of grid-container component.
-* @form
-* @since 9
-*/
+ * Defines the direction of grid-container component.
+ * @since 9
+ */
+/**
+ * Defines the direction of grid-container component.
+ * @form
+ * @since 9
+ */
 declare enum GridRowDirection {
     /**
-    * The elements in the grid component are arranged in rows
-    * @form
-    * @since 9
-    */
+     * The elements in the grid component are arranged in rows
+     * @since 9
+     */
+    /**
+     * The elements in the grid component are arranged in rows
+     * @form
+     * @since 9
+     */
     Row,
 
     /**
-    * The elements in the grid component are arranged in reverse order of rows
-    * @form
-    * @since 9
-    */
+     * The elements in the grid component are arranged in reverse order of rows
+     * @since 9
+     */
+    /**
+     * The elements in the grid component are arranged in reverse order of rows
+     * @form
+     * @since 9
+     */
     RowReverse,
 }
 
 /**
-* Defines the breakpoints of grid-row component.
-* @form
-* @since 9
-*/
+ * Defines the breakpoints of grid-row component.
+ * @since 9
+ */
+/**
+ * Defines the breakpoints of grid-row component.
+ * @form
+ * @since 9
+ */
 declare interface BreakPoints {
     /**
-    * Breakpoint array
-    * @form
-    * @since 9
-    */
+     * Breakpoint array
+     * @since 9
+     */
+    /**
+     * Breakpoint array
+     * @form
+     * @since 9
+     */
     value?: Array<string>,
 
     /**
-    * Set breakpoint reference
-    * @form
-    * @since 9
-    */
+     * Set breakpoint reference
+     * @since 9
+     */
+    /**
+     * Set breakpoint reference
+     * @form
+     * @since 9
+     */
     reference?: BreakpointsReference,
 }
 
+/**
+ * Defines the options of grid-row component.
+ * @since 9
+ */
 /**
  * Defines the options of grid-row component.
  * @form
  * @since 9
  */
 declare interface GridRowOptions {
+    /**
+     * layout spacing between sub-components
+     * @since 9
+     */
     /**
      * layout spacing between sub-components
      * @form
@@ -211,6 +323,10 @@ declare interface GridRowOptions {
 
     /**
      * Sets the total number of columns in the current layout.
+     * @since 9
+     */
+    /**
+     * Sets the total number of columns in the current layout.
      * @form
      * @since 9
      */
@@ -218,11 +334,19 @@ declare interface GridRowOptions {
 
     /**
      * grid-row layout breakpoints.
+     * @since 9
+     */
+    /**
+     * grid-row layout breakpoints.
      * @form
      * @since 9
      */
     breakpoints?: BreakPoints;
 
+    /**
+     * grid-row layout direction.
+     * @since 9
+     */
     /**
      * grid-row layout direction.
      * @form
@@ -234,10 +358,18 @@ declare interface GridRowOptions {
 
 /**
  * Defines the the new version of grid-container component.
+ * @since 9
+ */
+/**
+ * Defines the the new version of grid-container component.
  * @form
  * @since 9
  */
 interface GridRowInterface {
+    /**
+     * Defines the constructor of GridRow.
+     * @since 9
+     */
     /**
      * Defines the constructor of GridRow.
      * @form
@@ -248,10 +380,14 @@ interface GridRowInterface {
 
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
     /**
-    * Callback triggered when the breakpoint changes
-    * @form
-    * @since 9
-    */
+     * Callback triggered when the breakpoint changes
+     * @since 9
+     */
+    /**
+     * Callback triggered when the breakpoint changes
+     * @form
+     * @since 9
+     */
     onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 }
 

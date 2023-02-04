@@ -122,6 +122,9 @@ declare const Rect: RectInterface;
 declare const RectInStance: RectAttribute;
 
 /**
+ * @since 9
+ */
+/**
  * @form
  * @since 9
  */
