@@ -17,21 +17,10 @@
  * Defines the ImageAnimator Interface.
  * @since 7
  */
-/**
- * Defines the ImageAnimator Interface.
- * @systemapi
- * @form
- * @since 9
- */
 interface ImageAnimatorInterface {
   /**
    * ImageAnimator is returned.
    * @since 7
-   */
-  /**
-   * ImageAnimator is returned.
-   * @form
-   * @since 9
    */
   (): ImageAnimatorAttribute;
 }
@@ -40,22 +29,11 @@ interface ImageAnimatorInterface {
  * Defines the ImageFrameInfo Interface.
  * @since 7
  */
-/**
- * Defines the ImageFrameInfo Interface.
- * @form
- * @since 9
- */
 interface ImageFrameInfo {
   /**
    * Image path
    * @type { string }
    * @since 7
-   */
-  /**
-   * Image path
-   * @type { string | Resource }
-   * @form
-   * @since 9
    */
   src: string | Resource;
   /**
@@ -63,23 +41,11 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @since 7
    */
-  /**
-   * Image width
-   * @type: { number | string }
-   * @form
-   * @since 9
-   */
   width?: number | string;
   /**
    * Image height
    * @type: { number | string }
    * @since 7
-   */
-  /**
-   * Image height
-   * @type: { number | string }
-   * @form
-   * @since 9
    */
   height?: number | string;
   /**
@@ -87,35 +53,17 @@ interface ImageFrameInfo {
    * @type: { number | string }
    * @since 7
    */
-  /**
-   * Vertical coordinate of the image relative to the upper left corner of the component
-   * @type: { number | string }
-   * @form
-   * @since 9
-   */
   top?: number | string;
   /**
    * Horizontal coordinate of the image relative to the upper left corner of the component
    * @type: { number | string }
    * @since 7
    */
-  /**
-   * Horizontal coordinate of the image relative to the upper left corner of the component
-   * @type: { number | string }
-   * @form
-   * @since 9
-   */
   left?: number | string;
   /**
    * Playback duration of this image frame, in milliseconds.
    * @type: { number }
    * @since 7
-   */
-  /**
-   * Playback duration of this image frame, in milliseconds.
-   * @type: { number }
-   * @form
-   * @since 9
    */
   duration?: number;
 }
@@ -124,20 +72,10 @@ interface ImageFrameInfo {
  * inheritance CommonMethod
  * @since 7
  */
-/**
- * inheritance CommonMethod
- * @form
- * @since 9
- */
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
    * list images
    * @since 7
-   */
-  /**
-   * list images
-   * @form
-   * @since 9
    */
   images(value: Array<ImageFrameInfo>): ImageAnimatorAttribute;
 
@@ -145,21 +83,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * The default value is the initial state, which is used to control the playback status.
    * @since 7
    */
-  /**
-   * The default value is the initial state, which is used to control the playback status.
-   * @form
-   * @since 9
-   */
   state(value: AnimationStatus): ImageAnimatorAttribute;
 
   /**
    * The unit is millisecond.
    * @since 7
-   */
-  /**
-   * The unit is millisecond.
-   * @form
-   * @since 9
    */
   duration(value: number): ImageAnimatorAttribute;
 
@@ -167,21 +95,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Set the playback sequence.
    * @since 7
    */
-  /**
-   * Set the playback sequence.
-   * @form
-   * @since 9
-   */
   reverse(value: boolean): ImageAnimatorAttribute;
 
   /**
    * Sets whether the image size is fixed to the component size.
    * @since 7
-   */
-  /**
-   * Sets whether the image size is fixed to the component size.
-   * @form
-   * @since 9
    */
   fixedSize(value: boolean): ImageAnimatorAttribute;
 
@@ -196,21 +114,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Sets the state before and after the animation starts
    * @since 7
    */
-  /**
-   * Sets the state before and after the animation starts
-   * @form
-   * @since 9
-   */
   fillMode(value: FillMode): ImageAnimatorAttribute;
 
   /**
    * Played once by default
    * @since 7
-   */
-    /**
-   * Played once by default
-   * @form
-   * @since 9
    */
   iterations(value: number): ImageAnimatorAttribute;
 
@@ -218,21 +126,11 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, which is triggered when the animation starts to play.
    * @since 7
    */
-  /**
-   * Status callback, which is triggered when the animation starts to play.
-   * @form
-   * @since 9
-   */
   onStart(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation pauses.
    * @since 7
-   */
-  /**
-   * Status callback, which is triggered when the animation pauses.
-   * @form
-   * @since 9
    */
   onPause(event: () => void): ImageAnimatorAttribute;
 
@@ -240,32 +138,17 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * Status callback, triggered when the animation is replayed
    * @since 7
    */
-  /**
-   * Status callback, triggered when the animation is replayed
-   * @form
-   * @since 9
-   */
   onRepeat(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation is canceled.
    * @since 7
    */
-  /**
-   * Status callback, which is triggered when the animation is canceled.
-   * @form
-   * @since 9
-   */
   onCancel(event: () => void): ImageAnimatorAttribute;
 
   /**
    * Status callback, which is triggered when the animation playback is complete.
    * @since 7
-   */
-  /**
-   * Status callback, which is triggered when the animation playback is complete.
-   * @form
-   * @since 9
    */
   onFinish(event: () => void): ImageAnimatorAttribute;
 }

@@ -59,18 +59,10 @@ declare enum ScrollState {
 
 /**
  * Declare list item alignment status
- * @since 9
- */
-/**
- * Declare list item alignment status
  * @form
  * @since 9
  */
 declare enum ListItemAlign {
-  /**
-   * Start position in the direction of cross axis.
-   * @since 9
-   */
   /**
    * Start position in the direction of cross axis.
    * @form
@@ -80,19 +72,11 @@ declare enum ListItemAlign {
 
   /**
    * Center position in the direction of cross axis.
-   * @since 9
-   */
-  /**
-   * Center position in the direction of cross axis.
    * @form
    * @since 9
    */
   Center,
 
-  /**
-   * End position in the direction of cross axis
-   * @since 9
-   */
   /**
    * End position in the direction of cross axis
    * @form
@@ -103,18 +87,10 @@ declare enum ListItemAlign {
 
 /**
  * Declare item group sticky style.
- * @since 9
- */
-/**
- * Declare item group sticky style.
  * @form
  * @since 9
  */
 declare enum StickyStyle {
-  /**
-   * The header and footer of each item group will not be pinned.
-   * @since 9
-   */
   /**
    * The header and footer of each item group will not be pinned.
    * @form
@@ -124,19 +100,11 @@ declare enum StickyStyle {
 
   /**
    * The header of each item group will be pinned.
-   * @since 9
-   */
-  /**
-   * The header of each item group will be pinned.
    * @form
    * @since 9
    */
   Header = 1,
 
-  /**
-   * The footer of each item group will be pinned.
-   * @since 9
-   */
   /**
    * The footer of each item group will be pinned.
    * @form
@@ -177,19 +145,11 @@ interface ListInterface {
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when need to decide how much lanes the list will show.
-   * @since 9
-   */
-  /**
-   * Called when need to decide how much lanes the list will show.
    * @form
    * @since 9
    */
   lanes(value: number | LengthConstrain): ListAttribute;
 
-  /**
-   * Called when need to decide how to align lanes in the direction of the cross axis.
-   * @since 9
-   */
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
    * @form
@@ -288,10 +248,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   chainAnimation(value: boolean): ListAttribute;
 
-  /**
-   * Called when header or footer of item group will be pinned.
-   * @since 9
-   */
   /**
    * Called when header or footer of item group will be pinned.
    * @form
@@ -405,10 +361,6 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
-  /**
-   * Called when scrolling begin each frame.
-   * @since 9
-   */
   /**
    * Called when scrolling begin each frame.
    * @form

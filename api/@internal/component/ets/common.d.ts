@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,12 +28,6 @@ declare const Component: ClassDecorator;
  * Defines Entry ClassDecorator.
  * @returns { ClassDecorator } Entry is a ClassDecorator.
  * @since 7
- */
-/**
- * Defines Entry ClassDecorator.
- * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
- * @since 9
  */
 /**
  * Defines Entry ClassDecorator.
@@ -212,22 +206,12 @@ declare const CustomDialog: ClassDecorator;
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
 /**
- * Defining LocalStorageProp PropertyDecorator.
- * @since 9
- */
-/**
  * Defining LocalStorageProp PropertyDecorator
  * @form
  * @since 9
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
-/**
- * Obtains the Context object associated with a component on the page.
- * @param { Object } component - indicate the component on the page.
- * @StageModelOnly
- * @since 9
- */
 /**
  * Obtains the Context object associated with a component on the page.
  * @param { Object } component - indicate the component on the page.
@@ -240,11 +224,6 @@ declare function getContext(component?: Object): Context;
 /**
  * Get context.
  * @StageModelOnly
- * @since 9
- */
-/**
- * Get context.
- * @StageModelOnly
  * @form
  * @since 9
  */
@@ -254,17 +233,8 @@ declare type Context = import('../api/application/Context').default;
  * Post Card Action.
  * @param { Object } component - indicate the card entry component.
  * @param { Object } action - indicate the router or message event.
- * @StageModelOnly
- * @systemapi
- * @since 9
- */
-/**
- * Post Card Action.
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router or message event.
  * @form
  * @StageModelOnly
- * @systemapi
  * @since 9
  */
  declare function postCardAction(component: Object, action: Object): void;
@@ -404,22 +374,11 @@ declare interface AnimateParam {
    * animation playback. The value 0 means that there is no animation.
    * @since 7
    */
-  /**
-   * Animation playback speed. A larger value indicates faster animation playback, and a smaller value indicates slower
-   * animation playback. The value 0 means that there is no animation.
-   * @form
-   * @since 9
-   */
   tempo?: number;
   /**
    * Animation curve.
    * @type { string | Curve}
    * @since 7
-   */
-  /**
-   * Animation curve.
-   * @type { string | Curve | ICurve}
-   * @since 9
    */
   /**
    * Animation curve.
@@ -432,20 +391,10 @@ declare interface AnimateParam {
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
    */
-  /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
-   * @form
-   * @since 9
-   */
   delay?: number;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
-   */
-  /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
-   * @form
-   * @since 9
    */
   iterations?: number;
   /**
@@ -472,18 +421,10 @@ declare interface AnimateParam {
 
 /**
  * Interface for curve object.
- * @since 9
- */
-/**
- * Interface for curve object.
  * @form
  * @since 9
  */
 interface ICurve {
-  /**
-   * Get curve value by fraction.
-   * @since 9
-   */
   /**
    * Get curve value by fraction.
    * @form
@@ -496,50 +437,25 @@ interface ICurve {
  * Defines the motion path options.
  * @since 7
  */
-/**
- * Defines the motion path options.
- * @form
- * @since 9
- */
 declare interface MotionPathOptions {
   /**
    * The path info.
    * @since 7
-   */
-  /**
-   * The path info.
-   * @form
-   * @since 9
    */
   path: string;
   /**
    * The origin point info.
    * @since 7
    */
-  /**
-   * The origin point info.
-   * @form
-   * @since 9
-   */
   from?: number;
   /**
    * The distance point info.
    * @since 7
    */
-  /**
-   * The distance point info.
-   * @form
-   * @since 9
-   */
   to?: number;
   /**
    * The rotate info.
    * @since 7
-   */
-  /**
-   * The rotate info.
-   * @form
-   * @since 9
    */
   rotatable?: boolean;
 }
@@ -548,70 +464,35 @@ declare interface MotionPathOptions {
  * Defines the shard transition function params.
  * @since 7
  */
-/**
- * Defines the shard transition function params.
- * @form
- * @since 9
- */
 declare interface sharedTransitionOptions {
   /**
    * Animation duration, in ms.
    * @since 7
-   */
-  /**
-   * Animation duration, in ms.
-   * @form
-   * @since 9
    */
   duration?: number;
   /**
    * Animation duration, in ms.
    * @since 7
    */
-  /**
-   * Animation duration, in ms.
-   * @form
-   * @since 9
-   */
   curve?: Curve | string;
   /**
    * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
    * @since 7
-   */
-  /**
-   * Animation playback mode. By default, the animation is played from the beginning after the playback is complete.
-   * @form
-   * @since 9
    */
   delay?: number;
   /**
    * The motion path info.
    * @since 7
    */
-  /**
-   * The motion path info.
-   * @form
-   * @since 9
-   */
   motionPath?: MotionPathOptions;
   /**
    * Z index info.
    * @since 7
    */
-  /**
-   * Z index info.
-   * @form
-   * @since 9
-   */
   zIndex?: number;
   /**
    * the animate type.
    * @since 7
-   */
-  /**
-   * the animate type.
-   * @form
-   * @since 9
    */
   type?: SharedTransitionEffectType;
 }
@@ -722,18 +603,10 @@ declare interface ScaleOptions {
 
 /**
  * Defines the align rule options of relative container.
- * @since 9
- */
-/**
- * Defines the align rule options of relative container.
  * @form
  * @since 9
  */
 declare interface AlignRuleOption {
-  /**
-   * The param of left align.
-   * @since 9
-   */
   /**
    * The param of left align.
    * @form
@@ -742,18 +615,10 @@ declare interface AlignRuleOption {
   left?: { anchor: string, align: HorizontalAlign };
   /**
    * The param of right align.
-   * @since 9
-   */
-  /**
-   * The param of right align.
    * @form
    * @since 9
    */
   right?: { anchor: string, align: HorizontalAlign };
-  /**
-   * The param of middle align.
-   * @since 9
-   */
   /**
    * The param of middle align.
    * @form
@@ -762,28 +627,16 @@ declare interface AlignRuleOption {
   middle?: { anchor: string, align: HorizontalAlign };
   /**
    * The param of top align.
-   * @since 9
-   */
-  /**
-   * The param of top align.
    * @form
    * @since 9
    */
   top?: { anchor: string, align: VerticalAlign };
   /**
    * The param of bottom align.
-   * @since 9
-   */
-  /**
-   * The param of bottom align.
    * @form
    * @since 9
    */
   bottom?: { anchor: string, align: VerticalAlign };
-  /**
-   * The param of center align.
-   * @since 9
-   */
   /**
    * The param of center align.
    * @form
@@ -859,68 +712,34 @@ declare interface RotateOptions {
  * Defines the param of transition.
  * @since 7
  */
-/**
- * Defines the param of transition.
- * @form
- * @since 9
- */
 declare interface TransitionOptions {
   /**
    * Defines the param of type.
    * @since 7
-   */
-  /**
-   * Defines the param of type.
-   * @form
-   * @since 9
    */
   type?: TransitionType;
   /**
    * Defines the param of opacity.
    * @since 7
    */
-  /**
-   * Defines the param of opacity.
-   * @form
-   * @since 9
-   */
   opacity?: number;
   /**
    * Defines the param of translate.
    * @since 7
-   */
-  /**
-   * Defines the param of translate.
-   * @form
-   * @since 9
    */
   translate?: TranslateOptions;
   /**
    * Defines the param of scale.
    * @since 7
    */
-  /**
-   * Defines the param of scale.
-   * @form
-   * @since 9
-   */
   scale?: ScaleOptions;
   /**
    * Defines the param of rotate.
    * @since 7
    */
-  /**
-   * Defines the param of rotate.
-   * @form
-   * @since 9
-   */
   rotate?: RotateOptions;
 }
 
-/**
- * Define Preview property
- * @since 9
- */
 /**
  * Define Preview property
  * @form
@@ -929,18 +748,10 @@ declare interface TransitionOptions {
 interface PreviewParams {
   /**
    * Define Preview title
-   * @since 9
-   */
-  /**
-   * Define Preview title
    * @form
    * @since 9
    */
   title?: string;
-  /**
-   * Define Preview width
-   * @since 9
-   */
   /**
    * Define Preview width
    * @form
@@ -949,18 +760,10 @@ interface PreviewParams {
   width?: number;
   /**
    * Define Preview height
-   * @since 9
-   */
-  /**
-   * Define Preview height
    * @form
    * @since 9
    */
   height?: number;
-  /**
-   * Define Preview locale
-   * @since 9
-   */
   /**
    * Define Preview locale
    * @form
@@ -969,18 +772,10 @@ interface PreviewParams {
   locale?: string;
   /**
    * Define Preview colorMode
-   * @since 9
-   */
-  /**
-   * Define Preview colorMode
    * @form
    * @since 9
    */
   colorMode?: string;
-  /**
-   * Define Preview deviceType
-   * @since 9
-   */
   /**
    * Define Preview deviceType
    * @form
@@ -989,28 +784,16 @@ interface PreviewParams {
   deviceType?: string;
   /**
    * Define Preview dpi
-   * @since 9
-   */
-  /**
-   * Define Preview dpi
    * @form
    * @since 9
    */
   dpi?: number;
   /**
    * Define Preview orientation
-   * @since 9
-   */
-  /**
-   * Define Preview orientation
    * @form
    * @since 9
    */
   orientation?: string;
-  /**
-   * Define Preview roundScreen
-   * @since 9
-   */
   /**
    * Define Preview roundScreen
    * @form
@@ -1023,31 +806,16 @@ interface PreviewParams {
  * ItemDragInfo object description
  * @since 8
  */
-/**
- * ItemDragInfo object description
- * @form
- * @since 9
- */
 declare interface ItemDragInfo {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 8
-   */
-  /**
-   * Obtains the X coordinate of the drag window, in vp.
-   * @form
-   * @since 9
    */
   x: number;
 
   /**
    * Obtains the Y coordinate of the drag window, in vp.
    * @since 8
-   */
-  /**
-   * Obtains the Y coordinate of the drag window, in vp.
-   * @form
-   * @since 9
    */
   y: number;
 }
@@ -1056,20 +824,10 @@ declare interface ItemDragInfo {
  * DragItemInfo object description
  * @since 8
  */
-/**
- * DragItemInfo object description
- * @form
- * @since 9
- */
 declare interface DragItemInfo {
   /**
    * Uses the pixelMap object for drawing.
    * @since 8
-   */
-  /**
-   * Uses the pixelMap object for drawing.
-   * @form
-   * @since 9
    */
   pixelMap?: PixelMap;
 
@@ -1077,21 +835,11 @@ declare interface DragItemInfo {
    * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
    * @since 8
    */
-  /**
-   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
-   * @form
-   * @since 9
-   */
   builder?: CustomBuilder;
 
   /**
    * Sets the extra info for drag event.
    * @since 8
-   */
-  /**
-   * Sets the extra info for drag event.
-   * @form
-   * @since 9
    */
   extraInfo?: string;
 }
@@ -1207,20 +955,10 @@ declare interface EventTarget {
  * Defines the event source type.
  * @since 8
  */
-/**
- * Defines the event source type.
- * @form
- * @since 9
- */
 declare enum SourceType {
   /**
    * Unknown type.
    * @since 8
-   */
-  /**
-   * Unknown type.
-   * @form
-   * @since 9
    */
   Unknown,
 
@@ -1228,21 +966,11 @@ declare enum SourceType {
    * The mouse type.
    * @since 8
    */
-  /**
-   * The mouse type.
-   * @form
-   * @since 9
-   */
   Mouse,
 
   /**
    * The touch screen type.
    * @since 8
-   */
-  /**
-   * The touch screen type.
-   * @form
-   * @since 9
    */
   TouchScreen,
 }
@@ -1251,19 +979,9 @@ declare enum SourceType {
  * Defines the event tool type.
  * @since 9
  */
-/**
- * Defines the event tool type.
- * @form
- * @since 9
- */
 declare enum SourceTool {
   /**
    * Unknown type.
-   * @since 9
-   */
-  /**
-   * Unknown type.
-   * @form
    * @since 9
    */
   Unknown,
@@ -1272,29 +990,15 @@ declare enum SourceTool {
    * The finger type.
    * @since 9
    */
-  /**
-   * The finger type.
-   * @form
-   * @since 9
-   */
   Finger,
 
   /**
    * The pen type.
    * @since 9
    */
-  /**
-   * The pen type.
-   * @form
-   * @since 9
-   */
   Pen,
 }
 
-/**
- * Defines the Border Image Repeat Mode.
- * @since 9
- */
 /**
  * Defines the Border Image Repeat Mode.
  * @form
@@ -1303,19 +1007,11 @@ declare enum SourceTool {
 declare enum RepeatMode {
   /**
    * Repeat mode.
-   * @since 9
-   */
-  /**
-   * Repeat mode.
    * @form
    * @since 9
    */
   Repeat,
-  
-  /**
-   * Stretch mode.
-   * @since 9
-   */
+
   /**
    * Stretch mode.
    * @form
@@ -1325,19 +1021,11 @@ declare enum RepeatMode {
 
   /**
    * Round mode.
-   * @since 9
-   */
-  /**
-   * Round mode.
    * @form
    * @since 9
    */
   Round,
 
-  /**
-   * Space mode.
-   * @since 9
-   */
   /**
    * Space mode.
    * @form
@@ -1347,18 +1035,10 @@ declare enum RepeatMode {
 }
 /**
  * enum Blur style
- * @since 9
- */
-/**
- * enum Blur style
  * @form
  * @since 9
  */
 declare enum BlurStyle {
-  /**
-   * Defines the thin card material.
-   * @since 9
-   */
   /**
    * Defines the thin card material.
    * @form
@@ -1368,19 +1048,11 @@ declare enum BlurStyle {
 
   /**
    * Defines the regular card material.
-   * @since 9
-   */
-  /**
-   * Defines the regular card material.
    * @form
    * @since 9
    */
   Regular,
 
-  /**
-   * Defines the thick card material.
-   * @since 9
-   */
   /**
    * Defines the thick card material.
    * @form
@@ -1420,11 +1092,6 @@ declare enum BlurStyle {
 declare enum ThemeColorMode {
   /**
    * Defines the mode which is follow up with system.
-   * @since 10
-   */
-  /**
-   * Defines the mode which is follow up with system.
-   * @form
    * @since 10
    */
   System,
@@ -1621,19 +1288,11 @@ declare interface BaseEvent {
 
   /**
    * Touch pressure.
-   * @since 9
-   */
-  /**
-   * Touch pressure.
    * @form
    * @since 9
    */
   pressure: number;
 
-  /**
-   * The angle between pencil projection on plane-X-Y and axis-Z.
-   * @since 9
-   */
   /**
    * The angle between pencil projection on plane-X-Y and axis-Z.
    * @form
@@ -1643,19 +1302,11 @@ declare interface BaseEvent {
 
   /**
    * The angle between pencil projection on plane-Y-Z and axis-Z.
-   * @since 9
-   */
-  /**
-   * The angle between pencil projection on plane-Y-Z and axis-Z.
    * @form
    * @since 9
    */
   tiltY: number;
 
-  /**
-   * The event tool type info.
-   * @since 9
-   */
   /**
    * The event tool type info.
    * @form
@@ -1666,18 +1317,10 @@ declare interface BaseEvent {
 
 /**
  * Border image option
- * @since 9
- */
-/**
- * Border image option
  * @form
  * @since 9
  */
 declare interface BorderImageOption {
-  /**
-   * Border image slice
-   * @since 9
-   */
   /**
    * Border image slice
    * @form
@@ -1687,19 +1330,11 @@ declare interface BorderImageOption {
 
   /**
    * Border image repeat
-   * @since 9
-   */
-  /**
-   * Border image repeat
    * @form
    * @since 9
    */
   repeat?: RepeatMode,
 
-  /**
-   * Border image source
-   * @since 9
-   */
   /**
    * Border image source
    * @form
@@ -1709,10 +1344,6 @@ declare interface BorderImageOption {
 
   /**
    * Border image width
-   * @since 9
-   */
-  /**
-   * Border image width
    * @form
    * @since 9
    */
@@ -1720,19 +1351,11 @@ declare interface BorderImageOption {
 
   /**
    * Border image outset
-   * @since 9
-   */
-  /**
-   * Border image outset
    * @form
    * @since 9
    */
   outset?: Length | EdgeWidths,
 
-  /**
-   * Border image center fill
-   * @since 9
-   */
   /**
    * Border image center fill
    * @form
@@ -2079,20 +1702,10 @@ declare interface StateStyles {
  * Defines the popup options.
  * @since 7
  */
-/**
- * Defines the popup options.
- * @form
- * @since 9
- */
 declare interface PopupOptions {
   /**
    * Information in the pop-up window.
    * @since 7
-   */
-  /**
-   * Information in the pop-up window.
-   * @form
-   * @since 9
    */
   message: string;
 
@@ -2100,31 +1713,16 @@ declare interface PopupOptions {
    * placement On Top
    * @since 7
    */
-  /**
-   * placement On Top
-   * @form
-   * @since 9
-   */
   placementOnTop?: boolean;
 
   /**
    * The first button.
    * @since 7
    */
-  /**
-   * The first button.
-   * @form
-   * @since 9
-   */
   primaryButton?: {
     /**
      * Button text value
      * @since 7
-     */
-    /**
-     * Button text value
-     * @form
-     * @since 9
      */
     value: string;
 
@@ -2132,43 +1730,23 @@ declare interface PopupOptions {
      * action
      * @since 7
      */
-    /**
-     * action
-     * @form
-     * @since 9
-     */
     action: () => void;
   };
 
   /**
    * The second button.
    * @since 7
-   */
-  /**
-   * The second button.
-   * @form
-   * @since 9
    */
   secondaryButton?: {
     /**
      * Button text value
      * @since 7
      */
-    /**
-     * Button text value
-     * @form
-     * @since 9
-     */
     value: string;
 
     /**
      * action
      * @since 7
-     */
-    /**
-     * action
-     * @form
-     * @since 9
      */
     action: () => void;
   };
@@ -2176,11 +1754,6 @@ declare interface PopupOptions {
   /**
    * on State Change
    * @since 7
-   */
-  /**
-   * on State Change
-   * @form
-   * @since 9
    */
   onStateChange?: (event: { isVisible: boolean }) => void;
 
@@ -2188,20 +1761,10 @@ declare interface PopupOptions {
    * The offset of the sharp corner of popup.
    * @since 9
    */
-  /**
-   * The offset of the sharp corner of popup.
-   * @form
-   * @since 9
-   */
    arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   * @form
    * @since 9
    */
    showInSubWindow?: boolean;
@@ -2211,20 +1774,10 @@ declare interface PopupOptions {
  * Defines the custom popup options.
  * @since 8
  */
-/**
- * Defines the custom popup options.
- * @form
- * @since 9
- */
 declare interface CustomPopupOptions {
   /**
    * builder of popup
    * @since 8
-   */
-  /**
-   * builder of popup
-   * @form
-   * @since 9
    */
   builder: CustomBuilder;
 
@@ -2232,21 +1785,11 @@ declare interface CustomPopupOptions {
    * placement of popup
    * @since 8
    */
-  /**
-   * placement of popup
-   * @form
-   * @since 9
-   */
   placement?: Placement;
 
   /**
    * mask color of popup
    * @since 8
-   */
-  /**
-   * mask color of popup
-   * @form
-   * @since 9
    */
   maskColor?: Color | string | Resource | number;
 
@@ -2254,21 +1797,11 @@ declare interface CustomPopupOptions {
    * background color of popup
    * @since 8
    */
-  /**
-   * background color of popup
-   * @form
-   * @since 9
-   */
   popupColor?: Color | string | Resource | number;
 
   /**
    * whether show arrow
    * @since 8
-   */
-   /**
-   * whether show arrow
-   * @form
-   * @since 9
    */
   enableArrow?: boolean;
 
@@ -2276,43 +1809,21 @@ declare interface CustomPopupOptions {
    * whether hide popup when click mask
    * @since 8
    */
-  /**
-   * whether hide popup when click mask
-   * @form
-   * @since 9
-   */
   autoCancel?: boolean;
 
   /**
    * on State Change
    * @since 8
    */
-  /**
-   * on State Change
-   * @form
-   * @since 9
-   */
   onStateChange?: (event: { isVisible: boolean }) => void;
 
   /**
    * The offset of the sharp corner of popup.
-   * @since 9
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   * @form
-   * @since 9
    */
    arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   * @form
-   * @since 9
    */
    showInSubWindow?: boolean;
 }
@@ -2419,12 +1930,6 @@ declare class CommonMethod<T> {
    * @param value the hit test mode.
    * @since 9
    */
-  /**
-   * Defines the component's hit test behavior in touch events.
-   * @param value the hit test mode.
-   * @form
-   * @since 9
-   */
   hitTestBehavior(value: HitTestMode): T;
 
   /**
@@ -2512,12 +2017,6 @@ declare class CommonMethod<T> {
    * Background blur style.
    * blurStyle:Blur style type.
    * @param { BlurStyle } value
-   * @since 9
-   */
-  /**
-   * Background blur style.
-   * blurStyle:Blur style type.
-   * @param { BlurStyle } value
    * @form
    * @since 9
    */
@@ -2567,10 +2066,6 @@ declare class CommonMethod<T> {
 
   /**
    * Border style
-   * @since 9
-   */
-  /**
-   * Border style
    * @form
    * @since 9
    */
@@ -2611,10 +2106,6 @@ declare class CommonMethod<T> {
 
   /**
    * Border color
-   * @since 9
-   */
-  /**
-   * Border color
    * @form
    * @since 9
    */
@@ -2633,19 +2124,11 @@ declare class CommonMethod<T> {
 
   /**
    * Border radius
-   * @since 9
-   */
-  /**
-   * Border radius
    * @form
    * @since 9
    */
    borderRadius(value: BorderRadiuses): T;
 
-  /**
-   * Border image
-   * @since 9
-   */
   /**
    * Border image
    * @form
@@ -2668,21 +2151,11 @@ declare class CommonMethod<T> {
    * Trigger a mouse hover event.
    * @since 8
    */
-  /**
-   * Trigger a mouse hover event.
-   * @form
-   * @since 9
-   */
   onHover(event: (isHover?: boolean) => void): T;
 
   /**
    * Set hover effect.
    * @since 8
-   */
-  /**
-   * Set hover effect.
-   * @form
-   * @since 9
    */
   hoverEffect(value: HoverEffect): T;
 
@@ -2690,21 +2163,11 @@ declare class CommonMethod<T> {
    * Trigger a mouse event.
    * @since 8
    */
-  /**
-   * Trigger a mouse event.
-   * @form
-   * @since 9
-   */
   onMouse(event: (event?: MouseEvent) => void): T;
 
   /**
    * Trigger a touch event when touched.
    * @since 7
-   */
-  /**
-   * Trigger a touch event when touched.
-   * @form
-   * @since 9
    */
   onTouch(event: (event?: TouchEvent) => void): T;
 
@@ -2712,21 +2175,11 @@ declare class CommonMethod<T> {
    * Keyboard input
    * @since 7
    */
-  /**
-   * Keyboard input
-   * @form
-   * @since 9
-   */
   onKeyEvent(event: (event?: KeyEvent) => void): T;
 
   /**
    * Set focusable.
    * @since 8
-   */
-  /**
-   * Set focusable.
-   * @form
-   * @since 9
    */
   focusable(value: boolean): T;
 
@@ -2734,31 +2187,16 @@ declare class CommonMethod<T> {
    * Trigger a event when got focus.
    * @since 8
    */
-  /**
-   * Trigger a event when got focus.
-   * @form
-   * @since 9
-   */
   onFocus(event: () => void): T;
 
   /**
    * Trigger a event when lose focus.
    * @since 8
    */
-  /**
-   * Trigger a event when lose focus.
-   * @form
-   * @since 9
-   */
   onBlur(event: () => void): T;
 
   /**
    * Set focus index by key tab.
-   * @since 9
-   */
-  /**
-   * Set focus index by key tab.
-   * @form
    * @since 9
    */
   tabIndex(index: number): T;
@@ -2767,31 +2205,16 @@ declare class CommonMethod<T> {
    * Set default focused component when a page create.
    * @since 9
    */
-  /**
-   * Set default focused component when a page create.
-   * @form
-   * @since 9
-   */
   defaultFocus(value: boolean): T;
 
   /**
    * Set default focused component when focus on a focus group.
    * @since 9
    */
-  /**
-   * Set default focused component when focus on a focus group.
-   * @form
-   * @since 9
-   */
   groupDefaultFocus(value: boolean): T;
 
   /**
    * Set a component focused when the component be touched.
-   * @since 9
-   */
-  /**
-   * Set a component focused when the component be touched.
-   * @form
    * @since 9
    */
   focusOnTouch(value: boolean): T;
@@ -2823,12 +2246,6 @@ declare class CommonMethod<T> {
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
    */
-  /**
-   * Bind gesture recognition.
-   * gesture:Bound Gesture Type,mask:GestureMask;
-   * @form
-   * @since 9
-   */
   gesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
@@ -2836,24 +2253,12 @@ declare class CommonMethod<T> {
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
    */
-  /**
-   * Binding Preferential Recognition Gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
-   * @form
-   * @since 9
-   */
   priorityGesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
    * Binding gestures that can be triggered simultaneously with internal component gestures
    * gesture:Bound Gesture Type,mask:GestureMask;
    * @since 7
-   */
-  /**
-   * Binding gestures that can be triggered simultaneously with internal component gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
-   * @form
-   * @since 9
    */
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -3027,23 +2432,12 @@ declare class CommonMethod<T> {
    * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
    * @since 7
    */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   * @form
-   * @since 9
-   */
   gridSpan(value: number): T;
 
   /**
    * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
    * the current component is located in the nth column.
    * @since 7
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   * @form
-   * @since 9
    */
   gridOffset(value: number): T;
 
@@ -3063,11 +2457,6 @@ declare class CommonMethod<T> {
   /**
    * Sets the transformation matrix for the current component.
    * @since 7
-   */
-  /**
-   * Sets the transformation matrix for the current component.
-   * @form
-   * @since 9
    */
   transform(value: object): T;
 
@@ -3097,12 +2486,6 @@ declare class CommonMethod<T> {
    * This callback is triggered when the size or position of this component change finished.
    * @param event event callback.
    * @since 8
-   */
-  /**
-   * This callback is triggered when the size or position of this component change finished.
-   * @param event event callback.
-   * @form
-   * @since 9
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
@@ -3187,11 +2570,6 @@ declare class CommonMethod<T> {
    * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
    * @since 7
    */
-  /**
-   * If the components of the two pages are configured with the same ID, the shared element transition is performed during transition. If the parameter is set to an empty string, the shared element transition does not occur. For details about the options parameter, see the options parameter description.
-   * @form
-   * @since 9
-   */
   sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
   /**
@@ -3270,13 +2648,6 @@ declare class CommonMethod<T> {
    * @deprecated since 9
    * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
    */
-  /**
-   * Sets the number of occupied columns and offset columns for a specific device width type.
-   * @form
-   * @since 9
-   * @deprecated since 9
-   * @useinstead grid_col/[GridColColumnOption] and grid_row/[GridRowColumnOption]
-   */
   useSizeType(value: {
     xs?: number | { span: number; offset: number };
     sm?: number | { span: number; offset: number };
@@ -3284,10 +2655,6 @@ declare class CommonMethod<T> {
     lg?: number | { span: number; offset: number };
   }): T;
 
-  /**
-   * Specifies the alignRules of relative container
-   * @since 9
-   */
   /**
    * Specifies the alignRules of relative container
    * @form
@@ -3311,22 +2678,11 @@ declare class CommonMethod<T> {
    * (To be triggered, press and hold for 170 milliseconds (ms))
    * @since 8
    */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   * @form
-   * @since 9
-   */
   onDragStart(event: (event?: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
-   * @form
-   * @since 9
    */
   onDragEnter(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3334,21 +2690,11 @@ declare class CommonMethod<T> {
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    * @since 8
    */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   * @form
-   * @since 9
-   */
   onDragMove(event: (event?: DragEvent, extraParams?: string) => void): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   * @form
-   * @since 9
    */
   onDragLeave(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3356,12 +2702,6 @@ declare class CommonMethod<T> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    * @since 8
-   */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   * @form
-   * @since 9
    */
   onDrop(event: (event?: DragEvent, extraParams?: string) => void): T;
 
@@ -3453,15 +2793,6 @@ declare class CommonMethod<T> {
    * rotatable:Whether to follow the path for rotation.
    * @since 7
    */
-  /**
-   * Set the motion path of the component
-   * path:Motion path for displacement animation, using the svg path string.
-   * from:Start point of the motion path. The default value is 0.0.
-   * to:End point of the motion path. The default value is 1.0.
-   * rotatable:Whether to follow the path for rotation.
-   * @form
-   * @since 9
-   */
   motionPath(value: MotionPathOptions): T;
 
   /**
@@ -3512,13 +2843,6 @@ declare class CommonMethod<T> {
    * @systemapi
    * @test
    */
-  /**
-   * Key. User can set an key to the component to identify it.
-   * @form
-   * @since 9
-   * @systemapi
-   * @test
-   */
   key(value: string): T;
 
   /**
@@ -3536,21 +2860,11 @@ declare class CommonMethod<T> {
    * geometryTransition
    * @since 7
    */
-  /**
-   * geometryTransition
-   * @form
-   * @since 9
-   */
   geometryTransition(id: string): T;
 
   /**
    * Popup control
    * @since 7
-   */
-  /**
-   * Popup control
-   * @form
-   * @since 9
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
@@ -3558,21 +2872,11 @@ declare class CommonMethod<T> {
    * Menu control
    * @since 7
    */
-  /**
-   * Menu control
-   * @form
-   * @since 9
-   */
   bindMenu(content: { value: string; action: () => void }[] | CustomBuilder): T;
 
   /**
    * ContextMenu control
    * @since 8
-   */
-  /**
-   * ContextMenu control
-   * @form
-   * @since 9
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType): T;
 
@@ -3591,20 +2895,10 @@ declare class CommonMethod<T> {
    * id for distribute identification.
    * @since 8
    */
-  /**
-   * id for distribute identification.
-   * @form
-   * @since 9
-   */
   restoreId(value: number): T;
 
   /**
    * Trigger a visible area change event.
-   * @since 9
-   */
-  /**
-   * Trigger a visible area change event.
-   * @form
    * @since 9
    */
    onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
@@ -3814,10 +3108,6 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 
 /**
  * Sub component border info.
- * @since 9
- */
-/**
- * Sub component border info.
  * @form
  * @since 9
  */
@@ -3827,10 +3117,6 @@ declare interface LayoutBorderInfo {
   padding: Padding,
 }
 
-/**
- * Sub component layout info.
- * @since 9
- */
 /**
  * Sub component layout info.
  * @form
@@ -3843,18 +3129,10 @@ declare interface LayoutInfo {
 
 /**
  * Sub component info passed from framework when layout and measure happens.
- * @since 9
- */
-/**
- * Sub component info passed from framework when layout and measure happens.
  * @form
  * @since 9
  */
 declare interface LayoutChild {
-  /**
-   * Sub component name.
-   * @since 9
-   */
   /**
    * Sub component name.
    * @form
@@ -3864,19 +3142,11 @@ declare interface LayoutChild {
 
   /**
    * Sub component id.
-   * @since 9
-   */
-  /**
-   * Sub component id.
    * @form
    * @since 9
    */
   id: string,
 
-  /**
-   * Sub component constraint.
-   * @since 9
-   */
   /**
    * Sub component constraint.
    * @form
@@ -3886,19 +3156,11 @@ declare interface LayoutChild {
 
   /**
    * Sub component border info.
-   * @since 9
-   */
-  /**
-   * Sub component border info.
    * @form
    * @since 9
    */
   borderInfo: LayoutBorderInfo,
 
-  /**
-   * Sub component position.
-   * @since 9
-   */
   /**
    * Sub component position.
    * @form
@@ -3908,19 +3170,11 @@ declare interface LayoutChild {
 
   /**
    * Call this measure method in onMeasure callback to supply sub component size.
-   * @since 9
-   */
-  /**
-   * Call this measure method in onMeasure callback to supply sub component size.
    * @form
    * @since 9
    */
   measure(childConstraint: ConstraintSizeOptions),
 
-  /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
-   * @since 9
-   */
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
    * @form
@@ -3932,11 +3186,6 @@ declare interface LayoutChild {
 /**
  * Custom Component
  * @since 7
- */
-/**
- * Custom Component
- * @extends CommonAttribute
- * @since 9
  */
 /**
  * Custom Component
@@ -3980,19 +3229,11 @@ declare class CustomComponent extends CommonAttribute {
 
   /**
    * Custom component override this method to layout each of its sub components.
-   * @since 9
-   */
-  /**
-   * Custom component override this method to layout each of its sub components.
    * @form
    * @since 9
    */
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
-  /**
-   * Custom component override this method to measure each of its sub components.
-   * @since 9
-   */
   /**
    * Custom component override this method to measure each of its sub components.
    * @form
@@ -4004,21 +3245,11 @@ declare class CustomComponent extends CommonAttribute {
    * onPageShow Method
    * @since 7
    */
-  /**
-   * onPageShow Method
-   * @form
-   * @since 9
-   */
   onPageShow?(): void;
 
   /**
    * onPageHide Method
    * @since 7
-   */
-  /**
-   * onPageHide Method
-   * @form
-   * @since 9
    */
   onPageHide?(): void;
 
@@ -4026,22 +3257,11 @@ declare class CustomComponent extends CommonAttribute {
    * onBackPress Method
    * @since 7
    */
-  /**
-   * onBackPress Method
-   * @form
-   * @since 9
-   */
   onBackPress?(): void;
 
   /**
    * PageTransition Method.
    * Implement Animation when enter this page or move to other pages.
-   * @since 9
-   */
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   * @form
    * @since 9
    */
   pageTransition?(): void;
@@ -4066,13 +3286,6 @@ declare class View {
    * @ignore ide should ignore this attribute
    * @systemapi
    * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   * @ignore ide should ignore this attribute
-   * @systemapi
-   * @form
-   * @since 9
    */
   create(value: any): any;
 }

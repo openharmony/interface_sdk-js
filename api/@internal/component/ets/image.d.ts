@@ -256,11 +256,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
    * Sets the color filter effect on the image.
    * @param value ColorFilter object.
-   * @since 9
-   */
-  /**
-   * Sets the color filter effect on the image.
-   * @param value ColorFilter object.
    * @form
    * @since 9
    */
@@ -268,20 +263,11 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * Allow replication.
-   * @since 9
-   */
-  /**
-   * Allow replication.
    * @form
    * @since 9
    */
   copyOption(value: CopyOptions): ImageAttribute;
 
-  /**
-   * Enable image dragging.
-   * Default value is false.
-   * @since 9
-   */
    /**
    * Enable image dragging.
    * Default value is false.
@@ -322,11 +308,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   onError(callback: (event?: { componentWidth: number; componentHeight: number }) => void): ImageAttribute;
 
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   * The field of "message" carries the detailed information of failed image loading.
-   * @since 9
-   */
   /**
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.

@@ -15,20 +15,13 @@
 
 /**
  * Provides ports for relative containers.
- * @since 9
- */
-/**
- * Provides ports for relative containers.
  * @form
  * @since 9
  */
 interface RelativeContainerInterface {
     (): RelativeContainerAttribute;
 }
-  
-/**
- * @since 9
- */
+
 /**
  * @form
  * @since 9
@@ -37,17 +30,11 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
 }
 
 /**
- * @since 9
- */
-/**
  * @form
  * @since 9
  */
 declare const RelativeContainer : RelativeContainerInterface;
 
-/**
- * @since 9
- */
 /**
  * @form
  * @since 9
