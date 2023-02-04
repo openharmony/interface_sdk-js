@@ -56,6 +56,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * This parameter specifies whether to recreate the node when the component build is triggered.
    * @since 7
+   * @deprecated since 9
    */
   forceRebuild(value: boolean): GridItemAttribute;
 
