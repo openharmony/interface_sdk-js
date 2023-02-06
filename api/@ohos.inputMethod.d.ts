@@ -396,8 +396,8 @@ declare namespace inputMethod {
          * Register a callback and when IME sends select event with range of selection,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByRange'.
-         * @param {Callback} callback - processes selectByRange command. The range of selection is provided for this callback,
-         * and subscribers are expected to select corresponding text in callback according to the range.
+         * @param {Callback<Range>} callback - processes selectByRange command. The range of selection is provided for this callback,
+         *        and subscribers are expected to select corresponding text in callback according to the range.
          * @throws {BusinessError} 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
@@ -408,8 +408,8 @@ declare namespace inputMethod {
          * Register a callback and when IME sends select event witch movement of cursor,
          * the callback will be invoked.
          * @param {string} type - event type, fixed as 'selectByMovement'.
-         * @param {Callback} callback - processes selectByMovement command. The movement of cursor is provided for this callback,
-         * and subscribers are expected to select corresponding text in callback according to the movement.
+         * @param {Callback<Movement>} callback - processes selectByMovement command. The movement of cursor is provided for this callback,
+         *        and subscribers are expected to select corresponding text in callback according to the movement.
          * @throws {BusinessError} 401 - parameter error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
