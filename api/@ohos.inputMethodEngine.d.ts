@@ -779,6 +779,7 @@ declare namespace inputMethodEngine {
          *        number of text at cursor, if text filed is not focused, the value is -1.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
@@ -789,6 +790,7 @@ declare namespace inputMethodEngine {
          * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
          *          at cursor, if text filed is not focused, the value is -1.
          * @throws { BusinessError } 12800003 - input method client error.
+         * @throws { BusinessError } 12800006 - Input method controller error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 10
          */
