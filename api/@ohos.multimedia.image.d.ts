@@ -1149,7 +1149,7 @@ declare namespace image {
      */
     getFrameSum(callback: AsyncCallback<number>): void;
 
-     /**
+    /**
      * Obtains the value of a property in an image with the specified index. This method uses a
      * promise to return the property value in a string.
      * @since 7
