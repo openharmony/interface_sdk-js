@@ -17,7 +17,7 @@
  * Input method common
  * @namespace inputMethodCommon
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since 10
  */
 declare namespace inputMethodCommon {
     /**
