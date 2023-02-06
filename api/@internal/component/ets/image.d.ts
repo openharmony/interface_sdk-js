@@ -110,13 +110,12 @@ interface ImageInterface {
    * Set src to obtain images.
    * @since 7
    */
-  (src: string | PixelMap | Resource): ImageAttribute;
   /**
-   * Set src to obtain images, only support Resource type in form mode
+   * Set src to obtain images
    * @form
    * @since 9
    */
-  (src: Resource): ImageAttribute;
+  (src: string | PixelMap | Resource): ImageAttribute;
 }
 
 /**
@@ -131,13 +130,12 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Placeholder displayed on load
    * @since 7
    */
+  /**
+   * Placeholder displayed on load
+   * @form
+   * @since 9
+   */
   alt(value: string | Resource): ImageAttribute;
-    /**
-    * Placeholder displayed on load, only support Resource type in form mode
-    * @form
-    * @since 9
-    */
-    alt(value: Resource): ImageAttribute;
 
   /**
    * match Text Direction
