@@ -236,7 +236,7 @@ declare namespace notificationSubscribe {
    function removeAll(bundle?: BundleOption): Promise<void>;
 
   /**
-   * Describes an bundleOption in a notification.
+   * Describes a bundleOption in a notification.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
