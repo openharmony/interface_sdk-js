@@ -67,6 +67,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
      * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -90,6 +91,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700016 - Failed to install the HAP because of insufficient system disk space.
      * @throws { BusinessError } 17700017 - Failed to install the HAP since the version of the HAP to install is too early.
      * @throws { BusinessError } 17700018 - Failed to install because the dependent module does not exist.
+     * @throws { BusinessError } 17700031 - Failed to install the HAP because the overlay check of the HAP is failed.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
