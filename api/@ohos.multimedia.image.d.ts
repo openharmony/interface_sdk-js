@@ -1103,7 +1103,7 @@ declare namespace image {
      * @since 7
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @param options Image decoding parameters.
-     * @return A Promise instance used to return the PixelMap array.
+     * @returns A Promise instance used to return the PixelMap array.
      */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
@@ -1121,7 +1121,7 @@ declare namespace image {
      * Obtains the array of delay time in an image. This method uses a promise to return the array.
      * @since 7
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @return A Promise instance used to return the array.
+     * @returns A Promise instance used to return the array.
      */
     getDelayTime(): Promise<Array<number>>;
 
@@ -1137,7 +1137,7 @@ declare namespace image {
      * Obtains the sum of frame in an image. This method uses a promise to return the number.
      * @since 7
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @return A Promise instance used to return the number.
+     * @returns A Promise instance used to return the number.
      */
     getFrameSum(): Promise<number>;
 
