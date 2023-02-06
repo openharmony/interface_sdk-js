@@ -753,7 +753,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Select text in editor by cursor movement.
-         * @param { Movement } movement - idicates the movement of cursor when selecting.
+         * @param { Movement } movement - indicates the movement of cursor when selecting.
          * @param { AsyncCallback<void> } callback - the callback of selectByMovement.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.
@@ -764,7 +764,7 @@ declare namespace inputMethodEngine {
 
         /**
          * Select text in editor by cursor movement.
-         * @param { Movement } movement - idicates the movement of cursor when selecting.
+         * @param { Movement } movement - indicates the movement of cursor when selecting.
          * @returns { Promise<void> } the promise returned by the function.
          * @throws { BusinessError } 401 - parameter error.
          * @throws { BusinessError } 12800003 - input method client error.

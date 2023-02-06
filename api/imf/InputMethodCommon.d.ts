@@ -14,71 +14,79 @@
  */
 
 /**
- * Enumerates the moving direction of cursor
- * @enum { number }
+ * Input method common
+ * @namespace inputMethodCommon
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 10
+ * @since 9
  */
-export enum Direction {
+declare namespace inputMethodCommon {
     /**
-     * Cursor moves up
-     */
-    CURSOR_UP = 1,
-
-    /**
-     * Cursor moves down
-     */
-    CURSOR_DOWN,
-
-    /**
-     * Cursor moves left
-     */
-    CURSOR_LEFT,
-
-    /**
-     * Cursor moves right
-     */
-    CURSOR_RIGHT,
-}
-
-/**
- * Range of selected text.
- * @interface Range
- * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 10
- */
-export interface Range {
-    /**
-     * Indicates the index of the first character of the selected text.
-     * @type { number }
-     * @readonly
+     * Enumerates the moving direction of cursor
+     * @enum { number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly start: number;
+    export enum Direction {
+        /**
+         * Cursor moves up
+         */
+        CURSOR_UP = 1,
+
+        /**
+         * Cursor moves down
+         */
+        CURSOR_DOWN,
+
+        /**
+         * Cursor moves left
+         */
+        CURSOR_LEFT,
+
+        /**
+         * Cursor moves right
+         */
+        CURSOR_RIGHT,
+    }
 
     /**
-     * Indicates the index of the last character of the selected text.
-     * @type { number }
-     * @readonly
+     * Range of selected text.
+     * @interface Range
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly end: number;
-}
+    export interface Range {
+        /**
+         * Indicates the index of the first character of the selected text.
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        readonly start: number;
 
-/**
- * Movement of cursor.
- * @interface Movement
- * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 10
- */
-export interface Movement {
+        /**
+         * Indicates the index of the last character of the selected text.
+         * @type { number }
+         * @readonly
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        readonly end: number;
+    }
+
     /**
-     * Indicates the direction of cursor movement
-     * @type { number }
+     * Movement of cursor.
+     * @interface Movement
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly direction: Direction;
+    export interface Movement {
+        /**
+         * Indicates the direction of cursor movement
+         * @type { number }
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        readonly direction: Direction;
+    }
 }
