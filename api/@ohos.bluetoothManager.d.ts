@@ -31,6 +31,7 @@ declare namespace bluetoothManager {
      * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
      * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -45,6 +46,7 @@ declare namespace bluetoothManager {
      * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
      * {@link ProfileConnectionState#STATE_DISCONNECTING}.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -59,6 +61,7 @@ declare namespace bluetoothManager {
      * @param deviceId The address of the remote device to pair.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -74,6 +77,7 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -90,6 +94,7 @@ declare namespace bluetoothManager {
      * @returns { string } Returns the device name in character string format.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -105,6 +110,7 @@ declare namespace bluetoothManager {
      * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -117,6 +123,7 @@ declare namespace bluetoothManager {
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -128,6 +135,7 @@ declare namespace bluetoothManager {
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -140,6 +148,7 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @returns { string } Returns the name the device.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -152,6 +161,7 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -167,6 +177,7 @@ declare namespace bluetoothManager {
      * @returns { ProfileConnectionState } Returns the connection state.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -183,6 +194,7 @@ declare namespace bluetoothManager {
      * @param accept Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -197,6 +209,7 @@ declare namespace bluetoothManager {
      * @param name Indicates a valid Bluetooth name.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -212,6 +225,7 @@ declare namespace bluetoothManager {
      * @param duration Indicates the duration in seconds, in which the host is discoverable.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -225,6 +239,7 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.USE_BLUETOOTH
      * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -238,6 +253,7 @@ declare namespace bluetoothManager {
      * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
      *     and ohos.permission.APPROXIMATELY_LOCATION
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -250,6 +266,7 @@ declare namespace bluetoothManager {
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900099 - Operation failed.
@@ -264,6 +281,8 @@ declare namespace bluetoothManager {
      * @param type Type of the discovering event to listen for.
      * @param callback Callback used to listen for the discovering event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -276,6 +295,7 @@ declare namespace bluetoothManager {
      * @param type Type of the discovering event to listen for.
      * @param callback Callback used to listen for the discovering event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -288,6 +308,8 @@ declare namespace bluetoothManager {
      * @param type Type of the bond state event to listen for.
      * @param callback Callback used to listen for the bond state event, {@link BondStateParam}.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -300,6 +322,8 @@ declare namespace bluetoothManager {
      * @param type Type of the bond state event to listen for.
      * @param callback Callback used to listen for the bond state event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -312,6 +336,8 @@ declare namespace bluetoothManager {
      * @param type Type of the pairing request event to listen for.
      * @param callback Callback used to listen for the pairing request event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -324,6 +350,8 @@ declare namespace bluetoothManager {
      * @param type Type of the pairing request event to listen for.
      * @param callback Callback used to listen for the pairing request event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -336,6 +364,8 @@ declare namespace bluetoothManager {
      * @param type Type of the Bluetooth state changes event to listen for.
      * @param callback Callback used to listen for the Bluetooth state event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -348,6 +378,8 @@ declare namespace bluetoothManager {
      * @param type Type of the Bluetooth state changes event to listen for.
      * @param callback Callback used to listen for the Bluetooth state event.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
      */
@@ -362,6 +394,7 @@ declare namespace bluetoothManager {
      * @param callback Callback used to return a server socket ID.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -376,6 +409,7 @@ declare namespace bluetoothManager {
      * @param serverSocket Indicates the server socket ID, returned by {@link sppListen}.
      * @param callback Callback used to return a client socket ID.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -391,7 +425,9 @@ declare namespace bluetoothManager {
      * @param device The address of the remote device to connect.
      * @param option Indicates the connect parameters {@link SppOption}.
      * @param callback Callback used to return a client socket ID.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth switch is off.
      * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -405,6 +441,7 @@ declare namespace bluetoothManager {
      *
      * @param socket Indicates the server socket ID, returned by {@link sppListen}.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -416,6 +453,7 @@ declare namespace bluetoothManager {
      *
      * @param socket Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -428,6 +466,7 @@ declare namespace bluetoothManager {
      * @param clientSocket Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
      * @param data Indicates the data to write.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2901054 - IO error.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -440,6 +479,7 @@ declare namespace bluetoothManager {
      * @param type Type of the spp read event to listen for.
      * @param callback Callback used to listen for the spp read event.
      * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2901054 - IO error.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @since 9
@@ -451,6 +491,8 @@ declare namespace bluetoothManager {
      *
      * @param type Type of the spp read event to listen for.
      * @param callback Callback used to listen for the spp read event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @since 9
      */
     function off(type: "sppRead", clientSocket: number, callback?: Callback<ArrayBuffer>): void;
@@ -460,6 +502,8 @@ declare namespace bluetoothManager {
      *
      * @param profileId The profile id..
      * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @since 9
      */
     function getProfileInstance(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
@@ -474,6 +518,7 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @returns { Array<string> } Returns the address of connected devices list.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -490,6 +535,7 @@ declare namespace bluetoothManager {
          * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -510,6 +556,7 @@ declare namespace bluetoothManager {
          * @param device The address of the remote device to connect.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -525,6 +572,7 @@ declare namespace bluetoothManager {
          * @param device The address of the remote device to disconnect.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -538,6 +586,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
@@ -547,6 +597,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
@@ -557,6 +609,7 @@ declare namespace bluetoothManager {
          * @param device The address of the remote device.
          * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -577,6 +630,7 @@ declare namespace bluetoothManager {
          * @param device The address of the remote device to connect.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -592,6 +646,7 @@ declare namespace bluetoothManager {
          * @param device The address of the remote device to disconnect.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -605,6 +660,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
@@ -614,6 +671,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
@@ -631,6 +690,7 @@ declare namespace bluetoothManager {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -648,6 +708,7 @@ declare namespace bluetoothManager {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -662,6 +723,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
@@ -671,6 +734,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for.
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
@@ -688,6 +753,7 @@ declare namespace bluetoothManager {
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -702,6 +768,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
@@ -711,6 +779,8 @@ declare namespace bluetoothManager {
          *
          * @param type Type of the profile connection state changes event to listen for.
          * @param callback Callback used to listen for event.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
@@ -723,6 +793,8 @@ declare namespace bluetoothManager {
          * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -737,6 +809,7 @@ declare namespace bluetoothManager {
          *
          * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
          * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @systemapi Hide this for inner system use.
          * @since 9
          */
@@ -759,6 +832,7 @@ declare namespace bluetoothManager {
          * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
          * @since 9
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          */
         function createGattClientDevice(deviceId: string): GattClientDevice;
 
@@ -768,6 +842,7 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @returns { Array<string> } Returns the list of device address.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -787,6 +862,7 @@ declare namespace bluetoothManager {
          * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -800,7 +876,7 @@ declare namespace bluetoothManager {
          * @since 9
          * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @throws { BusinessError } 201 - Permission denied.
-         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -814,6 +890,8 @@ declare namespace bluetoothManager {
          * @param type Type of the scan result event to listen for.
          * @param callback Callback used to listen for the scan result event.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
          */
@@ -826,6 +904,8 @@ declare namespace bluetoothManager {
          * @param type Type of the scan result event to listen for.
          * @param callback Callback used to listen for the scan result event.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
          */
@@ -846,6 +926,7 @@ declare namespace bluetoothManager {
          * @param advResponse Indicates the scan response associated with the advertising data.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -858,6 +939,7 @@ declare namespace bluetoothManager {
          *
          * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -874,6 +956,7 @@ declare namespace bluetoothManager {
          * @param service Indicates the service to add.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -888,6 +971,7 @@ declare namespace bluetoothManager {
          * @param serviceUuid Indicates the UUID of the service to remove.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900004 - Profile is not supported.
@@ -901,6 +985,7 @@ declare namespace bluetoothManager {
          *
          * @permission ohos.permission.USE_BLUETOOTH
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -918,6 +1003,7 @@ declare namespace bluetoothManager {
          * @param notifyCharacteristic Indicates the local characteristic that has changed.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -932,6 +1018,7 @@ declare namespace bluetoothManager {
          * @param serverResponse Indicates the response parameters {@link ServerResponse}.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -945,6 +1032,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic read event to listen for.
          * @param callback Callback used to listen for the characteristic read event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "characteristicRead", callback: Callback<CharacteristicReadRequest>): void;
@@ -955,6 +1045,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic read event to listen for.
          * @param callback Callback used to listen for the characteristic read event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "characteristicRead", callback?: Callback<CharacteristicReadRequest>): void;
@@ -965,6 +1058,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic write event to listen for.
          * @param callback Callback used to listen for the characteristic write event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "characteristicWrite", callback: Callback<CharacteristicWriteRequest>): void;
@@ -975,6 +1071,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic write event to listen for.
          * @param callback Callback used to listen for the characteristic write event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "characteristicWrite", callback?: Callback<CharacteristicWriteRequest>): void;
@@ -985,6 +1084,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the descriptor read event to listen for.
          * @param callback Callback used to listen for the descriptor read event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "descriptorRead", callback: Callback<DescriptorReadRequest>): void;
@@ -995,6 +1097,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the descriptor read event to listen for.
          * @param callback Callback used to listen for the descriptor read event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "descriptorRead", callback?: Callback<DescriptorReadRequest>): void;
@@ -1005,6 +1110,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the descriptor write event to listen for.
          * @param callback Callback used to listen for the descriptor write event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "descriptorWrite", callback: Callback<DescriptorWriteRequest>): void;
@@ -1015,6 +1123,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the descriptor write event to listen for.
          * @param callback Callback used to listen for the descriptor write event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "descriptorWrite", callback?: Callback<DescriptorWriteRequest>): void;
@@ -1025,6 +1136,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the connection state changed event to listen for.
          * @param callback Callback used to listen for the connection state changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "connectStateChange", callback: Callback<BLEConnectChangedState>): void;
@@ -1035,6 +1149,9 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the connection state changed event to listen for.
          * @param callback Callback used to listen for the connection state changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "connectStateChange", callback?: Callback<BLEConnectChangedState>): void;
@@ -1052,6 +1169,7 @@ declare namespace bluetoothManager {
          *
          * @permission ohos.permission.USE_BLUETOOTH
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1064,6 +1182,7 @@ declare namespace bluetoothManager {
          *
          * @permission ohos.permission.USE_BLUETOOTH
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1079,6 +1198,7 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @returns { boolean } Returns {@code true} if the the device is disabled; returns {@code false} otherwise.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900003 - Bluetooth switch is off.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1093,6 +1213,8 @@ declare namespace bluetoothManager {
          * @returns { Promise<string> } Returns a string representation of the name if obtained;
          * returns {@code null} if the name fails to be obtained or the name does not exist.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
@@ -1106,6 +1228,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
@@ -1120,6 +1244,7 @@ declare namespace bluetoothManager {
          * @param characteristic Indicates the characteristic to read.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2901000 - Read forbidden.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1135,6 +1260,7 @@ declare namespace bluetoothManager {
          * @param descriptor Indicates the descriptor to read.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2901000 - Read forbidden.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1150,6 +1276,7 @@ declare namespace bluetoothManager {
          * @param characteristic Indicates the characteristic to write.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2901001 - Write forbidden.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1164,6 +1291,7 @@ declare namespace bluetoothManager {
          * @param descriptor Indicates the descriptor to write.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2901001 - Write forbidden.
          * @throws { BusinessError } 2900099 - Operation failed.
@@ -1177,6 +1305,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @returns { Promise<number> } Returns the RSSI value.
          * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
          */
@@ -1190,6 +1320,7 @@ declare namespace bluetoothManager {
          * @param mtu The maximum transmission unit.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
@@ -1204,6 +1335,7 @@ declare namespace bluetoothManager {
          * that notification is enabled, and the value {@code false} indicates that notification is disabled.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 401 - Invalid parameter.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @throws { BusinessError } 2900001 - Service stopped.
          * @throws { BusinessError } 2900099 - Operation failed.
          * @since 9
@@ -1216,6 +1348,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic value changed event to listen for.
          * @param callback Callback used to listen for the characteristic value changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "BLECharacteristicChange", callback: Callback<BLECharacteristic>): void;
@@ -1226,6 +1360,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the characteristic value changed event to listen for.
          * @param callback Callback used to listen for the characteristic value changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "BLECharacteristicChange", callback?: Callback<BLECharacteristic>): void;
@@ -1236,6 +1372,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the connection state changed event to listen for.
          * @param callback Callback used to listen for the connection state changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         on(type: "BLEConnectionStateChange", callback: Callback<BLEConnectChangedState>): void;
@@ -1246,6 +1384,8 @@ declare namespace bluetoothManager {
          * @permission ohos.permission.USE_BLUETOOTH
          * @param type Type of the connection state changed event to listen for.
          * @param callback Callback used to listen for the connection state changed event.
+         * @throws { BusinessError } 201 - Permission denied.
+         * @throws { BusinessError } 801 - Capability not supported.
          * @since 9
          */
         off(type: "BLEConnectionStateChange", callback?: Callback<BLEConnectChangedState>): void;
@@ -1541,7 +1681,7 @@ declare namespace bluetoothManager {
         serviceUuidMask?: string;
 
         /**
-         * Service solicitation UUID mask.
+         * Service solicitation UUID.
          * @since 9
          */
         serviceSolicitationUuid?: string;
