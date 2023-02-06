@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './applicationInfo';
-import { HapModuleInfo } from './hapModuleInfo';
+import { ApplicationInfo } from './ApplicationInfo';
+import { HapModuleInfo } from './HapModuleInfo';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**

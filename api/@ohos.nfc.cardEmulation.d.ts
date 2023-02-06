@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { AsyncCallback } from './basic';
-import { ElementName }  from './bundleManager/elementName';
+import { ElementName }  from './bundleManager/ElementName';
 
 /**
  * Provides methods to operate or manage NFC card emulation.

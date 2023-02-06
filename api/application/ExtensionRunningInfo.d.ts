@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ElementName } from '../bundleManager/elementName';
+import { ElementName } from '../bundleManager/ElementName';
 import bundle from '../@ohos.bundle.bundleManager';
 
 /**

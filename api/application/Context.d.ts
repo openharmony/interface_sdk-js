@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from "../bundleManager/applicationInfo";
+import { ApplicationInfo } from "../bundleManager/ApplicationInfo";
 import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";

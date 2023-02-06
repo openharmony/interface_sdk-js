@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './applicationInfo';
-import { Metadata } from './metadata';
+import { ApplicationInfo } from './ApplicationInfo';
+import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
