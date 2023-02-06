@@ -24,6 +24,7 @@ altitudes
 amr
 annually
 antialias
+apdu
 apecified
 appselect
 arcs
