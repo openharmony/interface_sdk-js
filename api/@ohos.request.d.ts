@@ -265,19 +265,6 @@ declare namespace request {
    * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Download config
-   * @param callback Indicate the callback function to receive DownloadTask.
-   * @permission ohos.permission.INTERNET
-   */
-  function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
-
-  /**
-   * Starts a download task.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
@@ -302,19 +289,6 @@ declare namespace request {
    * @FAModelOnly
    */
   function download(config: DownloadConfig): Promise<DownloadTask>;
-
-  /**
-   * Starts a download task.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   * @deprecated since 9,
-   * @useinstead ohos.request.downloadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Download config
-   * @permission ohos.permission.INTERNET
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
-   */
-  function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a download task.
@@ -349,19 +323,6 @@ declare namespace request {
    * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Upload config
-   * @param callback Indicate the callback function to receive UploadTask.
-   * @permission ohos.permission.INTERNET
-   */
-  function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
-
-  /**
-   * Starts a upload task.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
@@ -383,19 +344,6 @@ declare namespace request {
    * @FAModelOnly
    */
   function upload(config: UploadConfig): Promise<UploadTask>;
-
-  /**
-   * Starts a upload task.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Upload config
-   * @permission ohos.permission.INTERNET
-   * @returns { Promise<UploadTask> } the promise returned by the function.
-   */
-  function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
    * Starts a upload task.
