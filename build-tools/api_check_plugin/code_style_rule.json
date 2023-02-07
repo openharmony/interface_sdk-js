@@ -490,6 +490,10 @@
         "AAID",
         "OAID",
         "VAID"
+      ],
+      "XTS":[
+        "DeviceAttest",
+        "DeviceAttestLite"
       ]
     }
   }
