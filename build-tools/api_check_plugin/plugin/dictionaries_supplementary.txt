@@ -24,6 +24,7 @@ altitudes
 amr
 annually
 antialias
+apdu
 apecified
 appselect
 arcs
@@ -45,6 +46,7 @@ audios
 authenticates
 authinfo
 autocorrect
+averr
 avoidareachange
 avrcp
 avsession
@@ -55,6 +57,7 @@ beta1
 bevels
 bgra
 bidirectionally
+bitrates
 bms
 bolder
 bonded
@@ -316,6 +319,7 @@ ivi
 iwlan
 jis
 judged
+kaihong
 kbdillum
 kbdinputassist
 kbps
@@ -454,6 +458,7 @@ perso
 personalisation
 pertaining
 photographing
+pickers
 pixelmap
 playpause
 playstate
@@ -484,6 +489,7 @@ prohibits
 promisify
 provisioned
 proxyed
+psc
 psk
 pss
 puk
@@ -556,6 +562,7 @@ sfactor
 sha1
 shadertype
 sharedarraybuffer
+shenzhen
 shortkey
 shuts
 sigalgs
@@ -594,6 +601,7 @@ subassembies
 subcomponents
 subnode
 subpixel
+suscriber
 subscrbers
 subscribale
 subscribes
@@ -602,6 +610,7 @@ superimposed
 suscribes
 suspends
 switchvideomode
+synched
 synchronizes
 synchronizing
 synth
@@ -733,6 +742,7 @@ workscheduler
 woy
 wrappedvalue
 writemask
+wukong
 wwan
 x25519
 x509

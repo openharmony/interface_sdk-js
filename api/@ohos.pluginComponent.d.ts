@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -32,7 +32,7 @@ interface PluginComponentTemplate {
  * @since 8
  */
 declare namespace pluginComponentManager {
-  type KVObject = {[key: string]: number | string | boolean | [] | KVObject}
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
   /**
    * Plugin component push parameters.
@@ -47,13 +47,19 @@ declare namespace pluginComponentManager {
   }
 
   /**
- * Plugin component push parameters.
+ * Plugin component push parameters which is used in push function.
+ * @param { Want } owner - The information of the application which uses the push function.
+ * @param { Want } target - The information of the template which is being pushed to others.
+ * @param { string } name - The name of the template which is being pushed to others.
+ * @param { KVObject } data - The data which is used to update pluginComponent.
+ * @param { KVObject } extraData - The extra data.
+ * @param { string } jsonPath - The path used to find the file which storage template path.
  * @since 9
  * @systemapi
  */
   interface PushParameterForStage {
     owner: Want;
-    want: Want;
+    target: Want;
     name: string;
     data: KVObject;
     extraData: KVObject;
@@ -72,13 +78,18 @@ declare namespace pluginComponentManager {
   }
 
   /**
- * Plugin component request parameters.
+ * Plugin component request parameters which is used in request function.
+ * @param { Want } owner - The information of the application which uses the request function.
+ * @param { Want } target - The information of the template which is being requested form others.
+ * @param { string } name - The name of the template which is being requested form others.
+ * @param { KVObject } data - The extra data.
+ * @param { string } jsonPath - The path used to find the file which storage template path.
  * @since 9
  * @systemapi
  */
   interface RequestParameterForStage {
     owner: Want;
-    want: Want;
+    target: Want;
     name: string;
     data: KVObject;
     jsonPath?: string;
@@ -131,9 +142,9 @@ declare namespace pluginComponentManager {
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
- * Plugin component push method.
- * @param param: Plugin component push parameters for stage.
- * @param callback: Plugin component push event callback.
+ * Plugin component push method used to send the information of the template it provides.
+ * @param { PushParameterForStage | PushParameterStage } param - Plugin component push parameters for stage.
+ * @param { AsyncCallback<void> } callback - Plugin component push event callback.
  * @StageModelOnly
  * @since 9
  * @systemapi
@@ -141,9 +152,9 @@ declare namespace pluginComponentManager {
   function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
 
   /**
-   * Plugin component request method.
-   * @param param: Plugin component request parameters for stage.
-   * @param callback: Plugin component request event callback.
+   * Plugin component request method used to send a request for the information of the template it wants.
+   * @param { RequestParameterForStage | RequestParameterStage } param - Plugin component request parameters for stage.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Plugin component request event callback.
    * @StageModelOnly
    * @since 9
    * @systemapi

@@ -19,8 +19,14 @@
 declare const Component: ClassDecorator;
 
 /**
- * Defining Entry ClassDecorator.
- * Only API 9 and later support parameters.
+ * Defines Entry ClassDecorator.
+ * @returns { ClassDecorator } Entry is a ClassDecorator.
+ * @since 7
+ */
+/**
+ * Defines Entry ClassDecorator.
+ * @returns { ClassDecorator & ((storage?: LocalStorage) => ClassDecorator) }
+ * Entry is a ClassDecorator and it supports LocalStorage as parameters.
  * @since 9
  */
 declare const Entry: ClassDecorator & ((storage?: LocalStorage) => ClassDecorator);
@@ -116,6 +122,12 @@ declare const Styles: MethodDecorator;
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
 /**
+ * Defining Concurrent MethodDecorator
+ * @since 9
+ */
+declare const Concurrent: MethodDecorator;
+
+/**
  * Defining  CustomDialog ClassDecorator
  * @since 7
  */
@@ -134,7 +146,8 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
 /**
- * Get context.
+ * Obtains the Context object associated with a component on the page.
+ * @param { Object } component - indicate the component on the page.
  * @StageModelOnly
  * @since 9
  */
@@ -152,7 +165,6 @@ declare type Context = import('../api/application/Context').default;
  * @param { Object } component - indicate the card entry component.
  * @param { Object } action - indicate the router or message event.
  * @StageModelOnly
- * @systemapi
  * @since 9
  */
  declare function postCardAction(component: Object, action: Object): void;
@@ -734,29 +746,182 @@ declare enum RepeatMode {
 /**
  * enum Blur style
  * @since 9
- * @systemapi
  */
- declare enum BlurStyle {
+declare enum BlurStyle {
   /**
-   * Defines the fuzzy scale.
+   * Defines the thin card material.
    * @since 9
-   * @systemapi
    */
   Thin,
 
   /**
-   * Defines the fuzzy scale.
+   * Defines the regular card material.
    * @since 9
-   * @systemapi
    */
   Regular,
 
   /**
-   * Defines the fuzzy scale.
+   * Defines the thick card material.
    * @since 9
-   * @systemapi
    */
   Thick,
+
+  /**
+   * Defines the thin background material.
+   * @since 10
+   */
+  BackgroundThin,
+
+  /**
+   * Defines the thin regular material.
+   * @since 10
+   */
+  BackgroundRegular,
+
+  /**
+   * Defines the thin thick material.
+   * @since 10
+   */
+  BackgroundThick,
+
+  /**
+   * Defines the thin ultra thick material.
+   * @since 10
+   */
+  BackgroundUltraThick,
+}
+
+/**
+ * enum color mode
+ * @since 10
+ */
+declare enum ThemeColorMode {
+  /**
+   * Defines the mode which is follow up with system.
+   * @since 10
+   */
+  System,
+
+  /**
+   * Defines the light mode.
+   * @since 10
+   */
+  Light,
+
+  /**
+   * Defines the dark mode.
+   * @since 10
+   */
+  Dark,
+}
+
+/**
+ * Defines adaptive color
+ * @since 10
+ */
+declare enum AdaptiveColor {
+  /**
+   * Defines the fixed value color adaptive mode.
+   * @since 10
+   */
+  Default,
+
+  /**
+   * Defines the background average color adaptive mode.
+   * @since 10
+   */
+  Average,
+}
+
+/**
+ * Defines the options of backgroundBlurStyle
+ * @since 10
+ */
+declare interface BackgroundBlurStyleOptions {
+  /**
+   * color mode
+   * @since 10
+   */
+  colorMode?: ThemeColorMode;
+
+
+  /**
+   * adaptive color
+   * @since 10
+   */
+  adaptiveColor?: AdaptiveColor;
+}
+
+/**
+ * Define the options of shadow
+ * @since 7
+ */
+declare interface ShadowOptions {
+  /**
+   * Define the radius size of shadow
+   * @since 7
+   */
+  radius: number | Resource;
+
+  /**
+   * Define the color of shadow
+   * @since 7
+   */
+  color?: Color | string | Resource;
+
+  /**
+   * Define the horizontal offset size of shadow
+   * @since 7
+   */
+  offsetX?: number | Resource;
+
+  /**
+   * Define the vertical offset size of shadow
+   * @since 7
+   */
+  offsetY?: number | Resource;
+}
+
+/**
+ * enum Shadow style
+ * @since 10
+ */
+declare enum ShadowStyle {
+  /**
+   * Defines the super small default shadow style.
+   * @since 10
+   */
+  OuterDefaultXS,
+
+  /**
+   * Defines the small default shadow style.
+   * @since 10
+   */
+  OuterDefaultSM,
+
+  /**
+   * Defines the medium default shadow style.
+   * @since 10
+   */
+  OuterDefaultMD,
+
+  /**
+   * Defines the large default shadow style.
+   * @since 10
+   */
+  OuterDefaultLG,
+
+  /**
+   * Defines the small floating shadow style.
+   * @since 10
+   */
+  OuterFloatingSM,
+
+  /**
+   * Defines the medium floating shadow style.
+   * @since 10
+   */
+  OuterFloatingMD,
 }
 
 /**
@@ -1198,6 +1363,14 @@ declare interface PopupOptions {
    * @since 9
    */
    showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @since 10
+   */
+  mask?: boolean | { color: ResourceColor };
 }
 
 /**
@@ -1220,6 +1393,8 @@ declare interface CustomPopupOptions {
   /**
    * mask color of popup
    * @since 8
+   * @deprecated since 10
+   * @useinstead CustomPopupOptions#mask
    */
   maskColor?: Color | string | Resource | number;
 
@@ -1258,6 +1433,14 @@ declare interface CustomPopupOptions {
    * @since 9
    */
    showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @since 10
+   */
+  mask?: boolean | { color: ResourceColor };
 }
 
 /**
@@ -1366,10 +1549,17 @@ declare class CommonMethod<T> {
   /**
    * Background blur style.
    * blurStyle:Blur style type.
+   * @param { BlurStyle } value
    * @since 9
-   * @systemapi
    */
-   backgroundBlurStyle(value: BlurStyle): T;
+  /**
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * @param { BlurStyle } value
+   * @param { BackgroundBlurStyleOptions } options
+   * @since 10
+   */
+   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
   
   /**
    * Opacity
@@ -1886,14 +2076,15 @@ declare class CommonMethod<T> {
 
   /**
    * Add a shadow effect to the current component
+   * @param { ShadowOptions } value
    * @since 7
    */
-  shadow(value: {
-    radius: number | Resource;
-    color?: Color | string | Resource;
-    offsetX?: number | Resource;
-    offsetY?: number | Resource;
-  }): T;
+  /**
+   * Add a shadow effect to the current component
+   * @param { ShadowOptions | ShadowStyle } value
+   * @since 10
+   */
+  shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.

@@ -265,19 +265,6 @@ declare namespace request {
    * Starts a download task.
    * @syscap SystemCapability.MiscServices.Download
    * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Download config
-   * @param callback Indicate the callback function to receive DownloadTask.
-   * @permission ohos.permission.INTERNET
-   */
-  function download(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
-
-  /**
-   * Starts a download task.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Download config
    * @param callback Indicate the callback function to receive DownloadTask.
@@ -302,19 +289,6 @@ declare namespace request {
    * @FAModelOnly
    */
   function download(config: DownloadConfig): Promise<DownloadTask>;
-
-  /**
-   * Starts a download task.
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   * @deprecated since 9,
-   * @useinstead ohos.request.downloadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Download config
-   * @permission ohos.permission.INTERNET
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
-   */
-  function download(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
    * Starts a download task.
@@ -349,19 +323,6 @@ declare namespace request {
    * Starts a upload task.
    * @syscap SystemCapability.MiscServices.Upload
    * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Upload config
-   * @param callback Indicate the callback function to receive UploadTask.
-   * @permission ohos.permission.INTERNET
-   */
-  function upload(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
-
-  /**
-   * Starts a upload task.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
    * @param BaseContext Indicates the application BaseContext.
    * @param config Upload config
    * @param callback Indicate the callback function to receive UploadTask.
@@ -383,19 +344,6 @@ declare namespace request {
    * @FAModelOnly
    */
   function upload(config: UploadConfig): Promise<UploadTask>;
-
-  /**
-   * Starts a upload task.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
-   * @param BaseContext Indicates the application BaseContext.
-   * @param config Upload config
-   * @permission ohos.permission.INTERNET
-   * @returns { Promise<UploadTask> } the promise returned by the function.
-   */
-  function upload(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
    * Starts a upload task.
@@ -572,6 +520,12 @@ declare namespace request {
     downloadTotalBytes: number;
   }
 
+  /**
+   * Download task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface DownloadTask {
     /**
      * Called when the current download session is in process.
@@ -764,6 +718,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      */
     delete(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Delete the download task
+     * @since 9
+     * @permission ohos.permission.INTERNET
+     * @throws {BusinessError} 201 - the permissions check fails
+     * @throws {BusinessError} 401 - the parameters check fails
+     * @syscap SystemCapability.MiscServices.Download
+     * @returns { Promise<boolean> } the promise returned by the function.
+     */
     delete(): Promise<boolean>;
 
     /**
@@ -993,6 +957,12 @@ declare namespace request {
     message: string;
   }
 
+  /**
+   * Upload task interface
+   * @permission ohos.permission.INTERNET
+   * @since 6
+   * @syscap SystemCapability.MiscServices.Download
+   */
   interface UploadTask {
     /**
      * Called when the current upload session is in process.

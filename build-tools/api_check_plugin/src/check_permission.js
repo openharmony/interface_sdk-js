@@ -22,7 +22,7 @@ const { addAPICheckErrorLogs } = require('./compile_info');
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
 
 function getPermissionBank() {
-  const permissionTags = [];
+  const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
   const permissionFilesPath = path.resolve(__dirname, '../../../../../',
     "base/global/system_resources/systemres/main/config.json");
   const content = fs.readFileSync(permissionFilesPath, 'utf-8');

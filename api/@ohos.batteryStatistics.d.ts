@@ -62,6 +62,8 @@ declare namespace batteryStats {
      * Obtains the power consumption information list.
      *
      * @returns {Promise<Array<BatteryStatsInfo>>} Power consumption information list.
+     * @throws {BusinessError} 202 - If the system permission is denied.
+     * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
      */
@@ -71,7 +73,9 @@ declare namespace batteryStats {
      * Obtains the power consumption information list.
      *
      * @param {AsyncCallback} callback Indicates the callback of power consumption information list.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the callback is not valid.
+     * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
      */
@@ -82,6 +86,7 @@ declare namespace batteryStats {
      *
      * @param {number} uid Indicates the uid.
      * @returns {number} Power consumption information(Mah).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
@@ -93,6 +98,7 @@ declare namespace batteryStats {
      *
      * @param {number} uid Indicates the uid.
      * @returns {number} Power consumption information(Percent).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
      * @since 8
@@ -104,6 +110,7 @@ declare namespace batteryStats {
      *
      * @param {ConsumptionType} type Indicates the hardware type.
      * @returns {number} Power consumption information(Mah).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi
@@ -116,6 +123,7 @@ declare namespace batteryStats {
      *
      * @param {ConsumptionType} type Indicates the hardware type.
      * @returns {number} Power consumption information(Percent).
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the type is not valid.
      * @throws {BusinessError} 4600101 - If connecting to the service failed.
      * @systemapi

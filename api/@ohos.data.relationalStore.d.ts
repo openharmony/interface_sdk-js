@@ -33,7 +33,6 @@ declare namespace relationalStore
      *
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
      * @param {AsyncCallback<RdbStore>} callback - the RDB store {@link RdbStore}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @throws {BusinessError} 14800010 - if failed open database by invalid database name
@@ -51,7 +50,6 @@ declare namespace relationalStore
      *
      * @param {Context} context - Indicates the context of application or capability.
      * @param {StoreConfig} config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
-     * @param {number} version - Indicates the database version for upgrade or downgrade.
      * @returns {Promise<RdbStore>} the RDB store {@link RdbStore}.
      * @throws {BusinessError} 401 - if the parameter type is incorrect.
      * @throws {BusinessError} 14800010 - if failed open database by invalid database name
@@ -151,7 +149,7 @@ declare namespace relationalStore
           * @since 9
           */
          S2 = 2,
- 
+
          /**
           * S3: mains the db is high level security
           * There are some severity impact, when the data is leaked.
@@ -160,7 +158,7 @@ declare namespace relationalStore
           * @since 9
           */
          S3 = 3,
- 
+
          /**
           * S4: mains the db is critical level security
           * There are some critical impact, when the data is leaked.
@@ -180,7 +178,7 @@ declare namespace relationalStore
     enum ConflictResolution {
         /**
          * Implements no action when conflict occurs.
-         * 
+         *
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
@@ -228,30 +226,6 @@ declare namespace relationalStore
     }
 
     /**
-     * Returns RdbStore status when GetRdbStore is called.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    enum OpenStatus {
-        /**
-         * Indicates that the RDB database is in the creation state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        ON_CREATE = 0,
-
-        /**
-         * Indicates that the RDB database is in the open state.
-         *
-         * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-         * @since 10
-         */
-        ON_OPEN = 1,
-    }
-
-    /**
      * Provides methods for managing the relational database (RDB).
      *
      * This class provides methods for creating, querying, updating, and deleting RDBs.
@@ -261,12 +235,13 @@ declare namespace relationalStore
      */
     interface RdbStore {
         /**
-         * Obtains the RdbStore {@link OpenStatus}.
+         * Obtains the RdbStore version. The version number must be an integer greater than 0.
          *
+         * @throws {BusinessError} 401 - Parameter error.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @since 10
          */
-        openStatus: number;
+        version: number;
 
         /**
          * Inserts a row of data into the target table.
@@ -403,6 +378,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -418,6 +394,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         update(table: string, values: ValuesBucket, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -454,6 +431,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
@@ -468,6 +446,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         delete(table: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
@@ -507,6 +486,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -522,6 +502,7 @@ declare namespace relationalStore
          * @throws {BusinessError} 202 - if permission verification failed, application which is not a system application uses system API.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
          * @systemapi
+         * @StageModelOnly
          * @since 9
          */
         query(table: string, predicates: dataSharePredicates.DataSharePredicates, columns ?: Array<string>): Promise<ResultSet>;
@@ -567,7 +548,7 @@ declare namespace relationalStore
         querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
         /**
-         * Deletes data from the database based on a specified instance object of RdbPredicates.
+         * Queries data in the database based on SQL statement.
          *
          * @param {string} sql - Indicates the SQL statement to execute.
          * @param {Array<ValueType>} bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
@@ -752,7 +733,7 @@ declare namespace relationalStore
          * the callback will be invoked.
          *
          * @param {string} event - Indicates the event must be string 'dataChange'.
-         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the observer of data change events in the distributed database.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -764,7 +745,7 @@ declare namespace relationalStore
          * Remove specified observer of specified type from the database.
          *
          * @param {string} event - Indicates the event must be string 'dataChange'.
-         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+         * @param {SubscribeType} type - Indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
          * @param {AsyncCallback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
          * @throws {BusinessError} 401 - if the parameter type is incorrect.
          * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1435,7 +1416,7 @@ declare namespace relationalStore
          * @since 9
          */
         getDouble(columnIndex: number): number;
-        
+
         /**
          * Checks whether the value of the specified column in the current row is null.
          *

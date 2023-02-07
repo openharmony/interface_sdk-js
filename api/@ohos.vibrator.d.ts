@@ -51,7 +51,6 @@ declare namespace vibrator {
      * @param { VibrateEffect } effect - Indicate vibrate effect, {@code VibrateEffect}.
      * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
      * @param { AsyncCallback<void> } callback - The callback of startVibration.
-     * @returns {void | Promise<void>} no callback return Promise otherwise return void.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14600101 - Device operation failed.
@@ -60,13 +59,25 @@ declare namespace vibrator {
      * @since 9
      */
     function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
+
+    /**
+     * Trigger vibrator vibration.
+     * @param { VibrateEffect } effect - Indicate vibrate effect, {@code VibrateEffect}.
+     * @param { VibrateAttribute } attribute - Indicate vibrate attribute, {@code VibrateAttribute}.
+     * @returns { Promise<void>} Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14600101 - Device operation failed.
+     * @permission ohos.permission.VIBRATE
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 9
+     */
     function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
     /**
      * Stop the vibrator from vibrating.
      * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
-     * @param { AsyncCallback<void> } callback - The callback of stopVibration.
-     * @returns { void | Promise<void> } no callback return Promise otherwise return void.
+     * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Sensors.MiscDevice
@@ -74,6 +85,17 @@ declare namespace vibrator {
      * @since 9
      */
     function stopVibration(stopMode: VibratorStopMode): Promise<void>;
+
+    /**
+     * Stop the vibrator from vibrating.
+     * @param { VibratorStopMode } stopMode - Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
+     * @param { AsyncCallback<void> } callback - The callback of stopVibration.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @permission ohos.permission.VIBRATE
+     * @since 9
+     */
     function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
     /**
@@ -136,7 +158,7 @@ declare namespace vibrator {
      type VibrateEffect = VibrateTime | VibratePreset;
 
     /**
-     * Specifies the duration of the vibration effect.
+     * Vibrate continuously for a period of time at the default intensity of the system.
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */

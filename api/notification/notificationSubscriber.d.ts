@@ -48,6 +48,13 @@ export interface NotificationSubscriber {
    * @since 8
    */
   onEnabledNotificationChanged?:(callbackData: EnabledNotificationCallbackData) => void;
+
+  /**
+   * Callback when badge number changed.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 10
+   */
+  onBadgeChanged?:(data: BadgeNumberCallbackData) => void;
 }
 
 /**
@@ -80,4 +87,18 @@ export interface EnabledNotificationCallbackData {
   readonly bundle: string;
   readonly uid: number;
   readonly enable: boolean;
+}
+
+/**
+ * Describes the badge number of the application has changed.
+ *
+ * @name BadgeNumberCallbackData
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi Hide this for inner system use.
+ * @since 10
+ */
+export interface BadgeNumberCallbackData {
+  readonly bundle: string;
+  readonly uid: number;
+  readonly badgeNumber: number;
 }

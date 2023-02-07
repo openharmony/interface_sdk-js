@@ -84,7 +84,7 @@ declare namespace missionManager {
     function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
 
     /**
-     * Get the missionInfo with the given missionId.
+     * Get missionInfos in the given deviceId with maximum number of numMax.
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @param { AsyncCallback<Array<MissionInfo>> } callback - The callback is used to return the array of the MissionInfo.
@@ -95,7 +95,7 @@ declare namespace missionManager {
     function getMissionInfos(deviceId: string, numMax: number, callback: AsyncCallback<Array<MissionInfo>>): void;
 
     /**
-     * Get the missionInfo with the given missionId.
+     * Get missionInfos in the given deviceId with maximum number of numMax.
      * @param { string } deviceId - Indicates the device to be queried.
      * @param { number } numMax - Indicates the maximum number of returned missions.
      * @returns { Promise<Array<MissionInfo>> } Returns the array of the MissionInfo.

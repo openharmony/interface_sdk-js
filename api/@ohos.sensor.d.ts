@@ -1520,7 +1520,7 @@ declare namespace sensor {
      */
     interface Sensor {
         sensorName:string; /**< Sensor name */
-        venderName:string; /**< Sensor vendor */
+        vendorName:string; /**< Sensor vendor */
         firmwareVersion:string; /**< Sensor firmware version */
         hardwareVersion:string; /**< Sensor hardware version */
         sensorId:number; /**< Sensor type ID, {@code SensorType} */
@@ -1535,26 +1535,44 @@ declare namespace sensor {
      * Obtains the sensor information of a specified type.
      * @param type Indicate the sensor type, {@code SensorId}.
      * @param { AsyncCallback<Sensor> } callback - callback sensor info.
-     * @returns { void | Promise<Sensor> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
+
+    /**
+     * Obtains the sensor information of a specified type.
+     * @param type Indicate the sensor type, {@code SensorId}.
+     * @returns { Promise<Sensor> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getSingleSensor(type: SensorId): Promise<Sensor>;
 
     /**
      * Obtains all sensor information on the device.
      * @param type Indicate the sensor type, {@code SensorId}.
      * @param { AsyncCallback<Array<Sensor>> } callback - callback sensor list.
-     * @returns { void | Promise<Array<Sensor>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getSensorList(callback: AsyncCallback<Array<Sensor>>): void;
+
+    /**
+     * Obtains all sensor information on the device.
+     * @param type Indicate the sensor type, {@code SensorId}.
+     * @returns { Promise<Array<Sensor>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getSensorList(): Promise<Array<Sensor>>;
 
     /**
@@ -1604,13 +1622,24 @@ declare namespace sensor {
      * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
      * since the Unix epoch.
      * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
-     * @returns { void | Promise<GeomagneticResponse> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
+
+    /**
+     * Obtains the geomagnetic field at a specific location on the Earth.
+     * @param LocationOptions Indicates geographic location, {@code LocationOptions}.
+     * @param timeMillis Indicates the time at which the magnetic declination is to be obtained, in milliseconds
+     * since the Unix epoch.
+     * @returns { Promise<GeomagneticResponse> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
 
    /**
@@ -1632,13 +1661,23 @@ declare namespace sensor {
      * @param seaPressure Indicates the sea level pressure, in hPa.
      * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
      * @param { AsyncCallback<number> } callback - callback device altitude.
-     * @returns { void | Promise<number> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getDeviceAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
+
+    /**
+     * Obtains the altitude at which the device is located based on the current atmospheric pressure.
+     * @param seaPressure Indicates the sea level pressure, in hPa.
+     * @param currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getDeviceAltitude(seaPressure: number, currentPressure: number): Promise<number>;
 
     /**
@@ -1658,13 +1697,22 @@ declare namespace sensor {
      * Computes the geomagnetic inclination in radians from the inclination matrix.
      * @param inclinationMatrix Indicates the inclination matrix.
      * @param { AsyncCallback<number> } callback - callback inclination in radians.
-     * @returns { void | Promise<number> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getInclination(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
+
+    /**
+     * Computes the geomagnetic inclination in radians from the inclination matrix.
+     * @param inclinationMatrix Indicates the inclination matrix.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getInclination(inclinationMatrix: Array<number>): Promise<number>;
 
     /**
@@ -1687,7 +1735,6 @@ declare namespace sensor {
      * @param currentRotationMatrix Indicates the current rotation matrix.
      * @param preRotationMatrix Indicates the current rotation matrix.
      * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
-     * @returns { void | Promise<Array<number>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1695,6 +1742,17 @@ declare namespace sensor {
      */
     function getAngleVariation(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
         callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Get the angle variation between two rotation matrices.
+     * @param currentRotationMatrix Indicates the current rotation matrix.
+     * @param preRotationMatrix Indicates the current rotation matrix.
+     * @returns { Promise<Array<number>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getAngleVariation(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
 
     /**
@@ -1714,13 +1772,22 @@ declare namespace sensor {
      * Convert rotation vector to rotation matrix.
      * @param rotationVector Indicates the rotation vector.
      * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
-     * @returns { void | Promise<Array<number>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getRotationMatrix(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Convert rotation vector to rotation matrix.
+     * @param rotationVector Indicates the rotation vector.
+     * @returns { Promise<Array<number>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getRotationMatrix(rotationVector: Array<number>): Promise<Array<number>>;
 
     /**
@@ -1760,7 +1827,6 @@ declare namespace sensor {
      * @param inRotationVector Indicates the rotation matrix to be transformed.
      * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
      * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
-     * @returns { void | Promise<Array<number>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
@@ -1768,6 +1834,17 @@ declare namespace sensor {
      */
     function transformRotationMatrix(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
         callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
+     * @param inRotationVector Indicates the rotation matrix to be transformed.
+     * @param coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
+     * @returns { Promise<Array<number>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function transformRotationMatrix(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
 
     /**
@@ -1787,13 +1864,22 @@ declare namespace sensor {
      * convert a rotation vector to a normalized quaternion.
      * @param rotationVector Indicates the rotation vector.
      * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
-     * @returns { void | Promise<Array<number>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * convert a rotation vector to a normalized quaternion.
+     * @param rotationVector Indicates the rotation vector.
+     * @returns { Promise<Array<number>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
 
     /**
@@ -1813,13 +1899,22 @@ declare namespace sensor {
      * Computes the device's orientation based on the rotation matrix.
      * @param rotationMatrix Indicates the rotation matrix.
      * @param { AsyncCallback<Array<number>> } callback - callback the angle of rotation around the z, x, y axis.
-     * @returns { void | Promise<Array<number>> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
     function getOrientation(rotationMatrix: Array<number>, callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Computes the device's orientation based on the rotation matrix.
+     * @param rotationMatrix Indicates the rotation matrix.
+     * @returns { Promise<Array<number>> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
     function getOrientation(rotationMatrix: Array<number>): Promise<Array<number>>;
 
     /**
@@ -1851,14 +1946,24 @@ declare namespace sensor {
      * @param gravity Indicates the gravity vector.
      * @param geomagnetic Indicates the geomagnetic vector.
      * @param { AsyncCallback<Array<RotationMatrixResponse>> } callback - callback rotation matrix and inclination matrix.
-     * @returns { void | Promise<ArRotationMatrixResponse> } no callback return Promise otherwise return void.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14500101 - Service exception.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
      */
      function getRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>, callback: AsyncCallback<RotationMatrixResponse>): void;
-     function getRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>,): Promise<RotationMatrixResponse>;
+
+    /**
+     * Calculate rotation matrix based on gravity vector and geomagnetic vector.
+     * @param gravity Indicates the gravity vector.
+     * @param geomagnetic Indicates the geomagnetic vector.
+     * @returns { Promise<RotationMatrixResponse> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14500101 - Service exception.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 9
+     */
+     function getRotationMatrix(gravity: Array<number>, geomagnetic: Array<number>): Promise<RotationMatrixResponse>;
 
     /**
      * Subscribe to the sensor's optional parameters.
@@ -2019,7 +2124,7 @@ declare namespace sensor {
      * @since 8
      */
     interface ProximityResponse extends Response {
-        distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, while 1 indicates distance */
+        distance: number; /**< Indicates the degree of proximity, event 0 indicates proximity, and greater than 0 indicates distance */
     }
 
     /**

@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AbilityDelegator as _AbilityDelegator } from './application/abilityDelegator';
+import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
-import { AbilityMonitor as _AbilityMonitor } from './application/abilityMonitor';
+import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
 import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult';
 
 /**

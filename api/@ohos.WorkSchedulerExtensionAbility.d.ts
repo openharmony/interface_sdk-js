@@ -18,28 +18,28 @@ import workScheduler from "./@ohos.resourceschedule.workScheduler";
 /**
  * Class of the work scheduler extension ability.
  *
- * @since 9
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
+ * @since 9
  */
 export default class WorkSchedulerExtensionAbility {
     /**
      * Called back when a work is started.
      *
-     * @since 9
+     * @param {workScheduler.WorkInfo} work - The info of work.
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @param work The info of work.
+     * @since 9
      */
     onWorkStart(work: workScheduler.WorkInfo): void;
 
     /**
      * Called back when a work is stopped.
      *
-     * @since 9
+     * @param {workScheduler.WorkInfo} work - The info of work.
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @param work The info of work.
+     * @since 9
      */
     onWorkStop(work: workScheduler.WorkInfo): void;
 }

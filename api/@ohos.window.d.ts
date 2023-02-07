@@ -884,6 +884,38 @@ declare namespace window {
     THICK,
   }
 
+  /**
+   * Enum for window callback event type
+   * @enum {number}
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 10
+   */
+  enum WindowEventType {
+    /**
+     * The value of window event is window show
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    WINDOW_SHOWN = 1,
+    /**
+     * The value of window event is window active
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    WINDOW_ACTIVE = 2,
+    /**
+     * The value of window event is window inactive
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    WINDOW_INACTIVE = 3,
+    /**
+     * The value of window event is window hide
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    WINDOW_HIDDEN = 4,
+  }
   interface Window {
     /**
      * Hide window.
@@ -1577,7 +1609,27 @@ declare namespace window {
       * @since 9
       */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
+    
+    /**
+     * Register the callback of windowEvent
+     * @param type: 'windowEvent' - window event
+     * @param {Callback<WindowEventType>} callback - the callback of window event
+     * @throws {BusinessError} 401 - If param is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
 
+    on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+    /**
+     * Unregister the callback of windowEvent
+     * @param type: 'windowEvent'- window event
+     * @param {Callback<WindowEventType>} callback - the callback of window event
+     * @throws {BusinessError} 401 - If param is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    off(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+  
     /**
      * Bind dialog to the target window.
      * @param token token of the target window.
@@ -2165,6 +2217,34 @@ declare namespace window {
      * @since 9
      */
     setCornerRadius(cornerRadius: number): void;
+
+    /**
+     * Raise app sub window to app top
+     * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300004 - If this window can not raise to app top
+     * @throws {BusinessError} 1300009 - If parent is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseToAppTop(callback: AsyncCallback<void>): void;
+
+    /**
+     * Raise app sub window to app top
+     * @returns { Promise<void> } - The promise returned by the function
+     * @throws {BusinessError} 201 - If there is no permission
+     * @throws {BusinessError} 1300002 - If window state is abnormally
+     * @throws {BusinessError} 1300003 - If system state is abnormally
+     * @throws {BusinessError} 1300004 - If this window can not raise to app top
+     * @throws {BusinessError} 1300009 - If parent is invalid
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseToAppTop(): Promise<void>;
   }
   /**
    * Window stage callback event type

@@ -213,7 +213,6 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
-     * @throws { BusinessError } 3301100 - The location switch is off.
      * @throws { BusinessError } 3301500 - Failed to query the area information.
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
@@ -227,7 +226,6 @@ declare namespace geoLocationManager {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3301000 - Location service is unavailable.
-     * @throws { BusinessError } 3301100 - The location switch is off.
      * @throws { BusinessError } 3301500 - Failed to query the area information.
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
