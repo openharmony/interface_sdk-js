@@ -17,7 +17,7 @@
  * Enumerates the moving direction of cursor
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since 10
  */
 export enum Direction {
     /**
