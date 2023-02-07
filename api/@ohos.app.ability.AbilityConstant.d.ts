@@ -104,6 +104,7 @@ declare namespace AbilityConstant {
      * Type of window mode.
      * @enum { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
      * @StageModelOnly
      * @since 9
      */
