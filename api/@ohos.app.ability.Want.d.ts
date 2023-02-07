@@ -20,13 +20,6 @@
  */
 export default class Want {
     /**
-     * device id
-     * @syscap SystemCapability.Ability.AbilityBase
-     * @since 9
-     */
-    deviceId?: string;
-
-    /**
      * bundle name
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
@@ -39,6 +32,13 @@ export default class Want {
      * @since 9
      */
     abilityName?: string;
+
+    /**
+     * device id
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 9
+     */
+    deviceId?: string;
 
     /**
      * The description of a URI in a Want.

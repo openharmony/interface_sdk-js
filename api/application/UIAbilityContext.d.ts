@@ -159,7 +159,6 @@ export default class UIAbilityContext extends Context {
      * @throws { BusinessError } 16000055 - Installation-free timed out.
      * @throws { BusinessError } 16200001 - The caller has been released.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */

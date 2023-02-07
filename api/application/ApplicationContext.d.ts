@@ -119,22 +119,22 @@ export default class ApplicationContext extends Context {
     getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
 
     /**
-     * Kill processes by self
+     * Kill all processes of the application
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    killProcessesBySelf(): Promise<void>;
+    killAllProcesses(): Promise<void>;
 
     /**
-     * Kill processes by self
-     * @param { AsyncCallback<void> } callback - The callback of killProcessesBySelf.
+     * Kill all processes of the application
+     * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    killProcessesBySelf(callback: AsyncCallback<void>);
+    killAllProcesses(callback: AsyncCallback<void>);
 }
