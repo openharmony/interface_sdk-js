@@ -679,8 +679,6 @@ declare namespace audio {
      * @systemapi
      */
     CONTENT_TYPE_ULTRASONIC = 9
-    
-
   }
 
   /**
