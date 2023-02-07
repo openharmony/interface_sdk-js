@@ -1363,6 +1363,14 @@ declare interface PopupOptions {
    * @since 9
    */
    showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @since 10
+   */
+  mask?: boolean | { color: ResourceColor };
 }
 
 /**
@@ -1385,6 +1393,8 @@ declare interface CustomPopupOptions {
   /**
    * mask color of popup
    * @since 8
+   * @deprecated since 10
+   * @useinstead CustomPopupOptions#mask
    */
   maskColor?: Color | string | Resource | number;
 
@@ -1423,6 +1433,14 @@ declare interface CustomPopupOptions {
    * @since 9
    */
    showInSubWindow?: boolean;
+
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * @since 10
+   */
+  mask?: boolean | { color: ResourceColor };
 }
 
 /**
