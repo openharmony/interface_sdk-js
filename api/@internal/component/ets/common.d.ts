@@ -1289,7 +1289,7 @@ declare class CommonMethod<T> {
   width(value: Length): T;
 
   /**
-   * Sets the width of the current component.
+   * Sets the height of the current component.
    * @since 7
    */
   height(value: Length): T;
