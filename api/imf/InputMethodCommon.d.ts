@@ -13,6 +13,12 @@
  * limitations under the License.
  */
 
+/**
+ * Enumerates the moving direction of cursor
+ * @enum { number }
+ * @syscap SystemCapability.MiscServices.InputMethodFramework
+ * @since 9
+ */
 export enum Direction {
     /**
      * Cursor moves up
@@ -45,20 +51,18 @@ export interface Range {
     /**
      * Indicates the index of the first character of the selected text.
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly start: number;
+    start: number;
 
     /**
      * Indicates the index of the last character of the selected text.
      * @type { number }
-     * @readonly
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly end: number;
+    end: number;
 }
 
 /**
@@ -74,5 +78,5 @@ export interface Movement {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    readonly direction: Direction;
+    direction: Direction;
 }
