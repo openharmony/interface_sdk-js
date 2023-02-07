@@ -17,7 +17,7 @@ import { AsyncCallback } from './basic';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName }  from './bundleManager/elementName';
+import { ElementName }  from './bundleManager/ElementName';
 
 /**
  * The class of an ability manager.

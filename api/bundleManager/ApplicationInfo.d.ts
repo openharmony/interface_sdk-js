@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Metadata } from './metadata';
+import { Metadata } from './Metadata';
 import { Resource } from '../global/resource';
 
 /**

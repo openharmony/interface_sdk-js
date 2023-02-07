@@ -14,15 +14,15 @@
  */
 
 import { AsyncCallback } from './basic';
-import { ApplicationInfo as _ApplicationInfo } from './bundleManager/applicationInfo';
-import { Metadata as _Metadata } from './bundleManager/metadata';
-import { HapModuleInfo as _HapModuleInfo } from './bundleManager/hapModuleInfo';
-import { PermissionDef as _PermissionDef } from  './bundleManager/permissionDef';
-import { ElementName as _ElementName }  from './bundleManager/elementName';
+import { ApplicationInfo as _ApplicationInfo } from './bundleManager/ApplicationInfo';
+import { Metadata as _Metadata } from './bundleManager/Metadata';
+import { HapModuleInfo as _HapModuleInfo } from './bundleManager/HapModuleInfo';
+import { PermissionDef as _PermissionDef } from  './bundleManager/PermissionDef';
+import { ElementName as _ElementName }  from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
-import * as _AbilityInfo from './bundleManager/abilityInfo';
-import * as _BundleInfo from './bundleManager/bundleInfo';
-import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
+import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
 
 /**
  * This module is used to obtain package information of various applications installed on the current device.
