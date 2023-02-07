@@ -15,6 +15,7 @@
 
 import {AsyncCallback} from './basic';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import {Movement, Range} from './imf/InputMethodCommon';
 
 /**
  * Input method
@@ -390,6 +391,48 @@ declare namespace inputMethod {
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
         hideSoftKeyboard():Promise<void>;
+
+        /**
+         * Register a callback and when IME sends select event with range of selection,
+         * the callback will be invoked.
+         * @param {string} type - event type, fixed as 'selectByRange'.
+         * @param {Callback<Range>} callback - processes selectByRange command. The range of selection is provided for
+         *        this callback, and subscribers are expected to select corresponding text in callback according to
+         *        the range.
+         * @throws {BusinessError} 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'selectByRange', callback: Callback<Range>): void;
+
+        /**
+         * Register a callback and when IME sends select event witch movement of cursor,
+         * the callback will be invoked.
+         * @param {string} type - event type, fixed as 'selectByMovement'.
+         * @param {Callback<Movement>} callback - processes selectByMovement command. The movement of cursor is provided
+         *        for this callback, and subscribers are expected to select corresponding text in callback according to
+         *        the movement.
+         * @throws {BusinessError} 401 - parameter error.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        on(type: 'selectByMovement', callback: Callback<Movement>): void;
+
+        /**
+         * Unregister the callback of selectedByRange.
+         * @param {string} type - event type, fixed as 'selectByRange'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'selectByRange'): void;
+
+        /**
+         * Unregister the callback of selectedByMovement.
+         * @param {string} type - event type, fixed as 'selectByMovement'.
+         * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 10
+         */
+        off(type: 'selectByMovement'): void;
     }
 
     /**
