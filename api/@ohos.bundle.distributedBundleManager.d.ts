@@ -31,6 +31,7 @@ declare namespace distributedBundleManager {
    * @param { ElementName } elementName - Indicates the elementName.
    * @param { AsyncCallback<RemoteAbilityInfo> } callback - The callback of getting the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -49,6 +50,7 @@ declare namespace distributedBundleManager {
    * @param { ElementName } elementName - Indicates the elementName.
    * @returns { Promise<RemoteAbilityInfo> } Returns the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -67,6 +69,7 @@ declare namespace distributedBundleManager {
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - the callback of getting the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -85,6 +88,7 @@ declare namespace distributedBundleManager {
    * @param { Array<ElementName> } elementNames - Indicates the elementNames, Maximum array length ten.
    * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -104,6 +108,7 @@ declare namespace distributedBundleManager {
    * @param { string } locale - Indicates the locale info
    * @param { AsyncCallback<RemoteAbilityInfo> } callback - The callback of getting the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -123,6 +128,7 @@ declare namespace distributedBundleManager {
    * @param { string } locale - Indicates the locale info
    * @returns { Promise<Array<RemoteAbilityInfo>> } The result of getting the ability info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -142,6 +148,7 @@ declare namespace distributedBundleManager {
    * @param { string } locale - Indicates the locale info
    * @param { AsyncCallback } callback - Returns the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
@@ -161,6 +168,7 @@ declare namespace distributedBundleManager {
    * @param { string } locale - Indicates the locale info
    * @returns { Promise<Array<RemoteAbilityInfo>> } Returns the abilities info of the remote device.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
