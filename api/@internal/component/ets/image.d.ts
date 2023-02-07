@@ -266,7 +266,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   copyOption(value: CopyOptions): ImageAttribute;
 
-   /**
+  /**
    * Enable image dragging.
    * Default value is false.
    * @form

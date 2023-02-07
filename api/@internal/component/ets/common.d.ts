@@ -1819,11 +1819,13 @@ declare interface CustomPopupOptions {
 
   /**
    * The offset of the sharp corner of popup.
+   * @since 9
    */
    arrowOffset?: Length;
 
   /**
    * Whether to display in the sub window.
+   * @since 9
    */
    showInSubWindow?: boolean;
 }
@@ -1913,13 +1915,6 @@ declare class CommonMethod<T> {
   /**
    * Sets the touchable of the current component
    * @since 7
-   * @deprecated since 9
-   * @useinstead hitTestBehavior
-   */
-  /**
-   * Sets the touchable of the current component
-   * @form
-   * @since 9
    * @deprecated since 9
    * @useinstead hitTestBehavior
    */
