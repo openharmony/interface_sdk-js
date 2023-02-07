@@ -779,7 +779,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      */
-    uid: number;
+    uid?: number;
     /**
      * Renderer information.
      * @since 9
@@ -1706,6 +1706,44 @@ declare namespace audio {
      * @systemapi
      */
     selectInputDevice(inputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @param callback Callback used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Get output device for target audio renderer info.
+     * @param rendererInfo Audio renderer information
+     * @returns Promise used to return the result.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param rendererInfo Audio renderer information.
+     * @param callback Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param callback Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @since 10
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
