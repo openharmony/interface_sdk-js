@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { ApplicationInfo } from './applicationInfo';
-import { ElementName } from './elementName'
+import { ApplicationInfo } from './ApplicationInfo';
+import { ElementName } from './ElementName'
 
 /**
  * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo

@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/launcherAbilityInfo';
-import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './bundleManager/shortcutInfo';
+import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
+import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant} from './bundleManager/ShortcutInfo';
 
 
 /**

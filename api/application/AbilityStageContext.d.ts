@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { HapModuleInfo } from "../bundleManager/hapModuleInfo";
+import { HapModuleInfo } from "../bundleManager/HapModuleInfo";
 import { Configuration } from '../@ohos.app.ability.Configuration';
 import Context from "./Context";
 
