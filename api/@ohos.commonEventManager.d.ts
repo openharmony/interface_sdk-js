@@ -1008,7 +1008,14 @@ declare namespace commonEventManager {
      * Indicate the action of a common event that the user information has been updated.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED"
+    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED",
+
+    /**
+     * Indicate http proxy has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+     COMMON_EVENT_HTTP_PROXY_CHANGE = "usual.event.HTTP_PROXY_CHANGE"
   }
 }
 
