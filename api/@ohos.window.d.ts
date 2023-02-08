@@ -1609,7 +1609,7 @@ declare namespace window {
       * @since 9
       */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
-    
+
     /**
      * Register the callback of windowEvent
      * @param type: 'windowEvent' - window event
@@ -1629,7 +1629,7 @@ declare namespace window {
      * @since 10
      */
     off(type: 'windowEvent', callback: Callback<WindowEventType>): void;
-  
+
     /**
      * Bind dialog to the target window.
      * @param token token of the target window.
@@ -2245,6 +2245,46 @@ declare namespace window {
      * @since 10
      */
     raiseToAppTop(): Promise<void>;
+
+    /**
+     * Sets the aspect ratio of window
+     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300004 - If this window can not set aspect ratio
+     * @since 10
+     */
+    setAspectRatio(ratio: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Sets the aspect ratio of window
+     * @param { number } ratio - The aspect ratio of window except decoration
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300004 - If this window can not set aspect ratio
+     * @since 10
+     */
+    setAspectRatio(ratio: number): Promise<void>;
+
+    /**
+     * Resets the aspect ratio of window
+     * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
+     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300004 - If this window can not reset aspect ratio
+     * @since 10
+     */
+    resetAspectRatio(callback: AsyncCallback<void>): void;
+
+    /**
+     * Resets the aspect ratio of window
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 1300002 - If window state is abnormally
+     * @throws { BusinessError } 1300004 - If this window can not reset aspect ratio
+     * @since 10
+     */
+    resetAspectRatio(): Promise<void>;
   }
   /**
    * Window stage callback event type
