@@ -135,6 +135,7 @@ dci
 ddmp
 deactivation
 decodes
+decomposed
 decompressed
 decompressing
 decr
@@ -409,6 +410,7 @@ nextgroup
 nlink
 nmea
 nopadding
+normalizer
 notifies
 notifying
 numpad
