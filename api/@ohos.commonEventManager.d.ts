@@ -81,7 +81,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500004 - not System services or System app
    * @throws { BusinessError } 1500007 - message send error
    * @throws { BusinessError } 1500008 - CEMS error
-   * @throws { BusinessError } 1500009 - system erro
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
