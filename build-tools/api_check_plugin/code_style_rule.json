@@ -475,6 +475,7 @@
         "AppFileService",
         "UserFileService",
         "UserFileManager",
+        "UserFileManager.DistributedCore",
         "UserFileManager.Core"
       ],
       "USB": [
