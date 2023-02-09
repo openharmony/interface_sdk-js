@@ -25,18 +25,21 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 declare namespace inputDevice {
   /**
    * @since 9
+   * add or remove device
    */
   type ChangedType = 'add' | 'remove';
 
   /**
    * @since 9
+   * The type of input device
    */
-  type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
+  type SourceTypes = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
    * @since 9
+   * Axis Type of the input event
    */
-  type AxisType = 'touchMajor' | 'touchMinor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolMinor' | 'toolMajor' | 'NULL';
+  type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null';
 
   /**
    * @since 9
@@ -127,7 +130,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    source: SourceType;
+    source: SourceTypes;
 
     /**
      * @since 8
@@ -175,7 +178,7 @@ declare namespace inputDevice {
    * @param phys Physical path of the input device.
    * @param uniq Unique identifier of the input device.
    */
-  interface InputDeviceData {
+  interface InputDeviceInfo {
     /**
      * @since 8
      */
@@ -189,7 +192,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    sources: Array<SourceType>;
+    sources: Array<SourceTypes>;
 
     /**
      * @since 8
@@ -258,7 +261,7 @@ declare namespace inputDevice {
    * @deprecated since 9
    * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
    */
-  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceInfo>): void;
 
   /**
    * Obtain the information about an input device.
@@ -269,7 +272,7 @@ declare namespace inputDevice {
    * @deprecated since 9
    * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
    */
-  function getDevice(deviceId: number): Promise<InputDeviceData>;
+  function getDevice(deviceId: number): Promise<InputDeviceInfo>;
 
   /**
    * Obtains the IDs of all input devices.
@@ -298,7 +301,7 @@ declare namespace inputDevice {
   * @param callback Callback function, receive reported data
   * @throws {BusinessError} 401 - Parameter error.
   */
-  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceInfo>): void;
 
   /**
   * Obtain the information about an input device.
@@ -308,7 +311,7 @@ declare namespace inputDevice {
   * @param deviceId ID of the input device whose information is to be obtained.
   * @throws {BusinessError} 401 - Parameter error.
   */
-  function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
+  function getDeviceInfo(deviceId: number): Promise<InputDeviceInfo>;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
