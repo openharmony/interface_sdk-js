@@ -23,6 +23,9 @@ import connection from "./@ohos.net.connection";
  * @syscap SystemCapability.Communication.NetStack
  */
 declare namespace http {
+  /**
+   * @since 10
+   */
   type HttpProxy = connection.HttpProxy;
 
   /**

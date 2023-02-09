@@ -174,6 +174,14 @@ declare namespace connection {
    * @since 10
    */
   function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the network independent global {@link HttpProxy} proxy settings.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function getGlobalHttpProxy(): Promise<HttpProxy>;
 
   /**
@@ -187,6 +195,17 @@ declare namespace connection {
    * @since 10
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set a network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   export interface NetConnection {
