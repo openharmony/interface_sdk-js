@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Provides an interface for drawing polylines.
  * @since 7
  */
+/**
+ * Provides an interface for drawing polylines.
+ * @form
+ * @since 9
+ */
 interface PolylineInterface {
   /**
    * Uses new to create Polyline.
    * @since 7
+   */
+  /**
+   * Uses new to create Polyline.
+   * @form
+   * @since 9
    */
   new (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 
@@ -28,16 +38,30 @@ interface PolylineInterface {
    * Called when using the draw fold.
    * @since 7
    */
+  /**
+   * Called when using the draw fold.
+   * @form
+   * @since 9
+   */
   (value?: { width?: string | number; height?: string | number }): PolylineAttribute;
 }
 
 /**
  * @since 7
  */
+/**
+ * @form
+ * @since 9
+ */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    * @since 7
+   */
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   * @form
+   * @since 9
    */
   points(value: Array<any>): PolylineAttribute;
 }

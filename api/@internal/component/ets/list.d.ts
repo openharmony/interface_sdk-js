@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Declare scroll status
  * @since 7
  */
+/**
+ * Declare scroll status
+ * @form
+ * @since 9
+ */
 declare enum ScrollState {
   /**
    * Not activated.
    * @since 7
+   */
+  /**
+   * Not activated.
+   * @form
+   * @since 9
    */
   Idle,
 
@@ -28,34 +38,48 @@ declare enum ScrollState {
    * Scrolling status.
    * @since 7
    */
+  /**
+   * Scrolling status.
+   * @form
+   * @since 9
+   */
   Scroll,
 
   /**
    * Drag status.
    * @since 7
    */
+  /**
+   * Drag status.
+   * @form
+   * @since 9
+   */
   Fling,
 }
 
 /**
  * Declare list item alignment status
+ * @form
  * @since 9
  */
 declare enum ListItemAlign {
   /**
    * Start position in the direction of cross axis.
+   * @form
    * @since 9
    */
   Start,
 
   /**
    * Center position in the direction of cross axis.
+   * @form
    * @since 9
    */
   Center,
 
   /**
    * End position in the direction of cross axis
+   * @form
    * @since 9
    */
   End,
@@ -63,23 +87,27 @@ declare enum ListItemAlign {
 
 /**
  * Declare item group sticky style.
+ * @form
  * @since 9
  */
 declare enum StickyStyle {
   /**
    * The header and footer of each item group will not be pinned.
+   * @form
    * @since 9
    */
   None = 0,
 
   /**
    * The header of each item group will be pinned.
+   * @form
    * @since 9
    */
   Header = 1,
 
   /**
    * The footer of each item group will be pinned.
+   * @form
    * @since 9
    */
   Footer = 2,
@@ -89,10 +117,20 @@ declare enum StickyStyle {
  * The list interface is extended.
  * @since 7
  */
+/**
+ * The list interface is extended.
+ * @form
+ * @since 9
+ */
 interface ListInterface {
   /**
    * Called when interface data is called.
    * @since 7
+   */
+  /**
+   * Called when interface data is called.
+   * @form
+   * @since 9
    */
   (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller }): ListAttribute;
 }
@@ -100,15 +138,21 @@ interface ListInterface {
 /**
  * @since 7
  */
+/**
+ * @form
+ * @since 9
+ */
 declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when need to decide how much lanes the list will show.
+   * @form
    * @since 9
    */
   lanes(value: number | LengthConstrain): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
+   * @form
    * @since 9
    */
   alignListItem(value: ListItemAlign): ListAttribute;
@@ -117,11 +161,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the arrangement direction of the list component is set.
    * @since 7
    */
+  /**
+   * Called when the arrangement direction of the list component is set.
+   * @form
+   * @since 9
+   */
   listDirection(value: Axis): ListAttribute;
 
   /**
    * Called when the display mode of the side slider is set.
    * @since 7
+   */
+  /**
+   * Called when the display mode of the side slider is set.
+   * @form
+   * @since 9
    */
   scrollBar(value: BarState): ListAttribute;
 
@@ -129,11 +183,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the sliding effect is set.
    * @since 7
    */
+  /**
+   * Called when the sliding effect is set.
+   * @form
+   * @since 9
+   */
   edgeEffect(value: EdgeEffect): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.
    * @since 7
+   */
+  /**
+   * Called when the ListItem split line style is set.
+   * @form
+   * @since 9
    */
   divider(
     value: {
@@ -155,11 +219,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when judging whether it is multiSelectable.
    * @since 8
    */
+  /**
+   * Called when judging whether it is multiSelectable.
+   * @form
+   * @since 9
+   */
   multiSelectable(value: boolean): ListAttribute;
 
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    * @since 7
+   */
+  /**
+   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * @form
+   * @since 9
    */
   cachedCount(value: number): ListAttribute;
 
@@ -167,10 +241,16 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when setting whether to enable chain linkage dynamic effect.
    * @since 7
    */
+  /**
+   * Called when setting whether to enable chain linkage dynamic effect.
+   * @form
+   * @since 9
+   */
   chainAnimation(value: boolean): ListAttribute;
 
   /**
    * Called when header or footer of item group will be pinned.
+   * @form
    * @since 9
    */
   sticky(value: StickyStyle): ListAttribute;
@@ -179,11 +259,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
+  /**
+   * Called when the offset and status callback of the slide are set.
+   * @form
+   * @since 9
+   */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
 
   /**
    * Called when the start and end positions of the display change.
    * @since 7
+   */
+  /**
+   * Called when the start and end positions of the display change.
+   * @form
+   * @since 9
    */
   onScrollIndex(event: (start: number, end: number) => void): ListAttribute;
 
@@ -191,11 +281,21 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * Called when the list begins to arrive.
    * @since 7
    */
+  /**
+   * Called when the list begins to arrive.
+   * @form
+   * @since 9
+   */
   onReachStart(event: () => void): ListAttribute;
 
   /**
    * Called when the list reaches the end.
    * @since 7
+   */
+  /**
+   * Called when the list reaches the end.
+   * @form
+   * @since 9
    */
   onReachEnd(event: () => void): ListAttribute;
 
@@ -208,6 +308,11 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   /**
    * Called when the slider stops.
    * @since 7
+   */
+  /**
+   * Called when the slider stops.
+   * @form
+   * @since 9
    */
   onScrollStop(event: () => void): ListAttribute;
 
@@ -258,6 +363,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when scrolling begin each frame.
+   * @form
    * @since 9
    */
   onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
