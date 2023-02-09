@@ -82,7 +82,7 @@ declare class Scroller {
    * @since 9
    */
   scrollPage(value: { next: boolean });
-  
+
   /**
    * Called when viewing the scroll offset.
    * @since 7
@@ -138,10 +138,24 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
 
   /**
+   * Called when scrolling start.
+   * @since 9
+   */
+  onScrollStart(event: () => void): ScrollAttribute;
+
+  /**
    * Called when scrolling has stopped.
    * @since 7
+   * @deprecated since 9
+   * @useinstead scroll/Scroll#onScrollStop
    */
   onScrollEnd(event: () => void): ScrollAttribute;
+
+  /**
+   * Called when scrolling has stopped.
+   * @since 9
+   */
+   onScrollStop(event: () => void): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
@@ -168,10 +182,10 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   edgeEffect(edgeEffect: EdgeEffect): ScrollAttribute;
 
   /**
-   * Event called when Scroll will scroll.
+   * Called when scrolling begin each frame.
    * @since 9
    */
-  onScrollBegin(event: (dx: number, dy: number) => { dxRemain: number, dyRemain: number }): ScrollAttribute;
+  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;
 }
 
 declare const Scroll: ScrollInterface;
