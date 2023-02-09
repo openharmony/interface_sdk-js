@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022 Huawei Device Co., Ltd.
+* Copyright (c) 2022-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -24,6 +24,7 @@ import { AsyncCallback } from "./basic";
 declare namespace pointer {
   /**
    * Pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    */
@@ -226,10 +227,11 @@ declare namespace pointer {
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @param speed Pointer moving speed.
+   * @param speed Pointer moving speed, which is any number.
    * @param callback Callback used to return the result.
    * @throws {BusinessError} 401 - Parameter error.
    */
@@ -237,10 +239,11 @@ declare namespace pointer {
 
   /**
    * Sets the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @param speed Pointer moving speed.
+   * @param speed Pointer moving speed, which is any number.
    * @returns Returns the result through a promise.
    * @throws {BusinessError} 401 - Parameter error.
    */
@@ -248,6 +251,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -258,6 +262,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer moving speed.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
@@ -267,6 +272,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -278,6 +284,7 @@ declare namespace pointer {
 
   /**
    * Sets the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -289,6 +296,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -299,6 +307,7 @@ declare namespace pointer {
 
   /**
    * Queries the pointer style.
+   * 
    * @since 9
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param windowId Window ID.
@@ -314,6 +323,7 @@ declare namespace pointer {
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @param visible Whether the pointer icon is visible. The value true indicates that the pointer icon is visible,
    * and the value false indicates the opposite.
+   * @returns Callback for the input device event.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
