@@ -166,6 +166,50 @@ declare namespace connection {
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
+  /**
+   * Obtains the network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the network independent global {@link HttpProxy} proxy settings.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getGlobalHttpProxy(): Promise<HttpProxy>;
+
+  /**
+   * Set a network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @param callback Returns the callback of setGlobalHttpProxy.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set a network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
+
   export interface NetConnection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
@@ -309,6 +353,15 @@ declare namespace connection {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
+  }
+
+  /**
+   * @since 10
+   */
+  export interface HttpProxy {
+    host: string;
+    port: number;
+    exclusionList: Array<string>;
   }
 }
 
