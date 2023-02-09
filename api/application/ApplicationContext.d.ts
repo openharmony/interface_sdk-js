@@ -17,7 +17,7 @@ import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.app.ability.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.app.ability.EnvironmentCallback";
-import { ProcessRunningInformation } from "./ProcessRunningInformation";
+import { ProcessInformation } from "./ProcessInformation";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -100,23 +100,23 @@ export default class ApplicationContext extends Context {
 
     /**
      * Get information about running processes
-     * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
+     * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+    getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
     /**
      * Get information about running processes
-     * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
+     * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+    getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
     /**
      * Kill processes by self

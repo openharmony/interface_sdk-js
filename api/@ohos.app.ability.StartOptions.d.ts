@@ -16,12 +16,13 @@
 /**
  * StartOptions is the basic communication component of the system.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
  * @StageModelOnly
  * @since 9
  */
 export default class StartOptions {
     /**
-     * windowMode
+     * The type of {@link ohos.app.ability.AbilityConstant#WindowMode}
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
