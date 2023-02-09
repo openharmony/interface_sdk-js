@@ -131,6 +131,7 @@ darkest
 dataability
 datashare
 datasync
+dbm
 dci
 ddmp
 deactivation
@@ -538,6 +539,8 @@ ringtones
 rle
 rmdir
 rotatable
+rscp
+rsrp
 rtd
 rtt
 ruim
