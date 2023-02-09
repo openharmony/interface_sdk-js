@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AbilityInfo } from "./abilityInfo";
-import { ExtensionAbilityInfo } from "./extensionAbilityInfo";
-import { Metadata } from './metadata'
+import { AbilityInfo } from "./AbilityInfo";
+import { ExtensionAbilityInfo } from "./ExtensionAbilityInfo";
+import { Metadata } from './Metadata'
 
 /**
  * Obtains configuration information about a hap module.
