@@ -213,6 +213,8 @@ declare namespace observer {
    * @param options including slotId Indicates the ID of the target card slot.
    *   The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param callback including state Indicates the call state, and number Indicates the called number.
+   *   The value of number is an empty string if the application does not have the
+   *   ohos.permission.READ_CALL_LOG permission.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
    * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
