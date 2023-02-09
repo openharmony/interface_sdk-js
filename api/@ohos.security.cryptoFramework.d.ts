@@ -79,7 +79,7 @@ declare namespace cryptoFramework {
          * @syscap SystemCapability.Security.CryptoFramework
          * @since 9
          */
-        algoName : string;
+        algName : string;
     }
 
     /**
@@ -681,7 +681,7 @@ declare namespace cryptoFramework {
 
     /**
      * Create a cipher object for encryption and decryption operations according to the given specifications.
-     * Two different Cipher objects should be created when using RSA encryption and decryption, 
+     * Two different Cipher objects should be created when using RSA encryption and decryption,
      * even with the same specifications.
      * @param { string } transformation - Indicates the description to be transformed to cipher specifications.
      * @returns { Cipher } the cipher object returned by the function.
