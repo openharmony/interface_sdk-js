@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+* Copyright (c) 2021-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -33,7 +33,7 @@ declare namespace inputDevice {
    * @since 9
    * The type of input device
    */
-  type SourceTypes = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
+  type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
    * @since 9
@@ -130,7 +130,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    source: SourceTypes;
+    source: SourceType;
 
     /**
      * @since 8
@@ -178,7 +178,7 @@ declare namespace inputDevice {
    * @param phys Physical path of the input device.
    * @param uniq Unique identifier of the input device.
    */
-  interface InputDeviceInfo {
+  interface InputDeviceData {
     /**
      * @since 8
      */
@@ -192,7 +192,7 @@ declare namespace inputDevice {
     /**
      * @since 8
      */
-    sources: Array<SourceTypes>;
+    sources: Array<SourceType>;
 
     /**
      * @since 8
@@ -261,7 +261,7 @@ declare namespace inputDevice {
    * @deprecated since 9
    * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
    */
-  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceInfo>): void;
+  function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
   /**
    * Obtain the information about an input device.
@@ -272,7 +272,7 @@ declare namespace inputDevice {
    * @deprecated since 9
    * @useinstead ohos.multimodalInput.inputDevice#getDeviceInfo
    */
-  function getDevice(deviceId: number): Promise<InputDeviceInfo>;
+  function getDevice(deviceId: number): Promise<InputDeviceData>;
 
   /**
    * Obtains the IDs of all input devices.
