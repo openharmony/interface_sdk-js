@@ -18,6 +18,7 @@ import resmgr from "../@ohos.resourceManager";
 import BaseContext from "./BaseContext";
 import EventHub from "./EventHub";
 import ApplicationContext from "./ApplicationContext";
+import contextConstant from "../@ohos.app.ability.contextConstant"
 
 /**
  * The base context of an ability or an application. It allows access to
@@ -124,7 +125,7 @@ export default class Context extends BaseContext {
      * @StageModelOnly
      * @since 9
      */
-    area: AreaMode;
+    area: contextConstant.AreaMode;
 
     /**
      * Create a bundle context
@@ -171,22 +172,4 @@ export default class Context extends BaseContext {
      * @since 9
      */
     getApplicationContext(): ApplicationContext;
-}
-
-/**
- * Enum for the file area mode
- * @enum { number }
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
- * @since 9
- */
-export enum AreaMode {
-    /**
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    EL1 = 0,
-    /**
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     */
-    EL2 = 1
 }
