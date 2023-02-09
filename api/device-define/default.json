@@ -184,6 +184,7 @@
     "SystemCapability.Communication.NetManager.NetSharing",
     "SystemCapability.Communication.NetManager.MDNS",
     "SystemCapability.Communication.NetManager.Vpn",
-    "SystemCapability.XTS.DeviceAttest"
+    "SystemCapability.XTS.DeviceAttest",
+    "SystemCapability.Msdp.DeviceStatus.Stationary"
   ]
 }
