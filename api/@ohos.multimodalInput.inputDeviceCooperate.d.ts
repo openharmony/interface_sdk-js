@@ -15,6 +15,12 @@
 
 import { AsyncCallback } from "./basic";
 
+ /**
+  * Events for input devices
+  * 
+  * @since 9
+  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+  */
 declare namespace inputDeviceCooperate {
   /**
    * Enumerates mouse traversal events.
