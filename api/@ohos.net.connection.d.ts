@@ -188,6 +188,7 @@ declare namespace connection {
    * Set a network independent global {@link HttpProxy} proxy settings.
    *
    * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @param callback Returns the callback of setGlobalHttpProxy.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 201 - Permission denied.
@@ -200,6 +201,7 @@ declare namespace connection {
    * Set a network independent global {@link HttpProxy} proxy settings.
    *
    * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @returns { Promise<void> } the promise returned by the function.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 201 - Permission denied.
@@ -359,7 +361,7 @@ declare namespace connection {
   export interface HttpProxy {
     host: string;
     port: number;
-    parsedExclusionList: Array<string>;
+    exclusionList: Array<string>;
   }
 }
 
