@@ -188,7 +188,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @type { (string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
    * @since 9
    */
-  title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
+  /**
+   * Navigation title
+   * @type { (ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
+   * @since 10
+   */
+  title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 
   /**
    * Navigation subtitle
