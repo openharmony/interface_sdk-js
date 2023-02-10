@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './basic';
+import { BundleOption as _BundleOption } from './notification/notificationCommonDef';
 import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notification/notificationSubscribeInfo';
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
@@ -27,18 +28,6 @@ import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } f
  * @permission N/A
  */
 declare namespace notificationSubscribe {
-  /**
-   * Describes a BundleOption.
-   * @typedef BundleOption
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 9
-   */
-  export interface BundleOption {
-    bundle: string;
-    uid?: number;
-  }
-
   /**
    * Describes a NotificationKey, which can be used to identify a notification.
    * @typedef NotificationKey
@@ -245,6 +234,13 @@ declare namespace notificationSubscribe {
     * @since 9
     */
    function removeAll(bundle?: BundleOption): Promise<void>;
+
+  /**
+   * Describes a bundleOption in a notification.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 9
+   */
+  export type BundleOption = _BundleOption
 
   /**
    * Sets filter criteria of publishers for subscribing to desired notifications.
