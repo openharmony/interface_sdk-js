@@ -37,6 +37,7 @@ declare namespace installer {
   /**
    * Obtains the interface used to install bundle.
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInstaller objects.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @returns { Promise<BundleInstaller> } BundleInstaller object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -108,6 +109,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @param { AsyncCallback } callback - The callback of uninstalling application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
@@ -126,6 +128,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @param { AsyncCallback } callback - The callback of uninstalling application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
@@ -143,6 +146,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -159,6 +163,7 @@ declare namespace installer {
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
