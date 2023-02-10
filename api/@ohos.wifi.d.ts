@@ -86,7 +86,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getScanResults
+     * @useinstead ohos.wifiManager/wifiManager.getScanResultsSync
      */
     function getScanInfos(): Promise<Array<WifiScanInfo>>;
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
@@ -347,7 +347,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.updateNetwork
+     * @useinstead ohos.wifiManager/wifiManager.updateDeviceConfig
      */
     function updateNetwork(config: WifiDeviceConfig): number;
 
@@ -363,7 +363,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.disableNetwork
+     * @useinstead ohos.wifiManager/wifiManager.disableDeviceConfig
      */
     function disableNetwork(netId: number): boolean;
 
@@ -377,7 +377,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeAllNetwork
+     * @useinstead ohos.wifiManager/wifiManager.removeAllDeviceConfigs
      */
     function removeAllNetwork(): boolean;
 
@@ -396,7 +396,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeDevice
+     * @useinstead ohos.wifiManager/wifiManager.removeDeviceConfig
      */
     function removeDevice(id: number): boolean;
 
@@ -498,7 +498,7 @@ declare namespace wifi {
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getStations
+     * @useinstead ohos.wifiManager/wifiManager.getHotspotStations
      */
     function getStations(): Array<StationInfo>;
 
@@ -523,7 +523,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getCurrentGroup
+     * @useinstead ohos.wifiManager/wifiManager.getCurrentP2pGroup
      */
     function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
     function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
@@ -550,7 +550,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.createGroup
+     * @useinstead ohos.wifiManager/wifiManager.createP2pGroup
      */
     function createGroup(config: WifiP2PConfig): boolean;
 
@@ -562,7 +562,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeGroup
+     * @useinstead ohos.wifiManager/wifiManager.removeP2pGroup
      */
     function removeGroup(): boolean;
 
@@ -599,7 +599,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.startDiscoverDevices
+     * @useinstead ohos.wifiManager/wifiManager.startDiscoverP2pDevices
      */
     function startDiscoverDevices(): boolean;
 
@@ -611,7 +611,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.stopDiscoverDevices
+     * @useinstead ohos.wifiManager/wifiManager.stopDiscoverP2pDevices
      */
     function stopDiscoverDevices(): boolean;
 
@@ -625,7 +625,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.deletePersistentGroup
+     * @useinstead ohos.wifiManager/wifiManager.deletePersistentP2pGroup
      */
     function deletePersistentGroup(netId: number): boolean;
 
@@ -639,7 +639,7 @@ declare namespace wifi {
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.setDeviceName
+     * @useinstead ohos.wifiManager/wifiManager.setP2pDeviceName
      */
     function setDeviceName(devName: string): boolean;
 
