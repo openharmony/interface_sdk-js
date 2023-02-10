@@ -36,7 +36,7 @@ declare class SearchController {
  */
 interface SearchInterface {
   (options?: { value?: string;
-      placeholder?: string;
+      placeholder?: ResourceStr;
       icon?: string;
       controller?: SearchController
   }): SearchAttribute;
