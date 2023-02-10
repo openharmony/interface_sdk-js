@@ -129,6 +129,7 @@ cyclewindows
 daltonization
 darkest
 dataability
+dataresubmissionhandler
 datashare
 datasync
 dbm
@@ -233,6 +234,7 @@ fulfills
 gamepad
 gba
 geofence
+getunfilteredlinkurl
 glasses
 gnss
 graphicseditor
@@ -418,6 +420,8 @@ numpad
 nvalidates
 nweb
 oaep
+ondataresubmission
+ondataresubmitted
 ofb
 offhook
 offscreen
@@ -476,6 +480,7 @@ pooled
 ppid
 pread
 precisiontype
+precomposed
 precon
 preempted
 preferentially
@@ -525,6 +530,8 @@ resmgr
 resourceschedule
 restores
 restricts
+resubmission
+resubmitted
 resultsets
 resumed
 retried
@@ -675,6 +682,7 @@ unconditional
 unduck
 unducked
 unequal
+unfiltered
 unfocused
 unhold
 unicom
