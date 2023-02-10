@@ -78,14 +78,14 @@ export interface MeasureOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    textAlign?: TextAlign;
+    textAlign?: number | TextAlign;
 
     /**
      * Overflow mode of the font.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    overflow?: TextOverflow;
+    overflow?: number | TextOverflow;
 
     /**
      * Maximum number of lines of text.
@@ -113,7 +113,7 @@ export interface MeasureOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    textCase?: TextCase;
+    textCase?: number | TextCase;
 }
 
 /**
