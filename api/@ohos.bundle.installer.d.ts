@@ -113,7 +113,6 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -132,7 +131,6 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
