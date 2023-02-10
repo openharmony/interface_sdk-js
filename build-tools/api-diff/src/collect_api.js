@@ -147,7 +147,7 @@ function deleteRepeatApi(oldApis, newApis, newFilesApi, oldFilesApi) {
 function collectSameTypeFun(apiArr) {
 	apiArr.forEach(api => {
 		let sameNameFun = '';
-		let otherTypeMethodText = ''
+		let number = 0
 		apiArr.forEach(newApi => {
 			if (api.dtsPath.replace(newDir, '') === newApi.dtsPath.replace(newDir, '') && api.className === newApi.className &&
 				api.methodName === newApi.methodName && api.apiType == 'Method' && api.funType === newApi.funType) {
@@ -156,9 +156,9 @@ function collectSameTypeFun(apiArr) {
 					api.callbackMethodText = sameNameFun;
 				} else if (api.funType === 'Promise') {
 					api.promiseMethodText = api.methodText;
-				} else if (api.funType !== 'Promise' && api.funType !== 'callback') {
-					otherTypeMethodText += `\n${newApi.methodText}`;
-					api.otherTypeMethodText = otherTypeMethodText;
+				} else if (!api.funType) {
+					number++;
+					api.note = number;
 				}
 			}
 		})
@@ -312,7 +312,7 @@ function collectChangePart(newApi, oldApi, diffApis, subsystemMap, fileNameMap, 
 		collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.promiseMethodText,
 			oldApi.promiseMethodText, subsystemMap, fileNameMap);
 	}
-	if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText) {
+	if (!newApi.funType && !oldApi.funType && newApi.methodText !== oldApi.methodText && newApi.note < 2) {
 		diffMethodTextSet.add(newApi.methodText);
 		collectMethodTextDiff(oldApi, newApi, startDiffNew, startDiffOld, diffApis, newApi.methodText,
 			oldApi.methodText, subsystemMap, fileNameMap);
