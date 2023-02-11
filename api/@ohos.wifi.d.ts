@@ -646,7 +646,7 @@ declare namespace wifi {
     /**
      * Subscribe Wi-Fi status change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO
@@ -773,7 +773,7 @@ declare namespace wifi {
     /**
      * Subscribe Wi-Fi hotspot state change events.
      *
-     * @returns Returns 0: inactive, 1: active, 2: activating, 3: deactivating
+     * @returns Returns 0: inactive, 1: active, 2: activating, 3: de-activating
      * @since 7
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @permission ohos.permission.GET_WIFI_INFO

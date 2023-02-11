@@ -854,7 +854,7 @@ declare namespace wifiManager {
     function p2pConnect(config: WifiP2PConfig): void;
 
     /**
-     * Stop an onging p2p connection that is being established.
+     * Stop an ongoing p2p connection that is being established.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
