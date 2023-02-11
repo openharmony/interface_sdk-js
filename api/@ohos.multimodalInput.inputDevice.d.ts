@@ -25,7 +25,7 @@ import { KeyCode } from "./@ohos.multimodalInput.keyCode"
 declare namespace inputDevice {
   /**
    * @since 9
-   * add or remove device
+   * Add or remove device
    */
   type ChangedType = 'add' | 'remove';
 
@@ -301,7 +301,7 @@ declare namespace inputDevice {
   * @param callback Callback function, receive reported data
   * @throws {BusinessError} 401 - Parameter error.
   */
-  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceInfo>): void;
+  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
   /**
   * Obtain the information about an input device.
@@ -311,7 +311,7 @@ declare namespace inputDevice {
   * @param deviceId ID of the input device whose information is to be obtained.
   * @throws {BusinessError} 401 - Parameter error.
   */
-  function getDeviceInfo(deviceId: number): Promise<InputDeviceInfo>;
+  function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
 
   /**
    * Checks whether the specified key codes of an input device are supported.
