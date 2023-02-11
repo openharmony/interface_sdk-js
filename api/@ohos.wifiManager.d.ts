@@ -29,6 +29,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501003 - Failed for wifi is closing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
@@ -43,6 +44,7 @@ declare namespace wifiManager {
      * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
      * @throws {BusinessError} 801 - Capability not supported.
      * @throws {BusinessError} 2501000 - Operation failed.
+     * @throws {BusinessError} 2501004 - Failed for wifi is opening.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
