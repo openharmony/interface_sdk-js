@@ -22,7 +22,7 @@ import { AsyncCallback, BusinessError } from './basic';
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
  */
-declare namespace systemParameterV9 {
+declare namespace systemParameterEnhance {
     /**
      * Gets the value of the attribute with the specified key.
      *
@@ -127,4 +127,4 @@ declare namespace systemParameterV9 {
     function set(key: string, value: string): Promise<void>;
 }
 
-export default systemParameterV9;
+export default systemParameterEnhance;
