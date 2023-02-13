@@ -167,28 +167,52 @@ declare namespace connection {
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
   /**
-    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
-    *
-    * @param callback Returns the {@link NetHandle} bound to the process;
-    *      returns {@code null} if no {@link NetHandle} is bound to the process.
-    *      For details, see {@link NetHandle}.
-    * @since 9
-    */
-   function getAppNet(callback: AsyncCallback<NetHandle>): void;
-   function getAppNet(): Promise<NetHandle>;
+   * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+   *
+   * @param callback Returns the {@link NetHandle} bound to the process;
+   *      returns {@code null} if no {@link NetHandle} is bound to the process.
+   *      For details, see {@link NetHandle}.
+   * @since 9
+   */
+  function getAppNet(callback: AsyncCallback<NetHandle>): void;
 
-   /**
-    * Binds a process to {@code NetHandle}.
-    *
-    * <p>All the sockets created from the process will be bound to the {@code NetHandle},
-    * and the resolution of all host names will be managed by the {@code NetHandle}.
-    *
-    * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
-    * @permission ohos.permission.INTERNET
-    * @since 9
-    */
-   function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
-   function setAppNet(netHandle: NetHandle): Promise<void>;
+  /**
+   * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+   *
+   * @returns { Promise<NetHandle> } the promise returned by the function.
+   *      returns {@code null} if no {@link NetHandle} is bound to the process.
+   *      For details, see {@link NetHandle}.
+   * @since 9
+   */
+  function getAppNet(): Promise<NetHandle>;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @param callback Returns the callback of setAppNet.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle): Promise<void>;
 
   /**
    * Obtains the network independent global {@link HttpProxy} proxy settings.
