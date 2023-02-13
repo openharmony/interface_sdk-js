@@ -486,18 +486,25 @@ declare namespace window {
    interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
+     * @since 9
      */
     x?: number;
+
     /**
      * The scale param of y direction. Default is 1.f
+     * @since 9
      */
     y?: number;
+
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
+     * @since 9
      */
     pivotX?: number;
+
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
+     * @since 9
      */
     pivotY?: number;
   }
@@ -511,22 +518,31 @@ declare namespace window {
   interface RotateOptions {
     /**
      * The rotate degree of x direction. Default value is 0.f
+     * @since 9
      */
     x?: number;
+
     /**
      * The rotate degree of y direction. Default value is 0.f
+     * @since 9
      */
     y?: number;
+
     /**
      * The rotate degree of z direction. Default value is 0.f
+     * @since 9
      */
     z?: number;
+    
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
+     * @since 9
      */
     pivotX?: number;
+
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
+     * @since 9
      */
     pivotY?: number;
   }
@@ -540,14 +556,19 @@ declare namespace window {
   interface TranslateOptions {
     /**
     * The translate pixel param of x direction. Default is 0.f
+    * @since 9
     */
     x?: number;
+
     /**
      * The translate pixel param of y direction. Default is 0.f
+     * @since 9
      */
     y?: number;
+
     /**
      * The translate pixel param of z direction. Default is 0.f
+     * @since 9
      */
     z?: number;
   }
@@ -561,12 +582,15 @@ declare namespace window {
    interface TransitionContext {
     /**
      * The target window with animation
+     * @since 9
      */
     toWindow: Window
+
     /**
      * Set complete state of animation transition
      * @param isCompleted is Completed if true, or not if false.
      * @throws {BusinessError} 401 - If param is invalid
+     * @since 9
      */
     completeTransition(isCompleted: boolean): void;
   }
@@ -581,12 +605,14 @@ declare namespace window {
     /**
      * Animation configuration when showing window
      * @param context transition Context.
+     * @since 9
      * @throws {BusinessError} 401 - If param is invalid
      */
     animationForShown(context: TransitionContext): void;
     /**
      * Animation configuration when hiding window
      * @param context transition context.
+     * @since 9
      * @throws {BusinessError} 401 - If param is invalid
      */
     animationForHidden(context: TransitionContext): void;
@@ -599,22 +625,31 @@ declare namespace window {
   interface Configuration {
     /**
      * Indicates window id.
+     * @since 9
      */
     name: string
+
     /**
      * Indicates window type
+     * @since 9
      */
     windowType: WindowType
+
     /**
      * Indicates window context.
+     * @since 9
      */
     ctx?: BaseContext
+
     /**
      * Indicates display ID.
+     * @since 9
      */
     displayId?: number
+
     /**
      * Indicates Parent window id
+     * @since 9
      */
     parentId?: number
   }
@@ -845,17 +880,76 @@ declare namespace window {
    * @since 9
    */
   enum Orientation {
+    /**
+     * Default value. The direction mode is not clearly defined. It is determined by the system.
+     * @since 9
+     */
     UNSPECIFIED = 0,
+    
+    /**
+     * Display in portrait orientation.
+     * @since 9
+     */
     PORTRAIT = 1,
+    
+    /**
+     * Display in landscape orientation.
+     * @since 9
+     */
     LANDSCAPE = 2,
+    
+    /**
+     * Display in inverted portrait orientation.
+     * @since 9
+     */
     PORTRAIT_INVERTED = 3,
+    
+    /**
+     * Display in inverted landscape orientation.
+     * @since 9
+     */
     LANDSCAPE_INVERTED = 4,
+    
+    /**
+     * Follow the rotation of the sensor, ignore auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION = 5,
+    
+    /**
+     * Follow the rotation of the sensor, only works in the vertical direction, ignore auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION_PORTRAIT = 6,
+
+    /**
+     * Follow the rotation of the sensor, only works in the landscape direction, ignore auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION_LANDSCAPE = 7,
+    
+    /**
+     * Follow the rotation of the sensor, controlled by auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION_RESTRICTED = 8,
+    
+    /**
+     * Follow the rotation of the sensor, only works in the landscape direction, controlled by auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
+    
+    /**
+     * Follow the rotation of the sensor, only works in the landscape direction, controlled by auto rotation lock.
+     * @since 9
+     */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
+    
+    /**
+     * Locked mode, keep the same direction as previous one.
+     * @since 9
+     */
     LOCKED = 11,
   }
 
@@ -868,18 +962,22 @@ declare namespace window {
   enum BlurStyle {
     /**
      * Close blur.
+     * @since 9
      */
     OFF,
     /**
      * Blur style thin.
+     * @since 9
      */
     THIN,
      /**
      * Blur style regular.
+     * @since 9
      */
     REGULAR,
     /**
      * Blur style thick.
+     * @since 9
      */
     THICK,
   }
@@ -2293,9 +2391,25 @@ declare namespace window {
    * @StageModelOnly
    */
   enum WindowStageEventType {
+    /**
+     * The window stage is running in the foreground.
+     * @since 9
+     */
     SHOWN = 1,
+    /**
+     * The window stage gains focus.
+     * @since 9
+     */
     ACTIVE,
+    /**
+     * The window stage loses focus.
+     * @since 9
+     */
     INACTIVE,
+    /**
+     * The window stage is running in the background.
+     * @since 9
+     */
     HIDDEN,
   }
   /**
