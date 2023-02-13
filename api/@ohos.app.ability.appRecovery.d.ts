@@ -92,7 +92,7 @@ declare namespace appRecovery {
 
     /**
      * Enable appRecovery function.
-     * @param { RestartFlag } The flag that determines the restart cases of your app, default value is { NO_RESTART }.
+     * @param { RestartFlag } The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
      * @param { SaveOccasionFlag } The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
      * @param { SaveModeFlag } The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
