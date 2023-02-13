@@ -73,7 +73,7 @@ export default class Want {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    parameters?: {[key: string]: any};
+    parameters?: {[key: string]: Object};
 
     /**
      * The description of a entities in a Want.

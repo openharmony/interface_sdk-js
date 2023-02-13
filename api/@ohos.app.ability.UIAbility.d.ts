@@ -260,13 +260,13 @@ export default class UIAbility extends Ability {
 
     /**
      * Called back when an ability prepares to continue.
-     * @param { {[key: string]: any} } wantParam - Indicates the want parameter.
+     * @param { {[key: string]: Object} } wantParam - Indicates the want parameter.
      * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
      */
-    onContinue(wantParam: { [key: string]: any }): AbilityConstant.OnContinueResult;
+    onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
 
     /**
      * Called when the launch mode of an ability is set to singleton.
@@ -299,5 +299,5 @@ export default class UIAbility extends Ability {
      * @StageModelOnly
      * @since 9
      */
-    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;
+    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: Object}): AbilityConstant.OnSaveResult;
 }
