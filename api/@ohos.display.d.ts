@@ -142,9 +142,28 @@ declare namespace display {
    * @since 9
    */
   interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * @since 9
+     */
     top: number;
+
+    /**
+     * Width of the rectangle, in pixels.
+     * @since 9
+     */
     width: number;
+    
+    /**
+     * Height of the rectangle, in pixels.
+     * @since 9
+     */
     height: number;
   }
 
@@ -154,9 +173,28 @@ declare namespace display {
    * @since 9
    */
   interface WaterfallDisplayAreaRects {
+    /**
+     * Indicates the size of left side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly left: Rect;
+
+    /**
+     * Indicates the size of right side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly right: Rect;
+
+    /**
+     * Indicates the size of top side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly top: Rect;
+
+    /**
+     * Indicates the size of bottom side curved area of the waterfall screen.
+     * @since 9
+     */
     readonly bottom: Rect;
   }
 
@@ -168,11 +206,13 @@ declare namespace display {
   interface CutoutInfo {
     /**
      * Bounding rectangles of the cutout areas of the display.
+     * @since 9
      */
     readonly boundingRects: Array<Rect>;
 
     /**
-     * Rectangles of curved parts on each side of a waterfall display. 
+     * Rectangles of curved parts on each side of a waterfall display.
+     * @since 9
      */
     readonly waterfallDisplayAreaRects: WaterfallDisplayAreaRects;
   }
