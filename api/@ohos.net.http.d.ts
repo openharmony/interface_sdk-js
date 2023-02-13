@@ -261,7 +261,7 @@ declare namespace http {
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
    *
-   * @param cacheSize the size of cache, default is 10*1024*1024(10MB).
+   * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @since 9
    */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;

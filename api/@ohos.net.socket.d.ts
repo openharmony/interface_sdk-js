@@ -490,6 +490,10 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     *
+     * @param options Optional parameters {@link TLSConnectOptions}.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 2303104 - Interrupted system call.
      * @throws {BusinessError} 2303109 - Bad file number.
@@ -559,7 +563,7 @@ declare namespace socket {
     /**
      * Password of the private key
      */
-    passwd?: string;
+    password?: string;
 
     /**
      * TLS protocol version
