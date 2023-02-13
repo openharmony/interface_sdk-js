@@ -363,7 +363,6 @@ declare namespace wallpaper {
      * @returns { Promise<image.PixelMap> } the Promise<image.PixelMap> returned by the function.
      * @throws {BusinessError} 401 - parameter error.
      * @throws {BusinessError} 201 - permission denied.
-     * @throws {BusinessError} 202 - permission verification failed, application which is not a system application uses system API.
      * @permission ohos.permission.GET_WALLPAPER
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
