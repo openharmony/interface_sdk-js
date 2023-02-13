@@ -37,7 +37,6 @@ declare namespace installer {
    * Obtains the interface used to install bundle.
    * @param { AsyncCallback } callback - The callback of getting a list of BundleInstaller objects.
    * @returns { Promise<BundleInstaller> } BundleInstaller object.
-   * @throws { BusinessError } 401 - Input parameters check failed.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9
@@ -93,7 +92,7 @@ declare namespace installer {
      * @since 9
      */
     install(hapFilePaths: Array<string>, installParam?: InstallParam) : Promise<void>;
-  
+
     /**
      * Uninstall an application.
      * @permission ohos.permission.INSTALL_BUNDLE
@@ -104,7 +103,6 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified user ID is not found.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -121,7 +119,6 @@ declare namespace installer {
      * @throws { BusinessError } 401 - Input parameters check failed.
      * @throws { BusinessError } 17700004 - The specified userId is not existed.
      * @throws { BusinessError } 17700020 - The specified bundle is pre-installed bundle which cannot be uninstalled.
-     * @throws { BusinessError } 17700101 - The system service is excepted.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -129,7 +126,7 @@ declare namespace installer {
     uninstall(bundleName: string, installParam?: InstallParam) : Promise<void>;
 
     /**
-     * recover an application.
+     * Recover an application.
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
