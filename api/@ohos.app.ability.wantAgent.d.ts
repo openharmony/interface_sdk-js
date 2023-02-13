@@ -333,6 +333,8 @@ declare namespace wantAgent {
 
 /**
  * WantAgent object.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 9
  */
 export type WantAgent = object;
 
