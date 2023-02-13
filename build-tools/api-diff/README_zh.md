@@ -22,7 +22,7 @@
 ### 填写路径
 
 1. 在url.json文件中将新旧SDK的本地路径分别赋给oldDir和newDir变量，路径写到windows即可，例如：D:ohos-sdk-windows_linux-full.tar_beta4*\\*ohos-sdk*\\*windows；
-2. 在format.js文件中分别将新旧SDK的版本分别赋给oldVersion和newVersion变量，例如：3.2.5.6
+2. 在url.json文件中分别将新旧SDK的版本分别赋给oldVersion和newVersion变量，例如：3.2.5.6
 
 ### 安装
 
