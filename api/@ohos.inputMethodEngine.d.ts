@@ -242,9 +242,10 @@ declare namespace inputMethodEngine {
     const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     /**
-     * @since 9
+     * get InputMethodAbility object
      * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getInputMethodAbility(): InputMethodAbility;
 
@@ -256,9 +257,10 @@ declare namespace inputMethodEngine {
     function getInputMethodEngine(): InputMethodEngine;
 
     /**
-     * @since 9
+     * get KeyboardDelegate object
      * @returns { KeyboardDelegate } the object of KeyboardDelegate.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getKeyboardDelegate(): KeyboardDelegate;
 
@@ -274,16 +276,18 @@ declare namespace inputMethodEngine {
      */
     interface KeyboardController {
         /**
-         * @since 9
+         * hide soft keybaord
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(callback: AsyncCallback<void>): void;
 
         /**
-         * @since 9
+         * hide soft keybaord
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(): Promise<void>;
 
