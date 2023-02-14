@@ -61,7 +61,7 @@ interface SearchInterface {
     icon?: string;
   /**
    * Controller of the <Search> component
-   * @type { string }
+   * @type { SearchController }
    * @since 8
    */
     controller?: SearchController
