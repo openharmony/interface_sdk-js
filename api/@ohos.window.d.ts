@@ -916,13 +916,13 @@ declare namespace window {
     AUTO_ROTATION = 5,
     
     /**
-     * Follow the rotation of the sensor, only works in the vertical direction, ignore auto rotation lock.
+     * Follow the rotation of the sensor, only work in the vertical direction, ignore auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_PORTRAIT = 6,
 
     /**
-     * Follow the rotation of the sensor, only works in the landscape direction, ignore auto rotation lock.
+     * Follow the rotation of the sensor, only work in the horizontal direction, ignore auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_LANDSCAPE = 7,
@@ -934,13 +934,13 @@ declare namespace window {
     AUTO_ROTATION_RESTRICTED = 8,
     
     /**
-     * Follow the rotation of the sensor, only works in the landscape direction, controlled by auto rotation lock.
+     * Follow the rotation of the sensor, only work in the vertical direction, controlled by auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_PORTRAIT_RESTRICTED = 9,
     
     /**
-     * Follow the rotation of the sensor, only works in the landscape direction, controlled by auto rotation lock.
+     * Follow the rotation of the sensor, only work in the horizontal direction, controlled by auto rotation lock.
      * @since 9
      */
     AUTO_ROTATION_LANDSCAPE_RESTRICTED = 10,
