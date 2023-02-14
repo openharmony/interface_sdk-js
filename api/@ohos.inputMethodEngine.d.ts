@@ -241,9 +241,10 @@ declare namespace inputMethodEngine {
     const WINDOW_TYPE_INPUT_METHOD_FLOAT: number;
 
     /**
-     * @since 9
+     * Get InputMethodAbility object to subscribe events about IME.
      * @returns { InputMethodAbility } the object of the InputMethodAbility.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getInputMethodAbility(): InputMethodAbility;
 
@@ -255,9 +256,10 @@ declare namespace inputMethodEngine {
     function getInputMethodEngine(): InputMethodEngine;
 
     /**
-     * @since 9
+     * Get KeyboardDelegate object to subscribe key event or events about editor.
      * @returns { KeyboardDelegate } the object of KeyboardDelegate.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
     function getKeyboardDelegate(): KeyboardDelegate;
 
@@ -273,16 +275,18 @@ declare namespace inputMethodEngine {
      */
     interface KeyboardController {
         /**
-         * @since 9
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(callback: AsyncCallback<void>): void;
 
         /**
-         * @since 9
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
+         * @since 9
          */
         hide(): Promise<void>;
 
@@ -337,8 +341,12 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * @since 9
+     * <p>Control events about IME.</p>
+     * <p>Events provided for IME to subscribe with callback function. When those events occur, the corresponding callback
+     * will be invoked.</p>
+     * @interface InputMethodAbility
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
      interface InputMethodAbility {
         /**
@@ -538,7 +546,7 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * <p>Controls events about Editor.</p>
+     * Control events about Editor.
      * @interface InputClient
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
