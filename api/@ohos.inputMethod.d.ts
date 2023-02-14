@@ -269,8 +269,6 @@ declare namespace inputMethod {
         /**
          * Show input method setting extension dialog
          * @since 9
-         * @permission ohos.permission.CONNECT_IME_ABILITY
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
@@ -279,9 +277,7 @@ declare namespace inputMethod {
         /**
          * Show input method setting extension dialog
          * @since 9
-         * @permission ohos.permission.CONNECT_IME_ABILITY
          * @returns { Promise<boolean> } the promise returned by the function.
-         * @throws {BusinessError} 201 - permissions check fails.
          * @throws {BusinessError} 12800008 - input method manager service error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          */
