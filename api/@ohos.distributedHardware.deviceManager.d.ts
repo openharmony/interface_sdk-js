@@ -518,6 +518,39 @@ declare namespace deviceManager {
     setUserOperation(operateAction: number, params: string): void;
 
     /**
+     * Request credential information.
+     *
+     * @since 10
+     * @param requestInfo Request credential params.
+     * @param callback Indicates the callback to be invoked upon requestCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @systemapi this method can be used only by system applications.
+     */  
+    requestCredential(requestInfo: string, callback: AsyncCallback<{registerInfo: string}>): void;
+
+    /**
+     * Import credential information.
+     *
+     * @since 10
+     * @param credentialInfo Import credential params.
+     * @param callback Indicates the callback to be invoked upon importCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @systemapi this method can be used only by system applications.
+     */  
+    importCredential(credentialInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
+
+    /**
+     * delete credential information.
+     *
+     * @since 10
+     * @param credentialInfo delete credential params.
+     * @param callback Indicates the callback to be invoked upon deleteCredential
+     * @throws {BusinessError} 401 - Input parameter error.
+     * @systemapi this method can be used only by system applications.
+     */  
+    deleteCredential(deleteInfo: string, callback: AsyncCallback<{resultInfo: string}>): void;
+
+    /**
      * Register a callback from deviceManager service so that the devicemanager ui can be notified when ui statue
      * changes.
      *
