@@ -998,13 +998,6 @@ declare namespace appAccount {
          * @since 8
          */
         token: string;
-
-        /**
-         * The account to which the token belongs.
-         *
-         * @since 9
-         */
-        account?: AppAccountInfo;
     }
 
     /**
@@ -1386,13 +1379,6 @@ declare namespace appAccount {
          * @since 8
          */
         onRequestRedirected: (request: Want) => void;
-
-        /**
-         * Notifies the client that the request is continued.
-         * @returns void.
-         * @since 9
-         */
-        onRequestContinued?: () => void;
     }
 
     /**
@@ -1520,7 +1506,7 @@ declare namespace appAccount {
          * @returns void.
          * @since 9
          */
-        isAccountRemovable(name: string, callback: AuthCallback): void;
+        checkAccountRemovable(name: string, callback: AuthCallback): void;
 
         /**
          * Gets the remote object of the authenticator for remote procedure call.
