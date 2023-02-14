@@ -81,7 +81,7 @@ declare namespace inputMethod {
     /**
      * Switch input method
      * @permission ohos.permission.CONNECT_IME_ABILITY
-     * @param {InputMethodProperty} target - Indicates the input method which will replace the current one
+     * @param {InputMethodProperty} target - Indicates the input method which will replace the current one.
      * @returns {Promise<boolean>} the promise returned by the function.
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -103,7 +103,7 @@ declare namespace inputMethod {
     /**
      * Switch current input method subtype
      * @permission ohos.permission.CONNECT_IME_ABILITY
-     * @param {InputMethodSubtype} target - Indicates the input method subtype which will replace the current one
+     * @param {InputMethodSubtype} target - Indicates the input method subtype which will replace the current one.
      * @param {AsyncCallback<boolean>} callback - the callback of switchCurrentInputMethodSubtype.
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -117,7 +117,7 @@ declare namespace inputMethod {
     /**
      * Switch current input method subtype
      * @permission ohos.permission.CONNECT_IME_ABILITY
-     * @param {InputMethodSubtype} target - Indicates the input method subtype which will replace the current one
+     * @param {InputMethodSubtype} target - Indicates the input method subtype which will replace the current one.
      * @returns {Promise<boolean>} the promise returned by the function.
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -139,8 +139,8 @@ declare namespace inputMethod {
     /**
      * Switch input method and subtype
      * @permission ohos.permission.CONNECT_IME_ABILITY
-     * @param {InputMethodProperty} inputMethodProperty - Indicates the target input method
-     * @param {InputMethodSubtype} inputMethodSubtype - Indicates the target input method subtype
+     * @param {InputMethodProperty} inputMethodProperty - Indicates the target input method.
+     * @param {InputMethodSubtype} inputMethodSubtype - Indicates the target input method subtype.
      * @param {AsyncCallback<boolean>} callback - the callback of switchCurrentInputMethodAndSubtype.
      * @throws {BusinessError} 201 - permissions check fails.
      * @throws {BusinessError} 401 - parameter error.
@@ -311,7 +311,7 @@ declare namespace inputMethod {
      */
     interface InputMethodController {
         /**
-         * Stop input
+         * Stop input session
          * @param {AsyncCallback<boolean>} callback - the callback of stopInputSession.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
@@ -321,7 +321,7 @@ declare namespace inputMethod {
         stopInputSession(callback: AsyncCallback<boolean>): void;
 
         /**
-         * Stop input
+         * Stop input session
          * @returns {Promise<boolean>} the promise returned by the function.
          * @throws {BusinessError} 12800003 - input method client error.
          * @throws {BusinessError} 12800008 - input method manager service error.
