@@ -182,7 +182,8 @@ declare namespace inputMethod {
         /**
          * Unsubscribe input method or subtype change.
          * @param {string} type - Indicates the event type.
-         * @param {(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void} callback - the callback of 'imeChange'
+         * @param {(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void} [callback] - the callback of 'imeChange',
+         *        when subscriber unsubscribes all callback functions of event 'imeChange', this parameter can be left blank.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
          */
