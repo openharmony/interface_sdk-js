@@ -276,7 +276,7 @@ declare namespace inputMethodEngine {
      */
     interface KeyboardController {
         /**
-         * Hide soft keybaord
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
@@ -284,7 +284,7 @@ declare namespace inputMethodEngine {
         hide(callback: AsyncCallback<void>): void;
 
         /**
-         * Hide soft keybaord
+         * Hide soft keyboard
          * @throws {BusinessError} 12800003 - input method client error.
          * @syscap SystemCapability.MiscServices.InputMethodFramework
          * @since 9
