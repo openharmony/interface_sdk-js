@@ -536,6 +536,7 @@ ruim
 rwt
 s5
 sac
+sae
 sak
 satellites
 scdma
