@@ -33,7 +33,7 @@ declare class TextAreaController {
    * Text selection is achieved by specifying the start and end positions of the cursor.
    * @since 10
    */
-  textSelection(selectionStart: number, selectionEnd: number): void;
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
