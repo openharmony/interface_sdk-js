@@ -41,12 +41,12 @@ declare namespace distributedDataObject {
      *
      * @param {Context} context - Indicates the application context.
      * @param {object} source - source Init data of distributed object.
-     * @returns {DistributedObjectV9} - return the distributed object.
+     * @returns {DataObject} - return the distributed object.
      * @throws {BusinessError} 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    function create(context: Context, source: object): DistributedObjectV9;
+    function create(context: Context, source: object): DataObject;
 
     /**
      * Generate a random sessionId.
@@ -113,7 +113,7 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.distributedDataObject.DistributedObjectV9
+     * @useinstead ohos.distributedDataObject.DataObject
      */
     interface DistributedObject {
         
@@ -126,7 +126,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.distributedDataObject.DistributedObjectV9.setSessionId
+         * @useinstead ohos.distributedDataObject.DataObject.setSessionId
          */
         setSessionId(sessionId?: string): boolean;
 
@@ -141,7 +141,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.distributedDataObject.DistributedObjectV9.on
+         * @useinstead ohos.distributedDataObject.DataObject.on
          */
         on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -157,7 +157,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.distributedDataObject.DistributedObjectV9.off
+         * @useinstead ohos.distributedDataObject.DataObject.off
          */
         off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
 
@@ -175,7 +175,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.distributedDataObject.DistributedObjectV9.on
+         * @useinstead ohos.distributedDataObject.DataObject.on
          */
         on(type: 'status',
            callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>): void;
@@ -195,7 +195,7 @@ declare namespace distributedDataObject {
          * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.distributedDataObject.DistributedObjectV9.off
+         * @useinstead ohos.distributedDataObject.DataObject.off
          */
         off(type: 'status',
             callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>): void;
@@ -207,8 +207,8 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    interface DistributedObjectV9 {
-        
+    interface DataObject {
+
         /*
          * Change object session.
          *
