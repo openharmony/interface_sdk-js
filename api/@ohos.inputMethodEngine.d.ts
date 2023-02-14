@@ -338,8 +338,11 @@ declare namespace inputMethodEngine {
     }
 
     /**
-     * @since 9
+     * Control events about IME.
+     * Events provided for IME to subscribe callback functions. When those events occur, the corresponding callback will be invoked.
+     * @interface InputMethodAbility
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 9
      */
      interface InputMethodAbility {
         /**
