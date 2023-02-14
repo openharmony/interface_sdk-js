@@ -211,40 +211,6 @@ declare namespace connection {
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
   /**
-   * Binds a process to {@code NetHandle}.
-   *
-   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
-   * and the resolution of all host names will be managed by the {@code NetHandle}.
-   *
-   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
-   * @permission ohos.permission.INTERNET
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
-   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
-   */
-  function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
-
-  /**
-   * Binds a process to {@code NetHandle}.
-   *
-   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
-   * and the resolution of all host names will be managed by the {@code NetHandle}.
-   *
-   * @returns { Promise<NetHandle> } the promise returned by the function.
-   * @permission ohos.permission.INTERNET
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
-   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 2100003 - System internal error.
-   * @since 9
-   */
-  function setAppNet(netHandle: NetHandle): Promise<void>;
-
-  /**
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
    *
    * @param callback Returns the {@link NetHandle} bound to the process;
@@ -261,12 +227,50 @@ declare namespace connection {
    * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
    *
    * @returns { Promise<NetHandle> } the promise returned by the function.
+   *      returns {@code null} if no {@link NetHandle} is bound to the process.
+   *      For details, see {@link NetHandle}.
    * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
    */
   function getAppNet(): Promise<NetHandle>;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @param callback Returns the callback of setAppNet.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2100001 - Invalid parameter value.
+   * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2100003 - System internal error.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle): Promise<void>;
 
   export interface NetConnection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
