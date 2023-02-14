@@ -214,7 +214,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-     installFlag?: number;
+    installFlag?: number;
 
     /**
      * Indicates whether the param has data
