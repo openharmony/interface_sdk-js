@@ -277,12 +277,12 @@ export interface ModuleAbilityInfo {
   readonly label: string;
 
   /**
-   * Indicates whether this ability is visible
+   * Indicates whether this ability can be called by other abilities
    * @type {boolean}
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @since 9
    */
-  readonly visible: boolean;
+  readonly exported: boolean;
 
   /**
    * Indicates the ability forms info

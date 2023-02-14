@@ -405,7 +405,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    STANDARD = 1,
+    MULTITON = 1,
 
     /**
      * Indicates that the ability can have specified instances
