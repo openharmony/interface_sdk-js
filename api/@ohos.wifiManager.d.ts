@@ -80,24 +80,7 @@ declare namespace wifiManager {
     function scan(): void;
 
     /**
-     * Obtain the hotspot information that scanned.
-     *
-     * @returns Returns information about scanned Wi-Fi hotspot if any.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getScanResultsSync
-     * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
-     */
-    function getScanResults(): Promise<Array<WifiScanInfo>>;
-    function getScanResults(callback: AsyncCallback<Array<WifiScanInfo>>): void;
-
-    /**
-     * Obtain the scanned results.
+     * Obtain the scanned sta list.
      *
      * @returns Returns information about scanned Wi-Fi hotspot if any.
      *
@@ -108,7 +91,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
      */
-    function getScanResultsSync(): Array<WifiScanInfo>;
+    function getScanInfoList(): Array<WifiScanInfo>;
 
     /**
      * Add Wi-Fi connection configuration to the device.
@@ -438,50 +421,9 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.updateDeviceConfig
-     * @systemapi Hide this for inner system use.
-     */
-    function updateNetwork(config: WifiDeviceConfig): number;
-
-    /**
-     * Update the specified Wi-Fi configuration.
-     *
-     * @param config Indicates the Wi-Fi configuration to update.
-     *
-     * @returns Returns the network ID in the updated Wi-Fi configuration if the update is successful;
-     *     returns {@code -1} if the specified Wi-Fi configuration is not contained in the list.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
      * @systemapi Hide this for inner system use.
      */
     function updateDeviceConfig(config: WifiDeviceConfig): number;
-
-    /**
-     * Disable the specified DeviceConfig by networkId.
-     *
-     * <p>The disabled network will not be associated with again.
-     *
-     * @param netId Identifies the network to disable.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.disableDeviceConfig
-     * @systemapi Hide this for inner system use.
-     */
-    function disableNetwork(netId: number): void;
 
     /**
      * Disable the specified DeviceConfig by networkId.
@@ -511,48 +453,9 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2501000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeAllDeviceConfigs
-     * @systemapi Hide this for inner system use.
-     */
-    function removeAllNetwork(): void;
-
-    /**
-     * Remove all the saved Wi-Fi configurations.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
      * @systemapi Hide this for inner system use.
      */
     function removeAllDeviceConfigs(): void;
-
-    /**
-     * Remove a Wi-Fi network with a specified ID.
-     *
-     * <p>After a Wi-Fi network is removed, its configuration will be deleted from the list of Wi-Fi configurations.
-     * If the Wi-Fi network is being connected, the connection will be interrupted.
-     * The application can only delete Wi-Fi networks it has created.
-     *
-     * @param id Indicates the ID of the Wi-Fi DeviceConfig,
-     *     which can be obtained using the {@link #addDeviceConfig} or {@link #getLinkedInfo} method.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2501000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeDeviceConfig
-     * @systemapi Hide this for inner system use.
-     */
-    function removeDevice(id: number): void;
 
     /**
      * Remove a Wi-Fi DeviceConfig with networkId.
@@ -673,25 +576,6 @@ declare namespace wifiManager {
     function getHotspotConfig(): HotspotConfig;
 
     /**
-     * Obtain the list of clients that are connected to the Wi-Fi hotspot.
-     *
-     * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
-     *
-     * @returns Returns the list of clients that are connected to the Wi-Fi hotspot.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2601000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.AP.Core
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getHotspotStations
-     * @systemapi Hide this for inner system use.
-     */
-    function getStations(): Array<StationInfo>;
-
-    /**
      * Obtain the list of stations that are connected to the Wi-Fi hotspot.
      *
      * <p>This method can only be used on a device that serves as a Wi-Fi hotspot.
@@ -721,22 +605,6 @@ declare namespace wifiManager {
      */
     function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
     function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
-
-    /**
-     * Obtain information about the current p2p group.
-     *
-     * @returns Returns the current group information.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getCurrentP2pGroup
-     */
-    function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
-    function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
     /**
      * Obtain information about the current p2p group.
@@ -786,22 +654,6 @@ declare namespace wifiManager {
     /**
      * Create a P2P group.
      *
-     * @param config Indicates the configuration for creating a group.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.createP2pGroup
-     */
-    function createGroup(config: WifiP2PConfig): void;
-
-    /**
-     * Create a P2P group.
-     *
      * @param config Indicates the configuration for a group.
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.
@@ -812,20 +664,6 @@ declare namespace wifiManager {
      * @permission ohos.permission.GET_WIFI_INFO
      */
     function createP2pGroup(config: WifiP2PConfig): void;
-
-    /**
-     * Remove a P2P group.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.removeP2pGroup
-     */
-    function removeGroup(): void;
 
     /**
      * Remove a P2P group.
@@ -874,20 +712,6 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.startDiscoverP2pDevices
-     */
-    function startDiscoverDevices(): void;
-
-    /**
-     * Start discover Wi-Fi P2P devices.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
      */
     function startDiscoverP2pDevices(): void;
 
@@ -900,40 +724,8 @@ declare namespace wifiManager {
      * @throws {BusinessError} 2801000 - Operation failed.
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @permission ohos.permission.GET_WIFI_INFO
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.stopDiscoverP2pDevices
-     */
-    function stopDiscoverDevices(): void;
-
-    /**
-     * Stop discover Wi-Fi P2P devices.
-     *
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.GET_WIFI_INFO
      */
     function stopDiscoverP2pDevices(): void;
-
-    /**
-     * Delete the persistent P2P group with the specified network ID.
-     *
-     * @param netId Indicates the network ID of the group to be deleted.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.deletePersistentP2pGroup
-     * @systemapi Hide this for inner system use.
-     */
-    function deletePersistentGroup(netId: number): void;
 
     /**
      * Delete the persistent P2P group with the specified network ID.
@@ -966,24 +758,6 @@ declare namespace wifiManager {
      */
     function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
     function getP2pGroups(callback: AsyncCallback<Array<WifiP2pGroupInfo>>): void;
-
-    /**
-     * Set the name of the Wi-Fi P2P device.
-     *
-     * @param devName Indicate the name to be set.
-     * @since 9
-     * @throws {BusinessError} 201 - Permission denied.
-     * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-     * @throws {BusinessError} 401 - Invalid parameters.
-     * @throws {BusinessError} 801 - Capability not supported.
-     * @throws {BusinessError} 2801000 - Operation failed.
-     * @syscap SystemCapability.Communication.WiFi.P2P
-     * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-     * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.setP2pDeviceName
-     * @systemapi Hide this for inner system use.
-     */
-    function setDeviceName(devName: string): void;
 
     /**
      * Set the name of the Wi-Fi P2P device.

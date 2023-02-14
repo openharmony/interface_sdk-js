@@ -86,7 +86,7 @@ declare namespace wifi {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
      * @deprecated since 9
-     * @useinstead ohos.wifiManager/wifiManager.getScanResultsSync
+     * @useinstead ohos.wifiManager/wifiManager.getScanInfoList
      */
     function getScanInfos(): Promise<Array<WifiScanInfo>>;
     function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
