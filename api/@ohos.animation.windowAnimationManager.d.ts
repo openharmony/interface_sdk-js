@@ -28,6 +28,7 @@ declare namespace windowAnimationManager {
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param controller Window animation controller.
+   * @returns void.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -38,7 +39,8 @@ declare namespace windowAnimationManager {
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param windowTarget The window target to be minimized.
-   * @return Returns the animation finished callback.
+   * @param callback Returns the animation finished callback.
+   * @returns void.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -50,7 +52,7 @@ declare namespace windowAnimationManager {
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @param windowTarget The window target to be minimized.
-   * @return Returns the animation finished callback.
+   * @returns Returns the animation finished callback.
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -64,14 +66,34 @@ declare namespace windowAnimationManager {
    * @since 9
    */
   export interface RRect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the round rect, in pixels.
+     * @since 9
+     */
     left: number;
 
+    /**
+     * The Y-axis coordinate of the upper left vertex of the round rect, in pixels.
+     * @since 9
+     */
     top: number;
 
+    /**
+     * Width of the round rect, in pixels.
+     * @since 9
+     */
     width: number;
 
+    /**
+     * Height of the round rect, in pixels.
+     * @since 9
+     */
     height: number;
 
+    /**
+     * Radius of the round corner of the round rect, in pixels.
+     * @since 9
+     */
     radius: number;
   }
 
@@ -83,12 +105,28 @@ declare namespace windowAnimationManager {
    * @since 9
    */
   export interface WindowAnimationTarget {
+    /**
+     * The bundle name of the window animation target.
+     * @since 9
+     */
     readonly bundleName: string;
 
+    /**
+    /* The ability name of the window animation target.
+     * @since 9
+     */
     readonly abilityName: string;
 
+    /**
+    /* The window bounds of the window animation target.
+     * @since 9
+     */
     readonly windowBounds: RRect;
 
+    /**
+    /* The mission id of the window animation target.
+     * @since 9
+     */
     readonly missionId: number;
   }
 
@@ -100,6 +138,12 @@ declare namespace windowAnimationManager {
    * @since 9
    */
   export interface WindowAnimationFinishedCallback {
+    /**
+     * The function of window animation finished callback.
+     *
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     onAnimationFinish(): void;
   }
 
