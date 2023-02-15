@@ -147,6 +147,7 @@ export default class Device {
    * Obtains the device information.
    * @syscap SystemCapability.Startup.SystemInfo
    * @param options Options.
+   * @deprecated since 6
    */
   static getInfo(options?: GetDeviceOptions): void;
 }
