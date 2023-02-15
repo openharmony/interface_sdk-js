@@ -226,6 +226,21 @@ declare namespace call {
    * @since 9
    */
   function answerCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Answers the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to answer.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function answerCall(callId?: number): Promise<void>;
 
   /**
@@ -258,6 +273,21 @@ declare namespace call {
    * @since 9
    */
   function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Hang up the foreground call.
+   *
+   * @param callId Indicates the identifier of the call to hangup.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function hangUpCall(callId?: number): Promise<void>;
 
   /**
@@ -291,7 +321,39 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
+
+    /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
+
+    /**
+   * Reject the incoming call.
+   *
+   * @param callId Indicates the identifier of the call to reject.
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(callId?: number, options?: RejectMessageOptions): Promise<void>;
 
   /**
@@ -309,6 +371,21 @@ declare namespace call {
    * @since 9
    */
   function rejectCall(callback: AsyncCallback<void>): void;
+
+  /**
+   * Reject the incoming call without callId.
+   *
+   * @param options Indicates the text message to reject.
+   * @permission ohos.permission.ANSWER_CALL
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
   function rejectCall(options: RejectMessageOptions, callback: AsyncCallback<void>): void;
 
   /**
