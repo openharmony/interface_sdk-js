@@ -30,6 +30,7 @@ declare namespace power {
      * @permission ohos.permission.REBOOT
      * @param {string} reason Indicates the shutdown reason.
      * @throws {BusinessError} 201 - If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the reason is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
@@ -60,6 +61,7 @@ declare namespace power {
      * @param {string} reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
      * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
      * @throws {BusinessError} 201 - If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the reason is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
@@ -70,7 +72,7 @@ declare namespace power {
     /**
      * Checks whether the screen of a device is on or off.
      *
-     * @return Returns true if the screen is on; returns false otherwise.
+     * @returns Returns true if the screen is on; returns false otherwise.
      * @since 7
      * @deprecated since 9
      * @useinstead {@link power#isActive}
@@ -83,7 +85,7 @@ declare namespace power {
      * <p>
      * The screen will be on if device is active, screen will be off otherwise.
      *
-     * @return Returns true if the device is active; returns false otherwise.
+     * @returns Returns true if the device is active; returns false otherwise.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
      */
@@ -93,6 +95,7 @@ declare namespace power {
      * Wakes up the device to turn on the screen.
      *
      * @param {string} detail Indicates the detail information who request wakeup.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If the detail is not valid.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
@@ -103,6 +106,7 @@ declare namespace power {
     /**
      * Suspends the device to turn off the screen.
      *
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
      * @since 9
@@ -112,9 +116,7 @@ declare namespace power {
     /**
      * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
      *
-     * @permission ohos.permission.POWER_OPTIMIZATION
-     * @return The power mode {@link DevicePowerMode} of current device .
-     * @throws {BusinessError} 201 – If the permission is denied.
+     * @returns The power mode {@link DevicePowerMode} of current device .
      * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @since 9
      */
@@ -127,7 +129,9 @@ declare namespace power {
      * @param {DevicePowerMode} mode Indicates power mode {@link DevicePowerMode} to set.
      * @param {AsyncCallback<void>} callback Indicates the callback of setting the power mode.
      * @throws {BusinessError} 201 – If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
+     * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
      * @since 9
      */
@@ -139,7 +143,9 @@ declare namespace power {
      * @permission ohos.permission.POWER_OPTIMIZATION
      * @param {DevicePowerMode} mode Indicates power mode {@link DevicePowerMode} to set.
      * @throws {BusinessError} 201 – If the permission is denied.
+     * @throws {BusinessError} 202 - If the system permission is denied.
      * @throws {BusinessError} 401 - If mode or callback is not valid.
+     * @throws {BusinessError} 4900101 - If connecting to the service failed.
      * @systemapi
      * @since 9
      */

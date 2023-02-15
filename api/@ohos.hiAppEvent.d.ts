@@ -140,7 +140,7 @@ declare namespace hiAppEvent {
      * @param {EventType} eventType Application event type.
      * @param {object} keyValues Application event key-value pair params.
      * @param {AsyncCallback} [callback] Callback function.
-     * @return {void | Promise<void>} No callback return Promise otherwise return void.
+     * @returns {void | Promise<void>} No callback return Promise otherwise return void.
      */
     function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>;
     function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void;
@@ -152,7 +152,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @static
      * @param {ConfigOption} config Application event logging configuration item object.
-     * @return {boolean} Configuration result.
+     * @returns {boolean} Configuration result.
      */
     function configure(config: ConfigOption): boolean;
 

@@ -373,7 +373,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessage
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * The onmessage attribute of parentPort specifies the event handler
@@ -385,7 +385,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * @useinstead ohos.worker.ThreadWorkerGlobalScope.onmessageerror
    * @syscap SystemCapability.Utils.Lang
    */
-  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent<T>) => void;
+  onmessageerror?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
    * Close the worker thread to stop the worker from receiving messages
@@ -709,7 +709,7 @@ declare namespace worker {
      * @useinstead ohos.worker.ThreadWorker.onmessage
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessage?: (event: MessageEvent<T>) => void;
+    onmessage?: (event: MessageEvent) => void;
 
     /**
      * The onmessage attribute of the worker specifies the event handler
@@ -720,7 +720,7 @@ declare namespace worker {
      * @useinstead ohos.worker.ThreadWorker.onmessageerror
      * @syscap SystemCapability.Utils.Lang
      */
-    onmessageerror?: (event: MessageEvent<T>) => void;
+    onmessageerror?: (event: MessageEvent) => void;
 
     /**
      * Sends a message to the worker thread.
@@ -779,8 +779,21 @@ declare namespace worker {
      */
     terminate(): void;
   }
+
+  /**
+   * The object used by the worker thread to communicate with the host thread.
+   * @since 7
+   * @deprecated since 9
+   * @useinstead ohos.worker.workerPort
+   * @syscap SystemCapability.Utils.Lang
+   */
   const parentPort: DedicatedWorkerGlobalScope;
 
+  /**
+   * The object used by the worker thread to communicate with the host thread.
+   * @since 9
+   * @syscap SystemCapability.Utils.Lang
+   */
   const workerPort: ThreadWorkerGlobalScope;
 }
 export default worker;

@@ -75,7 +75,7 @@ export default class ServiceExtensionAbility {
      * @StageModelOnly
      * @since 9
      */
-    onConnect(want: Want): rpc.RemoteObject;
+    onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
     /**
      * Called back when all abilities connected to a service extension are disconnected.
@@ -85,7 +85,7 @@ export default class ServiceExtensionAbility {
      * @StageModelOnly
      * @since 9
      */
-    onDisconnect(want: Want): void;
+    onDisconnect(want: Want): void | Promise<void>;
 
     /**
      * Called when a new client attempts to connect to a service extension after all previous client connections to it
@@ -112,7 +112,7 @@ export default class ServiceExtensionAbility {
      * Called when dump client information is required.
      * It is recommended that developers don't DUMP sensitive information.
      * @param { Array<string> } params - Indicates the params from command.
-     * @return { Array<string> } The dump info array.
+     * @returns { Array<string> } The dump info array.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly

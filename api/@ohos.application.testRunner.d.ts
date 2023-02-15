@@ -19,7 +19,6 @@
  *
  * @since 8
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import TestRunner from '@ohos.application.testRunner'
  * @permission N/A
  */
 export interface TestRunner {

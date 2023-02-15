@@ -16,32 +16,36 @@
 const fs = require("fs");
 const path = require("path");
 const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const { hasAPINote, getAPINote, overwriteIndexOf, error_type } = require("./utils");
+const { hasAPINote, getAPINote, overwriteIndexOf, ErrorType, ErrorLevel, FileType } = require("./utils");
 const { addAPICheckErrorLogs } = require("./compile_info");
 const rules = require("../code_style_rule.json");
-const content = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
-const dictionariesArr = content.split("\n");
-const dictionariesSet = new Set([...dictionariesArr, ...rules.decorators.customDoc, ...rules.decorators.jsDoc]);
+const dictionariesContent = fs.readFileSync(path.resolve(__dirname, "../plugin/dictionaries.txt"), 'utf-8');
+const dictionariesArr = dictionariesContent.split(/[(\r\n)\r\n]+/g);
+const dictionariesSupplementaryContent = fs.readFileSync(path.resolve(__dirname,
+  "../plugin/dictionaries_supplementary.txt"), 'utf-8');
+const dictionariesSupplementaryArr = dictionariesSupplementaryContent.split(/[(\r\n)\r\n]+/g);
+const dictionariesSet = new Set([...dictionariesArr, ...dictionariesSupplementaryArr, ...rules.decorators.customDoc,
+  ...rules.decorators.jsDoc]);
 
 function checkSpelling(node, sourcefile, fileName) {
   if (ts.isIdentifier(node) && node.escapedText) {
-    checkWordSpelling(node.escapedText.toString(), node, sourcefile, fileName);
+    checkWordSpelling(node.escapedText.toString(), node, sourcefile, fileName, FileType.API);
   } else if (hasAPINote(node)) {
     const apiNote = getAPINote(node);
     const words = splitParagraph(apiNote);
     words.forEach(word => {
-      checkWordSpelling(word, node, sourcefile, fileName);
+      checkWordSpelling(word, node, sourcefile, fileName, FileType.JSDOC);
     });
   }
 }
 exports.checkSpelling = checkSpelling;
 
-function checkWordSpelling(nodeText, node, sourcefile, fileName) {
+function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
   const basicWords = splitComplexWords(nodeText);
   const errorWords = [];
   const suggest = [];
   basicWords.forEach(word => {
-    if (/^[A-Za-z]+/g.test(word) && !dictionariesSet.has(word.toLowerCase())) {
+    if (!checkBaseWord(word.toLowerCase())) {
       errorWords.push(word);
     }
   });
@@ -62,8 +66,22 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName) {
       }
     });
     const errorInfo = `Error words in [${nodeText}]: {${errorWords}}.Do you want to spell it as [${suggest}]?`;
-    addAPICheckErrorLogs(node, sourcefile, fileName, error_type.MISSPELL_WORDS, errorInfo);
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.MISSPELL_WORDS, errorInfo, type, ErrorLevel.MIDDLE);
   }
+}
+
+/** 
+ *  check base word
+ * @param {string} word
+ * @return true or false
+**/
+function checkBaseWord(word) {
+  if (/^[a-z][0-9]+$/g.test(word)) {
+    return false;
+  } else if (/^[A-Za-z]+/g.test(word) && !dictionariesSet.has(word.toLowerCase())) {
+    return false;
+  }
+  return true;
 }
 
 function splitComplexWords(complexWord) {
@@ -79,7 +97,15 @@ function splitComplexWords(complexWord) {
       basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
     }
   }
-  return basicWords;
+  let newBaseWords = [];
+  basicWords.forEach(word => {
+    if (/[0-9]/g.test(word)) {
+      newBaseWords.concat(word.split(/0-9/g));
+    } else {
+      newBaseWords.push(word);
+    };
+  })
+  return newBaseWords;
 }
 exports.splitComplexWords = splitComplexWords;
 

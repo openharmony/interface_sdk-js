@@ -14,7 +14,7 @@
  */
 
 /**
- * The declare of slectOption.
+ * The declare of selectOption.
  * @since 8
  */
 declare interface SelectOption {

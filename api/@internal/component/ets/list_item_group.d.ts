@@ -50,7 +50,7 @@ interface ListItemGroupInterface {
 }
 
 /**
- * Defines the item group attibute functions.
+ * Defines the item group attribute functions.
  * @since 9
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {

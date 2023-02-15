@@ -20,7 +20,6 @@ import { DataAbilityHelper } from './ability/dataAbilityHelper';
  *
  * @since 7
  * @syscap SystemCapability.Applications.settings.Core
- * @import import settings from '@ohos.settings'
  * @permission N/A
  */
 declare namespace settings {
@@ -776,8 +775,9 @@ declare namespace settings {
    * template.
    *
    * @param name Indicates the name of the setting to set.
-   * @return Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
    * @since 7
+   * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
   function getURI(name: string): Promise<object>;
@@ -788,9 +788,11 @@ declare namespace settings {
    * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
    * the database.
    * @param name Indicates the name of the character string.
-   * @return Returns the value of the character string in the table if any is found; returns {@code null}
+   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
    * otherwise.
    * @since 7
+   * @deprecated since 9
+   * @FAModelOnly
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
@@ -802,9 +804,11 @@ declare namespace settings {
    * the database.
    * @param name Indicates the name of the character string.
    * @param value Indicates the value of the character string.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    * @systemapi Hide this for inner system use.
+   * @deprecated since 9
+   * @FAModelOnly
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
@@ -814,7 +818,7 @@ declare namespace settings {
    *
    * @param enable Specifies whether to enable airplane mode. The value {@code true} means to enable airplane
    * mode, and {@code false} means to disable airplane mode.
-   * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
@@ -824,7 +828,7 @@ declare namespace settings {
    * Checks whether a specified application can show as float window.
    *
    * @param context Indicates the application context.
-   * @return Returns {@code true} if the application can draw over other applications; returns {@code false}
+   * @returns Returns {@code true} if the application can draw over other applications; returns {@code false}
    * otherwise.
    * @since 7
    */
@@ -835,7 +839,7 @@ declare namespace settings {
    * get settingsdata uri(synchronization method)
    * @since 8
    * @param name Indicates the name of the setting to set.
-   * @return Return settingsdata uri.
+   * @returns Returns settingsdata uri.
    */
    function getUriSync(name: string): string;
 
@@ -845,18 +849,22 @@ declare namespace settings {
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param defValue Indicates the default value of the character string.
-    * @return settingsdata value
+    * @returns settingsdata value
+    * @deprecated since 9
+    * @FAModelOnly
     */
    function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
  
    /**
     * set settingsdata value(synchronization method)
-    * @need permission ohos.permission.WRITE_SYSTEM_SETTING
+    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
     * @since 8
     * @param dataAbilityHelper Indicates dataAbilityHelper instance
     * @param name Indicates the name of the character string.
     * @param value Indicates the value of the character string.
-    * @return Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+    * @deprecated since 9
+    * @FAModelOnly
     */
    function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
 }

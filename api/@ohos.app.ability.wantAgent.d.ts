@@ -104,17 +104,6 @@ declare namespace wantAgent {
    * Triggers a WantAgent.
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { Callback<CompleteData> } callback - The callback is used to return the CompleteData.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
-
-  /**
-   * Triggers a WantAgent.
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
    * @param { AsyncCallback<CompleteData> } callback - The callback is used to return the CompleteData.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -320,11 +309,11 @@ declare namespace wantAgent {
 
     /**
      * Extra data collected by the common event.
-     * @type { { [key: string]: any } }
+     * @type { { [key: string]: Object } }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
-    extraInfo?: { [key: string]: any };
+    extraInfo?: { [key: string]: Object };
   }
 
   /**
@@ -344,6 +333,8 @@ declare namespace wantAgent {
 
 /**
  * WantAgent object.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 9
  */
 export type WantAgent = object;
 

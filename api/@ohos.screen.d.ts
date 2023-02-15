@@ -170,6 +170,32 @@ declare namespace screen {
   }
 
   /**
+   * Indicate the source mode of the screen
+   * @since 10
+   */
+  enum ScreenSourceMode {
+    /**
+     * Indicate that the screen is the default screen.
+     */
+    SCREEN_MAIN = 0,
+
+    /**
+     * Indicate that the screen is in mirror mode. 
+     */
+    SCREEN_MIRROR = 1,
+
+    /**
+     * Indicate that the screen is in extend mode.
+     */
+    SCREEN_EXTEND = 2,
+
+    /**
+     * Indicate that the screen stands alone.
+     */
+    SCREEN_ALONE = 3,
+  }
+
+  /**
    * Interface for screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -199,6 +225,12 @@ declare namespace screen {
      * Orientation of the screen
      */
     readonly orientation: Orientation;
+
+    /**
+     * Source mode of the screen
+     * @since 10
+     */
+    readonly sourceMode: ScreenSourceMode;
 
     /**
      * Set the orientation of the screen
@@ -240,7 +272,7 @@ declare namespace screen {
   }
 
   /**
-   * The infomation of the screen
+   * The information of the screen
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */

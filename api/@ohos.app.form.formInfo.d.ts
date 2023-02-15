@@ -107,13 +107,6 @@ declare namespace formInfo {
         formVisibleNotify: boolean;
 
         /**
-         * Obtains the bundle relatedBundleName of the application to which this form belongs.
-         * @syscap SystemCapability.Ability.Form
-         * @since 9
-         */
-        relatedBundleName: string;
-
-        /**
          * Obtains the scheduledUpdateTime.
          * @syscap SystemCapability.Ability.Form
          * @since 9

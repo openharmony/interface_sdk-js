@@ -42,7 +42,7 @@ declare class ArrayList<T> {
    * any subsequent elements to the right (adds one to their index).
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -52,7 +52,7 @@ declare class ArrayList<T> {
   /**
    * Check if arraylist contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if arraylist contains the specified element,return true,else return false
+   * @returns the boolean type,if arraylist contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -62,7 +62,7 @@ declare class ArrayList<T> {
    * Returns the index of the first occurrence of the specified element
    * in this arraylist, or -1 if this arraylist does not contain the element.
    * @param element element to be contained
-   * @return the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -72,8 +72,8 @@ declare class ArrayList<T> {
    * Find the corresponding element according to the index,
    * delete the element, and move the index of all elements to the right of the element forward by one.
    * @param index the index in the arraylist
-   * @return the T type ,returns undefined if arraylist is empty,If the index is
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @returns the T type ,returns undefined if arraylist is empty,If the index is
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -85,7 +85,7 @@ declare class ArrayList<T> {
    * if it is present.  If the arraylist does not contain the element, it is
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
-   * @return the boolean type ,If there is no such element, return false
+   * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -95,7 +95,7 @@ declare class ArrayList<T> {
    * Returns in the index of the last occurrence of the specified element in this arraylist ,
    * or -1 if the arraylist does not contain the element.
    * @param element element to find
-   * @return the number type
+   * @returns the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -105,7 +105,7 @@ declare class ArrayList<T> {
    * Removes from this arraylist all of the elements whose index is between fromIndex,inclusive,and toIndex ,exclusive.
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The removeByRange method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -114,7 +114,7 @@ declare class ArrayList<T> {
   removeByRange(fromIndex: number, toIndex: number): void;
   /**
    * Replaces each element of this arraylist with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to be called for 
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to be called for 
    * each element in the arraylist,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -126,11 +126,11 @@ declare class ArrayList<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  replaceAllElements(callbackfn: (value: T, index?: number, arrlist?: ArrayList<T>) => T,
+  replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T,
     thisArg?: Object): void;
   /**
    * Executes a provided function once for each value in the arraylist object.
-   * @param callbackfn (required) A function that accepts up to four arguments.The function to
+   * @param callbackFn (required) A function that accepts up to four arguments.The function to
    * be called for each element in the arraylist
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -142,7 +142,7 @@ declare class ArrayList<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, arrlist?: ArrayList<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this arraylist according to the order induced by the specified comparator,without comparator this parameter, 
@@ -160,10 +160,10 @@ declare class ArrayList<T> {
    */
   sort(comparator?: (firstValue: T, secondValue: T) => number): void;
   /**
-   * Returns a view of the portion of this arraylist between the specified fromIndex,inclusize,and toIndex,exclusive
+   * Returns a view of the portion of this arraylist between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 10200011 - The subArrayList method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    
@@ -181,7 +181,7 @@ declare class ArrayList<T> {
   clear(): void;
   /**
    * Returns a shallow copy of this instance. (The elements themselves are not copied.)
-   * @return this arraylist instance
+   * @returns this arraylist instance
    * @throws { BusinessError } 10200011 - The clone method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -189,7 +189,7 @@ declare class ArrayList<T> {
   clone(): ArrayList<T>;
   /**
    * returns the capacity of this arraylist
-   * @return the number type
+   * @returns the number type
    * @throws { BusinessError } 10200011 - The getCapacity method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -197,7 +197,7 @@ declare class ArrayList<T> {
   getCapacity(): number;
   /**
    * convert arraylist to array
-   * @return the Array type
+   * @returns the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -205,7 +205,7 @@ declare class ArrayList<T> {
   convertToArray(): Array<T>;
   /**
    * Determine whether arraylist is empty and whether there is an element
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

@@ -14,7 +14,6 @@
  */
 
 /**
- * @import import network from '@system.network';
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  */
@@ -24,7 +23,6 @@ export interface NetworkResponse {
    * @since 3
    */
   type: string;
-
   /**
    * Whether the billing is based on the data volume.
    * @since 3
@@ -33,7 +31,6 @@ export interface NetworkResponse {
 }
 
 /**
- * @import import network from '@system.network';
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
  */
@@ -48,13 +45,11 @@ export default class Network {
      * @since 3
      */
     success?: (data: NetworkResponse) => void;
-
     /**
      * Called when the network type fails to be obtained.
      * @since 3
      */
     fail?: (data: any, code: number) => void;
-
     /**
      * Called when the execution is completed.
      * @since 3
@@ -72,7 +67,6 @@ export default class Network {
      * @since 3
      */
     success?: (data: NetworkResponse) => void;
-
     /**
      * Called when the listening fails.
      * @since 3

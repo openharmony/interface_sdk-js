@@ -34,7 +34,7 @@ declare namespace inputEventClient {
      * @param isIntercepted Whether the key is blocked.
      */
     interface KeyEvent {
-        isPressed: boolean,
+        isPressed: boolean;
         keyCode: number;
         keyDownDuration: number;
         isIntercepted: boolean;

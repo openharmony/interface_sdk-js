@@ -13,57 +13,43 @@
  * limitations under the License.
  */
 
-const path = require('path');
-const ts = require(path.resolve(__dirname, "../node_modules/typescript"));
-const fs = require("fs");
-const result = require("../check_result.json");
-const { getAPINote, error_type } = require('./utils');
+const { getAPINote, ErrorType, ErrorLevel, FileType } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 function checkDeprecated(node, sourcefile, fileName) {
-    const apiNote = getAPINote(node);
-    const apiNoteArr = apiNote.split('*');
-    let hasDeprecatedError = false;
-    let errorInfo = "";
-    apiNoteArr.forEach(note => {
-        if (note.match(new RegExp('@deprecated'))) {
-            const deprecatedNote = note.replace('@deprecated', '').trim();
-            const regx = /since [0-9]/;
-            const arr = deprecatedNote.match(regx);
-            if (arr != null) {
-                const errorNote = deprecatedNote.replace(arr[0], '');
-                if (/[A-z]/.test(errorNote)) {
-                    hasDeprecatedError = true;
-                    if (errorInfo !== "") {
-                        errorInfo += `,${note}`;
-                    } else {
-                        errorInfo += note;
-                    }
-                } else {
-                    if (/@useinstead/.test(apiNote)) {
-
-                    } else {
-                        hasDeprecatedError = true;
-                        if (errorInfo !== "") {
-                            errorInfo += `,${note}`;
-                        } else {
-                            errorInfo += note;
-                        }
-                    }
-                }
-            } else if (arr == null) {
-                hasDeprecatedError = true;
-                if (errorInfo !== "") {
-                    errorInfo += `,${note}`;
-                } else {
-                    errorInfo += note;
-                }
-            }
+  const apiNote = getAPINote(node);
+  const apiNoteArr = apiNote.split('*');
+  let hasDeprecatedError = false;
+  let errorInfo = "";
+  apiNoteArr.forEach(note => {
+    if (note.match(new RegExp('@deprecated'))) {
+      const deprecatedNote = note.replace('@deprecated', '').trim();
+      const regx = /since [0-9]/;
+      const arr = deprecatedNote.match(regx);
+      if (arr != null) {
+        const errorNote = deprecatedNote.replace(arr[0], '');
+        if (/[A-z]/.test(errorNote)) {
+          hasDeprecatedError = true;
+          if (errorInfo !== "") {
+            errorInfo += `,${note}`;
+          } else {
+            errorInfo += note;
+          }
         }
-    });
-
-    if (hasDeprecatedError) {
-        addAPICheckErrorLogs(node, sourcefile, fileName, error_type.UNKNOW_DEPRECATED, errorInfo);
+      } else if (arr == null) {
+        hasDeprecatedError = true;
+        if (errorInfo !== "") {
+          errorInfo += `,${note}`;
+        } else {
+          errorInfo += note;
+        }
+      }
     }
+  });
+
+  if (hasDeprecatedError) {
+    addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.UNKNOW_DEPRECATED, errorInfo, FileType.JSDOC,
+      ErrorLevel.MIDDLE);
+  }
 }
 exports.checkDeprecated = checkDeprecated;

@@ -15,26 +15,24 @@
 
 const path = require("path");
 const fs = require("fs");
-const { writeResultFile } = require('./src/utils');
 
 function checkEntry(url) {
   let result = "";
   const sourceDirname = __dirname;
   __dirname = "interface/sdk-js/build-tools/api_check_plugin";
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', "all_files.txt");
-  const content = fs.readFileSync(mdFilesPath, "utf-8");
   try {
     const execSync = require("child_process").execSync;
     execSync("cd interface/sdk-js/build-tools/api_check_plugin && npm install");
     const { scanEntry } = require(path.resolve(__dirname, "./src/api_check_plugin"));
-    result += scanEntry(mdFilesPath);
-    result += `,,,mdFilePath = ${mdFilesPath}, content = ${content}`;
+    result = scanEntry(mdFilesPath);
     const { removeDir } = require(path.resolve(__dirname, "./src/utils"));
     removeDir(path.resolve(__dirname, "node_modules"));
   } catch (error) {
     // catch error
-    result += `CATCHERROR : ${error}, mdFilePath = ${mdFilesPath}, content = ${content}`;
+    result = `API_CHECK_ERROR : ${error}`;
   }
+  const { writeResultFile } = require('./src/utils');
   writeResultFile(result, path.resolve(__dirname, "./Result.txt"), {});
 }
 checkEntry(process.argv[2]);

@@ -80,6 +80,7 @@ declare namespace batteryInfo {
     /**
      * Estimated remaining time for the current device to be fully charged, in ms.
      * @since 9
+     * @systemapi
      */
     const estimatedRemainingChargeTime: number;
 
@@ -209,11 +210,6 @@ declare namespace batteryInfo {
      */
     export enum BatteryCapacityLevel {
         /**
-         * The battery is in unknow capacity level.
-         * @since 9
-         */
-        LEVEL_NONE,
-        /**
          * The battery is in full capacity level.
          * @since 9
          */
@@ -234,74 +230,74 @@ declare namespace batteryInfo {
          */
         LEVEL_LOW,
         /**
+         * The battery is in warning low capacity level.
+         * @since 9
+         */
+        LEVEL_WARNING,
+        /**
          * The battery is in critical low capacity level.
          * @since 9
          */
-        LEVEL_CRITICAL
+        LEVEL_CRITICAL,
+        /**
+         * The battery is in the lowest capacity level, system will shut down automatically in a few seconds.
+         * @since 9
+         */
+        LEVEL_SHUTDOWN
     }
 
     /**
-     * Extra key code of common event COMMON_EVENT_BATTERY_CHANGED.
+     * Extra key of common event COMMON_EVENT_BATTERY_CHANGED.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9
      */
-    export enum CommonEventBatteryChangedCode {
+    export enum CommonEventBatteryChangedKey {
         /**
-         * Extra code of state of charge (SoC).
+         * Extra code of batterySOC.
          * @since 9
          */
-        EXTRA_SOC = 0,
+        EXTRA_SOC = "soc",
         /**
-         * Extra code of voltage.
+         * Extra code of chargingStatus.
          * @since 9
          */
-        EXTRA_VOLTAGE,
+        EXTRA_CHARGE_STATE = "chargeState",
         /**
-         * Extra code of temperature.
+         * Extra code of healthStatus.
          * @since 9
          */
-        EXTRA_TEMPERATURE,
-        /**
-         * Extra code of healthState.
-         * @since 9
-         */
-        EXTRA_HEALTH_STATE,
+        EXTRA_HEALTH_STATE = "healthState",
         /**
          * Extra code of pluggedType.
          * @since 9
          */
-        EXTRA_PLUGGED_TYPE,
+        EXTRA_PLUGGED_TYPE = "pluggedType",
         /**
-         * Extra code of maxCurrent.
+         * Extra code of voltage.
          * @since 9
          */
-        EXTRA_MAX_CURRENT,
-        /**
-         * Extra code of maxVoltage.
-         * @since 9
-         */
-        EXTRA_MAX_VOLTAGE,
-        /**
-         * Extra code of chargeState.
-         * @since 9
-         */
-        EXTRA_CHARGE_STATE,
-        /**
-         * Extra code of chargeCounter.
-         * @since 9
-         */
-        EXTRA_CHARGE_COUNTER,
-        /**
-         * Extra code of if battery is present.
-         * @since 9
-         */
-        EXTRA_PRESENT,
+        EXTRA_VOLTAGE = "voltage",
         /**
          * Extra code of technology.
          * @since 9
          */
-        EXTRA_TECHNOLOGY
+        EXTRA_TECHNOLOGY = "technology",
+        /**
+         * Extra code of batteryTemperature.
+         * @since 9
+         */
+        EXTRA_TEMPERATURE = "temperature",
+        /**
+         * Extra code of isBatteryPresent.
+         * @since 9
+         */
+        EXTRA_PRESENT = "present",
+        /**
+         * Extra code of batteryCapacityLevel.
+         * @since 9
+         */
+        EXTRA_CAPACITY_LEVEL = "capacityLevel",
     }
 }
 export default batteryInfo;

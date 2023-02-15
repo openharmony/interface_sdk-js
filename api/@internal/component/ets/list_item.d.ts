@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,6 +43,7 @@ declare enum Sticky {
 /**
  * Declare whether the ListItem element is editable.
  * @since 7
+ * @deprecated since 9
  */
 declare enum EditMode {
   /**
@@ -52,7 +53,7 @@ declare enum EditMode {
   None,
 
   /**
-   * Deleteable.
+   * Deletable.
    * @since 7
    */
   Deletable,
@@ -110,21 +111,38 @@ declare interface SwipeActionOptions {
 /**
  * @since 7
  */
-
+/**
+ * @form
+ * @since 9
+ */
 /**
  * Values in the list
  * @since 7
+ */
+/**
+ * Values in the list
+ * @form
+ * @since 9
  */
 interface ListItemInterface {
   /**
    * Called when an interface is used.
    * @since 7
    */
+  /**
+   * Called when an interface is used.
+   * @form
+   * @since 9
+   */
   (value?: string): ListItemAttribute;
 }
 
 /**
  * @since 7
+ */
+/**
+ * @form
+ * @since 9
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -138,12 +156,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when judging whether it is editable.
    * @since 7
+   * @deprecated since 9
    */
   editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
    * Called when judging whether it is selectable.
    * @since 8
+   */
+  /**
+   * Called when judging whether it is selectable.
+   * @form
+   * @since 9
    */
   selectable(value: boolean): ListItemAttribute;
 
@@ -158,11 +182,20 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * Called when the listItem is selected.
    * @since 8
    */
+  /**
+   * Called when the listItem is selected.
+   * @form
+   * @since 9
+   */
   onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
 }
 
 /**
  * @since 7
+ */
+/**
+ * @form
+ * @since 9
  */
 declare const ListItemInstance: ListItemAttribute;
 declare const ListItem: ListItemInterface;

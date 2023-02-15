@@ -31,7 +31,6 @@ import bundle from '../@ohos.bundle';
  *
  * @since 6
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @import import abilityManager from 'app/context'
  * @permission N/A
  * @FAModelOnly
  */
@@ -124,10 +123,13 @@ export interface Context extends BaseContext {
     setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise<void>;
     
     /**
-    * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state.
+    * Sets whether to show this ability on top of the lock screen whenever the lock screen is displayed, keeping the ability in the ACTIVE state. 
+    * The interface can only take effect in API8 and below versions.
     * @param show Specifies whether to show this ability on top of the lock screen. The value true means to show it on the lock screen, and the value false means not.
     * @since 7
     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @deprecated since 9
+    * @useinstead ohos.window#setShowOnLockScreen
     */
     setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void
     setShowOnLockScreen(show: boolean): Promise<void>;

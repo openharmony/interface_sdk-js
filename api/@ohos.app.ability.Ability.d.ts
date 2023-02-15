@@ -42,15 +42,4 @@ export default class Ability {
      * @since 9
      */
     onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
-
-    /**
-     * Called back when an ability prepares to save.
-     * @param reason state type when save.
-     * @param wantParam Indicates the want parameter.
-     * @return 0 if ability agrees to save data successfully, otherwise errcode.
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @StageModelOnly
-     * @since 9
-     */
-    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: any}): AbilityConstant.OnSaveResult;
 }

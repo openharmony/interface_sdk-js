@@ -51,6 +51,12 @@ declare namespace sim {
    * @param slotId Indicates the ID of the SIM card slot.
    * @param callback Returns {@code true} if your application has been granted the operator permissions;
    * returns {@code false} otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void;
@@ -62,6 +68,12 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void;
   function getISOCountryCodeForSim(slotId: number): Promise<string>;
@@ -75,6 +87,12 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void;
   function getSimOperatorNumeric(slotId: number): Promise<string>;
@@ -89,6 +107,12 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the SPN; returns an empty string if no SIM card is inserted or
    * no EFSPN file in the SIM card.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getSimSpn(slotId: number, callback: AsyncCallback<string>): void;
   function getSimSpn(slotId: number): Promise<string>;
@@ -107,6 +131,12 @@ declare namespace sim {
    * <li>{@code SimState#SIM_STATE_READY}
    * <li>{@code SimState#SIM_STATE_LOADED}
    * </ul>
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    */
   function getSimState(slotId: number, callback: AsyncCallback<SimState>): void;
   function getSimState(slotId: number): Promise<SimState>;
@@ -116,6 +146,12 @@ declare namespace sim {
    *
    * @param slotId Indicates the ID of the specified slot.
    * @param callback Returns the SIM card type.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function getCardType(slotId: number, callback: AsyncCallback<CardType>): void;
@@ -131,6 +167,13 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns the ICCID; returns an empty string if no SIM card is inserted.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -145,6 +188,13 @@ declare namespace sim {
    * @param callback Returns the voice mailbox alpha identifier;
    * returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -159,6 +209,13 @@ declare namespace sim {
    * @param callback Returns the voice mailbox number;
    * returns an empty string if no voice mailbox number is written into the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -166,7 +223,21 @@ declare namespace sim {
   function getVoiceMailNumber(slotId: number): Promise<string>;
 
   /**
+   * Sets the voice mail information.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   * @param mailName Indicates the name of voice mail.
+   * @param mailNumber Indicates the number of voice mail.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -182,6 +253,13 @@ declare namespace sim {
    * @param callback Returns the MSISDN; returns an empty string if no SIM card is inserted or
    * no MSISDN is recorded in the EFMSISDN file.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -197,6 +275,13 @@ declare namespace sim {
    * @param callback Returns the GID1; returns an empty string if no SIM card is inserted or
    * no GID1 in the SIM card.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -207,13 +292,25 @@ declare namespace sim {
    * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
    * that is, the maximum number of SIM card slots.
    *
-   * @return Returns the maximum number of SIM card slots.
+   * @returns Returns the maximum number of SIM card slots.
    * @since 7
    */
   function getMaxSimCount(): number;
 
   /**
+   * Get the international mobile subscriber ID.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns the international mobile subscriber ID.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    */
   function getIMSI(slotId: number, callback: AsyncCallback<string>): void;
@@ -225,13 +322,32 @@ declare namespace sim {
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param callback Returns true if a SIM card is inserted; return false otherwise.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @since 7
    */
   function hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void;
   function hasSimCard(slotId: number): Promise<boolean>;
 
   /**
+   * Get account information of SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns a {@code IccAccountInfo} object.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -239,7 +355,17 @@ declare namespace sim {
   function getSimAccountInfo(slotId: number): Promise<IccAccountInfo>;
 
   /**
+   * Get the list of active SIM card account information.
+   *
+   * @param callback Returns a {@code IccAccountInfo} object.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -247,7 +373,19 @@ declare namespace sim {
   function getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
   /**
+   * Set the card slot ID of the default voice service.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301001 - SIM card is not activated.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -255,7 +393,18 @@ declare namespace sim {
   function setDefaultVoiceSlotId(slotId: number): Promise<void>;
 
   /**
+   * Activate the SIM card in the specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -263,7 +412,18 @@ declare namespace sim {
   function activateSim(slotId: number): Promise<void>;
 
   /**
+   * Disable SIM card in specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -271,7 +431,19 @@ declare namespace sim {
   function deactivateSim(slotId: number): Promise<void>;
 
   /**
+   * Set the SIM card display name of the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param name Indicates SIM card name.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -279,7 +451,19 @@ declare namespace sim {
   function setShowName(slotId: number, name: string): Promise<void>;
 
   /**
+   * Gets the name of the SIM card in the specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns SIM card name.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -287,7 +471,19 @@ declare namespace sim {
   function getShowName(slotId: number): Promise<string>;
 
   /**
+   * Set the SIM card number in the specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param number Indicates SIM card number.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -295,7 +491,19 @@ declare namespace sim {
   function setShowNumber(slotId: number, number: string): Promise<void>;
 
   /**
+   * Get the SIM card number of the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param callback Returns SIM card number.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -303,7 +511,20 @@ declare namespace sim {
   function getShowNumber(slotId: number): Promise<string>;
 
   /**
+   * Obtains the operatorconfigs of the SIM card in a specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @returns Returns the operatorconfigs in a specified slot; returns empty OperatorConfig
+   * if no SIM card is inserted
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -311,7 +532,21 @@ declare namespace sim {
   function getOperatorConfigs(slotId: number): Promise<Array<OperatorConfig>>;
 
   /**
+   * Unlock the SIM card password of the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param pin Indicates the password of the SIM card.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -319,7 +554,22 @@ declare namespace sim {
   function unlockPin(slotId: number, pin: string): Promise<LockStatusResponse>;
 
   /**
+   * Unlock the SIM card password in the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param newPin Indicates to reset the SIM card password.
+   * @param puk Indicates the unlock password of the SIM card password.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -327,7 +577,22 @@ declare namespace sim {
   function unlockPuk(slotId: number, newPin: string, puk: string): Promise<LockStatusResponse>;
 
   /**
+   * Change Pin Password.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param newPin Indicates a new password.
+   * @param oldPin Indicates old password.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -335,7 +600,21 @@ declare namespace sim {
   function alterPin(slotId: number, newPin: string, oldPin: string): Promise<LockStatusResponse>;
 
   /**
+   * Set the lock status of the SIM card in the specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param options Indicates lock information.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 7
    */
@@ -343,7 +622,21 @@ declare namespace sim {
   function setLockState(slotId: number, options: LockInfo): Promise<LockStatusResponse>;
 
   /**
+   * Unlock the SIM card password of the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param pin2 Indicates the password of the SIM card.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -351,7 +644,22 @@ declare namespace sim {
   function unlockPin2(slotId: number, pin2: string): Promise<LockStatusResponse>;
 
   /**
+   * Unlock the SIM card password in the specified card slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param newPin2 Indicates to reset the SIM card password.
+   * @param puk2 Indicates the unlock password of the SIM card password.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -359,7 +667,22 @@ declare namespace sim {
   function unlockPuk2(slotId: number, newPin2: string, puk2: string): Promise<LockStatusResponse>;
 
   /**
+   * Change Pin2 password.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param newPin2 Indicates a new password.
+   * @param oldPin2 Indicates old password.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -367,7 +690,21 @@ declare namespace sim {
   function alterPin2(slotId: number, newPin2: string, oldPin2: string): Promise<LockStatusResponse>;
 
   /**
+   * Query dialing number information on SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param type Indicates contact type.
+   * @param callback Return dialing number information.
    * @permission ohos.permission.READ_CONTACTS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -375,7 +712,21 @@ declare namespace sim {
   function queryIccDiallingNumbers(slotId: number, type: ContactType): Promise<Array<DiallingNumbersInfo>>;
 
   /**
+   * Add dialing number information to SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param type Indicates contact type.
+   * @param diallingNumbers Indicates dialing number information.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -383,7 +734,21 @@ declare namespace sim {
   function addIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
   /**
+   * Delete dialing number information on SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param type Indicates contact type.
+   * @param diallingNumbers Indicates dialing number information.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -391,7 +756,21 @@ declare namespace sim {
   function delIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
   /**
+   * Update dialing number information on SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param type Indicates contact type.
+   * @param diallingNumbers Indicates dialing number information.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -399,7 +778,21 @@ declare namespace sim {
   function updateIccDiallingNumbers(slotId: number, type: ContactType, diallingNumbers: DiallingNumbersInfo): Promise<void>;
 
   /**
+   * Get the lock status of the SIM card in the specified slot.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param lockType Indicates the lock type.
+   * @param callback Returns sim card lock status.
    * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -407,7 +800,19 @@ declare namespace sim {
   function getLockState(slotId: number, lockType: LockType): Promise<LockState>;
 
   /**
+   * Send envelope command to SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param cmd Indicates sending command.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -415,15 +820,42 @@ declare namespace sim {
   function sendEnvelopeCmd(slotId: number, cmd: string): Promise<void>;
 
   /**
+   * Send terminal response command to SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param cmd Indicates sending command.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
   function sendTerminalResponseCmd(slotId: number, cmd: string, callback: AsyncCallback<void>): void;
   function sendTerminalResponseCmd(slotId: number, cmd: string): Promise<void>;
 
+
   /**
+   * Unlock SIM card.
+   *
+   * @param slotId Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param lockInfo Indicates customized lock type information.
+   * @param callback Returns the response to obtain the SIM card lock status of the specified card slot.
    * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 8300001 - Invalid parameter value.
+   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 8300003 - System internal error.
+   * @throws {BusinessError} 8300004 - Do not have sim card.
+   * @throws {BusinessError} 8300999 - Unknown error code.
+   * @throws {BusinessError} 8301002 - SIM card operation error.
    * @systemapi Hide this for inner system use.
    * @since 8
    */
@@ -431,11 +863,12 @@ declare namespace sim {
   function unlockSimLock(slotId: number, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
   /**
-   * Obtains the opkey of the SIM card in a specified slot.
+   * Obtains the operator key of the SIM card in a specified slot.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
+   * @param callback Returns the operator key; returns an empty string if no SIM card is inserted or
+   * no operator key matched.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -443,19 +876,18 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the opkey; returns an empty string if no SIM card is inserted or
-   * no opkey matched.
    * @since 9
    */
   function getOpKey(slotId: number, callback: AsyncCallback<string>): void;
   function getOpKey(slotId: number): Promise<string>;
 
   /**
-   * Obtains the opname of the SIM card in a specified slot.
+   * Obtains the operator name of the SIM card in a specified slot.
    *
    * @param slotId Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @throws {BusinessError} 201 - Permission denied.
+   * @param callback Returns the operator name; returns an empty string if no SIM card is inserted or
+   * no operator name matched.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 8300001 - Invalid parameter value.
@@ -463,8 +895,6 @@ declare namespace sim {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300004 - Do not have sim card.
    * @throws {BusinessError} 8300999 - Unknown error code.
-   * @return Returns the opname; returns an empty string if no SIM card is inserted or
-   * no opname matched.
    * @since 9
    */
   function getOpName(slotId: number, callback: AsyncCallback<string>): void;
@@ -572,7 +1002,7 @@ declare namespace sim {
    * @since 7
    */
   export enum CardType {
-    /** Icc card type: Unknow type Card. */
+    /** Icc card type: unknown type Card. */
     UNKNOWN_CARD = -1,
 
     /** Icc card type: Single sim card type. */
@@ -671,14 +1101,101 @@ declare namespace sim {
   export enum PersoLockType {
     PN_PIN_LOCK, //Network Personalization (refer 3GPP TS 22.022 [33])
     PN_PUK_LOCK,
-    PU_PIN_LOCK, //network sUbset Personalization (refer 3GPP TS 22.022 [33])
+    PU_PIN_LOCK, //Network Subset Personalization (refer 3GPP TS 22.022 [33])
     PU_PUK_LOCK,
-    PP_PIN_LOCK, //service Provider Personalization (refer 3GPP TS 22.022 [33])
+    PP_PIN_LOCK, //Service Provider Personalization (refer 3GPP TS 22.022 [33])
     PP_PUK_LOCK,
     PC_PIN_LOCK, //Corporate Personalization (refer 3GPP TS 22.022 [33])
     PC_PUK_LOCK,
-    SIM_PIN_LOCK, //SIM/USIM personalisation (refer 3GPP TS 22.022 [33])
+    SIM_PIN_LOCK, //SIM/USIM Personalization (refer 3GPP TS 22.022 [33])
     SIM_PUK_LOCK,
+  }
+
+  /**
+   * @systemapi Hide this for inner system use.
+   * @since 9
+   */
+  export enum OperatorConfigKey {
+    /**
+     * Indicates the voice mail number.
+     */
+    KEY_VOICE_MAIL_NUMBER_STRING = "voice_mail_number_string",
+    /**
+     * Indicates the status of ims switch.
+     */
+    KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = "ims_switch_on_by_default_bool",
+    /**
+     * Indicates whether the ims switch status is hidden.
+     */
+    KEY_HIDE_IMS_SWITCH_BOOL = "hide_ims_switch_bool",
+    /**
+     * Indicates whether volte mode is supported.
+     */
+    KEY_VOLTE_SUPPORTED_BOOL = "volte_supported_bool",
+    /**
+     * Indicates the list supported by nr mode.
+     */
+    KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = "nr_mode_supported_list_int_array",
+    /**
+     * Indicates whether VOLTE supports configuration.
+     */
+    KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = "volte_provisioning_supported_bool",
+    /**
+     * Indicates whether SS service supports UT.
+     */
+    KEY_SS_OVER_UT_SUPPORTED_BOOL = "ss_over_ut_supported_bool",
+    /**
+     * Indicates whether the IMS requires GBA.
+     */
+    KEY_IMS_GBA_REQUIRED_BOOL = "ims_gba_required_bool",
+    /**
+     * Indicates whether UT configuration is supported.
+     */
+    KEY_UT_PROVISIONING_SUPPORTED_BOOL = "ut_provisioning_supported_bool",
+    /**
+     * Indicates the ims emergency preference.
+     */
+    KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = "ims_prefer_for_emergency_bool",
+    /**
+     * Indicates call waiting service.
+     */
+    KEY_CALL_WAITING_SERVICE_CLASS_INT = "call_waiting_service_class_int",
+    /**
+     * Indicates call forwarding visibility.
+     */
+    KEY_CALL_TRANSFER_VISIBILITY_BOOL = "call_transfer_visibility_bool",
+    /**
+     * Indicates the list of ims call end reasons.
+     */
+    KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY = "ims_call_disconnect_reason_info_mapping_string_array",
+    /**
+     * Indicates the forced Volte switch on state.
+     */
+    KEY_FORCE_VOLTE_SWITCH_ON_BOOL = "force_volte_switch_on_bool",
+    /**
+     * Indicates whether the operator name is displayed.
+     */
+    KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = "enable_operator_name_cust_bool",
+    /**
+     * Indicates the name of the operator.
+     */
+    KEY_OPERATOR_NAME_CUST_STRING = "operator_name_cust_string",
+    /**
+     * Indicates the spn display rule.
+     */
+    KEY_SPN_DISPLAY_CONDITION_CUST_INT = "spn_display_condition_cust_int",
+    /**
+     * Indicates the PLMN name.
+     */
+    KEY_PNN_CUST_STRING_ARRAY = "pnn_cust_string_array",
+    /**
+     * Indicates operator PLMN information.
+     */
+    KEY_OPL_CUST_STRING_ARRAY = "opl_cust_string_array",
+    /**
+     * Indicates the emergency call list.
+     */
+    KEY_EMERGENCY_CALL_STRING_ARRAY = "emergency_call_string_array",
   }
 }
 

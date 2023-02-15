@@ -73,7 +73,7 @@ declare namespace hichecker {
 
     /**
     * get added rule
-    * @return all added thread rule and process rule.
+    * @returns all added thread rule and process rule.
     * @since 8
     * @syscap SystemCapability.HiviewDFX.HiChecker
     */
@@ -82,7 +82,7 @@ declare namespace hichecker {
     /**
     * whether the query rule is added
     * @param rule
-    * @return the result of whether the query rule is added.
+    * @returns the result of whether the query rule is added.
     * @since 8
     * @deprecated since 9
     * @useinstead ohos.hichecker/hichecker#containsCheckRule
@@ -111,7 +111,7 @@ declare namespace hichecker {
     /**
     * Whether the query rule is added
     * @param rule
-    * @return the result of whether the query rule is added.
+    * @returns the result of whether the query rule is added.
     * @since 9
     * @syscap SystemCapability.HiviewDFX.HiChecker
     * @throws { BusinessError } 401 - the parameter check failed

@@ -30,7 +30,11 @@ declare namespace commonEventManager {
    * Publishes an ordered, sticky, or standard common event.
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -41,7 +45,11 @@ declare namespace commonEventManager {
    * @param { string } event - name of the common event.
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -52,7 +60,11 @@ declare namespace commonEventManager {
    * @param { string } event - Specified the names of the common events.
    * @param { number } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -65,7 +77,11 @@ declare namespace commonEventManager {
    * @param { number } userId - Specified the user to receive the common events.
    * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - message send error
+   * @throws { BusinessError } 1500008 - CEMS error
+   * @throws { BusinessError } 1500009 - system error
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -76,7 +92,7 @@ declare namespace commonEventManager {
    * Creates a CommonEventSubscriber for the SubscriberInfo.
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -86,7 +102,7 @@ declare namespace commonEventManager {
    * Creates a CommonEventSubscriber for the SubscriberInfo.
    * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
    * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -96,7 +112,8 @@ declare namespace commonEventManager {
    * Subscribe an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -106,7 +123,8 @@ declare namespace commonEventManager {
    * Unsubscribe from an ordered, sticky, or standard common event.
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } callback - The callback of unsubscribe.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
@@ -165,7 +183,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_OFF = "usual.event.SCREEN_OFF",
 
     /**
-     * This commonEvent means when the device is woken up and interactive.
+     * This commonEvent means when the device is awakened and interactive.
      */
     COMMON_EVENT_SCREEN_ON = "usual.event.SCREEN_ON",
 
@@ -175,7 +193,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_THERMAL_LEVEL_CHANGED = "usual.event.THERMAL_LEVEL_CHANGED",
 
     /**
-     * This commonEvent means when the user is present after the device woken up.
+     * This commonEvent means when the user is present after the device is awakened.
      */
     COMMON_EVENT_USER_PRESENT = "usual.event.USER_PRESENT",
 
@@ -984,7 +1002,20 @@ declare namespace commonEventManager {
      * Indicate the result of quick fix apply.
      * This common event can be triggered only by system.
      */
-    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT"
+    COMMON_EVENT_QUICK_FIX_APPLY_RESULT = "usual.event.QUICK_FIX_APPLY_RESULT",
+
+    /**
+     * Indicate the action of a common event that the user information has been updated.
+     * This common event can be triggered only by system.
+     */
+    COMMON_EVENT_USER_INFO_UPDATED = "usual.event.USER_INFO_UPDATED",
+
+    /**
+     * Indicate http proxy has been changed.
+     * This is a protected common event that can only be sent by system.
+     * @since 10
+     */
+     COMMON_EVENT_HTTP_PROXY_CHANGE = "usual.event.HTTP_PROXY_CHANGE"
   }
 }
 

@@ -22,7 +22,6 @@ import { Resource } from 'GlobalResource';
  * @namespace promptAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
- * @import prompt from '@ohos.promptAction';
  */
 declare namespace promptAction {
 
@@ -85,9 +84,10 @@ declare namespace promptAction {
   interface ShowDialogSuccessResponse {
 
     /**
+     * Index of the selected button, starting from 0.
      * @type { number }
-    * @since 9
-    */
+     * @since 9
+     */
     index: number;
   }
 
@@ -129,6 +129,7 @@ declare namespace promptAction {
   interface ActionMenuSuccessResponse {
 
     /**
+     * Index of the selected button, starting from 0.
      * @type { number }
      * @since 9
      */

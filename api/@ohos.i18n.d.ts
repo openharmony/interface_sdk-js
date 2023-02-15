@@ -328,7 +328,7 @@ export class System {
  * @syscap SystemCapability.Global.I18n
  * @since 8
  * @deprecated since 9
- * @useinstead I18NUitl
+ * @useinstead I18NUtil
  */
 export interface Util {
     /**
@@ -1103,7 +1103,7 @@ export class TimeZone {
      * Get the offset of the TimeZone object.
      * 
      * @syscap SystemCapability.Global.I18n
-     * @date Indicates a date use to compute offset.
+     * @param date Indicates a date use to compute offset.
      * @returns Returns a number represents the offset with date.
      * @since 7
      */
@@ -1147,6 +1147,19 @@ export class TimeZone {
       * @since 9
       */
     static getTimezoneFromCity(cityID: string): TimeZone;
+
+     /**
+      * Get the possible time zones from the specified longitude and latitude.
+      *
+      * @throws {BusinessError} 401 - check param failed
+      * @throws {BusinessError} 890001 - param value not valid
+      * @syscap SystemCapability.Global.I18n
+      * @param longitude longitude value
+      * @param latitude latitude value
+      * @returns Returns a TimeZone array from the specified longitude and latitude.
+      * @since 10
+      */
+    static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
 }
 
 /**
@@ -1186,6 +1199,67 @@ export class Transliterator {
      * @since 9
      */
     transform(text: string): string;
+}
+
+  /**
+   * Enumerates the Normalizer modes.
+   * @since 10
+   * @syscap SystemCapability.Global.I18n
+   */
+  enum NormalizerMode {
+    /**
+     * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFC = 1,
+    /**
+     * Normalization form D, characters are decomposed by canonical equivalence
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFD = 2,
+    /**
+     * Normalization form KC, characters are decomposed by compatibility, then re-composed by canonical equivalence
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFKC = 3,
+    /**
+     * Normalization form KD, characters are decomposed by compatibility
+     * @since 10
+     * @syscap SystemCapability.Global.I18n
+     */
+    NFKD = 4,
+  }
+
+/**
+ * Provides the API for text encoding normalization.
+ *
+ * @syscap SystemCapability.Global.I18n
+ * @since 10
+ */
+export class Normalizer {
+    /**
+     * Get a Normalizer that is specified by id name.
+     *
+     * @throws {BusinessError} 401 - check param failed
+     * @syscap SystemCapability.Global.I18n
+     * @param mode specified the mode of Normalizer.
+     * @returns Returns Transliterator that is specified by id name.
+     * @since 10
+     */
+    static getInstance(mode: NormalizerMode): Normalizer;
+
+    /**
+     * Get a normalized string of specified mode.
+     *
+     * @throws {BusinessError} 401 - check param failed
+     * @syscap SystemCapability.Global.I18n
+     * @returns Returns a normalized string from source.
+     * @since 10
+     */
+    normalize(text: string): string;
 }
 }
 export default i18n;

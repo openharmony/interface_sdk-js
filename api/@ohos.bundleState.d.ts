@@ -131,7 +131,7 @@ declare namespace bundleState {
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @param bundleName Indicates the bundle name of the application to query.
-     * @return Returns {@code true} if the application is idle in a particular period;
+     * @returns Returns {@code true} if the application is idle in a particular period;
      * returns {@code false} otherwise. The time range of the particular period is defined by the system,
      * which may be hours or days.
      * @deprecated since 9
@@ -148,7 +148,7 @@ declare namespace bundleState {
      *
      * @since 7
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
-     * @return Returns the usage priority group of the calling application.
+     * @returns Returns the usage priority group of the calling application.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryAppGroup
      */
@@ -176,7 +176,7 @@ declare namespace bundleState {
      * @systemapi Hide this for inner system use.
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
+     * @returns Returns the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfos
      */
@@ -230,7 +230,7 @@ declare namespace bundleState {
      * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
+     * @returns Returns the list of {@link BundleStateInfo} objects containing the usage information about each bundle.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryBundleStatsInfoByInterval
      */
@@ -246,7 +246,7 @@ declare namespace bundleState {
      * @systemapi Hide this for inner system use.
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
+     * @returns Returns the list of {@link BundleActiveState} objects containing the state data of all bundles.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryBundleEvents
      */
@@ -260,7 +260,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @param begin Indicates the start time of the query period, in milliseconds.
      * @param end Indicates the end time of the query period, in milliseconds.
-     * @return Returns the {@link BundleActiveState} object Array containing the state data of the current bundle.
+     * @returns Returns the {@link BundleActiveState} object Array containing the state data of the current bundle.
      * @deprecated since 9
      * @useinstead ohos.resourceschedule.usageStatistics.queryCurrentBundleEvents
      */

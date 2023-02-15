@@ -135,13 +135,13 @@ import { AsyncCallback } from './basic';
   }
 
   /**
-   * color space manager, created by color space infomation
+   * Defines a color space object and manages its key information
    * @since 9
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    */
   interface ColorSpaceManager {
     /**
-     * Get color space type.
+     * Get the name of color space type.
      * @since 9
      * @throws {BusinessError} 18600001 - If param value is abnormal
      */
@@ -163,7 +163,7 @@ import { AsyncCallback } from './basic';
   }
 
   /**
-   * Create a color space manager by proviced color space type.
+   * Create a color space manager by provided color space type.
    * @param colorSpaceName Indicates the type of color space
    * @since 9
    * @throws {BusinessError} 401 - If param is invalid

@@ -18,7 +18,7 @@ import { StartAbilityParameter } from './ability/startAbilityParameter';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
 import { NotificationRequest } from './notification/notificationRequest';
 import { ConnectOptions } from './ability/connectOptions';
-import Want from './@ohos.application.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * A Particle Ability represents an ability with service.

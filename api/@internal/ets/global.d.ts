@@ -82,7 +82,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
 /**
- * Cancels the interval set by " setInterval()".
+ * Cancel the interval set by " setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param intervalID Indicates the timer ID returned by "setInterval()".
  * @since 7
@@ -90,7 +90,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
 export declare function clearInterval(intervalID?: number): void;
 
 /**
- * Cancels the timer set by "setTimeout()".
+ * Cancel the timer set by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @param timeoutID Indicates the timer ID returned by "setTimeout()".
  * @since 7
@@ -117,7 +117,7 @@ export declare function getInspectorByKey(id: string): string;
   * @since 9
   * @test
   */
-export declare function getInspectorTree(): string;
+export declare function getInspectorTree(): Object;
  
  /**
   * Sends an event to the component with the specified ID.

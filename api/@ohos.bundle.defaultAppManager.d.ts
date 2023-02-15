@@ -14,8 +14,8 @@
  */
 
 import { AsyncCallback } from './basic';
-import { BundleInfo } from './bundleManager/bundleInfo';
-import { ElementName } from './bundleManager/elementName';
+import { BundleInfo } from './bundleManager/BundleInfo';
+import { ElementName } from './bundleManager/ElementName';
 
 /**
  * Default application manager.
@@ -110,6 +110,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -129,6 +130,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<BundleInfo> } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -148,6 +150,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of setting default application result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -168,6 +171,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of setting default application.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -186,6 +190,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -204,6 +209,7 @@ declare namespace defaultAppManager {
    * @param { number } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of resetting default application.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.

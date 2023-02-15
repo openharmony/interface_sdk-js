@@ -29,7 +29,7 @@ declare namespace connection {
   type UDPSocket = socket.UDPSocket;
 
   /**
-   * Create a network connection with optional netSpefifier and timeout.
+   * Create a network connection with optional netSpecifier and timeout.
    *
    * @param netSpecifier Indicates the network specifier. See {@link NetSpecifier}.
    * @param timeout The time in milliseconds to attempt looking for a suitable network before
@@ -39,6 +39,8 @@ declare namespace connection {
 
   /**
    * Obtains the data network that is activated by default.
+   *
+   * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param callback Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
@@ -52,7 +54,7 @@ declare namespace connection {
    *
    * <p>To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
-   * @return Returns the {@link NetHandle} object;
+   * @returns Returns the {@link NetHandle} object;
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @since 9
@@ -63,6 +65,8 @@ declare namespace connection {
   /**
    * Obtains the list of data networks that are activated.
    *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   *
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    */
@@ -71,6 +75,8 @@ declare namespace connection {
 
   /**
    * Queries the connection properties of a network.
+   *
+   * <p>This method requires the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the network to be queried.
    * @param callback Returns the {@link ConnectionProperties} object.
@@ -81,6 +87,8 @@ declare namespace connection {
 
   /**
    * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
    *
    * @param netHandle Indicates the handle. See {@link NetHandle}.
    * @param callback Returns {@link NetCapabilities}; returns {@code null} if {@code handle} is invalid.
@@ -105,12 +113,15 @@ declare namespace connection {
    * Checks whether the default data network is activated.
    *
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
+   * @permission ohos.permission.GET_NETWORK_INFO
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
   function hasDefaultNet(): Promise<boolean>;
 
   /**
    * Enables the airplane mode for a device.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
    */
@@ -119,6 +130,8 @@ declare namespace connection {
 
   /**
    * Disables the airplane mode for a device.
+   *
+   * <p>To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
    *
    * @systemapi Hide this for inner system use. Only used for system app.
    */
@@ -152,6 +165,98 @@ declare namespace connection {
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
+
+  /**
+   * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+   *
+   * @param callback Returns the {@link NetHandle} bound to the process;
+   *      returns {@code null} if no {@link NetHandle} is bound to the process.
+   *      For details, see {@link NetHandle}.
+   * @since 9
+   */
+  function getAppNet(callback: AsyncCallback<NetHandle>): void;
+
+  /**
+   * Obtains the {@link NetHandle} bound to a process using {@link setAppNet}.
+   *
+   * @returns { Promise<NetHandle> } the promise returned by the function.
+   *      returns {@code null} if no {@link NetHandle} is bound to the process.
+   *      For details, see {@link NetHandle}.
+   * @since 9
+   */
+  function getAppNet(): Promise<NetHandle>;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @param callback Returns the callback of setAppNet.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
+
+  /**
+   * Binds a process to {@code NetHandle}.
+   *
+   * <p>All the sockets created from the process will be bound to the {@code NetHandle},
+   * and the resolution of all host names will be managed by the {@code NetHandle}.
+   *
+   * @param netHandle Indicates the handle. For details, see {@link NetHandle}.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @permission ohos.permission.INTERNET
+   * @throws {BusinessError} 201 - Permission denied.
+   * @since 9
+   */
+  function setAppNet(netHandle: NetHandle): Promise<void>;
+
+  /**
+   * Obtains the network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param callback Returns the proxy settings. For details, see {@link HttpProxy}.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
+
+  /**
+   * Obtains the network independent global {@link HttpProxy} proxy settings.
+   *
+   * @returns { Promise<HttpProxy> } the promise returned by the function.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getGlobalHttpProxy(): Promise<HttpProxy>;
+
+  /**
+   * Set a network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @param callback Returns the callback of setGlobalHttpProxy.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set a network independent global {@link HttpProxy} proxy settings.
+   *
+   * @param httpProxy Indicates the global proxy settings. For details, see {@link HttpProxy}.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   export interface NetConnection {
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
@@ -212,7 +317,7 @@ declare namespace connection {
      * Resolves a host name to obtain the first IP address based on the specified NetHandle.
      *
      * @param host Indicates the host name or the domain.
-     * @return Returns the first NetAddress.
+     * @param callback Returns the first NetAddress.
      * @permission ohos.permission.GET_NETWORK_INFO
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
@@ -296,6 +401,15 @@ declare namespace connection {
     address: string;
     family?: number; // IPv4 = 1; IPv6 = 2, default is IPv4
     port?: number; // [0, 65535]
+  }
+
+  /**
+   * @since 10
+   */
+  export interface HttpProxy {
+    host: string;
+    port: number;
+    exclusionList: Array<string>;
   }
 }
 

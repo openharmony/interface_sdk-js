@@ -15,7 +15,6 @@
 
 /**
  * Contains interpolator functions such as initialization, third-order Bezier curves, and spring curves.
- * @import import Curves from '@ohos.curves'
  * @namespace curves
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -76,6 +75,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
+   * @useinstead initCurve
    */
   function init(curve?: Curve): string;
  
@@ -97,6 +97,7 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
+   * @useinstead stepsCurve
    */
   function steps(count: number, end: boolean): string;
  
@@ -104,6 +105,7 @@ declare namespace curves {
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
    * @param { number } y1
+   * @param { number } x2
    * @param { number } y2
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,11 +117,13 @@ declare namespace curves {
    * Constructs a third-order Bezier curve when called.
    * @param { number } x1
    * @param { number } y1
+   * @param { number } x2
    * @param { number } y2
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
+   * @useinstead cubicBezierCurve
    */
   function cubicBezier(x1: number, y1: number, x2: number, y2: number): string;
  
@@ -145,32 +149,29 @@ declare namespace curves {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
+   * @useinstead springCurve
    */
   function spring(velocity: number, mass: number, stiffness: number, damping: number): string;
 
   /**
    * Constructs a spring motion when called.
-   * If one parameter is not specified, it uses the corresponding default values.
    * @param { number } [response]
    * @param { number } [dampingFraction]
    * @param { number } [overlapDuration]
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function springMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 
   /**
    * Constructs a responsive spring motion when called.
-   * If one parameter is not specified, it uses the corresponding default values.
    * @param { number } [response]
    * @param { number } [dampingFraction]
    * @param { number } [overlapDuration]
    * @returns { ICurve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @systemapi
    */
   function responsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number): ICurve;
 

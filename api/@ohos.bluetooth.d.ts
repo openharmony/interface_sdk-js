@@ -13,35 +13,41 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
+import { AsyncCallback, Callback } from './basic';
 
 /**
  * Provides methods to operate or manage Bluetooth.
- * @since 7
- * @import import bluetooth from '@ohos.bluetooth'
+ * @namespace bluetooth
  * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.bluetoothManager
  */
 declare namespace bluetooth {
     /**
      * Obtains the Bluetooth status of a device.
      *
-     * @return Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
+     * @returns { BluetoothState } Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
      * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
      * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
      * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
      * @since 7
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getState
      */
     function getState(): BluetoothState;
 
     /**
      * Get the local device connection state to any profile of any remote device.
      *
-     * @return One of {@link ProfileConnectionState#STATE_DISCONNECTED},
+     * @returns { ProfileConnectionState } One of {@link ProfileConnectionState#STATE_DISCONNECTED},
      * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
      * {@link ProfileConnectionState#STATE_DISCONNECTING}.
      * @since 7
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getBtConnectionState
      */
     function getBtConnectionState(): ProfileConnectionState;
 
@@ -49,9 +55,11 @@ declare namespace bluetooth {
      * Starts pairing with a remote Bluetooth device.
      *
      * @param deviceId The address of the remote device to pair.
-     * @return Returns {@code true} if the pairing process is started; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the pairing process is started; returns {@code false} otherwise.
      * @since 7
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.pairDevice
      */
     function pairDevice(deviceId: string): boolean;
 
@@ -59,10 +67,12 @@ declare namespace bluetooth {
      * Remove a paired remote device.
      *
      * @param deviceId The address of the remote device to be removed.
-     * @return Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the cancel process is started; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
      * @systemapi Hide this for inner system use
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.cancelPairedDevice
      */
     function cancelPairedDevice(deviceId: string): boolean;
 
@@ -70,9 +80,11 @@ declare namespace bluetooth {
      * Obtains the name of a peer Bluetooth device.
      *
      * @param deviceId The address of the remote device.
-     * @return Returns the device name in character string format.
+     * @returns { string } Returns the device name in character string format.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getRemoteDeviceName
      */
     function getRemoteDeviceName(deviceId: string): string;
 
@@ -80,45 +92,55 @@ declare namespace bluetooth {
      * Obtains the class of a peer Bluetooth device.
      *
      * @param deviceId The address of the remote device.
-     * @return The class of the remote device, {@link DeviceClass}.
+     * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getRemoteDeviceClass
      */
     function getRemoteDeviceClass(deviceId: string): DeviceClass;
 
     /**
      * Enables Bluetooth on a device.
      *
-     * @return Returns {@code true} if Bluetooth is being enabled; returns {@code false} if an error occurs.
+     * @returns { boolean } Returns {@code true} if Bluetooth is being enabled; returns {@code false} if an error occurs.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.enableBluetooth
      */
     function enableBluetooth(): boolean;
 
     /**
      * Disables Bluetooth on a device.
      *
-     * @return Returns {@code true} if Bluetooth is being disabled; returns {@code false} if an error occurs.
+     * @returns { boolean } Returns {@code true} if Bluetooth is being disabled; returns {@code false} if an error occurs.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.disableBluetooth
      */
     function disableBluetooth(): boolean;
 
     /**
      * Obtains the Bluetooth local name of a device.
      *
-     * @return Returns the name the device.
+     * @returns { string } Returns the name the device.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getLocalName
      */
     function getLocalName(): string;
 
     /**
      * Obtains the list of Bluetooth devices that have been paired with the current device.
      *
-     * @return Returns a list of paired Bluetooth devices's address.
+     * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getPairedDevices
      */
     function getPairedDevices(): Array<string>;
 
@@ -126,9 +148,11 @@ declare namespace bluetooth {
      * Obtains the connection state of profile.
      *
      * @param profileId The profile id.
-     * @return Returns the connection state.
+     * @returns { ProfileConnectionState } Returns the connection state.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getProfileConnectionState
      */
     function getProfileConnState(profileId: ProfileId): ProfileConnectionState;
 
@@ -137,9 +161,11 @@ declare namespace bluetooth {
      *
      * @param device The address of the remote device.
      * @param accept Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
-     * @return Returns {@code true} if the pairing confirmation is set; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the pairing confirmation is set; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.MANAGE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.setDevicePairingConfirmation
      */
     function setDevicePairingConfirmation(device: string, accept: boolean): boolean;
 
@@ -147,9 +173,11 @@ declare namespace bluetooth {
      * Sets the Bluetooth friendly name of a device.
      *
      * @param name Indicates a valid Bluetooth name.
-     * @return Returns {@code true} if the Bluetooth name is set successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the Bluetooth name is set successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.setLocalName
      */
     function setLocalName(name: string): boolean;
 
@@ -158,36 +186,44 @@ declare namespace bluetooth {
      *
      * @param mode Indicates the Bluetooth scan mode to set, {@link ScanMode}.
      * @param duration Indicates the duration in seconds, in which the host is discoverable.
-     * @return Returns {@code true} if the Bluetooth scan mode is set; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the Bluetooth scan mode is set; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.setBluetoothScanMode
      */
     function setBluetoothScanMode(mode: ScanMode, duration: number): boolean;
 
     /**
      * Obtains the Bluetooth scanning mode of a device.
      *
-     * @return Returns the Bluetooth scanning mode, {@link ScanMode}.
+     * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getBluetoothScanMode
      */
     function getBluetoothScanMode(): ScanMode;
 
     /**
      * Starts scanning Bluetooth devices.
      *
-     * @return Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the scan is started successfully; returns {@code false} otherwise.
      * @since 8
-     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION 
+     * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.startBluetoothDiscovery
      */
     function startBluetoothDiscovery(): boolean;
 
     /**
      * Stops Bluetooth device scanning.
      *
-     * @return Returns {@code true} if scanning is stopped successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if scanning is stopped successfully; returns {@code false} otherwise.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.stopBluetoothDiscovery
      */
     function stopBluetoothDiscovery(): boolean;
 
@@ -198,6 +234,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the discovering event.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:bluetoothDeviceFind
      */
     function on(type: "bluetoothDeviceFind", callback: Callback<Array<string>>): void;
 
@@ -208,6 +246,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the discovering event.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:bluetoothDeviceFind
      */
     function off(type: "bluetoothDeviceFind", callback?: Callback<Array<string>>): void;
 
@@ -218,6 +258,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the bond state event, {@link BondStateParam}.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:bondStateChange
      */
     function on(type: "bondStateChange", callback: Callback<BondStateParam>): void;
 
@@ -228,6 +270,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the bond state event.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:bondStateChange
      */
     function off(type: "bondStateChange", callback?: Callback<BondStateParam>): void;
 
@@ -238,6 +282,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the pairing request event.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:pinRequired
      */
     function on(type: "pinRequired", callback: Callback<PinRequiredParam>): void;
 
@@ -248,6 +294,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the pairing request event.
      * @since 8
      * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:pinRequired
      */
     function off(type: "pinRequired", callback?: Callback<PinRequiredParam>): void;
 
@@ -258,6 +306,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the Bluetooth state event.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:stateChange
      */
     function on(type: "stateChange", callback: Callback<BluetoothState>): void;
 
@@ -268,6 +318,8 @@ declare namespace bluetooth {
      * @param callback Callback used to listen for the Bluetooth state event.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:stateChange
      */
     function off(type: "stateChange", callback?: Callback<BluetoothState>): void;
 
@@ -279,6 +331,8 @@ declare namespace bluetooth {
      * @param callback Callback used to return a server socket ID.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppListen
      */
     function sppListen(name: string, option: SppOption, callback: AsyncCallback<number>): void;
 
@@ -288,6 +342,8 @@ declare namespace bluetooth {
      * @param serverSocket Indicates the server socket ID, returned by {@link sppListen}.
      * @param callback Callback used to return a client socket ID.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppAccept
      */
     function sppAccept(serverSocket: number, callback: AsyncCallback<number>): void;
 
@@ -299,6 +355,8 @@ declare namespace bluetooth {
      * @param callback Callback used to return a client socket ID.
      * @since 8
      * @permission ohos.permission.USE_BLUETOOTH
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppConnect
      */
     function sppConnect(device: string, option: SppOption, callback: AsyncCallback<number>): void;
 
@@ -307,6 +365,8 @@ declare namespace bluetooth {
      *
      * @param socket Indicates the server socket ID, returned by {@link sppListen}.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppCloseServerSocket
      */
     function sppCloseServerSocket(socket: number): void;
 
@@ -315,6 +375,8 @@ declare namespace bluetooth {
      *
      * @param socket Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppCloseClientSocket
      */
     function sppCloseClientSocket(socket: number): void;
 
@@ -323,8 +385,10 @@ declare namespace bluetooth {
      *
      * @param clientSocket Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
      * @param data Indicates the data to write.
-     * @return Returns {@code true} if the data is write successfully; returns {@code false} otherwise.
+     * @returns { boolean } Returns {@code true} if the data is write successfully; returns {@code false} otherwise.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.sppWrite
      */
     function sppWrite(clientSocket: number, data: ArrayBuffer): boolean;
 
@@ -334,6 +398,8 @@ declare namespace bluetooth {
      * @param type Type of the spp read event to listen for.
      * @param callback Callback used to listen for the spp read event.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.on#event:sppRead
      */
     function on(type: "sppRead", clientSocket: number, callback: Callback<ArrayBuffer>): void;
 
@@ -343,6 +409,8 @@ declare namespace bluetooth {
      * @param type Type of the spp read event to listen for.
      * @param callback Callback used to listen for the spp read event.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.off#event:sppRead
      */
     function off(type: "sppRead", clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
@@ -350,8 +418,10 @@ declare namespace bluetooth {
      * Obtains the instance of profile.
      *
      * @param profileId The profile id..
-     * @return Returns instance of profile.
+     * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile } Returns instance of profile.
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getProfileInstance
      */
     function getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile;
 
@@ -359,21 +429,28 @@ declare namespace bluetooth {
      * Obtains the instance of profile.
      *
      * @param profileId The profile id..
-     * @return Returns instance of profile.
+     * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
      * @since 9
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.getProfileInstance
      */
     function getProfileInst(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile;
 
     /**
      * Base interface of profile.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BaseProfile
      */
     interface BaseProfile {
         /**
          * Obtains the connected devices list of profile.
          *
-         * @return Returns the address of connected devices list.
+         * @returns { Array<string> } Returns the address of connected devices list.
          * @since 8
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BaseProfile#getConnectionDevices
          */
         getConnectionDevices(): Array<string>;
 
@@ -381,24 +458,31 @@ declare namespace bluetooth {
          * Obtains the profile state of device.
          *
          * @param device The address of bluetooth device.
-         * @return Returns {@link ProfileConnectionState} of device.
+         * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
          * @since 8
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BaseProfile#getDeviceState
          */
         getDeviceState(device: string): ProfileConnectionState;
     }
 
     /**
      * Manager a2dp source profile.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile
      */
     interface A2dpSourceProfile extends BaseProfile {
         /**
          * Connect to device with a2dp.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile#connect
          */
         connect(device: string): boolean;
 
@@ -406,9 +490,11 @@ declare namespace bluetooth {
          * Disconnect to device with a2dp.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile#disconnect
          */
         disconnect(device: string): boolean;
 
@@ -418,6 +504,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile.on#event:connectionStateChange
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
 
@@ -427,6 +515,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile.off#event:connectionStateChange
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
 
@@ -434,23 +524,30 @@ declare namespace bluetooth {
          * Obtains the playing state of device.
          *
          * @param device The address of the remote device.
-         * @return Returns {@link PlayingState} of the remote device.
+         * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.A2dpSourceProfile#getPlayingState
          */
         getPlayingState(device: string): PlayingState;
     }
 
     /**
      * Manager handsfree AG profile.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile
      */
     interface HandsFreeAudioGatewayProfile extends BaseProfile {
         /**
          * Connect to device with hfp.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile#connect
          */
         connect(device: string): boolean;
 
@@ -458,9 +555,11 @@ declare namespace bluetooth {
          * Disconnect to device with hfp.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 8
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile#disconnect
          */
         disconnect(device: string): boolean;
 
@@ -470,6 +569,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
 
@@ -479,22 +580,29 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 8
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
 
     /**
      * Manager hid host profile.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile
      */
     interface HidHostProfile extends BaseProfile {
         /**
          * Connect to device with hid host.
          *
          * @param device The address of the remote device to connect.
-         * @return Returns {@code true} if the connect is in process; returns {@code false} otherwise.
+         * @returns { boolean } {@code true} if the connect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile#connect
          */
         connect(device: string): boolean;
 
@@ -502,10 +610,12 @@ declare namespace bluetooth {
          * Disconnect to device with hid host.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile#disconnect
          */
         disconnect(device: string): boolean;
 
@@ -515,6 +625,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile.on#event:connectionStateChange
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
 
@@ -524,22 +636,29 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for.
          * @param callback Callback used to listen for event.
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.HidHostProfile.off#event:connectionStateChange
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
     }
 
     /**
      * Manager pan profile.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile
      */
     interface PanProfile extends BaseProfile {
         /**
          * Disconnect to device with pan.
          *
          * @param device The address of the remote device to disconnect.
-         * @return Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnect is in process; returns {@code false} otherwise.
          * @since 9
-         * @permission permission ohos.permission.USE_BLUETOOTH
+         * @permission ohos.permission.USE_BLUETOOTH
          * @systemapi Hide this for inner system use.
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#disconnect
          */
         disconnect(device: string): boolean;
 
@@ -549,6 +668,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for .
          * @param callback Callback used to listen for event.
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile.on#event:connectionStateChange
          */
         on(type: "connectionStateChange", callback: Callback<StateChangeParam>): void;
 
@@ -558,6 +679,8 @@ declare namespace bluetooth {
          * @param type Type of the profile connection state changes event to listen for.
          * @param callback Callback used to listen for event.
          * @since 9
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile.off#event:connectionStateChange
          */
         off(type: "connectionStateChange", callback?: Callback<StateChangeParam>): void;
 
@@ -567,17 +690,21 @@ declare namespace bluetooth {
          * @param enable Specifies whether to enable tethering. The value {@code true} indicates
          * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
          * @since 9
-         * @permission permission ohos.permission.DISCOVER_BLUETOOTH
+         * @permission ohos.permission.DISCOVER_BLUETOOTH
          * @systemapi Hide this for inner system use.
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#setTethering
          */
         setTethering(enable: boolean): void;
 
         /**
          * Obtains the tethering enable or disable.
          *
-         * @return Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
+         * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
          * @since 9
          * @systemapi Hide this for inner system use.
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.PanProfile#isTetheringOn
          */
         isTetheringOn(): boolean;
     }
@@ -586,8 +713,10 @@ declare namespace bluetooth {
         /**
          * create a JavaScript Gatt server instance.
          *
-         * @return Returns a JavaScript Gatt server instance {@code GattServer}.
+         * @returns { GattServer } Returns a JavaScript Gatt server instance {@code GattServer}.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.createGattServer
          */
         function createGattServer(): GattServer;
 
@@ -595,17 +724,21 @@ declare namespace bluetooth {
          * create a JavaScript Gatt client device instance.
          *
          * @param deviceId The address of the remote device.
-         * @return Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
+         * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
          * @since 7
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.createGattClientDevice
          */
         function createGattClientDevice(deviceId: string): GattClientDevice;
 
         /**
          * Obtains the list of devices in the connected status.
          *
-         * @return Returns the list of device address.
+         * @returns { Array<string> } Returns the list of device address.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.getConnectedBLEDevices
          */
         function getConnectedBLEDevices(): Array<string>;
 
@@ -619,6 +752,8 @@ declare namespace bluetooth {
          * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
          * @since 7
          * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH and ohos.permission.LOCATION
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.startBLEScan
          */
         function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 
@@ -627,6 +762,8 @@ declare namespace bluetooth {
          *
          * @since 7
          * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.stopBLEScan
          */
         function stopBLEScan(): void;
 
@@ -637,6 +774,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the scan result event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.on#event:BLEDeviceFind
          */
         function on(type: "BLEDeviceFind", callback: Callback<Array<ScanResult>>): void;
 
@@ -647,12 +786,17 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the scan result event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.BLE.off#event:BLEDeviceFind
          */
         function off(type: "BLEDeviceFind", callback?: Callback<Array<ScanResult>>): void;
     }
 
     /**
      * Manages GATT server. Before calling an Gatt server method, you must use {@link createGattServer} to create an GattServer instance.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer
      */
     interface GattServer {
         /**
@@ -664,6 +808,8 @@ declare namespace bluetooth {
          * @param advResponse Indicates the scan response associated with the advertising data.
          * @since 7
          * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#startAdvertising
          */
         startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
 
@@ -672,6 +818,8 @@ declare namespace bluetooth {
          *
          * @since 7
          * @permission ohos.permission.DISCOVER_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#stopAdvertising
          */
         stopAdvertising(): void;
 
@@ -681,9 +829,11 @@ declare namespace bluetooth {
          * <p>The added service and its characteristics are provided by the local device.
          *
          * @param service Indicates the service to add.
-         * @return Returns {@code true} if the service is added; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the service is added; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#addService
          */
         addService(service: GattService): boolean;
 
@@ -691,9 +841,11 @@ declare namespace bluetooth {
          * Removes a specified service from the list of GATT services provided by this device.
          *
          * @param serviceUuid Indicates the UUID of the service to remove.
-         * @return Returns {@code true} if the service is removed; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the service is removed; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#removeService
          */
         removeService(serviceUuid: string): boolean;
 
@@ -702,6 +854,8 @@ declare namespace bluetooth {
          *
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#close
          */
         close(): void;
 
@@ -712,9 +866,11 @@ declare namespace bluetooth {
          *
          * @param deviceId Indicates the address of the BLE peripheral device to receive the notification.
          * @param notifyCharacteristic Indicates the local characteristic that has changed.
-         * @return Returns {@code true} if the notification is sent successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the notification is sent successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#notifyCharacteristicChanged
          */
         notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): boolean;
 
@@ -722,9 +878,11 @@ declare namespace bluetooth {
          * Sends a response to a specified read or write request to a given BLE peripheral device.
          *
          * @param serverResponse Indicates the response parameters {@link ServerResponse}.
-         * @return Returns {@code true} if the response is sent successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the response is sent successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#sendResponse
          */
         sendResponse(serverResponse: ServerResponse): boolean;
 
@@ -735,6 +893,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic read event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:characteristicRead
          */
         on(type: "characteristicRead", callback: Callback<CharacteristicReadReq>): void;
 
@@ -745,6 +905,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic read event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:characteristicRead
          */
         off(type: "characteristicRead", callback?: Callback<CharacteristicReadReq>): void;
 
@@ -755,6 +917,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic write event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:characteristicWrite
          */
         on(type: "characteristicWrite", callback: Callback<CharacteristicWriteReq>): void;
 
@@ -765,6 +929,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic write event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:characteristicWrite
          */
         off(type: "characteristicWrite", callback?: Callback<CharacteristicWriteReq>): void;
 
@@ -775,6 +941,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the descriptor read event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:descriptorRead
          */
         on(type: "descriptorRead", callback: Callback<DescriptorReadReq>): void;
 
@@ -785,6 +953,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the descriptor read event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:descriptorRead
          */
         off(type: "descriptorRead", callback?: Callback<DescriptorReadReq>): void;
 
@@ -795,6 +965,9 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the descriptor write event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:descriptorWrite
          */
         on(type: "descriptorWrite", callback: Callback<DescriptorWriteReq>): void;
 
@@ -805,6 +978,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the descriptor write event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:descriptorWrite
          */
         off(type: "descriptorWrite", callback?: Callback<DescriptorWriteReq>): void;
 
@@ -815,6 +990,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the connection state changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#on#event:connectStateChange
          */
         on(type: "connectStateChange", callback: Callback<BLEConnectChangedState>): void;
 
@@ -825,12 +1002,17 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the connection state changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattServer#off#event:connectStateChange
          */
         off(type: "connectStateChange", callback?: Callback<BLEConnectChangedState>): void;
     }
 
     /**
      * Manages GATT client. Before calling an Gatt client method, you must use {@link createGattClientDevice} to create an GattClientDevice instance.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice
      */
     interface GattClientDevice {
 
@@ -839,18 +1021,22 @@ declare namespace bluetooth {
          *
          * <p>The 'BLEConnectionStateChange' event is subscribed to return the connection state.
          *
-         * @return Returns {@code true} if the connection process starts; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the connection process starts; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#connect
          */
         connect(): boolean;
 
         /**
          * Disconnects from or stops an ongoing connection to a BLE peripheral device.
          *
-         * @return Returns {@code true} if the disconnection process starts; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the disconnection process starts; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#disconnect
          */
         disconnect(): boolean;
 
@@ -859,19 +1045,23 @@ declare namespace bluetooth {
          *
          * <p> This method unregisters the device and clears the registered callbacks and handles.
          *
-         * @return Returns {@code true} if the the device is disabled; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the the device is disabled; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#close
          */
         close(): boolean;
 
         /**
          * Obtains the name of BLE peripheral device.
          *
-         * @return Returns a string representation of the name if obtained;
+         * @returns { Promise<string> } Returns a string representation of the name if obtained;
          * returns {@code null} if the name fails to be obtained or the name does not exist.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#getDeviceName
          */
         getDeviceName(callback: AsyncCallback<string>): void;
         getDeviceName(): Promise<string>;
@@ -879,9 +1069,11 @@ declare namespace bluetooth {
         /**
          * Starts discovering services.
          *
-         * @return Returns the list of services {@link GattService} of the BLE peripheral device.
+         * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#getServices
          */
         getServices(callback: AsyncCallback<Array<GattService>>): void;
         getServices(): Promise<Array<GattService>>;
@@ -892,6 +1084,8 @@ declare namespace bluetooth {
          * @param characteristic Indicates the characteristic to read.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#readCharacteristicValue
          */
         readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
         readCharacteristicValue(characteristic: BLECharacteristic): Promise<BLECharacteristic>;
@@ -902,6 +1096,8 @@ declare namespace bluetooth {
          * @param descriptor Indicates the descriptor to read.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#readDescriptorValue
          */
         readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
         readDescriptorValue(descriptor: BLEDescriptor): Promise<BLEDescriptor>;
@@ -910,9 +1106,11 @@ declare namespace bluetooth {
          * Writes the characteristic of a BLE peripheral device.
          *
          * @param characteristic Indicates the characteristic to write.
-         * @return Returns {@code true} if the characteristic is written successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the characteristic is written successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#writeCharacteristicValue
          */
         writeCharacteristicValue(characteristic: BLECharacteristic): boolean;
 
@@ -920,18 +1118,22 @@ declare namespace bluetooth {
          * Writes the descriptor of a BLE peripheral device.
          *
          * @param descriptor Indicates the descriptor to write.
-         * @return Returns {@code true} if the descriptor is written successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the descriptor is written successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#writeDescriptorValue
          */
         writeDescriptorValue(descriptor: BLEDescriptor): boolean;
 
         /**
          * Get the RSSI value of this BLE peripheral device.
          *
-         * @return Returns the RSSI value.
+         * @returns { Promise<number> } Returns the RSSI value.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#getRssiValue
          */
         getRssiValue(callback: AsyncCallback<number>): void;
         getRssiValue(): Promise<number>;
@@ -940,9 +1142,11 @@ declare namespace bluetooth {
          * Set the mtu size of a BLE peripheral device.
          *
          * @param mtu The maximum transmission unit.
-         * @return Returns {@code true} if the set mtu is successfully; returns {@code false} otherwise.
+         * @returns { boolean } Returns {@code true} if the set mtu is successfully; returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#setBLEMtuSize
          */
         setBLEMtuSize(mtu: number): boolean;
 
@@ -951,10 +1155,12 @@ declare namespace bluetooth {
          *
          * @param enable Specifies whether to enable notification of the characteristic. The value {@code true} indicates
          * that notification is enabled, and the value {@code false} indicates that notification is disabled.
-         * @return Returns {@code true} if notification of the characteristic is enabled or disabled;
+         * @returns { boolean } Returns {@code true} if notification of the characteristic is enabled or disabled;
          * returns {@code false} otherwise.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#setNotifyCharacteristicChanged
          */
         setNotifyCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): boolean;
 
@@ -965,6 +1171,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic value changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#on#event:BLECharacteristicChange
          */
         on(type: "BLECharacteristicChange", callback: Callback<BLECharacteristic>): void;
 
@@ -975,6 +1183,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the characteristic value changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#off#event:BLECharacteristicChange
          */
         off(type: "BLECharacteristicChange", callback?: Callback<BLECharacteristic>): void;
 
@@ -985,6 +1195,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the connection state changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#on#event:BLEConnectionStateChange
          */
         on(type: "BLEConnectionStateChange", callback: Callback<BLEConnectChangedState>): void;
 
@@ -995,6 +1207,8 @@ declare namespace bluetooth {
          * @param callback Callback used to listen for the connection state changed event.
          * @since 7
          * @permission ohos.permission.USE_BLUETOOTH
+         * @deprecated since 9
+         * @useinstead ohos.bluetoothManager/bluetoothManager.GattClientDevice#off#event:BLEConnectionStateChange
          */
         off(type: "BLEConnectionStateChange", callback?: Callback<BLEConnectChangedState>): void;
     }
@@ -1003,6 +1217,8 @@ declare namespace bluetooth {
      * Describes the Gatt service.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.GattService
      */
     interface GattService {
         /** The UUID of a GattService instance */
@@ -1019,6 +1235,8 @@ declare namespace bluetooth {
      * Describes the Gatt characteristic.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BLECharacteristic
      */
     interface BLECharacteristic {
         /** The UUID of the {@link GattService} instance to which the characteristic belongs */
@@ -1035,6 +1253,8 @@ declare namespace bluetooth {
      * Describes the Gatt descriptor.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BLEDescriptor
      */
     interface BLEDescriptor {
         /** The UUID of the {@link GattService} instance to which the descriptor belongs */
@@ -1051,6 +1271,8 @@ declare namespace bluetooth {
      * Describes the value of the indication or notification sent by the Gatt server.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.NotifyCharacteristic
      */
     interface NotifyCharacteristic {
         /** The UUID of the {@link GattService} instance to which the characteristic belongs */
@@ -1070,6 +1292,8 @@ declare namespace bluetooth {
      * Describes the parameters of the Gatt client's characteristic read request.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicReadRequest
      */
     interface CharacteristicReadReq {
         /** Indicates the address of the client that initiates the read request */
@@ -1088,6 +1312,8 @@ declare namespace bluetooth {
      * Describes the parameters of the of the Gatt client's characteristic write request.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.CharacteristicWriteRequest
      */
     interface CharacteristicWriteReq {
         /** Indicates the address of the client that initiates the write request */
@@ -1112,6 +1338,8 @@ declare namespace bluetooth {
      * Describes the parameters of the Gatt client's descriptor read request.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorReadRequest
      */
     interface DescriptorReadReq {
         /** Indicates the address of the client that initiates the read request */
@@ -1132,6 +1360,8 @@ declare namespace bluetooth {
      * Describes the parameters of the Gatt client's characteristic write request.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.DescriptorWriteRequest
      */
     interface DescriptorWriteReq {
         /** Indicates the address of the client that initiates the write request */
@@ -1158,6 +1388,8 @@ declare namespace bluetooth {
      * Describes the parameters of a response send by the server to a specified read or write request.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ServerResponse
      */
     interface ServerResponse {
         /** Indicates the address of the client to which to send the response */
@@ -1176,6 +1408,8 @@ declare namespace bluetooth {
      * Describes the Gatt profile connection state.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BLEConnectChangedState
      */
     interface BLEConnectChangedState {
         /** Indicates the peer device address */
@@ -1188,6 +1422,8 @@ declare namespace bluetooth {
      * Describes the contents of the scan results.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ScanResult
      */
     interface ScanResult {
         /** Address of the scanned device */
@@ -1202,6 +1438,8 @@ declare namespace bluetooth {
      * Describes the settings for BLE advertising.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseSetting
      */
     interface AdvertiseSetting {
         /**
@@ -1224,6 +1462,8 @@ declare namespace bluetooth {
      * Describes the advertising data.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.AdvertiseData
      */
     interface AdvertiseData {
         /** The specified service UUID list to this advertisement */
@@ -1238,6 +1478,8 @@ declare namespace bluetooth {
      * Describes the manufacturer data.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ManufactureData
      */
     interface ManufactureData {
         /** Indicates the manufacturer ID assigned by Bluetooth SIG */
@@ -1250,6 +1492,8 @@ declare namespace bluetooth {
      * Describes the service data.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ServiceData
      */
     interface ServiceData {
         /** Indicates the UUID of the service data to add */
@@ -1261,6 +1505,8 @@ declare namespace bluetooth {
     /**
      * Describes the criteria for filtering scanning results can be set.
      *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ScanFilter
      */
     interface ScanFilter {
         /**
@@ -1280,13 +1526,13 @@ declare namespace bluetooth {
          * @since 7
          */
         serviceUuid?: string;
-        
+
         /**
          * Service UUID mask.
          * @since 9
          */
         serviceUuidMask?: string;
-        
+
         /**
          * Service solicitation UUID mask.
          * @since 9
@@ -1334,6 +1580,8 @@ declare namespace bluetooth {
      * Describes the parameters for scan.
      *
      * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ScanOptions
      */
     interface ScanOptions {
         /** Time of delay for reporting the scan result */
@@ -1348,6 +1596,8 @@ declare namespace bluetooth {
      * Describes the spp parameters.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.SppOption
      */
     interface SppOption {
         /** Indicates the UUID in the SDP record. */
@@ -1362,6 +1612,8 @@ declare namespace bluetooth {
      * Describes the bond key param.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.PinRequiredParam
      */
     interface PinRequiredParam {
         deviceId: string;
@@ -1372,6 +1624,8 @@ declare namespace bluetooth {
      * Describes the class of a bluetooth device.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.DeviceClass
      */
     interface DeviceClass {
         majorClass: MajorClass;
@@ -1383,12 +1637,20 @@ declare namespace bluetooth {
      * Describes the class of a bluetooth device.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BondStateParam
      */
     interface BondStateParam {
         deviceId: string;
         state: BondState;
     }
 
+    /**
+     * The enum of scan duty.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ScanDuty
+     */
     enum ScanDuty {
         /** low power mode */
         SCAN_MODE_LOW_POWER = 0,
@@ -1398,6 +1660,12 @@ declare namespace bluetooth {
         SCAN_MODE_LOW_LATENCY = 2
     }
 
+    /**
+     * The enum of BLE match mode.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.MatchMode
+     */
     enum MatchMode {
         /** aggressive mode */
         MATCH_MODE_AGGRESSIVE = 1,
@@ -1405,6 +1673,12 @@ declare namespace bluetooth {
         MATCH_MODE_STICKY = 2
     }
 
+    /**
+     * The enum of profile connection state.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileConnectionState
+     */
     enum ProfileConnectionState {
         /** the current profile is disconnected */
         STATE_DISCONNECTED = 0,
@@ -1416,6 +1690,12 @@ declare namespace bluetooth {
         STATE_DISCONNECTING = 3
     }
 
+    /**
+     * The enum of bluetooth state.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BluetoothState
+     */
     enum BluetoothState {
         /** Indicates the local Bluetooth is off */
         STATE_OFF = 0,
@@ -1437,6 +1717,8 @@ declare namespace bluetooth {
      * The enum of SPP type.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.SppType
      */
     enum SppType {
         /** RFCOMM */
@@ -1447,6 +1729,8 @@ declare namespace bluetooth {
      * The enum of BR scan mode.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ScanMode
      */
     enum ScanMode {
         /** Indicates the scan mode is none */
@@ -1467,6 +1751,8 @@ declare namespace bluetooth {
      * The enum of bond state.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.BondState
      */
     enum BondState {
         /** Indicate the bond state is invalid */
@@ -1481,6 +1767,8 @@ declare namespace bluetooth {
      * The enum of major class of a bluetooth device.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.MajorClass
      */
     enum MajorClass {
         MAJOR_MISC = 0x0000,
@@ -1500,6 +1788,8 @@ declare namespace bluetooth {
      * The enum of major minor class of a bluetooth device.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.MajorMinorClass
      */
     enum MajorMinorClass {
         // The Minor Device Class field
@@ -1612,6 +1902,8 @@ declare namespace bluetooth {
      * Profile state change parameters.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.StateChangeParam
      */
     interface StateChangeParam {
         /** The address of device */
@@ -1625,6 +1917,8 @@ declare namespace bluetooth {
      * The enum of a2dp playing state.
      *
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.PlayingState
      */
     enum PlayingState {
         STATE_NOT_PLAYING,
@@ -1633,6 +1927,9 @@ declare namespace bluetooth {
 
     /**
      * The enum of profile id.
+     *
+     * @deprecated since 9
+     * @useinstead ohos.bluetoothManager/bluetoothManager.ProfileId
      */
     enum ProfileId {
         /**
@@ -1649,7 +1946,7 @@ declare namespace bluetooth {
          * @since 9
          */
         PROFILE_HID_HOST = 6,
-        
+
         /**
          * @since 9
          */

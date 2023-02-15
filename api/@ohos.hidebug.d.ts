@@ -25,7 +25,7 @@ declare namespace hidebug {
     /**
      * Get total native heap memory size
      * @param -
-     * @return Returns total native heap memory size.
+     * @returns Returns total native heap memory size.
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -34,7 +34,7 @@ declare namespace hidebug {
     /**
      * Get Native heap memory allocation size.
      * @param -
-     * @return Returns native heap memory allocation size.
+     * @returns Returns native heap memory allocation size.
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -43,7 +43,7 @@ declare namespace hidebug {
     /**
      * Get Native heap memory free size
      * @param -
-     * @return Returns native heap memory free size.
+     * @returns Returns native heap memory free size.
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -52,7 +52,7 @@ declare namespace hidebug {
     /**
      * Get application process proportional set size memory information
      * @param -
-     * @return Returns application process proportional set size memory information.
+     * @returns Returns application process proportional set size memory information.
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -61,7 +61,7 @@ declare namespace hidebug {
     /**
      * Obtains the size of the shared dirty memory of a process.
      * @param -
-     * @return Returns the size of the shared dirty memory.
+     * @returns Returns the size of the shared dirty memory.
      * @since 8
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -70,7 +70,7 @@ declare namespace hidebug {
     /**
      * Obtains the size of the private dirty memory of a process.
      * @param -
-     * @return Returns the size of the private dirty memory.
+     * @returns Returns the size of the private dirty memory.
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -79,7 +79,7 @@ declare namespace hidebug {
     /**
      * Obtains the cpu usage percent of a process.
      * @param -
-     * @return Returns the cpu usage of a process.
+     * @returns Returns the cpu usage of a process.
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -92,7 +92,7 @@ declare namespace hidebug {
      * Such as "/data/accounts/account_0/appdata/[package name]/files/cpuprofiler-xxx.json"
      * 
      * @param filename Indicates the user-defined file name,  excluding the file suffix.
-     * @return -
+     * @returns -
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.hidebug/hidebug.startJsCpuProfiling
@@ -105,7 +105,7 @@ declare namespace hidebug {
      * It takes effect only when the CPU profiler is turned on
      * 
      * @param -
-     * @return -
+     * @returns -
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.hidebug/hidebug.stopJsCpuProfiling
@@ -120,7 +120,7 @@ declare namespace hidebug {
      * Such as "/data/accounts/account_0/appdata/[package name]/files/xxx.heapsnapshot"
      * 
      * @param filename Indicates the user-defined file name, excluding the file suffix.
-     * @return -
+     * @returns -
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.hidebug/hidebug.dumpJsHeapData
@@ -135,7 +135,7 @@ declare namespace hidebug {
      * 
      * @param filename Indicates the user-defined file name,  excluding the file suffix.
      * @throws {BusinessError} 401 - the parameter check failed
-     * @return -
+     * @returns -
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -146,7 +146,7 @@ declare namespace hidebug {
      * It takes effect only when the CPU profiler is turned on
      * 
      * @param -
-     * @return -
+     * @returns -
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -159,7 +159,7 @@ declare namespace hidebug {
      * 
      * @param filename Indicates the user-defined file name, excluding the file suffix.
      * @throws {BusinessError} 401 - the parameter check failed
-     * @return -
+     * @returns -
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      */
@@ -174,7 +174,7 @@ declare namespace hidebug {
      * @param args The args list of the system ability dump interface.
      * @throws {BusinessError} 401 - the parameter check failed
      * @throws {BusinessError} 11400101 - the service id is invalid
-     * @return - 
+     * @returns - 
      * @permission ohos.permission.DUMP
      * @since 9
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug

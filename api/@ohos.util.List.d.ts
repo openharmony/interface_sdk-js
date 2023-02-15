@@ -41,7 +41,7 @@ declare class List<T> {
    * @param index index at which the specified element is to be inserted
    * @param element element to be inserted
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -51,7 +51,7 @@ declare class List<T> {
    * Returns the element at the specified position in this list,
    * or returns undefined if this list is empty
    * @param index specified position
-   * @return the T type
+   * @returns the T type
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
@@ -61,7 +61,7 @@ declare class List<T> {
   /**
    * Check if list contains the specified element
    * @param element element to be contained
-   * @return the boolean type,if list contains the specified element,return true,else return false
+   * @returns the boolean type,if list contains the specified element,return true,else return false
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -71,7 +71,7 @@ declare class List<T> {
    * Returns the index of the first occurrence of the specified element
    * in this list, or -1 if this list does not contain the element.
    * @param element element to be contained
-   * @return the number type ,returns the lowest index such that or -1 if there is no such index.
+   * @returns the number type ,returns the lowest index such that or -1 if there is no such index.
    * @throws { BusinessError } 10200011 - The getIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -80,10 +80,10 @@ declare class List<T> {
   /**
    * Find the corresponding element according to the index,
    * @param index the index in the list
-   * @return the T type ,returns undefined if list is empty,If the index is
+   * @returns the T type ,returns undefined if list is empty,If the index is
    * out of bounds (greater than or equal to length or less than 0), throw an exception
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -94,7 +94,7 @@ declare class List<T> {
    * if it is present.  If the list does not contain the element, it is
    * unchanged.  More formally, removes the element with the lowest index
    * @param element element to remove
-   * @return the boolean type ,If there is no such element, return false
+   * @returns the boolean type ,If there is no such element, return false
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -104,7 +104,7 @@ declare class List<T> {
    * Returns in the index of the last occurrence of the specified element in this list ,
    * or -1 if the list does not contain the element.
    * @param element element to find
-   * @return the number type
+   * @returns the number type
    * @throws { BusinessError } 10200011 - The getLastIndexOf method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -113,7 +113,7 @@ declare class List<T> {
   /**
    * Returns the first element (the item at index 0) of this list.
    * or returns undefined if list is empty
-   * @return the T type ,returns undefined if list is empty
+   * @returns the T type ,returns undefined if list is empty
    * @throws { BusinessError } 10200011 - The getFirst method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -122,7 +122,7 @@ declare class List<T> {
   /**
    * Returns the Last element (the item at index length-1) of this list.
    * or returns undefined if list is empty
-   * @return the T type ,returns undefined if list is empty
+   * @returns the T type ,returns undefined if list is empty
    * @throws { BusinessError } 10200011 - The getLast method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -132,9 +132,9 @@ declare class List<T> {
    * Replaces the element at the specified position in this List with the specified element
    * @param element replaced element
    * @param index index to find
-   * @return the T type
+   * @returns the T type
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -144,7 +144,7 @@ declare class List<T> {
    * Compares the specified object with this list for equality.if the object are the same as this list
    * return true, otherwise return false.
    * @param obj Compare objects
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The equal method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -152,7 +152,7 @@ declare class List<T> {
   equal(obj: Object): boolean;
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -164,7 +164,7 @@ declare class List<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  forEach(callbackfn: (value: T, index?: number, List?: List<T>) => void,
+  forEach(callbackFn: (value: T, index?: number, List?: List<T>) => void,
   thisArg?: Object): void;
   /**
    * Sorts this list according to the order induced by the specified comparator
@@ -189,11 +189,11 @@ declare class List<T> {
    */
   clear(): void;
   /**
-   * Returns a view of the portion of this list between the specified fromIndex,inclusize,and toIndex,exclusive
+   * Returns a view of the portion of this list between the specified fromIndex,inclusive,and toIndex,exclusive
    * @param fromIndex The starting position of the index, containing the value at that index position
    * @param toIndex the end of the index, excluding the value at that index
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
-   * @throws { BusinessError } 10200001 - The type of parameters are out of range.
+   * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -201,7 +201,7 @@ declare class List<T> {
   getSubList(fromIndex: number, toIndex: number): List<T>;
   /**
    * Replaces each element of this list with the result of applying the operator to that element.
-   * @param callbackfn (required) A function that accepts up to four arguments.
+   * @param callbackFn (required) A function that accepts up to four arguments.
    * The function to be called for each element in the list,Returns the result of an operation
    * @param Value (required) current element
    * @param Index (Optional) The index value of the current element.
@@ -213,11 +213,11 @@ declare class List<T> {
    * @since 8
    * @syscap SystemCapability.Utils.Lang
    */
-  replaceAllElements(callbackfn: (value: T, index?: number, list?: List<T>) => T,
+  replaceAllElements(callbackFn: (value: T, index?: number, list?: List<T>) => T,
     thisArg?: Object): void;
   /**
    * convert list to array
-   * @return the Array type
+   * @returns the Array type
    * @throws { BusinessError } 10200011 - The convertToArray method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang
@@ -225,7 +225,7 @@ declare class List<T> {
   convertToArray(): Array<T>;
   /**
    * Determine whether list is empty and whether there is an element
-   * @return the boolean type
+   * @returns the boolean type
    * @throws { BusinessError } 10200011 - The isEmpty method cannot be bound.
    * @since 8
    * @syscap SystemCapability.Utils.Lang

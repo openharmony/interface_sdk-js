@@ -17,7 +17,6 @@
  * stream of code points as input and emits a stream of UTF-8 bytes, and system help function.
  * @since 7
  * @syscap SystemCapability.Utils.Lang
- * @import import util from '@ohos.util';
  * @permission N/A
  */
 declare namespace util {
@@ -136,17 +135,17 @@ declare namespace util {
      * @returns Return a string representing this UUID.
      * @throws {BusinessError} 401 - The type of entropyCache must be boolean.
      */
-    function randomUUID(entropyCache?: boolean): string;
+    function generateRandomUUID(entropyCache?: boolean): string;
 
     /**
-     * Generate a random RFC 4122 version 4 UUID using a cryptographically secure random number generator.
+     * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.
      * @since 9
      * @syscap SystemCapability.Utils.Lang
      * @param entropyCache Whether to generate the UUID with using the cache. Default: true.
      * @returns Return a Uint8Array representing this UUID.
      * @throws {BusinessError} 401 - The type of entropyCache must be boolean.
      */
-    function randomBinaryUUID(entropyCache?: boolean): Uint8Array;
+    function generateRandomBinaryUUID(entropyCache?: boolean): Uint8Array;
 
     /**
      * Parse a UUID from the string standard representation as described in the RFC 4122 version 4.
@@ -190,7 +189,7 @@ declare namespace util {
          * The textEncoder constructor.
          * @since 7
          * @deprecated since 9
-         * @useinstead ohos.util.constructor
+         * @useinstead ohos.util.TextDecoder.create
          * @syscap SystemCapability.Utils.Lang
          * @param encoding Decoding format
          */
@@ -207,7 +206,7 @@ declare namespace util {
         constructor();
 
         /**
-         * Check the validity of parameters.
+         * Replaces the original constructor to process arguments and return a textDecoder object.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param encoding Decoding format
@@ -215,7 +214,7 @@ declare namespace util {
          */
         static create(
             encoding?: string,
-            options?: { fatal?: boolean; ignoreBOM?: boolean },
+            options?: { fatal?: boolean; ignoreBOM?: boolean }
         ): TextDecoder;
 
         /**
@@ -230,7 +229,9 @@ declare namespace util {
         decode(input: Uint8Array, options?: { stream?: false }): string;
 
         /**
-         * Returns the result of running encoding's decoder.
+         * Decodes the input and returns a string. If options.stream is true, any incomplete byte sequences occurring
+         * at the end of the input are buffered internally and emitted after the next call to textDecoder.decode().
+         * If textDecoder.fatal is true, decoding errors that occur will result in a TypeError being thrown.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param input Decoded numbers in accordance with the format
@@ -282,7 +283,7 @@ declare namespace util {
         encode(input?: string): Uint8Array;
 
         /**
-         * Returns the result of encoder.
+         * UTF-8 encodes the input string and returns a Uint8Array containing the encoded bytes.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param input The string to be encoded.
@@ -335,7 +336,7 @@ declare namespace util {
          * A constructor used to create a RationalNumber instance with a given numerator and denominator.
          * @since 8
          * @deprecated since 9
-         * @useinstead ohos.util.constructor
+         * @useinstead ohos.util.RationalNumber.parseRationalNumber
          * @syscap SystemCapability.Utils.Lang
          * @param numerator An integer number
          * @param denominator An integer number
@@ -350,7 +351,7 @@ declare namespace util {
         constructor();
 
         /**
-         * Check the validity of parameters.
+         * Used to create a RationalNumber instance with a given numerator and denominator.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param numerator An integer number
@@ -420,12 +421,12 @@ declare namespace util {
         static getCommonDivisor(number1: number, number2: number): number;
 
         /**
-         * Get the greatest common divisor of two integers.
+         * Get the greatest common factor of two integers.
          * @since 9
          * @syscap SystemCapability.Utils.Lang
          * @param number1 Is an integer.
          * @param number2 Is an integer.
-         * @returns Returns the greatest common divisor of two integers, integer type.
+         * @returns Returns the greatest common factor of two integers, integer type.
          * @throws {BusinessError} 401 - if the input parameters are invalid.
          */
         static getCommonFactor(number1: number, number2: number): number;
@@ -685,7 +686,7 @@ declare namespace util {
         contains(key: K): boolean;
 
         /**
-         * Executes subsequent operations if miss to compute a value for the specific key.
+         * Called after a cache miss to compute a value for the corresponding key.
          * @since 8
          * @deprecated since 9
          * @useinstead ohos.util.LRUCache.createDefault
@@ -885,7 +886,7 @@ declare namespace util {
          * @returns Returns true if the buffer contains the specified key.
          * @throws {BusinessError} 401 - The type of key must be object.
          */
-        contains(key: object): boolean;
+        contains(key: K): boolean;
 
         /**
          * Executes subsequent operations if miss to compute a value for the specific key.

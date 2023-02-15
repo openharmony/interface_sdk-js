@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,10 +17,20 @@
  * Defines the options of Flex.
  * @since 7
  */
+/**
+ * Defines the options of Flex.
+ * @form
+ * @since 9
+ */
 declare interface FlexOptions {
   /**
    * Sets the horizontal layout of elements.
    * @since 7
+   */
+  /**
+   * Sets the horizontal layout of elements.
+   * @form
+   * @since 9
    */
   direction?: FlexDirection;
 
@@ -28,11 +38,21 @@ declare interface FlexOptions {
    * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
    * @since 7
    */
+  /**
+   * Whether the Flex container is a single row/column arrangement or a multi-row/column arrangement.
+   * @form
+   * @since 9
+   */
   wrap?: FlexWrap;
 
   /**
    * The alignment format of the subassembly on the Flex container spindle.
    * @since 7
+   */
+  /**
+   * The alignment format of the subassembly on the Flex container spindle.
+   * @form
+   * @since 9
    */
   justifyContent?: FlexAlign;
 
@@ -40,11 +60,21 @@ declare interface FlexOptions {
    * Alignment Format for Subassembly on Flex Container Cross Axis.
    * @since 7
    */
+  /**
+   * Alignment Format for Subassembly on Flex Container Cross Axis.
+   * @form
+   * @since 9
+   */
   alignItems?: ItemAlign;
 
   /**
    * The alignment of multiple lines of content when there is extra space in the cross axis.
    * @since 7
+   */
+  /**
+   * The alignment of multiple lines of content when there is extra space in the cross axis.
+   * @form
+   * @since 9
    */
   alignContent?: FlexAlign;
 }
@@ -53,10 +83,20 @@ declare interface FlexOptions {
  * Provides a monthly view component to display information such as date, shift break, and schedule.
  * @since 7
  */
+/**
+ * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * @form
+ * @since 9
+ */
 interface FlexInterface {
   /**
    * Defines the constructor of Flex.
    * @since 7
+   */
+  /**
+   * Defines the constructor of Flex.
+   * @form
+   * @since 9
    */
   (value?: FlexOptions): FlexAttribute;
 }
@@ -64,6 +104,11 @@ interface FlexInterface {
 /**
  * Defines the Flex attribute functions.
  * @since 7
+ */
+/**
+ * Defines the Flex attribute functions.
+ * @form
+ * @since 9
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {}
 

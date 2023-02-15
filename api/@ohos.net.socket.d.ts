@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,6 +25,11 @@ import cryptoFramework from "./@ohos.security.cryptoFramework";
  */
 declare namespace socket {
   export import NetAddress = connection.NetAddress;
+  /**
+   * Deposit certificate
+   *
+   * @since 9
+   */
   export type X509CertRawData = cryptoFramework.EncodingBlob;
 
   /**
@@ -442,8 +447,7 @@ declare namespace socket {
     /**
      * Returns an object representing the peer certificate. If the peer does not provide a certificate,
      * an empty object will be returned. If the socket is destroyed, null is returned.
-     * If needChain is true, it contains the complete certificate chain. Otherwise,
-     * it only contains the peer's certificate.
+     * It only contains the peer's certificate.
      *
      * @throws {BusinessError} 2303501 - SSL is null.
      * @throws {BusinessError} 2300002 - System internal error.
@@ -464,8 +468,8 @@ declare namespace socket {
     getProtocol(): Promise<string>;
 
     /**
-     * Returns an object containing the negotiated cipher suite information.
-     * For example:{"name": "AES128-SHA256", "standardName": "TLS_RSA_WITH_AES_128_CBC_SHA256", "version": "TLSv1.2"}
+     * Returns a list containing the negotiated cipher suite information.
+     * For example:{"TLS_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}
      *
      * @throws {BusinessError} 2303501 - SSL is null.
      * @throws {BusinessError} 2303502 - Error in tls reading.
@@ -486,6 +490,10 @@ declare namespace socket {
     getSignatureAlgorithms(): Promise<Array<string>>;
 
     /**
+     * Sets up a connection to the specified IP address and port number.
+     * Only TCP is supported.
+     *
+     * @param options Optional parameters {@link TLSConnectOptions}.
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 2303104 - Interrupted system call.
      * @throws {BusinessError} 2303109 - Bad file number.
@@ -545,17 +553,17 @@ declare namespace socket {
     /**
      * Certificate proving the identity of the client
      */
-    cert: string;
+    cert?: string;
 
     /**
      * Private key of client certificate
      */
-    key: string;
+    key?: string;
 
     /**
      * Password of the private key
      */
-    passwd?: string;
+    password?: string;
 
     /**
      * TLS protocol version
@@ -568,7 +576,7 @@ declare namespace socket {
     useRemoteCipherPrefer?: boolean;
 
     /**
-     * Supported signature algorithms. This list can contain summary algorithms（SHA256、MD5、etc）、
+     * Supported signature algorithms. This string can contain summary algorithms（SHA256、MD5、etc）、
      * Public key algorithm（RSA-PSS、ECDSA、etc）、Combination of the two（For example 'RSA+SHA384'）
      * or TLS v1.3 Scheme name（For example  rsa_pss_pss_sha512）
      */

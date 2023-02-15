@@ -16,7 +16,7 @@
 import { AsyncCallback } from "../basic";
 import ExtensionContext from "./ExtensionContext";
 import formBindingData from '../@ohos.app.form.formBindingData';
-import Want from '../@ohos.application.Want';
+import Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of form extension. It allows access to
@@ -27,7 +27,7 @@ import Want from '../@ohos.application.Want';
  */
 export default class FormExtensionContext extends ExtensionContext {
     /**
-     * start an ability within the same bundle.
+     * Start an ability within the same bundle.
      * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @returns { Promise<void> } The promise returned by the function.

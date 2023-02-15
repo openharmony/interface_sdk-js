@@ -53,7 +53,7 @@ declare namespace wifiManagerExt {
     /**
      * Obtains the supported power Mode.
      *
-     * @return Returns the array of supported power Mode.
+     * @returns Returns the array of supported power Mode.
      *
       * @since 9
       * @throws {BusinessError} 201 - Permission denied.
@@ -68,7 +68,7 @@ declare namespace wifiManagerExt {
     /**
      * Obtains the current Wi-Fi power mode.
      *
-     * @return Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
+     * @returns Returns the current Wi-Fi power mode. If a value less than zero is returned, it indicates a failure.
      *
      * @since 9
      * @throws {BusinessError} 201 - Permission denied.

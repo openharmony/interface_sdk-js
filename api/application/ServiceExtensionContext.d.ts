@@ -17,7 +17,7 @@ import { AsyncCallback } from "../basic";
 import { ConnectOptions } from "../ability/connectOptions";
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import ExtensionContext from "./ExtensionContext";
-import Want from "../@ohos.application.Want";
+import Want from "../@ohos.app.ability.Want";
 import StartOptions from "../@ohos.app.ability.StartOptions";
 
 /**
@@ -35,7 +35,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -48,7 +47,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of startAbility.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -61,7 +59,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -217,7 +214,6 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
@@ -228,66 +224,10 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
      * @StageModelOnly
      * @since 9
      */
     terminateSelf(): Promise<void>;
-
-    /**
-     * Connects an ability to a Service extension.
-     *
-     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-     * service extension when the Service extension is connected.</p>
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the service extension to connect.
-     * @param options Indicates the callback of connection.
-     * @systemapi hide for inner use.
-     * @returns connection id, int value.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead connectServiceExtensionAbility
-     */
-    connectAbility(want: Want, options: ConnectOptions): number;
-
-    /**
-     * Connects an ability to a Service extension with account.
-     *
-     * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-     * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-     * service extension when the Service extension is connected.</p>
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param want Indicates the service extension to connect.
-     * @param accountId Indicates the account to connect.
-     * @param options Indicates the callback of connection.
-     * @systemapi hide for inner use.
-     * @returns connection id, int value.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead connectServiceExtensionAbilityWithAccount
-     */
-    connectAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
-
-    /**
-     * Disconnect an ability to a service extension, in contrast to
-     * {@link connectAbility}.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param connection the connection id returned from connectAbility api.
-     * @systemapi hide for inner use.
-     * @returns -
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead disconnectServiceExtensionAbility
-     */
-    disconnectAbility(connection: number, callback:AsyncCallback<void>): void;
-    disconnectAbility(connection: number): Promise<void>;
 
     /**
      * Connects an ability to a Service extension.
@@ -345,6 +285,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
 
     /**
      * Get the caller object of the startup capability
+     * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION
      * @param { Want } want - Indicates the ability to start.
      * @returns { Promise<Caller> } Returns the Caller interface.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -354,4 +295,45 @@ export default class ServiceExtensionContext extends ExtensionContext {
      * @since 9
      */
     startAbilityByCall(want: Want): Promise<Caller>;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @param { AsyncCallback<void> } callback - The callback of startAbility.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
+
+    /**
+     * Service extension uses this method to start a specific ability,
+     * if ability is multi instance, will start a recent instance.
+     * @param { Want } want - Indicates the ability to start.
+     * @param { StartOptions } options - Indicates the start options.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
+    startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 }

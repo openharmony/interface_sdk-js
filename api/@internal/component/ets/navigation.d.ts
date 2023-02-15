@@ -50,7 +50,7 @@ declare interface NavigationCustomTitle {
 }
 
 /**
- * Nativation mode
+ * Navigation mode
  * @since 9
  */
 declare enum NavigationMode {
@@ -90,7 +90,7 @@ declare enum NavBarPosition {
 }
 
 /**
- * Naivagtion title mode.
+ * Navigation title mode.
  * @since 8
  */
 declare enum NavigationTitleMode {
@@ -180,7 +180,13 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 
   /**
    * Navigation title
+   * @type { (string | CustomBuilder) }
    * @since 8
+   */
+  /**
+   * Navigation title
+   * @type { (string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle) }
+   * @since 9
    */
   title(value: string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle): NavigationAttribute;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,7 @@
  */
 
 import {AsyncCallback, Callback} from "./basic";
+import connection from "./@ohos.net.connection";
 
 /**
  * Provides http related APIs.
@@ -22,6 +23,11 @@ import {AsyncCallback, Callback} from "./basic";
  * @syscap SystemCapability.Communication.NetStack
  */
 declare namespace http {
+  /**
+   * @since 10
+   */
+  type HttpProxy = connection.HttpProxy;
+
   /**
    * Creates an HTTP request task.
    */
@@ -75,6 +81,14 @@ declare namespace http {
      * @since 9
      */
     usingProtocol?: HttpProtocol; // default is automatically specified by the system.
+
+    /**
+     * If this parameter is set as type of boolean, the system will use default proxy or not use proxy.
+     * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
+     *
+     * @since 10
+     */
+    usingProxy?: boolean | HttpProxy; // default is false.
   }
 
   export interface HttpRequest {
@@ -98,14 +112,16 @@ declare namespace http {
     /**
      * Registers an observer for HTTP Response Header events.
      *
-     * @deprecated use on_headersReceive instead since 8.
+     * @deprecated since 8
+     * @useinstead on_headersReceive
      */
     on(type: "headerReceive", callback: AsyncCallback<Object>): void;
 
     /**
      * Unregisters the observer for HTTP Response Header events.
      *
-     * @deprecated use off_headersReceive instead since 8.
+     * @deprecated since 8
+     * @useinstead off_headersReceive
      */
     off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
 
@@ -196,8 +212,17 @@ declare namespace http {
    * @since 9
    */
   export enum HttpDataType {
+    /**
+     * The returned type is string.
+     */
     STRING,
+    /**
+     * The returned type is Object.
+     */
     OBJECT = 1,
+    /**
+     * The returned type is ArrayBuffer.
+     */
     ARRAY_BUFFER = 2,
   }
 
@@ -236,7 +261,7 @@ declare namespace http {
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
    *
-   * @param cacheSize the size of cache, default is 10*1024*1024(10MB).
+   * @param cacheSize the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @since 9
    */
   function createHttpResponseCache(cacheSize?: number): HttpResponseCache;

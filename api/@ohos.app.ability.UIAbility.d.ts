@@ -39,7 +39,7 @@ export interface OnReleaseCallback {
  * @since 9
  */
 export interface CalleeCallback {
-    (indata: rpc.MessageParcel): rpc.Sequenceable;
+    (indata: rpc.MessageSequence): rpc.Parcelable;
 }
 
 /**
@@ -51,28 +51,28 @@ export interface CalleeCallback {
  */
 export interface Caller {
     /**
-     * Notify the server of Sequenceable type data.
+     * Notify the server of Parcelable type data.
      * @param { string } method - The notification event string listened to by the callee.
-     * @param { rpc.Sequenceable } data - Notification data to the callee.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
      */
-    call(method: string, data: rpc.Sequenceable): Promise<void>;
+    call(method: string, data: rpc.Parcelable): Promise<void>;
 
     /**
-     * Notify the server of Sequenceable type data and return the notification result.
+     * Notify the server of Parcelable type data and return the notification result.
      * @param { string } method - The notification event string listened to by the callee.
-     * @param { rpc.Sequenceable } data - Notification data to the callee.
-     * @returns { Promise<rpc.MessageParcel> } Returns the callee's notification result data.
+     * @param { rpc.Parcelable } data - Notification data to the callee.
+     * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
      */
-    callWithResult(method: string, data: rpc.Sequenceable): Promise<rpc.MessageParcel>;
+    callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
     /**
      * Clear service records.
@@ -240,7 +240,7 @@ export default class UIAbility extends Ability {
      * @StageModelOnly
      * @since 9
      */
-    onDestroy(): void;
+    onDestroy(): void | Promise<void>;
 
     /**
      * Called back when the state of an ability changes to foreground.
@@ -260,13 +260,13 @@ export default class UIAbility extends Ability {
 
     /**
      * Called back when an ability prepares to continue.
-     * @param { {[key: string]: any} } wantParam - Indicates the want parameter.
+     * @param { {[key: string]: Object} } wantParam - Indicates the want parameter.
      * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
      * @since 9
      */
-    onContinue(wantParam: { [key: string]: any }): AbilityConstant.OnContinueResult;
+    onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
 
     /**
      * Called when the launch mode of an ability is set to singleton.
@@ -289,4 +289,15 @@ export default class UIAbility extends Ability {
      * @since 9
      */
     onDump(params: Array<string>): Array<string>;
+
+    /**
+     * Called back when an ability prepares to save.
+     * @param reason state type when save.
+     * @param wantParam Indicates the want parameter.
+     * @returns 0 if ability agrees to save data successfully, otherwise errcode.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @StageModelOnly
+     * @since 9
+     */
+    onSaveState(reason: AbilityConstant.StateType, wantParam : {[key: string]: Object}): AbilityConstant.OnSaveResult;
 }

@@ -16,7 +16,8 @@
 /**
  * Defines the option of router.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 3
  */
 export interface RouterOptions {
@@ -45,7 +46,8 @@ export interface RouterOptions {
 /**
  * Defines the option of router back.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 7
  */
 export interface BackRouterOptions {
@@ -68,7 +70,8 @@ export interface BackRouterOptions {
 /**
  * Defines the state of router.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 3
  */
 export interface RouterState {
@@ -98,7 +101,8 @@ export interface RouterState {
 /**
  * Defines the option of EnableAlertBeforeBackPage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 6
  */
 export interface EnableAlertBeforeBackPageOptions {
@@ -134,7 +138,8 @@ export interface EnableAlertBeforeBackPageOptions {
 /**
  * Defines the option of DisableAlertBeforeBackPage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 6
  */
 export interface DisableAlertBeforeBackPageOptions {
@@ -167,7 +172,8 @@ type ParamsInterface = {
 /**
  * Defines the Router interface.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @deprecated since 8, please use @ohos.router instead.
+ * @deprecated since 8
+ * @useinstead @ohos.router
  * @since 3
  */
 export default class Router {

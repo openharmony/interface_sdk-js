@@ -283,7 +283,7 @@ interface CurrentDayStyle {
   scheduleMarkerRadius?: number;
 
   /**
-   * Bound dary row offset.
+   * Boundary row offset.
    * @since 7
    * @systemapi
    */

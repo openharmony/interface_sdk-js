@@ -17,7 +17,7 @@ import { AsyncCallback } from "../basic";
 import Context from "./Context";
 import AbilityLifecycleCallback from "../@ohos.app.ability.AbilityLifecycleCallback";
 import EnvironmentCallback from "../@ohos.app.ability.EnvironmentCallback";
-import { ProcessRunningInformation } from "./ProcessRunningInformation";
+import { ProcessInformation } from "./ProcessInformation";
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -26,60 +26,6 @@ import { ProcessRunningInformation } from "./ProcessRunningInformation";
  * @since 9
  */
 export default class ApplicationContext extends Context {
-    /**
-     * Register ability lifecycle callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The ability lifecycle callback.
-     * @returns Returns the number code of the callback.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead on
-     */
-    registerAbilityLifecycleCallback(callback: AbilityLifecycleCallback): number;
-
-    /**
-     * Unregister ability lifecycle callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @returns -
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead off
-     */
-    unregisterAbilityLifecycleCallback(callbackId: number,  callback: AsyncCallback<void>): void;
-    unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
-
-    /**
-     * Register environment callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callback The environment callback.
-     * @returns Returns the number code of the callback.
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead on
-     */
-    registerEnvironmentCallback(callback: EnvironmentCallback): number;
-
-    /**
-     * Unregister environment callback.
-     *
-     * @since 9
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @param callbackId Indicates the number code of the callback.
-     * @returns -
-     * @StageModelOnly
-     * @deprecated since 9
-     * @useinstead off
-     */
-    unregisterEnvironmentCallback(callbackId: number,  callback: AsyncCallback<void>): void;
-    unregisterEnvironmentCallback(callbackId: number): Promise<void>;
-
     /**
      * Register ability lifecycle callback.
      * @param { string } type - abilityLifecycle.
@@ -154,41 +100,41 @@ export default class ApplicationContext extends Context {
 
     /**
      * Get information about running processes
-     * @returns { Promise<Array<ProcessRunningInformation>> } Returns the array of {@link ProcessRunningInformation}.
+     * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    getProcessRunningInformation(): Promise<Array<ProcessRunningInformation>>;
+    getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
     /**
      * Get information about running processes
-     * @param { AsyncCallback<Array<ProcessRunningInformation>> } callback - The callback is used to return the array of {@link ProcessRunningInformation}.
+     * @param { AsyncCallback<Array<ProcessInformation>> } callback - The callback is used to return the array of {@link ProcessInformation}.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInformation>>): void;
+    getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
     /**
-     * Kill processes by self
+     * Kill all processes of the application
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    killProcessesBySelf(): Promise<void>;
+    killAllProcesses(): Promise<void>;
 
     /**
-     * Kill processes by self
-     * @param { AsyncCallback<void> } callback - The callback of killProcessesBySelf.
+     * Kill all processes of the application
+     * @param { AsyncCallback<void> } callback - The callback of killAllProcesses.
      * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @since 9
      */
-    killProcessesBySelf(callback: AsyncCallback<void>);
+    killAllProcesses(callback: AsyncCallback<void>);
 }
