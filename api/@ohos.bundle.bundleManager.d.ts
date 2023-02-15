@@ -333,7 +333,7 @@ import * as _ExtensionAbilityInfo from './bundleManager/extensionAbilityInfo';
     /**
      * Indicates extension info with type of print
      * @since 9
-     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
      */
     PRINT = 15,
 
