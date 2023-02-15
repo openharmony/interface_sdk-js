@@ -53,48 +53,48 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
-    namespace Constants {
+    interface Constants {
         /**
-         * Max key length.
+         * Max key length is 1024.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_KEY_LENGTH = 1024;
+        readonly MAX_KEY_LENGTH: number;
 
         /**
-         * Max value length.
+         * Max value length is 4194303.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_VALUE_LENGTH = 4194303;
+        readonly MAX_VALUE_LENGTH: number;
 
         /**
-         * Max device coordinate key length.
+         * Max device coordinate key length is 896.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_KEY_LENGTH_DEVICE = 896;
+        readonly MAX_KEY_LENGTH_DEVICE: number;
 
         /**
-         * Max store id length.
+         * Max store id length is 128.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_STORE_ID_LENGTH = 128;
+        readonly MAX_STORE_ID_LENGTH: number;
 
         /**
-         * Max query length.
+         * Max query length is 512000.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_QUERY_LENGTH = 512000;
+        readonly MAX_QUERY_LENGTH: number;
 
         /**
-         * Max batch operation size.
+         * Max batch operation size is 128.
          * @syscap SystemCapability.DistributedDataManager.KVStore.Core
          * @since 9
          */
-        const MAX_BATCH_SIZE = 128;
+        readonly MAX_BATCH_SIZE: number;
     }
 
     /**
