@@ -1573,7 +1573,7 @@ declare interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
-   */ 
+   */
   getX(): number;
 
   /**
@@ -1855,13 +1855,41 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the edge stretch expansion effect options of the Component.
- * @since 9
+ * Set the edge blur effect distance of the corresponding defense line of the component
+ * When the component expand out, no re-layout is triggered
+ * @since 10
  */
 declare interface PixelStretchEffectOptions {
+  /**
+   * top property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * The default value is 0.
+   * @since 10
+   */
   top?: Length;
+
+  /**
+   * bottom property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * The default value is 0.
+   * @since 10
+   */
   bottom?: Length;
+
+  /**
+   * left property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * The default value is 0.
+   * @since 10
+   */
   left?: Length;
+
+  /**
+   * right property. value range (-∞, ∞)
+   * If value > 0, expand outward elements. Else first shrink by value and then expand outward pixels.
+   * The default value is 0.
+   * @since 10
+   */
   right?: Length;
 }
 
@@ -2934,20 +2962,29 @@ declare class CommonMethod<T> {
   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
 
   /**
-   * Set the spherical effect of the component
-   * @since 9
+   * Set the spherical effect of the component.
+   * @param {number} value - set the degree of spherification of component, value range [0, 1].
+   * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
+   * The default value is 0.
+   * required
+   * @since 10
    */
   sphericalEffect(value: number): T;
 
   /**
    * Set the light up effect of the component
-   * @since 9
+   * @param {number} value - set the degree to which the component lights up, value range [0, 1].
+   * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
+   * The default value is 1.
+   * required
+   * @since 10
    */
   lightupEffect(value: number): T;
 
   /**
    * Set the edge pixel stretch effect of the Component.
-   * @since 9
+   * @param {PixelStretchEffectOptions} options
+   * @since 10
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 }
