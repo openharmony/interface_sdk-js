@@ -80,7 +80,6 @@ declare namespace ethernet {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2200001 - Invalid parameter value.
    * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2200003 - System internal error.
    */

@@ -46,7 +46,6 @@ declare namespace connection {
    *      returns {@code null} if the default network is not activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    */
@@ -76,7 +75,6 @@ declare namespace connection {
    * @param callback Returns the {@link NetHandle} object; returns {@code null} if no network is activated.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    */
@@ -124,7 +122,6 @@ declare namespace connection {
    *      returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
@@ -138,7 +135,6 @@ declare namespace connection {
    * @param callback Returns {@code true} if the default data network is activated; returns {@code false} otherwise.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
    */
@@ -153,7 +149,6 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
    */
@@ -168,7 +163,6 @@ declare namespace connection {
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use. Only used for system app.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error. 
    */
@@ -224,7 +218,6 @@ declare namespace connection {
    * @param callback Returns the {@link NetHandle} bound to the process;
    *      returns {@code null} if no {@link NetHandle} is bound to the process.
    *      For details, see {@link NetHandle}.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
@@ -237,7 +230,6 @@ declare namespace connection {
    * @returns { Promise<NetHandle> } the promise returned by the function.
    *      returns {@code null} if no {@link NetHandle} is bound to the process.
    *      For details, see {@link NetHandle}.
-   * @throws {BusinessError} 2100001 - Invalid parameter value.
    * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
    * @throws {BusinessError} 2100003 - System internal error.
    * @since 9
@@ -361,7 +353,6 @@ declare namespace connection {
 
     /**
      * Cancels listening for network status changes.
-     * @throws {BusinessError} 2100001 - Invalid parameter value.
      * @throws {BusinessError} 2100002 - Operation failed. Cannot connect to service.
      * @throws {BusinessError} 2100003 - System internal error.
      * @throws {BusinessError} 2101007 - The same callback exists.
