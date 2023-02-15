@@ -223,7 +223,7 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function answerCall(callId: number, callback: AsyncCallback<void>): void;
   function answerCall(callId?: number): Promise<void>;
@@ -255,7 +255,7 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function hangUpCall(callId: number, callback: AsyncCallback<void>): void;
   function hangUpCall(callId?: number): Promise<void>;
@@ -288,7 +288,7 @@ declare namespace call {
    * @throws {BusinessError} 8300003 - System internal error.
    * @throws {BusinessError} 8300999 - Unknown error code.
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 9
    */
   function rejectCall(callId: number, callback: AsyncCallback<void>): void;
   function rejectCall(callId: number, options: RejectMessageOptions, callback: AsyncCallback<void>): void;
@@ -747,26 +747,6 @@ declare namespace call {
    */
   function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
-
-    /**
-   * Checks whether can set call transfer time.
-   *
-   * <p>The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param slotId Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns Returns {@code true} if the device can set call transfer time; returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error.
-   * @throws {BusinessError} 8300001 - Invalid parameter value.
-   * @throws {BusinessError} 8300002 - Operation failed. Cannot connect to service.
-   * @throws {BusinessError} 8300003 - System internal error.
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-    function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
-    function canSetCallTransferTime(slotId: number): boolean;
 
   /**
    * Judge whether the bell is ringing.
