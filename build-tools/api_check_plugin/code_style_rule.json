@@ -271,7 +271,8 @@
         "BundleFramework.Launcher",
         "BundleFramework.SandboxApp",
         "BundleFramework.QuickFix",
-        "BundleFramework.AppControl"
+        "BundleFramework.AppControl",
+        "BundleFramework.Overlay"
       ],
       "Developtools": [
         "Syscap"
