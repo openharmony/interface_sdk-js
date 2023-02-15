@@ -309,11 +309,11 @@ declare namespace wantAgent {
 
     /**
      * Extra data collected by the common event.
-     * @type { { [key: string]: any } }
+     * @type { { [key: string]: Object } }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9
      */
-    extraInfo?: { [key: string]: any };
+    extraInfo?: { [key: string]: Object };
   }
 
   /**
@@ -333,6 +333,8 @@ declare namespace wantAgent {
 
 /**
  * WantAgent object.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 9
  */
 export type WantAgent = object;
 
