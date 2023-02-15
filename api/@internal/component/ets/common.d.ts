@@ -1573,7 +1573,7 @@ declare interface DragEvent {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    * @since 7
-   */
+   */ 
   getX(): number;
 
   /**
@@ -1852,6 +1852,17 @@ declare interface CustomPopupOptions {
    * @since 10
    */
   mask?: boolean | { color: ResourceColor };
+}
+
+/**
+ * Defines the edge stretch expansion effect options of the Component.
+ * @since 9
+ */
+declare interface PixelStretchEffectOptions {
+  top?: Length;
+  bottom?: Length;
+  left?: Length;
+  right?: Length;
 }
 
 /**
@@ -2920,7 +2931,25 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    * @since 9
    */
-   onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+
+  /**
+   * Set the spherical effect of the component
+   * @since 9
+   */
+  sphericalEffect(value: number): T;
+
+  /**
+   * Set the light up effect of the component
+   * @since 9
+   */
+  lightupEffect(value: number): T;
+
+  /**
+   * Set the edge pixel stretch effect of the Component.
+   * @since 9
+   */
+  pixelStretchEffect(options: PixelStretchEffectOptions): T;
 }
 
 /**
