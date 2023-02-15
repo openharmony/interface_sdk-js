@@ -1658,24 +1658,6 @@ declare namespace window {
     off(type: 'screenshot', callback?: Callback<void>): void;
 
     /**
-     * Register the callback of dialogTargetTouch
-     * @param type: 'dialogTargetTouch'
-     * @throws {BusinessError} 401 - If param is invalid
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
-     */
-    on(type: 'dialogTargetTouch', callback: Callback<void>): void;
-
-     /**
-      * Unregister the callback of dialogTargetTouch
-      * @param type: 'dialogTargetTouch'
-      * @throws {BusinessError} 401 - If param is invalid
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 9
-      */
-    off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
-
-    /**
      * Bind dialog to the target window.
      * @param token token of the target window.
      * @param deathCallback the callback of dialogDeath.
