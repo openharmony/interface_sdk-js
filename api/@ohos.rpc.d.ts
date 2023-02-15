@@ -2347,7 +2347,7 @@ declare namespace rpc {
          * @throws { BusinessError } 1900008 - proxy or remote object is invalid
          * @since 9
          */
-        unregisterDeathRecipient(recipient: DeathRecipient, flags: number): boolean;
+        unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void;
 
         /**
          * Queries the interface descriptor of remote object.
