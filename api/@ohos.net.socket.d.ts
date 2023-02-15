@@ -517,7 +517,6 @@ declare namespace socket {
      * @throws {BusinessError} 2303104 - Interrupted system call.
      * @throws {BusinessError} 2303109 - Bad file number.
      * @throws {BusinessError} 2303111 - Resource temporarily unavailable try again.
-     * @throws {BusinessError} 2303113 - System permission denied.
      * @throws {BusinessError} 2303188 - Socket operation on non-socket.
      * @throws {BusinessError} 2303191 - Protocol wrong type for socket.
      * @throws {BusinessError} 2303198 - Address already in use.

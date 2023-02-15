@@ -28,6 +28,12 @@ declare namespace ethernet {
    * @param iface Indicates the network interface name.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
    */
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
@@ -39,6 +45,15 @@ declare namespace ethernet {
    * @param ic Indicates the ic. See {@link InterfaceConfiguration}.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201004 - Invalid Ethernet profile.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
+   * @throws {BusinessError} 2201006 - Ethernet device not connected.
+   * @throws {BusinessError} 2201007 - Ethernet failed to write user configuration information.
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
@@ -49,6 +64,12 @@ declare namespace ethernet {
    * @param iface Indicates the network interface name.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 401 - Parameter error.
+   * @throws {BusinessError} 2200001 - Invalid parameter value.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
+   * @throws {BusinessError} 2201005 - Device information does not exist.
    */
   function isIfaceActive(iface: string, callback: AsyncCallback<number>): void;
   function isIfaceActive(iface: string): Promise<number>;
@@ -58,6 +79,9 @@ declare namespace ethernet {
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @systemapi Hide this for inner system use.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 2200002 - Operation failed. Cannot connect to service.
+   * @throws {BusinessError} 2200003 - System internal error.
    */
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
   function getAllActiveIfaces(): Promise<Array<string>>;
