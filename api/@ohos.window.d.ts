@@ -1695,7 +1695,7 @@ declare namespace window {
      * @param type: 'dialogTargetTouch'
      * @throws {BusinessError} 401 - If param is invalid
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 9
+     * @since 10
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
 
@@ -1704,7 +1704,7 @@ declare namespace window {
       * @param type: 'dialogTargetTouch'
       * @throws {BusinessError} 401 - If param is invalid
       * @syscap SystemCapability.WindowManager.WindowManager.Core
-      * @since 9
+      * @since 10
       */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
 
