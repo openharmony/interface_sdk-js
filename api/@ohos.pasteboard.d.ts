@@ -299,6 +299,7 @@ declare namespace pasteboard {
     /**
      * Converts data in PasteData to text format.
      * @returns { Promise<string> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
     coerceToText(): Promise<string>;
