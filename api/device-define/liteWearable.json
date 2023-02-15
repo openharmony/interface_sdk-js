@@ -1,24 +1,12 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Lite",
-    "SystemCapability.BundleManager.PackingTool",
-    "SystemCapability.Communication.SoftBus.Core",
-    "SystemCapability.Communication.Bluetooth.Lite",
     "SystemCapability.Location.Location.Lite",
-    "SystemCapability.PowerManager.PowerManager.Lite",
-    "SystemCapability.PowerManager.BatteryManager.Lite",
-    "SystemCapability.Customization.ConfigPolicy",
-    "SystemCapability.HiviewDFX.HiLogLite",
-    "SystemCapability.HiviewDFX.HiviewLite",
-    "SystemCapability.HiviewDFX.HiEventLite",
-    "SystemCapability.Update.UpdateService",
+    "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.FileManagement.File.FileIO",
-    "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.Startup.SystemInfo",
-    "SystemCapability.Cloud.AAID",
-    "SystemCapability.Cloud.OAID",
-    "SystemCapability.Cloud.VAID",
-    "SystemCapability.Developtools.Syscap",
-    "SystemCapability.XTS.DeviceAttestLite"
+    "SystemCapability.Sensors.Sensor",
+    "SystemCapability.PowerManager.DisplayPowerManager",
+    "SystemCapability.Communication.NFC.CardEmulation"
   ]
 }
