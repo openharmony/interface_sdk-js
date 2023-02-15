@@ -77,6 +77,12 @@ declare interface CustomDialogControllerOptions {
   * @since 10
   */
   closeAnimation?: AnimateParam;
+
+  /**
+   * Whether to display in the sub window.
+   * @since 10
+   */
+  showInSubWindow?: boolean;
 }
 
 /**
